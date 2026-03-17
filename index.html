@@ -453,83 +453,124 @@ body::before {
 .topic-row:hover .topic-arrow { transform: translateX(4px); color: var(--gold); }
 
 /* ════════════════════════════════════════════════
-   QUESTION VIEW
+   PROBLEM NAVIGATOR
 ════════════════════════════════════════════════ */
 
-.topic-view-header {
-  margin-bottom: 48px;
+.prob-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 16px;
 }
 
-.question-index {
+.prob-counter {
   font-family: var(--mono);
-  font-size: .6rem;
+  font-size: .62rem;
   letter-spacing: .14em;
   color: var(--parchment4);
   text-transform: uppercase;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  white-space: nowrap;
 }
 
-.q-rule {
+.prob-track {
   flex: 1;
   height: 1px;
   background: var(--rule2);
+  position: relative;
+  overflow: visible;
 }
 
-/* individual question block */
-.q-block {
-  margin-bottom: 52px;
-  animation: appear .25s var(--ease);
-}
-
-.q-number {
-  font-family: var(--sc);
-  font-size: .72rem;
-  letter-spacing: .18em;
-  color: var(--gold2);
-  margin-bottom: 20px;
+.prob-dots {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  gap: 8px;
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  transform: translateY(-50%);
 }
 
-.q-number-rule {
-  flex: 1;
-  height: 1px;
-  background: var(--rule);
+.prob-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--rule2);
+  cursor: pointer;
+  transition: background .15s, transform .15s;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
 }
 
-/* The question image — this is the centrepiece */
-.q-image-frame {
+.prob-dot.active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
+.prob-dot:hover { background: var(--gold2); }
+
+/* The problem card — centrepiece */
+.prob-card {
   background: var(--ink2);
   border: 1px solid var(--rule2);
-  border-radius: 1px;
-  overflow: hidden;
   margin-bottom: 0;
-  position: relative;
+  animation: probIn .22s var(--ease);
 }
 
-.q-image-frame img {
+@keyframes probIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.prob-label {
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prob-label-left {
+  font-family: var(--sc);
+  font-size: .68rem;
+  letter-spacing: .18em;
+  color: var(--gold2);
+  text-transform: uppercase;
+}
+
+.prob-label-right {
+  font-family: var(--mono);
+  font-size: .6rem;
+  color: var(--parchment4);
+  letter-spacing: .06em;
+}
+
+/* Question image */
+.prob-q-img {
   display: block;
   width: 100%;
   height: auto;
-  /* invert so white-bg iPad exports look natural on dark bg */
-  filter: invert(1) sepia(.12) brightness(.92) contrast(1.05);
+  /* No invert — use mix-blend-mode for cleaner result */
+  mix-blend-mode: normal;
 }
 
-/* placeholder when image missing */
-.q-placeholder {
+/* For white background images — invert cleanly */
+.prob-q-img.invert {
+  filter: invert(1) brightness(0.88) contrast(1.1);
+}
+
+.prob-placeholder {
   padding: 52px 32px;
   text-align: center;
   font-style: italic;
   font-size: .92rem;
   color: var(--parchment4);
-  border: 1px dashed var(--rule2);
+  border-bottom: 1px solid var(--rule);
 }
 
-.q-placeholder code {
+.prob-placeholder code {
   font-family: var(--mono);
   font-size: .72rem;
   color: var(--parchment3);
@@ -538,53 +579,50 @@ body::before {
   margin-top: 8px;
 }
 
-/* Solution toggle */
-.sol-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0;
+/* Reveal solution button */
+.prob-sol-toggle {
   border-top: 1px solid var(--rule);
+  display: flex;
 }
 
-.sol-btn {
+.prob-sol-btn {
   flex: 1;
-  padding: 14px 24px;
+  padding: 16px 24px;
   background: transparent;
   border: none;
   color: var(--parchment3);
   font-family: var(--sc);
   font-size: .72rem;
-  letter-spacing: .18em;
+  letter-spacing: .2em;
   text-transform: uppercase;
   cursor: pointer;
   transition: color .15s, background .15s;
   text-align: center;
 }
 
-.sol-btn:hover { color: var(--gold); background: rgba(168,136,58,.04); }
-.sol-btn.open  { color: var(--gold); }
+.prob-sol-btn:hover  { color: var(--gold); background: rgba(168,136,58,.04); }
+.prob-sol-btn.open   { color: var(--gold); }
 
-/* Solution image panel */
-.sol-panel {
+/* Solution panel */
+.prob-sol-panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .5s var(--ease);
-  border-top: none;
+  transition: max-height .55s var(--ease);
 }
 
-.sol-panel.open {
-  max-height: 2400px;
+.prob-sol-panel.open {
+  max-height: 3000px;
   border-top: 1px solid var(--rule);
 }
 
-.sol-panel img {
+.prob-sol-panel img {
   display: block;
   width: 100%;
   height: auto;
-  filter: invert(1) sepia(.1) brightness(.9) contrast(1.05);
+  filter: invert(1) brightness(0.88) contrast(1.1);
 }
 
-.sol-placeholder {
+.prob-sol-placeholder {
   padding: 36px 32px;
   text-align: center;
   font-style: italic;
@@ -592,14 +630,50 @@ body::before {
   color: var(--parchment4);
 }
 
-.sol-placeholder code {
-  font-family: var(--mono);
-  font-size: .68rem;
-  color: var(--parchment3);
-  font-style: normal;
-  display: block;
-  margin-top: 6px;
+/* Arrow navigation row */
+.prob-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+  border: 1px solid var(--rule2);
+  border-top: none;
 }
+
+.prob-arrow-btn {
+  flex: 1;
+  padding: 16px 24px;
+  background: transparent;
+  border: none;
+  color: var(--parchment3);
+  font-family: var(--sc);
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .15s, background .15s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prob-arrow-btn:first-child {
+  border-right: 1px solid var(--rule2);
+  justify-content: flex-start;
+}
+
+.prob-arrow-btn:last-child  { justify-content: flex-end; }
+.prob-arrow-btn:hover { color: var(--gold); background: rgba(168,136,58,.03); }
+.prob-arrow-btn:disabled { color: var(--parchment4); cursor: default; background: transparent; }
+
+.prob-arrow-glyph {
+  font-size: 1rem;
+  font-family: var(--serif);
+  transition: transform .15s;
+}
+
+.prob-arrow-btn:not(:disabled):first-child:hover .prob-arrow-glyph { transform: translateX(-3px); }
+.prob-arrow-btn:not(:disabled):last-child:hover  .prob-arrow-glyph { transform: translateX(3px); }
 
 /* Empty topic */
 .empty-topic {
@@ -794,7 +868,7 @@ body::before {
 //  STATE
 // ══════════════════════════════════════════════════
 
-let S = { course: null, section: null, topic: null };
+let S = { course: null, section: null, topic: null, probIndex: 0 };
 
 // ══════════════════════════════════════════════════
 //  SCREEN
@@ -944,17 +1018,19 @@ function goSection(code, secCode) {
 }
 
 // ══════════════════════════════════════════════════
-//  TOPIC (question cards)
+//  TOPIC — PROBLEM NAVIGATOR
 // ══════════════════════════════════════════════════
 
-function goTopic(code, secCode, topic) {
+function goTopic(code, secCode, topic, startIndex) {
   S.course = code; S.section = secCode; S.topic = topic;
+  S.probIndex = startIndex || 0;
+
   const sec = SYLLABUS[code].sections[secCode];
   const questions = sec.topics[topic] || [];
 
   crumb([
-    { label: 'Home', fn: 'goHome()' },
-    { label: code, fn: `goCourse('${code}')` },
+    { label: 'Home',  fn: 'goHome()' },
+    { label: code,    fn: `goCourse('${code}')` },
     { label: secCode, fn: `goSection('${code}','${secCode}')` },
     { label: topic }
   ]);
@@ -962,113 +1038,157 @@ function goTopic(code, secCode, topic) {
   // Header
   document.getElementById('topic-hdr').innerHTML = `
     <div class="screen-title"><em>${topic}</em></div>
-    <div class="screen-caption">${SYLLABUS[code].sections[secCode].name} · ${code}</div>`;
+    <div class="screen-caption">${sec.name} · ${code}</div>`;
 
-  // Question list
   const list = document.getElementById('q-list');
-  list.innerHTML = '';
 
   if (!questions.length) {
     list.innerHTML = `
       <div class="empty-topic">
         <div class="empty-glyph">∅</div>
-        <div class="empty-text">
-          Problems for this topic are forthcoming.
-        </div>
+        <div class="empty-text">Problems for this topic are forthcoming.</div>
       </div>`;
-  } else {
-    questions.forEach((q, i) => {
-      const block = document.createElement('div');
-      block.className = 'q-block';
-      block.id = `q-${q.id}`;
-
-      const qNum = String(i + 1).padStart(2, '0');
-
-      // question image or placeholder
-      const qImgHtml = q.question_image
-        ? `<div class="q-image-frame">
-             <img src="images/${q.question_image}" alt="Question ${i+1}"
-               onerror="this.parentElement.outerHTML=missingImg('images/${q.question_image}')">
-           </div>`
-        : `<div class="q-placeholder">
-             Question image not yet added.
-             <code>${q.id}_q.png</code>
-           </div>`;
-
-      // solution image or placeholder
-      const solImgHtml = q.solution_image
-        ? `<img src="images/${q.solution_image}" alt="Solution ${i+1}"
-             onerror="this.innerHTML=missingSolImg('images/${q.solution_image}')">`
-        : `<div class="sol-placeholder">
-             Solution image not yet added.
-             <code>${q.id}_s.png</code>
-           </div>`;
-
-      block.innerHTML = `
-        <div class="q-number">
-          <span>Problem ${qNum}</span>
-          <div class="q-number-rule"></div>
-        </div>
-        <div class="q-image-frame" style="border-bottom:none">
-          ${q.question_image
-            ? `<img src="images/${q.question_image}" alt="Question ${i+1}"
-                 onerror="this.parentElement.innerHTML=missingImg('${q.question_image}')">`
-            : `<div class="q-placeholder">
-                 Question image not yet added.
-                 <code>${q.id}_q.png</code>
-               </div>`}
-          <div class="sol-toggle">
-            <button class="sol-btn" id="sol-btn-${q.id}" onclick="toggleSol('${q.id}')">
-              — Reveal Solution —
-            </button>
-          </div>
-          <div class="sol-panel" id="sol-${q.id}">
-            ${solImgHtml}
-          </div>
-        </div>`;
-
-      list.appendChild(block);
-    });
+    document.getElementById('nav-row').innerHTML = '';
+    show('topic');
+    return;
   }
 
-  // Nav row — prev/next topic
-  buildNavRow(code, secCode, topic);
+  // Render the navigator shell (dots + card area)
+  list.innerHTML = `
+    <div class="prob-nav-header">
+      <span class="prob-counter" id="prob-counter"></span>
+      <div class="prob-track">
+        <div class="prob-dots" id="prob-dots"></div>
+      </div>
+    </div>
+    <div id="prob-card-area"></div>`;
 
+  renderProblem(questions, S.probIndex);
+  buildNavRow(code, secCode, topic);
   show('topic');
 }
 
-function missingImg(filename) {
-  return `<div class="q-placeholder">
-    Image file not found: <code>${filename}</code>
-  </div>`;
+function renderProblem(questions, idx) {
+  S.probIndex = idx;
+  const q = questions[idx];
+  const total = questions.length;
+
+  // Update counter
+  document.getElementById('prob-counter').textContent =
+    `Problem ${idx + 1} of ${total}`;
+
+  // Update dots
+  const dotsEl = document.getElementById('prob-dots');
+  if (total <= 12) {
+    dotsEl.innerHTML = questions.map((_, i) =>
+      `<button class="prob-dot ${i === idx ? 'active' : ''}"
+        onclick="jumpProblem(${i})" title="Problem ${i+1}"></button>`
+    ).join('');
+  } else {
+    dotsEl.innerHTML = '';
+  }
+
+  // Question image or placeholder
+  const qImg = q.question_image
+    ? `<img class="prob-q-img invert" src="images/${q.question_image}"
+         alt="Problem ${idx+1}"
+         onerror="this.outerHTML='<div class=prob-placeholder>Image not found.<code>${q.question_image}</code></div>'">`
+    : `<div class="prob-placeholder">
+         Question image not yet added.
+         <code>${q.id}_q.png</code>
+       </div>`;
+
+  // Solution image or placeholder
+  const sImg = q.solution_image
+    ? `<img src="images/${q.solution_image}" alt="Solution ${idx+1}"
+         onerror="this.outerHTML='<div class=prob-sol-placeholder>Image not found.<code>${q.solution_image}</code></div>'">`
+    : `<div class="prob-sol-placeholder">
+         Solution not yet added. <code>${q.id}_s.png</code>
+       </div>`;
+
+  // Prev / next within topic
+  const hasPrev = idx > 0;
+  const hasNext = idx < total - 1;
+
+  document.getElementById('prob-card-area').innerHTML = `
+    <div class="prob-card">
+      <div class="prob-label">
+        <span class="prob-label-left">Problem ${String(idx+1).padStart(2,'0')}</span>
+        <span class="prob-label-right">${q.id}</span>
+      </div>
+      ${qImg}
+      <div class="prob-sol-toggle">
+        <button class="prob-sol-btn" id="psol-btn" onclick="toggleProbSol()">
+          — Reveal Solution —
+        </button>
+      </div>
+      <div class="prob-sol-panel" id="psol-panel">
+        ${sImg}
+      </div>
+    </div>
+    <div class="prob-arrows">
+      <button class="prob-arrow-btn" onclick="stepProblem(-1)" ${hasPrev ? '' : 'disabled'}>
+        <span class="prob-arrow-glyph">←</span>
+        <span>Previous</span>
+      </button>
+      <button class="prob-arrow-btn" onclick="stepProblem(1)" ${hasNext ? '' : 'disabled'}>
+        <span>Next</span>
+        <span class="prob-arrow-glyph">→</span>
+      </button>
+    </div>`;
 }
 
-function toggleSol(id) {
-  const panel = document.getElementById('sol-' + id);
-  const btn   = document.getElementById('sol-btn-' + id);
+function stepProblem(dir) {
+  const sec = SYLLABUS[S.course].sections[S.section];
+  const questions = sec.topics[S.topic] || [];
+  const next = S.probIndex + dir;
+  if (next < 0 || next >= questions.length) return;
+  renderProblem(questions, next);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function jumpProblem(idx) {
+  const sec = SYLLABUS[S.course].sections[S.section];
+  const questions = sec.topics[S.topic] || [];
+  renderProblem(questions, idx);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleProbSol() {
+  const panel = document.getElementById('psol-panel');
+  const btn   = document.getElementById('psol-btn');
   const open  = panel.classList.contains('open');
   panel.classList.toggle('open', !open);
   btn.classList.toggle('open', !open);
   btn.textContent = open ? '— Reveal Solution —' : '— Hide Solution —';
 }
 
+// Keyboard left/right arrow navigation
+document.addEventListener('keydown', e => {
+  if (document.getElementById('s-topic').classList.contains('on')) {
+    if (e.key === 'ArrowRight') stepProblem(1);
+    if (e.key === 'ArrowLeft')  stepProblem(-1);
+  }
+});
+
 // ══════════════════════════════════════════════════
-//  PREV / NEXT TOPIC NAVIGATION
+//  PREV / NEXT TOPIC NAV (bottom of topic view)
 // ══════════════════════════════════════════════════
 
 function buildNavRow(code, secCode, topic) {
   const topics = Object.keys(SYLLABUS[code].sections[secCode].topics);
-  const idx = topics.indexOf(topic);
+  const idx  = topics.indexOf(topic);
   const prev = topics[idx - 1] || null;
   const next = topics[idx + 1] || null;
 
-  const row = document.getElementById('nav-row');
-  row.innerHTML = `
-    <button class="nav-btn" onclick="${prev ? `goTopic('${code}','${secCode}','${prev}')` : `goSection('${code}','${secCode}')`}">
+  document.getElementById('nav-row').innerHTML = `
+    <button class="nav-btn"
+      onclick="${prev ? `goTopic('${code}','${secCode}','${prev}')` : `goSection('${code}','${secCode}')`}">
       ← ${prev || 'All Topics'}
     </button>
-    <div class="nav-topic-label">${idx + 1} of ${topics.length}</div>
-    <button class="nav-btn" onclick="${next ? `goTopic('${code}','${secCode}','${next}')` : `goSection('${code}','${secCode}')`}">
+    <div class="nav-topic-label">${idx + 1} of ${topics.length} topics</div>
+    <button class="nav-btn"
+      onclick="${next ? `goTopic('${code}','${secCode}','${next}')` : `goSection('${code}','${secCode}')`}">
       ${next || 'All Topics'} →
     </button>`;
 }
