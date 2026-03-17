@@ -107,7 +107,13 @@ const SYLLABUS = {
         topics: {
           "Rational Functions":             [],
           "Series":                         [],
-          "Roots of Polynomials":           [],
+          "Roots of Polynomials": [
+            {
+              id: "FP1_RP_001",
+              question_image: "FP1_RP_001_q.png",
+              solution_image: "FP1_RP_001_s.png"
+            }
+           ],
           "Polar Coordinates":              [],
           "Vectors — Lines & Planes":       [],
           "Proof by Induction":             [],
