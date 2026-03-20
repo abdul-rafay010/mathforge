@@ -157,14 +157,15 @@ const SYLLABUS = {
         topics: {
           "Continuous Random Variables": [],
 
-          "Inference": [
+          "Discrete Random Variables (PGF)": [
             {
-              id: "FS_IN_001",
+              id: "FS_DRV_001",
               question_text: "The probability generating function of the random variable $X$ is\n$$G_X(t) = \\frac{1}{81}\\left(t + \\frac{2}{t}\\right)^4$$\n\n**(i)** Use the probability generating function to find $\\text{E}(X)$ and $\\text{Var}(X)$. $\\quad$ **[5]**\n\n**(ii)** The random variable $Y$ is defined by $Y = \\tfrac{1}{2}(X+4)$. By finding the probability distribution of $X$, or otherwise, show that $Y \\sim B(n,\\,p)$, stating the values of $n$ and $p$. $\\quad$ **[4]**",
               solution_image: ""
             }
           ],
 
+          "Inference":            [],
           "Chi-squared Tests":    [],
           "Non-parametric Tests": []
         }
