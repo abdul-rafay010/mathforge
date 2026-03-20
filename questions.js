@@ -73,13 +73,24 @@ const SYLLABUS = {
         name: "Further Pure 1",
         topics: {
           "Rational Functions": [],
-          "Series":             [],
+          "Series": [
+            {
+              id: "FP1_SR_001",
+              question_text: "**a** Prove by induction that for all positive integers $n$:\n$$\\sum_{r=1}^{2n} r^2 = \\frac{1}{3}n(2n+1)(4n+1)$$\n\n**b** Given that $\\displaystyle\\sum_{r=1}^{2n} r^2 = k\\sum_{r=1}^{n} r^2$, show that $k$ must satisfy\n$$n = \\frac{2-k}{k-8}$$",
+              solution_image: ""
+            }
+          ],
 
           "Roots of Polynomials": [
             {
               id: "FP1_RP_001",
               question_text: "The quartic equation $3072x^4 - 2880x^3 + 840x^2 - 90x + 3 = 0$ has roots $\\alpha$, $r\\alpha$, $r^2\\alpha$ and $r^3\\alpha$ for some real constant $r$.\n\nSolve the equation. $\\quad$ **[7]**",
               solution_image: "FP1_RP_001_s.png"
+            },
+            {
+              id: "FP1_RP_002",
+              question_text: "The equation $x^4 - 6x^3 - 73x^2 + kx + m = 0$ has two positive roots $\\alpha$, $\\beta$ and two negative roots $\\gamma$, $\\delta$. It is given that $\\alpha\\beta = \\gamma\\delta = 4$.\n\n**(i)** Find the values of the constants $k$ and $m$. $\\quad$ **[5]**\n\n**(ii)** Show that $(\\alpha+\\beta)(\\gamma+\\delta) = -81$. $\\quad$ **[4]**\n\n**(iii)** Find the quadratic equation which has roots $\\alpha+\\beta$ and $\\gamma+\\delta$. $\\quad$ **[2]**\n\n**(iv)** Find $\\alpha+\\beta$ and $\\gamma+\\delta$. $\\quad$ **[3]**\n\n**(v)** Show that $\\alpha^2 - 3(1+\\sqrt{10})\\alpha + 4 = 0$, and find similar quadratic equations satisfied by $\\beta$, $\\gamma$ and $\\delta$. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
 
@@ -120,6 +131,11 @@ const SYLLABUS = {
             {
               id: "FP1_VL_001",
               question_text: "Find a vector $\\boldsymbol{v}$ which has the following properties:\n\n- It is a unit vector.\n- It is parallel to the plane $2x + 2y + z = 10$.\n- It makes an angle of $45°$ with the normal to the plane $x + z = 5$.\n\n$\\quad$ **(8)**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_VL_002",
+              question_text: "The equation of the plane $\\Pi$ is $2x + 3y + 4z = 48$.\n\nObtain a vector equation of $\\Pi$ in the form $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b} + \\mu\\mathbf{c}$, where $\\mathbf{a}$, $\\mathbf{b}$ and $\\mathbf{c}$ are of the form $p\\mathbf{i}$, $q\\mathbf{i}+r\\mathbf{j}$ and $s\\mathbf{i}+t\\mathbf{k}$ respectively, and where $p$, $q$, $r$, $s$, $t$ are integers. $\\quad$ **[6]**\n\nThe line $l$ has vector equation $\\mathbf{r} = 29\\mathbf{i} - 2\\mathbf{j} - \\mathbf{k} + \\theta(5\\mathbf{i} - 6\\mathbf{j} + 2\\mathbf{k})$. Show that $l$ lies in $\\Pi$. $\\quad$ **[3]**\n\nFind, in the form $ax + by + cz = d$, the equation of the plane which contains $l$ and is perpendicular to $\\Pi$. $\\quad$ **[4]**",
               solution_image: ""
             }
           ],
@@ -178,6 +194,11 @@ const SYLLABUS = {
             {
               id: "FP1_PI_011",
               question_text: "Prove by induction that\n$$\\frac{d^n}{dx^n}\\!\\left(e^x \\sin(\\sqrt{3}\\,x)\\right) = 2^n e^x \\sin\\!\\left(\\sqrt{3}\\,x + \\frac{n\\pi}{3}\\right)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_012",
+              question_text: "The sequence of real numbers $a_1, a_2, a_3, \\ldots$ is such that $a_1 = 1$ and\n$$a_{n+1} = \\left(a_n + \\frac{1}{a_n}\\right)^3$$\n\n**(a)** Prove by mathematical induction that $\\ln a_n \\geq 3^{n-1} \\ln 2$ for all integers $n \\geq 2$.\n\n$\\quad$ [You may use the fact that $\\ln\\!\\left(x + \\dfrac{1}{x}\\right) > \\ln x$ for $x > 0$.]",
               solution_image: ""
             }
           ],
