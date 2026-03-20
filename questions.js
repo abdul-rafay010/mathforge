@@ -120,6 +120,11 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
+              id: "FP1_PI_006",
+              question_text: "**(i)** Show that\n$$\\frac{d^{n+1}}{dx^{n+1}}\\left(x^{n+1}\\ln x\\right) = \\frac{d^n}{dx^n}\\left(x^n + (n+1)x^n \\ln x\\right)$$\n$\\quad$ **[2]**\n\n**(ii)** Prove by mathematical induction that, for all positive integers $n$,\n$$\\frac{d^n}{dx^n}\\left(x^n \\ln x\\right) = n!\\left(\\ln x + 1 + \\frac{1}{2} + \\ldots + \\frac{1}{n}\\right)$$\n$\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
               id: "FP1_PI_007",
               question_text: "Prove by induction that\n$$\\sum_{r=1}^{n} \\left[r(r+1)\\left(\\frac{1}{2}\\right)^{r-1}\\right] = 16 - \\left(\\frac{1}{2}\\right)^{n-1}(n^2+5n+8)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
               solution_image: ""
