@@ -529,6 +529,7 @@ body::before {
   border: 1px solid var(--rule2);
   margin-bottom: 0;
   animation: probIn .22s var(--ease);
+  overflow: hidden;
 }
 
 @keyframes probIn {
@@ -777,8 +778,14 @@ body::before {
 
 /* KaTeX overrides to match theme */
 .katex { font-size: 1.05em; color: var(--parchment); }
-.katex-display { margin: 16px 0; overflow-x: auto; }
+.katex-display {
+  margin: 16px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+}
 .katex-display > .katex { color: var(--parchment); }
+.katex-display > .katex > .katex-html { white-space: nowrap; }
 
 /* ════════════════════════════════════════════════
    EMPTY TOPIC — improved
@@ -959,7 +966,7 @@ body::before {
   ═══════════════════════════ -->
   <div class="screen" id="s-home">
 
-    <div class="home-heading">Problems.<br><em>Worth Solving.</em></div>
+    <div class="home-heading">No shortcuts.<br><em>No spectators.</em></div>
     <div class="home-sub">Mathematics is not a spectator sport — play it to conquer it.</div>
 
     <div class="course-pair" id="course-pair"></div>
