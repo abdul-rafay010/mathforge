@@ -59,18 +59,8 @@ const SYLLABUS = {
           "Discrete Random Variables":   [],
           "Normal Distribution":         []
         }
-      },
-
-      "M1": {
-        name: "Mechanics 1",
-        topics: {
-          "Forces & Equilibrium":    [],
-          "Kinematics":              [],
-          "Newton's Laws of Motion": [],
-          "Energy, Work & Power":    [],
-          "Momentum":                []
-        }
       }
+
     }
   },
 
@@ -130,25 +120,33 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
-              id: "FP1_PI_006",
-              question_text: "**(i)** Show that\n$$\\frac{d^{n+1}}{dx^{n+1}}\\left(x^{n+1}\\ln x\\right) = \\frac{d^n}{dx^n}\\left(x^n + (n+1)x^n \\ln x\\right)$$\n$\\quad$ **[2]**\n\n**(ii)** Prove by mathematical induction that, for all positive integers $n$,\n$$\\frac{d^n}{dx^n}\\left(x^n \\ln x\\right) = n!\\left(\\ln x + 1 + \\frac{1}{2} + \\ldots + \\frac{1}{n}\\right)$$\n$\\quad$ **[5]**",
+              id: "FP1_PI_007",
+              question_text: "Prove by induction that\n$$\\sum_{r=1}^{n} \\left[r(r+1)\\left(\\frac{1}{2}\\right)^{r-1}\\right] = 16 - \\left(\\frac{1}{2}\\right)^{n-1}(n^2+5n+8)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_008",
+              question_text: "Let $f(n) = 3^{2n+4} - 2^{2n}$, $\\quad n \\in \\mathbb{N}$.\n\nProve by induction that $f(n)$ is divisible by $5$ for all $n \\in \\mathbb{N}$.",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_009",
+              question_text: "A sequence of numbers is given by the recurrence relation\n$$u_{n+1} = \\frac{u_n - 5}{3u_n - 7}, \\quad u_1 = -1, \\quad n \\in \\mathbb{N},\\ n \\geq 1$$\n\nProve by induction that the $n^{\\text{th}}$ term of the sequence is given by\n$$u_n = \\frac{2^{n+1}-5}{2^{n+1}-3}$$",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_010",
+              question_text: "Prove by induction that for all even natural numbers $n$,\n$$\\frac{d^n}{dx^n}(\\sin 3x) = (-1)^{\\frac{n}{2}} \\times 3^n \\times \\sin 3x$$",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_011",
+              question_text: "Prove by induction that\n$$\\frac{d^n}{dx^n}\\!\\left(e^x \\sin(\\sqrt{3}\\,x)\\right) = 2^n e^x \\sin\\!\\left(\\sqrt{3}\\,x + \\frac{n\\pi}{3}\\right)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
               solution_image: ""
             }
           ],
 
           "Matrices": []
-        }
-      },
-
-      "FP2": {
-        name: "Further Pure 2",
-        topics: {
-          "Hyperbolic Functions":   [],
-          "Differentiation":        [],
-          "Complex Numbers":        [],
-          "Matrices":               [],
-          "Integration":            [],
-          "Differential Equations": []
         }
       },
 
@@ -171,15 +169,6 @@ const SYLLABUS = {
         }
       },
 
-      "FM": {
-        name: "Further Mechanics",
-        topics: {
-          "Resisted Motion":           [],
-          "Elastic Strings & Springs": [],
-          "Simple Harmonic Motion":    [],
-          "Further Circular Motion":   []
-        }
-      }
     }
   }
 
