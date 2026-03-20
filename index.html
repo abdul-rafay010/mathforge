@@ -8,6 +8,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 
+<!-- KaTeX — mathematical typesetting -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+  onload="document.addEventListener('DOMContentLoaded', () => renderMathInElement(document.body, {
+    delimiters: [
+      {left:'$$', right:'$$', display:true},
+      {left:'$',  right:'$',  display:false}
+    ],
+    throwOnError: false
+  }))"></script>
+
 <style>
 /* ════════════════════════════════════════════════
    FOUNDATION
@@ -708,6 +720,51 @@ body::before {
 }
 
 /* ════════════════════════════════════════════════
+   TEXT QUESTION RENDERING (KaTeX)
+════════════════════════════════════════════════ */
+
+.prob-text-question {
+  padding: 28px 32px 24px;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--parchment);
+  font-family: var(--serif);
+}
+
+.prob-text-question p {
+  margin-bottom: 14px;
+}
+
+.prob-text-question p:last-child { margin-bottom: 0; }
+
+.prob-text-question strong {
+  font-weight: 600;
+  color: var(--parchment);
+}
+
+.prob-text-question ul {
+  margin: 10px 0 10px 20px;
+  list-style: disc;
+}
+
+.prob-text-question li {
+  margin-bottom: 6px;
+  color: var(--parchment2);
+}
+
+.q-marks {
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--gold2);
+  letter-spacing: .04em;
+}
+
+/* KaTeX overrides to match theme */
+.katex { font-size: 1.05em; color: var(--parchment); }
+.katex-display { margin: 14px 0; overflow-x: auto; }
+.katex-display > .katex { color: var(--parchment); }
+
+/* ════════════════════════════════════════════════
    NAVIGATION ROW (bottom of topic view)
 ════════════════════════════════════════════════ */
 
@@ -1091,11 +1148,9 @@ function renderProblem(questions, idx) {
   const q = questions[idx];
   const total = questions.length;
 
-  // Update counter
   document.getElementById('prob-counter').textContent =
     `Problem ${idx + 1} of ${total}`;
 
-  // Update dots
   const dotsEl = document.getElementById('prob-dots');
   if (total <= 12) {
     dotsEl.innerHTML = questions.map((_, i) =>
@@ -1106,25 +1161,24 @@ function renderProblem(questions, idx) {
     dotsEl.innerHTML = '';
   }
 
-  // Question image or placeholder
-  const qImg = q.question_image
-    ? `<img class="prob-q-img invert" src="images/${q.question_image}"
-         alt="Problem ${idx+1}"
-         onerror="this.outerHTML='<div class=prob-placeholder>Image not found.<code>${q.question_image}</code></div>'">`
-    : `<div class="prob-placeholder">
-         Question image not yet added.
-         <code>${q.id}_q.png</code>
-       </div>`;
+  // Question: text (KaTeX) takes priority over image
+  let qContent;
+  if (q.question_text) {
+    qContent = `<div class="prob-text-question">${processText(q.question_text)}</div>`;
+  } else if (q.question_image) {
+    qContent = `<img class="prob-q-img invert" src="images/${q.question_image}"
+      alt="Problem ${idx+1}"
+      onerror="this.outerHTML='<div class=prob-placeholder>Image not found: ${q.question_image}</div>'">`;
+  } else {
+    qContent = `<div class="prob-placeholder">Question not yet added.<code>${q.id}_q.png</code></div>`;
+  }
 
-  // Solution image or placeholder
+  // Solution: always an image
   const sImg = q.solution_image
     ? `<img src="images/${q.solution_image}" alt="Solution ${idx+1}"
-         onerror="this.outerHTML='<div class=prob-sol-placeholder>Image not found.<code>${q.solution_image}</code></div>'">`
-    : `<div class="prob-sol-placeholder">
-         Solution not yet added. <code>${q.id}_s.png</code>
-       </div>`;
+         onerror="this.outerHTML='<div class=prob-sol-placeholder>Image not found: ${q.solution_image}</div>'">`
+    : `<div class="prob-sol-placeholder">Solution forthcoming.</div>`;
 
-  // Prev / next within topic
   const hasPrev = idx > 0;
   const hasNext = idx < total - 1;
 
@@ -1134,7 +1188,7 @@ function renderProblem(questions, idx) {
         <span class="prob-label-left">Problem ${String(idx+1).padStart(2,'0')}</span>
         <span class="prob-label-right">${q.id}</span>
       </div>
-      ${qImg}
+      ${qContent}
       <div class="prob-sol-toggle">
         <button class="prob-sol-btn" id="psol-btn" onclick="toggleProbSol()">
           — Reveal Solution —
@@ -1154,6 +1208,43 @@ function renderProblem(questions, idx) {
         <span class="prob-arrow-glyph">→</span>
       </button>
     </div>`;
+
+  // Re-run KaTeX on newly injected content
+  if (q.question_text && window.renderMathInElement) {
+    const card = document.getElementById('prob-card-area');
+    renderMathInElement(card, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+}
+
+// ── Text processor: converts plain text + markdown to HTML ──
+function processText(text) {
+  // Split into paragraphs on double newline
+  const paras = text.split(/\n\n+/);
+  return paras.map(para => {
+    // Bullet list
+    if (para.trim().startsWith('- ')) {
+      const items = para.split('\n')
+        .filter(l => l.trim())
+        .map(l => `<li>${l.replace(/^- /, '')}</li>`)
+        .join('');
+      return `<ul>${items}</ul>`;
+    }
+    // Bold **text**
+    let html = para.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Mark allocations [n]
+    html = html.replace(/\[(\d+)\]/g, '<span class="q-marks">[$1]</span>');
+    // Part marks (n)
+    html = html.replace(/\((\d+)\)\s*$/g, '<span class="q-marks">($1)</span>');
+    // Line breaks within paragraph
+    html = html.replace(/\n/g, '<br>');
+    return `<p>${html}</p>`;
+  }).join('');
 }
 
 function stepProblem(dir) {
