@@ -1,19 +1,3 @@
-// ═══════════════════════════════════════════════════════════════════
-//  QUESTION BANK — Cambridge A-Level & Further Mathematics
-//
-//  All questions are challenging. All content is image-based.
-//
-//  Each question follows this format:
-//  {
-//    id:               "P1_CG_001",          ← unique, no spaces
-//    question_image:   "P1_CG_001_q.png",    ← file in /images/
-//    solution_image:   "P1_CG_001_s.png",    ← file in /images/
-//  }
-//
-//  Add your iPad exports to the /images/ folder.
-//  Name them exactly as written in question_image / solution_image.
-// ═══════════════════════════════════════════════════════════════════
-
 const SYLLABUS = {
 
   "9709": {
@@ -24,74 +8,67 @@ const SYLLABUS = {
       "P1": {
         name: "Pure Mathematics 1",
         topics: {
-          "Coordinate Geometry":            [],
-          "Trigonometry":                   [],
-          "Binomial Expansion":             [],
-          "Differentiation":                [],
-          "Quadratics":                     [],
-          "Integration":                    [],
-          "Sequences & Series":             [],
-          "Functions":                      [],
-          "Circular Measure":               []
+          "Coordinate Geometry":  [],
+          "Trigonometry":         [],
+          "Binomial Expansion":   [],
+          "Differentiation":      [],
+          "Quadratics":           [],
+
+          "Integration": [
+            {
+              id: "P1_IN_001",
+              question_text: "The point $A$ with $x$-coordinate $2$ lies on the curve $y = \\sqrt{4x+1}$. The diagram shows part of this curve and the tangent to the curve at $A$.\n\nFind the area of the shaded region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[10]**",
+              solution_image: ""
+            }
+          ],
+
+          "Sequences & Series": [
+            {
+              id: "P1_SS_001",
+              question_text: "An arithmetic progression has common difference $d$. The 3rd term of this progression is $10$.\n\n**(a)** Write down expressions for the 1st term and the 2nd term of this progression. Give your answers in terms of $d$ only. $\\quad$ **[2]**\n\n**(b)** When each of the first 3 terms is squared, the sum of these squares is $140$. There are two possible values for $d$.\n\nUsing your answer to part **(a)**, find the sum of the first 200 terms of the progression with the smaller value of $d$. $\\quad$ **[7]**",
+              solution_image: ""
+            }
+          ],
+
+          "Functions":        [],
+          "Circular Measure": []
         }
       },
 
       "P3": {
         name: "Pure Mathematics 3",
         topics: {
-          "Algebra":                        [],
-          "Logarithmic & Exp Functions":    [],
-          "Trigonometry":                   [],
-          "Differentiation":                [],
-          "Integration":                    [],
-          "Numerical Methods":              [],
-          "Vectors":                        [],
-          "Differential Equations":         [],
-          "Complex Numbers":                []
+          "Algebra":                     [],
+          "Logarithmic & Exp Functions": [],
+          "Trigonometry":                [],
+          "Differentiation":             [],
+          "Integration":                 [],
+          "Numerical Methods":           [],
+          "Vectors":                     [],
+          "Differential Equations":      [],
+          "Complex Numbers":             []
         }
       },
 
       "S1": {
         name: "Statistics 1",
         topics: {
-          "Representation of Data":         [],
-          "Permutations & Combinations":    [],
-          "Probability":                    [],
-          "Discrete Random Variables":      [],
-          "Normal Distribution":            []
-        }
-      },
-
-      "S2": {
-        name: "Statistics 2",
-        topics: {
-          "Poisson Distribution":           [],
-          "Linear Combinations":            [],
-          "Continuous Random Variables":    [],
-          "Sampling & Estimation":          [],
-          "Hypothesis Testing":             []
+          "Representation of Data":      [],
+          "Permutations & Combinations": [],
+          "Probability":                 [],
+          "Discrete Random Variables":   [],
+          "Normal Distribution":         []
         }
       },
 
       "M1": {
         name: "Mechanics 1",
         topics: {
-          "Forces & Equilibrium":           [],
-          "Kinematics":                     [],
-          "Newton's Laws of Motion":        [],
-          "Energy, Work & Power":           [],
-          "Momentum":                       []
-        }
-      },
-
-      "M2": {
-        name: "Mechanics 2",
-        topics: {
-          "Projectile Motion":              [],
-          "Equilibrium of a Rigid Body":    [],
-          "Circular Motion":               [],
-          "Hooke's Law":                    [],
-          "Linear Motion (Variable Force)": []
+          "Forces & Equilibrium":    [],
+          "Kinematics":              [],
+          "Newton's Laws of Motion": [],
+          "Energy, Work & Power":    [],
+          "Momentum":                []
         }
       }
     }
@@ -105,51 +82,101 @@ const SYLLABUS = {
       "FP1": {
         name: "Further Pure 1",
         topics: {
-          "Rational Functions":             [],
-          "Series":                         [],
+          "Rational Functions": [],
+          "Series":             [],
+
           "Roots of Polynomials": [
             {
               id: "FP1_RP_001",
-              question_image: "FP1_RP_001_q.png",
+              question_text: "The quartic equation $3072x^4 - 2880x^3 + 840x^2 - 90x + 3 = 0$ has roots $\\alpha$, $r\\alpha$, $r^2\\alpha$ and $r^3\\alpha$ for some real constant $r$.\n\nSolve the equation. $\\quad$ **[7]**",
               solution_image: "FP1_RP_001_s.png"
             }
-           ],
-          "Polar Coordinates":              [],
-          "Vectors — Lines & Planes":       [],
-          "Proof by Induction":             [],
-          "Matrices":                       []
+          ],
+
+          "Polar Coordinates": [],
+
+          "Vectors — Lines & Planes": [
+            {
+              id: "FP1_VL_001",
+              question_text: "Find a vector $\\boldsymbol{v}$ which has the following properties:\n\n- It is a unit vector.\n- It is parallel to the plane $2x + 2y + z = 10$.\n- It makes an angle of $45°$ with the normal to the plane $x + z = 5$.\n\n$\\quad$ **(8)**",
+              solution_image: ""
+            }
+          ],
+
+          "Proof by Induction": [
+            {
+              id: "FP1_PI_001",
+              question_text: "You are given the matrix\n$$\\mathbf{A} = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix}$$\nwhich represents the transformation $\\mathbf{T}$ in the $x$-$y$ plane.\n\n**(a)** Find the equations of the invariant lines of $\\mathbf{T}$. $\\quad$ **[4]**\n\n**(b)** Prove by mathematical induction that\n$$\\mathbf{A}^n = \\frac{1}{3}\\begin{pmatrix} 2^{n+1}+5^n & 2\\cdot 5^n - 2^{n+1} \\\\ 5^n - 2^n & 2^n + 2\\cdot 5^n \\end{pmatrix}$$\nfor all integers $n \\geq 1$. $\\quad$ **[5]**\n\n**(c)** Find the number of successive transformations of $\\mathbf{T}$ applied on the point $(-1,\\,4)$ so that it maps onto $(910605,\\,911885)$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_002",
+              question_text: "**Q1.** Prove by induction that $n! > n^2 + n$ for all integers $n \\geq 4$.\n\n**Q2.** Prove by induction that $2^n > n^2$ for all integers $n \\geq 5$.\n\n**Q3.** Prove by induction that $3^n > 5 \\times 2^n$ for all integers $n \\geq 4$.",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_003",
+              question_text: "Given\n$$\\mathbf{A} = \\begin{pmatrix} 1 & 0 \\\\ 2 & 1 \\end{pmatrix}$$\nProve by induction that\n$$\\mathbf{A}^n = n\\mathbf{A} - (n-1)\\mathbf{I}$$\nwhere $n \\geq 1$, $n \\in \\mathbb{N}$, and $\\mathbf{I}$ represents the identity matrix. $\\quad$ **(6)**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_004",
+              question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$1 + 2x + 3x^2 + \\ldots + nx^{n-1} = \\frac{1-(n+1)x^n+nx^{n+1}}{(1-x)^2}$$\n$\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_005",
+              question_text: "Prove by induction that for all integers $n \\geq 2$:\n$$\\sum_{k=1}^{n} \\frac{1}{k^2} \\leq 2 - \\frac{1}{n}$$",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_006",
+              question_text: "**(i)** Show that\n$$\\frac{d^{n+1}}{dx^{n+1}}\\left(x^{n+1}\\ln x\\right) = \\frac{d^n}{dx^n}\\left(x^n + (n+1)x^n \\ln x\\right)$$\n$\\quad$ **[2]**\n\n**(ii)** Prove by mathematical induction that, for all positive integers $n$,\n$$\\frac{d^n}{dx^n}\\left(x^n \\ln x\\right) = n!\\left(\\ln x + 1 + \\frac{1}{2} + \\ldots + \\frac{1}{n}\\right)$$\n$\\quad$ **[5]**",
+              solution_image: ""
+            }
+          ],
+
+          "Matrices": []
         }
       },
 
       "FP2": {
         name: "Further Pure 2",
         topics: {
-          "Hyperbolic Functions":           [],
-          "Differentiation":                [],
-          "Complex Numbers":                [],
-          "Matrices":                       [],
-          "Integration":                    [],
-          "Differential Equations":         []
+          "Hyperbolic Functions":   [],
+          "Differentiation":        [],
+          "Complex Numbers":        [],
+          "Matrices":               [],
+          "Integration":            [],
+          "Differential Equations": []
         }
       },
 
       "FS": {
         name: "Further Statistics",
         topics: {
-          "Continuous Random Variables":    [],
-          "Inference":                      [],
-          "Chi-squared Tests":              [],
-          "Non-parametric Tests":           []
+          "Continuous Random Variables": [],
+
+          "Inference": [
+            {
+              id: "FS_IN_001",
+              question_text: "The probability generating function of the random variable $X$ is\n$$G_X(t) = \\frac{1}{81}\\left(t + \\frac{2}{t}\\right)^4$$\n\n**(i)** Use the probability generating function to find $\\text{E}(X)$ and $\\text{Var}(X)$. $\\quad$ **[5]**\n\n**(ii)** The random variable $Y$ is defined by $Y = \\tfrac{1}{2}(X+4)$. By finding the probability distribution of $X$, or otherwise, show that $Y \\sim B(n,\\,p)$, stating the values of $n$ and $p$. $\\quad$ **[4]**",
+              solution_image: ""
+            }
+          ],
+
+          "Chi-squared Tests":    [],
+          "Non-parametric Tests": []
         }
       },
 
       "FM": {
         name: "Further Mechanics",
         topics: {
-          "Resisted Motion":                [],
-          "Elastic Strings & Springs":      [],
-          "Simple Harmonic Motion":         [],
-          "Further Circular Motion":        []
+          "Resisted Motion":           [],
+          "Elastic Strings & Springs": [],
+          "Simple Harmonic Motion":    [],
+          "Further Circular Motion":   []
         }
       }
     }
