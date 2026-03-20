@@ -724,18 +724,26 @@ body::before {
 ════════════════════════════════════════════════ */
 
 .prob-text-question {
-  padding: 28px 32px 24px;
+  padding: 32px 36px 28px;
   font-size: 1.08rem;
-  line-height: 1.85;
+  line-height: 1.9;
   color: var(--parchment);
   font-family: var(--serif);
 }
 
+/* Each part (a), (b), (c) as its own block */
 .prob-text-question p {
-  margin-bottom: 14px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
 }
 
 .prob-text-question p:last-child { margin-bottom: 0; }
+
+/* Text content fills space, mark sits right */
+.p-body { flex: 1; }
 
 .prob-text-question strong {
   font-weight: 600;
@@ -745,6 +753,7 @@ body::before {
 .prob-text-question ul {
   margin: 10px 0 10px 20px;
   list-style: disc;
+  flex: 1;
 }
 
 .prob-text-question li {
@@ -752,17 +761,103 @@ body::before {
   color: var(--parchment2);
 }
 
+/* Mark allocation — right aligned, monospaced, gold */
 .q-marks {
   font-family: var(--mono);
-  font-size: .72rem;
+  font-size: .68rem;
   color: var(--gold2);
   letter-spacing: .04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-end;
+  padding-bottom: 2px;
 }
 
 /* KaTeX overrides to match theme */
 .katex { font-size: 1.05em; color: var(--parchment); }
-.katex-display { margin: 14px 0; overflow-x: auto; }
+.katex-display { margin: 16px 0; overflow-x: auto; }
 .katex-display > .katex { color: var(--parchment); }
+
+/* ════════════════════════════════════════════════
+   EMPTY TOPIC — improved
+════════════════════════════════════════════════ */
+
+.empty-topic {
+  padding: 56px 0 48px;
+  text-align: center;
+  border: 1px solid var(--rule);
+}
+
+.empty-topic-name {
+  font-size: 2.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--parchment4);
+  margin-bottom: 20px;
+  font-family: var(--serif);
+}
+
+.empty-topic-text {
+  font-style: italic;
+  color: var(--parchment4);
+  font-size: .88rem;
+  line-height: 1.7;
+  font-family: var(--mono);
+  letter-spacing: .04em;
+}
+
+/* ════════════════════════════════════════════════
+   MOBILE RESPONSIVE
+════════════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+
+  #shell { padding: 0 18px 80px; }
+
+  #masthead { padding: 24px 0 18px; }
+  .masthead-ornament { display: none; }
+
+  .home-heading { font-size: 2.4rem; }
+  .home-sub { font-size: .95rem; }
+
+  .course-pair { grid-template-columns: 1fr; }
+
+  .screen-title { font-size: 1.8rem; }
+
+  .sec-row { padding: 16px 16px; }
+  .sec-badge { display: none; }
+
+  .topic-row { padding: 14px 16px; }
+
+  /* Question card */
+  .prob-text-question { padding: 20px 18px 18px; font-size: 1rem; }
+
+  .prob-text-question p {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .q-marks { align-self: flex-start; }
+
+  .prob-label { padding: 10px 16px; }
+
+  .prob-sol-btn { padding: 14px 16px; font-size: .66rem; }
+
+  .prob-arrow-btn { padding: 14px 14px; font-size: .62rem; gap: 6px; }
+
+  /* Dots — smaller on mobile */
+  .prob-dot { width: 4px; height: 4px; }
+
+  /* Nav row */
+  .nav-row { padding: 20px 0; }
+  .nav-btn { padding: 8px 14px; font-size: .62rem; }
+  .nav-topic-label { display: none; }
+
+  /* Footer */
+  #footer { flex-direction: column; gap: 6px; }
+
+}
 
 /* ════════════════════════════════════════════════
    NAVIGATION ROW (bottom of topic view)
@@ -1038,6 +1133,7 @@ function goCourse(code, fromPop) {
   const stack = document.getElementById('section-stack');
   stack.innerHTML = '';
   Object.entries(c.sections).forEach(([secCode, sec]) => {
+    const qTotal = Object.values(sec.topics).reduce((a, qs) => a + qs.length, 0);
     const row = document.createElement('div');
     row.className = 'sec-row';
     row.onclick = () => goSection(code, secCode);
@@ -1046,7 +1142,12 @@ function goCourse(code, fromPop) {
         <span class="sec-badge">${secCode}</span>
         <span class="sec-name">${sec.name}</span>
       </div>
-      <span class="sec-arrow">›</span>`;
+      <div style="display:flex;align-items:center;gap:14px">
+        ${qTotal > 0
+          ? `<span style="font-family:var(--mono);font-size:.62rem;color:var(--gold);background:var(--gold3);padding:2px 9px;border-radius:2px">${qTotal} Q</span>`
+          : `<span style="font-family:var(--mono);font-size:.62rem;color:var(--parchment4)">empty</span>`}
+        <span class="sec-arrow">›</span>
+      </div>`;
     stack.appendChild(row);
   });
 
@@ -1119,8 +1220,8 @@ function goTopic(code, secCode, topic, startIndex, fromPop) {
   if (!questions.length) {
     list.innerHTML = `
       <div class="empty-topic">
-        <div class="empty-glyph">∅</div>
-        <div class="empty-text">Problems for this topic are forthcoming.</div>
+        <div class="empty-topic-name">${topic}</div>
+        <div class="empty-topic-text">Problems forthcoming.</div>
       </div>`;
     document.getElementById('nav-row').innerHTML = '';
     show('topic');
@@ -1224,7 +1325,6 @@ function renderProblem(questions, idx) {
 
 // ── Text processor: converts plain text + markdown to HTML ──
 function processText(text) {
-  // Split into paragraphs on double newline
   const paras = text.split(/\n\n+/);
   return paras.map(para => {
     // Bullet list
@@ -1235,15 +1335,26 @@ function processText(text) {
         .join('');
       return `<ul>${items}</ul>`;
     }
+
+    // Extract trailing mark allocation [n] or (n)
+    let marks = '';
+    let body = para;
+
+    const markMatch = body.match(/(\s*[\[\(]\d+[\]\)]\s*)$/);
+    if (markMatch) {
+      marks = `<span class="q-marks">${markMatch[0].trim()}</span>`;
+      body = body.slice(0, body.length - markMatch[0].length);
+    }
+
     // Bold **text**
-    let html = para.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    // Mark allocations [n]
-    html = html.replace(/\[(\d+)\]/g, '<span class="q-marks">[$1]</span>');
-    // Part marks (n)
-    html = html.replace(/\((\d+)\)\s*$/g, '<span class="q-marks">($1)</span>');
+    body = body.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     // Line breaks within paragraph
-    html = html.replace(/\n/g, '<br>');
-    return `<p>${html}</p>`;
+    body = body.replace(/\n/g, '<br>');
+
+    if (marks) {
+      return `<p><span class="p-body">${body}</span>${marks}</p>`;
+    }
+    return `<p><span class="p-body">${body}</span></p>`;
   }).join('');
 }
 
