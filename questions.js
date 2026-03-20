@@ -17,7 +17,7 @@ const SYLLABUS = {
           "Integration": [
             {
               id: "P1_IN_001",
-              question_text: "The point $A$ with $x$-coordinate $2$ lies on the curve $y = \\sqrt{4x+1}$. The diagram shows part of this curve and the tangent to the curve at $A$.\n\nFind the area of the shaded region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[10]**",
+              question_text: "The point $A$ with $x$-coordinate $2$ lies on the curve $y = \\sqrt{4x+1}$. The tangent to the curve at $A$ meets the $x$-axis at a point.\n\nFind the area of the shaded region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[10]**",
               solution_image: ""
             }
           ],
@@ -83,7 +83,38 @@ const SYLLABUS = {
             }
           ],
 
-          "Polar Coordinates": [],
+          "Polar Coordinates": [
+            {
+              id: "FP1_PC_001",
+              question_text: "The polar equation of $C_1$ is $r = \\sqrt{2}\\cos\\theta$ and the polar equation of $C_2$ is $r = \\sqrt{2\\sin 2\\theta}$. Both curves are defined for $0 \\leq \\theta \\leq \\frac{1}{2}\\pi$. The curves intersect at the pole $O$ and at the point $P$. The value of $\\theta$ at $P$ is $\\alpha$.\n\n**(i)** Show that $\\tan\\alpha = \\dfrac{1}{2}$. $\\quad$ **[2]**\n\n**(ii)** Show that the area of the region common to $C_1$ and $C_2$ is $\\dfrac{1}{4}\\pi - \\dfrac{1}{2}\\alpha$. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_002",
+              question_text: "The equation of a curve, in polar coordinates, is\n$$r = \\sec\\theta + \\tan\\theta, \\quad 0 \\leq \\theta \\leq \\tfrac{1}{3}\\pi$$\n\n**(i)** Sketch the curve. $\\quad$ **[2]**\n\n**(ii)** Find the exact area of the region bounded by the curve and the lines $\\theta = 0$ and $\\theta = \\frac{1}{3}\\pi$. $\\quad$ **[6]**\n\n**(iii)** Find a Cartesian equation of the curve. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_003",
+              question_text: "A curve has polar equation\n$$r = 6 + a\\sin\\theta, \\quad 0 < a < 6, \\quad 0 \\leq \\theta < 2\\pi$$\n\nThe area enclosed by the curve is $\\dfrac{97\\pi}{2}$.\n\nFind the value of the constant $a$. $\\quad$ **(8)**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_004",
+              question_text: "The equation of a curve is $x^2 + y^2 - x = \\sqrt{x^2 + y^2}$.\n\n**(i)** Find the polar equation of this curve in the form $r = f(\\theta)$. $\\quad$ **[3]**\n\n**(ii)** Sketch the curve. $\\quad$ **[2]**\n\n**(iii)** The line $x + 2y = 2$ divides the region enclosed by the curve into two parts. Find the ratio of the two areas. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_005",
+              question_text: "The curve $y = \\sqrt{2x+1}$ passes through the points $A\\!\\left(-\\tfrac{1}{2},\\,0\\right)$ and $B(4,\\,3)$.\n\n**(i)** Find the area of the region bounded by the curve, the $x$-axis and the line $x = 4$. Hence find the area of the region bounded by the curve and the lines $OA$ and $OB$, where $O$ is the origin. $\\quad$ **[4]**\n\n**(ii)** Show that the curve between $B$ and $A$ can be expressed in polar coordinates as\n$$r = \\frac{1}{1-\\cos\\theta}, \\quad \\tan^{-1}\\!\\left(\\tfrac{3}{4}\\right) \\leq \\theta \\leq \\pi$$\n$\\quad$ **[5]**\n\n**(iii)** Deduce from parts **(i)** and **(ii)** that\n$$\\int_{\\tan^{-1}(\\frac{3}{4})}^{\\pi} \\operatorname{cosec}^4\\!\\left(\\tfrac{1}{2}\\theta\\right)\\,d\\theta = 24$$\n$\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_006",
+              question_text: "The curve $C_1$ has polar equation $r = a(\\cos\\theta + \\sin\\theta)$ for $-\\frac{1}{4}\\pi \\leq \\theta \\leq \\frac{3}{4}\\pi$, where $a$ is a positive constant.\n\n**(a)** Find a Cartesian equation for $C_1$ and show that it represents a circle, stating its radius and the Cartesian coordinates of its centre. $\\quad$ **[4]**\n\nThe curve $C_2$ has polar equation $r = a\\theta$ and intersects $C_1$ at the pole and at the point with polar coordinates $(a\\phi,\\,\\phi)$.\n\n**(c)** Verify that $1.25 < \\phi < 1.26$. $\\quad$ **[2]**\n\n**(d)** Show that the area of the smaller region enclosed by $C_1$ and $C_2$ is equal to\n$$\\tfrac{1}{2}a^2\\!\\left(\\tfrac{1}{3}\\pi + \\tfrac{1}{3}\\phi^3 - \\phi + \\tfrac{1}{2}\\cos 2\\phi\\right)$$\nand deduce, in terms of $a$ and $\\phi$, the area of the larger region enclosed by $C_1$ and $C_2$. $\\quad$ **[7]**",
+              solution_image: "FP1_PC_006_s.png"
+            }
+          ],
 
           "Vectors — Lines & Planes": [
             {
@@ -151,7 +182,33 @@ const SYLLABUS = {
             }
           ],
 
-          "Matrices": []
+          "Matrices": [
+            {
+              id: "FP1_MA_001",
+              question_text: "The matrix $\\begin{pmatrix} 4 & 2 \\\\ 6 & k \\end{pmatrix}$, where $k$ is a constant, defines a transformation in the $(x,y)$-plane.\n\n**(i)** Find the set of invariant points of the transformation\n\n$\\quad$ **(A)** when $k = 4$,\n\n$\\quad$ **(B)** when $k = 5$. $\\quad$ **[5]**\n\n**(ii)** When $k = 5$, verify that $y = 2x - 3$ is an invariant line of the transformation. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_MA_002",
+              question_text: "You are given that\n$$\\mathbf{A} = \\begin{pmatrix} \\lambda & 6 & -4 \\\\ 2 & 5 & -1 \\\\ -1 & 4 & 3 \\end{pmatrix}, \\quad \\mathbf{B} = \\begin{pmatrix} -19 & 34 & -14 \\\\ 5 & -5 & 5 \\\\ -13 & 18 & -3 \\end{pmatrix}$$\nand $\\mathbf{AB} = \\mu\\mathbf{I}$, where $\\mathbf{I}$ is the $3 \\times 3$ identity matrix.\n\n**(i)** Find the values of $\\lambda$ and $\\mu$. $\\quad$ **[4]**\n\n**(ii)** Hence find $\\mathbf{B}^{-1}$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_MA_003",
+              question_text: "The transformation $P$ is an enlargement, centre the origin, with scale factor $k$, where $k > 0$.\n\nThe transformation $Q$ is a rotation through angle $\\theta$ degrees anticlockwise about the origin.\n\n$P$ followed by $Q$ is represented by the matrix\n$$\\mathbf{M} = \\begin{pmatrix} -4 & -4\\sqrt{3} \\\\ 4\\sqrt{3} & -4 \\end{pmatrix}$$\n\n**(a)** Determine\n\n$\\quad$ **(i)** the value of $k$,\n\n$\\quad$ **(ii)** the smallest value of $\\theta$. $\\quad$ **(4)**\n\n**(b)** A square $S$ has vertices at $(0,0)$, $(a,-a)$, $(2a,0)$ and $(a,a)$ where $a$ is a constant. The square $S$ is transformed to $S'$ by $\\mathbf{M}$.\n\nDetermine, in terms of $a$, the area of $S'$. $\\quad$ **(2)**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_MA_004",
+              question_text: "**(i)** In each of the following cases, find a $2 \\times 2$ matrix that represents\n\n$\\quad$ **(a)** a reflection in the line $y = -x$,\n\n$\\quad$ **(b)** a rotation of $135°$ anticlockwise about $(0,0)$,\n\n$\\quad$ **(c)** a reflection in $y = -x$ followed by a rotation of $135°$ anticlockwise about $(0,0)$. $\\quad$ **(4)**\n\n**(ii)** The triangle $T$ has vertices at $(1,k)$, $(3,0)$ and $(11,0)$, where $k$ is a constant. Triangle $T$ is transformed onto triangle $T'$ by the matrix\n$$\\begin{pmatrix} 6 & -2 \\\\ 1 & 2 \\end{pmatrix}$$\nGiven that the area of triangle $T'$ is $364$ square units, find the value of $k$. $\\quad$ **(6)**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_MA_005",
+              question_text: "**(a) (i)** By writing $\\cos\\left(\\frac{1}{12}\\pi\\right)$ as $\\cos\\left(\\frac{1}{4}\\pi - \\frac{1}{6}\\pi\\right)$, show that $\\cos\\left(\\frac{1}{12}\\pi\\right) = \\frac{1}{4}(\\sqrt{6}+\\sqrt{2})$. $\\quad$ **[1]**\n\n$\\quad$ **(ii)** Show also that $\\sin\\left(\\frac{1}{12}\\pi\\right) = \\frac{1}{4}(\\sqrt{6}-\\sqrt{2})$. $\\quad$ **[1]**\n\nThe matrix $\\mathbf{M}$ is such that\n$$\\mathbf{M} = \\frac{1}{4}\\begin{pmatrix} \\sqrt{6}+\\sqrt{2} & \\sqrt{2}-\\sqrt{6} \\\\ \\sqrt{6}-\\sqrt{2} & \\sqrt{6}+\\sqrt{2} \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$$\n\n**(b)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. Give full details of each transformation, and make clear the order in which they are applied. $\\quad$ **[4]**\n\n**(c)** Write $\\mathbf{M}^{-1}$ as the product of two matrices, neither of which is $\\mathbf{I}$. $\\quad$ **[2]**\n\n**(d)** Given that $y = mx$ is an invariant line of the transformation represented by $\\mathbf{M}$, show that\n$$m^2\\sin\\!\\left(\\tfrac{1}{12}\\pi\\right) + 2m\\cos\\!\\left(\\tfrac{1}{12}\\pi\\right) - \\sin\\!\\left(\\tfrac{1}{12}\\pi\\right) = 0$$\nand find the values of $m$ in the form $a\\cot\\!\\left(\\tfrac{1}{12}\\pi\\right) + b\\,\\text{cosec}\\!\\left(\\tfrac{1}{12}\\pi\\right)$, where $a$ and $b$ are integers to be determined. $\\quad$ **[6]**",
+              solution_image: ""
+            }
+          ]
         }
       },
 
