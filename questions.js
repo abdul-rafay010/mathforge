@@ -1,3 +1,4 @@
+/* eslint-disable */
 const SYLLABUS = {
 
   "9709": {
@@ -50,7 +51,7 @@ const SYLLABUS = {
               id: "P1_TR_003",
               question_text: "**(a)** Show that the equation $\\tan 2x = 5\\sin 2x$ can be written in the form\n$$(1 - 5\\cos 2x)\\sin 2x = 0$$\n$\\quad$ **(2)**\n\n**(b)** Hence solve, for $0 \\leq x \\leq 180°$,\n$$\\tan 2x = 5\\sin 2x$$\ngiving your answers to 1 decimal place where appropriate. $\\quad$ **(5)**",
               solution_image: ""
-            }
+            },
             {
               id: "P1_TR_004",
               question_text: "The diagram shows part of the graph of $y = \\sin(a(x+b))$, where $a$ and $b$ are positive constants.\n\n**(a)** State the value of $a$ and one possible value of $b$. $\\quad$ **[2]**\n\nAnother curve, with equation $y = f(x)$, has a single stationary point at the point $(p, q)$, where $p$ and $q$ are constants. This curve is transformed to a curve with equation $y = -2f\\!\\left(\\tfrac{1}{2}(x+8)\\right)$.\n\n**(b)** For the transformed curve, find the coordinates of the stationary point, giving your answer in terms of $p$ and $q$. $\\quad$ **[3]**",
@@ -58,6 +59,7 @@ const SYLLABUS = {
               solution_image: ""
             }
           ],
+          "Binomial Expansion": [
             {
               id: "P1_BE_002",
               question_text: "Given that $(1 + ax)^n = 1 - 12x + 63x^2 + \\ldots$, find $a$ and $n$.",
