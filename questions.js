@@ -18,6 +18,21 @@ const SYLLABUS = {
               id: "P1_CG_002",
               question_text: "A circle with centre $C$ has equation $x^2 + y^2 - 10x + 4y + 4 = 0$.\n\n**(i)** Find the coordinates of $C$ and the radius of the circle. $\\quad$ **[3]**\n\n**(ii)** Show that the tangent to the circle at the point $P(8, 2)$ has equation $3x + 4y = 32$. $\\quad$ **[5]**\n\n**(iii)** The circle meets the $y$-axis at $Q$ and the tangent meets the $y$-axis at $R$. Find the area of triangle $PQR$. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "P1_CG_003",
+              question_text: "A curve has a maximum point at $(8, 12)$ and a minimum point at $(8, 0)$. The curve is the result of applying two transformations to a circle. The first transformation is a translation by the vector $\\begin{pmatrix}7\\\\-3\\end{pmatrix}$. The second transformation is a stretch in the $y$-direction.\n\n**(a)** State the scale factor of the stretch. $\\quad$ **[1]**\n\n**(b)** State the radius of the original circle. $\\quad$ **[1]**\n\n**(c)** State the coordinates of the centre of the circle after the translation has been completed but before the stretch is applied. $\\quad$ **[2]**\n\n**(d)** State the coordinates of the centre of the original circle. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CG_004",
+              question_text: "A circle with equation $x^2 + y^2 - 6x + 2y - 15 = 0$ meets the $y$-axis at the points $A$ and $B$. The tangents to the circle at $A$ and $B$ meet at the point $P$.\n\nFind the coordinates of $P$. $\\quad$ **[8]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CG_005",
+              question_text: "Points $A$ and $B$ have coordinates $(4, 3)$ and $(8, -3)$ respectively. A circle with radius $10$ passes through both $A$ and $B$.\n\nFind the two possible equations of the circle. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
           "Trigonometry": [
@@ -36,8 +51,13 @@ const SYLLABUS = {
               question_text: "**(a)** Show that the equation $\\tan 2x = 5\\sin 2x$ can be written in the form\n$$(1 - 5\\cos 2x)\\sin 2x = 0$$\n$\\quad$ **(2)**\n\n**(b)** Hence solve, for $0 \\leq x \\leq 180°$,\n$$\\tan 2x = 5\\sin 2x$$\ngiving your answers to 1 decimal place where appropriate. $\\quad$ **(5)**",
               solution_image: ""
             }
+            {
+              id: "P1_TR_004",
+              question_text: "The diagram shows part of the graph of $y = \\sin(a(x+b))$, where $a$ and $b$ are positive constants.\n\n**(a)** State the value of $a$ and one possible value of $b$. $\\quad$ **[2]**\n\nAnother curve, with equation $y = f(x)$, has a single stationary point at the point $(p, q)$, where $p$ and $q$ are constants. This curve is transformed to a curve with equation $y = -2f\\!\\left(\\tfrac{1}{2}(x+8)\\right)$.\n\n**(b)** For the transformed curve, find the coordinates of the stationary point, giving your answer in terms of $p$ and $q$. $\\quad$ **[3]**",
+              diagram_image: "P1_TR_004_d.svg",
+              solution_image: ""
+            }
           ],
-          "Binomial Expansion": [
             {
               id: "P1_BE_002",
               question_text: "Given that $(1 + ax)^n = 1 - 12x + 63x^2 + \\ldots$, find $a$ and $n$.",
@@ -68,6 +88,11 @@ const SYLLABUS = {
             {
               id: "P1_DF_003",
               question_text: "The volume $V$ of a sphere is increasing at the constant rate of $2\\pi$ cm$^3$s$^{-1}$.\n\nFind the rate of change of the surface area $S$ of the sphere when the volume is $36\\pi$ cm$^3$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_004",
+              question_text: "The equation of a curve is $y = px^{\\frac{2}{3}} - 6x^2 + 1$, where $p$ is a constant.\n\n**(a)** Find $\\dfrac{dy}{dx}$ and $\\dfrac{d^2y}{dx^2}$ in terms of $p$. $\\quad$ **[2]**\n\n**(b)** It is given that $p = 3$. Find the coordinates of the stationary point and determine its nature. $\\quad$ **[4]**",
               solution_image: ""
             }
           ],
@@ -152,6 +177,11 @@ const SYLLABUS = {
               id: "P1_SS_003",
               question_text: "The first three terms of an arithmetic progression are $-3\\tan\\dfrac{\\theta}{2}$, $-\\tan\\dfrac{\\theta}{2}$, $\\tan\\dfrac{\\theta}{2}$, where $0 < \\theta < \\dfrac{\\pi}{2}$.\n\n**(i)** Given that the 12th term of this progression is equal to $\\dfrac{19\\sqrt{3}}{3}$, find the exact value of $\\theta$. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "P1_SS_004",
+              question_text: "The first term of a geometric progression and the first term of an arithmetic progression are both equal to $a$. The third term of the geometric progression is equal to the second term of the arithmetic progression. The fifth term of the geometric progression is equal to the sixth term of the arithmetic progression.\n\nGiven that all terms are positive and not all equal, find the sum of the first twenty terms of the arithmetic progression in terms of $a$. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
 
@@ -164,6 +194,16 @@ const SYLLABUS = {
             {
               id: "P1_FN_002",
               question_text: "The function f is defined by $f(x) = \\dfrac{1}{2x-5}$ for $x > 2.5$.\n\n**(i)** Find an expression for $f^{-1}(x)$. $\\quad$ **[2]**\n\n**(ii)** State the domain of $f^{-1}(x)$. $\\quad$ **[1]**\n\n**(iii)** Find an expression for $f^2(x)$, giving your answer in the form $\\dfrac{ax+b}{cx+d}$, where $a$, $b$, $c$ and $d$ are integers to be found. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_003",
+              question_text: "**(a)** Express $4x^2 - 12x + 13$ in the form $(2x + a)^2 + b$, where $a$ and $b$ are constants. $\\quad$ **[3]**\n\nThe function f is defined by $f(x) = 4x^2 - 12x + 13$ for $p < x < q$, where $p$ and $q$ are constants. The function g is defined by $g(x) = 3x + 1$ for $x < 8$.\n\n**(b)** Given that it is possible to form the composite function gf, find the least possible value of $p$ and the greatest possible value of $q$.",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_004",
+              question_text: "Functions f and g are defined for all real values of $x$ by\n$$f(x) = 4x^2 - c \\quad \\text{and} \\quad g(x) = 2x + k$$\nwhere $c$ and $k$ are positive constants. It is given that $g^{-1}(3k+1) = c$.\n\n**(a)** Show that $g(f(x)) = 8x^2 - k - 1$. $\\quad$ **[3]**\n\n**(b)** The curve $y = 8x^2 - k - 1$ is transformed to the curve $y = h(x)$ by the following sequence of transformations:\n\n- Translation by the vector $\\begin{pmatrix}2\\\\3\\end{pmatrix}$\n- Stretch in the $y$-direction by scale factor $k$\n- Reflection in the $x$-axis\n\nFind an expression for $h(x)$ in terms of $x$ and $k$. $\\quad$ **[3]**\n\n**(c)** The range of $h$ is given by $h(x) \\leq 15$. Find the values of $c$ and $k$. $\\quad$ **[3]**",
               solution_image: ""
             }
           ],
