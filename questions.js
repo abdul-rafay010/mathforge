@@ -263,10 +263,86 @@ const SYLLABUS = {
         name: "Statistics 1",
         topics: {
           "Representation of Data":      [],
-          "Permutations & Combinations": [],
-          "Probability":                 [],
-          "Discrete Random Variables":   [],
-          "Normal Distribution":         []
+
+          "Permutations & Combinations": [
+            {
+              id: "S1_PC_001",
+              question_text: "Eight identical red balls and four identical blue balls are arranged in a row.\n\n**(a)** Find the number of arrangements in which no two blue balls are adjacent. $\\quad$ **[3]**\n\n**(b)** Find the number of arrangements in which the blue balls occupy exactly 3 of the 4 end positions. $\\quad$ **[3]**\n\n**(c)** An arrangement is chosen at random. Find the probability that no two blue balls are adjacent, given that the arrangement begins with a blue ball. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_002",
+              question_text: "A committee of 5 is to be chosen from 6 men and 5 women. Two particular men, Alan and Brian, refuse to serve together.\n\n**(a)** Find the total number of ways of choosing the committee with no restrictions. $\\quad$ **[2]**\n\n**(b)** Find the number of committees containing at least 2 men and at least 2 women. $\\quad$ **[4]**\n\n**(c)** Find the number of committees satisfying part **(b)** that do not contain both Alan and Brian. $\\quad$ **[4]**\n\n**(d)** A committee satisfying part **(b)** is chosen at random. Find the probability that it contains Alan but not Brian. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_003",
+              question_text: "Six people — Alice, Bob, and four others — are to be seated at a circular table. The host always occupies a fixed seat, and Alice always sits directly opposite the host.\n\n**(a)** Find the number of ways the remaining four people can be seated. $\\quad$ **[2]**\n\n**(b)** Find the number of these arrangements in which Alice and Bob are not adjacent. $\\quad$ **[3]**\n\n**(c)** Two of the four remaining people are twins who are identical in appearance. Find the number of distinct arrangements in which Alice and Bob are not adjacent. $\\quad$ **[3]**\n\n**(d)** Given that the seating is chosen at random from all valid arrangements in **(a)**, find the probability that Bob sits next to Alice. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_004",
+              question_text: "Find the number of ways the letters of the word **STATISTICS** can be arranged.\n\n**(a)** Find the total number of distinct arrangements of the letters. $\\quad$ **[2]**\n\n**(b)** Find the number of arrangements in which all three S's are together. $\\quad$ **[3]**\n\n**(c)** Find the number of arrangements in which all the S's are together but not all the T's are together. $\\quad$ **[4]**\n\n**(d)** An arrangement is chosen at random. Find the probability that it begins and ends with the same letter. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_006",
+              question_text: "The 7 letters of the word *MINIMUM* are written on 7 separate pieces of card.\n\nFour of these cards are picked at random, one after the other.\n\n**(a)** Determine the probability that all the cards will show a different letter. $\\quad$ **[3]**\n\n**(b)** If instead the four cards were arranged into a four letter word, in the order they were picked, determine the probability that the resulting arrangement will contain at least 2 cards with the letter $M$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_007",
+              question_text: "Seven rectangular tiles, of which 3 are pink, 2 are blue and 2 are red, are placed in a straight line, next to each other.\n\nFind the number of arrangements where the pink tiles are next to each other and the blue tiles are **not** next to each other. $\\quad$ **[5]**",
+              solution_image: ""
+            }
+          ],
+
+          "Probability": [
+            {
+              id: "S1_PR_001",
+              question_text: "A box contains red and blue cards only, in the ratio $3:2$.\n\nTwo cards are selected from the box, without replacement.\n\nIf the probability of selecting different colour cards is $\\dfrac{1}{2}$, use algebra to find the total number of cards in the box. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PR_002",
+              question_text: "A box contains 16 balls, identical in size, of which $w$ of them are white, $b$ of them are black and 1 of them is red.\n\nTwo balls are drawn from the box one after the other, without being replaced.\n\nDetermine the probability that the red ball will be picked. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PR_003",
+              question_text: "A candidate is attempting a test at which a **maximum of two attempts** is allowed.\n\nThe outcome of this test is deemed to be a pass or a fail.\n\nThe probability that a candidate passes the test in the first attempt is $0.6$.\n\nThe probability that a candidate passes the test is $0.76$.\n\nIf a candidate passed the test, determine the probability that he failed the first attempt. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PR_004",
+              question_text: "Ann, Bill, Chris and Dipak play a game with a fair cubical die. Starting with Ann they take turns, in alphabetical order, to throw the die. This process is repeated as many times as necessary until a player throws a 6. When this happens, the game stops and this player is the winner.\n\nFind the probability that\n\n**(i)** Chris wins on his first throw, $\\quad$ **[1]**\n\n**(ii)** Dipak wins on his second throw, $\\quad$ **[3]**\n\n**(iii)** Ann gets a third throw, $\\quad$ **[2]**\n\n**(iv)** Bill throws the die exactly three times. $\\quad$ **[4]**",
+              solution_image: ""
+            }
+          ],
+          "Discrete Random Variables": [
+            {
+              id: "S1_DRV_001",
+              question_text: "It is given that the discrete random variable $X$ satisfies $X \\sim B(n, p)$.\n\nGiven further that $\\text{P}(X = 2) = \\text{P}(X = 3)$, show that\n$$\\text{E}(X) = 3 - p$$",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_002",
+              question_text: "Each year Jack enters a ballot for a concert ticket. The probability that Jack will win a ticket in any particular year is $0.27$.\n\n**(i)** Find the probability that the first time Jack wins a ticket is\n\n$\\quad$ **(a)** on his 8th attempt, $\\quad$ **[2]**\n\n$\\quad$ **(b)** after his 8th attempt. $\\quad$ **[2]**\n\n**(ii)** Write down an expression for the probability that Jack wins a ticket on exactly 2 of his first 8 attempts, and evaluate this expression. $\\quad$ **[3]**\n\n**(iii)** Find the probability that Jack wins his 3rd ticket on his 9th attempt and his 4th ticket on his 12th attempt. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_003",
+              question_text: "Andrea practises shots at goal. For each shot the probability of her scoring a goal is $\\dfrac{2}{5}$. Each shot is independent of other shots.\n\n**(i)** Find the probability that she scores her first goal\n\n$\\quad$ **(a)** on her 5th shot, $\\quad$ **[2]**\n\n$\\quad$ **(b)** before her 5th shot. $\\quad$ **[3]**\n\n**(ii) (a)** Find the probability that she scores exactly 1 goal in her first 5 shots. $\\quad$ **[3]**\n\n$\\quad$ **(b)** Hence find the probability that she scores her **second** goal on her 6th shot. $\\quad$ **[2]**",
+              solution_image: ""
+            }
+          ],
+          "Normal Distribution": [
+            {
+              id: "S1_ND_001",
+              question_text: "During hot days, an ice cream van sells a large number of ice cream cones containing either 1, 2 or 3 scoops of ice cream.\n\nThe respective probabilities of a customer buying a 1, 2 or 3 scoop ice cream cone are $\\dfrac{1}{6}$, $\\dfrac{1}{2}$ or $\\dfrac{1}{3}$.\n\nA random sample of $n$ customers is examined, each customer having bought an ice cream cone from this van. The probability that more than $n$ scoops of ice cream are ordered by these $n$ customers is greater than $0.9999$.\n\nDetermine the smallest possible value of $n$. $\\quad$ **[7]**",
+              solution_image: ""
+            }
+          ]
         }
       }
 
@@ -451,12 +527,33 @@ const SYLLABUS = {
       "FS": {
         name: "Further Statistics",
         topics: {
-          "Continuous Random Variables": [],
+          "Continuous Random Variables": [
+            {
+              id: "FS_CRV_001",
+              question_text: "The continuous random variable $X$ has the following cumulative distribution function\n$$F(x) = \\begin{cases} 0 & x < 0 \\\\ ax - bx^2 & 0 \\leq x \\leq k \\\\ 1 & x > k \\end{cases}$$\nwhere $a$, $b$ and $k$ are positive constants.\n\nThe variable $Y$ is related to $X$ by\n$$Y = 3X - 2$$\n\nDetermine the value of $a$, $b$ and $k$ given further that $\\text{E}(Y) = 2$ and $\\text{Var}(Y) = 8$. $\\quad$ **[9]**",
+              solution_image: ""
+            }
+          ],
 
           "Discrete Random Variables (PGF)": [
             {
               id: "FS_DRV_001",
               question_text: "The probability generating function of the random variable $X$ is\n$$G_X(t) = \\frac{1}{81}\\left(t + \\frac{2}{t}\\right)^4$$\n\n**(i)** Use the probability generating function to find $\\text{E}(X)$ and $\\text{Var}(X)$. $\\quad$ **[5]**\n\n**(ii)** The random variable $Y$ is defined by $Y = \\tfrac{1}{2}(X+4)$. By finding the probability distribution of $X$, or otherwise, show that $Y \\sim B(n,\\,p)$, stating the values of $n$ and $p$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_DRV_002",
+              question_text: "The random variable $X$ has probability generating function $G_X(t)$ where\n$$G_X(t) = \\frac{1}{\\sqrt{4-3t}}$$\n\n**(a)** Use calculus to find $\\text{Var}(X)$. Show your working clearly. $\\quad$ **(6)**\n\n**(b)** Find the exact value of $\\text{P}(X \\leq 2)$. $\\quad$ **(4)**\n\nThe independent random variables $X_1$ and $X_2$ each have the same distribution as $X$. The random variable $Y = X_1 + X_2 + 1$.\n\n**(c)** By finding the probability generating function of $Y$, state the name of the distribution of $Y$. $\\quad$ **(4)**\n\n**(d)** Hence, or otherwise, find $\\text{P}(X_1 + X_2 > 5)$. $\\quad$ **(2)**",
+              solution_image: ""
+            },
+            {
+              id: "FS_DRV_003",
+              question_text: "The discrete random variable $X$ has probability generating function $G_X(t)$ given by\n$$G_X(t) = at\\left(t + \\frac{1}{t}\\right)^3$$\nwhere $a$ is a constant.\n\n**(a)** Find, in either order, the value of $a$ and the set of values that $X$ can take. $\\quad$ **[4]**\n\n**(b)** Find the value of $\\text{E}(X)$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_DRV_004",
+              question_text: "The discrete random variable $X$ has probability generating function\n$$G_X(t) = k\\ln\\!\\left(\\frac{2}{2-t}\\right)$$\nwhere $k$ is a constant.\n\n**(a)** Find the exact value of $k$. $\\quad$ **(1)**\n\n**(b)** Find the exact value of $\\text{Var}(X)$. $\\quad$ **(7)**\n\n**(c)** Find $\\text{P}(X = 3)$. $\\quad$ **(4)**",
               solution_image: ""
             }
           ],
