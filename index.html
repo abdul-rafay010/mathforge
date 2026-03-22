@@ -966,7 +966,7 @@ body::before {
   ═══════════════════════════ -->
   <div class="screen" id="s-home">
 
-    <div class="home-heading">Problems.<br><em>Worth Solving.</em></div>
+    <div class="home-heading">No shortcuts.<br><em>No spectators.</em></div>
     <div class="home-sub">Mathematics is not a spectator sport — play it to conquer it.</div>
 
     <div class="course-pair" id="course-pair"></div>
@@ -1373,14 +1373,12 @@ function stepProblem(dir) {
   const next = S.probIndex + dir;
   if (next < 0 || next >= questions.length) return;
   renderProblem(questions, next);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function jumpProblem(idx) {
   const sec = SYLLABUS[S.course].sections[S.section];
   const questions = sec.topics[S.topic] || [];
   renderProblem(questions, idx);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function toggleProbSol() {
