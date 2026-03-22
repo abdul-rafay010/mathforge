@@ -8,16 +8,131 @@ const SYLLABUS = {
       "P1": {
         name: "Pure Mathematics 1",
         topics: {
-          "Coordinate Geometry":  [],
-          "Trigonometry":         [],
-          "Binomial Expansion":   [],
-          "Differentiation":      [],
-          "Quadratics":           [],
+          "Coordinate Geometry": [
+            {
+              id: "P1_CG_001",
+              question_text: "A circle with centre $C$ has equation $x^2 + y^2 - 8x - 2y - 3 = 0$.\n\n**(i)** Find the coordinates of $C$ and the radius of the circle. $\\quad$ **[3]**\n\n**(ii)** Find the values of $k$ for which the line $y = k$ is a tangent to the circle, giving your answers in simplified surd form. $\\quad$ **[3]**\n\n**(iii)** The points $S$ and $T$ lie on the circumference of the circle. $M$ is the mid-point of the chord $ST$. Given that the length of $CM$ is $2$, calculate the length of the chord $ST$. $\\quad$ **[3]**\n\n**(iv)** Find the coordinates of the point where the circle meets the line $x - 2y - 12 = 0$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CG_002",
+              question_text: "A circle with centre $C$ has equation $x^2 + y^2 - 10x + 4y + 4 = 0$.\n\n**(i)** Find the coordinates of $C$ and the radius of the circle. $\\quad$ **[3]**\n\n**(ii)** Show that the tangent to the circle at the point $P(8, 2)$ has equation $3x + 4y = 32$. $\\quad$ **[5]**\n\n**(iii)** The circle meets the $y$-axis at $Q$ and the tangent meets the $y$-axis at $R$. Find the area of triangle $PQR$. $\\quad$ **[4]**",
+              solution_image: ""
+            }
+          ],
+          "Trigonometry": [
+            {
+              id: "P1_TR_001",
+              question_text: "Find the exact solution of the equation\n$$\\cos\\tfrac{1}{4}\\pi + \\tan 3x + \\frac{\\sqrt{2}}{2} = 0 \\quad \\text{for} \\quad -\\tfrac{1}{3}\\pi < x < \\tfrac{1}{3}\\pi$$\n$\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_TR_002",
+              question_text: "**(ii)(a)** Show that the equation $\\sin\\theta\\tan\\theta = 3\\cos\\theta + 2$ can be written in the form\n$$4\\cos^2\\theta + 2\\cos\\theta - 1 = 0$$\n$\\quad$ **(3)**\n\n**(b)** Hence solve, for $0 \\leq \\theta < 360°$,\n$$\\sin\\theta\\tan\\theta = 3\\cos\\theta + 2$$\nshowing each stage of your working. $\\quad$ **(5)**",
+              solution_image: ""
+            },
+            {
+              id: "P1_TR_003",
+              question_text: "**(a)** Show that the equation $\\tan 2x = 5\\sin 2x$ can be written in the form\n$$(1 - 5\\cos 2x)\\sin 2x = 0$$\n$\\quad$ **(2)**\n\n**(b)** Hence solve, for $0 \\leq x \\leq 180°$,\n$$\\tan 2x = 5\\sin 2x$$\ngiving your answers to 1 decimal place where appropriate. $\\quad$ **(5)**",
+              solution_image: ""
+            }
+          ],
+          "Binomial Expansion": [
+            {
+              id: "P1_BE_002",
+              question_text: "Given that $(1 + ax)^n = 1 - 12x + 63x^2 + \\ldots$, find $a$ and $n$.",
+              solution_image: ""
+            },
+            {
+              id: "P1_BE_003",
+              question_text: "In the expansion of $(2 + 3x)^n$, the coefficients of $x^4$ and $x^5$ are in the ratio $8:15$.\n\nFind the value of $n$.",
+              solution_image: ""
+            },
+            {
+              id: "P1_BE_004",
+              question_text: "The first three terms, in descending powers of $x$, in the expansion of $\\left(2x^2 - \\dfrac{1}{4x}\\right)^n$ can be written in the form $256x^{16} + ax^{13} + bx^c$, where $n$, $a$, $b$ and $c$ are integers.\n\nFind the values of $n$, $a$, $b$ and $c$. $\\quad$ **[6]**",
+              solution_image: ""
+            }
+          ],
+          "Differentiation": [
+            {
+              id: "P1_DF_001",
+              question_text: "The curve $y = 4x^2 + \\dfrac{a}{x} + 5$ has a stationary point. Find the value of the positive constant $a$ given that the $y$-coordinate of the stationary point is $32$. $\\quad$ **[8]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_002",
+              question_text: "The curve $y = (1-x)(x^2 + 4x + k)$ has a stationary point when $x = -3$.\n\n**(i)** Find the value of the constant $k$. $\\quad$ **[7]**\n\n**(ii)** Determine whether the stationary point is a maximum or minimum point. $\\quad$ **[2]**\n\n**(iii)** Given that $y = 9x - 9$ is the equation of the tangent to the curve at the point $A$, find the coordinates of $A$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_003",
+              question_text: "The volume $V$ of a sphere is increasing at the constant rate of $2\\pi$ cm$^3$s$^{-1}$.\n\nFind the rate of change of the surface area $S$ of the sphere when the volume is $36\\pi$ cm$^3$. $\\quad$ **[6]**",
+              solution_image: ""
+            }
+          ],
+          "Quadratics": [
+            {
+              id: "P1_QD_001",
+              question_text: "Solve the quadratic equation\n$$(\\sqrt{3}-1)x^2 - 2\\sqrt{3}\\,x = 3 + 3\\sqrt{3}$$\ngiving one root in the form $p + q\\sqrt{3}$ and the other in the form $r\\sqrt{3}$, where $p$, $q$ and $r$ are integers.",
+              solution_image: ""
+            },
+            {
+              id: "P1_QD_002",
+              question_text: "A curve $C$ has equation\n$$(x-1)y^2 - 2xy + x = 0, \\quad x \\geq 0$$\n\nBy completing the square in the above equation, express $y$ in terms of $x$.",
+              solution_image: ""
+            },
+            {
+              id: "P1_QD_003",
+              question_text: "A quadratic curve has equation $f(x) = (x-1)(x-a)$, where $a$ is a constant.\n\nShow, **without** a calculus method, that the coordinates of the minimum point of the curve are\n$$\\left(\\frac{a+1}{2},\\,-\\frac{(a-1)^2}{4}\\right)$$",
+              solution_image: ""
+            },
+            {
+              id: "P1_QD_004",
+              question_text: "The equation $(k+5)x^2 + 4x + (k+2) = 0$, where $k$ is a constant, has two distinct real solutions for $x$.\n\nFind the set of possible values for $k$.",
+              solution_image: ""
+            }
+          ],
 
           "Integration": [
             {
               id: "P1_IN_001",
-              question_text: "The point $A$ with $x$-coordinate $2$ lies on the curve $y = \\sqrt{4x+1}$. The tangent to the curve at $A$ meets the $x$-axis at a point.\n\nFind the area of the shaded region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[10]**",
+              question_text: "The point $A$ with $x$-coordinate $2$ lies on the curve $y = \\sqrt{4x+1}$. The tangent to the curve at $A$ meets the $x$-axis at a point.\n\nFind the exact area of the region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[10]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_002",
+              question_text: "A curve passes through the point $(1, 8)$ and has an equation which satisfies\n$$\\frac{dy}{dx} = 2x + \\frac{a}{x^3} + 3$$\nfor all non-zero values of $x$. The area enclosed by the curve, the $x$-axis, the line $x = 1$ and the line $x = 3$ is $30$ square units.\n\nFind the value of the positive constant $a$. $\\quad$ **[9]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_003",
+              question_text: "A curve has an equation which satisfies $\\dfrac{d^2y}{dx^2} = 3x^{-\\frac{1}{2}}$ for all positive values of $x$. The point $P(4, 1)$ lies on the curve, and the gradient of the curve at $P$ is $5$.\n\nFind the equation of the curve. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_004",
+              question_text: "The curve $y = 6x^{\\frac{3}{2}}$ and the curve $y = \\dfrac{8}{x^2} - 2$ intersect at the point $(1, 6)$.\n\nUse integration to find the area of the region enclosed by the two curves and the $x$-axis. $\\quad$ **[8]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_005",
+              question_text: "The curve $y = x^2 - 3x$ crosses the $x$-axis at $x = 0$ and $x = 3$.\n\n**(i)** Explain why $\\displaystyle\\int_0^5 (x^2 - 3x)\\,dx$ does not give the total area of the regions between the curve and the $x$-axis for $0 \\leq x \\leq 5$. $\\quad$ **[1]**\n\n**(ii)** Use integration to find the exact total area of the regions between the curve and the $x$-axis for $0 \\leq x \\leq 5$. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_006",
+              question_text: "The curve $y = 1 - 3x^{-\\frac{1}{2}}$ intersects the $x$-axis at $(9, 0)$.\n\n**(i)** Verify that the curve intersects the $x$-axis at $(9, 0)$. $\\quad$ **[1]**\n\n**(ii)** The region enclosed by the curve, the $x$-axis and the line $x = a$ where $a > 9$ has area $4$ square units. Find the value of $a$. $\\quad$ **[9]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_007",
+              question_text: "The curve $y = x^{\\frac{3}{2}} - 1$ crosses the $x$-axis at $(1, 0)$. The tangent to the curve at the point $(4, 7)$ meets the $x$-axis at a point.\n\n**(i)** Show that $\\displaystyle\\int_1^4 \\left(x^{\\frac{3}{2}} - 1\\right)dx = 9\\tfrac{2}{5}$. $\\quad$ **[4]**\n\n**(ii)** Hence find the exact area of the region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_008",
+              question_text: "The curve $y = 10 + 8x + x^2 - x^3$ has a maximum turning point at $A$.\n\n**(a)** Using calculus, show that the $x$-coordinate of $A$ is $2$. $\\quad$ **(3)**\n\nThe region $R$ is bounded by the curve, the $y$-axis and the straight line from the origin $O$ to $A$.\n\n**(b)** Using calculus, find the exact area of $R$. $\\quad$ **(8)**",
               solution_image: ""
             }
           ],
@@ -27,10 +142,31 @@ const SYLLABUS = {
               id: "P1_SS_001",
               question_text: "An arithmetic progression has common difference $d$. The 3rd term of this progression is $10$.\n\n**(a)** Write down expressions for the 1st term and the 2nd term of this progression. Give your answers in terms of $d$ only. $\\quad$ **[2]**\n\n**(b)** When each of the first 3 terms is squared, the sum of these squares is $140$. There are two possible values for $d$.\n\nUsing your answer to part **(a)**, find the sum of the first 200 terms of the progression with the smaller value of $d$. $\\quad$ **[7]**",
               solution_image: ""
+            },
+            {
+              id: "P1_SS_002",
+              question_text: "The first term of a convergent geometric progression is $10$. The sum of the first $4$ terms is $p$ and the sum of the first $8$ terms is $q$. It is given that $\\dfrac{q}{p} = \\dfrac{17}{16}$.\n\nFind the two possible values of the sum to infinity. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_SS_003",
+              question_text: "The first three terms of an arithmetic progression are $-3\\tan\\dfrac{\\theta}{2}$, $-\\tan\\dfrac{\\theta}{2}$, $\\tan\\dfrac{\\theta}{2}$, where $0 < \\theta < \\dfrac{\\pi}{2}$.\n\n**(i)** Given that the 12th term of this progression is equal to $\\dfrac{19\\sqrt{3}}{3}$, find the exact value of $\\theta$. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
 
-          "Functions":        [],
+          "Functions": [
+            {
+              id: "P1_FN_001",
+              question_text: "The function f is defined, for all real $x$, by $f(x) = 13 - 4x - 2x^2$.\n\n**(a) (i)** Write $f(x)$ in the form $a + b(x+c)^2$, where $a$, $b$ and $c$ are constants. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Hence write down the range of f. $\\quad$ **[1]**\n\n**(b)** The function g is defined, for $x \\geq 1$, by $g(x) = \\sqrt{x^2 + 2x - 1}$.\n\n$\\quad$ **(i)** Given that $g^{-1}(x)$ exists, write down the domain and range of $g^{-1}$. $\\quad$ **[2]**\n\n$\\quad$ **(ii)** Show that $g^{-1}(x) = -1 + \\sqrt{px^2 + q}$, where $p$ and $q$ are integers. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_002",
+              question_text: "The function f is defined by $f(x) = \\dfrac{1}{2x-5}$ for $x > 2.5$.\n\n**(i)** Find an expression for $f^{-1}(x)$. $\\quad$ **[2]**\n\n**(ii)** State the domain of $f^{-1}(x)$. $\\quad$ **[1]**\n\n**(iii)** Find an expression for $f^2(x)$, giving your answer in the form $\\dfrac{ax+b}{cx+d}$, where $a$, $b$, $c$ and $d$ are integers to be found. $\\quad$ **[3]**",
+              solution_image: ""
+            }
+          ],
           "Circular Measure": []
         }
       },
@@ -42,7 +178,38 @@ const SYLLABUS = {
           "Logarithmic & Exp Functions": [],
           "Trigonometry":                [],
           "Differentiation":             [],
-          "Integration":                 [],
+          "Integration": [
+            {
+              id: "P3_IN_001",
+              question_text: "**(i)** State the derivative of $e^{\\cos x}$. $\\quad$ **[1]**\n\n**(ii)** Hence use integration by parts to find the exact value of\n$$\\int_0^{\\frac{1}{2}\\pi} \\cos x \\sin x \\, e^{\\cos x} \\, dx$$\n$\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_002",
+              question_text: "Find the exact value of\n$$\\int_1^{8} \\frac{1}{\\sqrt[3]{x}} \\ln x \\, dx$$\ngiving your answer in the form $A\\ln 2 + B$, where $A$ and $B$ are constants to be found. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_003",
+              question_text: "Use the substitution $u = 1 + \\ln x + x$ to find\n$$\\int \\frac{3(x+1)(1-\\ln x - x)}{x(1+\\ln x+x)} \\, dx$$",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_004",
+              question_text: "Use the substitution $u = 2 + \\ln t$ to find the exact value of\n$$\\int_1^{e} \\frac{1}{t(2+\\ln t)^2} \\, dt$$\n$\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_005",
+              question_text: "**(i)** Show that the substitution $x = \\sin^2\\theta$ transforms\n$$\\int \\sqrt{\\frac{x}{1-x}} \\, dx \\quad \\text{to} \\quad \\int 2\\sin^2\\theta \\, d\\theta$$\n$\\quad$ **[4]**\n\n**(ii)** Hence find\n$$\\int_0^{1} \\sqrt{\\frac{x}{1-x}} \\, dx$$\n$\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_006",
+              question_text: "**(i)** Use the quotient rule to show that the derivative of $\\dfrac{\\cos x}{\\sin x}$ is $\\dfrac{-1}{\\sin^2 x}$. $\\quad$ **[2]**\n\n**(ii)** Show that\n$$\\int_{\\frac{1}{6}\\pi}^{\\frac{1}{4}\\pi} \\frac{\\sqrt{1+\\cos 2x}}{\\sin x \\sin 2x} \\, dx = \\frac{1}{2}(\\sqrt{6}-\\sqrt{2})$$",
+              solution_image: ""
+            }
+          ],
           "Numerical Methods":           [],
           "Vectors":                     [],
           "Differential Equations":      [],
@@ -72,7 +239,13 @@ const SYLLABUS = {
       "FP1": {
         name: "Further Pure 1",
         topics: {
-          "Rational Functions": [],
+          "Rational Functions": [
+            {
+              id: "FP1_RF_001",
+              question_text: "A curve $C$ has equation\n$$h(x) = \\frac{f(x)}{g(x)}, \\quad x \\in \\mathbb{R}, \\quad g(x) \\neq 0$$\nwhere $f(x)$ is a quadratic function and $g(x)$ a linear function.\n\nThe asymptotes of $C$ have equations $x = -1$ and $y = x + 2$, and its graph passes through the point $P(1, 5)$.\n\n**a)** Determine a simplified Cartesian equation for $C$.\n\n**b)** Use a discriminant method to find the range of $h(x)$ and hence calculate the coordinates of the stationary points of $C$.\n\n**c)** Sketch in separate diagrams, showing all relevant details including asymptotic behaviour, the graph of:\n\n- **i.** $y = h(x)$\n- **ii.** $y^2 = h(x)$\n- **iii.** $y = h(|x|)$",
+              solution_image: ""
+            }
+          ],
           "Series": [
             {
               id: "FP1_SR_001",
