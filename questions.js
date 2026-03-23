@@ -216,8 +216,20 @@ const SYLLABUS = {
       "P3": {
         name: "Pure Mathematics 3",
         topics: {
-          "Algebra":                     [],
-          "Logarithmic & Exp Functions": [],
+          "Algebra": [
+            {
+              id: "P3_AL_001",
+              question_text: "In the binomial expansion of\n$$(1 - 8x)^p, \\quad |x| < \\tfrac{1}{8}$$\nwhere $p$ is a positive constant:\n\n- the sum of the coefficient of $x$ and the coefficient of $x^2$ is equal to the coefficient of $x^3$\n- the coefficient of $x^2$ is positive\n\nDetermine the value of $p$. $\\quad$ **[7]**",
+              solution_image: ""
+            }
+          ],
+          "Logarithmic & Exp Functions": [
+            {
+              id: "P3_LEF_001",
+              question_text: "**(a)** By writing $u = \\log_4 r$, where $r > 0$, show that\n$$\\log_4 r = \\tfrac{1}{2}\\log_2 r$$\n$\\quad$ **[2]**\n\n**(b)** Solve the equation\n$$\\log_4(5x^2 - 11) = \\log_2(3x - 5)$$\n$\\quad$ **[5]**",
+              solution_image: ""
+            }
+          ],
           "Trigonometry":                [],
           "Differentiation":             [],
           "Integration": [
@@ -249,6 +261,11 @@ const SYLLABUS = {
             {
               id: "P3_IN_006",
               question_text: "**(i)** Use the quotient rule to show that the derivative of $\\dfrac{\\cos x}{\\sin x}$ is $\\dfrac{-1}{\\sin^2 x}$. $\\quad$ **[2]**\n\n**(ii)** Show that\n$$\\int_{\\frac{1}{6}\\pi}^{\\frac{1}{4}\\pi} \\frac{\\sqrt{1+\\cos 2x}}{\\sin x \\sin 2x} \\, dx = \\frac{1}{2}(\\sqrt{6}-\\sqrt{2})$$",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_007",
+              question_text: "The curve $y = x\\sin(\\ln x)$, $x \\geq 1$, first crosses the $x$-axis for $x > 1$ at the point $A$.\n\n**(a)** Find the $x$-coordinate of $A$. $\\quad$ **[3]**\n\n**(b)** Differentiate $x\\sin(\\ln x)$ and $x\\cos(\\ln x)$ with respect to $x$, and hence find\n$$\\int \\sin(\\ln x)\\,dx \\quad \\text{and} \\quad \\int \\cos(\\ln x)\\,dx$$\n$\\quad$ **[7]**\n\n**(c) (i)** Find $\\displaystyle\\int x\\sin(\\ln x)\\,dx$. $\\quad$ **[4]**\n\n$\\quad$ **(ii)** Hence show that the area of the region bounded by the curve $y = x\\sin(\\ln x)$ and the $x$-axis, between $x = 1$ and $x = A$, is\n$$\\tfrac{1}{5}\\left(e^{2\\pi} + 1\\right)$$\n$\\quad$ **[5]**",
               solution_image: ""
             }
           ],
@@ -317,6 +334,11 @@ const SYLLABUS = {
               id: "S1_PR_004",
               question_text: "Ann, Bill, Chris and Dipak play a game with a fair cubical die. Starting with Ann they take turns, in alphabetical order, to throw the die. This process is repeated as many times as necessary until a player throws a 6. When this happens, the game stops and this player is the winner.\n\nFind the probability that\n\n**(i)** Chris wins on his first throw, $\\quad$ **[1]**\n\n**(ii)** Dipak wins on his second throw, $\\quad$ **[3]**\n\n**(iii)** Ann gets a third throw, $\\quad$ **[2]**\n\n**(iv)** Bill throws the die exactly three times. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "S1_PR_005",
+              question_text: "Labrador puppies may be black, yellow or chocolate in colour. Some information about a litter of 9 puppies is given in the table.\n\n$$\\begin{array}{|l|c|c|}\\hline & \\textbf{Male} & \\textbf{Female} \\\\\\hline \\text{Black} & 1 & 3 \\\\\\hline \\text{Yellow} & 2 & 1 \\\\\\hline \\text{Chocolate} & 1 & 1 \\\\\\hline\\end{array}$$\n\nFour puppies are chosen at random to train as guide dogs.\n\n**(a)** Determine the probability that exactly 3 females are chosen. $\\quad$ **[3]**\n\n**(b)** Determine the probability that **at least** 3 black puppies are chosen. $\\quad$ **[3]**\n\n**(c)** Determine the probability that exactly 3 females are chosen **given that** at least 3 black puppies are chosen. $\\quad$ **[3]**\n\n**(d)** Explain whether the events 'choosing exactly 3 females' and 'choosing at least 3 black puppies' are independent events. $\\quad$ **[2]**",
+              solution_image: ""
             }
           ],
           "Discrete Random Variables": [
@@ -362,12 +384,23 @@ const SYLLABUS = {
               id: "FP1_RF_001",
               question_text: "A curve $C$ has equation\n$$h(x) = \\frac{f(x)}{g(x)}, \\quad x \\in \\mathbb{R}, \\quad g(x) \\neq 0$$\nwhere $f(x)$ is a quadratic function and $g(x)$ a linear function.\n\nThe asymptotes of $C$ have equations $x = -1$ and $y = x + 2$, and its graph passes through the point $P(1, 5)$.\n\n**a)** Determine a simplified Cartesian equation for $C$.\n\n**b)** Use a discriminant method to find the range of $h(x)$ and hence calculate the coordinates of the stationary points of $C$.\n\n**c)** Sketch in separate diagrams, showing all relevant details including asymptotic behaviour, the graph of:\n\n- **i.** $y = h(x)$\n- **ii.** $y^2 = h(x)$\n- **iii.** $y = h(|x|)$",
               solution_image: ""
+            },
+            {
+              id: "FP1_RF_002",
+              question_text: "A curve has equation $y = \\mathrm{f}(x)$ where\n$$\\mathrm{f}(x) = 1 + \\frac{4}{x(x-3)}$$\nThe curve has a turning point at $P$, and the lines $y = 1$, $x = 0$ and $x = a$ are asymptotes to the curve (see diagram).\n\n**(a)** Write down the value of $a$. $\\quad$ **[1]**\n\n**(b)** Find the coordinates of $P$, justifying your answer. $\\quad$ **[4]**\n\n**(c)** Sketch the curve with equation\n$$y = \\left|\\mathrm{f}\\!\\left(x + \\tfrac{3}{2}\\right)\\right| - 1$$\nOn your sketch, show the coordinates of any points of intersection with the coordinate axes, the coordinates of any turning points and the equations of any asymptotes. $\\quad$ **[7]**",
+              diagram_image: "FP1_RF_002_d.svg",
+              solution_image: ""
             }
           ],
           "Series": [
             {
               id: "FP1_SR_001",
               question_text: "**a** Prove by induction that for all positive integers $n$:\n$$\\sum_{r=1}^{2n} r^2 = \\frac{1}{3}n(2n+1)(4n+1)$$\n\n**b** Given that $\\displaystyle\\sum_{r=1}^{2n} r^2 = k\\sum_{r=1}^{n} r^2$, show that $k$ must satisfy\n$$n = \\frac{2-k}{k-8}$$",
+              solution_image: ""
+            },
+            {
+              id: "FP1_SR_002",
+              question_text: "**(a)** Show that\n$$\\frac{1}{(ar+1)(ar+a+1)} \\equiv \\frac{1}{a}\\left(\\frac{1}{ar+1} - \\frac{1}{ar+a+1}\\right)$$\n$\\quad$ **[2]**\n\n**(b)** Hence show that\n$$\\sum_{r=0}^{n} \\frac{1}{(ar+1)(ar+a+1)} = \\frac{n+1}{a(n+1)+1}$$\n$\\quad$ **[4]**\n\n**(c)** Write down $S_\\infty$, the sum to infinity of the series. $\\quad$ **[1]**\n\n**(d)** Given that $a = 3$, find the smallest integer $n$ such that $S_\\infty - S_n < \\dfrac{1}{1000}$. $\\quad$ **[4]**",
               solution_image: ""
             }
           ],
