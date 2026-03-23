@@ -1,0 +1,53 @@
+<svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" width="520" height="380">
+  <rect width="520" height="380" fill="white"/>
+
+  <!-- Dashed asymptote x = a (x = 3) -->
+  <line x1="281" y1="0" x2="281" y2="380" stroke="#999" stroke-width="1.5" stroke-dasharray="7,4"/>
+  <!-- Dashed asymptote y = 1 -->
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#999" stroke-width="1.5" stroke-dasharray="7,4"/>
+
+  <!-- x-axis -->
+  <line x1="0" y1="228" x2="508" y2="228" stroke="#111" stroke-width="2"/>
+  <polygon points="510,228 499,222 499,234" fill="#111"/>
+  <!-- y-axis -->
+  <line x1="94" y1="380" x2="94" y2="4" stroke="#111" stroke-width="2"/>
+  <polygon points="94,2 88,13 100,13" fill="#111"/>
+
+  <!-- LEFT BRANCH  (x from −1.5 to ~−0.27, approaching x=0 from left going to +∞) -->
+  <!-- Points: (0,156) (19,148) (44,127) (63,89) (77,0) -->
+  <path d="M 0 157 C 8 153, 25 142, 44 127 C 54 113, 60 100, 63 89 C 66 76, 70 48, 77 0"
+        fill="none" stroke="#111" stroke-width="2.5"/>
+
+  <!-- MIDDLE BRANCH (0 < x < 3, curve dips below, minimum at P=(1.5, −7/9)) -->
+  <!-- Enters from bottom near x=0.45 (px≈125,py=380) and exits at bottom near x=2.55 (px≈256,py=380) -->
+  <!-- minimum at (188, 258) -->
+  <path d="M 125 380 C 127 330, 135 290, 148 272 C 158 258, 170 252, 188 250
+             C 206 252, 218 258, 228 272 C 241 290, 249 330, 251 380"
+        fill="none" stroke="#111" stroke-width="2.5"/>
+
+  <!-- RIGHT BRANCH (x > 3, from +∞ down toward y=1 asymptote) -->
+  <!-- From top near x=3.27 (px≈298,py=0) down through x=3.5,4,5,6 -->
+  <path d="M 298 0 C 302 30, 308 62, 320 93 C 332 120, 348 148, 370 163
+             C 390 173, 420 178, 460 179 C 490 180, 510 180, 520 180"
+        fill="none" stroke="#111" stroke-width="2.5"/>
+
+  <!-- Point P (minimum of middle branch at x=1.5, y=−7/9) -->
+  <circle cx="188" cy="258" r="4.5" fill="#111"/>
+
+  <!-- LABELS -->
+  <!-- x label -->
+  <text x="513" y="223" font-family="Georgia, serif" font-style="italic" font-size="17" fill="#111">x</text>
+  <!-- y label -->
+  <text x="98" y="16" font-family="Georgia, serif" font-style="italic" font-size="17" fill="#111">y</text>
+  <!-- O label -->
+  <text x="76" y="247" font-family="Georgia, serif" font-size="16" fill="#111">O</text>
+  <!-- P label (below and left of point) -->
+  <text x="165" y="277" font-family="Georgia, serif" font-style="italic" font-size="16" fill="#111">P</text>
+  <!-- y = 1 label -->
+  <text x="4" y="175" font-family="Georgia, serif" font-style="italic" font-size="14" fill="#666">y = 1</text>
+  <!-- x = a label -->
+  <text x="286" y="372" font-family="Georgia, serif" font-style="italic" font-size="14" fill="#666">x = a</text>
+
+  <!-- Figure label -->
+  <text x="200" y="368" font-family="Georgia, serif" font-size="14" fill="#444" text-anchor="middle">Figure 1</text>
+</svg>
