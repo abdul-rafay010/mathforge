@@ -402,6 +402,36 @@ const SYLLABUS = {
               id: "FP1_SR_002",
               question_text: "**(a)** Show that\n$$\\frac{1}{(ar+1)(ar+a+1)} \\equiv \\frac{1}{a}\\left(\\frac{1}{ar+1} - \\frac{1}{ar+a+1}\\right)$$\n$\\quad$ **[2]**\n\n**(b)** Hence show that\n$$\\sum_{r=0}^{n} \\frac{1}{(ar+1)(ar+a+1)} = \\frac{n+1}{a(n+1)+1}$$\n$\\quad$ **[4]**\n\n**(c)** Write down $S_\\infty$, the sum to infinity of the series. $\\quad$ **[1]**\n\n**(d)** Given that $a = 3$, find the smallest integer $n$ such that $S_\\infty - S_n < \\dfrac{1}{1000}$. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_SR_003",
+              question_text: "**(a)** Use the method of differences to prove that, for $n > 2$,\n$$\\sum_{r=2}^{n} \\ln\\!\\left(\\frac{r+1}{r-1}\\right) \\equiv \\ln\\!\\left(\\frac{n(n+1)}{2}\\right)$$\n$\\quad$ **[4]**\n\n**(b)** Hence find the exact value of\n$$\\sum_{r=51}^{100} \\ln\\!\\left(\\frac{r+1}{r-1}\\right)^{35}$$\ngiving your answer in the form $a\\ln\\!\\left(\\dfrac{b}{c}\\right)$ where $a$, $b$ and $c$ are integers to be determined. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_SR_004",
+              question_text: "**(i)** Show that\n$$(r+2)! - (r+1)! = (r+1)^2 \\times r!$$\n$\\quad$ **[3]**\n\n**(ii)** Hence find an expression, in terms of $n$, for\n$$2^2 \\times 1! + 3^2 \\times 2! + 4^2 \\times 3! + \\ldots + (n+1)^2 \\times n!$$\n$\\quad$ **[4]**\n\n**(iii)** State, giving a brief reason, whether the series\n$$2^2 \\times 1! + 3^2 \\times 2! + 4^2 \\times 3! + \\ldots$$\nconverges. $\\quad$ **[1]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_SR_005",
+              question_text: "The $r$th term of a series is\n$$u_r = \\frac{1^3 + 2^3 + 3^3 + \\ldots + r^3}{1 + 3 + 5 + \\ldots + (2r-1)}$$\n\nFind the sum of the first 16 terms of the series. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_SR_006",
+              question_text: "Let $f(r) = \\dfrac{1}{\\sqrt{r+2}+\\sqrt{r}}$, $\\quad r \\geq 0$.\n\n**(a)** By rationalising the denominator, show that\n$$f(r) = \\tfrac{1}{2}\\left(\\sqrt{r+2} - \\sqrt{r}\\right)$$\n$\\quad$ **[2]**\n\n**(b)** Find an expression for $\\displaystyle\\sum_{r=1}^{n} f(r)$, simplifying your answer. $\\quad$ **[4]**\n\n**(c)** Show clearly that\n$$\\sum_{r=1}^{48} f(r) = 3 + 2\\sqrt{2}$$\n$\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_SR_007",
+              question_text: "Use partial fractions to find the exact value of\n$$\\sum_{n=1}^{\\infty} \\frac{2n+1}{n^4 + 2n^3 + n^2}$$\nYou may assume that the series converges. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_SR_008",
+              question_text: "Let\n$$f(x,\\,n) = \\sum_{r=1}^{n} \\frac{1}{(x-1)^r}, \\quad x \\in \\mathbb{R},\\ n \\in \\mathbb{N}$$\n\nBy observing the simplification of\n$$\\frac{1}{(x-2)(x-1)^r} - \\frac{1}{(x-2)(x-1)^{r+1}}$$\n\nfind a simplified expression for $f(x,\\,n)$. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
 
