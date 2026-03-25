@@ -432,6 +432,11 @@ const SYLLABUS = {
               id: "FP1_SR_008",
               question_text: "Let\n$$f(x,\\,n) = \\sum_{r=1}^{n} \\frac{1}{(x-1)^r}, \\quad x \\in \\mathbb{R},\\ n \\in \\mathbb{N}$$\n\nBy observing the simplification of\n$$\\frac{1}{(x-2)(x-1)^r} - \\frac{1}{(x-2)(x-1)^{r+1}}$$\n\nfind a simplified expression for $f(x,\\,n)$. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_SR_009",
+              question_text: "**(i)** Show that\n$$\\frac{1}{r} - \\frac{1}{r+2} \\equiv \\frac{2}{r(r+2)}$$\n$\\quad$ **[1]**\n\n**(ii)** Hence find an expression, in terms of $n$, for\n$$\\sum_{r=1}^{n} \\frac{2}{r(r+2)}$$\n$\\quad$ **[6]**\n\n**(iii)** Given that\n$$\\sum_{r=N+1}^{\\infty} \\frac{2}{r(r+2)} = \\frac{11}{30}$$\nfind the value of $N$. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
 
