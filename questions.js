@@ -34,6 +34,11 @@ const SYLLABUS = {
               id: "P1_CG_005",
               question_text: "Points $A$ and $B$ have coordinates $(4, 3)$ and $(8, -3)$ respectively. A circle with radius $10$ passes through both $A$ and $B$.\n\nFind the two possible equations of the circle. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "P1_CG_006",
+              question_text: "The point $P$ lies on the line with equation $y = mx + c$, where $m$ and $c$ are positive constants. A curve has equation $y = -\\dfrac{m}{x}$. There is a single point $P$ on the curve such that the straight line is a tangent to the curve at $P$.\n\n**(a)** Find the coordinates of $P$, giving the $y$-coordinate in terms of $m$. $\\quad$ **[6]**\n\nThe normal to the curve at $P$ intersects the curve again at the point $Q$.\n\n**(b)** Find the coordinates of $Q$ in terms of $m$. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
           "Trigonometry": [
@@ -161,6 +166,11 @@ const SYLLABUS = {
               id: "P1_IN_008",
               question_text: "The curve $y = 10 + 8x + x^2 - x^3$ has a maximum turning point at $A$.\n\n**(a)** Using calculus, show that the $x$-coordinate of $A$ is $2$. $\\quad$ **(3)**\n\nThe region $R$ is bounded by the curve, the $y$-axis and the straight line from the origin $O$ to $A$.\n\n**(b)** Using calculus, find the exact area of $R$. $\\quad$ **(8)**",
               solution_image: ""
+            },
+            {
+              id: "P1_IN_009",
+              question_text: "The function f is defined by $\\mathrm{f}(x) = (4x+2)^{-2}$ for $x > -\\dfrac{1}{2}$.\n\n**(a)** Find $\\displaystyle\\int_1^{\\infty} \\mathrm{f}(x)\\,dx$. $\\quad$ **[4]**\n\n**(b)** A point moves along the curve $y = \\mathrm{f}(x)$ in such a way that, as it passes through the point $A$, its $y$-coordinate is **decreasing** at the rate of $k$ units per second and its $x$-coordinate is **increasing** at the rate of $k$ units per second.\n\nFind the coordinates of $A$. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
 
@@ -209,7 +219,18 @@ const SYLLABUS = {
               solution_image: ""
             }
           ],
-          "Circular Measure": []
+          "Circular Measure": [
+            {
+              id: "P1_CM_001",
+              question_text: "A sector of a circle has radius $r$ and a fixed perimeter $p$.\n\nShow that the maximum possible area of the sector is $\\dfrac{p^2}{16}$, and find the value of $\\theta$ at which this maximum occurs. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_002",
+              question_text: "Two circles, each of radius $6$ cm, have centres $A$ and $B$ where $AB = 8$ cm. The circles intersect at $C$ and $D$.\n\n**(a)** Find angle $CAB$ in radians. $\\quad$ **[3]**\n\n**(b)** Find the exact area of the region that lies inside both circles. $\\quad$ **[5]**",
+              solution_image: ""
+            }
+          ]
         }
       },
 
@@ -626,7 +647,18 @@ const SYLLABUS = {
             }
           ],
 
-          "Inference":            [],
+          "Inference": [
+            {
+              id: "FS_IN_001",
+              question_text: "A company produces packets of sweets. Two different machines, $A$ and $B$, are used to fill the packets. A random sample of 50 packets filled by machine $A$ and a random sample of 60 packets filled by machine $B$ are taken. The masses of sweets, $x$ kg, in packets filled by machine $A$ and the masses of sweets, $y$ kg, in packets filled by machine $B$ are summarised as follows.\n$$n_A = 50, \\quad \\Sigma x = 22.4, \\quad \\Sigma x^2 = 10.1$$\n$$n_B = 60, \\quad \\Sigma y = 28.8, \\quad \\Sigma y^2 = 16.3$$\nA test at the $\\alpha\\%$ significance level provides evidence that the mean mass of sweets in packets filled by machine $A$ is less than the mean mass of sweets in packets filled by machine $B$.\n\nFind the set of possible values of $\\alpha$. $\\quad$ **[12]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_IN_002",
+              question_text: "*Jamland* and *Goodjam* are two suppliers of jars of jam. The weights of the jars of jam produced by each supplier can be assumed to be normally distributed with unknown, but equal, variances. A random sample of 20 jars of jam is taken from those supplied by *Jamland*.\n\nBased on this sample, the 95% confidence interval for the mean weight of a jar of *Jamland* jam, in grams, is\n$$[492, \\quad 507]$$\n\nA random sample of 10 jars of jam is selected from those supplied by *Goodjam*. The weight of each jar of *Goodjam* jam, $y$ grams, is recorded. The results are summarised as follows\n$$\\bar{y} = 480, \\quad s_y^2 = 280$$\n\nFind a 90% confidence interval for the value by which the mean weight of a jar of jam supplied by *Jamland* exceeds the mean weight of a jar of jam supplied by *Goodjam*. $\\quad$ **[11]**",
+              solution_image: ""
+            }
+          ],
           "Chi-squared Tests":    [],
           "Non-parametric Tests": []
         }
