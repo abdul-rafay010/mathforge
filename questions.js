@@ -62,6 +62,11 @@ const SYLLABUS = {
               question_text: "The diagram shows part of the graph of $y = \\sin(a(x+b))$, where $a$ and $b$ are positive constants.\n\n**(a)** State the value of $a$ and one possible value of $b$. $\\quad$ **[2]**\n\nAnother curve, with equation $y = f(x)$, has a single stationary point at the point $(p, q)$, where $p$ and $q$ are constants. This curve is transformed to a curve with equation $y = -2f\\!\\left(\\tfrac{1}{2}(x+8)\\right)$.\n\n**(b)** For the transformed curve, find the coordinates of the stationary point, giving your answer in terms of $p$ and $q$. $\\quad$ **[3]**",
               diagram_image: "P1_TR_004_d.svg",
               solution_image: ""
+            },
+            {
+              id: "P1_TR_005",
+              question_text: "The function f is given by $\\mathrm{f}(x) = 4\\cos^4 x + \\cos^2 x - k$ for $0 \\leq x \\leq 2\\pi$, where $k$ is a constant.\n\n**(a)** Given that $k = 3$, find the exact solutions of the equation $\\mathrm{f}(x) = 0$. $\\quad$ **[5]**\n\n**(b)** Use the quadratic formula to show that, when $k > 5$, the equation $\\mathrm{f}(x) = 0$ has no solutions. $\\quad$ **[5]**",
+              solution_image: ""
             }
           ],
           "Binomial Expansion": [
@@ -217,6 +222,11 @@ const SYLLABUS = {
               id: "P1_FN_004",
               question_text: "Functions f and g are defined for all real values of $x$ by\n$$f(x) = 4x^2 - c \\quad \\text{and} \\quad g(x) = 2x + k$$\nwhere $c$ and $k$ are positive constants. It is given that $g^{-1}(3k+1) = c$.\n\n**(a)** Show that $g(f(x)) = 8x^2 - k - 1$. $\\quad$ **[3]**\n\n**(b)** The curve $y = 8x^2 - k - 1$ is transformed to the curve $y = h(x)$ by the following sequence of transformations:\n\n- Translation by the vector $\\begin{pmatrix}2\\\\3\\end{pmatrix}$\n- Stretch in the $y$-direction by scale factor $k$\n- Reflection in the $x$-axis\n\nFind an expression for $h(x)$ in terms of $x$ and $k$. $\\quad$ **[3]**\n\n**(c)** The range of $h$ is given by $h(x) \\leq 15$. Find the values of $c$ and $k$. $\\quad$ **[3]**",
               solution_image: ""
+            },
+            {
+              id: "P1_FN_005",
+              question_text: "Functions f and g are defined as follows:\n$$\\mathrm{f}(x) = \\frac{2x+1}{2x-1} \\quad \\text{for } x \\neq \\tfrac{1}{2}$$\n$$\\mathrm{g}(x) = x^2 + 4 \\quad \\text{for } x \\in \\mathbb{R}$$\n\n**(a)** State the domain of $\\mathrm{f}^{-1}$. $\\quad$ **[1]**\n\n**(b)** Find an expression for $\\mathrm{f}^{-1}(x)$. $\\quad$ **[3]**\n\n**(c)** Find $\\mathrm{gf}^{-1}(3)$. $\\quad$ **[2]**\n\n**(d)** Explain why $\\mathrm{g}^{-1}(x)$ cannot be found. $\\quad$ **[1]**\n\n**(e)** Show that $1 + \\dfrac{2}{2x-1}$ can be expressed as $\\dfrac{2x+1}{2x-1}$. Hence find the exact area of the triangle enclosed by the tangent to the curve $y = \\mathrm{f}(x)$ at the point where $x = 1$ and the $x$- and $y$-axes. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
           "Circular Measure": [
@@ -332,6 +342,11 @@ const SYLLABUS = {
               id: "S1_PC_007",
               question_text: "Seven rectangular tiles, of which 3 are pink, 2 are blue and 2 are red, are placed in a straight line, next to each other.\n\nFind the number of arrangements where the pink tiles are next to each other and the blue tiles are **not** next to each other. $\\quad$ **[5]**",
               solution_image: ""
+            },
+            {
+              id: "S1_PC_008",
+              question_text: "In a restaurant, tables are rectangular, each seating four people: two along each of the longer sides. Eight friends have booked two tables, $X$ and $Y$. Rajid, Sue and Tan are three of these friends.\n\n**(a)** The eight friends will be divided into two groups of 4, one for table $X$ and one for table $Y$. Find the number of ways this can be done if Rajid and Sue must sit at the same table as each other and Tan must sit at the other table. $\\quad$ **[3]**\n\nWhen the friends arrive, Rajid and Sue decide to sit at table $X$ on the same side as each other. Tan decides he does not mind at which table he sits.\n\n**(b)** Find the number of different seating arrangements for the 8 friends. $\\quad$ **[3]**",
+              solution_image: ""
             }
           ],
 
@@ -360,6 +375,11 @@ const SYLLABUS = {
               id: "S1_PR_005",
               question_text: "Labrador puppies may be black, yellow or chocolate in colour. Some information about a litter of 9 puppies is given in the table.\n\n$$\\begin{array}{|l|c|c|}\\hline & \\textbf{Male} & \\textbf{Female} \\\\\\hline \\text{Black} & 1 & 3 \\\\\\hline \\text{Yellow} & 2 & 1 \\\\\\hline \\text{Chocolate} & 1 & 1 \\\\\\hline\\end{array}$$\n\nFour puppies are chosen at random to train as guide dogs.\n\n**(a)** Determine the probability that exactly 3 females are chosen. $\\quad$ **[3]**\n\n**(b)** Determine the probability that **at least** 3 black puppies are chosen. $\\quad$ **[3]**\n\n**(c)** Determine the probability that exactly 3 females are chosen **given that** at least 3 black puppies are chosen. $\\quad$ **[3]**\n\n**(d)** Explain whether the events 'choosing exactly 3 females' and 'choosing at least 3 black puppies' are independent events. $\\quad$ **[2]**",
               solution_image: ""
+            },
+            {
+              id: "S1_PR_006",
+              question_text: "Marco has four boxes labelled $K$, $L$, $M$ and $N$. He places them in a straight line in the order $K$, $L$, $M$, $N$ with $K$ on the left. Marco also has four coloured marbles: one is red, one is green, one is white and one is yellow. He places a single marble in each box, at random. Events $A$ and $B$ are defined as follows.\n\n$A$: The white marble is in either box $L$ or box $M$.\n\n$B$: The red marble is to the left of both the green marble and the yellow marble.\n\nDetermine whether or not events $A$ and $B$ are independent. $\\quad$ **[3]**",
+              solution_image: ""
             }
           ],
           "Discrete Random Variables": [
@@ -376,6 +396,11 @@ const SYLLABUS = {
             {
               id: "S1_DRV_003",
               question_text: "Andrea practises shots at goal. For each shot the probability of her scoring a goal is $\\dfrac{2}{5}$. Each shot is independent of other shots.\n\n**(i)** Find the probability that she scores her first goal\n\n$\\quad$ **(a)** on her 5th shot, $\\quad$ **[2]**\n\n$\\quad$ **(b)** before her 5th shot. $\\quad$ **[3]**\n\n**(ii) (a)** Find the probability that she scores exactly 1 goal in her first 5 shots. $\\quad$ **[3]**\n\n$\\quad$ **(b)** Hence find the probability that she scores her **second** goal on her 6th shot. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_004",
+              question_text: "A children's wildlife magazine is published every Monday. For the next 12 weeks it will include a model animal as a free gift. There are five different models: tiger, leopard, rhinoceros, elephant and buffalo, each with the same probability of being included in the magazine.\n\nSahim buys one copy of the magazine every Monday.\n\n**(a)** Find the probability that the first time that the free gift is an elephant is before the 6th Monday. $\\quad$ **[2]**\n\n**(b)** Find the probability that Sahim will get more than two leopards in the 12 magazines. $\\quad$ **[3]**\n\n**(c)** Find the probability that after 5 weeks Sahim has exactly one of each animal. $\\quad$ **[3]**",
               solution_image: ""
             }
           ],
@@ -471,6 +496,11 @@ const SYLLABUS = {
               id: "FP1_RP_002",
               question_text: "The equation $x^4 - 6x^3 - 73x^2 + kx + m = 0$ has two positive roots $\\alpha$, $\\beta$ and two negative roots $\\gamma$, $\\delta$. It is given that $\\alpha\\beta = \\gamma\\delta = 4$.\n\n**(i)** Find the values of the constants $k$ and $m$. $\\quad$ **[5]**\n\n**(ii)** Show that $(\\alpha+\\beta)(\\gamma+\\delta) = -81$. $\\quad$ **[4]**\n\n**(iii)** Find the quadratic equation which has roots $\\alpha+\\beta$ and $\\gamma+\\delta$. $\\quad$ **[2]**\n\n**(iv)** Find $\\alpha+\\beta$ and $\\gamma+\\delta$. $\\quad$ **[3]**\n\n**(v)** Show that $\\alpha^2 - 3(1+\\sqrt{10})\\alpha + 4 = 0$, and find similar quadratic equations satisfied by $\\beta$, $\\gamma$ and $\\delta$. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_RP_003",
+              question_text: "The cubic equation $x^3 + bx^2 + cx + d = 0$, where $d \\neq 0$, has roots $\\alpha$, $\\beta$, $\\gamma$ such that $\\gamma = \\dfrac{1}{\\beta}$.\n\n**(a)** Show that $\\beta^2 + \\dfrac{1}{\\beta} = d - b$. $\\quad$ **[3]**\n\n**(b)** Show also that $\\beta + \\dfrac{1}{\\beta} = \\dfrac{1-c}{d}$. $\\quad$ **[2]**\n\nIt is given that $b = 3$, $c = -3$ and $d > 0$.\n\n**(c) (i)** Find the value of $d$. $\\quad$ **[2]**",
+              solution_image: ""
             }
           ],
 
@@ -516,6 +546,11 @@ const SYLLABUS = {
             {
               id: "FP1_VL_002",
               question_text: "The equation of the plane $\\Pi$ is $2x + 3y + 4z = 48$.\n\nObtain a vector equation of $\\Pi$ in the form $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b} + \\mu\\mathbf{c}$, where $\\mathbf{a}$, $\\mathbf{b}$ and $\\mathbf{c}$ are of the form $p\\mathbf{i}$, $q\\mathbf{i}+r\\mathbf{j}$ and $s\\mathbf{i}+t\\mathbf{k}$ respectively, and where $p$, $q$, $r$, $s$, $t$ are integers. $\\quad$ **[6]**\n\nThe line $l$ has vector equation $\\mathbf{r} = 29\\mathbf{i} - 2\\mathbf{j} - \\mathbf{k} + \\theta(5\\mathbf{i} - 6\\mathbf{j} + 2\\mathbf{k})$. Show that $l$ lies in $\\Pi$. $\\quad$ **[3]**\n\nFind, in the form $ax + by + cz = d$, the equation of the plane which contains $l$ and is perpendicular to $\\Pi$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_VL_003",
+              question_text: "The points $A$, $B$, $C$ have position vectors\n$$\\mathbf{i} - 2\\mathbf{k}, \\quad \\mathbf{i} + 2\\mathbf{j} + 2\\mathbf{k}, \\quad 2\\mathbf{i} - \\mathbf{j} - \\mathbf{k}$$\nrespectively.\n\n**(a)** Find the equation of the plane $ABC$, giving your answer in the form $ax + by + cz = d$. $\\quad$ **[5]**\n\nA point $D$ has position vector $\\mathbf{i} + t\\mathbf{k}$, where $t \\neq -2$.\n\n**(b)** Find the acute angle between the planes $ABC$ and $ABD$. $\\quad$ **[4]**\n\n**(c)** Find the values of $t$ such that the shortest distance between the lines $AB$ and $CD$ is $\\sqrt{2}$. $\\quad$ **[7]**",
               solution_image: ""
             }
           ],
@@ -580,6 +615,11 @@ const SYLLABUS = {
               id: "FP1_PI_012",
               question_text: "The sequence of real numbers $a_1, a_2, a_3, \\ldots$ is such that $a_1 = 1$ and\n$$a_{n+1} = \\left(a_n + \\frac{1}{a_n}\\right)^3$$\n\n**(a)** Prove by mathematical induction that $\\ln a_n \\geq 3^{n-1} \\ln 2$ for all integers $n \\geq 2$.\n\n$\\quad$ [You may use the fact that $\\ln\\!\\left(x + \\dfrac{1}{x}\\right) > \\ln x$ for $x > 0$.]",
               solution_image: ""
+            },
+            {
+              id: "FP1_PI_013",
+              question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$\\frac{d^n}{dx^n}(\\tan^{-1} x) = P_n(x)(1+x^2)^{-n}$$\nwhere $P_n(x)$ is a polynomial of degree $n-1$. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
 
@@ -621,6 +661,16 @@ const SYLLABUS = {
               id: "FS_CRV_001",
               question_text: "The continuous random variable $X$ has the following cumulative distribution function\n$$F(x) = \\begin{cases} 0 & x < 0 \\\\ ax - bx^2 & 0 \\leq x \\leq k \\\\ 1 & x > k \\end{cases}$$\nwhere $a$, $b$ and $k$ are positive constants.\n\nThe variable $Y$ is related to $X$ by\n$$Y = 3X - 2$$\n\nDetermine the value of $a$, $b$ and $k$ given further that $\\text{E}(Y) = 2$ and $\\text{Var}(Y) = 8$. $\\quad$ **[9]**",
               solution_image: ""
+            },
+            {
+              id: "FS_CRV_002",
+              question_text: "The continuous random variable $X$ has probability density function $f$ given by\n$$f(x) = \\begin{cases} \\tfrac{3}{4}(4 - x^2) & 0 \\leq x \\leq 2 \\\\ 0 & \\text{otherwise} \\end{cases}$$\n\n**(a)** Find $\\text{Var}(\\sqrt{X})$. $\\quad$ **[4]**\n\nThe continuous random variable $Y$ is defined by $Y = X^2$.\n\n**(b)** Find the probability density function of $Y$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_CRV_003",
+              question_text: "The continuous random variable $X$ has probability density function $f$ given by\n$$f(x) = \\begin{cases} a & 0 \\leq x \\leq 5 \\\\ b - cx & 5 < x \\leq 8 \\\\ 0 & \\text{otherwise} \\end{cases}$$\nwhere $a$, $b$ and $c$ are constants.\n\n**(a)** Show that $a = \\dfrac{1}{8}$, and find the values of $b$ and $c$. $\\quad$ **[3]**\n\n**(b)** Find the mean of $X$. $\\quad$ **[3]**\n\n**(c)** Find the median of $X$. $\\quad$ **[2]**\n\nThe random variable $Y$ is defined by $Y = X^2$.\n\n**(d)** Find the cumulative distribution function of $Y$. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
 
@@ -644,6 +694,16 @@ const SYLLABUS = {
               id: "FS_DRV_004",
               question_text: "The discrete random variable $X$ has probability generating function\n$$G_X(t) = k\\ln\\!\\left(\\frac{2}{2-t}\\right)$$\nwhere $k$ is a constant.\n\n**(a)** Find the exact value of $k$. $\\quad$ **(1)**\n\n**(b)** Find the exact value of $\\text{Var}(X)$. $\\quad$ **(7)**\n\n**(c)** Find $\\text{P}(X = 3)$. $\\quad$ **(4)**",
               solution_image: ""
+            },
+            {
+              id: "FS_DRV_005",
+              question_text: "A bag contains 7 red balls and 3 blue balls. Kieran selects 2 balls at random, without replacement. The number of red balls selected by Kieran is denoted by $X$, and the number of different colours present in Kieran's selection is denoted by $Y$.\n\n**(a)** Find the probability generating functions, $G_X(t)$ of $X$ and $G_Y(t)$ of $Y$. $\\quad$ **[4]**\n\n**(b)** The random variable $Z = X + Y$. Find the probability generating function of $Z$, expressing your answer as a polynomial in $t$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_DRV_006",
+              question_text: "The discrete random variable $X$ has probability generating function $G_X(t)$ given by\n$$G_X(t) = \\frac{t}{(3-2t)^2}$$\n\n**(a)** Find $\\text{E}(X)$ and $\\text{Var}(X)$. $\\quad$ **[5]**\n\nThe discrete random variable $Y$ has probability generating function $G_Y(t)$ given by\n$$G_Y(t) = \\frac{t^2}{(3-2t)^2}$$\n\nThe random variable $Z$ is the sum of the random variables $X$ and $Y$.\n\n**(b)** Assuming $X$ and $Y$ are independent, find $\\text{P}(Z > 4)$. $\\quad$ **[5]**",
+              solution_image: ""
             }
           ],
 
@@ -657,10 +717,37 @@ const SYLLABUS = {
               id: "FS_IN_002",
               question_text: "*Jamland* and *Goodjam* are two suppliers of jars of jam. The weights of the jars of jam produced by each supplier can be assumed to be normally distributed with unknown, but equal, variances. A random sample of 20 jars of jam is taken from those supplied by *Jamland*.\n\nBased on this sample, the 95% confidence interval for the mean weight of a jar of *Jamland* jam, in grams, is\n$$[492, \\quad 507]$$\n\nA random sample of 10 jars of jam is selected from those supplied by *Goodjam*. The weight of each jar of *Goodjam* jam, $y$ grams, is recorded. The results are summarised as follows\n$$\\bar{y} = 480, \\quad s_y^2 = 280$$\n\nFind a 90% confidence interval for the value by which the mean weight of a jar of jam supplied by *Jamland* exceeds the mean weight of a jar of jam supplied by *Goodjam*. $\\quad$ **[11]**",
               solution_image: ""
+            },
+            {
+              id: "FS_IN_003",
+              question_text: "Lina and Mona are two statisticians who also write songs. The time of a song is the number of minutes for which it lasts. For a random sample of 10 of her songs, Lina calculates a 95% confidence interval for the population mean time, $\\mu$ minutes. This confidence interval is $2.95 \\leq \\mu \\leq 3.13$. The times, $x$ minutes, of Lina's songs are normally distributed.\n\n**(a)** Find the values of $\\Sigma x$ and $\\Sigma x^2$ for the 10 songs in Lina's sample. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_IN_004",
+              question_text: "A random sample of 10 newborn baby boys is taken and their masses in kg are recorded. From this sample, the population standard deviation of all newborn baby boys is estimated as $0.6$ kg. A random sample of 5 newborn baby girls is taken and their masses in kg are recorded as follows.\n$$3.9 \\quad 3.1 \\quad 2.9 \\quad 3.1 \\quad 3.6$$\nIt is assumed that the masses of newborn baby boys and girls have the same population standard deviation, $\\sigma$ kg.\n\nBy pooling the two samples, calculate an estimate of $\\sigma$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_IN_005",
+              question_text: "A doctor is investigating the concentration of blood glucose in patients at risk of developing type 2 diabetes. The doctor claims that a particular intervention reduces the concentration by more than $k$ units on average. A group of 8 at risk patients is selected at random and each patient follows the intervention for six months. The blood glucose concentrations before and after the intervention are given in the following table.\n\n$$\\begin{array}{|l|c|c|c|c|c|c|c|c|}\\hline \\textbf{Patient} & A & B & C & D & E & F & G & H \\\\\\hline \\textbf{Before} & 183 & 165 & 172 & 165 & 143 & 176 & 161 & 153 \\\\\\hline \\textbf{After} & 164 & 148 & 164 & 149 & 134 & 153 & 155 & 148 \\\\\\hline\\end{array}$$\n\n**(a)** Use a $t$-test at the 5% significance level to find the range of values of $k$ for which the result of the test is to reject the null hypothesis. $\\quad$ **[7]**",
+              solution_image: ""
             }
           ],
-          "Chi-squared Tests":    [],
-          "Non-parametric Tests": []
+          "Chi-squared Tests": [
+            {
+              id: "FS_CS_001",
+              question_text: "A person's eye colour may be categorised as 'brown', 'blue' or 'other'. A scientist claims that these eye colours are uniformly distributed and hence are equally likely to occur in the population. A survey of 120 people from this population found that 38 people had brown eyes, 52 people had blue eyes and 30 people had eyes which were neither brown nor blue.\n\nUse the data to carry out a goodness of fit test at the 5% significance level to test the scientist's claim. $\\quad$ **[6]**",
+              solution_image: ""
+            }
+          ],
+          "Non-parametric Tests": [
+            {
+              id: "FS_NP_001",
+              question_text: "Students of the same age from two schools, school $A$ and school $B$, take a large number of quizzes throughout the year and are each awarded a mark out of 1000. The marks of 123 students in school $A$ and 147 students in school $B$ are ranked from lowest (rank 1) to highest (rank 270). The sum of the ranks of the students from school $A$ is 15355.\n\n**(a)** Carry out a Wilcoxon rank-sum test at the 5% significance level to investigate whether there is a difference in average marks between the students in school $A$ and school $B$. $\\quad$ **[6]**",
+              solution_image: ""
+            }
+          ]
         }
       },
 
