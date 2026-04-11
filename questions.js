@@ -436,6 +436,11 @@ const SYLLABUS = {
               question_text: "A curve has equation $y = \\mathrm{f}(x)$ where\n$$\\mathrm{f}(x) = 1 + \\frac{4}{x(x-3)}$$\nThe curve has a turning point at $P$, and the lines $y = 1$, $x = 0$ and $x = a$ are asymptotes to the curve (see diagram).\n\n**(a)** Write down the value of $a$. $\\quad$ **[1]**\n\n**(b)** Find the coordinates of $P$, justifying your answer. $\\quad$ **[4]**\n\n**(c)** Sketch the curve with equation\n$$y = \\left|\\mathrm{f}\\!\\left(x + \\tfrac{3}{2}\\right)\\right| - 1$$\nOn your sketch, show the coordinates of any points of intersection with the coordinate axes, the coordinates of any turning points and the equations of any asymptotes. $\\quad$ **[7]**",
               diagram_image: "FP1_RF_002_d.svg",
               solution_image: ""
+            },
+            {
+              id: "FP1_RF_003",
+              question_text: "The curve $C$ has equation $y = \\dfrac{x^2 + ax + 1}{x + 2}$, where $a > \\dfrac{5}{2}$.\n\n**(a)** Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Show that $C$ has no stationary points. $\\quad$ **[4]**\n\n**(c)** Sketch $C$, stating the coordinates of the point of intersection with the $y$-axis and labelling the asymptotes. $\\quad$ **[3]**\n\n**(d) (i)** Sketch the curve with equation $y = \\left|\\dfrac{x^2 + ax + 1}{x + 2}\\right|$. $\\quad$ **[2]**\n\n$\\quad$ **(ii)** On your sketch in part **(i)**, draw the line $y = a$. $\\quad$ **[1]**\n\n$\\quad$ **(iii)** It is given that $\\left|\\dfrac{x^2 + ax + 1}{x + 2}\\right| < a$ for $-5 - \\sqrt{14} < x < -3$ and $-5 + \\sqrt{14} < x < 3$. Find the value of $a$. $\\quad$ **[2]**",
+              solution_image: ""
             }
           ],
           "Series": [
@@ -534,6 +539,11 @@ const SYLLABUS = {
               id: "FP1_PC_006",
               question_text: "The curve $C_1$ has polar equation $r = a(\\cos\\theta + \\sin\\theta)$ for $-\\frac{1}{4}\\pi \\leq \\theta \\leq \\frac{3}{4}\\pi$, where $a$ is a positive constant.\n\n**(a)** Find a Cartesian equation for $C_1$ and show that it represents a circle, stating its radius and the Cartesian coordinates of its centre. $\\quad$ **[4]**\n\nThe curve $C_2$ has polar equation $r = a\\theta$ and intersects $C_1$ at the pole and at the point with polar coordinates $(a\\phi,\\,\\phi)$.\n\n**(c)** Verify that $1.25 < \\phi < 1.26$. $\\quad$ **[2]**\n\n**(d)** Show that the area of the smaller region enclosed by $C_1$ and $C_2$ is equal to\n$$\\tfrac{1}{2}a^2\\!\\left(\\tfrac{1}{3}\\pi + \\tfrac{1}{3}\\phi^3 - \\phi + \\tfrac{1}{2}\\cos 2\\phi\\right)$$\nand deduce, in terms of $a$ and $\\phi$, the area of the larger region enclosed by $C_1$ and $C_2$. $\\quad$ **[7]**",
               solution_image: "FP1_PC_006_s.png"
+            },
+            {
+              id: "FP1_PC_007",
+              question_text: "The curve $C$ has polar equation $r^2 = (\\pi - \\theta)\\tan^{-1}(\\pi - \\theta)$, for $0 \\leq \\theta \\leq \\pi$.\n\n**(a)** Sketch $C$ and state the polar coordinates of the point of $C$ furthest from the pole. $\\quad$ **[3]**\n\n**(b)** Using the substitution $u = \\pi - \\theta$, or otherwise, find the area of the region enclosed by $C$ and the initial line. $\\quad$ **[7]**\n\n**(c)** Show that, at the point of $C$ furthest from the initial line,\n$$2(\\pi-\\theta)\\tan^{-1}(\\pi-\\theta)\\cot\\theta - \\frac{\\pi-\\theta}{1+(\\pi-\\theta)^2} - \\tan^{-1}(\\pi-\\theta) = 0$$\nand verify that this equation has a root for $\\theta$ between $1.2$ and $1.3$. $\\quad$ **[5]**",
+              solution_image: ""
             }
           ],
 
@@ -732,6 +742,11 @@ const SYLLABUS = {
               id: "FS_IN_005",
               question_text: "A doctor is investigating the concentration of blood glucose in patients at risk of developing type 2 diabetes. The doctor claims that a particular intervention reduces the concentration by more than $k$ units on average. A group of 8 at risk patients is selected at random and each patient follows the intervention for six months. The blood glucose concentrations before and after the intervention are given in the following table.\n\n$$\\begin{array}{|l|c|c|c|c|c|c|c|c|}\\hline \\textbf{Patient} & A & B & C & D & E & F & G & H \\\\\\hline \\textbf{Before} & 183 & 165 & 172 & 165 & 143 & 176 & 161 & 153 \\\\\\hline \\textbf{After} & 164 & 148 & 164 & 149 & 134 & 153 & 155 & 148 \\\\\\hline\\end{array}$$\n\n**(a)** Use a $t$-test at the 5% significance level to find the range of values of $k$ for which the result of the test is to reject the null hypothesis. $\\quad$ **[7]**",
               solution_image: ""
+            },
+            {
+              id: "FS_IN_006",
+              question_text: "Dev owns a small company which produces bottles of juice. He uses two machines, $X$ and $Y$, to fill empty bottles with juice. He chooses a random sample of 35 bottles filled by machine $X$ and a random sample of 60 bottles filled by machine $Y$. The volumes of juice, $x$ and $y$ respectively, measured in suitable units, are summarised by\n$$\\Sigma x = 30.8, \\quad \\Sigma x^2 = 29.0, \\quad \\Sigma y = 62.4, \\quad \\Sigma y^2 = 76.8$$\nDev claims that the mean volume of juice in bottles filled by machine $Y$ is greater than the mean volume of juice in bottles filled by machine $X$. A test at the $\\alpha\\%$ significance level suggests that there is sufficient evidence to support Dev's claim.\n\nFind the set of possible values of $\\alpha$. $\\quad$ **[9]**",
+              solution_image: ""
             }
           ],
           "Chi-squared Tests": [
@@ -739,12 +754,22 @@ const SYLLABUS = {
               id: "FS_CS_001",
               question_text: "A person's eye colour may be categorised as 'brown', 'blue' or 'other'. A scientist claims that these eye colours are uniformly distributed and hence are equally likely to occur in the population. A survey of 120 people from this population found that 38 people had brown eyes, 52 people had blue eyes and 30 people had eyes which were neither brown nor blue.\n\nUse the data to carry out a goodness of fit test at the 5% significance level to test the scientist's claim. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "FS_CS_002",
+              question_text: "Rosie sows 5 seeds in each of 150 plant pots. The number of seeds that germinate is recorded for each pot. The results are summarised in the following table.\n\n$$\\begin{array}{|l|c|c|c|c|c|c|}\\hline \\textbf{Number of seeds that germinate} & 0 & 1 & 2 & 3 & 4 & 5 \\\\\\hline \\textbf{Number of pots} & 12 & 40 & 43 & 35 & 16 & 4 \\\\\\hline\\end{array}$$\n\nRosie suggests that the number of seeds that germinate follows the binomial distribution $\\text{B}(5, p)$.\n\n**(a)** Use Rosie's results to show that $p = 0.42$. $\\quad$ **[1]**\n\n**(b)** Carry out a goodness of fit test, at the 10% significance level, to test whether the distribution $\\text{B}(5, 0.42)$ is a good fit for the data. $\\quad$ **[9]**",
+              solution_image: ""
             }
           ],
           "Non-parametric Tests": [
             {
               id: "FS_NP_001",
               question_text: "Students of the same age from two schools, school $A$ and school $B$, take a large number of quizzes throughout the year and are each awarded a mark out of 1000. The marks of 123 students in school $A$ and 147 students in school $B$ are ranked from lowest (rank 1) to highest (rank 270). The sum of the ranks of the students from school $A$ is 15355.\n\n**(a)** Carry out a Wilcoxon rank-sum test at the 5% significance level to investigate whether there is a difference in average marks between the students in school $A$ and school $B$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_NP_002",
+              question_text: "A sports college keeps records of the times taken by students to run one lap of a running track. The population median time taken is 51.0 seconds. After a month of intensive training, a random sample of 22 new students run one lap of the track, giving times, in seconds, as follows.\n$$51.3 \\quad 52.0 \\quad 53.4 \\quad 49.2 \\quad 49.3 \\quad 51.1 \\quad 52.2 \\quad 47.2$$\n$$53.0 \\quad 48.5 \\quad 49.4 \\quad 50.3 \\quad 50.8 \\quad 51.6 \\quad 49.1 \\quad 52.3$$\n$$51.8 \\quad 52.4 \\quad 47.9 \\quad 48.9 \\quad 50.6 \\quad 51.9$$\nIt is claimed that the intensive training has led to a decrease in the median time taken to run one lap of the track.\n\nCarry out a Wilcoxon signed-rank test, at the 5% significance level, to test whether there is sufficient evidence to support the claim. $\\quad$ **[9]**",
               solution_image: ""
             }
           ]
