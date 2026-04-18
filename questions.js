@@ -67,6 +67,21 @@ const SYLLABUS = {
               id: "P1_TR_005",
               question_text: "The function f is given by $\\mathrm{f}(x) = 4\\cos^4 x + \\cos^2 x - k$ for $0 \\leq x \\leq 2\\pi$, where $k$ is a constant.\n\n**(a)** Given that $k = 3$, find the exact solutions of the equation $\\mathrm{f}(x) = 0$. $\\quad$ **[5]**\n\n**(b)** Use the quadratic formula to show that, when $k > 5$, the equation $\\mathrm{f}(x) = 0$ has no solutions. $\\quad$ **[5]**",
               solution_image: ""
+            },
+            {
+              id: "P1_TR_006",
+              question_text: "Given that $x > 0$, find the two smallest values of $x$, in radians, for which $3\\tan(2x + 1) = 1$. Show all necessary working. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_TR_007",
+              question_text: "The function f is defined by $\\mathrm{f} : x \\mapsto a + b\\sin x$ for $x \\in \\mathbb{R}$, and is such that $\\mathrm{f}\\!\\left(\\tfrac{1}{6}\\pi\\right) = 4$ and $\\mathrm{f}\\!\\left(\\tfrac{1}{2}\\pi\\right) = 3$.\n\n**(i)** Find the values of the constants $a$ and $b$. $\\quad$ **[3]**\n\n**(ii)** Evaluate $\\mathrm{ff}(0)$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_TR_008",
+              question_text: "The curve has equation $y = \\sin(ax - b)$, where $a > 0$ and $0 < b < \\pi$. The curve cuts the $x$-axis at the points $P$, $Q$ and $R$ with coordinates $\\left(\\dfrac{\\pi}{10}, 0\\right)$, $\\left(\\dfrac{3\\pi}{5}, 0\\right)$ and $\\left(\\dfrac{11\\pi}{10}, 0\\right)$ respectively.\n\nFind the values of $a$ and $b$. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
           "Binomial Expansion": [
@@ -105,6 +120,11 @@ const SYLLABUS = {
             {
               id: "P1_DF_004",
               question_text: "The equation of a curve is $y = px^{\\frac{2}{3}} - 6x^2 + 1$, where $p$ is a constant.\n\n**(a)** Find $\\dfrac{dy}{dx}$ and $\\dfrac{d^2y}{dx^2}$ in terms of $p$. $\\quad$ **[2]**\n\n**(b)** It is given that $p = 3$. Find the coordinates of the stationary point and determine its nature. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_006",
+              question_text: "The curve $C$ has equation\n$$y = \\frac{x^3\\left(5x\\sqrt{x} - 128\\right)}{\\sqrt{x}}, \\quad x \\in \\mathbb{R},\\ x > 0$$\n\n**(a)** Determine expressions for $\\dfrac{dy}{dx}$, $\\dfrac{d^2y}{dx^2}$ and $\\dfrac{d^3y}{dx^3}$. $\\quad$ **[4]**\n\n**(b)** Show that the $y$-coordinate of the stationary point of $C$ is $-k\\sqrt[3]{4}$, where $k$ is a positive integer. $\\quad$ **[5]**\n\n**(c)** Evaluate $\\dfrac{d^2y}{dx^2}$ at the stationary point of $C$, giving your answer in terms of $\\sqrt[3]{2}$. $\\quad$ **[3]**\n\n**(d)** Find the value of $\\dfrac{d^3y}{dx^3}$ at the point on $C$ where $\\dfrac{d^2y}{dx^2} = 0$. $\\quad$ **[5]**",
               solution_image: ""
             }
           ],
@@ -238,6 +258,11 @@ const SYLLABUS = {
             {
               id: "P1_CM_002",
               question_text: "Two circles, each of radius $6$ cm, have centres $A$ and $B$ where $AB = 8$ cm. The circles intersect at $C$ and $D$.\n\n**(a)** Find angle $CAB$ in radians. $\\quad$ **[3]**\n\n**(b)** Find the exact area of the region that lies inside both circles. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_003",
+              question_text: "Triangle $ABC$ has $AC = 8$ cm and $\\angle BAC = \\angle BCA = 30°$.\n\n**(a)** Find the area of triangle $ABC$ in the form $k\\sqrt{3}$. $\\quad$ **[5]**\n\nThe point $M$ is the mid-point of $AC$ and the points $N$ and $O$ lie on $AB$ and $BC$ such that $MN$ and $MO$ are arcs of circles with centres $A$ and $C$ respectively.\n\n**(b)** Show that the area of the shaded region $BNMO$ is $\\dfrac{8}{3}(2\\sqrt{3} - \\pi)$ cm². $\\quad$ **[4]**",
               solution_image: ""
             }
           ]
@@ -408,6 +433,11 @@ const SYLLABUS = {
             {
               id: "S1_ND_001",
               question_text: "During hot days, an ice cream van sells a large number of ice cream cones containing either 1, 2 or 3 scoops of ice cream.\n\nThe respective probabilities of a customer buying a 1, 2 or 3 scoop ice cream cone are $\\dfrac{1}{6}$, $\\dfrac{1}{2}$ or $\\dfrac{1}{3}$.\n\nA random sample of $n$ customers is examined, each customer having bought an ice cream cone from this van. The probability that more than $n$ scoops of ice cream are ordered by these $n$ customers is greater than $0.9999$.\n\nDetermine the smallest possible value of $n$. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_ND_002",
+              question_text: "The weights, $X$ grams, of bars of soap are normally distributed with mean 125 grams and standard deviation 4.2 grams.\n\n**(i)** Find the probability that a randomly chosen bar of soap weighs more than 128 grams. $\\quad$ **[3]**\n\n**(ii)** Find the value of $k$ such that $\\text{P}(k < X < 128) = 0.7465$. $\\quad$ **[4]**\n\n**(iii)** Five bars of soap are chosen at random. Find the probability that more than two of the bars each weigh more than 128 grams. $\\quad$ **[4]**",
               solution_image: ""
             }
           ]
@@ -680,6 +710,11 @@ const SYLLABUS = {
             {
               id: "FS_CRV_003",
               question_text: "The continuous random variable $X$ has probability density function $f$ given by\n$$f(x) = \\begin{cases} a & 0 \\leq x \\leq 5 \\\\ b - cx & 5 < x \\leq 8 \\\\ 0 & \\text{otherwise} \\end{cases}$$\nwhere $a$, $b$ and $c$ are constants.\n\n**(a)** Show that $a = \\dfrac{1}{8}$, and find the values of $b$ and $c$. $\\quad$ **[3]**\n\n**(b)** Find the mean of $X$. $\\quad$ **[3]**\n\n**(c)** Find the median of $X$. $\\quad$ **[2]**\n\nThe random variable $Y$ is defined by $Y = X^2$.\n\n**(d)** Find the cumulative distribution function of $Y$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_CRV_004",
+              question_text: "The continuous random variable $X$ has probability density function f given by\n$$f(x) = \\begin{cases} \\dfrac{3}{28}\\!\\left(e^{\\frac{1}{2}x} + 4e^{-\\frac{1}{2}x}\\right) & 0 \\leq x \\leq 2\\ln 3 \\\\ 0 & \\text{otherwise} \\end{cases}$$\n\n**(a)** Find the cumulative distribution function of $X$. $\\quad$ **[3]**\n\nThe random variable $Y$ is defined by $Y = e^{\\frac{1}{2}X}$.\n\n**(b)** Find the probability density function of $Y$. $\\quad$ **[3]**\n\n**(c)** Find the 30th percentile of $Y$. $\\quad$ **[3]**\n\n**(d)** Find $\\text{E}(Y^4)$. $\\quad$ **[2]**",
               solution_image: ""
             }
           ],
