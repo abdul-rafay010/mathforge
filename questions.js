@@ -99,6 +99,11 @@ const SYLLABUS = {
               id: "P1_BE_004",
               question_text: "The first three terms, in descending powers of $x$, in the expansion of $\\left(2x^2 - \\dfrac{1}{4x}\\right)^n$ can be written in the form $256x^{16} + ax^{13} + bx^c$, where $n$, $a$, $b$ and $c$ are integers.\n\nFind the values of $n$, $a$, $b$ and $c$. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "P1_BE_005",
+              question_text: "The first three terms, in descending powers of $x$, in the expansion of\n$$\\left(3x^2 - a\\right)^n\\!\\left(1 + \\frac{1}{x^2}\\right)^2$$\ncan be written as $729x^{12} + 972x^{10} + bx^8$, where $a$, $b$ and $n$ are constants.\n\nFind the values of $a$, $b$ and $n$. $\\quad$ **[9]**",
+              solution_image: ""
             }
           ],
           "Differentiation": [
@@ -247,6 +252,21 @@ const SYLLABUS = {
               id: "P1_FN_005",
               question_text: "Functions f and g are defined as follows:\n$$\\mathrm{f}(x) = \\frac{2x+1}{2x-1} \\quad \\text{for } x \\neq \\tfrac{1}{2}$$\n$$\\mathrm{g}(x) = x^2 + 4 \\quad \\text{for } x \\in \\mathbb{R}$$\n\n**(a)** State the domain of $\\mathrm{f}^{-1}$. $\\quad$ **[1]**\n\n**(b)** Find an expression for $\\mathrm{f}^{-1}(x)$. $\\quad$ **[3]**\n\n**(c)** Find $\\mathrm{gf}^{-1}(3)$. $\\quad$ **[2]**\n\n**(d)** Explain why $\\mathrm{g}^{-1}(x)$ cannot be found. $\\quad$ **[1]**\n\n**(e)** Show that $1 + \\dfrac{2}{2x-1}$ can be expressed as $\\dfrac{2x+1}{2x-1}$. Hence find the exact area of the triangle enclosed by the tangent to the curve $y = \\mathrm{f}(x)$ at the point where $x = 1$ and the $x$- and $y$-axes. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "P1_FN_006",
+              question_text: "The functions f and g are defined for all real values of $x$ by\n$$\\mathrm{f}(x) = x^2 + 4ax + a^2 \\quad \\text{and} \\quad \\mathrm{g}(x) = 4x - 2a$$\nwhere $a$ is a positive constant.\n\n**(i)** Find the range of f in terms of $a$. $\\quad$ **[3]**\n\n**(ii)** Given that $\\mathrm{fg}(3) = 69$, find the value of $a$ and hence find the value of $x$ such that $\\mathrm{g}^{-1}(x) = x$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_007",
+              question_text: "The functions f and g are given by\n$$\\mathrm{f}(x) = \\frac{3}{x-1} \\quad \\text{for } x \\neq 1 \\quad \\text{and} \\quad \\mathrm{g}(x) = x + 2 \\quad \\text{for all real } x$$\n\n**(i)** Find $\\mathrm{gf}$, stating its domain and range. $\\quad$ **[3]**\n\n**(ii)** Find $(\\mathrm{gf})^{-1}$, stating any values of $x$ for which $(\\mathrm{gf})^{-1}$ is not defined. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_008",
+              question_text: "The function f is defined by $\\mathrm{f}(x) = \\sqrt{mx + 7} - 4$, where $x \\geq -\\dfrac{7}{m}$ and $m$ is a positive constant.\n\n**(i)** A sequence of transformations maps the curve $y = \\sqrt{x}$ to the curve $y = \\mathrm{f}(x)$. Give details of these transformations. $\\quad$ **[4]**\n\n**(ii)** Find the least value of $m$ for which f is a one-to-one function on its given domain. $\\quad$ **[2]**\n\n**(iii)** Using this least value of $m$, find an expression for $\\mathrm{f}^{-1}(x)$, stating its domain and range. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
           "Circular Measure": [
@@ -263,6 +283,17 @@ const SYLLABUS = {
             {
               id: "P1_CM_003",
               question_text: "Triangle $ABC$ has $AC = 8$ cm and $\\angle BAC = \\angle BCA = 30°$.\n\n**(a)** Find the area of triangle $ABC$ in the form $k\\sqrt{3}$. $\\quad$ **[5]**\n\nThe point $M$ is the mid-point of $AC$ and the points $N$ and $O$ lie on $AB$ and $BC$ such that $MN$ and $MO$ are arcs of circles with centres $A$ and $C$ respectively.\n\n**(b)** Show that the area of the shaded region $BNMO$ is $\\dfrac{8}{3}(2\\sqrt{3} - \\pi)$ cm². $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_004",
+              question_text: "A sector $OMN$ of a circle has angle $MON = 2x$ radians, radius $r$ and centre $O$.\n\n**(i)** Find expressions, in terms of $r$ and $x$, for the area $A$ and perimeter $P$ of the sector. $\\quad$ **[2]**\n\n**(ii)** Given that $P = 20$, show that\n$$A = \\frac{100x}{(1+x)^2}$$\n$\\quad$ **[2]**\n\n**(iii)** Find $\\dfrac{dA}{dx}$ and hence find the value of $x$ for which the area of the sector is a maximum. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_005",
+              question_text: "Seven cylindrical pipes, each of radius 20 cm, are held together by a thin rope wrapped tightly around them. Six outer pipes have centres $A$, $B$, $C$, $D$, $E$, $F$ arranged symmetrically around a central pipe. Points $P$ and $Q$ are where straight sections of the rope meet the pipe with centre $A$.\n\n**(a)** Show that angle $PAQ = \\dfrac{1}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the total length of the rope. $\\quad$ **[4]**\n\n**(c)** Find the area of the hexagon $ABCDEF$, giving your answer in terms of $\\sqrt{3}$. $\\quad$ **[2]**\n\n**(d)** Find the area of the complete region enclosed by the rope. $\\quad$ **[3]**",
+              diagram_image: "P1_CM_005_d.png",
               solution_image: ""
             }
           ]
@@ -320,8 +351,28 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
+              id: "P3_IN_009",
+              question_text: "Using the substitution $x = \\tan\\theta$, find the exact value of\n$$\\int_0^{\\frac{1}{2}} \\frac{12}{(1+4x^2)^2}\\,dx$$\ngiving your answer in the form $a + b\\pi$.",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_010",
+              question_text: "Using the substitution $u = e^{2x}$ and partial fractions, find the exact value of\n$$\\int_{\\ln 3}^{0} \\frac{2e^{2x}}{e^{4x} - 3e^{2x} + 2}\\,dx$$\ngiving your answer in the form $\\ln a$, where $a$ is a rational number in its simplest form. $\\quad$ **[9]**",
+              solution_image: ""
+            },
+            {
               id: "P3_IN_007",
               question_text: "The curve $y = x\\sin(\\ln x)$, $x \\geq 1$, first crosses the $x$-axis for $x > 1$ at the point $A$.\n\n**(a)** Find the $x$-coordinate of $A$. $\\quad$ **[3]**\n\n**(b)** Differentiate $x\\sin(\\ln x)$ and $x\\cos(\\ln x)$ with respect to $x$, and hence find\n$$\\int \\sin(\\ln x)\\,dx \\quad \\text{and} \\quad \\int \\cos(\\ln x)\\,dx$$\n$\\quad$ **[7]**\n\n**(c) (i)** Find $\\displaystyle\\int x\\sin(\\ln x)\\,dx$. $\\quad$ **[4]**\n\n$\\quad$ **(ii)** Hence show that the area of the region bounded by the curve $y = x\\sin(\\ln x)$ and the $x$-axis, between $x = 1$ and $x = A$, is\n$$\\tfrac{1}{5}\\left(e^{2\\pi} + 1\\right)$$\n$\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_008",
+              question_text: "Using the substitution $x = u^2 - 1$, or otherwise, show that\n$$\\int \\frac{1}{2x\\sqrt{x+1}}\\,dx = \\ln\\left(A\\sqrt{\\frac{\\sqrt{x+1}-1}{\\sqrt{x+1}+1}}\\right)$$\nwhere $A$ is an arbitrary constant and $x > 0$. $\\quad$ **[10]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_009",
+              question_text: "Find the exact value of\n$$\\int_{\\frac{1}{2}}^{\\frac{\\sqrt{3}}{2}} x\\tan^{-1}(2x)\\,dx$$",
               solution_image: ""
             }
           ],
@@ -335,7 +386,23 @@ const SYLLABUS = {
       "S1": {
         name: "Statistics 1",
         topics: {
-          "Representation of Data":      [],
+          "Representation of Data": [
+            {
+              id: "S1_RD_001",
+              question_text: "The heights, $h$ cm, of 60 plants are summarised as follows, where $x = h - 150$:\n$$\\sum x = -180 \\quad \\sum x^2 = 8040$$\n\n**(a)** Find the mean and standard deviation of the heights. $\\quad$ **[4]**\n\nA second sample of 40 plants has mean height 147.2 cm and standard deviation 11.3 cm.\n\n**(b)** Find the mean and standard deviation of the combined sample of 100 plants. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_RD_002",
+              question_text: "A dataset of $n$ values has mean 12 and standard deviation 4. When a value of 20 is added to the dataset, the mean becomes 12.5.\n\n**(a)** Find $n$. $\\quad$ **[2]**\n\n**(b)** Find the standard deviation of the new dataset of $n + 1$ values. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_RD_003",
+              question_text: "A histogram represents data in 5 classes with class widths 5, 5, 10, 10 and 20 respectively. The frequency densities of the first four classes are 3.2, 5.6, 4.0 and 2.4. The total frequency is 200.\n\n**(a)** Find the frequency of the fifth class. $\\quad$ **[3]**\n\n**(b)** Find the mean of the data, given the midpoints of the five classes are 12, 17, 25, 35 and 55. $\\quad$ **[3]**",
+              solution_image: ""
+            }
+          ],
 
           "Permutations & Combinations": [
             {
@@ -371,6 +438,11 @@ const SYLLABUS = {
             {
               id: "S1_PC_008",
               question_text: "In a restaurant, tables are rectangular, each seating four people: two along each of the longer sides. Eight friends have booked two tables, $X$ and $Y$. Rajid, Sue and Tan are three of these friends.\n\n**(a)** The eight friends will be divided into two groups of 4, one for table $X$ and one for table $Y$. Find the number of ways this can be done if Rajid and Sue must sit at the same table as each other and Tan must sit at the other table. $\\quad$ **[3]**\n\nWhen the friends arrive, Rajid and Sue decide to sit at table $X$ on the same side as each other. Tan decides he does not mind at which table he sits.\n\n**(b)** Find the number of different seating arrangements for the 8 friends. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_009",
+              question_text: "A security code consists of 2 letters followed by a 4-digit number. The letters are chosen from $\\{A, B, C, D, E\\}$ and the digits are chosen from $\\{1, 2, 3, 4, 5, 6, 7\\}$. No letter or digit may appear more than once.\n\n**(a)** How many different codes can be formed? $\\quad$ **[2]**\n\n**(b)** Find the number of different codes that include the letter $A$ or the digit $5$ or both. $\\quad$ **[3]**\n\n**(c)** A security code is formed at random. Find the probability that the code is DE followed by a number between 4500 and 5000. $\\quad$ **[3]**",
               solution_image: ""
             }
           ],
@@ -518,6 +590,16 @@ const SYLLABUS = {
               id: "FP1_SR_009",
               question_text: "**(i)** Show that\n$$\\frac{1}{r} - \\frac{1}{r+2} \\equiv \\frac{2}{r(r+2)}$$\n$\\quad$ **[1]**\n\n**(ii)** Hence find an expression, in terms of $n$, for\n$$\\sum_{r=1}^{n} \\frac{2}{r(r+2)}$$\n$\\quad$ **[6]**\n\n**(iii)** Given that\n$$\\sum_{r=N+1}^{\\infty} \\frac{2}{r(r+2)} = \\frac{11}{30}$$\nfind the value of $N$. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_SR_010",
+              question_text: "**(a) (i)** Determine an expression for $\\displaystyle\\sum_{r=1}^{n}\\left[(r+1)^4 - r^4\\right]$. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Write $(r+1)^4 - r^4$ in the form $ar^3 + br^2 + cr + d$ for integers $a$, $b$, $c$, $d$. $\\quad$ **[1]**\n\n**(b)** By considering the standard series for natural numbers and square numbers, and the results from part **(a)**, prove that\n$$\\sum_{r=1}^{n} r^3 = \\left(\\sum_{r=1}^{n} r\\right)^2$$\n$\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_SR_010",
+              question_text: "**(a)** By considering $(2r+1)^3 - (2r-1)^3$, use the method of differences to prove that\n$$\\sum_{r=1}^{n} r^2 = \\tfrac{1}{6}n(n+1)(2n+1)$$\n$\\quad$ **[5]**\n\nLet $S_n = 1^2 + 3 \\times 2^2 + 3^2 + 3 \\times 4^2 + 5^2 + 3 \\times 6^2 + \\ldots + \\left(2 + (-1)^n\\right)n^2$.\n\n**(b)** Show that $S_{2n} = \\tfrac{1}{3}n(2n+1)(an+b)$, where $a$ and $b$ are integers to be determined. $\\quad$ **[3]**\n\n**(c)** State the value of $\\displaystyle\\lim_{n \\to \\infty} \\dfrac{S_{2n}}{n^3}$. $\\quad$ **[1]**",
+              solution_image: ""
             }
           ],
 
@@ -535,6 +617,16 @@ const SYLLABUS = {
             {
               id: "FP1_RP_003",
               question_text: "The cubic equation $x^3 + bx^2 + cx + d = 0$, where $d \\neq 0$, has roots $\\alpha$, $\\beta$, $\\gamma$ such that $\\gamma = \\dfrac{1}{\\beta}$.\n\n**(a)** Show that $\\beta^2 + \\dfrac{1}{\\beta} = d - b$. $\\quad$ **[3]**\n\n**(b)** Show also that $\\beta + \\dfrac{1}{\\beta} = \\dfrac{1-c}{d}$. $\\quad$ **[2]**\n\nIt is given that $b = 3$, $c = -3$ and $d > 0$.\n\n**(c) (i)** Find the value of $d$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RP_004",
+              question_text: "**(a) (i)** State the sum of the roots of the equation $2x^3 - 23x^2 + 158x + 85 = 0$. $\\quad$ **[1]**\n\n$\\quad$ **(ii)** Find the product of the roots of $2(\\ln x)^3 - 23(\\ln x)^2 + 158\\ln x + 85 = 0$. $\\quad$ **[2]**\n\n**(b)** Given that one of the roots of the equation $2x^3 - 23x^2 + 158x + 85 = 0$ is $6 + 7i$, determine the other two roots. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RP_004",
+              question_text: "The cubic equation $x^3 + bx^2 + d = 0$ has roots $\\alpha$, $\\beta$, $\\gamma$, where $\\alpha = \\beta$ and $d \\neq 0$.\n\n**(a)** Show that $4b^3 + 27d = 0$. $\\quad$ **[5]**\n\n**(b)** Given that $2\\alpha^2 + \\gamma^2 = 3b$, find the values of $b$ and $d$. $\\quad$ **[3]**",
               solution_image: ""
             }
           ],
@@ -591,6 +683,21 @@ const SYLLABUS = {
             {
               id: "FP1_VL_003",
               question_text: "The points $A$, $B$, $C$ have position vectors\n$$\\mathbf{i} - 2\\mathbf{k}, \\quad \\mathbf{i} + 2\\mathbf{j} + 2\\mathbf{k}, \\quad 2\\mathbf{i} - \\mathbf{j} - \\mathbf{k}$$\nrespectively.\n\n**(a)** Find the equation of the plane $ABC$, giving your answer in the form $ax + by + cz = d$. $\\quad$ **[5]**\n\nA point $D$ has position vector $\\mathbf{i} + t\\mathbf{k}$, where $t \\neq -2$.\n\n**(b)** Find the acute angle between the planes $ABC$ and $ABD$. $\\quad$ **[4]**\n\n**(c)** Find the values of $t$ such that the shortest distance between the lines $AB$ and $CD$ is $\\sqrt{2}$. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_VL_004",
+              question_text: "The plane $\\Pi$ passes through the points $A(1, 2, -1)$, $B(3, 0, 2)$ and $C(-1, 4, 1)$.\n\n**(a)** Find the equation of $\\Pi$ in the form $ax + by + cz = d$. $\\quad$ **[5]**\n\n**(b)** Find the perpendicular distance from the point $P(4, 1, 3)$ to $\\Pi$. $\\quad$ **[3]**\n\n**(c)** Find the coordinates of the foot of the perpendicular from $P$ to $\\Pi$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_VL_005",
+              question_text: "The lines $l_1$ and $l_2$ have equations\n$$l_1: \\mathbf{r} = \\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix} + \\lambda\\begin{pmatrix}2\\\\1\\\\3\\end{pmatrix}, \\quad l_2: \\mathbf{r} = \\begin{pmatrix}3\\\\-1\\\\2\\end{pmatrix} + \\mu\\begin{pmatrix}1\\\\-2\\\\1\\end{pmatrix}$$\n\n**(a)** Show that $l_1$ and $l_2$ are skew. $\\quad$ **[3]**\n\n**(b)** Find the shortest distance between $l_1$ and $l_2$. $\\quad$ **[4]**\n\n**(c)** Find the equation of the plane containing $l_1$ that is parallel to $l_2$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_VL_006",
+              question_text: "The lines $l_1$ and $l_2$ have equations\n$$l_1: \\mathbf{r} = (2\\mathbf{i} - \\mathbf{j} + 3\\mathbf{k}) + s(\\mathbf{i} + 2\\mathbf{j} - \\mathbf{k})$$\n$$l_2: \\mathbf{r} = (\\mathbf{i} + 3\\mathbf{j} - \\mathbf{k}) + t(3\\mathbf{i} - \\mathbf{j} + 2\\mathbf{k})$$\n\n**(a)** Find the position vectors of the points $M$ on $l_1$ and $N$ on $l_2$ such that $MN$ is perpendicular to both lines. $\\quad$ **[6]**\n\n**(b)** Hence find the length of the common perpendicular. $\\quad$ **[2]**",
               solution_image: ""
             }
           ],
@@ -687,6 +794,11 @@ const SYLLABUS = {
             {
               id: "FP1_MA_005",
               question_text: "**(a) (i)** By writing $\\cos\\left(\\frac{1}{12}\\pi\\right)$ as $\\cos\\left(\\frac{1}{4}\\pi - \\frac{1}{6}\\pi\\right)$, show that $\\cos\\left(\\frac{1}{12}\\pi\\right) = \\frac{1}{4}(\\sqrt{6}+\\sqrt{2})$. $\\quad$ **[1]**\n\n$\\quad$ **(ii)** Show also that $\\sin\\left(\\frac{1}{12}\\pi\\right) = \\frac{1}{4}(\\sqrt{6}-\\sqrt{2})$. $\\quad$ **[1]**\n\nThe matrix $\\mathbf{M}$ is such that\n$$\\mathbf{M} = \\frac{1}{4}\\begin{pmatrix} \\sqrt{6}+\\sqrt{2} & \\sqrt{2}-\\sqrt{6} \\\\ \\sqrt{6}-\\sqrt{2} & \\sqrt{6}+\\sqrt{2} \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$$\n\n**(b)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. Give full details of each transformation, and make clear the order in which they are applied. $\\quad$ **[4]**\n\n**(c)** Write $\\mathbf{M}^{-1}$ as the product of two matrices, neither of which is $\\mathbf{I}$. $\\quad$ **[2]**\n\n**(d)** Given that $y = mx$ is an invariant line of the transformation represented by $\\mathbf{M}$, show that\n$$m^2\\sin\\!\\left(\\tfrac{1}{12}\\pi\\right) + 2m\\cos\\!\\left(\\tfrac{1}{12}\\pi\\right) - \\sin\\!\\left(\\tfrac{1}{12}\\pi\\right) = 0$$\nand find the values of $m$ in the form $a\\cot\\!\\left(\\tfrac{1}{12}\\pi\\right) + b\\,\\text{cosec}\\!\\left(\\tfrac{1}{12}\\pi\\right)$, where $a$ and $b$ are integers to be determined. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_MA_006",
+              question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix} \\frac{1}{2}\\sqrt{2} & -\\frac{1}{2}\\sqrt{2} \\\\ \\frac{1}{2}\\sqrt{2} & \\frac{1}{2}\\sqrt{2} \\end{pmatrix} \\begin{pmatrix} 1 & k \\\\ 0 & 1 \\end{pmatrix}$$\nwhere $k$ is a constant.\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations. State the type of each transformation, and make clear the order in which they are applied. $\\quad$ **[2]**\n\n**(b)** The triangle $ABC$ in the $x$-$y$ plane is transformed by $\\mathbf{M}$ onto triangle $DEF$. Find, in terms of $k$, the single matrix which transforms triangle $DEF$ onto triangle $ABC$. $\\quad$ **[2]**\n\n**(c)** Find the set of values of $k$ for which the transformation represented by $\\mathbf{M}$ has no invariant lines through the origin. $\\quad$ **[7]**",
               solution_image: ""
             }
           ]
@@ -794,6 +906,11 @@ const SYLLABUS = {
               id: "FS_CS_002",
               question_text: "Rosie sows 5 seeds in each of 150 plant pots. The number of seeds that germinate is recorded for each pot. The results are summarised in the following table.\n\n$$\\begin{array}{|l|c|c|c|c|c|c|}\\hline \\textbf{Number of seeds that germinate} & 0 & 1 & 2 & 3 & 4 & 5 \\\\\\hline \\textbf{Number of pots} & 12 & 40 & 43 & 35 & 16 & 4 \\\\\\hline\\end{array}$$\n\nRosie suggests that the number of seeds that germinate follows the binomial distribution $\\text{B}(5, p)$.\n\n**(a)** Use Rosie's results to show that $p = 0.42$. $\\quad$ **[1]**\n\n**(b)** Carry out a goodness of fit test, at the 10% significance level, to test whether the distribution $\\text{B}(5, 0.42)$ is a good fit for the data. $\\quad$ **[9]**",
               solution_image: ""
+            },
+            {
+              id: "FS_CS_003",
+              question_text: "A researcher divides the Crimea River into 100 segments of equal area and counts the number of poisson (fish) in each segment. The following table shows the number of segments containing each possible number of fish.\n\n$$\\begin{array}{|l|c|c|c|c|c|c|c|}\\hline \\textbf{Number} & 0 & 1 & 2 & 3 & 4 & 5 & \\text{More than 5} \\\\\\hline \\textbf{Observed, } O_i & 20 & 26 & 22 & 12 & 10 & 6 & 4 \\\\\\hline\\end{array}$$\n\n**(a) (i)** Assuming that there were 4 segments with 6 poisson, show that an unbiased estimate for the mean number of poisson in a segment, $\\lambda$, is $\\lambda \\approx 2$. $\\quad$ **[2]**\n\n$\\quad$ **(ii)** The numbers of poisson are predicted to follow a Poisson distribution. Using the estimate from part **(a)(i)**, complete the expected frequencies and $\\dfrac{(O_i - E_i)^2}{E_i}$ values, then carry out a goodness of fit test at the 5% significance level. $\\quad$ **[8]**\n\n**(b) (i)** State one assumption made when modelling the numbers of poisson with a Poisson distribution. $\\quad$ **[1]**",
+              solution_image: ""
             }
           ],
           "Non-parametric Tests": [
@@ -805,6 +922,11 @@ const SYLLABUS = {
             {
               id: "FS_NP_002",
               question_text: "A sports college keeps records of the times taken by students to run one lap of a running track. The population median time taken is 51.0 seconds. After a month of intensive training, a random sample of 22 new students run one lap of the track, giving times, in seconds, as follows.\n$$51.3 \\quad 52.0 \\quad 53.4 \\quad 49.2 \\quad 49.3 \\quad 51.1 \\quad 52.2 \\quad 47.2$$\n$$53.0 \\quad 48.5 \\quad 49.4 \\quad 50.3 \\quad 50.8 \\quad 51.6 \\quad 49.1 \\quad 52.3$$\n$$51.8 \\quad 52.4 \\quad 47.9 \\quad 48.9 \\quad 50.6 \\quad 51.9$$\nIt is claimed that the intensive training has led to a decrease in the median time taken to run one lap of the track.\n\nCarry out a Wilcoxon signed-rank test, at the 5% significance level, to test whether there is sufficient evidence to support the claim. $\\quad$ **[9]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_NP_003",
+              question_text: "Taylor Slow and Sabrina Carpet are both singers. The album 'The Life Of a Slowgirl' is a sample of Taylor Slow's music consisting of 12 songs. The album 'Man's Worst Fiend' is a sample of Sabrina Carpet's music consisting of 13 songs. The view counts of the songs (in millions) are as follows.\n\n**Taylor Slow:** 354, 17, 44, 16, 9.6, 9.8, 10, 12.9, 12, 10.1, 7.5, 13\n\n**Sabrina Carpet:** 161, 72, 7.7, 6.7, 4.2, 16.1, 6.5, 22.1, 7.1, 4.3, 9.9, 8.9, 4.1\n\nThe 25 songs are ranked in increasing order, such that rank 1 is the lowest and rank 25 is the highest.\n\n**(a)** Use the Wilcoxon rank-sum test at the 5% significance level to test if Taylor Slow gets higher view counts than Sabrina Carpet. $\\quad$ **[10]**\n\n**(b)** Suggest one disadvantage of the nature of the samples taken. $\\quad$ **[1]**",
               solution_image: ""
             }
           ]
