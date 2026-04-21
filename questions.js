@@ -293,7 +293,7 @@ const SYLLABUS = {
             {
               id: "P1_CM_005",
               question_text: "Seven cylindrical pipes, each of radius 20 cm, are held together by a thin rope wrapped tightly around them. Six outer pipes have centres $A$, $B$, $C$, $D$, $E$, $F$ arranged symmetrically around a central pipe. Points $P$ and $Q$ are where straight sections of the rope meet the pipe with centre $A$.\n\n**(a)** Show that angle $PAQ = \\dfrac{1}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the total length of the rope. $\\quad$ **[4]**\n\n**(c)** Find the area of the hexagon $ABCDEF$, giving your answer in terms of $\\sqrt{3}$. $\\quad$ **[2]**\n\n**(d)** Find the area of the complete region enclosed by the rope. $\\quad$ **[3]**",
-              diagram_image: "P1_CM_005_d.png",
+              diagram_image: "P1_CM_005_d.jpeg",
               solution_image: ""
             }
           ]
