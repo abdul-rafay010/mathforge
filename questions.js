@@ -232,7 +232,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_SS_005",
-              question_text: "A geometric progression has first term $a = 16\\cos^4\\alpha$ and second term $u_2 = 16\\cos^4\\alpha\\sin^2\\alpha$, where $\\alpha$ is an angle varying with time $t$ such that $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ is defined as the instantaneous volume $V$ (in cm³) of a spherical bubble.\n\nFind the exact rate of change of the surface area $A$ of the bubble with respect to time $t$ (in cm²/s) at the precise instant when:\n- the angle $\\alpha$ is increasing at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, and\n- $\\alpha$ satisfies the equation $2\\cos(2\\alpha) + \\sqrt{3}\\sin(2\\alpha) = 1$.\n\n$\\quad$ **[20]**",
+              question_text: "A geometric progression has first term $a = 16\\cos^4\\alpha$ and second term $u_2 = 16\\cos^4\\alpha\\sin^2\\alpha$, where $\\alpha$ is an angle varying with time $t$ such that $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ is defined as the instantaneous volume $V$ (in cm³) of a spherical bubble.\n\nFind the exact rate of change of the surface area $A$ of the bubble with respect to time $t$ (in cm²/s) at the precise instant when:\n- the angle $\\alpha$ is increasing at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, and\n- $\\alpha$ satisfies the equation $2\\cos(2\\alpha) + \\sqrt{3}\\sin(2\\alpha) = 1$.\n\n$\\quad$",
               solution_image: ""
             }
           ],
