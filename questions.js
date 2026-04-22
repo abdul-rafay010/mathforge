@@ -153,6 +153,11 @@ const SYLLABUS = {
               id: "P1_QD_004",
               question_text: "The equation $(k+5)x^2 + 4x + (k+2) = 0$, where $k$ is a constant, has two distinct real solutions for $x$.\n\nFind the set of possible values for $k$.",
               solution_image: ""
+            },
+            {
+              id: "P1_QD_005",
+              question_text: "**(i)** Show that the substitution $u = x^{\\frac{1}{2}}$ reduces the equation\n$$x - 6x^{\\frac{1}{2}} + 2 = 0$$\nto a quadratic in $u$. $\\quad$ **[1]**\n\n**(ii)** Hence solve $x - 6x^{\\frac{1}{2}} + 2 = 0$, giving your answers in the form $p \\pm q\\sqrt{r}$, where $p$, $q$ and $r$ are integers. $\\quad$ **[5]**\n\n**(iii)** By completing the square, find the range of values of $k$ for which $x^2 - 6x + 2 = k$ has no real solutions. $\\quad$ **[3]**",
+              solution_image: ""
             }
           ],
 
@@ -224,6 +229,11 @@ const SYLLABUS = {
               id: "P1_SS_004",
               question_text: "The first term of a geometric progression and the first term of an arithmetic progression are both equal to $a$. The third term of the geometric progression is equal to the second term of the arithmetic progression. The fifth term of the geometric progression is equal to the sixth term of the arithmetic progression.\n\nGiven that all terms are positive and not all equal, find the sum of the first twenty terms of the arithmetic progression in terms of $a$. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "P1_SS_005",
+              question_text: "A geometric progression has first term $a = 16\\cos^4\\alpha$ and second term $u_2 = 16\\cos^4\\alpha\\sin^2\\alpha$, where $\\alpha$ is an angle varying with time $t$ such that $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ is defined as the instantaneous volume $V$ (in cm³) of a spherical bubble.\n\nFind the exact rate of change of the surface area $A$ of the bubble with respect to time $t$ (in cm²/s) at the precise instant when:\n- the angle $\\alpha$ is increasing at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, and\n- $\\alpha$ satisfies the equation $2\\cos(2\\alpha) + \\sqrt{3}\\sin(2\\alpha) = 1$.\n\n$\\quad$ **[20]**",
+              solution_image: ""
             }
           ],
 
@@ -293,7 +303,7 @@ const SYLLABUS = {
             {
               id: "P1_CM_005",
               question_text: "Seven cylindrical pipes, each of radius 20 cm, are held together by a thin rope wrapped tightly around them. Six outer pipes have centres $A$, $B$, $C$, $D$, $E$, $F$ arranged symmetrically around a central pipe. Points $P$ and $Q$ are where straight sections of the rope meet the pipe with centre $A$.\n\n**(a)** Show that angle $PAQ = \\dfrac{1}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the total length of the rope. $\\quad$ **[4]**\n\n**(c)** Find the area of the hexagon $ABCDEF$, giving your answer in terms of $\\sqrt{3}$. $\\quad$ **[2]**\n\n**(d)** Find the area of the complete region enclosed by the rope. $\\quad$ **[3]**",
-              diagram_image: "P1_CM_005_d.jpeg",
+              diagram_image: "P1_CM_005_d.png",
               solution_image: ""
             }
           ]
