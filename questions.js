@@ -232,7 +232,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_SS_005",
-              question_text: "A geometric progression has first term $a = 16\\cos^4\\alpha$ and second term $u_2 = 16\\cos^4\\alpha\\sin^2\\alpha$, where $\\alpha$ is an angle varying with time $t$ such that $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ is defined as the instantaneous volume $V$ (in cm³) of a spherical bubble.\n\nFind the exact rate of change of the surface area $A$ of the bubble with respect to time $t$ (in cm²/s) at the precise instant when:\n- the angle $\\alpha$ is increasing at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, and\n- $\\alpha$ satisfies the equation $2\\cos(2\\alpha) + \\sqrt{3}\\sin(2\\alpha) = 1$.\n\n$\\quad$",
+              question_text: "A geometric progression has first term $a = 16\\cos^4\\alpha$ and second term $u_2 = 16\\cos^4\\alpha\\sin^2\\alpha$, where $\\alpha$ is an angle varying with time $t$ such that $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ is defined as the instantaneous volume $V$ (in cm³) of a spherical bubble.\n\nFind the exact rate of change of the surface area $A$ of the bubble with respect to time $t$ (in cm²/s) at the precise instant when:\n- the angle $\\alpha$ is increasing at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, and\n- $\\alpha$ satisfies the equation $2\\cos(2\\alpha) + \\sqrt{3}\\sin(2\\alpha) = 1$.\n\n$\\quad$ **[20]**",
               solution_image: ""
             }
           ],
@@ -305,6 +305,12 @@ const SYLLABUS = {
               question_text: "Seven cylindrical pipes, each of radius 20 cm, are held together by a thin rope wrapped tightly around them. Six outer pipes have centres $A$, $B$, $C$, $D$, $E$, $F$ arranged symmetrically around a central pipe. Points $P$ and $Q$ are where straight sections of the rope meet the pipe with centre $A$.\n\n**(a)** Show that angle $PAQ = \\dfrac{1}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the total length of the rope. $\\quad$ **[4]**\n\n**(c)** Find the area of the hexagon $ABCDEF$, giving your answer in terms of $\\sqrt{3}$. $\\quad$ **[2]**\n\n**(d)** Find the area of the complete region enclosed by the rope. $\\quad$ **[3]**",
               diagram_image: "P1_CM_005_d.jpeg",
               solution_image: ""
+            },
+            {
+              id: "P1_CM_006",
+              question_text: "The diagram shows a motif formed by the major arc $AB$ of a circle with radius $r$ and centre $O$, and the minor arc $AOB$ of a circle also with radius $r$ but with centre $C$. The point $C$ lies on the circle with centre $O$.\n\n**(a)** Given that angle $ACB = k\\pi$ radians, state the value of the fraction $k$. $\\quad$ **[1]**\n\n**(b)** State the perimeter of the shaded motif in terms of $\\pi$ and $r$. $\\quad$ **[1]**\n\n**(c)** Find the area of the shaded motif, giving your answer in terms of $\\pi$, $r$ and $\\sqrt{3}$. $\\quad$ **[5]**",
+              diagram_image: "P1_CM_006_d.jpeg",
+              solution_image: ""
             }
           ]
         }
@@ -327,8 +333,8 @@ const SYLLABUS = {
               solution_image: ""
             }
           ],
-          "Trigonometry":                [],
-          "Differentiation":             [],
+          "Trigonometry": [],
+          "Differentiation": [],
           "Integration": [
             {
               id: "P3_IN_001",
@@ -386,10 +392,10 @@ const SYLLABUS = {
               solution_image: ""
             }
           ],
-          "Numerical Methods":           [],
-          "Vectors":                     [],
-          "Differential Equations":      [],
-          "Complex Numbers":             []
+          "Numerical Methods": [],
+          "Vectors": [],
+          "Differential Equations": [],
+          "Complex Numbers": []
         }
       },
 
@@ -521,6 +527,16 @@ const SYLLABUS = {
               id: "S1_ND_002",
               question_text: "The weights, $X$ grams, of bars of soap are normally distributed with mean 125 grams and standard deviation 4.2 grams.\n\n**(i)** Find the probability that a randomly chosen bar of soap weighs more than 128 grams. $\\quad$ **[3]**\n\n**(ii)** Find the value of $k$ such that $\\text{P}(k < X < 128) = 0.7465$. $\\quad$ **[4]**\n\n**(iii)** Five bars of soap are chosen at random. Find the probability that more than two of the bars each weigh more than 128 grams. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "S1_ND_003",
+              question_text: "The random variable $X$ is normally distributed with mean $\\mu$ and standard deviation $\\sigma$. It is given that\n$$\\text{P}(X < 37) = 0.2119 \\quad \\text{and} \\quad \\text{P}(X < 60) = 0.9332$$\n\n**(i)** Find the values of $\\mu$ and $\\sigma$. $\\quad$ **[5]**\n\n**(ii)** Find $\\text{P}(37 < X < 55)$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_ND_004",
+              question_text: "The marks scored by candidates in an examination are normally distributed with mean 45 and standard deviation 10. Candidates are told they have passed only if their mark exceeds 48.\n\n**(i)** Find the probability that a randomly chosen candidate passes the examination. $\\quad$ **[2]**\n\n**(ii)** Find the probability that a randomly chosen candidate scores more than 52 marks, given that they passed. $\\quad$ **[4]**\n\n**(iii)** Find the value of $c$, where $c > 45$, such that $\\text{P}(X > c) = 0.2420$. $\\quad$ **[2]**\n\n**(iv)** The examination is taken by 200 candidates. Find the expected number of candidates who pass. $\\quad$ **[2]**",
+              solution_image: ""
             }
           ]
         }
@@ -609,6 +625,11 @@ const SYLLABUS = {
             {
               id: "FP1_SR_010",
               question_text: "**(a)** By considering $(2r+1)^3 - (2r-1)^3$, use the method of differences to prove that\n$$\\sum_{r=1}^{n} r^2 = \\tfrac{1}{6}n(n+1)(2n+1)$$\n$\\quad$ **[5]**\n\nLet $S_n = 1^2 + 3 \\times 2^2 + 3^2 + 3 \\times 4^2 + 5^2 + 3 \\times 6^2 + \\ldots + \\left(2 + (-1)^n\\right)n^2$.\n\n**(b)** Show that $S_{2n} = \\tfrac{1}{3}n(2n+1)(an+b)$, where $a$ and $b$ are integers to be determined. $\\quad$ **[3]**\n\n**(c)** State the value of $\\displaystyle\\lim_{n \\to \\infty} \\dfrac{S_{2n}}{n^3}$. $\\quad$ **[1]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_SR_011",
+              question_text: "Let $S_n = \\displaystyle\\sum_{r=1}^{n} \\ln\\dfrac{r(r+2)}{(r+1)^2}$.\n\n**(a)** Using the method of differences, or otherwise, show that\n$$S_n = \\ln\\dfrac{n+2}{2(n+1)}$$\n$\\quad$ **[4]**\n\nLet $S = \\displaystyle\\sum_{r=1}^{\\infty} \\ln\\dfrac{r(r+2)}{(r+1)^2}$.\n\n**(b)** Find the least value of $n$ such that $S_n - S < 0.01$. $\\quad$ **[3]**",
               solution_image: ""
             }
           ],
@@ -708,6 +729,11 @@ const SYLLABUS = {
             {
               id: "FP1_VL_006",
               question_text: "The lines $l_1$ and $l_2$ have equations\n$$l_1: \\mathbf{r} = (2\\mathbf{i} - \\mathbf{j} + 3\\mathbf{k}) + s(\\mathbf{i} + 2\\mathbf{j} - \\mathbf{k})$$\n$$l_2: \\mathbf{r} = (\\mathbf{i} + 3\\mathbf{j} - \\mathbf{k}) + t(3\\mathbf{i} - \\mathbf{j} + 2\\mathbf{k})$$\n\n**(a)** Find the position vectors of the points $M$ on $l_1$ and $N$ on $l_2$ such that $MN$ is perpendicular to both lines. $\\quad$ **[6]**\n\n**(b)** Hence find the length of the common perpendicular. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_VL_007",
+              question_text: "The points $A$, $B$, $C$ have position vectors $2\\mathbf{i} + 2\\mathbf{j}$, $-\\mathbf{j} + \\mathbf{k}$ and $2\\mathbf{i} + \\mathbf{j} - 7\\mathbf{k}$ respectively, relative to the origin $O$.\n\n**(a)** Find an equation of the plane $OAB$, giving your answer in the form $\\mathbf{r} \\cdot \\mathbf{n} = p$. $\\quad$ **[3]**\n\nThe plane $\\Pi$ has equation $x - 3y - 2z = 1$.\n\n**(b)** Find the perpendicular distance of $\\Pi$ from the origin. $\\quad$ **[1]**\n\n**(c)** Find the acute angle between the planes $OAB$ and $\\Pi$. $\\quad$ **[3]**\n\n**(d)** Find an equation for the common perpendicular to the lines $OC$ and $AB$. $\\quad$ **[10]**",
               solution_image: ""
             }
           ],
