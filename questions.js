@@ -330,7 +330,7 @@ const SYLLABUS = {
             {
               id: "P1_CM_008",
               question_text: "The diagram shows a symmetrical metal plate. The plate is made by removing two identical pieces from a circular disc with centre $C$. The boundary of the plate consists of two arcs $PS$ and $QR$ of the original circle and two semicircles with $PQ$ and $RS$ as diameters. The radius of the circle with centre $C$ is 4 cm, and $PQ = RS = 4$ cm also.\n\n**(a)** Show that angle $PCS = \\dfrac{2}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the exact perimeter of the plate. $\\quad$ **[3]**\n\n**(c)** Show that the area of the plate is $\\left(\\dfrac{20}{3}\\pi + 8\\sqrt{3}\\right)$ cm$^2$. $\\quad$ **[5]**",
-              diagram_image: "P1_CM_008_d.jpeg",
+              diagram_image: "P1_CM_008_d.jpg",
               solution_image: ""
             }
           ]
