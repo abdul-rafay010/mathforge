@@ -131,6 +131,16 @@ const SYLLABUS = {
               id: "P1_DF_006",
               question_text: "The curve $C$ has equation\n$$y = \\frac{x^3\\left(5x\\sqrt{x} - 128\\right)}{\\sqrt{x}}, \\quad x \\in \\mathbb{R},\\ x > 0$$\n\n**(a)** Determine expressions for $\\dfrac{dy}{dx}$, $\\dfrac{d^2y}{dx^2}$ and $\\dfrac{d^3y}{dx^3}$. $\\quad$ **[4]**\n\n**(b)** Show that the $y$-coordinate of the stationary point of $C$ is $-k\\sqrt[3]{4}$, where $k$ is a positive integer. $\\quad$ **[5]**\n\n**(c)** Evaluate $\\dfrac{d^2y}{dx^2}$ at the stationary point of $C$, giving your answer in terms of $\\sqrt[3]{2}$. $\\quad$ **[3]**\n\n**(d)** Find the value of $\\dfrac{d^3y}{dx^3}$ at the point on $C$ where $\\dfrac{d^2y}{dx^2} = 0$. $\\quad$ **[5]**",
               solution_image: ""
+            },
+            {
+              id: "P1_DF_007",
+              question_text: "The curve $y = x(x-2)^2$ has a minimum point with coordinates $(a, 0)$ and a maximum point with $x$-coordinate $b$, where $a$ and $b$ are constants.\n\n**(i)** State the value of $a$. $\\quad$ **[1]**\n\n**(ii)** Find the value of $b$. $\\quad$ **[4]**\n\n**(iii)** Find the area of the region bounded by the curve and the $x$-axis between $x = 0$ and $x = a$. $\\quad$ **[4]**\n\n**(iv)** The gradient $\\dfrac{dy}{dx}$ of the curve has a minimum value $m$. Find the value of $m$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_008",
+              question_text: "The curve $y = -x^3 + 9x^2 - 15x - 3$ has two stationary points. A straight line passes through both stationary points.\n\n**(a)** Show that the equation of the straight line is $y = 8x - 18$. $\\quad$ **[5]**\n\n**(b)** Verify that the curve also meets the straight line when $x = 3$. $\\quad$ **[1]**\n\n**(c)** Find the area of the region bounded by the curve and the straight line between their points of intersection. $\\quad$ **[5]**",
+              solution_image: ""
             }
           ],
           "Quadratics": [
@@ -303,13 +313,24 @@ const SYLLABUS = {
             {
               id: "P1_CM_005",
               question_text: "Seven cylindrical pipes, each of radius 20 cm, are held together by a thin rope wrapped tightly around them. Six outer pipes have centres $A$, $B$, $C$, $D$, $E$, $F$ arranged symmetrically around a central pipe. Points $P$ and $Q$ are where straight sections of the rope meet the pipe with centre $A$.\n\n**(a)** Show that angle $PAQ = \\dfrac{1}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the total length of the rope. $\\quad$ **[4]**\n\n**(c)** Find the area of the hexagon $ABCDEF$, giving your answer in terms of $\\sqrt{3}$. $\\quad$ **[2]**\n\n**(d)** Find the area of the complete region enclosed by the rope. $\\quad$ **[3]**",
-              diagram_image: "P1_CM_005_d.jpeg",
+              diagram_image: "P1_CM_005_d.png",
               solution_image: ""
             },
             {
               id: "P1_CM_006",
               question_text: "The diagram shows a motif formed by the major arc $AB$ of a circle with radius $r$ and centre $O$, and the minor arc $AOB$ of a circle also with radius $r$ but with centre $C$. The point $C$ lies on the circle with centre $O$.\n\n**(a)** Given that angle $ACB = k\\pi$ radians, state the value of the fraction $k$. $\\quad$ **[1]**\n\n**(b)** State the perimeter of the shaded motif in terms of $\\pi$ and $r$. $\\quad$ **[1]**\n\n**(c)** Find the area of the shaded motif, giving your answer in terms of $\\pi$, $r$ and $\\sqrt{3}$. $\\quad$ **[5]**",
-              diagram_image: "P1_CM_006_d.jpeg",
+              diagram_image: "P1_CM_006_d.png",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_007",
+              question_text: "A circle has centre $A$ and radius $r$. Diameters $CAD$ and $BAE$ are perpendicular to each other. A larger circle has centre $B$ and passes through $C$ and $D$.\n\n**(i)** Show that the radius of the larger circle is $r\\sqrt{2}$. $\\quad$ **[1]**\n\n**(ii)** Find the area of the region that lies inside the larger circle but outside the smaller circle, bounded between the arc $CD$ of the larger circle and the diameter $CAD$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_008",
+              question_text: "The diagram shows a symmetrical metal plate. The plate is made by removing two identical pieces from a circular disc with centre $C$. The boundary of the plate consists of two arcs $PS$ and $QR$ of the original circle and two semicircles with $PQ$ and $RS$ as diameters. The radius of the circle with centre $C$ is 4 cm, and $PQ = RS = 4$ cm also.\n\n**(a)** Show that angle $PCS = \\dfrac{2}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the exact perimeter of the plate. $\\quad$ **[3]**\n\n**(c)** Show that the area of the plate is $\\left(\\dfrac{20}{3}\\pi + 8\\sqrt{3}\\right)$ cm$^2$. $\\quad$ **[5]**",
+              diagram_image: "P1_CM_008_d.png",
               solution_image: ""
             }
           ]
@@ -333,8 +354,8 @@ const SYLLABUS = {
               solution_image: ""
             }
           ],
-          "Trigonometry": [],
-          "Differentiation": [],
+          "Trigonometry":                [],
+          "Differentiation":             [],
           "Integration": [
             {
               id: "P3_IN_001",
@@ -392,10 +413,10 @@ const SYLLABUS = {
               solution_image: ""
             }
           ],
-          "Numerical Methods": [],
-          "Vectors": [],
-          "Differential Equations": [],
-          "Complex Numbers": []
+          "Numerical Methods":           [],
+          "Vectors":                     [],
+          "Differential Equations":      [],
+          "Complex Numbers":             []
         }
       },
 
@@ -631,6 +652,11 @@ const SYLLABUS = {
               id: "FP1_SR_011",
               question_text: "Let $S_n = \\displaystyle\\sum_{r=1}^{n} \\ln\\dfrac{r(r+2)}{(r+1)^2}$.\n\n**(a)** Using the method of differences, or otherwise, show that\n$$S_n = \\ln\\dfrac{n+2}{2(n+1)}$$\n$\\quad$ **[4]**\n\nLet $S = \\displaystyle\\sum_{r=1}^{\\infty} \\ln\\dfrac{r(r+2)}{(r+1)^2}$.\n\n**(b)** Find the least value of $n$ such that $S_n - S < 0.01$. $\\quad$ **[3]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_SR_012",
+              question_text: "It is given that $S_n = \\displaystyle\\sum_{r=1}^{n} u_r$, where $u_r = x^{f(r)} - x^{f(r+1)}$ and $x > 0$.\n\n**(a)** Find $S_n$ in terms of $n$, $x$ and the function f. $\\quad$ **[2]**\n\n**(b)** Given that $\\mathrm{f}(r) = \\ln r$, find the set of values of $x$ for which the infinite series\n$$u_1 + u_2 + u_3 + \\cdots$$\nis convergent, and give the sum to infinity when this exists. $\\quad$ **[3]**\n\n**(c)** Given instead that $\\mathrm{f}(r) = 2\\log_x r$ where $x \\neq 1$, use standard results from the List of Formulae to find $\\displaystyle\\sum_{r=2}^{N} S_n$ in terms of $N$. Fully factorise your answer. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
 
@@ -658,6 +684,16 @@ const SYLLABUS = {
             {
               id: "FP1_RP_004",
               question_text: "The cubic equation $x^3 + bx^2 + d = 0$ has roots $\\alpha$, $\\beta$, $\\gamma$, where $\\alpha = \\beta$ and $d \\neq 0$.\n\n**(a)** Show that $4b^3 + 27d = 0$. $\\quad$ **[5]**\n\n**(b)** Given that $2\\alpha^2 + \\gamma^2 = 3b$, find the values of $b$ and $d$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RP_005",
+              question_text: "Obtain the sum of the squares of the roots of the equation\n$$x^4 + 3x^3 + 5x^2 + 12x + 4 = 0$$\n$\\quad$ **[2]**\n\nDeduce that this equation does not have more than 2 real roots. $\\quad$ **[3]**\n\nShow that, in fact, the equation has exactly 2 real roots in the interval $-3 < x < 0$. $\\quad$ **[5]**\n\nDenoting these roots by $\\alpha$ and $\\beta$, and the other 2 roots by $\\gamma$ and $\\delta$, show that $|\\gamma| = |\\delta| = \\dfrac{2}{\\sqrt{\\alpha\\beta}}$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RP_006",
+              question_text: "It is given that\n$$\\alpha + \\beta + \\gamma + \\delta = 2, \\quad \\alpha^2 + \\beta^2 + \\gamma^2 + \\delta^2 = 3, \\quad \\alpha^3 + \\beta^3 + \\gamma^3 + \\delta^3 = 4$$\n\n**(a)** Find the value of $\\alpha\\beta + \\alpha\\gamma + \\alpha\\delta + \\beta\\gamma + \\beta\\delta + \\gamma\\delta$. $\\quad$ **[2]**\n\n**(b)** Find the value of $\\alpha^2\\beta + \\alpha^2\\gamma + \\alpha^2\\delta + \\beta^2\\alpha + \\beta^2\\gamma + \\beta^2\\delta + \\gamma^2\\alpha + \\gamma^2\\beta + \\gamma^2\\delta + \\delta^2\\alpha + \\delta^2\\beta + \\delta^2\\gamma$. $\\quad$ **[3]**\n\n**(c)** It is given that $\\alpha$, $\\beta$, $\\gamma$, $\\delta$ are the roots of $6x^4 - 12x^3 + 3x^2 + 2x + 6 = 0$.\n\n$\\quad$ **(i)** Find the value of $\\alpha^4 + \\beta^4 + \\gamma^4 + \\delta^4$. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Find the value of $\\alpha^5 + \\beta^5 + \\gamma^5 + \\delta^5$. $\\quad$ **[2]**",
               solution_image: ""
             }
           ],
@@ -696,6 +732,21 @@ const SYLLABUS = {
             {
               id: "FP1_PC_007",
               question_text: "The curve $C$ has polar equation $r^2 = (\\pi - \\theta)\\tan^{-1}(\\pi - \\theta)$, for $0 \\leq \\theta \\leq \\pi$.\n\n**(a)** Sketch $C$ and state the polar coordinates of the point of $C$ furthest from the pole. $\\quad$ **[3]**\n\n**(b)** Using the substitution $u = \\pi - \\theta$, or otherwise, find the area of the region enclosed by $C$ and the initial line. $\\quad$ **[7]**\n\n**(c)** Show that, at the point of $C$ furthest from the initial line,\n$$2(\\pi-\\theta)\\tan^{-1}(\\pi-\\theta)\\cot\\theta - \\frac{\\pi-\\theta}{1+(\\pi-\\theta)^2} - \\tan^{-1}(\\pi-\\theta) = 0$$\nand verify that this equation has a root for $\\theta$ between $1.2$ and $1.3$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_008",
+              question_text: "The curve $C$ has polar equation $r^2 = e^{\\sin\\theta}\\cos\\theta$, for $-\\dfrac{1}{2}\\pi \\leq \\theta \\leq \\dfrac{1}{2}\\pi$.\n\n**(a)** Find the polar coordinates of the point on $C$ that is furthest from the pole, giving your answers correct to 3 decimal places. $\\quad$ **[5]**\n\n**(b)** Find the polar coordinates of the point on $C$ that is furthest from the half-line $\\theta = \\dfrac{1}{2}\\pi$, giving your answers correct to 3 decimal places. $\\quad$ **[5]**\n\n**(c)** Sketch $C$. $\\quad$ **[3]**\n\n**(d)** Find the area of the region bounded by $C$, giving your answer in exact form. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_009",
+              question_text: "The curve $C$ has polar equation $r = 6e^{\\frac{1}{3}\\theta}$, for $0 \\leq \\theta \\leq 2\\pi$.\n\n**(a)** Sketch $C$. $\\quad$ **[2]**\n\n**(b)** Find the area of the region bounded by $C$ and the initial line, giving your answer in the form $(p\\pi^2 + q\\pi + r)e^{\\frac{4}{3}s} + s$, where $p$, $q$, $r$ and $s$ are integers to be determined. $\\quad$ **[6]**\n\n**(c)** Show that, at the point of $C$ furthest from the initial line,\n$$\\theta\\cos\\theta + \\left(\\tfrac{1}{3}\\theta + 1\\right)\\sin\\theta = 0$$\nand verify that this equation has a root between 5 and 5.05. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_010",
+              question_text: "The curve $C$ has polar equation $r^2 = \\tan 2\\theta$, where $0 \\leq \\theta \\leq \\dfrac{1}{4}\\pi$.\n\n**(a)** Sketch $C$ and state the greatest distance of a point on $C$ from the pole. $\\quad$ **[2]**\n\n**(b)** Find the exact value of the area of the region bounded by $C$ and the half-line $\\theta = \\dfrac{1}{8}\\pi$. $\\quad$ **[4]**\n\n**(c)** Show that $C$ has Cartesian equation $x^2 - 2xy - y^4 = 0$, given that $0 \\leq x \\leq \\cos\\left(\\dfrac{1}{4}\\pi\\right)$ and $0 \\leq y \\leq \\sin\\left(\\dfrac{1}{4}\\pi\\right)$. $\\quad$ **[4]**\n\n**(d)** Using your answer to **(b)**, deduce the exact value of the area bounded by $C$, the $x$-axis and the line $x = \\cos\\left(\\dfrac{1}{4}\\pi\\right)$. $\\quad$ **[2]**",
               solution_image: ""
             }
           ],
@@ -835,6 +886,11 @@ const SYLLABUS = {
             {
               id: "FP1_MA_006",
               question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix} \\frac{1}{2}\\sqrt{2} & -\\frac{1}{2}\\sqrt{2} \\\\ \\frac{1}{2}\\sqrt{2} & \\frac{1}{2}\\sqrt{2} \\end{pmatrix} \\begin{pmatrix} 1 & k \\\\ 0 & 1 \\end{pmatrix}$$\nwhere $k$ is a constant.\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations. State the type of each transformation, and make clear the order in which they are applied. $\\quad$ **[2]**\n\n**(b)** The triangle $ABC$ in the $x$-$y$ plane is transformed by $\\mathbf{M}$ onto triangle $DEF$. Find, in terms of $k$, the single matrix which transforms triangle $DEF$ onto triangle $ABC$. $\\quad$ **[2]**\n\n**(c)** Find the set of values of $k$ for which the transformation represented by $\\mathbf{M}$ has no invariant lines through the origin. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_MA_007",
+              question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$$\nwhere $0 < \\theta < 2\\pi$.\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. State the type of each transformation, and make clear the order in which they are applied. $\\quad$ **[2]**\n\n**(b)** Find the value of $\\theta$ for which the transformation represented by $\\mathbf{M}$ has a line of invariant points. $\\quad$ **[7]**",
               solution_image: ""
             }
           ]
