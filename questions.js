@@ -313,13 +313,13 @@ const SYLLABUS = {
             {
               id: "P1_CM_005",
               question_text: "Seven cylindrical pipes, each of radius 20 cm, are held together by a thin rope wrapped tightly around them. Six outer pipes have centres $A$, $B$, $C$, $D$, $E$, $F$ arranged symmetrically around a central pipe. Points $P$ and $Q$ are where straight sections of the rope meet the pipe with centre $A$.\n\n**(a)** Show that angle $PAQ = \\dfrac{1}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the total length of the rope. $\\quad$ **[4]**\n\n**(c)** Find the area of the hexagon $ABCDEF$, giving your answer in terms of $\\sqrt{3}$. $\\quad$ **[2]**\n\n**(d)** Find the area of the complete region enclosed by the rope. $\\quad$ **[3]**",
-              diagram_image: "P1_CM_005_d.png",
+              diagram_image: "P1_CM_005_d.jpeg",
               solution_image: ""
             },
             {
               id: "P1_CM_006",
               question_text: "The diagram shows a motif formed by the major arc $AB$ of a circle with radius $r$ and centre $O$, and the minor arc $AOB$ of a circle also with radius $r$ but with centre $C$. The point $C$ lies on the circle with centre $O$.\n\n**(a)** Given that angle $ACB = k\\pi$ radians, state the value of the fraction $k$. $\\quad$ **[1]**\n\n**(b)** State the perimeter of the shaded motif in terms of $\\pi$ and $r$. $\\quad$ **[1]**\n\n**(c)** Find the area of the shaded motif, giving your answer in terms of $\\pi$, $r$ and $\\sqrt{3}$. $\\quad$ **[5]**",
-              diagram_image: "P1_CM_006_d.png",
+              diagram_image: "P1_CM_006_d.jpeg",
               solution_image: ""
             },
             {
@@ -330,7 +330,7 @@ const SYLLABUS = {
             {
               id: "P1_CM_008",
               question_text: "The diagram shows a symmetrical metal plate. The plate is made by removing two identical pieces from a circular disc with centre $C$. The boundary of the plate consists of two arcs $PS$ and $QR$ of the original circle and two semicircles with $PQ$ and $RS$ as diameters. The radius of the circle with centre $C$ is 4 cm, and $PQ = RS = 4$ cm also.\n\n**(a)** Show that angle $PCS = \\dfrac{2}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the exact perimeter of the plate. $\\quad$ **[3]**\n\n**(c)** Show that the area of the plate is $\\left(\\dfrac{20}{3}\\pi + 8\\sqrt{3}\\right)$ cm$^2$. $\\quad$ **[5]**",
-              diagram_image: "P1_CM_008_d.png",
+              diagram_image: "P1_CM_008_d.jpeg",
               solution_image: ""
             }
           ]
