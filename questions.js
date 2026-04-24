@@ -332,6 +332,17 @@ const SYLLABUS = {
               question_text: "The diagram shows a symmetrical metal plate. The plate is made by removing two identical pieces from a circular disc with centre $C$. The boundary of the plate consists of two arcs $PS$ and $QR$ of the original circle and two semicircles with $PQ$ and $RS$ as diameters. The radius of the circle with centre $C$ is 4 cm, and $PQ = RS = 4$ cm also.\n\n**(a)** Show that angle $PCS = \\dfrac{2}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the exact perimeter of the plate. $\\quad$ **[3]**\n\n**(c)** Show that the area of the plate is $\\left(\\dfrac{20}{3}\\pi + 8\\sqrt{3}\\right)$ cm$^2$. $\\quad$ **[5]**",
               diagram_image: "P1_CM_008_d.jpg",
               solution_image: ""
+            },
+            {
+              id: "P1_CM_009",
+              question_text: "Two circles $C_1$ and $C_2$ touch at a point $X$. Circle $C_1$ has centre $A$ and radius 6 cm, and circle $C_2$ has centre $B$ and radius 10 cm. Points $D$ and $E$ lie on $C_1$ and $C_2$ respectively, and $DE$ is parallel to $AB$. Angle $DAX = \\dfrac{1}{3}\\pi$ radians and angle $EBX = \\theta$ radians.\n\n**(i)** By considering the perpendicular distances of $D$ and $E$ from $AB$, show that the exact value of $\\theta$ is $\\sin^{-1}\\!\\left(\\dfrac{3\\sqrt{3}}{10}\\right)$. $\\quad$ **[3]**\n\n**(ii)** Find the perimeter of the shaded region bounded by arc $DE$ on $C_1$, arc $DE$ on $C_2$, and the two line segments $DX$ and $EX$, correct to 4 significant figures. $\\quad$ **[5]**",
+              diagram_image: "P1_CM_009_d.jpg",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_010",
+              question_text: "$ABC$ is an equilateral triangle of side 2 cm. The mid-point of $BC$ is $Q$. An arc of a circle with centre $A$ touches $BC$ at $Q$, and meets $AB$ at $P$ and $AC$ at $R$.\n\nFind the total area of the shaded regions between the arc $PQR$ and the two sides $AB$, $BC$, $AC$ of the triangle, giving your answer in terms of $\\pi$ and $\\sqrt{3}$. $\\quad$ **[5]**",
+              solution_image: ""
             }
           ]
         }
