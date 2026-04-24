@@ -584,8 +584,8 @@ body::before {
 }
 
 /* Optional diagram above question text */
-.prob-diagram { border-bottom: 1px solid var(--rule); padding: 16px; background: var(--ink3); }
-.prob-diagram-img { display: block; width: 100%; height: auto; max-width: 320px; margin: 0 auto; }
+.prob-diagram { border-bottom: 1px solid var(--rule); padding: 20px 16px; background: var(--ink2); display: flex; justify-content: center; }
+.prob-diagram-img { display: block; width: 100%; height: auto; max-width: 320px; margin: 0 auto; filter: invert(1) sepia(0.15) saturate(0.8) brightness(0.88); border-radius: 2px; }
 
 /* Optional diagram above question text — reserved for future use */
 
@@ -853,6 +853,12 @@ body::before {
 
   .q-marks { align-self: flex-start; }
 
+  .katex-display { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+  .katex-display > .katex > .katex-html { white-space: nowrap; }
+
+  .prob-card { overflow: visible; }
+  .prob-text-question { overflow-x: hidden; word-break: break-word; }
+
   .prob-label { padding: 10px 16px; }
 
   .prob-sol-btn { padding: 14px 16px; font-size: .66rem; }
@@ -970,7 +976,7 @@ body::before {
   ═══════════════════════════ -->
   <div class="screen" id="s-home">
 
-    <div class="home-heading">Poblems.<br><em>Worth Solving.</em></div>
+    <div class="home-heading">No shortcuts.<br><em>No spectators.</em></div>
     <div class="home-sub">Mathematics is not a spectator sport — play it to conquer it.</div>
 
     <div class="course-pair" id="course-pair"></div>
