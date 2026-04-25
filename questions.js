@@ -242,7 +242,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_SS_005",
-              question_text: "A geometric progression has first term $a = 16\\cos^4\\alpha$ and second term $u_2 = 16\\cos^4\\alpha\\sin^2\\alpha$, where $\\alpha$ is an angle varying with time $t$ such that $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ is defined as the instantaneous volume $V$ (in cm³) of a spherical bubble.\n\nFind the exact rate of change of the surface area $A$ of the bubble with respect to time $t$ (in cm²/s) at the precise instant when:\n- the angle $\\alpha$ is increasing at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, and\n- $\\alpha$ satisfies the equation $2\\cos(2\\alpha) + \\sqrt{3}\\sin(2\\alpha) = 1$.\n\n$\\quad$ **[20]**",
+              question_text: "A geometric progression has first term $16\\cos^4\\alpha$ and second term $16\\cos^4\\alpha\\sin^2\\alpha$, where $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ equals the instantaneous volume $V$ cm³ of a spherical bubble.\n\n**(i)** Show that $V = 16\\cos^2\\alpha$. $\\quad$ **[3]**\n\n**(ii)** Given that $\\alpha$ satisfies $\\cos 2\\alpha = \\sin\\alpha$, find the exact value of $V$. $\\quad$ **[4]**\n\n**(iii)** At the instant when $V = 12$ cm³, the volume is increasing at 3 cm³/s. Given that the volume of a sphere is $V = \\tfrac{4}{3}\\pi R^3$, express the surface area $A$ directly in terms of $V$. Hence find the exact rate of change of $A$ with respect to time at this instant. $\\quad$ **[7]**",
               solution_image: ""
             }
           ],
@@ -363,10 +363,15 @@ const SYLLABUS = {
               id: "P3_LEF_001",
               question_text: "**(a)** By writing $u = \\log_4 r$, where $r > 0$, show that\n$$\\log_4 r = \\tfrac{1}{2}\\log_2 r$$\n$\\quad$ **[2]**\n\n**(b)** Solve the equation\n$$\\log_4(5x^2 - 11) = \\log_2(3x - 5)$$\n$\\quad$ **[5]**",
               solution_image: ""
+            },
+            {
+              id: "P3_LEF_002",
+              question_text: "The angle $\\alpha$ satisfies the equation $2\\cos 2\\alpha + \\sqrt{3}\\sin 2\\alpha = 1$, where $0 < \\alpha < \\dfrac{\\pi}{2}$.\n\n**(i)** Express $2\\cos 2\\alpha + \\sqrt{3}\\sin 2\\alpha$ in the form $R\\cos(2\\alpha - \\phi)$, where $R > 0$ and $0 < \\phi < \\dfrac{\\pi}{2}$, giving the exact values of $R$ and $\\phi$. $\\quad$ **[3]**\n\n**(ii)** Hence find the exact value of $\\alpha$. $\\quad$ **[3]**\n\n**(iii)** Given that $\\alpha$ increases at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, find the exact rate of change of $y = \\ln(\\cos\\alpha)$ with respect to $t$ at this instant. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
-          "Trigonometry":                [],
-          "Differentiation":             [],
+          "Trigonometry": [],
+          "Differentiation": [],
           "Integration": [
             {
               id: "P3_IN_001",
@@ -424,10 +429,10 @@ const SYLLABUS = {
               solution_image: ""
             }
           ],
-          "Numerical Methods":           [],
-          "Vectors":                     [],
-          "Differential Equations":      [],
-          "Complex Numbers":             []
+          "Numerical Methods": [],
+          "Vectors": [],
+          "Differential Equations": [],
+          "Complex Numbers": []
         }
       },
 
