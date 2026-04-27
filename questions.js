@@ -21,6 +21,11 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
+              id: "P1_CG_009",
+              question_text: "The points $(6, 1)$ and $(-2, 7)$ lie at opposite ends of a diameter of a circle.\n\n**(a)** Find the equation of the circle. $\\quad$ **[3]**\n\n**(b)** There are two tangents to the circle which have gradient $-\\dfrac{1}{2}$. Find the exact values of the $x$-coordinates of the points at which these tangents touch the circle. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
               id: "P1_CG_001",
               question_text: "A circle with centre $C$ has equation $x^2 + y^2 - 8x - 2y - 3 = 0$.\n\n**(i)** Find the coordinates of $C$ and the radius of the circle. $\\quad$ **[3]**\n\n**(ii)** Find the values of $k$ for which the line $y = k$ is a tangent to the circle, giving your answers in simplified surd form. $\\quad$ **[3]**\n\n**(iii)** The points $S$ and $T$ lie on the circumference of the circle. $M$ is the mid-point of the chord $ST$. Given that the length of $CM$ is $2$, calculate the length of the chord $ST$. $\\quad$ **[3]**\n\n**(iv)** Find the coordinates of the point where the circle meets the line $x - 2y - 12 = 0$. $\\quad$ **[6]**",
               solution_image: ""
@@ -200,6 +205,11 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
+              id: "P1_QD_007",
+              question_text: "A function f is defined by $\\mathrm{f}(x) = px^2 - 4x + q$ for $x \\in \\mathbb{R}$, where $p$ and $q$ are constants.\n\n**(a)** It is given that $p = 2$ and $q = 10$.\n\n$\\quad$ **(i)** Express $\\mathrm{f}(x)$ in the form $a(x+b)^2 + c$, where $a$, $b$ and $c$ are constants. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** State the range of f. $\\quad$ **[1]**\n\n**(b)** It is given instead that $q = -5$ and the roots of $\\mathrm{f}(x) = 0$ are $5m$ and $-9m$, where $m$ is a constant. Find the values of $p$ and $m$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
               id: "P1_QD_001",
               question_text: "Solve the quadratic equation\n$$(\\sqrt{3}-1)x^2 - 2\\sqrt{3}\\,x = 3 + 3\\sqrt{3}$$\ngiving one root in the form $p + q\\sqrt{3}$ and the other in the form $r\\sqrt{3}$, where $p$, $q$ and $r$ are integers.",
               solution_image: ""
@@ -229,7 +239,7 @@ const SYLLABUS = {
           "Integration": [
             {
               id: "P1_IN_011",
-              question_text: "The diagram shows the curve $y = (3 - 2x)^3$ and the tangent to the curve at the point $\\left(\\dfrac{1}{2}, 8\\right)$.\n\n**(i)** Find the equation of this tangent, giving your answer in the form $y = mx + c$. $\\quad$ **[5]**\n\n**(ii)** Find the area of the shaded region. $\\quad$ **[6]**",
+              question_text: "The curve $y = (3 - 2x)^3$ passes through the point $\\left(\\dfrac{1}{2}, 8\\right)$.\n\n**(i)** Find the equation of the tangent to the curve at $\\left(\\dfrac{1}{2}, 8\\right)$, giving your answer in the form $y = mx + c$. $\\quad$ **[5]**\n\n**(ii)** Find the area of the region enclosed by the curve, the tangent and the $y$-axis. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
@@ -291,6 +301,11 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
+              id: "P1_SS_010",
+              question_text: "An arithmetic progression has first term 2 and common difference $d$. The sum of the first $n$ terms is denoted by $S_n$.\n\n**(a)** It is given that $(S_1 - 1)$, $S_2$, $S_3$ are the first three terms of a second arithmetic progression. Find the value of $d$. $\\quad$ **[4]**\n\n**(b)** Hence find the difference between the values of the 15th terms of the two arithmetic progressions. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
               id: "P1_SS_006",
               question_text: "The geometric progression $S$ is defined by $S = u_1 + u_2 + u_3 + \\ldots + u_n + \\ldots$, where $u_n$ denotes the $n$th term of the progression. The sum to infinity of the progression exists and is denoted by $S_\\infty$. The first term of the progression, $u_1$, is equal to $a$, and the common ratio of the progression is $r$.\n\nA different progression $T = u_1^2 + u_2^2 + u_3^2 + \\ldots + u_n^2 + \\ldots$ is formed by squaring all the terms of the progression $S$ above.\n\n**(a)** Show that $T = u_1^2 + u_2^2 + u_3^2 + \\ldots + u_n^2 + \\ldots$ is also a geometric progression, and that its sum to infinity also exists. $\\quad$ **[4]**\n\nThe sum to infinity of the progression $T$ is denoted by $T_\\infty$.\n\n**(b)** Express the ratio $\\dfrac{T_\\infty}{S_\\infty}$ in terms of $a$ and $r$, simplifying your answer as far as possible. $\\quad$ **[3]**\n\n**(c)** Show that if $T_\\infty = S_\\infty$, then $u_k^2 = u_{2k-1} + u_{2k}$ for all $k \\geq 1$. Comment on what this shows about the relationship between the terms of the two progressions. $\\quad$ **[6]**",
               solution_image: ""
@@ -336,6 +351,11 @@ const SYLLABUS = {
             {
               id: "P1_FN_011",
               question_text: "The functions f and g are defined by\n$$\\mathrm{f}(x) = x^2 - 4x + 3 \\quad \\text{for } x > c, \\text{ where } c \\text{ is a constant}$$\n$$\\mathrm{g}(x) = \\frac{1}{x+1} \\quad \\text{for } x > -1$$\n\n**(a)** Express $\\mathrm{f}(x)$ in the form $(x - a)^2 + b$. $\\quad$ **[2]**\n\nIt is given that f is a one-one function.\n\n**(b)** State the smallest possible value of $c$. $\\quad$ **[1]**\n\nIt is now given that $c = 5$.\n\n**(c)** Find an expression for $\\mathrm{f}^{-1}(x)$ and state the domain of $\\mathrm{f}^{-1}$. $\\quad$ **[3]**\n\n**(d)** Find an expression for $\\mathrm{gf}(x)$ and state the range of gf. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_012",
+              question_text: "The function f is defined by\n$$\\mathrm{f}(x) = \\frac{4}{(3x-6)^2} - \\frac{1}{3x-6} \\quad \\text{for } x > 2$$\n\n**(a)** Find an expression for $\\mathrm{f}'(x)$ and hence determine whether f is an increasing function, a decreasing function or neither. $\\quad$ **[4]**\n\n**(b)** State whether $\\mathrm{f}^{-1}$ exists. Give a reason for your answer. $\\quad$ **[1]**\n\nThe function g is defined by $\\mathrm{g}(x) = 4x - 3$ for $x > a$.\n\n**(c)** Find the range of g in terms of the constant $a$. $\\quad$ **[1]**\n\n**(d)** Find the set of values of $a$ for which the composite function fg exists. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
@@ -393,6 +413,12 @@ const SYLLABUS = {
             {
               id: "P1_CM_011",
               question_text: "The diagram below shows the sector of a circle with centre $O$. The radii $OA$ and $OB$ are each equal to $r$ cm, and the angle at the centre, $AOB$, is equal to $\\theta$ radians. The line $DC$ is perpendicular to the line $OB$.\n\nGiven that $BC : CO = 2 : 3$, show that the area of the shaded shape $ABCD$ is given by\n$$\\tfrac{1}{50}r^2(25\\theta - 9\\tan\\theta) \\text{ cm}^2$$\n$\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_012",
+              question_text: "A circle with centre $A$ and radius $r$ passes through points $B$, $C$ and $D$. A larger circle with centre $C$ and radius $s$ passes through $B$ and $D$. The length $BD$ is also $s$.\n\n**(a)** Show that $s = \\sqrt{3}\\,r$. $\\quad$ **[2]**\n\n**(b)** Find an expression for the area of the shaded region in the form $(a + b\\pi)r^2$, where $a$ and $b$ are constants to be found. $\\quad$ **[7]**",
+              diagram_image: "P1_CM_012_d.jpg",
               solution_image: ""
             },
             {
