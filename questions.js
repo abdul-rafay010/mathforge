@@ -410,18 +410,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_FN_013",
-              question_text: "The functions f and g are defined for all real values of $x$ by
-$$\\mathrm{f}(x) = (x-3)^2 + 2k \\quad \\text{and} \\quad \\mathrm{g}(x) = x - k$$
-where $k$ is a constant.
-
-**(a)** Given that the range of the composite function gf is $\\mathrm{gf}(x) \\geq 5$, find the value of $k$. $\\quad$ **[3]**
-
-**(b)** For this value of $k$, determine the range of the function fg. $\\quad$ **[3]**
-
-The function h is defined for all real values of $x$ and is such that
-$$\\mathrm{gh}(x) = 35x^2 + 19$$
-
-**(c)** Find an expression for $\\mathrm{h}(x)$ and hence find an expression for $\\mathrm{gh}^{-1}(x)$. $\\quad$ **[4]**",
+              question_text: "The functions f and g are defined for all real values of $x$ by\n$$\\mathrm{f}(x) = (x-3)^2 + 2k \\quad \\text{and} \\quad \\mathrm{g}(x) = x - k$$\nwhere $k$ is a constant.\n\n**(a)** Given that the range of the composite function gf is $\\mathrm{gf}(x) \\geq 5$, find the value of $k$. $\\quad$ **[3]**\n\n**(b)** For this value of $k$, determine the range of the function fg. $\\quad$ **[3]**\n\nThe function h is defined for all real values of $x$ and is such that\n$$\\mathrm{gh}(x) = 35x^2 + 19$$\n\n**(c)** Find an expression for $\\mathrm{h}(x)$ and hence find an expression for $\\mathrm{gh}^{-1}(x)$. $\\quad$ **[4]**",
               solution_image: ""
             }
           ],
@@ -517,8 +506,6 @@ $$\\mathrm{gh}(x) = 35x^2 + 19$$
               solution_image: ""
             }
           ],
-          "Trigonometry": [],
-          "Differentiation": [],
           "Integration": [
             {
               id: "P3_IN_001",
