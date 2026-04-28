@@ -11,21 +11,6 @@ const SYLLABUS = {
         topics: {
           "Coordinate Geometry": [
             {
-              id: "P1_CG_007",
-              question_text: "The diagram below shows circles $C_1$ and $C_2$ which intersect at the two points $A$ and $B$. Circle $C_1$ has equation $x^2 + y^2 - 16x - 10y + 39 = 0$, and points $A$ and $B$ lie along the line with equation $3x - y = -1$. Circle $C_2$ also passes through the point $(-13, 2)$.\n\nFind an equation of circle $C_2$. $\\quad$ **[11]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_CG_008",
-              question_text: "The curve $C_1$ has equation $y = x^2 - 4x + 7$. The curve $C_2$ has equation $y^2 = 4x + k$, where $k$ is a constant. The tangent to $C_1$ at the point where $x = 3$ is also the tangent to $C_2$ at the point $P$. Find the value of $k$ and the coordinates of $P$. $\\quad$ **[8]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_CG_009",
-              question_text: "The points $(6, 1)$ and $(-2, 7)$ lie at opposite ends of a diameter of a circle.\n\n**(a)** Find the equation of the circle. $\\quad$ **[3]**\n\n**(b)** There are two tangents to the circle which have gradient $-\\dfrac{1}{2}$. Find the exact values of the $x$-coordinates of the points at which these tangents touch the circle. $\\quad$ **[5]**",
-              solution_image: ""
-            },
-            {
               id: "P1_CG_001",
               question_text: "A circle with centre $C$ has equation $x^2 + y^2 - 8x - 2y - 3 = 0$.\n\n**(i)** Find the coordinates of $C$ and the radius of the circle. $\\quad$ **[3]**\n\n**(ii)** Find the values of $k$ for which the line $y = k$ is a tangent to the circle, giving your answers in simplified surd form. $\\quad$ **[3]**\n\n**(iii)** The points $S$ and $T$ lie on the circumference of the circle. $M$ is the mid-point of the chord $ST$. Given that the length of $CM$ is $2$, calculate the length of the chord $ST$. $\\quad$ **[3]**\n\n**(iv)** Find the coordinates of the point where the circle meets the line $x - 2y - 12 = 0$. $\\quad$ **[6]**",
               solution_image: ""
@@ -54,14 +39,24 @@ const SYLLABUS = {
               id: "P1_CG_006",
               question_text: "The point $P$ lies on the line with equation $y = mx + c$, where $m$ and $c$ are positive constants. A curve has equation $y = -\\dfrac{m}{x}$. There is a single point $P$ on the curve such that the straight line is a tangent to the curve at $P$.\n\n**(a)** Find the coordinates of $P$, giving the $y$-coordinate in terms of $m$. $\\quad$ **[6]**\n\nThe normal to the curve at $P$ intersects the curve again at the point $Q$.\n\n**(b)** Find the coordinates of $Q$ in terms of $m$. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "P1_CG_007",
+              question_text: "The diagram below shows circles $C_1$ and $C_2$ which intersect at the two points $A$ and $B$. Circle $C_1$ has equation $x^2 + y^2 - 16x - 10y + 39 = 0$, and points $A$ and $B$ lie along the line with equation $3x - y = -1$. Circle $C_2$ also passes through the point $(-13, 2)$.\n\nFind an equation of circle $C_2$. $\\quad$ **[11]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CG_008",
+              question_text: "The curve $C_1$ has equation $y = x^2 - 4x + 7$. The curve $C_2$ has equation $y^2 = 4x + k$, where $k$ is a constant. The tangent to $C_1$ at the point where $x = 3$ is also the tangent to $C_2$ at the point $P$. Find the value of $k$ and the coordinates of $P$. $\\quad$ **[8]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CG_009",
+              question_text: "The points $(6, 1)$ and $(-2, 7)$ lie at opposite ends of a diameter of a circle.\n\n**(a)** Find the equation of the circle. $\\quad$ **[3]**\n\n**(b)** There are two tangents to the circle which have gradient $-\\dfrac{1}{2}$. Find the exact values of the $x$-coordinates of the points at which these tangents touch the circle. $\\quad$ **[5]**",
+              solution_image: ""
             }
           ],
           "Trigonometry": [
-            {
-              id: "P1_TR_009",
-              question_text: "**(a)** Find all the solutions to the equation $2\\cos 2\\theta = 4\\sin 2\\theta\\cos 2\\theta$ in the interval $0 \\leq \\theta \\leq 2\\pi$, giving your answers in radians as multiples of $\\pi$. $\\quad$ **[6]**",
-              solution_image: ""
-            },
             {
               id: "P1_TR_001",
               question_text: "Find the exact solution of the equation\n$$\\cos\\tfrac{1}{4}\\pi + \\tan 3x + \\frac{\\sqrt{2}}{2} = 0 \\quad \\text{for} \\quad -\\tfrac{1}{3}\\pi < x < \\tfrac{1}{3}\\pi$$\n$\\quad$ **[3]**",
@@ -102,24 +97,14 @@ const SYLLABUS = {
               id: "P1_TR_008",
               question_text: "The curve has equation $y = \\sin(ax - b)$, where $a > 0$ and $0 < b < \\pi$. The curve cuts the $x$-axis at the points $P$, $Q$ and $R$ with coordinates $\\left(\\dfrac{\\pi}{10}, 0\\right)$, $\\left(\\dfrac{3\\pi}{5}, 0\\right)$ and $\\left(\\dfrac{11\\pi}{10}, 0\\right)$ respectively.\n\nFind the values of $a$ and $b$. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "P1_TR_009",
+              question_text: "**(a)** Find all the solutions to the equation $2\\cos 2\\theta = 4\\sin 2\\theta\\cos 2\\theta$ in the interval $0 \\leq \\theta \\leq 2\\pi$, giving your answers in radians as multiples of $\\pi$. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
           "Binomial Expansion": [
-            {
-              id: "P1_BE_006",
-              question_text: "In the expansion of $(a + bx)^8$, the coefficient of the $x^5$ term is $-870\\,912$.\n\nIn the expansion of $(a + bx)^{12}$, the coefficient of the $x^3$ term is $-1\\,557\\,135\\,360$.\n\nFind the possible values of $a$ and $b$. $\\quad$ **[5]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_BE_007",
-              question_text: "In the expansion of $(3 - 2x)\\left(1 + \\dfrac{x}{2}\\right)^n$, the coefficient of $x$ is $7$. Find the value of the constant $n$ and hence find the coefficient of $x^2$. $\\quad$ **[6]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_BE_008",
-              question_text: "In the expansion of $(a + bx)^7$, where $a$ and $b$ are non-zero constants, the coefficients of $x$, $x^2$ and $x^4$ are the first, second and third terms respectively of a geometric progression.\n\nFind the value of $\\dfrac{a}{b}$. $\\quad$ **[5]**",
-              solution_image: ""
-            },
             {
               id: "P1_BE_002",
               question_text: "Given that $(1 + ax)^n = 1 - 12x + 63x^2 + \\ldots$, find $a$ and $n$.",
@@ -139,29 +124,24 @@ const SYLLABUS = {
               id: "P1_BE_005",
               question_text: "The first three terms, in descending powers of $x$, in the expansion of\n$$\\left(3x^2 - a\\right)^n\\!\\left(1 + \\frac{1}{x^2}\\right)^2$$\ncan be written as $729x^{12} + 972x^{10} + bx^8$, where $a$, $b$ and $n$ are constants.\n\nFind the values of $a$, $b$ and $n$. $\\quad$ **[9]**",
               solution_image: ""
+            },
+            {
+              id: "P1_BE_006",
+              question_text: "In the expansion of $(a + bx)^8$, the coefficient of the $x^5$ term is $-870\\,912$.\n\nIn the expansion of $(a + bx)^{12}$, the coefficient of the $x^3$ term is $-1\\,557\\,135\\,360$.\n\nFind the possible values of $a$ and $b$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_BE_007",
+              question_text: "In the expansion of $(3 - 2x)\\left(1 + \\dfrac{x}{2}\\right)^n$, the coefficient of $x$ is $7$. Find the value of the constant $n$ and hence find the coefficient of $x^2$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_BE_008",
+              question_text: "In the expansion of $(a + bx)^7$, where $a$ and $b$ are non-zero constants, the coefficients of $x$, $x^2$ and $x^4$ are the first, second and third terms respectively of a geometric progression.\n\nFind the value of $\\dfrac{a}{b}$. $\\quad$ **[5]**",
+              solution_image: ""
             }
           ],
           "Differentiation": [
-            {
-              id: "P1_DF_009",
-              question_text: "A large block of ice used by sculptors is in the shape of a cuboid with dimensions $x$ m by $2x$ m by $5x$ m. The block melts uniformly with its surface area decreasing at a constant rate of $k$ m² s⁻¹. You may assume that as the block melts, the shape remains mathematically similar to the original cuboid.\n\n**(a)** Show that the rate of melting, by volume, is given by\n$$\\frac{15kx}{34} \\text{ m}^3 \\text{s}^{-1}$$\n$\\quad$ **[5]**\n\n**(b)** In the case when $k = 0.2$, the block of ice remains solid enough to be sculpted whilst the rate of melting, by volume, is less than $0.05$ m³ s⁻¹. Find the value of $x$ for the largest block of ice that can be used for ice sculpting under such conditions, giving your answer as a fraction in its lowest terms. $\\quad$ **[3]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_DF_013",
-              question_text: "A curve is such that $\\dfrac{d^2y}{dx^2} = \\dfrac{24}{x^3} - 4$. The curve has a stationary point at $P$ where $x = 2$.\n\n**(i)** State, with a reason, the nature of this stationary point. $\\quad$ **[1]**\n\n**(ii)** Find an expression for $\\dfrac{dy}{dx}$. $\\quad$ **[4]**\n\n**(iii)** Given that the curve passes through the point $(1, 13)$, find the coordinates of the stationary point $P$. $\\quad$ **[4]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_DF_011",
-              question_text: "The point $P(3, 5)$ lies on the curve $y = \\dfrac{1}{x-1} - \\dfrac{9}{x-5}$.\n\n**(i)** Find the $x$-coordinate of the point where the normal to the curve at $P$ intersects the $x$-axis. $\\quad$ **[5]**\n\n**(ii)** Find the $x$-coordinate of each of the stationary points on the curve and determine the nature of each stationary point, justifying your answers. $\\quad$ **[6]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_DF_012",
-              question_text: "The curve with equation $y = x^3 - 2x^2 + 5x$ passes through the origin.\n\n**(i)** Show that the curve has no stationary points. $\\quad$ **[3]**\n\n**(ii)** Denoting the gradient of the curve by $m$, find the stationary value of $m$ and determine its nature. $\\quad$ **[5]**",
-              solution_image: ""
-            },
             {
               id: "P1_DF_001",
               question_text: "The curve $y = 4x^2 + \\dfrac{a}{x} + 5$ has a stationary point. Find the value of the positive constant $a$ given that the $y$-coordinate of the stationary point is $32$. $\\quad$ **[8]**",
@@ -196,19 +176,29 @@ const SYLLABUS = {
               id: "P1_DF_008",
               question_text: "The curve $y = -x^3 + 9x^2 - 15x - 3$ has two stationary points. A straight line passes through both stationary points.\n\n**(a)** Show that the equation of the straight line is $y = 8x - 18$. $\\quad$ **[5]**\n\n**(b)** Verify that the curve also meets the straight line when $x = 3$. $\\quad$ **[1]**\n\n**(c)** Find the area of the region bounded by the curve and the straight line between their points of intersection. $\\quad$ **[5]**",
               solution_image: ""
+            },
+            {
+              id: "P1_DF_009",
+              question_text: "A large block of ice used by sculptors is in the shape of a cuboid with dimensions $x$ m by $2x$ m by $5x$ m. The block melts uniformly with its surface area decreasing at a constant rate of $k$ m² s⁻¹. You may assume that as the block melts, the shape remains mathematically similar to the original cuboid.\n\n**(a)** Show that the rate of melting, by volume, is given by\n$$\\frac{15kx}{34} \\text{ m}^3 \\text{s}^{-1}$$\n$\\quad$ **[5]**\n\n**(b)** In the case when $k = 0.2$, the block of ice remains solid enough to be sculpted whilst the rate of melting, by volume, is less than $0.05$ m³ s⁻¹. Find the value of $x$ for the largest block of ice that can be used for ice sculpting under such conditions, giving your answer as a fraction in its lowest terms. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_011",
+              question_text: "The point $P(3, 5)$ lies on the curve $y = \\dfrac{1}{x-1} - \\dfrac{9}{x-5}$.\n\n**(i)** Find the $x$-coordinate of the point where the normal to the curve at $P$ intersects the $x$-axis. $\\quad$ **[5]**\n\n**(ii)** Find the $x$-coordinate of each of the stationary points on the curve and determine the nature of each stationary point, justifying your answers. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_012",
+              question_text: "The curve with equation $y = x^3 - 2x^2 + 5x$ passes through the origin.\n\n**(i)** Show that the curve has no stationary points. $\\quad$ **[3]**\n\n**(ii)** Denoting the gradient of the curve by $m$, find the stationary value of $m$ and determine its nature. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_013",
+              question_text: "A curve is such that $\\dfrac{d^2y}{dx^2} = \\dfrac{24}{x^3} - 4$. The curve has a stationary point at $P$ where $x = 2$.\n\n**(i)** State, with a reason, the nature of this stationary point. $\\quad$ **[1]**\n\n**(ii)** Find an expression for $\\dfrac{dy}{dx}$. $\\quad$ **[4]**\n\n**(iii)** Given that the curve passes through the point $(1, 13)$, find the coordinates of the stationary point $P$. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
           "Quadratics": [
-            {
-              id: "P1_QD_006",
-              question_text: "Solve the equation $8x^6 + 215x^3 - 27 = 0$. $\\quad$ **[3]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_QD_007",
-              question_text: "A function f is defined by $\\mathrm{f}(x) = px^2 - 4x + q$ for $x \\in \\mathbb{R}$, where $p$ and $q$ are constants.\n\n**(a)** It is given that $p = 2$ and $q = 10$.\n\n$\\quad$ **(i)** Express $\\mathrm{f}(x)$ in the form $a(x+b)^2 + c$, where $a$, $b$ and $c$ are constants. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** State the range of f. $\\quad$ **[1]**\n\n**(b)** It is given instead that $q = -5$ and the roots of $\\mathrm{f}(x) = 0$ are $5m$ and $-9m$, where $m$ is a constant. Find the values of $p$ and $m$. $\\quad$ **[5]**",
-              solution_image: ""
-            },
             {
               id: "P1_QD_001",
               question_text: "Solve the quadratic equation\n$$(\\sqrt{3}-1)x^2 - 2\\sqrt{3}\\,x = 3 + 3\\sqrt{3}$$\ngiving one root in the form $p + q\\sqrt{3}$ and the other in the form $r\\sqrt{3}$, where $p$, $q$ and $r$ are integers.",
@@ -233,20 +223,20 @@ const SYLLABUS = {
               id: "P1_QD_005",
               question_text: "**(i)** Show that the substitution $u = x^{\\frac{1}{2}}$ reduces the equation\n$$x - 6x^{\\frac{1}{2}} + 2 = 0$$\nto a quadratic in $u$. $\\quad$ **[1]**\n\n**(ii)** Hence solve $x - 6x^{\\frac{1}{2}} + 2 = 0$, giving your answers in the form $p \\pm q\\sqrt{r}$, where $p$, $q$ and $r$ are integers. $\\quad$ **[5]**\n\n**(iii)** By completing the square, find the range of values of $k$ for which $x^2 - 6x + 2 = k$ has no real solutions. $\\quad$ **[3]**",
               solution_image: ""
+            },
+            {
+              id: "P1_QD_006",
+              question_text: "Solve the equation $8x^6 + 215x^3 - 27 = 0$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_QD_007",
+              question_text: "A function f is defined by $\\mathrm{f}(x) = px^2 - 4x + q$ for $x \\in \\mathbb{R}$, where $p$ and $q$ are constants.\n\n**(a)** It is given that $p = 2$ and $q = 10$.\n\n$\\quad$ **(i)** Express $\\mathrm{f}(x)$ in the form $a(x+b)^2 + c$, where $a$, $b$ and $c$ are constants. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** State the range of f. $\\quad$ **[1]**\n\n**(b)** It is given instead that $q = -5$ and the roots of $\\mathrm{f}(x) = 0$ are $5m$ and $-9m$, where $m$ is a constant. Find the values of $p$ and $m$. $\\quad$ **[5]**",
+              solution_image: ""
             }
           ],
 
           "Integration": [
-            {
-              id: "P1_IN_011",
-              question_text: "The curve $y = (3 - 2x)^3$ passes through the point $\\left(\\dfrac{1}{2}, 8\\right)$.\n\n**(i)** Find the equation of the tangent to the curve at $\\left(\\dfrac{1}{2}, 8\\right)$, giving your answer in the form $y = mx + c$. $\\quad$ **[5]**\n\n**(ii)** Find the area of the region enclosed by the curve, the tangent and the $y$-axis. $\\quad$ **[6]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_IN_010",
-              question_text: "**(a)** Given that\n$$\\int_p^{\\infty} \\frac{3}{x\\sqrt{x}}\\,dx = \\sqrt{3}$$\nwhere $p$ is a real constant, find the value of $p$. $\\quad$ **[5]**",
-              solution_image: ""
-            },
             {
               id: "P1_IN_001",
               question_text: "The point $A$ with $x$-coordinate $2$ lies on the curve $y = \\sqrt{4x+1}$. The tangent to the curve at $A$ meets the $x$-axis at a point.\n\nFind the exact area of the region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[10]**",
@@ -291,35 +281,20 @@ const SYLLABUS = {
               id: "P1_IN_009",
               question_text: "The function f is defined by $\\mathrm{f}(x) = (4x+2)^{-2}$ for $x > -\\dfrac{1}{2}$.\n\n**(a)** Find $\\displaystyle\\int_1^{\\infty} \\mathrm{f}(x)\\,dx$. $\\quad$ **[4]**\n\n**(b)** A point moves along the curve $y = \\mathrm{f}(x)$ in such a way that, as it passes through the point $A$, its $y$-coordinate is **decreasing** at the rate of $k$ units per second and its $x$-coordinate is **increasing** at the rate of $k$ units per second.\n\nFind the coordinates of $A$. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "P1_IN_010",
+              question_text: "**(a)** Given that\n$$\\int_p^{\\infty} \\frac{3}{x\\sqrt{x}}\\,dx = \\sqrt{3}$$\nwhere $p$ is a real constant, find the value of $p$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_011",
+              question_text: "The curve $y = (3 - 2x)^3$ passes through the point $\\left(\\dfrac{1}{2}, 8\\right)$.\n\n**(i)** Find the equation of the tangent to the curve at $\\left(\\dfrac{1}{2}, 8\\right)$, giving your answer in the form $y = mx + c$. $\\quad$ **[5]**\n\n**(ii)** Find the area of the region enclosed by the curve, the tangent and the $y$-axis. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
 
           "Sequences & Series": [
-            {
-              id: "P1_SS_009",
-              question_text: "**(a)** The sum of the first two terms of a geometric progression is $10$ and the third term is $9$.\n\n**(i)** Find the possible values of the common ratio and the first term. $\\quad$ **[3]**\n\n**(ii)** Find the sum to infinity of the convergent progression. $\\quad$ **[1]**\n\n**(b)** In an arithmetic progression, $u_1 = -10$ and $u_4 = 14$. Find $u_{100} + u_{101} + u_{102} + \\ldots + u_{200}$, the sum of the 100th to the 200th terms of the progression. $\\quad$ **[4]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_SS_010",
-              question_text: "An arithmetic progression has first term 2 and common difference $d$. The sum of the first $n$ terms is denoted by $S_n$.\n\n**(a)** It is given that $(S_1 - 1)$, $S_2$, $S_3$ are the first three terms of a second arithmetic progression. Find the value of $d$. $\\quad$ **[4]**\n\n**(b)** Hence find the difference between the values of the 15th terms of the two arithmetic progressions. $\\quad$ **[4]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_SS_006",
-              question_text: "The geometric progression $S$ is defined by $S = u_1 + u_2 + u_3 + \\ldots + u_n + \\ldots$, where $u_n$ denotes the $n$th term of the progression. The sum to infinity of the progression exists and is denoted by $S_\\infty$. The first term of the progression, $u_1$, is equal to $a$, and the common ratio of the progression is $r$.\n\nA different progression $T = u_1^2 + u_2^2 + u_3^2 + \\ldots + u_n^2 + \\ldots$ is formed by squaring all the terms of the progression $S$ above.\n\n**(a)** Show that $T = u_1^2 + u_2^2 + u_3^2 + \\ldots + u_n^2 + \\ldots$ is also a geometric progression, and that its sum to infinity also exists. $\\quad$ **[4]**\n\nThe sum to infinity of the progression $T$ is denoted by $T_\\infty$.\n\n**(b)** Express the ratio $\\dfrac{T_\\infty}{S_\\infty}$ in terms of $a$ and $r$, simplifying your answer as far as possible. $\\quad$ **[3]**\n\n**(c)** Show that if $T_\\infty = S_\\infty$, then $u_k^2 = u_{2k-1} + u_{2k}$ for all $k \\geq 1$. Comment on what this shows about the relationship between the terms of the two progressions. $\\quad$ **[6]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_SS_007",
-              question_text: "An arithmetic progression $P$ has first term $a$ and common difference $d$. An arithmetic progression $Q$ has first term $2(a+1)$ and common difference $(d+1)$. It is given that\n$$\\frac{\\text{5th term of } P}{\\text{12th term of } Q} = \\frac{1}{3} \\quad \\text{and} \\quad \\frac{\\text{Sum of first 5 terms of } P}{\\text{Sum of first 5 terms of } Q} = \\frac{2}{3}$$\n\nFind the value of $a$ and the value of $d$. $\\quad$ **[6]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_SS_008",
-              question_text: "The common ratio of a geometric progression is $r$. The first term of the progression is $(r^2 - 3r + 2)$ and the sum to infinity is $S$.\n\n**(i)** Show that $S = 2 - r$. $\\quad$ **[2]**\n\n**(ii)** Find the set of possible values that $S$ can take. $\\quad$ **[2]**",
-              solution_image: ""
-            },
             {
               id: "P1_SS_001",
               question_text: "An arithmetic progression has common difference $d$. The 3rd term of this progression is $10$.\n\n**(a)** Write down expressions for the 1st term and the 2nd term of this progression. Give your answers in terms of $d$ only. $\\quad$ **[2]**\n\n**(b)** When each of the first 3 terms is squared, the sum of these squares is $140$. There are two possible values for $d$.\n\nUsing your answer to part **(a)**, find the sum of the first 200 terms of the progression with the smaller value of $d$. $\\quad$ **[7]**",
@@ -344,30 +319,35 @@ const SYLLABUS = {
               id: "P1_SS_005",
               question_text: "A geometric progression has first term $16\\cos^4\\alpha$ and second term $16\\cos^4\\alpha\\sin^2\\alpha$, where $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ equals the instantaneous volume $V$ cm³ of a spherical bubble.\n\n**(i)** Show that $V = 16\\cos^2\\alpha$. $\\quad$ **[3]**\n\n**(ii)** Given that $\\alpha$ satisfies $\\cos 2\\alpha = \\sin\\alpha$, find the exact value of $V$. $\\quad$ **[4]**\n\n**(iii)** At the instant when $V = 12$ cm³, the volume is increasing at 3 cm³/s. Given that the volume of a sphere is $V = \\tfrac{4}{3}\\pi R^3$, express the surface area $A$ directly in terms of $V$. Hence find the exact rate of change of $A$ with respect to time at this instant. $\\quad$ **[7]**",
               solution_image: ""
+            },
+            {
+              id: "P1_SS_006",
+              question_text: "The geometric progression $S$ is defined by $S = u_1 + u_2 + u_3 + \\ldots + u_n + \\ldots$, where $u_n$ denotes the $n$th term of the progression. The sum to infinity of the progression exists and is denoted by $S_\\infty$. The first term of the progression, $u_1$, is equal to $a$, and the common ratio of the progression is $r$.\n\nA different progression $T = u_1^2 + u_2^2 + u_3^2 + \\ldots + u_n^2 + \\ldots$ is formed by squaring all the terms of the progression $S$ above.\n\n**(a)** Show that $T = u_1^2 + u_2^2 + u_3^2 + \\ldots + u_n^2 + \\ldots$ is also a geometric progression, and that its sum to infinity also exists. $\\quad$ **[4]**\n\nThe sum to infinity of the progression $T$ is denoted by $T_\\infty$.\n\n**(b)** Express the ratio $\\dfrac{T_\\infty}{S_\\infty}$ in terms of $a$ and $r$, simplifying your answer as far as possible. $\\quad$ **[3]**\n\n**(c)** Show that if $T_\\infty = S_\\infty$, then $u_k^2 = u_{2k-1} + u_{2k}$ for all $k \\geq 1$. Comment on what this shows about the relationship between the terms of the two progressions. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_SS_007",
+              question_text: "An arithmetic progression $P$ has first term $a$ and common difference $d$. An arithmetic progression $Q$ has first term $2(a+1)$ and common difference $(d+1)$. It is given that\n$$\\frac{\\text{5th term of } P}{\\text{12th term of } Q} = \\frac{1}{3} \\quad \\text{and} \\quad \\frac{\\text{Sum of first 5 terms of } P}{\\text{Sum of first 5 terms of } Q} = \\frac{2}{3}$$\n\nFind the value of $a$ and the value of $d$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_SS_008",
+              question_text: "The common ratio of a geometric progression is $r$. The first term of the progression is $(r^2 - 3r + 2)$ and the sum to infinity is $S$.\n\n**(i)** Show that $S = 2 - r$. $\\quad$ **[2]**\n\n**(ii)** Find the set of possible values that $S$ can take. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_SS_009",
+              question_text: "**(a)** The sum of the first two terms of a geometric progression is $10$ and the third term is $9$.\n\n**(i)** Find the possible values of the common ratio and the first term. $\\quad$ **[3]**\n\n**(ii)** Find the sum to infinity of the convergent progression. $\\quad$ **[1]**\n\n**(b)** In an arithmetic progression, $u_1 = -10$ and $u_4 = 14$. Find $u_{100} + u_{101} + u_{102} + \\ldots + u_{200}$, the sum of the 100th to the 200th terms of the progression. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_SS_010",
+              question_text: "An arithmetic progression has first term 2 and common difference $d$. The sum of the first $n$ terms is denoted by $S_n$.\n\n**(a)** It is given that $(S_1 - 1)$, $S_2$, $S_3$ are the first three terms of a second arithmetic progression. Find the value of $d$. $\\quad$ **[4]**\n\n**(b)** Hence find the difference between the values of the 15th terms of the two arithmetic progressions. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
 
           "Functions": [
-            {
-              id: "P1_FN_011",
-              question_text: "The functions f and g are defined by\n$$\\mathrm{f}(x) = x^2 - 4x + 3 \\quad \\text{for } x > c, \\text{ where } c \\text{ is a constant}$$\n$$\\mathrm{g}(x) = \\frac{1}{x+1} \\quad \\text{for } x > -1$$\n\n**(a)** Express $\\mathrm{f}(x)$ in the form $(x - a)^2 + b$. $\\quad$ **[2]**\n\nIt is given that f is a one-one function.\n\n**(b)** State the smallest possible value of $c$. $\\quad$ **[1]**\n\nIt is now given that $c = 5$.\n\n**(c)** Find an expression for $\\mathrm{f}^{-1}(x)$ and state the domain of $\\mathrm{f}^{-1}$. $\\quad$ **[3]**\n\n**(d)** Find an expression for $\\mathrm{gf}(x)$ and state the range of gf. $\\quad$ **[3]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_FN_012",
-              question_text: "The function f is defined by\n$$\\mathrm{f}(x) = \\frac{4}{(3x-6)^2} - \\frac{1}{3x-6} \\quad \\text{for } x > 2$$\n\n**(a)** Find an expression for $\\mathrm{f}'(x)$ and hence determine whether f is an increasing function, a decreasing function or neither. $\\quad$ **[4]**\n\n**(b)** State whether $\\mathrm{f}^{-1}$ exists. Give a reason for your answer. $\\quad$ **[1]**\n\nThe function g is defined by $\\mathrm{g}(x) = 4x - 3$ for $x > a$.\n\n**(c)** Find the range of g in terms of the constant $a$. $\\quad$ **[1]**\n\n**(d)** Find the set of values of $a$ for which the composite function fg exists. $\\quad$ **[2]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_FN_009",
-              question_text: "The function f is such that $\\mathrm{f}(x) = 2x + 3$ for $x \\geq 0$. The function g is such that $\\mathrm{g}(x) = ax^2 + b$ for $x \\leq q$, where $a$, $b$ and $q$ are constants. The function fg is such that $\\mathrm{fg}(x) = 6x^2 - 21$ for $x \\leq q$.\n\n**(i)** Find the values of $a$ and $b$. $\\quad$ **[3]**\n\n**(ii)** Find the greatest possible value of $q$. $\\quad$ **[2]**\n\nIt is now given that $q = -3$.\n\n**(iii)** Find the range of fg. $\\quad$ **[1]**\n\n**(iv)** Find an expression for $(\\mathrm{fg})^{-1}(x)$ and state the domain of $(\\mathrm{fg})^{-1}$. $\\quad$ **[3]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_FN_010",
-              question_text: "Functions f and g are defined by\n$$\\mathrm{f}(x) = \\frac{8}{x-2} + 2 \\quad \\text{for } x > 2$$\n$$\\mathrm{g}(x) = \\frac{8}{x-2} + 2 \\quad \\text{for } 2 < x < 4$$\n\n**(i) (a)** State the range of the function f. $\\quad$ **[1]**\n\n$\\quad$ **(b)** State the range of the function g. $\\quad$ **[1]**\n\n$\\quad$ **(c)** State the range of the function fg. $\\quad$ **[1]**\n\n**(ii)** Explain why the function gf cannot be formed. $\\quad$ **[1]**\n\n**(iii)** Find the set of values of $x$ satisfying the inequality $6\\mathrm{f}'(x) + 2\\mathrm{f}^{-1}(x) - 5 < 0$. $\\quad$ **[5]**",
-              solution_image: ""
-            },
             {
               id: "P1_FN_001",
               question_text: "The function f is defined, for all real $x$, by $f(x) = 13 - 4x - 2x^2$.\n\n**(a) (i)** Write $f(x)$ in the form $a + b(x+c)^2$, where $a$, $b$ and $c$ are constants. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Hence write down the range of f. $\\quad$ **[1]**\n\n**(b)** The function g is defined, for $x \\geq 1$, by $g(x) = \\sqrt{x^2 + 2x - 1}$.\n\n$\\quad$ **(i)** Given that $g^{-1}(x)$ exists, write down the domain and range of $g^{-1}$. $\\quad$ **[2]**\n\n$\\quad$ **(ii)** Show that $g^{-1}(x) = -1 + \\sqrt{px^2 + q}$, where $p$ and $q$ are integers. $\\quad$ **[4]**",
@@ -407,20 +387,45 @@ const SYLLABUS = {
               id: "P1_FN_008",
               question_text: "The function f is defined by $\\mathrm{f}(x) = \\sqrt{mx + 7} - 4$, where $x \\geq -\\dfrac{7}{m}$ and $m$ is a positive constant.\n\n**(i)** A sequence of transformations maps the curve $y = \\sqrt{x}$ to the curve $y = \\mathrm{f}(x)$. Give details of these transformations. $\\quad$ **[4]**\n\n**(ii)** Find the least value of $m$ for which f is a one-to-one function on its given domain. $\\quad$ **[2]**\n\n**(iii)** Using this least value of $m$, find an expression for $\\mathrm{f}^{-1}(x)$, stating its domain and range. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "P1_FN_009",
+              question_text: "The function f is such that $\\mathrm{f}(x) = 2x + 3$ for $x \\geq 0$. The function g is such that $\\mathrm{g}(x) = ax^2 + b$ for $x \\leq q$, where $a$, $b$ and $q$ are constants. The function fg is such that $\\mathrm{fg}(x) = 6x^2 - 21$ for $x \\leq q$.\n\n**(i)** Find the values of $a$ and $b$. $\\quad$ **[3]**\n\n**(ii)** Find the greatest possible value of $q$. $\\quad$ **[2]**\n\nIt is now given that $q = -3$.\n\n**(iii)** Find the range of fg. $\\quad$ **[1]**\n\n**(iv)** Find an expression for $(\\mathrm{fg})^{-1}(x)$ and state the domain of $(\\mathrm{fg})^{-1}$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_010",
+              question_text: "Functions f and g are defined by\n$$\\mathrm{f}(x) = \\frac{8}{x-2} + 2 \\quad \\text{for } x > 2$$\n$$\\mathrm{g}(x) = \\frac{8}{x-2} + 2 \\quad \\text{for } 2 < x < 4$$\n\n**(i) (a)** State the range of the function f. $\\quad$ **[1]**\n\n$\\quad$ **(b)** State the range of the function g. $\\quad$ **[1]**\n\n$\\quad$ **(c)** State the range of the function fg. $\\quad$ **[1]**\n\n**(ii)** Explain why the function gf cannot be formed. $\\quad$ **[1]**\n\n**(iii)** Find the set of values of $x$ satisfying the inequality $6\\mathrm{f}'(x) + 2\\mathrm{f}^{-1}(x) - 5 < 0$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_011",
+              question_text: "The functions f and g are defined by\n$$\\mathrm{f}(x) = x^2 - 4x + 3 \\quad \\text{for } x > c, \\text{ where } c \\text{ is a constant}$$\n$$\\mathrm{g}(x) = \\frac{1}{x+1} \\quad \\text{for } x > -1$$\n\n**(a)** Express $\\mathrm{f}(x)$ in the form $(x - a)^2 + b$. $\\quad$ **[2]**\n\nIt is given that f is a one-one function.\n\n**(b)** State the smallest possible value of $c$. $\\quad$ **[1]**\n\nIt is now given that $c = 5$.\n\n**(c)** Find an expression for $\\mathrm{f}^{-1}(x)$ and state the domain of $\\mathrm{f}^{-1}$. $\\quad$ **[3]**\n\n**(d)** Find an expression for $\\mathrm{gf}(x)$ and state the range of gf. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_012",
+              question_text: "The function f is defined by\n$$\\mathrm{f}(x) = \\frac{4}{(3x-6)^2} - \\frac{1}{3x-6} \\quad \\text{for } x > 2$$\n\n**(a)** Find an expression for $\\mathrm{f}'(x)$ and hence determine whether f is an increasing function, a decreasing function or neither. $\\quad$ **[4]**\n\n**(b)** State whether $\\mathrm{f}^{-1}$ exists. Give a reason for your answer. $\\quad$ **[1]**\n\nThe function g is defined by $\\mathrm{g}(x) = 4x - 3$ for $x > a$.\n\n**(c)** Find the range of g in terms of the constant $a$. $\\quad$ **[1]**\n\n**(d)** Find the set of values of $a$ for which the composite function fg exists. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_FN_013",
+              question_text: "The functions f and g are defined for all real values of $x$ by
+$$\\mathrm{f}(x) = (x-3)^2 + 2k \\quad \\text{and} \\quad \\mathrm{g}(x) = x - k$$
+where $k$ is a constant.
+
+**(a)** Given that the range of the composite function gf is $\\mathrm{gf}(x) \\geq 5$, find the value of $k$. $\\quad$ **[3]**
+
+**(b)** For this value of $k$, determine the range of the function fg. $\\quad$ **[3]**
+
+The function h is defined for all real values of $x$ and is such that
+$$\\mathrm{gh}(x) = 35x^2 + 19$$
+
+**(c)** Find an expression for $\\mathrm{h}(x)$ and hence find an expression for $\\mathrm{gh}^{-1}(x)$. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
           "Circular Measure": [
-            {
-              id: "P1_CM_011",
-              question_text: "The diagram below shows the sector of a circle with centre $O$. The radii $OA$ and $OB$ are each equal to $r$ cm, and the angle at the centre, $AOB$, is equal to $\\theta$ radians. The line $DC$ is perpendicular to the line $OB$.\n\nGiven that $BC : CO = 2 : 3$, show that the area of the shaded shape $ABCD$ is given by\n$$\\tfrac{1}{50}r^2(25\\theta - 9\\tan\\theta) \\text{ cm}^2$$\n$\\quad$ **[6]**",
-              solution_image: ""
-            },
-            {
-              id: "P1_CM_012",
-              question_text: "A circle with centre $A$ and radius $r$ passes through points $B$, $C$ and $D$. A larger circle with centre $C$ and radius $s$ passes through $B$ and $D$. The length $BD$ is also $s$.\n\n**(a)** Show that $s = \\sqrt{3}\\,r$. $\\quad$ **[2]**\n\n**(b)** Find an expression for the area of the shaded region in the form $(a + b\\pi)r^2$, where $a$ and $b$ are constants to be found. $\\quad$ **[7]**",
-              diagram_image: "P1_CM_012_d.jpg",
-              solution_image: ""
-            },
             {
               id: "P1_CM_001",
               question_text: "A sector of a circle has radius $r$ and a fixed perimeter $p$.\n\nShow that the maximum possible area of the sector is $\\dfrac{p^2}{16}$, and find the value of $\\theta$ at which this maximum occurs. $\\quad$ **[7]**",
@@ -473,6 +478,17 @@ const SYLLABUS = {
             {
               id: "P1_CM_010",
               question_text: "$ABC$ is an equilateral triangle of side 2 cm. The mid-point of $BC$ is $Q$. An arc of a circle with centre $A$ touches $BC$ at $Q$, and meets $AB$ at $P$ and $AC$ at $R$.\n\nFind the total area of the shaded regions between the arc $PQR$ and the two sides $AB$, $BC$, $AC$ of the triangle, giving your answer in terms of $\\pi$ and $\\sqrt{3}$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_011",
+              question_text: "The diagram below shows the sector of a circle with centre $O$. The radii $OA$ and $OB$ are each equal to $r$ cm, and the angle at the centre, $AOB$, is equal to $\\theta$ radians. The line $DC$ is perpendicular to the line $OB$.\n\nGiven that $BC : CO = 2 : 3$, show that the area of the shaded shape $ABCD$ is given by\n$$\\tfrac{1}{50}r^2(25\\theta - 9\\tan\\theta) \\text{ cm}^2$$\n$\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_012",
+              question_text: "A circle with centre $A$ and radius $r$ passes through points $B$, $C$ and $D$. A larger circle with centre $C$ and radius $s$ passes through $B$ and $D$. The length $BD$ is also $s$.\n\n**(a)** Show that $s = \\sqrt{3}\\,r$. $\\quad$ **[2]**\n\n**(b)** Find an expression for the area of the shaded region in the form $(a + b\\pi)r^2$, where $a$ and $b$ are constants to be found. $\\quad$ **[7]**",
+              diagram_image: "P1_CM_012_d.jpg",
               solution_image: ""
             }
           ]
@@ -535,16 +551,6 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
-              id: "P3_IN_009",
-              question_text: "Using the substitution $x = \\tan\\theta$, find the exact value of\n$$\\int_0^{\\frac{1}{2}} \\frac{12}{(1+4x^2)^2}\\,dx$$\ngiving your answer in the form $a + b\\pi$.",
-              solution_image: ""
-            },
-            {
-              id: "P3_IN_010",
-              question_text: "Using the substitution $u = e^{2x}$ and partial fractions, find the exact value of\n$$\\int_{\\ln 3}^{0} \\frac{2e^{2x}}{e^{4x} - 3e^{2x} + 2}\\,dx$$\ngiving your answer in the form $\\ln a$, where $a$ is a rational number in its simplest form. $\\quad$ **[9]**",
-              solution_image: ""
-            },
-            {
               id: "P3_IN_007",
               question_text: "The curve $y = x\\sin(\\ln x)$, $x \\geq 1$, first crosses the $x$-axis for $x > 1$ at the point $A$.\n\n**(a)** Find the $x$-coordinate of $A$. $\\quad$ **[3]**\n\n**(b)** Differentiate $x\\sin(\\ln x)$ and $x\\cos(\\ln x)$ with respect to $x$, and hence find\n$$\\int \\sin(\\ln x)\\,dx \\quad \\text{and} \\quad \\int \\cos(\\ln x)\\,dx$$\n$\\quad$ **[7]**\n\n**(c) (i)** Find $\\displaystyle\\int x\\sin(\\ln x)\\,dx$. $\\quad$ **[4]**\n\n$\\quad$ **(ii)** Hence show that the area of the region bounded by the curve $y = x\\sin(\\ln x)$ and the $x$-axis, between $x = 1$ and $x = A$, is\n$$\\tfrac{1}{5}\\left(e^{2\\pi} + 1\\right)$$\n$\\quad$ **[5]**",
               solution_image: ""
@@ -556,7 +562,17 @@ const SYLLABUS = {
             },
             {
               id: "P3_IN_009",
+              question_text: "Using the substitution $x = \\tan\\theta$, find the exact value of\n$$\\int_0^{\\frac{1}{2}} \\frac{12}{(1+4x^2)^2}\\,dx$$\ngiving your answer in the form $a + b\\pi$.",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_009",
               question_text: "Find the exact value of\n$$\\int_{\\frac{1}{2}}^{\\frac{\\sqrt{3}}{2}} x\\tan^{-1}(2x)\\,dx$$",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_010",
+              question_text: "Using the substitution $u = e^{2x}$ and partial fractions, find the exact value of\n$$\\int_{\\ln 3}^{0} \\frac{2e^{2x}}{e^{4x} - 3e^{2x} + 2}\\,dx$$\ngiving your answer in the form $\\ln a$, where $a$ is a rational number in its simplest form. $\\quad$ **[9]**",
               solution_image: ""
             }
           ],
