@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MathForge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathForge</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"
+    rel="stylesheet">
 
-<!-- KaTeX — mathematical typesetting -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
-  onload="document.addEventListener('DOMContentLoaded', () => renderMathInElement(document.body, {
+  <!-- KaTeX — mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" onload="document.addEventListener('DOMContentLoaded', () => renderMathInElement(document.body, {
     delimiters: [
       {left:'$$', right:'$$', display:true},
       {left:'$',  right:'$',  display:false}
@@ -20,1235 +22,1774 @@
     throwOnError: false
   }))"></script>
 
-<style>
-/* ════════════════════════════════════════════════
+  <style>
+    /* ════════════════════════════════════════════════
    FOUNDATION
 ════════════════════════════════════════════════ */
 
-:root {
-  --ink:        #070707;
-  --ink2:       #0e0e0e;
-  --ink3:       #161616;
-  --ink4:       #202020;
-  --rule:       #1e1e1e;
-  --rule2:      #2a2a2a;
+    :root {
+      --ink: #070707;
+      --ink2: #0e0e0e;
+      --ink3: #161616;
+      --ink4: #202020;
+      --rule: #1e1e1e;
+      --rule2: #2a2a2a;
 
-  --parchment:  #e4ddd0;
-  --parchment2: #b8b0a2;
-  --parchment3: #6e6860;
-  --parchment4: #3a3630;
+      --parchment: #e4ddd0;
+      --parchment2: #b8b0a2;
+      --parchment3: #6e6860;
+      --parchment4: #3a3630;
 
-  --gold:       #a8883a;
-  --gold2:      #7a6228;
-  --gold3:      #3d3118;
+      --gold: #a8883a;
+      --gold2: #7a6228;
+      --gold3: #3d3118;
 
-  --serif:      'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
-  --sc:         'Cormorant SC', 'Garamond', serif;
-  --mono:       'JetBrains Mono', monospace;
+      --serif: 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
+      --sc: 'Cormorant SC', 'Garamond', serif;
+      --mono: 'JetBrains Mono', monospace;
 
-  --ease:       cubic-bezier(.4, 0, .2, 1);
-}
+      --ease: cubic-bezier(.4, 0, .2, 1);
+    }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-html { font-size: 17px; }
+    html {
+      font-size: 17px;
+    }
 
-body {
-  background: var(--ink);
-  color: var(--parchment);
-  font-family: var(--serif);
-  min-height: 100vh;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  cursor: default;
-}
+    body {
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: var(--serif);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      cursor: default;
+    }
 
-/* noise texture overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity: .028;
-  pointer-events: none;
-  z-index: 9999;
-}
+    /* noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: .028;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--ink); }
-::-webkit-scrollbar-thumb { background: var(--ink4); }
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
 
-/* ════════════════════════════════════════════════
+    ::-webkit-scrollbar-track {
+      background: var(--ink);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--ink4);
+    }
+
+    /* ════════════════════════════════════════════════
    LAYOUT
 ════════════════════════════════════════════════ */
 
-#shell {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: 0 32px 100px;
-}
+    #shell {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 32px 100px;
+    }
 
-/* ════════════════════════════════════════════════
+    /* ════════════════════════════════════════════════
    MASTHEAD
 ════════════════════════════════════════════════ */
 
-#masthead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 36px 0 22px;
-  border-bottom: 1px solid var(--rule2);
-  gap: 24px;
-}
+    #masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 0 22px;
+      border-bottom: 1px solid var(--rule2);
+      gap: 24px;
+    }
 
-.masthead-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  cursor: pointer;
-}
+    .masthead-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+    }
 
-/* Monogram seal */
-.monogram {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  transition: opacity .2s;
-}
+    /* Monogram seal */
+    .monogram {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      transition: opacity .2s;
+    }
 
-.monogram:hover { opacity: .7; }
+    .monogram:hover {
+      opacity: .7;
+    }
 
-.masthead-title {
-  font-family: var(--sc);
-  font-size: .88rem;
-  font-weight: 300;
-  letter-spacing: .26em;
-  color: var(--parchment3);
-  text-transform: uppercase;
-  transition: color .2s;
-  user-select: none;
-}
+    .masthead-title {
+      font-family: var(--sc);
+      font-size: .88rem;
+      font-weight: 300;
+      letter-spacing: .26em;
+      color: var(--parchment3);
+      text-transform: uppercase;
+      transition: color .2s;
+      user-select: none;
+    }
 
-.masthead-left:hover .masthead-title { color: var(--parchment2); }
+    .masthead-left:hover .masthead-title {
+      color: var(--parchment2);
+    }
 
-.masthead-ornament {
-  font-size: 1rem;
-  color: var(--gold2);
-  letter-spacing: .1em;
-  font-style: italic;
-  font-family: var(--serif);
-}
+    .masthead-ornament {
+      font-size: 1rem;
+      color: var(--gold2);
+      letter-spacing: .1em;
+      font-style: italic;
+      font-family: var(--serif);
+    }
 
-/* ════════════════════════════════════════════════
+    /* ════════════════════════════════════════════════
    PAGE TRANSITION RULE
 ════════════════════════════════════════════════ */
 
-#transition-rule {
-  position: fixed;
-  top: 0; left: 0;
-  width: 0%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  z-index: 10000;
-  pointer-events: none;
-  transition: none;
-}
+    #transition-rule {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      z-index: 10000;
+      pointer-events: none;
+      transition: none;
+    }
 
-#transition-rule.sweep {
-  transition: width .35s var(--ease), opacity .2s ease .35s;
-  width: 100%;
-  opacity: 0;
-}
+    #transition-rule.sweep {
+      transition: width .35s var(--ease), opacity .2s ease .35s;
+      width: 100%;
+      opacity: 0;
+    }
 
-/* ════════════════════════════════════════════════
+    /* ════════════════════════════════════════════════
    GHOST EQUATIONS on course tiles
 ════════════════════════════════════════════════ */
 
-.tile-ghost {
-  position: absolute;
-  bottom: 18px;
-  right: 20px;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.5rem;
-  color: var(--gold3);
-  opacity: .55;
-  letter-spacing: .02em;
-  pointer-events: none;
-  user-select: none;
-  transition: opacity .2s;
-  line-height: 1;
-}
+    .tile-ghost {
+      position: absolute;
+      bottom: 18px;
+      right: 20px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--gold3);
+      opacity: .55;
+      letter-spacing: .02em;
+      pointer-events: none;
+      user-select: none;
+      transition: opacity .2s;
+      line-height: 1;
+    }
 
-.course-tile:hover .tile-ghost { opacity: .9; }
+    .course-tile:hover .tile-ghost {
+      opacity: .9;
+    }
 
-/* ════════════════════════════════════════════════
+    /* ════════════════════════════════════════════════
    BREADCRUMB
 ════════════════════════════════════════════════ */
 
-#crumb {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 18px 0 0;
-  min-height: 48px;
-  font-family: var(--mono);
-  font-size: .62rem;
-  letter-spacing: .1em;
-  color: var(--parchment4);
-  flex-wrap: wrap;
-}
+    #crumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 0 0;
+      min-height: 48px;
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .1em;
+      color: var(--parchment4);
+      flex-wrap: wrap;
+    }
 
-.cr { cursor: pointer; transition: color .15s; }
-.cr:hover { color: var(--gold); }
-.cr-sep { color: var(--rule2); }
-.cr-now { color: var(--parchment4); }
+    .cr {
+      cursor: pointer;
+      transition: color .15s;
+    }
 
-/* ════════════════════════════════════════════════
+    .cr:hover {
+      color: var(--gold);
+    }
+
+    .cr-sep {
+      color: var(--rule2);
+    }
+
+    .cr-now {
+      color: var(--parchment4);
+    }
+
+    /* ════════════════════════════════════════════════
    SCREENS
 ════════════════════════════════════════════════ */
 
-.screen { display: none; padding-top: 52px; }
-.screen.on { display: block; animation: appear .3s var(--ease); }
+    .screen {
+      display: none;
+      padding-top: 52px;
+    }
 
-@keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    .screen.on {
+      display: block;
+      animation: appear .3s var(--ease);
+    }
 
-/* ════════════════════════════════════════════════
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ════════════════════════════════════════════════
    HOME
 ════════════════════════════════════════════════ */
 
-.home-heading {
-  font-size: 3.4rem;
-  font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -.01em;
-  margin-bottom: 18px;
-  color: var(--parchment);
-}
+    .home-heading {
+      font-size: 3.4rem;
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -.01em;
+      margin-bottom: 18px;
+      color: var(--parchment);
+    }
 
-.home-heading em {
-  font-style: italic;
-  color: var(--gold);
-}
+    .home-heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
 
-.home-sub {
-  font-size: 1.05rem;
-  color: var(--parchment3);
-  font-style: italic;
-  margin-bottom: 56px;
-  font-weight: 300;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
+    .home-sub {
+      font-size: 1.05rem;
+      color: var(--parchment3);
+      font-style: italic;
+      margin-bottom: 56px;
+      font-weight: 300;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
 
-.home-sub::before {
-  content: '"';
-  font-size: 2.2rem;
-  color: var(--gold2);
-  line-height: 0;
-  position: relative;
-  top: 10px;
-  font-style: normal;
-  flex-shrink: 0;
-}
+    .home-sub::before {
+      content: '"';
+      font-size: 2.2rem;
+      color: var(--gold2);
+      line-height: 0;
+      position: relative;
+      top: 10px;
+      font-style: normal;
+      flex-shrink: 0;
+    }
 
-/* Footer */
-#footer {
-  margin-top: 80px;
-  padding: 24px 0;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+    /* Footer */
+    #footer {
+      margin-top: 80px;
+      padding: 24px 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-.footer-left {
-  font-family: var(--sc);
-  font-size: .62rem;
-  letter-spacing: .2em;
-  color: var(--parchment4);
-  text-transform: uppercase;
-}
+    .footer-left {
+      font-family: var(--sc);
+      font-size: .62rem;
+      letter-spacing: .2em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+    }
 
-.footer-right {
-  font-family: var(--mono);
-  font-size: .58rem;
-  letter-spacing: .1em;
-  color: var(--parchment4);
-}
+    .footer-right {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .1em;
+      color: var(--parchment4);
+    }
 
-/* Course cards */
-.course-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--rule2);
-  border: 1px solid var(--rule2);
-  margin-bottom: 64px;
-}
+    /* Course cards */
+    .course-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule2);
+      border: 1px solid var(--rule2);
+      margin-bottom: 64px;
+    }
 
-@media(max-width:540px) { .course-pair { grid-template-columns: 1fr; } }
+    @media(max-width:540px) {
+      .course-pair {
+        grid-template-columns: 1fr;
+      }
+    }
 
-.course-tile {
-  background: var(--ink2);
-  padding: 36px 32px 32px;
-  cursor: pointer;
-  transition: background .2s;
-  position: relative;
-  overflow: hidden;
-}
+    .course-tile {
+      background: var(--ink2);
+      padding: 36px 32px 32px;
+      cursor: pointer;
+      transition: background .2s;
+      position: relative;
+      overflow: hidden;
+    }
 
-.course-tile::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold2), transparent);
-  opacity: 0;
-  transition: opacity .25s;
-}
+    .course-tile::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+      opacity: 0;
+      transition: opacity .25s;
+    }
 
-.course-tile:hover { background: var(--ink3); }
-.course-tile:hover::after { opacity: 1; }
+    .course-tile:hover {
+      background: var(--ink3);
+    }
 
-.tile-code {
-  font-family: var(--mono);
-  font-size: .62rem;
-  letter-spacing: .18em;
-  color: var(--gold2);
-  margin-bottom: 14px;
-  display: block;
-  text-transform: uppercase;
-}
+    .course-tile:hover::after {
+      opacity: 1;
+    }
 
-.tile-name {
-  font-size: 1.55rem;
-  font-weight: 400;
-  line-height: 1.25;
-  margin-bottom: 20px;
-  color: var(--parchment);
-}
+    .tile-code {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .18em;
+      color: var(--gold2);
+      margin-bottom: 14px;
+      display: block;
+      text-transform: uppercase;
+    }
 
-.tile-desc {
-  font-size: .88rem;
-  color: var(--parchment3);
-  font-style: italic;
-  font-weight: 300;
-  line-height: 1.55;
-}
+    .tile-name {
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: var(--parchment);
+    }
 
-/* ════════════════════════════════════════════════
+    .tile-desc {
+      font-size: .88rem;
+      color: var(--parchment3);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    /* ════════════════════════════════════════════════
    SECTION LIST
 ════════════════════════════════════════════════ */
 
-.screen-title {
-  font-size: 2.4rem;
-  font-weight: 300;
-  margin-bottom: 8px;
-  line-height: 1.15;
-}
+    .screen-title {
+      font-size: 2.4rem;
+      font-weight: 300;
+      margin-bottom: 8px;
+      line-height: 1.15;
+    }
 
-.screen-title em { font-style: italic; color: var(--gold); }
+    .screen-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
 
-.screen-caption {
-  font-size: .95rem;
-  color: var(--parchment3);
-  font-style: italic;
-  margin-bottom: 44px;
-  font-weight: 300;
-}
+    .screen-caption {
+      font-size: .95rem;
+      color: var(--parchment3);
+      font-style: italic;
+      margin-bottom: 44px;
+      font-weight: 300;
+    }
 
-.section-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  margin-bottom: 48px;
-}
+    .section-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 48px;
+    }
 
-.sec-row {
-  background: var(--ink2);
-  padding: 22px 26px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: background .15s;
-  gap: 16px;
-}
+    .sec-row {
+      background: var(--ink2);
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background .15s;
+      gap: 16px;
+    }
 
-.sec-row:hover { background: var(--ink3); }
+    .sec-row:hover {
+      background: var(--ink3);
+    }
 
-.sec-left { display: flex; align-items: center; gap: 18px; }
+    .sec-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
 
-.sec-badge {
-  font-family: var(--mono);
-  font-size: .6rem;
-  letter-spacing: .12em;
-  color: var(--gold);
-  border: 1px solid var(--gold3);
-  padding: 4px 10px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
+    .sec-badge {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .12em;
+      color: var(--gold);
+      border: 1px solid var(--gold3);
+      padding: 4px 10px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
 
-.sec-name { font-size: 1.08rem; font-weight: 400; }
+    .sec-name {
+      font-size: 1.08rem;
+      font-weight: 400;
+    }
 
-.sec-arrow {
-  color: var(--parchment4);
-  font-size: .9rem;
-  transition: transform .15s, color .15s;
-  font-family: var(--mono);
-}
+    .sec-arrow {
+      color: var(--parchment4);
+      font-size: .9rem;
+      transition: transform .15s, color .15s;
+      font-family: var(--mono);
+    }
 
-.sec-row:hover .sec-arrow { transform: translateX(4px); color: var(--gold); }
+    .sec-row:hover .sec-arrow {
+      transform: translateX(4px);
+      color: var(--gold);
+    }
 
-/* ════════════════════════════════════════════════
+    /* ════════════════════════════════════════════════
    TOPIC LIST
 ════════════════════════════════════════════════ */
 
-.topic-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  margin-bottom: 48px;
-}
+    .topic-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 48px;
+    }
 
-.topic-row {
-  background: var(--ink2);
-  padding: 18px 26px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: background .15s;
-  gap: 16px;
-}
+    .topic-row {
+      background: var(--ink2);
+      padding: 18px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background .15s;
+      gap: 16px;
+    }
 
-.topic-row:hover { background: var(--ink3); }
+    .topic-row:hover {
+      background: var(--ink3);
+    }
 
-.topic-row-name { font-size: 1rem; font-weight: 400; color: var(--parchment2); transition: color .15s; }
-.topic-row:hover .topic-row-name { color: var(--parchment); }
+    .topic-row-name {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--parchment2);
+      transition: color .15s;
+    }
 
-.topic-row-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-shrink: 0;
-}
+    .topic-row:hover .topic-row-name {
+      color: var(--parchment);
+    }
 
-.topic-count {
-  font-family: var(--mono);
-  font-size: .6rem;
-  color: var(--parchment4);
-  letter-spacing: .06em;
-}
+    .topic-row-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
 
-.topic-count.has-q { color: var(--gold2); }
+    .topic-count {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--parchment4);
+      letter-spacing: .06em;
+    }
 
-.topic-arrow {
-  color: var(--parchment4);
-  font-family: var(--mono);
-  font-size: .85rem;
-  transition: transform .15s, color .15s;
-}
+    .topic-count.has-q {
+      color: var(--gold2);
+    }
 
-.topic-row:hover .topic-arrow { transform: translateX(4px); color: var(--gold); }
+    .topic-arrow {
+      color: var(--parchment4);
+      font-family: var(--mono);
+      font-size: .85rem;
+      transition: transform .15s, color .15s;
+    }
 
-/* ════════════════════════════════════════════════
+    .topic-row:hover .topic-arrow {
+      transform: translateX(4px);
+      color: var(--gold);
+    }
+
+    /* ════════════════════════════════════════════════
    PROBLEM NAVIGATOR
 ════════════════════════════════════════════════ */
 
-.prob-nav-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 32px;
-  gap: 16px;
-}
+    .prob-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      gap: 16px;
+    }
 
-.prob-counter {
-  font-family: var(--mono);
-  font-size: .62rem;
-  letter-spacing: .14em;
-  color: var(--parchment4);
-  text-transform: uppercase;
-  white-space: nowrap;
-}
+    .prob-counter {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .14em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
 
-.prob-track {
-  flex: 1;
-  height: 1px;
-  background: var(--rule2);
-  position: relative;
-  overflow: visible;
-}
+    .prob-track {
+      flex: 1;
+      height: 1px;
+      background: var(--rule2);
+      position: relative;
+      overflow: visible;
+    }
 
-.prob-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  position: absolute;
-  top: 50%;
-  left: 0; right: 0;
-  transform: translateY(-50%);
-}
+    .prob-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+    }
 
-.prob-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--rule2);
-  cursor: pointer;
-  transition: background .15s, transform .15s;
-  border: none;
-  padding: 0;
-  flex-shrink: 0;
-}
+    .prob-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--rule2);
+      cursor: pointer;
+      transition: background .15s, transform .15s;
+      border: none;
+      padding: 0;
+      flex-shrink: 0;
+    }
 
-.prob-dot.active {
-  background: var(--gold);
-  transform: scale(1.4);
-}
+    .prob-dot.active {
+      background: var(--gold);
+      transform: scale(1.4);
+    }
 
-.prob-dot:hover { background: var(--gold2); }
+    .prob-dot:hover {
+      background: var(--gold2);
+    }
 
-/* The problem card — centrepiece */
-.prob-card {
-  background: var(--ink2);
-  border: 1px solid var(--rule2);
-  margin-bottom: 0;
-  animation: probIn .22s var(--ease);
-  overflow: hidden;
-}
+    /* The problem card — centrepiece */
+    .prob-card {
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      margin-bottom: 0;
+      animation: probIn .22s var(--ease);
+      overflow: hidden;
+    }
 
-@keyframes probIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    @keyframes probIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
 
-.prob-label {
-  padding: 12px 24px;
-  border-bottom: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.prob-label-left {
-  font-family: var(--sc);
-  font-size: .68rem;
-  letter-spacing: .18em;
-  color: var(--gold2);
-  text-transform: uppercase;
-}
+    .prob-label {
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.prob-label-right {
-  font-family: var(--mono);
-  font-size: .6rem;
-  color: var(--parchment4);
-  letter-spacing: .06em;
-}
+    .prob-label-left {
+      font-family: var(--sc);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      color: var(--gold2);
+      text-transform: uppercase;
+    }
 
-/* Question image */
-.prob-q-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  /* No invert — use mix-blend-mode for cleaner result */
-  mix-blend-mode: normal;
-}
+    .prob-label-right {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--parchment4);
+      letter-spacing: .06em;
+    }
 
-/* For white background images — invert cleanly */
-.prob-q-img.invert {
-  filter: invert(1) brightness(0.88) contrast(1.1);
-}
+    /* Question image */
+    .prob-q-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      /* No invert — use mix-blend-mode for cleaner result */
+      mix-blend-mode: normal;
+    }
 
-.prob-placeholder {
-  padding: 52px 32px;
-  text-align: center;
-  font-style: italic;
-  font-size: .92rem;
-  color: var(--parchment4);
-  border-bottom: 1px solid var(--rule);
-}
+    /* For white background images — invert cleanly */
+    .prob-q-img.invert {
+      filter: invert(1) brightness(0.88) contrast(1.1);
+    }
 
-/* Optional diagram above question text */
-.prob-diagram { padding: 32px 36px 0; background: var(--ink2); display: flex; justify-content: center; }
-.prob-diagram-img { display: block; width: 100%; height: auto; max-width: 320px; margin: 0 auto; filter: invert(1) sepia(0.15) saturate(0.8) brightness(0.88); border-radius: 2px; opacity: 0.88; }
+    .prob-placeholder {
+      padding: 52px 32px;
+      text-align: center;
+      font-style: italic;
+      font-size: .92rem;
+      color: var(--parchment4);
+      border-bottom: 1px solid var(--rule);
+    }
 
-/* Optional diagram above question text — reserved for future use */
+    /* Optional diagram above question text */
+    .prob-diagram {
+      padding: 32px 36px 0;
+      background: var(--ink2);
+      display: flex;
+      justify-content: center;
+    }
 
-.prob-placeholder code {
-  font-family: var(--mono);
-  font-size: .72rem;
-  color: var(--parchment3);
-  font-style: normal;
-  display: block;
-  margin-top: 8px;
-}
+    .prob-diagram-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 320px;
+      margin: 0 auto;
+      filter: invert(1) sepia(0.15) saturate(0.8) brightness(0.88);
+      border-radius: 2px;
+      opacity: 0.88;
+    }
 
-/* Reveal solution button */
-.prob-sol-toggle {
-  border-top: 1px solid var(--rule);
-  display: flex;
-}
+    /* Optional diagram above question text — reserved for future use */
 
-.prob-sol-btn {
-  flex: 1;
-  padding: 16px 24px;
-  background: transparent;
-  border: none;
-  color: var(--parchment3);
-  font-family: var(--sc);
-  font-size: .72rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color .15s, background .15s;
-  text-align: center;
-}
+    .prob-placeholder code {
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--parchment3);
+      font-style: normal;
+      display: block;
+      margin-top: 8px;
+    }
 
-.prob-sol-btn:hover  { color: var(--gold); background: rgba(168,136,58,.04); }
-.prob-sol-btn.open   { color: var(--gold); }
+    /* Reveal solution button */
+    .prob-sol-toggle {
+      border-top: 1px solid var(--rule);
+      display: flex;
+    }
 
-/* Solution panel */
-.prob-sol-panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .55s var(--ease);
-}
+    .prob-sol-btn {
+      flex: 1;
+      padding: 16px 24px;
+      background: transparent;
+      border: none;
+      color: var(--parchment3);
+      font-family: var(--sc);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color .15s, background .15s;
+      text-align: center;
+    }
 
-.prob-sol-panel.open {
-  max-height: 3000px;
-  border-top: 1px solid var(--rule);
-}
+    .prob-sol-btn:hover {
+      color: var(--gold);
+      background: rgba(168, 136, 58, .04);
+    }
 
-.prob-sol-panel img {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: invert(1) brightness(0.88) contrast(1.1);
-}
+    .prob-sol-btn.open {
+      color: var(--gold);
+    }
 
-.prob-sol-placeholder {
-  padding: 36px 32px;
-  text-align: center;
-  font-style: italic;
-  font-size: .88rem;
-  color: var(--parchment4);
-}
+    /* Solution panel */
+    .prob-sol-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .55s var(--ease);
+    }
 
-/* Arrow navigation row */
-.prob-arrows {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 0;
-  border: 1px solid var(--rule2);
-  border-top: none;
-}
+    .prob-sol-panel.open {
+      max-height: 3000px;
+      border-top: 1px solid var(--rule);
+    }
 
-.prob-arrow-btn {
-  flex: 1;
-  padding: 16px 24px;
-  background: transparent;
-  border: none;
-  color: var(--parchment3);
-  font-family: var(--sc);
-  font-size: .68rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color .15s, background .15s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .prob-sol-panel img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: invert(1) brightness(0.88) contrast(1.1);
+    }
 
-.prob-arrow-btn:first-child {
-  border-right: 1px solid var(--rule2);
-  justify-content: flex-start;
-}
+    .prob-sol-placeholder {
+      padding: 36px 32px;
+      text-align: center;
+      font-style: italic;
+      font-size: .88rem;
+      color: var(--parchment4);
+    }
 
-.prob-arrow-btn:last-child  { justify-content: flex-end; }
-.prob-arrow-btn:hover { color: var(--gold); background: rgba(168,136,58,.03); }
-.prob-arrow-btn:disabled { color: var(--parchment4); cursor: default; background: transparent; }
+    /* Arrow navigation row */
+    .prob-arrows {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0;
+      border: 1px solid var(--rule2);
+      border-top: none;
+    }
 
-.prob-arrow-glyph {
-  font-size: 1rem;
-  font-family: var(--serif);
-  transition: transform .15s;
-}
+    .prob-arrow-btn {
+      flex: 1;
+      padding: 16px 24px;
+      background: transparent;
+      border: none;
+      color: var(--parchment3);
+      font-family: var(--sc);
+      font-size: .68rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color .15s, background .15s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.prob-arrow-btn:not(:disabled):first-child:hover .prob-arrow-glyph { transform: translateX(-3px); }
-.prob-arrow-btn:not(:disabled):last-child:hover  .prob-arrow-glyph { transform: translateX(3px); }
+    .prob-arrow-btn:first-child {
+      border-right: 1px solid var(--rule2);
+      justify-content: flex-start;
+    }
 
-/* Empty topic */
-.empty-topic {
-  padding: 64px 0;
-  text-align: center;
-}
+    .prob-arrow-btn:last-child {
+      justify-content: flex-end;
+    }
 
-.empty-glyph {
-  font-size: 3rem;
-  color: var(--parchment4);
-  margin-bottom: 20px;
-  font-style: italic;
-  font-family: var(--serif);
-}
+    .prob-arrow-btn:hover {
+      color: var(--gold);
+      background: rgba(168, 136, 58, .03);
+    }
 
-.empty-text {
-  font-style: italic;
-  color: var(--parchment3);
-  font-size: .95rem;
-  line-height: 1.7;
-  max-width: 380px;
-  margin: 0 auto;
-}
+    .prob-arrow-btn:disabled {
+      color: var(--parchment4);
+      cursor: default;
+      background: transparent;
+    }
 
-.empty-code {
-  font-family: var(--mono);
-  font-size: .7rem;
-  color: var(--parchment4);
-  margin-top: 16px;
-  display: block;
-  font-style: normal;
-}
+    .prob-arrow-glyph {
+      font-size: 1rem;
+      font-family: var(--serif);
+      transition: transform .15s;
+    }
 
-/* ════════════════════════════════════════════════
+    .prob-arrow-btn:not(:disabled):first-child:hover .prob-arrow-glyph {
+      transform: translateX(-3px);
+    }
+
+    .prob-arrow-btn:not(:disabled):last-child:hover .prob-arrow-glyph {
+      transform: translateX(3px);
+    }
+
+    /* Empty topic */
+    .empty-topic {
+      padding: 64px 0;
+      text-align: center;
+    }
+
+    .empty-glyph {
+      font-size: 3rem;
+      color: var(--parchment4);
+      margin-bottom: 20px;
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    .empty-text {
+      font-style: italic;
+      color: var(--parchment3);
+      font-size: .95rem;
+      line-height: 1.7;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .empty-code {
+      font-family: var(--mono);
+      font-size: .7rem;
+      color: var(--parchment4);
+      margin-top: 16px;
+      display: block;
+      font-style: normal;
+    }
+
+    /* ════════════════════════════════════════════════
    TEXT QUESTION RENDERING (KaTeX)
 ════════════════════════════════════════════════ */
 
-.prob-text-question {
-  padding: 32px 36px 28px;
-  font-size: 1.08rem;
-  line-height: 1.9;
-  color: var(--parchment);
-  font-family: var(--serif);
-}
+    .prob-text-question {
+      padding: 32px 36px 28px;
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: var(--parchment);
+      font-family: var(--serif);
+    }
 
-/* Each part (a), (b), (c) as its own block */
-.prob-text-question p {
-  margin-bottom: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-}
+    /* Each part (a), (b), (c) as its own block */
+    .prob-text-question p {
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+    }
 
-.prob-text-question p:last-child { margin-bottom: 0; }
+    .prob-text-question p:last-child {
+      margin-bottom: 0;
+    }
 
-/* Text content fills space, mark sits right */
-.p-body { flex: 1; }
+    /* Text content fills space, mark sits right */
+    .p-body {
+      flex: 1;
+    }
 
-.prob-text-question strong {
-  font-weight: 600;
-  color: var(--parchment);
-}
+    .prob-text-question strong {
+      font-weight: 600;
+      color: var(--parchment);
+    }
 
-.prob-text-question ul {
-  margin: 10px 0 10px 20px;
-  list-style: disc;
-  flex: 1;
-}
+    .prob-text-question ul {
+      margin: 10px 0 10px 20px;
+      list-style: disc;
+      flex: 1;
+    }
 
-.prob-text-question li {
-  margin-bottom: 6px;
-  color: var(--parchment2);
-}
+    .prob-text-question li {
+      margin-bottom: 6px;
+      color: var(--parchment2);
+    }
 
-/* Mark allocation — right aligned, monospaced, gold */
-.q-marks {
-  font-family: var(--mono);
-  font-size: .68rem;
-  color: var(--gold2);
-  letter-spacing: .04em;
-  white-space: nowrap;
-  flex-shrink: 0;
-  align-self: flex-end;
-  padding-bottom: 2px;
-}
+    /* Mark allocation — right aligned, monospaced, gold */
+    .q-marks {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--gold2);
+      letter-spacing: .04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: flex-end;
+      padding-bottom: 2px;
+    }
 
-/* KaTeX overrides to match theme */
-.katex { font-size: 1.05em; color: var(--parchment); }
-.katex-display {
-  margin: 16px 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 4px;
-}
-.katex-display > .katex { color: var(--parchment); }
-.katex-display > .katex > .katex-html { white-space: nowrap; }
+    /* KaTeX overrides to match theme */
+    .katex {
+      font-size: 1.05em;
+      color: var(--parchment);
+    }
 
-/* ════════════════════════════════════════════════
+    .katex-display {
+      margin: 16px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 4px;
+    }
+
+    .katex-display>.katex {
+      color: var(--parchment);
+    }
+
+    .katex-display>.katex>.katex-html {
+      white-space: nowrap;
+    }
+
+    /* ════════════════════════════════════════════════
    EMPTY TOPIC — improved
 ════════════════════════════════════════════════ */
 
-.empty-topic {
-  padding: 56px 0 48px;
-  text-align: center;
-  border: 1px solid var(--rule);
-}
+    .empty-topic {
+      padding: 56px 0 48px;
+      text-align: center;
+      border: 1px solid var(--rule);
+    }
 
-.empty-topic-name {
-  font-size: 2.2rem;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--parchment4);
-  margin-bottom: 20px;
-  font-family: var(--serif);
-}
+    .empty-topic-name {
+      font-size: 2.2rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--parchment4);
+      margin-bottom: 20px;
+      font-family: var(--serif);
+    }
 
-.empty-topic-text {
-  font-style: italic;
-  color: var(--parchment4);
-  font-size: .88rem;
-  line-height: 1.7;
-  font-family: var(--mono);
-  letter-spacing: .04em;
-}
+    .empty-topic-text {
+      font-style: italic;
+      color: var(--parchment4);
+      font-size: .88rem;
+      line-height: 1.7;
+      font-family: var(--mono);
+      letter-spacing: .04em;
+    }
 
-/* ════════════════════════════════════════════════
+    /* ════════════════════════════════════════════════
    MOBILE RESPONSIVE
 ════════════════════════════════════════════════ */
 
-@media (max-width: 600px) {
+    @media (max-width: 600px) {
 
-  #shell { padding: 0 18px 80px; }
+      #shell {
+        padding: 0 18px 80px;
+      }
 
-  #masthead { padding: 24px 0 18px; }
-  .masthead-ornament { display: none; }
+      #masthead {
+        padding: 24px 0 18px;
+      }
 
-  .home-heading { font-size: 2.4rem; }
-  .home-sub { font-size: .95rem; }
+      .masthead-ornament {
+        display: none;
+      }
 
-  .course-pair { grid-template-columns: 1fr; }
+      .home-heading {
+        font-size: 2.4rem;
+      }
 
-  .screen-title { font-size: 1.8rem; }
+      .home-sub {
+        font-size: .95rem;
+      }
 
-  .sec-row { padding: 16px 16px; }
-  .sec-badge { display: none; }
+      .course-pair {
+        grid-template-columns: 1fr;
+      }
 
-  .topic-row { padding: 14px 16px; }
+      .screen-title {
+        font-size: 1.8rem;
+      }
 
-  /* Question card */
-  .prob-text-question { padding: 20px 18px 18px; font-size: 1rem; }
+      .sec-row {
+        padding: 16px 16px;
+      }
 
-  .prob-text-question p {
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-start;
-  }
+      .sec-badge {
+        display: none;
+      }
 
-  .q-marks { align-self: flex-start; }
+      .topic-row {
+        padding: 14px 16px;
+      }
 
-  .katex-display { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
-  .katex-display > .katex > .katex-html { white-space: nowrap; }
+      /* Question card */
+      .prob-text-question {
+        padding: 20px 18px 18px;
+        font-size: 1rem;
+      }
 
-  .prob-card { overflow: visible; }
-  .prob-text-question { overflow-x: hidden; word-break: break-word; }
+      .prob-text-question p {
+        flex-direction: column;
+        gap: 4px;
+        align-items: flex-start;
+      }
 
-  .prob-label { padding: 10px 16px; }
+      .q-marks {
+        align-self: flex-start;
+      }
 
-  .prob-sol-btn { padding: 14px 16px; font-size: .66rem; }
+      .katex-display {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
 
-  .prob-arrow-btn { padding: 14px 14px; font-size: .62rem; gap: 6px; }
+      .katex-display>.katex>.katex-html {
+        white-space: nowrap;
+      }
 
-  /* Dots — smaller on mobile */
-  .prob-dot { width: 4px; height: 4px; }
+      .prob-card {
+        overflow: visible;
+      }
 
-  /* Nav row */
-  .nav-row { padding: 20px 0; }
-  .nav-btn { padding: 8px 14px; font-size: .62rem; }
-  .nav-topic-label { display: none; }
+      .prob-text-question {
+        overflow-x: hidden;
+        word-break: break-word;
+      }
 
-  /* Footer */
-  #footer { flex-direction: column; gap: 6px; }
+      .prob-label {
+        padding: 10px 16px;
+      }
 
-}
+      .prob-sol-btn {
+        padding: 14px 16px;
+        font-size: .66rem;
+      }
 
-/* ════════════════════════════════════════════════
+      .prob-arrow-btn {
+        padding: 14px 14px;
+        font-size: .62rem;
+        gap: 6px;
+      }
+
+      /* Dots — smaller on mobile */
+      .prob-dot {
+        width: 4px;
+        height: 4px;
+      }
+
+      /* Nav row */
+      .nav-row {
+        padding: 20px 0;
+      }
+
+      .nav-btn {
+        padding: 8px 14px;
+        font-size: .62rem;
+      }
+
+      .nav-topic-label {
+        display: none;
+      }
+
+      /* Footer */
+      #footer {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+    }
+
+    /* ════════════════════════════════════════════════
    NAVIGATION ROW (bottom of topic view)
 ════════════════════════════════════════════════ */
 
-.nav-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 28px 0;
-  border-top: 1px solid var(--rule);
-  margin-top: 20px;
-}
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      border-top: 1px solid var(--rule);
+      margin-top: 20px;
+    }
 
-.nav-btn {
-  background: transparent;
-  border: 1px solid var(--rule2);
-  color: var(--parchment3);
-  font-family: var(--sc);
-  font-size: .7rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  padding: 10px 22px;
-  cursor: pointer;
-  transition: all .15s;
-}
+    .nav-btn {
+      background: transparent;
+      border: 1px solid var(--rule2);
+      color: var(--parchment3);
+      font-family: var(--sc);
+      font-size: .7rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      cursor: pointer;
+      transition: all .15s;
+    }
 
-.nav-btn:hover { border-color: var(--gold2); color: var(--gold); }
+    .nav-btn:hover {
+      border-color: var(--gold2);
+      color: var(--gold);
+    }
 
-.nav-topic-label {
-  font-family: var(--sc);
-  font-size: .68rem;
-  letter-spacing: .14em;
-  color: var(--parchment4);
-  text-transform: uppercase;
-  text-align: center;
-}
+    .nav-topic-label {
+      font-family: var(--sc);
+      font-size: .68rem;
+      letter-spacing: .14em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+      text-align: center;
+    }
 
-/* ════════════════════════════════════════════════
+    /* ════════════════════════════════════════════════
    DECORATIVE RULE
 ════════════════════════════════════════════════ */
 
-.ornament-rule {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 40px 0;
-}
+    .ornament-rule {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 40px 0;
+    }
 
-.ornament-rule::before,
-.ornament-rule::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--rule2);
-}
+    .ornament-rule::before,
+    .ornament-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule2);
+    }
 
-.ornament-glyph {
-  font-size: .9rem;
-  color: var(--gold2);
-  font-style: italic;
-  font-family: var(--serif);
-}
+    .ornament-glyph {
+      font-size: .9rem;
+      color: var(--gold2);
+      font-style: italic;
+      font-family: var(--serif);
+    }
 
-</style>
+    /* ═══════════════════════════════════════════════
+       COURSE TABS
+    ═══════════════════════════════════════════════ */
+    .course-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--rule2);
+      margin-bottom: 40px;
+    }
+
+    .course-tab {
+      padding: 12px 28px;
+      font-family: var(--sc);
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--parchment4);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color .15s, border-color .15s;
+    }
+
+    .course-tab:hover {
+      color: var(--parchment2);
+    }
+
+    .course-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .course-panel {
+      display: none;
+    }
+
+    .course-panel.active {
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════════
+       GRADE THRESHOLDS
+    ═══════════════════════════════════════════════ */
+    .thresh-controls {
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      padding: 22px 24px;
+      margin-bottom: 24px;
+    }
+
+    .tc-label {
+      font-family: var(--sc);
+      font-size: .6rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .tc-comp-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-bottom: 22px;
+    }
+
+    .tc-comp-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+    }
+
+    .tc-comp-item input[type="checkbox"] {
+      width: 13px;
+      height: 13px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .tc-comp-label {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--parchment2);
+      cursor: pointer;
+      user-select: none;
+      letter-spacing: .04em;
+    }
+
+    .tc-bottom-row {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .tc-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tc-input,
+    .tc-select {
+      background: var(--ink3);
+      border: 1px solid var(--rule2);
+      color: var(--parchment);
+      font-family: var(--mono);
+      font-size: .72rem;
+      padding: 7px 10px;
+      letter-spacing: .04em;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .tc-input {
+      width: 82px;
+    }
+
+    .tc-select {
+      min-width: 160px;
+    }
+
+    .tc-input:focus,
+    .tc-select:focus {
+      outline: none;
+      border-color: var(--gold2);
+    }
+
+    .tc-sort-note {
+      font-family: var(--mono);
+      font-size: .58rem;
+      color: var(--parchment4);
+      letter-spacing: .04em;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .tc-load-btn {
+      padding: 9px 28px;
+      background: transparent;
+      border: 1px solid var(--gold2);
+      color: var(--gold);
+      font-family: var(--sc);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .18s var(--ease);
+      white-space: nowrap;
+    }
+
+    .tc-load-btn:hover {
+      background: var(--gold3);
+      border-color: var(--gold);
+    }
+
+    .thresh-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--rule2);
+      margin-bottom: 10px;
+    }
+
+    .thresh-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .78rem;
+    }
+
+    .thresh-table thead tr {
+      background: var(--ink3);
+      border-bottom: 1px solid var(--gold3);
+    }
+
+    .thresh-table th {
+      padding: 10px 14px;
+      text-align: center;
+      font-family: var(--sc);
+      font-size: .58rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      font-weight: 400;
+      border-right: 1px solid var(--rule);
+      white-space: nowrap;
+    }
+
+    .thresh-table th:first-child {
+      text-align: left;
+    }
+
+    .thresh-table th:last-child {
+      border-right: none;
+    }
+
+    .tc-th-a {
+      color: var(--gold) !important;
+    }
+
+    .thresh-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--rule);
+      border-right: 1px solid var(--rule);
+      text-align: center;
+      color: var(--parchment2);
+    }
+
+    .thresh-table td:last-child {
+      border-right: none;
+    }
+
+    .tc-sess-cell {
+      text-align: left;
+      font-family: var(--mono);
+      font-size: .7rem;
+      color: var(--parchment);
+      white-space: nowrap;
+      letter-spacing: .03em;
+    }
+
+    .tc-comp-cell {
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--gold);
+      letter-spacing: .04em;
+    }
+
+    .tc-a-cell {
+      color: var(--parchment);
+      font-weight: 500;
+    }
+
+    .thresh-table tbody tr:hover {
+      background: var(--ink3);
+    }
+
+    .thresh-empty {
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--parchment4);
+      font-style: italic;
+      font-size: .88rem;
+      border: 1px solid var(--rule2);
+      margin-bottom: 10px;
+    }
+
+    .thresh-hint {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--parchment4);
+      letter-spacing: .06em;
+      padding: 4px 0 20px;
+    }
+
+    @media (max-width:600px) {
+      .tc-comp-grid {
+        gap: 8px 14px;
+      }
+
+      .tc-bottom-row {
+        gap: 12px;
+      }
+
+      .thresh-controls {
+        padding: 16px;
+      }
+
+      .course-tab {
+        padding: 10px 18px;
+        font-size: .6rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div id="shell">
+  <div id="shell">
 
-  <!-- TRANSITION RULE -->
-  <div id="transition-rule"></div>
+    <!-- TRANSITION RULE -->
+    <div id="transition-rule"></div>
 
-  <!-- MASTHEAD -->
-  <div id="masthead">
-    <div class="masthead-left" onclick="goHome()">
-      <!-- Monogram seal -->
-      <svg class="monogram" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="19" cy="19" r="17.5" stroke="#7a6228" stroke-width=".8"/>
-        <circle cx="19" cy="19" r="15" stroke="#3d3118" stroke-width=".4"/>
-        <text x="19" y="25" text-anchor="middle"
-          font-family="Cormorant Garamond, Garamond, serif"
-          font-size="17" font-weight="400" font-style="italic"
-          fill="#a8883a" letter-spacing="0">M</text>
-      </svg>
-      <div class="masthead-title">MathForge</div>
+    <!-- MASTHEAD -->
+    <div id="masthead">
+      <div class="masthead-left" onclick="goHome()">
+        <!-- Monogram seal -->
+        <svg class="monogram" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="19" cy="19" r="17.5" stroke="#7a6228" stroke-width=".8" />
+          <circle cx="19" cy="19" r="15" stroke="#3d3118" stroke-width=".4" />
+          <text x="19" y="25" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif" font-size="17"
+            font-weight="400" font-style="italic" fill="#a8883a" letter-spacing="0">M</text>
+        </svg>
+        <div class="masthead-title">MathForge</div>
+      </div>
+      <div class="masthead-ornament">∂ · ∫ · ∑</div>
     </div>
-    <div class="masthead-ornament">∂ · ∫ · ∑</div>
-  </div>
 
-  <!-- BREADCRUMB -->
-  <div id="crumb"></div>
+    <!-- BREADCRUMB -->
+    <div id="crumb"></div>
 
 
-  <!-- ═══════════════════════════
+    <!-- ═══════════════════════════
        HOME
   ═══════════════════════════ -->
-  <div class="screen" id="s-home">
+    <div class="screen" id="s-home">
 
-    <div class="home-heading">Problems .<br><em>Worth Solving.</em></div>
-    <div class="home-sub">Mathematics is not a spectator sport — play it to conquer it.</div>
+      <div class="home-heading">Problems.<br><em>Worth Solving.</em></div>
+      <div class="home-sub">Mathematics is not a spectator sport — play it to conquer it.</div>
 
-    <div class="course-pair" id="course-pair"></div>
+      <div class="course-pair" id="course-pair"></div>
 
-    <div class="ornament-rule"><span class="ornament-glyph">∞</span></div>
+      <div class="ornament-rule"><span class="ornament-glyph">∞</span></div>
 
-    <div style="font-size:.85rem;color:var(--parchment4);font-style:italic;line-height:1.8;max-width:480px">
-      Select a course. Navigate to a section, then a topic.
-      Each problem is presented in full — work it out on paper,
-      then reveal the solution when you are ready.
+      <div style="font-size:.85rem;color:var(--parchment4);font-style:italic;line-height:1.8;max-width:480px">
+        Select a course. Navigate to a section, then a topic.
+        Each problem is presented in full — work it out on paper,
+        then reveal the solution when you are ready.
+      </div>
+
     </div>
 
-  </div>
 
-
-  <!-- ═══════════════════════════
+    <!-- ═══════════════════════════
        COURSE
   ═══════════════════════════ -->
-  <div class="screen" id="s-course">
+    <div class="screen" id="s-course">
 
-    <div id="course-hdr"></div>
-    <div class="section-stack" id="section-stack"></div>
+      <div id="course-hdr"></div>
 
-  </div>
+      <!-- Course tabs -->
+      <div class="course-tabs">
+        <button class="course-tab active" id="tab-sections" onclick="switchCourseTab('sections')">Sections</button>
+        <button class="course-tab" id="tab-thresholds" onclick="switchCourseTab('thresholds')">Grade Thresholds</button>
+      </div>
+
+      <!-- Sections panel -->
+      <div class="course-panel active" id="panel-sections">
+        <div class="section-stack" id="section-stack"></div>
+      </div>
+
+      <!-- Thresholds panel -->
+      <div class="course-panel" id="panel-thresholds">
+        <div class="thresh-controls">
+          <span class="tc-label">Components</span>
+          <div class="tc-comp-grid" id="tc-comp-grid"></div>
+          <div class="tc-bottom-row">
+            <div class="tc-field">
+              <span class="tc-label">From</span>
+              <input type="number" class="tc-input" id="tc-from" value="2020" min="2020" max="2025">
+            </div>
+            <div class="tc-field">
+              <span class="tc-label">To</span>
+              <input type="number" class="tc-input" id="tc-to" value="2025" min="2020" max="2025">
+            </div>
+            <div class="tc-field">
+              <span class="tc-label">Sort</span>
+              <select class="tc-select" id="tc-order">
+                <option value="desc">Descending</option>
+                <option value="asc">Ascending</option>
+              </select>
+              <span class="tc-sort-note" id="tc-sort-note">Descending: highest A first (easiest papers)</span>
+            </div>
+            <div class="tc-field">
+              <span class="tc-label">&nbsp;</span>
+              <button class="tc-load-btn" onclick="loadThresholds()">Load</button>
+            </div>
+          </div>
+        </div>
+        <div id="thresh-output">
+          <div class="thresh-empty">Select components above and click Load.</div>
+        </div>
+      </div>
+
+    </div>
 
 
-  <!-- ═══════════════════════════
+    <!-- ═══════════════════════════
        SECTION
   ═══════════════════════════ -->
-  <div class="screen" id="s-section">
+    <div class="screen" id="s-section">
 
-    <div id="section-hdr"></div>
-    <div class="topic-stack" id="topic-stack"></div>
+      <div id="section-hdr"></div>
+      <div class="topic-stack" id="topic-stack"></div>
 
-  </div>
+    </div>
 
 
-  <!-- ═══════════════════════════
+    <!-- ═══════════════════════════
        TOPIC (question view)
   ═══════════════════════════ -->
-  <div class="screen" id="s-topic">
+    <div class="screen" id="s-topic">
 
-    <div class="topic-view-header" id="topic-hdr"></div>
-    <div id="q-list"></div>
-    <div class="nav-row" id="nav-row"></div>
+      <div class="topic-view-header" id="topic-hdr"></div>
+      <div id="q-list"></div>
+      <div class="nav-row" id="nav-row"></div>
 
-  </div>
+    </div>
 
-  <!-- FOOTER -->
-  <div id="footer">
-    <div class="footer-left">MathForge &ensp;·&ensp; Cambridge A-Level</div>
-    <div class="footer-right">9709 &nbsp;/&nbsp; 9231</div>
-  </div>
+    <!-- FOOTER -->
+    <div id="footer">
+      <div class="footer-left">MathForge &ensp;·&ensp; Cambridge A-Level</div>
+      <div class="footer-right">9709 &nbsp;/&nbsp; 9231</div>
+    </div>
 
-</div><!-- /shell -->
+  </div><!-- /shell -->
 
-<script src="questions.js"></script>
-<script>
-// ══════════════════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════════════════
+  <script src="questions.js"></script>
+  <script>
+    // ══════════════════════════════════════════════════
+    //  STATE
+    // ══════════════════════════════════════════════════
 
-let S = { course: null, section: null, topic: null, probIndex: 0 };
+    let S = { course: null, section: null, topic: null, probIndex: 0 };
 
-// ══════════════════════════════════════════════════
-//  BROWSER HISTORY API
-//  Lets browser back/forward buttons work naturally
-// ══════════════════════════════════════════════════
+    // ══════════════════════════════════════════════════
+    //  BROWSER HISTORY API
+    //  Lets browser back/forward buttons work naturally
+    // ══════════════════════════════════════════════════
 
-function pushState(data) {
-  history.pushState(data, '');
-}
+    function pushState(data) {
+      history.pushState(data, '');
+    }
 
-window.addEventListener('popstate', e => {
-  const d = e.state;
-  if (!d || !d.screen) { goHome(true); return; }
-  if (d.screen === 'home')    { goHome(true); return; }
-  if (d.screen === 'course')  { goCourse(d.course, true); return; }
-  if (d.screen === 'section') { goSection(d.course, d.section, true); return; }
-  if (d.screen === 'topic')   { goTopic(d.course, d.section, d.topic, d.probIndex || 0, true); return; }
-});
+    window.addEventListener('popstate', e => {
+      const d = e.state;
+      if (!d || !d.screen) { goHome(true); return; }
+      if (d.screen === 'home') { goHome(true); return; }
+      if (d.screen === 'course') { goCourse(d.course, true); return; }
+      if (d.screen === 'section') { goSection(d.course, d.section, true); return; }
+      if (d.screen === 'topic') { goTopic(d.course, d.section, d.topic, d.probIndex || 0, true); return; }
+    });
 
-// ══════════════════════════════════════════════════
-//  SCREEN
-// ══════════════════════════════════════════════════
+    // ══════════════════════════════════════════════════
+    //  SCREEN
+    // ══════════════════════════════════════════════════
 
-function show(id) {
-  const rule = document.getElementById('transition-rule');
-  rule.classList.remove('sweep');
-  rule.style.width = '0%';
-  rule.style.opacity = '1';
-  void rule.offsetWidth;
-  rule.classList.add('sweep');
+    function show(id) {
+      const rule = document.getElementById('transition-rule');
+      rule.classList.remove('sweep');
+      rule.style.width = '0%';
+      rule.style.opacity = '1';
+      void rule.offsetWidth;
+      rule.classList.add('sweep');
 
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
-  document.getElementById('s-' + id).classList.add('on');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
+      document.getElementById('s-' + id).classList.add('on');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  setTimeout(() => {
-    rule.classList.remove('sweep');
-    rule.style.width = '0%';
-    rule.style.opacity = '1';
-  }, 600);
-}
+      setTimeout(() => {
+        rule.classList.remove('sweep');
+        rule.style.width = '0%';
+        rule.style.opacity = '1';
+      }, 600);
+    }
 
-// ══════════════════════════════════════════════════
-//  BREADCRUMB
-// ══════════════════════════════════════════════════
+    // ══════════════════════════════════════════════════
+    //  BREADCRUMB
+    // ══════════════════════════════════════════════════
 
-function crumb(items) {
-  const el = document.getElementById('crumb');
-  if (!items.length) { el.innerHTML = ''; return; }
-  el.innerHTML = items.map((it, i) => {
-    const last = i === items.length - 1;
-    if (last) return `<span class="cr-now">${it.label}</span>`;
-    return `<span class="cr" onclick="${it.fn}">${it.label}</span><span class="cr-sep"> · </span>`;
-  }).join('');
-}
+    function crumb(items) {
+      const el = document.getElementById('crumb');
+      if (!items.length) { el.innerHTML = ''; return; }
+      el.innerHTML = items.map((it, i) => {
+        const last = i === items.length - 1;
+        if (last) return `<span class="cr-now">${it.label}</span>`;
+        return `<span class="cr" onclick="${it.fn}">${it.label}</span><span class="cr-sep"> · </span>`;
+      }).join('');
+    }
 
-// ══════════════════════════════════════════════════
-//  HOME
-// ══════════════════════════════════════════════════
+    // ══════════════════════════════════════════════════
+    //  HOME
+    // ══════════════════════════════════════════════════
 
-function goHome(fromPop) {
-  S = { course: null, section: null, topic: null, probIndex: 0 };
-  crumb([]);
-  buildHome();
-  show('home');
-  if (!fromPop) pushState({ screen: 'home' });
-}
+    function goHome(fromPop) {
+      S = { course: null, section: null, topic: null, probIndex: 0 };
+      crumb([]);
+      buildHome();
+      show('home');
+      if (!fromPop) pushState({ screen: 'home' });
+    }
 
-function buildHome() {
-  const pair = document.getElementById('course-pair');
-  pair.innerHTML = '';
+    function buildHome() {
+      const pair = document.getElementById('course-pair');
+      pair.innerHTML = '';
 
-  // Ghost equations — one signature formula per course
-  const ghosts = {
-    '9709': '∫ f(x) dx',
-    '9231': 'r = a(1 − cosθ)'
-  };
+      // Ghost equations — one signature formula per course
+      const ghosts = {
+        '9709': '∫ f(x) dx',
+        '9231': 'r = a(1 − cosθ)'
+      };
 
-  Object.entries(SYLLABUS).forEach(([code, c]) => {
-    const secs = Object.keys(c.sections).length;
-    const topics = Object.values(c.sections).reduce((a, s) => a + Object.keys(s.topics).length, 0);
-    const tile = document.createElement('div');
-    tile.className = 'course-tile';
-    tile.onclick = () => goCourse(code);
-    tile.innerHTML = `
+      Object.entries(SYLLABUS).forEach(([code, c]) => {
+        const secs = Object.keys(c.sections).length;
+        const topics = Object.values(c.sections).reduce((a, s) => a + Object.keys(s.topics).length, 0);
+        const tile = document.createElement('div');
+        tile.className = 'course-tile';
+        tile.onclick = () => goCourse(code);
+        tile.innerHTML = `
       <span class="tile-code">${code}</span>
       <div class="tile-name">${c.name}</div>
       <div class="tile-desc">${secs} sections &ensp;·&ensp; ${topics} topics</div>
       <div class="tile-ghost">${ghosts[code] || ''}</div>`;
-    pair.appendChild(tile);
-  });
-}
+        pair.appendChild(tile);
+      });
+    }
 
-// ══════════════════════════════════════════════════
-//  COURSE
-// ══════════════════════════════════════════════════
+    // ══════════════════════════════════════════════════
+    //  COURSE
+    // ══════════════════════════════════════════════════
 
-function goCourse(code, fromPop) {
-  S.course = code; S.section = null; S.topic = null;
-  const c = SYLLABUS[code];
-  crumb([
-    { label: 'Home', fn: 'goHome()' },
-    { label: `${c.name} · ${code}` }
-  ]);
+    function goCourse(code, fromPop) {
+      S.course = code; S.section = null; S.topic = null;
+      const c = SYLLABUS[code];
+      crumb([
+        { label: 'Home', fn: 'goHome()' },
+        { label: `${c.name} · ${code}` }
+      ]);
 
-  document.getElementById('course-hdr').innerHTML = `
+      document.getElementById('course-hdr').innerHTML = `
     <div class="screen-title">${c.name} <em>${code}</em></div>
     <div class="screen-caption">Select a section.</div>`;
 
-  const stack = document.getElementById('section-stack');
-  stack.innerHTML = '';
-  Object.entries(c.sections).forEach(([secCode, sec]) => {
-    const qTotal = Object.values(sec.topics).reduce((a, qs) => a + qs.length, 0);
-    const row = document.createElement('div');
-    row.className = 'sec-row';
-    row.onclick = () => goSection(code, secCode);
-    row.innerHTML = `
+      buildThreshSection(code);
+
+      const stack = document.getElementById('section-stack');
+      stack.innerHTML = '';
+      Object.entries(c.sections).forEach(([secCode, sec]) => {
+        const qTotal = Object.values(sec.topics).reduce((a, qs) => a + qs.length, 0);
+        const row = document.createElement('div');
+        row.className = 'sec-row';
+        row.onclick = () => goSection(code, secCode);
+        row.innerHTML = `
       <div class="sec-left">
         <span class="sec-badge">${secCode}</span>
         <span class="sec-name">${sec.name}</span>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
         ${qTotal > 0
-          ? `<span style="font-family:var(--mono);font-size:.62rem;color:var(--gold);background:var(--gold3);padding:2px 9px;border-radius:2px">${qTotal} Q</span>`
-          : `<span style="font-family:var(--mono);font-size:.62rem;color:var(--parchment4)">empty</span>`}
+            ? `<span style="font-family:var(--mono);font-size:.62rem;color:var(--gold);background:var(--gold3);padding:2px 9px;border-radius:2px">${qTotal} Q</span>`
+            : `<span style="font-family:var(--mono);font-size:.62rem;color:var(--parchment4)">empty</span>`}
         <span class="sec-arrow">›</span>
       </div>`;
-    stack.appendChild(row);
-  });
+        stack.appendChild(row);
+      });
 
-  show('course');
-  if (!fromPop) pushState({ screen: 'course', course: code });
-}
+      show('course');
+      if (!fromPop) pushState({ screen: 'course', course: code });
+    }
 
-// ══════════════════════════════════════════════════
-//  SECTION
-// ══════════════════════════════════════════════════
+    // ══════════════════════════════════════════════════
+    //  SECTION
+    // ══════════════════════════════════════════════════
 
-function goSection(code, secCode, fromPop) {
-  S.course = code; S.section = secCode; S.topic = null;
-  const c = SYLLABUS[code];
-  const sec = c.sections[secCode];
-  crumb([
-    { label: 'Home', fn: 'goHome()' },
-    { label: code, fn: `goCourse('${code}')` },
-    { label: `${secCode} · ${sec.name}` }
-  ]);
+    function goSection(code, secCode, fromPop) {
+      S.course = code; S.section = secCode; S.topic = null;
+      const c = SYLLABUS[code];
+      const sec = c.sections[secCode];
+      crumb([
+        { label: 'Home', fn: 'goHome()' },
+        { label: code, fn: `goCourse('${code}')` },
+        { label: `${secCode} · ${sec.name}` }
+      ]);
 
-  document.getElementById('section-hdr').innerHTML = `
+      document.getElementById('section-hdr').innerHTML = `
     <div class="screen-title"><em>${secCode}</em> — ${sec.name}</div>
     <div class="screen-caption">Select a topic.</div>`;
 
-  const stack = document.getElementById('topic-stack');
-  stack.innerHTML = '';
-  Object.entries(sec.topics).forEach(([topic, qs]) => {
-    const hasQ = qs.length > 0;
-    const row = document.createElement('div');
-    row.className = 'topic-row';
-    row.onclick = () => goTopic(code, secCode, topic);
-    row.innerHTML = `
+      const stack = document.getElementById('topic-stack');
+      stack.innerHTML = '';
+      Object.entries(sec.topics).forEach(([topic, qs]) => {
+        const hasQ = qs.length > 0;
+        const row = document.createElement('div');
+        row.className = 'topic-row';
+        row.onclick = () => goTopic(code, secCode, topic);
+        row.innerHTML = `
       <span class="topic-row-name">${topic}</span>
       <div class="topic-row-right">
         <span class="topic-count ${hasQ ? 'has-q' : ''}">${hasQ ? qs.length + ' Q' : 'empty'}</span>
         <span class="topic-arrow">›</span>
       </div>`;
-    stack.appendChild(row);
-  });
+        stack.appendChild(row);
+      });
 
-  show('section');
-  if (!fromPop) pushState({ screen: 'section', course: code, section: secCode });
-}
+      show('section');
+      if (!fromPop) pushState({ screen: 'section', course: code, section: secCode });
+    }
 
-// ══════════════════════════════════════════════════
-//  TOPIC — PROBLEM NAVIGATOR
-// ══════════════════════════════════════════════════
+    // ══════════════════════════════════════════════════
+    //  TOPIC — PROBLEM NAVIGATOR
+    // ══════════════════════════════════════════════════
 
-function goTopic(code, secCode, topic, startIndex, fromPop) {
-  S.course = code; S.section = secCode; S.topic = topic;
-  S.probIndex = startIndex || 0;
+    function goTopic(code, secCode, topic, startIndex, fromPop) {
+      S.course = code; S.section = secCode; S.topic = topic;
+      S.probIndex = startIndex || 0;
 
-  const sec = SYLLABUS[code].sections[secCode];
-  const questions = sec.topics[topic] || [];
+      const sec = SYLLABUS[code].sections[secCode];
+      const questions = sec.topics[topic] || [];
 
-  crumb([
-    { label: 'Home',  fn: 'goHome()' },
-    { label: code,    fn: `goCourse('${code}')` },
-    { label: secCode, fn: `goSection('${code}','${secCode}')` },
-    { label: topic }
-  ]);
+      crumb([
+        { label: 'Home', fn: 'goHome()' },
+        { label: code, fn: `goCourse('${code}')` },
+        { label: secCode, fn: `goSection('${code}','${secCode}')` },
+        { label: topic }
+      ]);
 
-  document.getElementById('topic-hdr').innerHTML = `
+      document.getElementById('topic-hdr').innerHTML = `
     <div class="screen-title"><em>${topic}</em></div>
     <div class="screen-caption">${sec.name} · ${code}</div>`;
 
-  const list = document.getElementById('q-list');
+      const list = document.getElementById('q-list');
 
-  if (!questions.length) {
-    list.innerHTML = `
+      if (!questions.length) {
+        list.innerHTML = `
       <div class="empty-topic">
         <div class="empty-topic-name">${topic}</div>
         <div class="empty-topic-text">Problems forthcoming.</div>
       </div>`;
-    document.getElementById('nav-row').innerHTML = '';
-    show('topic');
-    if (!fromPop) pushState({ screen: 'topic', course: code, section: secCode, topic, probIndex: 0 });
-    return;
-  }
+        document.getElementById('nav-row').innerHTML = '';
+        show('topic');
+        if (!fromPop) pushState({ screen: 'topic', course: code, section: secCode, topic, probIndex: 0 });
+        return;
+      }
 
-  list.innerHTML = `
+      list.innerHTML = `
     <div class="prob-nav-header">
       <span class="prob-counter" id="prob-counter"></span>
       <div class="prob-track">
@@ -1257,59 +1798,59 @@ function goTopic(code, secCode, topic, startIndex, fromPop) {
     </div>
     <div id="prob-card-area"></div>`;
 
-  renderProblem(questions, S.probIndex);
-  buildNavRow(code, secCode, topic);
-  show('topic');
-  if (!fromPop) pushState({ screen: 'topic', course: code, section: secCode, topic, probIndex: S.probIndex });
-}
+      renderProblem(questions, S.probIndex);
+      buildNavRow(code, secCode, topic);
+      show('topic');
+      if (!fromPop) pushState({ screen: 'topic', course: code, section: secCode, topic, probIndex: S.probIndex });
+    }
 
-function renderProblem(questions, idx) {
-  S.probIndex = idx;
-  const q = questions[idx];
-  const total = questions.length;
+    function renderProblem(questions, idx) {
+      S.probIndex = idx;
+      const q = questions[idx];
+      const total = questions.length;
 
-  document.getElementById('prob-counter').textContent =
-    `Problem ${idx + 1} of ${total}`;
+      document.getElementById('prob-counter').textContent =
+        `Problem ${idx + 1} of ${total}`;
 
-  const dotsEl = document.getElementById('prob-dots');
-  if (total <= 12) {
-    dotsEl.innerHTML = questions.map((_, i) =>
-      `<button class="prob-dot ${i === idx ? 'active' : ''}"
-        onclick="jumpProblem(${i})" title="Problem ${i+1}"></button>`
-    ).join('');
-  } else {
-    dotsEl.innerHTML = '';
-  }
+      const dotsEl = document.getElementById('prob-dots');
+      if (total <= 12) {
+        dotsEl.innerHTML = questions.map((_, i) =>
+          `<button class="prob-dot ${i === idx ? 'active' : ''}"
+        onclick="jumpProblem(${i})" title="Problem ${i + 1}"></button>`
+        ).join('');
+      } else {
+        dotsEl.innerHTML = '';
+      }
 
-  // Question: text (KaTeX) takes priority over image
-  let qContent;
-  if (q.question_text) {
-    // Optional diagram above text
-    const diagHtml = q.diagram_image
-      ? `<div class="prob-diagram"><img class="prob-diagram-img" src="images/${q.diagram_image}" alt="Diagram"></div>`
-      : '';
-    qContent = `${diagHtml}<div class="prob-text-question">${processText(q.question_text)}</div>`;
-  } else if (q.question_image) {
-    qContent = `<img class="prob-q-img invert" src="images/${q.question_image}"
-      alt="Problem ${idx+1}"
+      // Question: text (KaTeX) takes priority over image
+      let qContent;
+      if (q.question_text) {
+        // Optional diagram above text
+        const diagHtml = q.diagram_image
+          ? `<div class="prob-diagram"><img class="prob-diagram-img" src="images/${q.diagram_image}" alt="Diagram"></div>`
+          : '';
+        qContent = `${diagHtml}<div class="prob-text-question">${processText(q.question_text)}</div>`;
+      } else if (q.question_image) {
+        qContent = `<img class="prob-q-img invert" src="images/${q.question_image}"
+      alt="Problem ${idx + 1}"
       onerror="this.outerHTML='<div class=prob-placeholder>Image not found: ${q.question_image}</div>'">`;
-  } else {
-    qContent = `<div class="prob-placeholder">Question not yet added.<code>${q.id}_q.png</code></div>`;
-  }
+      } else {
+        qContent = `<div class="prob-placeholder">Question not yet added.<code>${q.id}_q.png</code></div>`;
+      }
 
-  // Solution: always an image
-  const sImg = q.solution_image
-    ? `<img src="images/${q.solution_image}" alt="Solution ${idx+1}"
+      // Solution: always an image
+      const sImg = q.solution_image
+        ? `<img src="images/${q.solution_image}" alt="Solution ${idx + 1}"
          onerror="this.outerHTML='<div class=prob-sol-placeholder>Image not found: ${q.solution_image}</div>'">`
-    : `<div class="prob-sol-placeholder">Solution forthcoming.</div>`;
+        : `<div class="prob-sol-placeholder">Solution forthcoming.</div>`;
 
-  const hasPrev = idx > 0;
-  const hasNext = idx < total - 1;
+      const hasPrev = idx > 0;
+      const hasNext = idx < total - 1;
 
-  document.getElementById('prob-card-area').innerHTML = `
+      document.getElementById('prob-card-area').innerHTML = `
     <div class="prob-card">
       <div class="prob-label">
-        <span class="prob-label-left">Problem ${String(idx+1).padStart(2,'0')}</span>
+        <span class="prob-label-left">Problem ${String(idx + 1).padStart(2, '0')}</span>
         <span class="prob-label-right">${q.id}</span>
       </div>
       ${qContent}
@@ -1333,96 +1874,96 @@ function renderProblem(questions, idx) {
       </button>
     </div>`;
 
-  // Re-run KaTeX on newly injected content
-  if (q.question_text && window.renderMathInElement) {
-    const card = document.getElementById('prob-card-area');
-    renderMathInElement(card, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$',  right: '$',  display: false }
-      ],
-      throwOnError: false
+      // Re-run KaTeX on newly injected content
+      if (q.question_text && window.renderMathInElement) {
+        const card = document.getElementById('prob-card-area');
+        renderMathInElement(card, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    // ── Text processor: converts plain text + markdown to HTML ──
+    function processText(text) {
+      const paras = text.split(/\n\n+/);
+      return paras.map(para => {
+        // Bullet list
+        if (para.trim().startsWith('- ')) {
+          const items = para.split('\n')
+            .filter(l => l.trim())
+            .map(l => `<li>${l.replace(/^- /, '')}</li>`)
+            .join('');
+          return `<ul>${items}</ul>`;
+        }
+
+        // Extract trailing mark allocation [n] or (n)
+        let marks = '';
+        let body = para;
+
+        const markMatch = body.match(/(\s*[\[\(]\d+[\]\)]\s*)$/);
+        if (markMatch) {
+          marks = `<span class="q-marks">${markMatch[0].trim()}</span>`;
+          body = body.slice(0, body.length - markMatch[0].length);
+        }
+
+        // Bold **text**
+        body = body.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Line breaks within paragraph
+        body = body.replace(/\n/g, '<br>');
+
+        if (marks) {
+          return `<p><span class="p-body">${body}</span>${marks}</p>`;
+        }
+        return `<p><span class="p-body">${body}</span></p>`;
+      }).join('');
+    }
+
+    function stepProblem(dir) {
+      const sec = SYLLABUS[S.course].sections[S.section];
+      const questions = sec.topics[S.topic] || [];
+      const next = S.probIndex + dir;
+      if (next < 0 || next >= questions.length) return;
+      renderProblem(questions, next);
+    }
+
+    function jumpProblem(idx) {
+      const sec = SYLLABUS[S.course].sections[S.section];
+      const questions = sec.topics[S.topic] || [];
+      renderProblem(questions, idx);
+    }
+
+    function toggleProbSol() {
+      const panel = document.getElementById('psol-panel');
+      const btn = document.getElementById('psol-btn');
+      const open = panel.classList.contains('open');
+      panel.classList.toggle('open', !open);
+      btn.classList.toggle('open', !open);
+      btn.textContent = open ? '— Reveal Solution —' : '— Hide Solution —';
+    }
+
+    // Keyboard left/right arrow navigation
+    document.addEventListener('keydown', e => {
+      if (document.getElementById('s-topic').classList.contains('on')) {
+        if (e.key === 'ArrowRight') stepProblem(1);
+        if (e.key === 'ArrowLeft') stepProblem(-1);
+      }
     });
-  }
-}
 
-// ── Text processor: converts plain text + markdown to HTML ──
-function processText(text) {
-  const paras = text.split(/\n\n+/);
-  return paras.map(para => {
-    // Bullet list
-    if (para.trim().startsWith('- ')) {
-      const items = para.split('\n')
-        .filter(l => l.trim())
-        .map(l => `<li>${l.replace(/^- /, '')}</li>`)
-        .join('');
-      return `<ul>${items}</ul>`;
-    }
+    // ══════════════════════════════════════════════════
+    //  PREV / NEXT TOPIC NAV (bottom of topic view)
+    // ══════════════════════════════════════════════════
 
-    // Extract trailing mark allocation [n] or (n)
-    let marks = '';
-    let body = para;
+    function buildNavRow(code, secCode, topic) {
+      const topics = Object.keys(SYLLABUS[code].sections[secCode].topics);
+      const idx = topics.indexOf(topic);
+      const prev = topics[idx - 1] || null;
+      const next = topics[idx + 1] || null;
 
-    const markMatch = body.match(/(\s*[\[\(]\d+[\]\)]\s*)$/);
-    if (markMatch) {
-      marks = `<span class="q-marks">${markMatch[0].trim()}</span>`;
-      body = body.slice(0, body.length - markMatch[0].length);
-    }
-
-    // Bold **text**
-    body = body.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    // Line breaks within paragraph
-    body = body.replace(/\n/g, '<br>');
-
-    if (marks) {
-      return `<p><span class="p-body">${body}</span>${marks}</p>`;
-    }
-    return `<p><span class="p-body">${body}</span></p>`;
-  }).join('');
-}
-
-function stepProblem(dir) {
-  const sec = SYLLABUS[S.course].sections[S.section];
-  const questions = sec.topics[S.topic] || [];
-  const next = S.probIndex + dir;
-  if (next < 0 || next >= questions.length) return;
-  renderProblem(questions, next);
-}
-
-function jumpProblem(idx) {
-  const sec = SYLLABUS[S.course].sections[S.section];
-  const questions = sec.topics[S.topic] || [];
-  renderProblem(questions, idx);
-}
-
-function toggleProbSol() {
-  const panel = document.getElementById('psol-panel');
-  const btn   = document.getElementById('psol-btn');
-  const open  = panel.classList.contains('open');
-  panel.classList.toggle('open', !open);
-  btn.classList.toggle('open', !open);
-  btn.textContent = open ? '— Reveal Solution —' : '— Hide Solution —';
-}
-
-// Keyboard left/right arrow navigation
-document.addEventListener('keydown', e => {
-  if (document.getElementById('s-topic').classList.contains('on')) {
-    if (e.key === 'ArrowRight') stepProblem(1);
-    if (e.key === 'ArrowLeft')  stepProblem(-1);
-  }
-});
-
-// ══════════════════════════════════════════════════
-//  PREV / NEXT TOPIC NAV (bottom of topic view)
-// ══════════════════════════════════════════════════
-
-function buildNavRow(code, secCode, topic) {
-  const topics = Object.keys(SYLLABUS[code].sections[secCode].topics);
-  const idx  = topics.indexOf(topic);
-  const prev = topics[idx - 1] || null;
-  const next = topics[idx + 1] || null;
-
-  document.getElementById('nav-row').innerHTML = `
+      document.getElementById('nav-row').innerHTML = `
     <button class="nav-btn"
       onclick="${prev ? `goTopic('${code}','${secCode}','${prev}')` : `goSection('${code}','${secCode}')`}">
       ← ${prev || 'All Topics'}
@@ -1432,15 +1973,327 @@ function buildNavRow(code, secCode, topic) {
       onclick="${next ? `goTopic('${code}','${secCode}','${next}')` : `goSection('${code}','${secCode}')`}">
       ${next || 'All Topics'} →
     </button>`;
-}
+    }
 
-// ══════════════════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════════════════
 
-// Replace the initial blank history entry so back button works from first screen
-history.replaceState({ screen: 'home' }, '');
-goHome(true);
-</script>
+    // ── COURSE TAB SWITCHER ──────────────────────────────────────
+    function switchCourseTab(tab) {
+      ['sections', 'thresholds'].forEach(function (t) {
+        document.getElementById('tab-' + t).classList.toggle('active', t === tab);
+        document.getElementById('panel-' + t).classList.toggle('active', t === tab);
+      });
+    }
+
+    // ── GRADE THRESHOLDS ─────────────────────────────────────────
+    const THRESH_COMPONENTS = {
+      '9709': [
+        { code: '11', label: '11 — Pure 1', max: 75 },
+        { code: '12', label: '12 — Pure 1', max: 75 },
+        { code: '13', label: '13 — Pure 1', max: 75 },
+        { code: '15', label: '15 — Pure 1', max: 75 },
+        { code: '31', label: '31 — Pure 3', max: 75 },
+        { code: '32', label: '32 — Pure 3', max: 75 },
+        { code: '33', label: '33 — Pure 3', max: 75 },
+        { code: '35', label: '35 — Pure 3', max: 75 },
+        { code: '41', label: '41 — Mechanics', max: 50 },
+        { code: '42', label: '42 — Mechanics', max: 50 },
+        { code: '43', label: '43 — Mechanics', max: 50 },
+        { code: '45', label: '45 — Mechanics', max: 50 },
+        { code: '51', label: '51 — Statistics', max: 50 },
+        { code: '52', label: '52 — Statistics', max: 50 },
+        { code: '53', label: '53 — Statistics', max: 50 },
+        { code: '21', label: '21 — Pure 2', max: 50 },
+        { code: '22', label: '22 — Pure 2', max: 50 },
+        { code: '23', label: '23 — Pure 2', max: 50 },
+        { code: '25', label: '25 — Pure', max: 50 }
+      ],
+      '9231': [
+        { code: '11', label: '11 — Further Pure 1', max: 75 },
+        { code: '12', label: '12 — Further Pure 1', max: 75 },
+        { code: '13', label: '13 — Further Pure 1', max: 75 },
+        { code: '14', label: '14 — Further Pure 1', max: 75 },
+        { code: '21', label: '21 — Further Pure 2', max: 75 },
+        { code: '22', label: '22 — Further Pure 2', max: 75 },
+        { code: '23', label: '23 — Further Pure 2', max: 75 },
+        { code: '24', label: '24 — Further Pure 2', max: 75 },
+        { code: '31', label: '31 — Further Mech.', max: 50 },
+        { code: '32', label: '32 — Further Mech.', max: 50 },
+        { code: '33', label: '33 — Further Mech.', max: 50 },
+        { code: '34', label: '34 — Further Mech.', max: 50 },
+        { code: '41', label: '41 — Further Stats.', max: 50 },
+        { code: '42', label: '42 — Further Stats.', max: 50 },
+        { code: '43', label: '43 — Further Stats.', max: 50 },
+        { code: '44', label: '44 — Further Stats.', max: 50 },
+      ]
+    };
+
+    const THRESH_SESSIONS = [
+      { key: '2025_ON', label: 'O/N 2025', year: 2025, sort: 2025.8 },
+      { key: '2025_MJ', label: 'M/J 2025', year: 2025, sort: 2025.4 },
+      { key: '2024_ON', label: 'O/N 2024', year: 2024, sort: 2024.8 },
+      { key: '2024_MJ', label: 'M/J 2024', year: 2024, sort: 2024.4 },
+      { key: '2023_ON', label: 'O/N 2023', year: 2023, sort: 2023.8 },
+      { key: '2023_MJ', label: 'M/J 2023', year: 2023, sort: 2023.4 },
+      { key: '2022_ON', label: 'O/N 2022', year: 2022, sort: 2022.8 },
+      { key: '2022_MJ', label: 'M/J 2022', year: 2022, sort: 2022.4 },
+      { key: '2021_ON', label: 'O/N 2021', year: 2021, sort: 2021.8 },
+      { key: '2021_MJ', label: 'M/J 2021', year: 2021, sort: 2021.4 },
+      { key: '2020_ON', label: 'O/N 2020', year: 2020, sort: 2020.8 }
+    ];
+
+    const THRESH_DATA = {
+      '9709': {
+        '2025_ON': {
+          '11': { a: 60, b: 51, c: 40, d: 28, e: 16 }, '12': { a: 60, b: 51, c: 39, d: 27, e: 16 }, '13': { a: 61, b: 54, c: 43, d: 30, e: 19 }, '15': { a: 63, b: 55, c: 43, d: 31, e: 18 },
+          '21': { a: 42, b: 37, c: 29, d: 21, e: 13 }, '22': { a: 42, b: 37, c: 29, d: 21, e: 13 }, '23': { a: 42, b: 37, c: 29, d: 21, e: 13 }, '25': { a: 42, b: 37, c: 29, d: 21, e: 13 },
+          '31': { a: 58, b: 49, c: 40, d: 31, e: 21 }, '32': { a: 45, b: 38, c: 32, d: 25, e: 17 }, '33': { a: 58, b: 49, c: 41, d: 31, e: 22 }, '35': { a: 60, b: 51, c: 42, d: 32, e: 21 },
+          '41': { a: 38, b: 32, c: 25, d: 18, e: 12 }, '42': { a: 35, b: 29, c: 23, d: 17, e: 11 }, '43': { a: 36, b: 28, c: 22, d: 18, e: 12 }, '45': { a: 38, b: 31, c: 24, d: 17, e: 11 },
+          '51': { a: 41, b: 37, c: 29, d: 22, e: 15 }, '52': { a: 38, b: 33, c: 25, d: 18, e: 10 }, '53': { a: 45, b: 40, c: 32, d: 25, e: 17 }
+        },
+        '2025_MJ': {
+          '11': { a: 59, b: 50, c: 38, d: 26, e: 15 }, '12': { a: 61, b: 52, c: 40, d: 28, e: 16 }, '13': { a: 62, b: 54, c: 41, d: 28, e: 15 },
+          '31': { a: 55, b: 49, c: 38, d: 27, e: 16 }, '32': { a: 55, b: 47, c: 37, d: 27, e: 16 }, '33': { a: 52, b: 46, c: 36, d: 26, e: 16 },
+          '41': { a: 43, b: 37, c: 29, d: 21, e: 12 }, '42': { a: 43, b: 39, c: 35, d: 32, e: 29 }, '43': { a: 41, b: 34, c: 26, d: 18, e: 10 },
+          '51': { a: 41, b: 35, c: 28, d: 21, e: 14 }, '52': { a: 39, b: 33, c: 26, d: 18, e: 11 }, '53': { a: 42, b: 36, c: 29, d: 21, e: 14 }
+        },
+        '2024_ON': {
+          '11': { a: 52, b: 44, c: 34, d: 25, e: 15 }, '12': { a: 52, b: 44, c: 34, d: 24, e: 15 }, '13': { a: 55, b: 47, c: 37, d: 27, e: 18 },
+          '31': { a: 54, b: 45, c: 37, d: 29, e: 20 }, '32': { a: 51, b: 42, c: 35, d: 27, e: 19 }, '33': { a: 55, b: 45, c: 37, d: 29, e: 20 },
+          '41': { a: 38, b: 34, c: 27, d: 19, e: 12 }, '42': { a: 33, b: 27, c: 21, d: 15, e: 9 }, '43': { a: 41, b: 34, c: 26, d: 19, e: 11 },
+          '51': { a: 40, b: 36, c: 29, d: 22, e: 15 }, '52': { a: 40, b: 36, c: 29, d: 22, e: 15 }, '53': { a: 40, b: 34, c: 28, d: 22, e: 15 }
+        },
+        '2024_MJ': {
+          '11': { a: 50, b: 44, c: 34, d: 23, e: 12 }, '12': { a: 60, b: 49, c: 36, d: 24, e: 12 }, '13': { a: 58, b: 48, c: 36, d: 24, e: 12 },
+          '31': { a: 48, b: 39, c: 31, d: 23, e: 14 }, '32': { a: 48, b: 39, c: 30, d: 23, e: 14 }, '33': { a: 54, b: 45, c: 37, d: 29, e: 20 },
+          '41': { a: 39, b: 34, c: 27, d: 20, e: 13 }, '42': { a: 36, b: 30, c: 25, d: 18, e: 12 }, '43': { a: 39, b: 32, c: 25, d: 18, e: 10 },
+          '51': { a: 37, b: 32, c: 25, d: 18, e: 12 }, '52': { a: 36, b: 30, c: 24, d: 17, e: 11 }, '53': { a: 44, b: 39, c: 32, d: 25, e: 18 }
+        },
+        '2023_ON': {
+          '11': { a: 55, b: 44, c: 34, d: 24, e: 14 }, '12': { a: 55, b: 46, c: 35, d: 24, e: 13 }, '13': { a: 62, b: 56, c: 45, d: 34, e: 23 },
+          '31': { a: 54, b: 45, c: 39, d: 32, e: 24 }, '32': { a: 54, b: 45, c: 39, d: 32, e: 24 }, '33': { a: 66, b: 59, c: 51, d: 42, e: 32 },
+          '41': { a: 38, b: 34, c: 26, d: 19, e: 12 }, '42': { a: 39, b: 35, c: 27, d: 19, e: 12 }, '43': { a: 45, b: 40, c: 33, d: 27, e: 21 },
+          '51': { a: 38, b: 34, c: 27, d: 20, e: 14 }, '52': { a: 40, b: 36, c: 28, d: 21, e: 14 }, '53': { a: 46, b: 42, c: 36, d: 30, e: 25 }
+        },
+        '2023_MJ': {
+          '11': { a: 50, b: 43, c: 33, d: 23, e: 14 }, '12': { a: 49, b: 40, c: 30, d: 20, e: 10 }, '13': { a: 62, b: 53, c: 40, d: 28, e: 16 },
+          '31': { a: 52, b: 45, c: 36, d: 26, e: 17 }, '32': { a: 52, b: 45, c: 36, d: 27, e: 17 }, '33': { a: 57, b: 51, c: 42, d: 34, e: 25 },
+          '41': { a: 36, b: 31, c: 26, d: 22, e: 16 }, '42': { a: 38, b: 30, c: 24, d: 18, e: 13 }, '43': { a: 38, b: 31, c: 25, d: 18, e: 12 },
+          '51': { a: 35, b: 30, c: 24, d: 19, e: 13 }, '52': { a: 38, b: 31, c: 25, d: 18, e: 12 }, '53': { a: 40, b: 34, c: 27, d: 20, e: 13 }
+        },
+        '2022_ON': {
+          '11': { a: 57, b: 46, c: 37, d: 28, e: 19 }, '12': { a: 61, b: 54, c: 42, d: 29, e: 16 }, '13': { a: 55, b: 46, c: 37, d: 28, e: 19 },
+          '31': { a: 58, b: 51, c: 42, d: 33, e: 23 }, '32': { a: 58, b: 50, c: 41, d: 31, e: 21 }, '33': { a: 57, b: 49, c: 41, d: 32, e: 23 },
+          '41': { a: 34, b: 30, c: 24, d: 18, e: 13 }, '42': { a: 34, b: 28, c: 22, d: 17, e: 12 }, '43': { a: 30, b: 25, c: 20, d: 15, e: 11 },
+          '51': { a: 39, b: 34, c: 28, d: 22, e: 17 }, '52': { a: 35, b: 30, c: 23, d: 17, e: 11 }, '53': { a: 38, b: 33, c: 27, d: 21, e: 15 }
+        },
+        '2022_MJ': {
+          '11': { a: 54, b: 46, c: 36, d: 27, e: 17 }, '12': { a: 54, b: 42, c: 31, d: 21, e: 10 }, '13': { a: 59, b: 50, c: 41, d: 31, e: 21 },
+          '31': { a: 53, b: 45, c: 37, d: 28, e: 18 }, '32': { a: 57, b: 49, c: 40, d: 31, e: 21 }, '33': { a: 57, b: 51, c: 43, d: 36, e: 27 },
+          '41': { a: 36, b: 30, c: 25, d: 20, e: 16 }, '42': { a: 37, b: 32, c: 25, d: 18, e: 12 }, '43': { a: 37, b: 31, c: 26, d: 20, e: 15 },
+          '51': { a: 38, b: 33, c: 27, d: 21, e: 16 }, '52': { a: 36, b: 31, c: 24, d: 16, e: 9 }, '53': { a: 37, b: 31, c: 25, d: 19, e: 14 }
+        },
+        '2021_ON': {
+          '11': { a: 50, b: 40, c: 30, d: 21, e: 11 }, '12': { a: 51, b: 40, c: 29, d: 18, e: 7 }, '13': { a: 52, b: 43, c: 34, d: 25, e: 15 },
+          '31': { a: 52, b: 43, c: 35, d: 26, e: 17 }, '32': { a: 50, b: 41, c: 33, d: 24, e: 14 }, '33': { a: 52, b: 44, c: 36, d: 28, e: 19 },
+          '41': { a: 35, b: 29, c: 23, d: 16, e: 10 }, '42': { a: 28, b: 23, c: 17, d: 11, e: 6 }, '43': { a: 35, b: 29, c: 22, d: 16, e: 10 },
+          '51': { a: 36, b: 31, c: 24, d: 17, e: 11 }, '52': { a: 37, b: 31, c: 22, d: 14, e: 6 }, '53': { a: 40, b: 35, c: 29, d: 23, e: 17 }
+        },
+        '2021_MJ': {
+          '11': { a: 49, b: 41, c: 32, d: 23, e: 13 }, '12': { a: 51, b: 42, c: 31, d: 21, e: 10 }, '13': { a: 55, b: 46, c: 37, d: 28, e: 18 },
+          '31': { a: 52, b: 45, c: 37, d: 29, e: 20 }, '32': { a: 54, b: 46, c: 37, d: 28, e: 19 }, '33': { a: 56, b: 49, c: 41, d: 32, e: 24 },
+          '41': { a: 34, b: 27, c: 21, d: 15, e: 10 }, '42': { a: 31, b: 26, c: 21, d: 16, e: 11 }, '43': { a: 35, b: 30, c: 24, d: 19, e: 14 },
+          '51': { a: 37, b: 30, c: 24, d: 18, e: 12 }, '52': { a: 40, b: 34, c: 28, d: 22, e: 16 }, '53': { a: 40, b: 34, c: 28, d: 22, e: 15 }
+        },
+        '2020_ON': {
+          '11': { a: 52, b: 44, c: 34, d: 24, e: 14 }, '12': { a: 54, b: 45, c: 34, d: 23, e: 12 }, '13': { a: 56, b: 48, c: 39, d: 30, e: 20 },
+          '31': { a: 62, b: 54, c: 45, d: 36, e: 26 }, '32': { a: 51, b: 43, c: 36, d: 28, e: 21 }, '33': { a: 62, b: 54, c: 45, d: 36, e: 26 },
+          '41': { a: 39, b: 33, c: 28, d: 22, e: 17 }, '42': { a: 36, b: 30, c: 23, d: 18, e: 11 }, '43': { a: 40, b: 34, c: 28, d: 22, e: 16 },
+          '51': { a: 40, b: 33, c: 26, d: 19, e: 13 }, '52': { a: 38, b: 31, c: 24, d: 17, e: 10 }, '53': { a: 41, b: 35, c: 28, d: 21, e: 15 }
+        }
+      },
+      '9231': {
+        '2025_ON': {
+          '11': { a: 49, b: 39, c: 33, d: 27, e: 21 }, '12': { a: 45, b: 36, c: 30, d: 24, e: 18 }, '13': { a: 49, b: 39, c: 33, d: 27, e: 21 }, '14': { a: 49, b: 39, c: 33, d: 27, e: 21 },
+          '21': { a: 66, b: 60, c: 52, d: 43, e: 34 }, '22': { a: 66, b: 60, c: 52, d: 43, e: 34 }, '23': { a: 66, b: 60, c: 52, d: 43, e: 34 }, '24': { a: 66, b: 60, c: 52, d: 44, e: 34 },
+          '31': { a: 25, b: 17, c: 13, d: 10, e: 7 }, '32': { a: 25, b: 17, c: 13, d: 10, e: 7 }, '33': { a: 25, b: 17, c: 13, d: 10, e: 7 }, '34': { a: 25, b: 17, c: 13, d: 10, e: 7 },
+          '41': { a: 38, b: 31, c: 25, d: 19, e: 13 }, '42': { a: 39, b: 34, c: 28, d: 23, e: 17 }, '43': { a: 38, b: 31, c: 25, d: 19, e: 13 }, '44': { a: 40, b: 34, c: 28, d: 22, e: 17 }
+        },
+        '2025_MJ': {
+          '11': { a: 52, b: 40, c: 33, d: 26, e: 20 }, '12': { a: 52, b: 40, c: 33, d: 26, e: 20 }, '13': { a: 52, b: 43, c: 35, d: 27, e: 20 }, '14': { a: 61, b: 48, c: 40, d: 32, e: 24 },
+          '21': { a: 62, b: 50, c: 44, d: 37, e: 31 }, '22': { a: 62, b: 50, c: 44, d: 37, e: 31 }, '23': { a: 62, b: 50, c: 44, d: 37, e: 31 }, '24': { a: 66, b: 54, c: 48, d: 42, e: 35 },
+          '31': { a: 27, b: 22, c: 18, d: 15, e: 10 }, '32': { a: 27, b: 22, c: 18, d: 15, e: 10 }, '33': { a: 29, b: 22, c: 18, d: 14, e: 10 }, '34': { a: 33, b: 27, c: 22, d: 18, e: 13 },
+          '41': { a: 34, b: 28, c: 22, d: 16, e: 10 }, '42': { a: 34, b: 28, c: 22, d: 16, e: 10 }, '43': { a: 40, b: 31, c: 25, d: 19, e: 12 }, '44': { a: 43, b: 38, c: 33, d: 26, e: 20 },
+        },
+        '2024_ON': {
+          '11': { a: 49, b: 40, c: 33, d: 27, e: 20 }, '12': { a: 49, b: 40, c: 33, d: 27, e: 20 }, '13': { a: 49, b: 40, c: 33, d: 27, e: 20 },
+          '21': { a: 69, b: 63, c: 55, d: 46, e: 37 }, '22': { a: 69, b: 63, c: 55, d: 46, e: 37 }, '23': { a: 69, b: 63, c: 55, d: 46, e: 37 },
+          '31': { a: 25, b: 17, c: 14, d: 10, e: 7 }, '32': { a: 25, b: 17, c: 14, d: 10, e: 7 }, '33': { a: 25, b: 17, c: 14, d: 10, e: 7 },
+          '41': { a: 41, b: 36, c: 30, d: 25, e: 19 }, '42': { a: 41, b: 36, c: 30, d: 25, e: 19 }, '43': { a: 41, b: 36, c: 30, d: 25, e: 19 }
+        },
+        '2024_MJ': {
+          '11': { a: 53, b: 40, c: 34, d: 27, e: 20 }, '12': { a: 53, b: 40, c: 34, d: 27, e: 20 }, '13': { a: 53, b: 40, c: 33, d: 27, e: 20 },
+          '21': { a: 65, b: 50, c: 44, d: 38, e: 31 }, '22': { a: 65, b: 50, c: 44, d: 38, e: 31 }, '23': { a: 65, b: 50, c: 44, d: 38, e: 31 },
+          '31': { a: 23, b: 17, c: 13, d: 10, e: 7 }, '32': { a: 23, b: 17, c: 13, d: 10, e: 7 }, '33': { a: 32, b: 24, c: 20, d: 16, e: 12 },
+          '41': { a: 41, b: 33, c: 26, d: 19, e: 13 }, '42': { a: 41, b: 33, c: 26, d: 19, e: 13 }, '43': { a: 41, b: 33, c: 26, d: 19, e: 13 }
+        },
+        '2023_ON': {
+          '11': { a: 50, b: 40, c: 34, d: 28, e: 22 }, '12': { a: 50, b: 40, c: 34, d: 28, e: 22 }, '13': { a: 50, b: 40, c: 34, d: 28, e: 22 },
+          '21': { a: 62, b: 54, c: 45, d: 37, e: 27 }, '22': { a: 66, b: 58, c: 50, d: 43, e: 34 }, '23': { a: 62, b: 54, c: 45, d: 37, e: 27 },
+          '31': { a: 27, b: 21, c: 18, d: 15, e: 12 }, '32': { a: 31, b: 23, c: 20, d: 17, e: 14 }, '33': { a: 27, b: 21, c: 18, d: 15, e: 12 },
+          '41': { a: 38, b: 34, c: 27, d: 20, e: 14 }, '42': { a: 42, b: 38, c: 32, d: 26, e: 20 }, '43': { a: 38, b: 34, c: 27, d: 20, e: 14 }
+        },
+        '2023_MJ': {
+          '11': { a: 56, b: 47, c: 39, d: 31, e: 24 }, '12': { a: 56, b: 47, c: 39, d: 31, e: 24 }, '13': { a: 52, b: 43, c: 37, d: 29, e: 20 },
+          '21': { a: 66, b: 58, c: 50, d: 42, e: 33 }, '22': { a: 66, b: 58, c: 50, d: 42, e: 33 }, '23': { a: 66, b: 58, c: 50, d: 42, e: 33 },
+          '31': { a: 35, b: 27, c: 22, d: 17, e: 11 }, '32': { a: 35, b: 27, c: 22, d: 17, e: 11 }, '33': { a: 35, b: 27, c: 22, d: 17, e: 11 },
+          '41': { a: 42, b: 37, c: 30, d: 23, e: 16 }, '42': { a: 42, b: 37, c: 30, d: 23, e: 16 }, '43': { a: 42, b: 37, c: 30, d: 23, e: 16 }
+        },
+        '2022_ON': {
+          '11': { a: 46, b: 37, c: 31, d: 24, e: 18 }, '12': { a: 46, b: 37, c: 31, d: 24, e: 18 }, '13': { a: 46, b: 37, c: 31, d: 24, e: 18 },
+          '21': { a: 62, b: 53, c: 44, d: 35, e: 25 }, '22': { a: 62, b: 53, c: 44, d: 35, e: 25 }, '23': { a: 62, b: 53, c: 44, d: 35, e: 25 },
+          '31': { a: 26, b: 21, c: 18, d: 14, e: 11 }, '32': { a: 26, b: 21, c: 18, d: 14, e: 11 }, '33': { a: 26, b: 21, c: 18, d: 14, e: 11 },
+          '41': { a: 38, b: 33, c: 26, d: 19, e: 12 }, '42': { a: 38, b: 33, c: 26, d: 19, e: 12 }, '43': { a: 38, b: 33, c: 26, d: 19, e: 12 }
+        },
+        '2022_MJ': {
+          '11': { a: 51, b: 43, c: 35, d: 26, e: 18 }, '12': { a: 51, b: 43, c: 35, d: 26, e: 18 }, '13': { a: 54, b: 44, c: 37, d: 28, e: 20 },
+          '21': { a: 61, b: 53, c: 45, d: 37, e: 28 }, '22': { a: 61, b: 53, c: 45, d: 37, e: 28 }, '23': { a: 61, b: 54, c: 46, d: 38, e: 29 },
+          '31': { a: 34, b: 26, c: 20, d: 15, e: 10 }, '32': { a: 34, b: 26, c: 20, d: 15, e: 10 }, '33': { a: 33, b: 26, c: 20, d: 15, e: 10 },
+          '41': { a: 40, b: 35, c: 28, d: 21, e: 14 }, '42': { a: 40, b: 35, c: 28, d: 21, e: 14 }, '43': { a: 40, b: 35, c: 28, d: 21, e: 14 }
+        },
+        '2021_ON': {
+          '11': { a: 42, b: 34, c: 27, d: 20, e: 14 }, '12': { a: 42, b: 34, c: 27, d: 20, e: 14 }, '13': { a: 42, b: 34, c: 27, d: 20, e: 14 },
+          '21': { a: 59, b: 52, c: 43, d: 33, e: 23 }, '22': { a: 59, b: 52, c: 43, d: 33, e: 23 }, '23': { a: 59, b: 52, c: 43, d: 33, e: 23 },
+          '31': { a: 24, b: 18, c: 15, d: 12, e: 8 }, '32': { a: 24, b: 18, c: 15, d: 12, e: 8 }, '33': { a: 24, b: 18, c: 15, d: 12, e: 8 },
+          '41': { a: 35, b: 29, c: 23, d: 16, e: 8 }, '42': { a: 35, b: 29, c: 23, d: 16, e: 8 }, '43': { a: 35, b: 29, c: 23, d: 16, e: 8 }
+        },
+        '2021_MJ': {
+          '11': { a: 53, b: 44, c: 35, d: 26, e: 18 }, '12': { a: 53, b: 44, c: 35, d: 26, e: 18 }, '13': { a: 53, b: 44, c: 35, d: 26, e: 18 },
+          '21': { a: 61, b: 52, c: 42, d: 32, e: 21 }, '22': { a: 61, b: 52, c: 42, d: 32, e: 21 }, '23': { a: 63, b: 54, c: 44, d: 34, e: 23 },
+          '31': { a: 33, b: 26, c: 20, d: 14, e: 8 }, '32': { a: 33, b: 26, c: 20, d: 14, e: 8 }, '33': { a: 33, b: 26, c: 20, d: 14, e: 8 },
+          '41': { a: 36, b: 31, c: 25, d: 19, e: 12 }, '42': { a: 36, b: 31, c: 25, d: 19, e: 12 }, '43': { a: 36, b: 31, c: 25, d: 19, e: 12 }
+        }
+      }
+    };
+
+    let _threshCourse = null;
+
+    function buildThreshSection(courseCode) {
+      _threshCourse = courseCode;
+      // Reset tab to Sections
+      switchCourseTab('sections');
+      var comps = THRESH_COMPONENTS[courseCode] || [];
+      var grid = document.getElementById('tc-comp-grid');
+      if (!grid) return;
+      grid.innerHTML = comps.map(function (c) {
+        return '<label class="tc-comp-item">' +
+          '<input type="checkbox" value="' + c.code + '" id="tc-cb-' + c.code + '">' +
+          '<span class="tc-comp-label">' + c.label + '</span>' +
+          '</label>';
+      }).join('');
+      document.getElementById('thresh-output').innerHTML =
+        '<div class="thresh-empty">Select components above and click Load.</div>';
+    }
+
+    function updateSortNote() {
+      var order = document.getElementById('tc-order').value;
+      var note = document.getElementById('tc-sort-note');
+      if (!note) return;
+      note.textContent = order === 'desc'
+        ? 'Descending: easiest papers at top'
+        : 'Ascending:  hardest papers at top';
+    }
+
+    function loadThresholds() {
+      if (!_threshCourse) return;
+      var comps = THRESH_COMPONENTS[_threshCourse] || [];
+      var compMap = {};
+      comps.forEach(function (c) { compMap[c.code] = c; });
+
+      var selected = comps.map(function (c) { return c.code; }).filter(function (code) {
+        var cb = document.getElementById('tc-cb-' + code);
+        return cb && cb.checked;
+      });
+
+      if (!selected.length) {
+        document.getElementById('thresh-output').innerHTML =
+          '<div class="thresh-empty">No components selected. Tick at least one above.</div>';
+        return;
+      }
+
+      var fromY = parseInt(document.getElementById('tc-from').value) || 2020;
+      var toY = parseInt(document.getElementById('tc-to').value) || 2025;
+      var order = document.getElementById('tc-order').value;
+      var courseData = THRESH_DATA[_threshCourse] || {};
+
+      var rows = [];
+      THRESH_SESSIONS.forEach(function (sess) {
+        if (sess.year < fromY || sess.year > toY) return;
+        var sessData = courseData[sess.key];
+        if (!sessData || Object.keys(sessData).length === 0) return;
+        selected.forEach(function (code) {
+          var t = sessData[code];
+          if (!t) return;
+          var comp = compMap[code];
+          rows.push({
+            sessLabel: sess.label,
+            sortVal: sess.sort,
+            comp: code,
+            max: comp.max,
+            a: t.a, b: t.b, c: t.c, d: t.d, e: t.e
+          });
+        });
+      });
+
+      // Sort by A-grade value: descending = highest first (easiest), ascending = lowest first (hardest)
+      rows.sort(function (x, y) {
+        return order === 'asc' ? x.a - y.a : y.a - x.a;
+      });
+
+      if (!rows.length) {
+        document.getElementById('thresh-output').innerHTML =
+          '<div class="thresh-empty">No data found for the selected filters.</div>';
+        return;
+      }
+
+      var tbody = rows.map(function (r) {
+        return '<tr>' +
+          '<td class="tc-sess-cell">' + r.sessLabel + '</td>' +
+          '<td class="tc-comp-cell">' + r.comp + '</td>' +
+          '<td>' + r.max + '</td>' +
+          '<td class="tc-a-cell">' + r.a + '</td>' +
+          '<td>' + r.b + '</td>' +
+          '<td>' + r.c + '</td>' +
+          '<td>' + r.d + '</td>' +
+          '<td>' + r.e + '</td>' +
+          '</tr>';
+      }).join('');
+
+      document.getElementById('thresh-output').innerHTML =
+        '<div class="thresh-table-wrap">' +
+        '<table class="thresh-table">' +
+        '<thead><tr>' +
+        '<th>Session</th><th>Comp</th><th>Max</th>' +
+        '<th class="tc-th-a">A</th>' +
+        '<th>B</th><th>C</th><th>D</th><th>E</th>' +
+        '</tr></thead>' +
+        '<tbody>' + tbody + '</tbody>' +
+        '</table>' +
+        '</div>' +
+        '<div class="thresh-hint">' +
+        rows.length + ' row' + (rows.length !== 1 ? 's' : '') +
+        ' · components: ' + selected.join(', ') +
+        '</div>';
+    }
+
+
+    // ══════════════════════════════════════════════════
+    //  INIT
+    // ══════════════════════════════════════════════════
+
+    // Replace the initial blank history entry so back button works from first screen
+    history.replaceState({ screen: 'home' }, '');
+    goHome(true);
+  </script>
 </body>
+
 </html>
