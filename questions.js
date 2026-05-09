@@ -1090,7 +1090,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_MA_009",
-              question_text: "Find the determinant of the matrix\n$$A = 2\\begin{pmatrix}a & 4 & -1\\\\3 & a & 2\\\\2 & 1 & 1\\end{pmatrix}$$\n$\\quad$ **[3]**",
+              question_text: "Find the determinant and inverse of the matrix\n$$A = 2\\begin{pmatrix}a & 4 & -1\\\\3 & a & 2\\\\2 & 1 & 1\\end{pmatrix}$$\n$\\quad$ **[3]**",
               solution_image: ""
             }
           ]
