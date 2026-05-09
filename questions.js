@@ -740,6 +740,26 @@ const SYLLABUS = {
               id: "FP1_RF_003",
               question_text: "The curve $C$ has equation $y = \\dfrac{x^2 + ax + 1}{x + 2}$, where $a > \\dfrac{5}{2}$.\n\n**(a)** Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Show that $C$ has no stationary points. $\\quad$ **[4]**\n\n**(c)** Sketch $C$, stating the coordinates of the point of intersection with the $y$-axis and labelling the asymptotes. $\\quad$ **[3]**\n\n**(d) (i)** Sketch the curve with equation $y = \\left|\\dfrac{x^2 + ax + 1}{x + 2}\\right|$. $\\quad$ **[2]**\n\n$\\quad$ **(ii)** On your sketch in part **(i)**, draw the line $y = a$. $\\quad$ **[1]**\n\n$\\quad$ **(iii)** It is given that $\\left|\\dfrac{x^2 + ax + 1}{x + 2}\\right| < a$ for $-5 - \\sqrt{14} < x < -3$ and $-5 + \\sqrt{14} < x < 3$. Find the value of $a$. $\\quad$ **[2]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_RF_004",
+              question_text: "Let $a$ be a positive constant. The curve $C_1$ has equation $y = \\dfrac{x-a}{x-2a}$.\n\n**(a)** Sketch $C_1$. $\\quad$ **[2]**\n\nThe curve $C_2$ has equation $y = \\left(\\dfrac{x-a}{x-2a}\\right)^2$. The curve $C_3$ has equation $y = \\left|\\dfrac{x-a}{x-2a}\\right|$.\n\n**(b) (i)** Find the coordinates of any stationary points of $C_2$. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Find also the coordinates of any points of intersection of $C_2$ and $C_3$. $\\quad$ **[3]**\n\n**(c)** Sketch $C_2$ and $C_3$ on a single diagram, clearly identifying each curve. Hence find the set of values of $x$ for which $\\left(\\dfrac{x-a}{x-2a}\\right)^2 < \\left|\\dfrac{x-a}{x-2a}\\right|$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RF_005",
+              question_text: "The curve $C$ has equation $y = \\dfrac{x^2 + x + 1}{x + 1}$.\n\n**(a)** Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Find the coordinates of any stationary points on $C$. $\\quad$ **[3]**\n\n**(c)** Sketch $C$. $\\quad$ **[3]**\n\n**(d)** Sketch the curve with equation $y = \\dfrac{|x|^2 + |x| + 1}{|x| + 1}$. $\\quad$ **[2]**\n\n**(e)** Find, in exact form, the set of values of $x$ for which $\\dfrac{|x|^2 + |x| + 1}{|x| + 1} < 3$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RF_006",
+              question_text: "The curve $C$ has equation $y = \\dfrac{x^2 + 2x + 1}{x - 3}$.\n\n**(a)** Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Find the coordinates of the turning points on $C$. $\\quad$ **[3]**\n\n**(c)** Sketch $C$. $\\quad$ **[3]**\n\n**(d)** Sketch the curves with equations $y = \\left|\\dfrac{x^2 + 2x + 1}{x - 3}\\right|$ and $y^2 = \\dfrac{x^2 + 2x + 1}{x - 3}$ on a single diagram, clearly identifying each curve. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RF_007",
+              question_text: "The curve $C$ has equation $y = \\dfrac{x^2 + x - 7}{x - 1}$.\n\n**(a)** Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Show that $C$ has no turning points. $\\quad$ **[3]**\n\n**(c)** Sketch $C$, stating the coordinates of the intersections with the axes and the equations of the asymptotes. $\\quad$ **[3]**\n\n**(d)** Sketch the curve with equation $y = \\left|\\dfrac{|x|^2 + |x| - 7}{|x| - 1}\\right|$ and find the set of values of $x$ for which $\\left|\\dfrac{|x|^2 + |x| - 7}{|x| - 1}\\right| < \\dfrac{25}{2}$. $\\quad$ **[6]**",
+              solution_image: ""
             }
           ],
           "Series": [
@@ -807,6 +827,11 @@ const SYLLABUS = {
               id: "FP1_SR_012",
               question_text: "It is given that $S_n = \\displaystyle\\sum_{r=1}^{n} u_r$, where $u_r = x^{f(r)} - x^{f(r+1)}$ and $x > 0$.\n\n**(a)** Find $S_n$ in terms of $n$, $x$ and the function f. $\\quad$ **[2]**\n\n**(b)** Given that $\\mathrm{f}(r) = \\ln r$, find the set of values of $x$ for which the infinite series\n$$u_1 + u_2 + u_3 + \\cdots$$\nis convergent, and give the sum to infinity when this exists. $\\quad$ **[3]**\n\n**(c)** Given instead that $\\mathrm{f}(r) = 2\\log_x r$ where $x \\neq 1$, use standard results from the List of Formulae to find $\\displaystyle\\sum_{r=2}^{N} S_n$ in terms of $N$. Fully factorise your answer. $\\quad$ **[4]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_SR_013",
+              question_text: "**(a)** Use the formula for $\\tan(A - B)$ to show that\n$$\\tan^{-1}(2k+1) - \\tan^{-1}(2k-1) = \\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$$\n$\\quad$ **[3]**\n\n**(b)** Show that\n$$\\tan^{-1}\\!\\left(\\frac{1}{2(1)^2}\\right) + \\tan^{-1}\\!\\left(\\frac{1}{2(2)^2}\\right) + \\tan^{-1}\\!\\left(\\frac{1}{2(3)^2}\\right) + \\cdots + \\tan^{-1}\\!\\left(\\frac{1}{2n^2}\\right) = \\tan^{-1}\\!\\left(\\frac{n}{n+1}\\right)$$\n$\\quad$ **[5]**\n\n**(c)** Deduce the value of $\\displaystyle\\sum_{k=1}^{\\infty}\\left(\\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)\\right)$. $\\quad$ **[2]**",
+              solution_image: ""
             }
           ],
 
@@ -844,6 +869,11 @@ const SYLLABUS = {
             {
               id: "FP1_RP_006",
               question_text: "It is given that\n$$\\alpha + \\beta + \\gamma + \\delta = 2, \\quad \\alpha^2 + \\beta^2 + \\gamma^2 + \\delta^2 = 3, \\quad \\alpha^3 + \\beta^3 + \\gamma^3 + \\delta^3 = 4$$\n\n**(a)** Find the value of $\\alpha\\beta + \\alpha\\gamma + \\alpha\\delta + \\beta\\gamma + \\beta\\delta + \\gamma\\delta$. $\\quad$ **[2]**\n\n**(b)** Find the value of $\\alpha^2\\beta + \\alpha^2\\gamma + \\alpha^2\\delta + \\beta^2\\alpha + \\beta^2\\gamma + \\beta^2\\delta + \\gamma^2\\alpha + \\gamma^2\\beta + \\gamma^2\\delta + \\delta^2\\alpha + \\delta^2\\beta + \\delta^2\\gamma$. $\\quad$ **[3]**\n\n**(c)** It is given that $\\alpha$, $\\beta$, $\\gamma$, $\\delta$ are the roots of $6x^4 - 12x^3 + 3x^2 + 2x + 6 = 0$.\n\n$\\quad$ **(i)** Find the value of $\\alpha^4 + \\beta^4 + \\gamma^4 + \\delta^4$. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Find the value of $\\alpha^5 + \\beta^5 + \\gamma^5 + \\delta^5$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RP_007",
+              question_text: "The quartic equation\n$$x^4 + px^3 + qx^2 + rx + s = 0$$\nwhere $p$, $q$, $r$ and $s$ are constants has roots $\\alpha$, $\\beta$, $\\gamma$ and $\\delta$. It is given that $\\alpha\\beta\\gamma\\delta = 1$.\n\n**(a)** State the value of $s$. $\\quad$ **[1]**\n\n**(b)** Find a quartic equation, with coefficients in terms of $p$, $q$ and $r$, whose roots are $\\alpha + 1$, $\\beta + 1$, $\\gamma + 1$, $\\delta + 1$. $\\quad$ **[4]**\n\n**(c)** Given also that $\\gamma + 1 = -(\\alpha + 1)$ and $\\delta + 1 = -(\\beta + 1)$, deduce the value of $p$ and show that $r = 2q - 8$. $\\quad$ **[4]**",
               solution_image: ""
             }
           ],
@@ -936,6 +966,11 @@ const SYLLABUS = {
               id: "FP1_VL_007",
               question_text: "The points $A$, $B$, $C$ have position vectors $2\\mathbf{i} + 2\\mathbf{j}$, $-\\mathbf{j} + \\mathbf{k}$ and $2\\mathbf{i} + \\mathbf{j} - 7\\mathbf{k}$ respectively, relative to the origin $O$.\n\n**(a)** Find an equation of the plane $OAB$, giving your answer in the form $\\mathbf{r} \\cdot \\mathbf{n} = p$. $\\quad$ **[3]**\n\nThe plane $\\Pi$ has equation $x - 3y - 2z = 1$.\n\n**(b)** Find the perpendicular distance of $\\Pi$ from the origin. $\\quad$ **[1]**\n\n**(c)** Find the acute angle between the planes $OAB$ and $\\Pi$. $\\quad$ **[3]**\n\n**(d)** Find an equation for the common perpendicular to the lines $OC$ and $AB$. $\\quad$ **[10]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_VL_008",
+              question_text: "The points $A$, $B$, $C$ have position vectors\n$$-\\mathbf{i} + \\mathbf{j} + 2\\mathbf{k}, \\quad 3\\mathbf{i} - \\mathbf{j} + 4\\mathbf{k}, \\quad 2\\mathbf{i} + 5\\mathbf{j} + \\mathbf{k}$$\nrespectively, relative to the origin $O$.\n\n**(a)** Find the equation of the plane $ABC$, giving your answer in the form $ax + by + cz = d$. $\\quad$ **[5]**\n\n**(b)** Find the perpendicular distance from $O$ to the plane $ABC$. $\\quad$ **[2]**\n\n**(c)** Find the acute angle between the planes $OAB$ and $ABC$. $\\quad$ **[4]**",
+              solution_image: ""
             }
           ],
 
@@ -1004,6 +1039,11 @@ const SYLLABUS = {
               id: "FP1_PI_013",
               question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$\\frac{d^n}{dx^n}(\\tan^{-1} x) = P_n(x)(1+x^2)^{-n}$$\nwhere $P_n(x)$ is a polynomial of degree $n-1$. $\\quad$ **[6]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_PI_014",
+              question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$\\begin{pmatrix}1 & 2 & 3\\\\0 & 1 & 2\\\\0 & 0 & 1\\end{pmatrix}^n = \\begin{pmatrix}1 & 2n & n(2n+1)\\\\0 & 1 & 2n\\\\0 & 0 & 1\\end{pmatrix}$$\n$\\quad$ **[7]**",
+              solution_image: ""
             }
           ],
 
@@ -1041,6 +1081,16 @@ const SYLLABUS = {
             {
               id: "FP1_MA_007",
               question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$$\nwhere $0 < \\theta < 2\\pi$.\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. State the type of each transformation, and make clear the order in which they are applied. $\\quad$ **[2]**\n\n**(b)** Find the value of $\\theta$ for which the transformation represented by $\\mathbf{M}$ has a line of invariant points. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_MA_008",
+              question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix}1 & 3\\\\0 & 1\\end{pmatrix}\\begin{pmatrix}1 & 0\\\\0 & 4\\end{pmatrix}$$\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. Give full details of each transformation and make clear the order in which they are applied. $\\quad$ **[4]**\n\n**(b)** Find the equations of the invariant lines through the origin of the transformation represented by $\\mathbf{M}$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_MA_009",
+              question_text: "Find the determinant of the matrix\n$$A = 2\\begin{pmatrix}a & 4 & -1\\\\3 & a & 2\\\\2 & 1 & 1\\end{pmatrix}$$\n$\\quad$ **[3]**",
               solution_image: ""
             }
           ]
