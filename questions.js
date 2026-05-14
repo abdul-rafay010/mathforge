@@ -632,7 +632,37 @@ const SYLLABUS = {
               question_text: "A security code consists of 2 letters followed by a 4-digit number. The letters are chosen from $\\{A, B, C, D, E\\}$ and the digits are chosen from $\\{1, 2, 3, 4, 5, 6, 7\\}$. No letter or digit may appear more than once.\n\n**(a)** How many different codes can be formed? $\\quad$ **[2]**\n\n**(b)** Find the number of different codes that include the letter $A$ or the digit $5$ or both. $\\quad$ **[3]**\n\n**(c)** A security code is formed at random. Find the probability that the code is DE followed by a number between 4500 and 5000. $\\quad$ **[3]**",
               solution_image: ""
             }
-          ],
+            ,
+            {
+              id: "S1_PC_010",
+              question_text: "The word CROCODILE contains 9 letters, including 2 Cs and 2 Os.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word CROCODILE. $\\quad$ **[1]**\n\n**(b)** Find the number of different arrangements in which there is a C at each end and the two Os are not together. $\\quad$ **[3]**\n\n**(c)** Four letters are selected from the 9 letters. Find the number of selections in which the number of Cs is **not** the same as the number of Os. $\\quad$ **[3]**\n\n**(d)** Find the number of ways in which the 9 letters can be divided into three groups, each containing three letters, if the two Cs must be in different groups. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_011",
+              question_text: "The word HAPPINESS contains 9 letters, including 2 Ps and 2 Ss.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word HAPPINESS. $\\quad$ **[1]**\n\n**(b)** Find the number of different arrangements in which the first and last letters are not the same as each other. $\\quad$ **[3]**\n\n**(c)** Find the number of different arrangements in which the two Ps are together and there are exactly two letters between the two Ss. $\\quad$ **[4]**\n\n**(d)** The 9 letters are divided at random into a group of 5 and a group of 4. Find the probability that both Ps are in one group and both Ss are in the other group. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_012",
+              question_text: "The word RECORDERS contains 9 letters, including 3 Rs and 2 Es.\n\n**(a)** How many different arrangements are there of the 9 letters in the word RECORDERS? $\\quad$ **[1]**\n\n**(b)** How many different arrangements are there in which there is an E at the beginning, an E at the end and the three Rs are **not** all together? $\\quad$ **[3]**\n\n**(c)** The 9 letters are divided at random into a group of 5 and a group of 4. Find the probability that the three Rs are in the same group. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_013",
+              question_text: "The word DAFFODILS contains 9 letters, including 2 Ds and 2 Fs.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word DAFFODILS in which there is a D at each end and the two Fs are not next to each other. $\\quad$ **[3]**\n\n**(b)** Find the probability that a randomly chosen arrangement of the 9 letters in the word DAFFODILS has exactly 4 letters between the two Ds. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_014",
+              question_text: "The word AMALGAMATE contains 10 letters, including 4 As and 2 Ms.\n\n**(a)** Find the number of different ways in which the 10 letters can be arranged so that there is an M at the beginning, an M at the end and no As are together. $\\quad$ **[3]**\n\n**(b)** Find the number of different ways in which the 10 letters can be arranged with exactly 3 letters between the two Ms. $\\quad$ **[3]**\n\n**(c)** Five letters are selected from the 10 letters. Find the number of different selections in which the five letters include at least one M and at least two As. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PC_015",
+              question_text: "A darts club has 12 members: 7 men and 5 women.\n\n**(a)** Every Monday, a team of 4 is chosen at random. Find the probability that on a particular Monday the team consists of 1 man and 3 women. $\\quad$ **[3]**\n\n**(b)** Every Tuesday, the club chooses 3 teams of 4 to enter competitions in different towns. In how many different ways can the teams be chosen with no restrictions? $\\quad$ **[2]**\n\n**(c)** In how many different ways can the Tuesday teams be chosen if each team must contain at least 1 man and at least 1 woman? $\\quad$ **[3]**\n\n**(d)** The 7 men stand in a line for a photograph. Two of them are brothers, George and Harry. How many different arrangements are there in which there are exactly 2 men between George and Harry? $\\quad$ **[2]**",
+              solution_image: ""
+            }],
 
           "Probability": [
             {
@@ -665,7 +695,12 @@ const SYLLABUS = {
               question_text: "Marco has four boxes labelled $K$, $L$, $M$ and $N$. He places them in a straight line in the order $K$, $L$, $M$, $N$ with $K$ on the left. Marco also has four coloured marbles: one is red, one is green, one is white and one is yellow. He places a single marble in each box, at random. Events $A$ and $B$ are defined as follows.\n\n$A$: The white marble is in either box $L$ or box $M$.\n\n$B$: The red marble is to the left of both the green marble and the yellow marble.\n\nDetermine whether or not events $A$ and $B$ are independent. $\\quad$ **[3]**",
               solution_image: ""
             }
-          ],
+            ,
+            {
+              id: "S1_PR_007",
+              question_text: "A sports event takes place over 4 days, beginning on Sunday. The probability that it will rain on Sunday is 0.4. On any subsequent day, the probability that it will rain is 0.7 if it rained on the previous day, and 0.2 if it did not rain on the previous day.\n\n**(a)** Find the probability that it does not rain on any of the 4 days of the event. $\\quad$ **[1]**\n\n**(b)** Find the probability that the first day on which it rains during the event is Tuesday. $\\quad$ **[2]**\n\n**(c)** Find the probability that it rains on exactly one of the 4 days of the event. $\\quad$ **[3]**",
+              solution_image: ""
+            }],
           "Discrete Random Variables": [
             {
               id: "S1_DRV_001",
@@ -687,13 +722,38 @@ const SYLLABUS = {
               question_text: "A children's wildlife magazine is published every Monday. For the next 12 weeks it will include a model animal as a free gift. There are five different models: tiger, leopard, rhinoceros, elephant and buffalo, each with the same probability of being included in the magazine.\n\nSahim buys one copy of the magazine every Monday.\n\n**(a)** Find the probability that the first time that the free gift is an elephant is before the 6th Monday. $\\quad$ **[2]**\n\n**(b)** Find the probability that Sahim will get more than two leopards in the 12 magazines. $\\quad$ **[3]**\n\n**(c)** Find the probability that after 5 weeks Sahim has exactly one of each animal. $\\quad$ **[3]**",
               solution_image: ""
             }
-          ],
-          "Normal Distribution": [
+            ,
             {
-              id: "S1_ND_001",
-              question_text: "During hot days, an ice cream van sells a large number of ice cream cones containing either 1, 2 or 3 scoops of ice cream.\n\nThe respective probabilities of a customer buying a 1, 2 or 3 scoop ice cream cone are $\\dfrac{1}{6}$, $\\dfrac{1}{2}$ or $\\dfrac{1}{3}$.\n\nA random sample of $n$ customers is examined, each customer having bought an ice cream cone from this van. The probability that more than $n$ scoops of ice cream are ordered by these $n$ customers is greater than $0.9999$.\n\nDetermine the smallest possible value of $n$. $\\quad$ **[7]**",
+              id: "S1_DRV_005",
+              question_text: "Jacob has four coins. One coin is biased with probability $\\dfrac{7}{10}$ of obtaining a head. The other three coins are fair. Jacob throws all four coins once. The number of heads obtained is denoted by $X$, with the following distribution:\n\n$$\\begin{array}{|c|ccccc|}\\hline x & 0 & 1 & 2 & 3 & 4 \\\\\\hline P(X=x) & \\dfrac{3}{80} & a & b & c & \\dfrac{7}{80} \\\\\\hline\\end{array}$$\n\n**(a)** Show that $a = \\dfrac{1}{5}$ and find the values of $b$ and $c$. $\\quad$ **[4]**\n\n**(b)** Find $\\mathrm{E}(X)$. $\\quad$ **[1]**\n\n**(c)** Jacob throws all four coins together 10 times. Find the probability that he obtains exactly one head on fewer than 3 occasions. $\\quad$ **[4]**\n\n**(d)** Find the probability that Jacob obtains exactly one head for the first time on the 7th or 8th time that he throws the 4 coins. $\\quad$ **[2]**",
               solution_image: ""
             },
+            {
+              id: "S1_DRV_006",
+              question_text: "A red spinner has four sides labelled 1, 2, 3, 4. The random variable $X$ denotes the score when spun, with distribution:\n\n$$\\begin{array}{|c|cccc|}\\hline x & 1 & 2 & 3 & 4 \\\\\\hline P(X=x) & 0.28 & p & 2p & 3p \\\\\\hline\\end{array}$$\n\n**(a)** Show that $p = 0.12$. $\\quad$ **[1]**\n\nA fair blue spinner and a fair green spinner each have four sides labelled 1, 2, 3, 4. All three spinners are spun at the same time.\n\n**(b)** Find the probability that the sum of the three scores is 4 or less. $\\quad$ **[3]**\n\n**(c)** Find the probability that the product of the three scores is 4 or less, given that $X$ is odd. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_007",
+              question_text: "Last year, an online store sold a large number of computers: 55% by company F, 30% by company G, and 15% by company H.\n\n**(a)** A random sample of 3 customers is chosen. Find the probability that the 3 customers bought computers all made by different companies. $\\quad$ **[1]**\n\n**(b)** A random sample of 12 customers is chosen. Find the probability that fewer than 10 bought a computer made by company F. $\\quad$ **[3]**\n\n**(c)** A random sample of 140 customers is chosen. Use a suitable approximation to find the probability that more than 24 of these customers bought a computer made by company H. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_008",
+              question_text: "Eli has four fair 4-sided dice with sides labelled 1, 2, 3, 4. He throws all four dice at the same time. The random variable $X$ denotes the number of 2s obtained.\n\n**(a)** Show that $\\mathrm{P}(X = 3) = \\dfrac{3}{64}$. $\\quad$ **[2]**\n\n**(b)** Complete the following probability distribution table for $X$:\n$$\\begin{array}{|c|ccccc|}\\hline x & 0 & 1 & 2 & 3 & 4 \\\\\\hline P(X=x) & \\dfrac{81}{256} & & & \\dfrac{3}{64} & \\dfrac{1}{256} \\\\\\hline\\end{array}$$\n$\\quad$ **[2]**\n\n**(c)** Find $\\mathrm{E}(X)$. $\\quad$ **[2]**\n\n**(d)** Eli throws the four dice 96 times. Use an approximation to find the probability that he obtains at least two 2s on fewer than 20 of these occasions. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_009",
+              question_text: "A fair six-sided die with faces labelled 1, 2, 3, 4, 5, 6 is thrown repeatedly until a 3 is obtained. The number of throws taken is denoted by $X$.\n\n**(a)** Find $\\mathrm{P}(X = 8)$. $\\quad$ **[1]**\n\n**(b)** Find $\\mathrm{P}(X < 9)$. $\\quad$ **[2]**\n\n**(c)** Find the probability that a 3 is obtained for the **second** time before the 6th throw. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_010",
+              question_text: "In a certain country, the probability of more than 10 cm of rain on any particular day is 0.18, independently of other days.\n\n**(a)** Find the probability that in any randomly chosen 7-day period, more than 2 days have more than 10 cm of rain. $\\quad$ **[3]**\n\n**(b)** For 3 randomly chosen 7-day periods, find the probability that exactly two of these periods have at least one day with more than 10 cm of rain. $\\quad$ **[3]**",
+              solution_image: ""
+            }],
+          "Normal Distribution": [
             {
               id: "S1_ND_002",
               question_text: "The weights, $X$ grams, of bars of soap are normally distributed with mean 125 grams and standard deviation 4.2 grams.\n\n**(i)** Find the probability that a randomly chosen bar of soap weighs more than 128 grams. $\\quad$ **[3]**\n\n**(ii)** Find the value of $k$ such that $\\text{P}(k < X < 128) = 0.7465$. $\\quad$ **[4]**\n\n**(iii)** Five bars of soap are chosen at random. Find the probability that more than two of the bars each weigh more than 128 grams. $\\quad$ **[4]**",
@@ -707,6 +767,32 @@ const SYLLABUS = {
             {
               id: "S1_ND_004",
               question_text: "The marks scored by candidates in an examination are normally distributed with mean 45 and standard deviation 10. Candidates are told they have passed only if their mark exceeds 48.\n\n**(i)** Find the probability that a randomly chosen candidate passes the examination. $\\quad$ **[2]**\n\n**(ii)** Find the probability that a randomly chosen candidate scores more than 52 marks, given that they passed. $\\quad$ **[4]**\n\n**(iii)** Find the value of $c$, where $c > 45$, such that $\\text{P}(X > c) = 0.2420$. $\\quad$ **[2]**\n\n**(iv)** The examination is taken by 200 candidates. Find the expected number of candidates who pass. $\\quad$ **[2]**",
+              solution_image: ""
+            }
+            ,
+            {
+              id: "S1_ND_005",
+              question_text: "A factory produces chocolate bars whose weights are normally distributed with mean 155 g and standard deviation 6 g. A random sample of 350 bars is chosen.\n\n**(a)** How many of these 350 bars would you expect to weigh between 148 g and 160 g? $\\quad$ **[4]**\n\nA second factory also produces chocolate bars whose weights are normally distributed with mean $\\mu$ g and standard deviation $\\sigma$ g. Tests show that 8% of bars weigh more than 114.0 g and 20% weigh less than 99.5 g.\n\n**(b)** Find the values of $\\mu$ and $\\sigma$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_ND_006",
+              question_text: "The times taken, in minutes, to complete a particular task by employees at a large company are normally distributed with mean 32.2 and standard deviation 9.6.\n\n**(a)** Find the probability that a randomly chosen employee takes more than 28.6 minutes to complete the task. $\\quad$ **[3]**\n\n**(b)** 20% of employees take longer than $t$ minutes to complete the task. Find the value of $t$. $\\quad$ **[3]**\n\n**(c)** Find the probability that the time taken by a randomly chosen employee differs from the mean by less than 15.0 minutes. $\\quad$ **[4]**",
+              solution_image: ""
+            }],
+
+          "Summary Statistics": [
+            {
+              id: "S1_SS_001",
+              question_text: "A summary of 20 values of $x$ gives\n$$\\sum(x - 30) = 439, \\quad \\sum(x - 30)^2 = 12\\,405$$\nA summary of another 25 values of $x$ gives\n$$\\sum(x - 30) = 470, \\quad \\sum(x - 30)^2 = 11\\,346$$\n\n**(a)** Find the mean of all 45 values of $x$. $\\quad$ **[2]**\n\n**(b)** Find the standard deviation of all 45 values of $x$. $\\quad$ **[2]**",
+              solution_image: ""
+            }
+          ],
+
+          "Data Representation": [
+            {
+              id: "S1_DR_001",
+              question_text: "The times taken, in minutes, to complete a cycle race by 19 cyclists from each of two clubs, the Cheetahs and the Panthers, are shown in the following back-to-back stem-and-leaf diagram.\n\n$$\\begin{array}{r|c|l}\\text{Cheetahs} & & \\text{Panthers}\\\\\\hline 9\\;8\\;7 & 4 & \\\\8\\;7\\;3\\;2\\;0 & 8 & 6\\;8\\\\9\\;8\\;7 & 9 & 1\\;7\\;8\\;9\\;9\\\\6\\;5\\;3\\;3\\;1 & 10 & 2\\;3\\;4\\;4\\;5\\;6\\\\9\\;8\\;2 & 11 & 1\\;2\\;8\\\\4 & 12 & 0\\;6\\end{array}$$\n\n*Key: $7\\mid 9\\mid 1$ means 97 min for Cheetahs and 91 min for Panthers*\n\n**(a)** Find the median and the interquartile range of the times of the Cheetahs. $\\quad$ **[3]**\n\nThe median and interquartile range for the Panthers are 103 minutes and 14 minutes respectively.\n\n**(b)** Make two comparisons between the times taken by the Cheetahs and the Panthers. $\\quad$ **[2]**\n\nAnother cyclist, Kenny, from the Cheetahs also took part in the race. The mean time taken by the 20 Cheetahs cyclists was 99 minutes.\n\n**(c)** Find the time taken by Kenny to complete the race. $\\quad$ **[3]**",
               solution_image: ""
             }
           ]
@@ -1090,7 +1176,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_MA_009",
-              question_text: "Find the determinant and inverse of the matrix\n$$A = 2\\begin{pmatrix}a & 4 & -1\\\\3 & a & 2\\\\2 & 1 & 1\\end{pmatrix}$$\n$\\quad$ **[3]**",
+              question_text: "Find the inverse and the determinant of the matrix\n$$A = 2\\begin{pmatrix}a & 4 & -1\\\\3 & a & 2\\\\2 & 1 & 1\\end{pmatrix}$$\n$\\quad$ **[3]**",
               solution_image: ""
             }
           ]
