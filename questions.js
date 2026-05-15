@@ -588,6 +588,16 @@ const SYLLABUS = {
               id: "S1_RD_003",
               question_text: "A histogram represents data in 5 classes with class widths 5, 5, 10, 10 and 20 respectively. The frequency densities of the first four classes are 3.2, 5.6, 4.0 and 2.4. The total frequency is 200.\n\n**(a)** Find the frequency of the fifth class. $\\quad$ **[3]**\n\n**(b)** Find the mean of the data, given the midpoints of the five classes are 12, 17, 25, 35 and 55. $\\quad$ **[3]**",
               solution_image: ""
+            },
+            {
+              id: "S1_RD_004",
+              question_text: "A summary of 20 values of $x$ gives\n$$\\sum(x - 30) = 439, \\quad \\sum(x - 30)^2 = 12\\,405$$\nA summary of another 25 values of $x$ gives\n$$\\sum(x - 30) = 470, \\quad \\sum(x - 30)^2 = 11\\,346$$\n\n**(a)** Find the mean of all 45 values of $x$. $\\quad$ **[2]**\n\n**(b)** Find the standard deviation of all 45 values of $x$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_RD_005",
+              question_text: "The times taken, in minutes, to complete a cycle race by 19 cyclists from each of two clubs, the Cheetahs and the Panthers, are shown in the following back-to-back stem-and-leaf diagram.\n\n$$\\begin{array}{r|c|l}\\text{Cheetahs} & & \\text{Panthers}\\\\\\hline9\\;8\\;7 & 4 & \\\\8\\;7\\;3\\;2\\;0 & 8 & 6\\;8\\\\9\\;8\\;7 & 9 & 1\\;7\\;8\\;9\\;9\\\\6\\;5\\;3\\;3\\;1 & 10 & 2\\;3\\;4\\;4\\;5\\;6\\\\9\\;8\\;2 & 11 & 1\\;2\\;8\\\\4 & 12 & 0\\;6\\end{array}$$\n*Key: $7\\mid9\\mid1$ means 97 min for Cheetahs and 91 min for Panthers*\n\n**(a)** Find the median and the interquartile range of the times of the Cheetahs. $\\quad$ **[3]**\n\nThe median and interquartile range for the Panthers are 103 minutes and 14 minutes respectively.\n\n**(b)** Make two comparisons between the times taken by the Cheetahs and the Panthers. $\\quad$ **[2]**\n\nAnother cyclist, Kenny, from the Cheetahs also took part. The mean time of all 20 Cheetahs cyclists was 99 minutes.\n\n**(c)** Find the time taken by Kenny to complete the race. $\\quad$ **[3]**",
+              solution_image: ""
             }
           ],
 
@@ -631,8 +641,7 @@ const SYLLABUS = {
               id: "S1_PC_009",
               question_text: "A security code consists of 2 letters followed by a 4-digit number. The letters are chosen from $\\{A, B, C, D, E\\}$ and the digits are chosen from $\\{1, 2, 3, 4, 5, 6, 7\\}$. No letter or digit may appear more than once.\n\n**(a)** How many different codes can be formed? $\\quad$ **[2]**\n\n**(b)** Find the number of different codes that include the letter $A$ or the digit $5$ or both. $\\quad$ **[3]**\n\n**(c)** A security code is formed at random. Find the probability that the code is DE followed by a number between 4500 and 5000. $\\quad$ **[3]**",
               solution_image: ""
-            }
-            ,
+            },
             {
               id: "S1_PC_010",
               question_text: "The word CROCODILE contains 9 letters, including 2 Cs and 2 Os.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word CROCODILE. $\\quad$ **[1]**\n\n**(b)** Find the number of different arrangements in which there is a C at each end and the two Os are not together. $\\quad$ **[3]**\n\n**(c)** Four letters are selected from the 9 letters. Find the number of selections in which the number of Cs is **not** the same as the number of Os. $\\quad$ **[3]**\n\n**(d)** Find the number of ways in which the 9 letters can be divided into three groups, each containing three letters, if the two Cs must be in different groups. $\\quad$ **[3]**",
@@ -662,7 +671,8 @@ const SYLLABUS = {
               id: "S1_PC_015",
               question_text: "A darts club has 12 members: 7 men and 5 women.\n\n**(a)** Every Monday, a team of 4 is chosen at random. Find the probability that on a particular Monday the team consists of 1 man and 3 women. $\\quad$ **[3]**\n\n**(b)** Every Tuesday, the club chooses 3 teams of 4 to enter competitions in different towns. In how many different ways can the teams be chosen with no restrictions? $\\quad$ **[2]**\n\n**(c)** In how many different ways can the Tuesday teams be chosen if each team must contain at least 1 man and at least 1 woman? $\\quad$ **[3]**\n\n**(d)** The 7 men stand in a line for a photograph. Two of them are brothers, George and Harry. How many different arrangements are there in which there are exactly 2 men between George and Harry? $\\quad$ **[2]**",
               solution_image: ""
-            }],
+            }
+          ],
 
           "Probability": [
             {
@@ -694,13 +704,13 @@ const SYLLABUS = {
               id: "S1_PR_006",
               question_text: "Marco has four boxes labelled $K$, $L$, $M$ and $N$. He places them in a straight line in the order $K$, $L$, $M$, $N$ with $K$ on the left. Marco also has four coloured marbles: one is red, one is green, one is white and one is yellow. He places a single marble in each box, at random. Events $A$ and $B$ are defined as follows.\n\n$A$: The white marble is in either box $L$ or box $M$.\n\n$B$: The red marble is to the left of both the green marble and the yellow marble.\n\nDetermine whether or not events $A$ and $B$ are independent. $\\quad$ **[3]**",
               solution_image: ""
-            }
-            ,
+            },
             {
               id: "S1_PR_007",
               question_text: "A sports event takes place over 4 days, beginning on Sunday. The probability that it will rain on Sunday is 0.4. On any subsequent day, the probability that it will rain is 0.7 if it rained on the previous day, and 0.2 if it did not rain on the previous day.\n\n**(a)** Find the probability that it does not rain on any of the 4 days of the event. $\\quad$ **[1]**\n\n**(b)** Find the probability that the first day on which it rains during the event is Tuesday. $\\quad$ **[2]**\n\n**(c)** Find the probability that it rains on exactly one of the 4 days of the event. $\\quad$ **[3]**",
               solution_image: ""
-            }],
+            }
+          ],
           "Discrete Random Variables": [
             {
               id: "S1_DRV_001",
@@ -721,16 +731,15 @@ const SYLLABUS = {
               id: "S1_DRV_004",
               question_text: "A children's wildlife magazine is published every Monday. For the next 12 weeks it will include a model animal as a free gift. There are five different models: tiger, leopard, rhinoceros, elephant and buffalo, each with the same probability of being included in the magazine.\n\nSahim buys one copy of the magazine every Monday.\n\n**(a)** Find the probability that the first time that the free gift is an elephant is before the 6th Monday. $\\quad$ **[2]**\n\n**(b)** Find the probability that Sahim will get more than two leopards in the 12 magazines. $\\quad$ **[3]**\n\n**(c)** Find the probability that after 5 weeks Sahim has exactly one of each animal. $\\quad$ **[3]**",
               solution_image: ""
-            }
-            ,
+            },
             {
               id: "S1_DRV_005",
-              question_text: "Jacob has four coins. One coin is biased with probability $\\dfrac{7}{10}$ of obtaining a head. The other three coins are fair. Jacob throws all four coins once. The number of heads obtained is denoted by $X$, with the following distribution:\n\n$$\\begin{array}{|c|ccccc|}\\hline x & 0 & 1 & 2 & 3 & 4 \\\\\\hline P(X=x) & \\dfrac{3}{80} & a & b & c & \\dfrac{7}{80} \\\\\\hline\\end{array}$$\n\n**(a)** Show that $a = \\dfrac{1}{5}$ and find the values of $b$ and $c$. $\\quad$ **[4]**\n\n**(b)** Find $\\mathrm{E}(X)$. $\\quad$ **[1]**\n\n**(c)** Jacob throws all four coins together 10 times. Find the probability that he obtains exactly one head on fewer than 3 occasions. $\\quad$ **[4]**\n\n**(d)** Find the probability that Jacob obtains exactly one head for the first time on the 7th or 8th time that he throws the 4 coins. $\\quad$ **[2]**",
+              question_text: "Jacob has four coins. One coin is biased with $\\mathrm{P(head)} = \\dfrac{7}{10}$. The other three are fair. Jacob throws all four coins once. The number of heads is denoted by $X$, with distribution:\n$$\\begin{array}{|c|ccccc|}\\hline x & 0 & 1 & 2 & 3 & 4\\\\\\hline P(X=x) & \\dfrac{3}{80} & a & b & c & \\dfrac{7}{80}\\\\\\hline\\end{array}$$\n\n**(a)** Show that $a = \\dfrac{1}{5}$ and find the values of $b$ and $c$. $\\quad$ **[4]**\n\n**(b)** Find $\\mathrm{E}(X)$. $\\quad$ **[1]**\n\n**(c)** Jacob throws all four coins together 10 times. Find the probability that he obtains exactly one head on fewer than 3 occasions. $\\quad$ **[4]**\n\n**(d)** Find the probability that Jacob obtains exactly one head for the first time on the 7th or 8th time that he throws the 4 coins. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "S1_DRV_006",
-              question_text: "A red spinner has four sides labelled 1, 2, 3, 4. The random variable $X$ denotes the score when spun, with distribution:\n\n$$\\begin{array}{|c|cccc|}\\hline x & 1 & 2 & 3 & 4 \\\\\\hline P(X=x) & 0.28 & p & 2p & 3p \\\\\\hline\\end{array}$$\n\n**(a)** Show that $p = 0.12$. $\\quad$ **[1]**\n\nA fair blue spinner and a fair green spinner each have four sides labelled 1, 2, 3, 4. All three spinners are spun at the same time.\n\n**(b)** Find the probability that the sum of the three scores is 4 or less. $\\quad$ **[3]**\n\n**(c)** Find the probability that the product of the three scores is 4 or less, given that $X$ is odd. $\\quad$ **[5]**",
+              question_text: "A red spinner has four sides labelled 1, 2, 3, 4. The random variable $X$ denotes the score, with distribution:\n$$\\begin{array}{|c|cccc|}\\hline x & 1 & 2 & 3 & 4\\\\\\hline P(X=x) & 0.28 & p & 2p & 3p\\\\\\hline\\end{array}$$\n\n**(a)** Show that $p = 0.12$. $\\quad$ **[1]**\n\nA fair blue spinner and a fair green spinner each have four sides labelled 1, 2, 3, 4. All three spinners are spun at the same time.\n\n**(b)** Find the probability that the sum of the three scores is 4 or less. $\\quad$ **[3]**\n\n**(c)** Find the probability that the product of the three scores is 4 or less, given that $X$ is odd. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
@@ -740,7 +749,7 @@ const SYLLABUS = {
             },
             {
               id: "S1_DRV_008",
-              question_text: "Eli has four fair 4-sided dice with sides labelled 1, 2, 3, 4. He throws all four dice at the same time. The random variable $X$ denotes the number of 2s obtained.\n\n**(a)** Show that $\\mathrm{P}(X = 3) = \\dfrac{3}{64}$. $\\quad$ **[2]**\n\n**(b)** Complete the following probability distribution table for $X$:\n$$\\begin{array}{|c|ccccc|}\\hline x & 0 & 1 & 2 & 3 & 4 \\\\\\hline P(X=x) & \\dfrac{81}{256} & & & \\dfrac{3}{64} & \\dfrac{1}{256} \\\\\\hline\\end{array}$$\n$\\quad$ **[2]**\n\n**(c)** Find $\\mathrm{E}(X)$. $\\quad$ **[2]**\n\n**(d)** Eli throws the four dice 96 times. Use an approximation to find the probability that he obtains at least two 2s on fewer than 20 of these occasions. $\\quad$ **[5]**",
+              question_text: "Eli has four fair 4-sided dice with sides labelled 1, 2, 3, 4. He throws all four dice at the same time. The random variable $X$ denotes the number of 2s obtained.\n\n**(a)** Show that $\\mathrm{P}(X = 3) = \\dfrac{3}{64}$. $\\quad$ **[2]**\n\n**(b)** Complete the following probability distribution table for $X$:\n$$\\begin{array}{|c|ccccc|}\\hline x & 0 & 1 & 2 & 3 & 4\\\\\\hline P(X=x) & \\dfrac{81}{256} & & & \\dfrac{3}{64} & \\dfrac{1}{256}\\\\\\hline\\end{array}$$\n$\\quad$ **[2]**\n\n**(c)** Find $\\mathrm{E}(X)$. $\\quad$ **[2]**\n\n**(d)** Eli throws the four dice 96 times. Use an approximation to find the probability that he obtains at least two 2s on fewer than 20 of these occasions. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
@@ -752,7 +761,8 @@ const SYLLABUS = {
               id: "S1_DRV_010",
               question_text: "In a certain country, the probability of more than 10 cm of rain on any particular day is 0.18, independently of other days.\n\n**(a)** Find the probability that in any randomly chosen 7-day period, more than 2 days have more than 10 cm of rain. $\\quad$ **[3]**\n\n**(b)** For 3 randomly chosen 7-day periods, find the probability that exactly two of these periods have at least one day with more than 10 cm of rain. $\\quad$ **[3]**",
               solution_image: ""
-            }],
+            }
+          ],
           "Normal Distribution": [
             {
               id: "S1_ND_002",
@@ -768,8 +778,7 @@ const SYLLABUS = {
               id: "S1_ND_004",
               question_text: "The marks scored by candidates in an examination are normally distributed with mean 45 and standard deviation 10. Candidates are told they have passed only if their mark exceeds 48.\n\n**(i)** Find the probability that a randomly chosen candidate passes the examination. $\\quad$ **[2]**\n\n**(ii)** Find the probability that a randomly chosen candidate scores more than 52 marks, given that they passed. $\\quad$ **[4]**\n\n**(iii)** Find the value of $c$, where $c > 45$, such that $\\text{P}(X > c) = 0.2420$. $\\quad$ **[2]**\n\n**(iv)** The examination is taken by 200 candidates. Find the expected number of candidates who pass. $\\quad$ **[2]**",
               solution_image: ""
-            }
-            ,
+            },
             {
               id: "S1_ND_005",
               question_text: "A factory produces chocolate bars whose weights are normally distributed with mean 155 g and standard deviation 6 g. A random sample of 350 bars is chosen.\n\n**(a)** How many of these 350 bars would you expect to weigh between 148 g and 160 g? $\\quad$ **[4]**\n\nA second factory also produces chocolate bars whose weights are normally distributed with mean $\\mu$ g and standard deviation $\\sigma$ g. Tests show that 8% of bars weigh more than 114.0 g and 20% weigh less than 99.5 g.\n\n**(b)** Find the values of $\\mu$ and $\\sigma$. $\\quad$ **[5]**",
@@ -778,21 +787,6 @@ const SYLLABUS = {
             {
               id: "S1_ND_006",
               question_text: "The times taken, in minutes, to complete a particular task by employees at a large company are normally distributed with mean 32.2 and standard deviation 9.6.\n\n**(a)** Find the probability that a randomly chosen employee takes more than 28.6 minutes to complete the task. $\\quad$ **[3]**\n\n**(b)** 20% of employees take longer than $t$ minutes to complete the task. Find the value of $t$. $\\quad$ **[3]**\n\n**(c)** Find the probability that the time taken by a randomly chosen employee differs from the mean by less than 15.0 minutes. $\\quad$ **[4]**",
-              solution_image: ""
-            }],
-
-          "Summary Statistics": [
-            {
-              id: "S1_SS_001",
-              question_text: "A summary of 20 values of $x$ gives\n$$\\sum(x - 30) = 439, \\quad \\sum(x - 30)^2 = 12\\,405$$\nA summary of another 25 values of $x$ gives\n$$\\sum(x - 30) = 470, \\quad \\sum(x - 30)^2 = 11\\,346$$\n\n**(a)** Find the mean of all 45 values of $x$. $\\quad$ **[2]**\n\n**(b)** Find the standard deviation of all 45 values of $x$. $\\quad$ **[2]**",
-              solution_image: ""
-            }
-          ],
-
-          "Data Representation": [
-            {
-              id: "S1_DR_001",
-              question_text: "The times taken, in minutes, to complete a cycle race by 19 cyclists from each of two clubs, the Cheetahs and the Panthers, are shown in the following back-to-back stem-and-leaf diagram.\n\n$$\\begin{array}{r|c|l}\\text{Cheetahs} & & \\text{Panthers}\\\\\\hline 9\\;8\\;7 & 4 & \\\\8\\;7\\;3\\;2\\;0 & 8 & 6\\;8\\\\9\\;8\\;7 & 9 & 1\\;7\\;8\\;9\\;9\\\\6\\;5\\;3\\;3\\;1 & 10 & 2\\;3\\;4\\;4\\;5\\;6\\\\9\\;8\\;2 & 11 & 1\\;2\\;8\\\\4 & 12 & 0\\;6\\end{array}$$\n\n*Key: $7\\mid 9\\mid 1$ means 97 min for Cheetahs and 91 min for Panthers*\n\n**(a)** Find the median and the interquartile range of the times of the Cheetahs. $\\quad$ **[3]**\n\nThe median and interquartile range for the Panthers are 103 minutes and 14 minutes respectively.\n\n**(b)** Make two comparisons between the times taken by the Cheetahs and the Panthers. $\\quad$ **[2]**\n\nAnother cyclist, Kenny, from the Cheetahs also took part in the race. The mean time taken by the 20 Cheetahs cyclists was 99 minutes.\n\n**(c)** Find the time taken by Kenny to complete the race. $\\quad$ **[3]**",
               solution_image: ""
             }
           ]
@@ -829,7 +823,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_RF_004",
-              question_text: "Let $a$ be a positive constant. The curve $C_1$ has equation $y = \\dfrac{x-a}{x-2a}$.\n\n**(a)** Sketch $C_1$. $\\quad$ **[2]**\n\nThe curve $C_2$ has equation $y = \\left(\\dfrac{x-a}{x-2a}\\right)^2$. The curve $C_3$ has equation $y = \\left|\\dfrac{x-a}{x-2a}\\right|$.\n\n**(b) (i)** Find the coordinates of any stationary points of $C_2$. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Find also the coordinates of any points of intersection of $C_2$ and $C_3$. $\\quad$ **[3]**\n\n**(c)** Sketch $C_2$ and $C_3$ on a single diagram, clearly identifying each curve. Hence find the set of values of $x$ for which $\\left(\\dfrac{x-a}{x-2a}\\right)^2 < \\left|\\dfrac{x-a}{x-2a}\\right|$. $\\quad$ **[5]**",
+              question_text: "Let $a$ be a positive constant. The curve $C_1$ has equation $y = \\dfrac{x-a}{x-2a}$.\n\n**(a)** Sketch $C_1$. $\\quad$ **[2]**\n\nThe curve $C_2$ has equation $y = \\left(\\dfrac{x-a}{x-2a}\\right)^2$. The curve $C_3$ has equation $y = \\left|\\dfrac{x-a}{x-2a}\\right|$.\n\n**(b)(i)** Find the coordinates of any stationary points of $C_2$. $\\quad$ **[3]**\n\n$\\quad$**(ii)** Find also the coordinates of any points of intersection of $C_2$ and $C_3$. $\\quad$ **[3]**\n\n**(c)** Sketch $C_2$ and $C_3$ on a single diagram, clearly identifying each curve. Hence find the set of values of $x$ for which $\\left(\\dfrac{x-a}{x-2a}\\right)^2 < \\left|\\dfrac{x-a}{x-2a}\\right|$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
@@ -916,7 +910,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_SR_013",
-              question_text: "**(a)** Use the formula for $\\tan(A - B)$ to show that\n$$\\tan^{-1}(2k+1) - \\tan^{-1}(2k-1) = \\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$$\n$\\quad$ **[3]**\n\n**(b)** Show that\n$$\\tan^{-1}\\!\\left(\\frac{1}{2(1)^2}\\right) + \\tan^{-1}\\!\\left(\\frac{1}{2(2)^2}\\right) + \\tan^{-1}\\!\\left(\\frac{1}{2(3)^2}\\right) + \\cdots + \\tan^{-1}\\!\\left(\\frac{1}{2n^2}\\right) = \\tan^{-1}\\!\\left(\\frac{n}{n+1}\\right)$$\n$\\quad$ **[5]**\n\n**(c)** Deduce the value of $\\displaystyle\\sum_{k=1}^{\\infty}\\left(\\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)\\right)$. $\\quad$ **[2]**",
+              question_text: "**(a)** Use the formula for $\\tan(A-B)$ to show that\n$$\\tan^{-1}(2k+1) - \\tan^{-1}(2k-1) = \\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$$\n$\\quad$ **[3]**\n\n**(b)** Show that\n$$\\tan^{-1}\\!\\left(\\frac{1}{2(1)^2}\\right)+\\tan^{-1}\\!\\left(\\frac{1}{2(2)^2}\\right)+\\cdots+\\tan^{-1}\\!\\left(\\frac{1}{2n^2}\\right) = \\tan^{-1}\\!\\left(\\frac{n}{n+1}\\right)$$\n$\\quad$ **[5]**\n\n**(c)** Deduce the value of $\\displaystyle\\sum_{k=1}^{\\infty}\\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$. $\\quad$ **[2]**",
               solution_image: ""
             }
           ],
@@ -959,7 +953,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_RP_007",
-              question_text: "The quartic equation\n$$x^4 + px^3 + qx^2 + rx + s = 0$$\nwhere $p$, $q$, $r$ and $s$ are constants has roots $\\alpha$, $\\beta$, $\\gamma$ and $\\delta$. It is given that $\\alpha\\beta\\gamma\\delta = 1$.\n\n**(a)** State the value of $s$. $\\quad$ **[1]**\n\n**(b)** Find a quartic equation, with coefficients in terms of $p$, $q$ and $r$, whose roots are $\\alpha + 1$, $\\beta + 1$, $\\gamma + 1$, $\\delta + 1$. $\\quad$ **[4]**\n\n**(c)** Given also that $\\gamma + 1 = -(\\alpha + 1)$ and $\\delta + 1 = -(\\beta + 1)$, deduce the value of $p$ and show that $r = 2q - 8$. $\\quad$ **[4]**",
+              question_text: "The quartic equation $x^4 + px^3 + qx^2 + rx + s = 0$, where $p$, $q$, $r$ and $s$ are constants, has roots $\\alpha$, $\\beta$, $\\gamma$ and $\\delta$. It is given that $\\alpha\\beta\\gamma\\delta = 1$.\n\n**(a)** State the value of $s$. $\\quad$ **[1]**\n\n**(b)** Find a quartic equation, with coefficients in terms of $p$, $q$ and $r$, whose roots are $\\alpha+1$, $\\beta+1$, $\\gamma+1$, $\\delta+1$. $\\quad$ **[4]**\n\n**(c)** Given also that $\\gamma+1 = -(\\alpha+1)$ and $\\delta+1 = -(\\beta+1)$, deduce the value of $p$ and show that $r = 2q - 8$. $\\quad$ **[4]**",
               solution_image: ""
             }
           ],
@@ -1055,7 +1049,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_VL_008",
-              question_text: "The points $A$, $B$, $C$ have position vectors\n$$-\\mathbf{i} + \\mathbf{j} + 2\\mathbf{k}, \\quad 3\\mathbf{i} - \\mathbf{j} + 4\\mathbf{k}, \\quad 2\\mathbf{i} + 5\\mathbf{j} + \\mathbf{k}$$\nrespectively, relative to the origin $O$.\n\n**(a)** Find the equation of the plane $ABC$, giving your answer in the form $ax + by + cz = d$. $\\quad$ **[5]**\n\n**(b)** Find the perpendicular distance from $O$ to the plane $ABC$. $\\quad$ **[2]**\n\n**(c)** Find the acute angle between the planes $OAB$ and $ABC$. $\\quad$ **[4]**",
+              question_text: "The points $A$, $B$, $C$ have position vectors $-\\mathbf{i}+\\mathbf{j}+2\\mathbf{k}$, $3\\mathbf{i}-\\mathbf{j}+4\\mathbf{k}$, $2\\mathbf{i}+5\\mathbf{j}+\\mathbf{k}$ respectively, relative to the origin $O$.\n\n**(a)** Find the equation of the plane $ABC$, giving your answer in the form $ax+by+cz=d$. $\\quad$ **[5]**\n\n**(b)** Find the perpendicular distance from $O$ to the plane $ABC$. $\\quad$ **[2]**\n\n**(c)** Find the acute angle between the planes $OAB$ and $ABC$. $\\quad$ **[4]**",
               solution_image: ""
             }
           ],
@@ -1128,7 +1122,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_PI_014",
-              question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$\\begin{pmatrix}1 & 2 & 3\\\\0 & 1 & 2\\\\0 & 0 & 1\\end{pmatrix}^n = \\begin{pmatrix}1 & 2n & n(2n+1)\\\\0 & 1 & 2n\\\\0 & 0 & 1\\end{pmatrix}$$\n$\\quad$ **[7]**",
+              question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$\\begin{pmatrix}1&2&3\\\\0&1&2\\\\0&0&1\\end{pmatrix}^n = \\begin{pmatrix}1&2n&n(2n+1)\\\\0&1&2n\\\\0&0&1\\end{pmatrix}$$\n$\\quad$ **[7]**",
               solution_image: ""
             }
           ],
@@ -1171,12 +1165,12 @@ const SYLLABUS = {
             },
             {
               id: "FP1_MA_008",
-              question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix}1 & 3\\\\0 & 1\\end{pmatrix}\\begin{pmatrix}1 & 0\\\\0 & 4\\end{pmatrix}$$\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. Give full details of each transformation and make clear the order in which they are applied. $\\quad$ **[4]**\n\n**(b)** Find the equations of the invariant lines through the origin of the transformation represented by $\\mathbf{M}$. $\\quad$ **[4]**",
+              question_text: "The matrix $\\mathbf{M}$ is given by $\\mathbf{M} = \\begin{pmatrix}1&3\\\\0&1\\end{pmatrix}\\begin{pmatrix}1&0\\\\0&4\\end{pmatrix}$.\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. Give full details of each transformation and make clear the order in which they are applied. $\\quad$ **[4]**\n\n**(b)** Find the equations of the invariant lines through the origin of the transformation represented by $\\mathbf{M}$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "FP1_MA_009",
-              question_text: "Find the inverse and the determinant of the matrix\n$$A = 2\\begin{pmatrix}a & 4 & -1\\\\3 & a & 2\\\\2 & 1 & 1\\end{pmatrix}$$\n$\\quad$ **[3]**",
+              question_text: "Find the inverse and the determinant of the matrix $A = 2\\begin{pmatrix}a&4&-1\\\\3&a&2\\\\2&1&1\\end{pmatrix}$. $\\quad$ **[3]**",
               solution_image: ""
             }
           ]
