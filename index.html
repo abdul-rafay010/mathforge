@@ -1439,6 +1439,499 @@
         font-size: .6rem;
       }
     }
+
+    /* ════════════════════════════════════════════════
+   WEEKLY CHALLENGE STRIP
+════════════════════════════════════════════════ */
+
+    #challenge-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-left: 2px solid var(--gold2);
+      background: var(--ink2);
+      padding: 15px 22px;
+      margin-bottom: 48px;
+      cursor: pointer;
+      transition: background .18s, border-color .18s;
+    }
+
+    #challenge-strip:hover {
+      background: var(--ink3);
+      border-left-color: var(--gold);
+    }
+
+    .cs-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+
+    .cs-eyebrow {
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .2em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cs-divider {
+      width: 1px;
+      height: 12px;
+      background: var(--rule2);
+      flex-shrink: 0;
+    }
+
+    .cs-source {
+      font-family: var(--sc);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      color: var(--parchment3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cs-marks {
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .1em;
+      color: var(--parchment4);
+      border: 1px solid var(--rule2);
+      padding: 2px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cs-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .cs-arrow {
+      font-family: var(--sc);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: letter-spacing .18s;
+    }
+
+    #challenge-strip:hover .cs-arrow {
+      letter-spacing: .26em;
+    }
+
+    @media (max-width: 600px) {
+      #challenge-strip {
+        padding: 13px 16px;
+        gap: 12px;
+      }
+
+      .cs-divider {
+        display: none;
+      }
+
+      .cs-marks {
+        display: none;
+      }
+    }
+
+    /* ════════════════════════════════════════════════
+   MISSION STATEMENT
+════════════════════════════════════════════════ */
+
+    .home-mission {
+      font-size: .88rem;
+      color: var(--parchment4);
+      font-style: italic;
+      line-height: 1.85;
+      max-width: 500px;
+      font-weight: 300;
+    }
+
+    /* ════════════════════════════════════════════════
+   WHY THIS QUESTION MATTERS
+════════════════════════════════════════════════ */
+
+    .prob-why {
+      border-top: 1px solid var(--rule);
+    }
+
+    .prob-why-btn {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-family: var(--sc);
+      font-size: .6rem;
+      letter-spacing: .18em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+      transition: color .15s, background .15s;
+    }
+
+    .prob-why-btn:hover {
+      color: var(--gold);
+      background: var(--ink3);
+    }
+
+    .prob-why-btn::after {
+      content: '+';
+      font-family: var(--mono);
+      font-size: .82rem;
+      color: var(--gold2);
+      transition: transform .2s var(--ease);
+      font-style: normal;
+    }
+
+    .prob-why-btn.open::after {
+      transform: rotate(45deg);
+    }
+
+    .prob-why-body {
+      display: none;
+      padding: 2px 24px 18px;
+      border-top: 1px solid var(--rule);
+      background: var(--ink2);
+    }
+
+    .prob-why-body.open {
+      display: block;
+    }
+
+    .why-row {
+      display: flex;
+      gap: 16px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: flex-start;
+    }
+
+    .why-row:last-child {
+      border-bottom: none;
+    }
+
+    .why-label {
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .12em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      min-width: 108px;
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    .why-text {
+      font-size: .88rem;
+      font-style: italic;
+      color: var(--parchment3);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ════════════════════════════════════════════════
+   DIFFICULTY BADGE
+════════════════════════════════════════════════ */
+
+    .diff-badge {
+      font-family: var(--mono);
+      font-size: .52rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+    }
+
+    .diff-insight {
+      color: var(--gold);
+      background: var(--gold3);
+    }
+
+    .diff-hard {
+      color: #c88;
+      background: #251515;
+    }
+
+    .diff-standard {
+      color: var(--parchment4);
+      background: var(--ink3);
+    }
+
+
+    /* ════════════════════════════════════════════════
+   ARTICLES — LIST VIEW
+════════════════════════════════════════════════ */
+
+    .articles-intro {
+      font-size: .88rem;
+      color: var(--parchment4);
+      font-style: italic;
+      line-height: 1.85;
+      max-width: 540px;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    .article-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+    }
+
+    .article-row {
+      background: var(--ink2);
+      padding: 22px 24px;
+      cursor: pointer;
+      transition: background .15s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .article-row:hover {
+      background: var(--ink3);
+    }
+
+    .article-row-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.18rem;
+      font-weight: 400;
+      color: var(--parchment);
+    }
+
+    .article-meta {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .1em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .article-desc {
+      font-size: .88rem;
+      color: var(--parchment3);
+      font-style: italic;
+      line-height: 1.6;
+      font-weight: 300;
+      max-width: 640px;
+    }
+
+    /* ════════════════════════════════════════════════
+   ARTICLES — SINGLE ARTICLE VIEW
+════════════════════════════════════════════════ */
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .article-eyebrow {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .22em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .article-header-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 2.1rem;
+      font-weight: 400;
+      color: var(--parchment);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .article-header-meta {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .08em;
+      color: var(--parchment4);
+    }
+
+    .article-body {
+      font-size: 1.04rem;
+      line-height: 1.85;
+      color: var(--parchment2);
+      max-width: 680px;
+    }
+
+    .article-body p {
+      margin-bottom: 22px;
+      font-weight: 300;
+    }
+
+    .article-body strong {
+      color: var(--parchment);
+      font-weight: 600;
+    }
+
+    .article-body a,
+    .prob-text-question a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold3);
+      transition: border-color .15s;
+    }
+
+    .article-body a:hover,
+    .prob-text-question a:hover {
+      border-color: var(--gold);
+    }
+
+    .article-body h3 {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.32rem;
+      color: var(--gold);
+      font-weight: 400;
+      margin: 36px 0 16px;
+    }
+
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sc);
+      font-size: .68rem;
+      letter-spacing: .16em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 48px;
+      transition: color .15s;
+    }
+
+    .article-back:hover {
+      color: var(--gold);
+    }
+
+    /* ════════════════════════════════════════════════
+   PATTERN NOTE (section page)
+════════════════════════════════════════════════ */
+
+    .pattern-note {
+      border-left: 2px solid var(--gold3);
+      background: var(--ink2);
+      padding: 14px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .pattern-note-label {
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .18em;
+      color: var(--gold2);
+      text-transform: uppercase;
+    }
+
+    .pattern-note-text {
+      font-size: .92rem;
+      font-style: italic;
+      color: var(--parchment3);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ════════════════════════════════════════════════
+   SOLUTION PREAMBLE (problem card)
+════════════════════════════════════════════════ */
+
+    .sol-preamble {
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .sol-pre-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .sol-pre-label {
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .12em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      min-width: 108px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .sol-pre-text {
+      font-size: .88rem;
+      font-style: italic;
+      color: var(--parchment3);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ════════════════════════════════════════════════
+   MASTHEAD — ESSAYS LINK
+════════════════════════════════════════════════ */
+
+    .masthead-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .masthead-link {
+      font-family: var(--sc);
+      font-size: .64rem;
+      letter-spacing: .18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .15s;
+      border: 1px solid var(--gold3);
+      padding: 5px 14px;
+      line-height: 1;
+    }
+
+    .masthead-link:hover {
+      border-color: var(--gold);
+      background: var(--gold3);
+    }
+
+    @media (max-width: 600px) {
+      .masthead-ornament {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -1460,7 +1953,10 @@
         </svg>
         <div class="masthead-title">MathForge</div>
       </div>
-      <div class="masthead-ornament">∂ · ∫ · ∑</div>
+      <div class="masthead-right">
+        <span class="masthead-link" onclick="goArticles()">Essays</span>
+        <div class="masthead-ornament">∂ · ∫ · ∑</div>
+      </div>
     </div>
 
     <!-- BREADCRUMB -->
@@ -1477,12 +1973,15 @@
 
       <div class="course-pair" id="course-pair"></div>
 
+      <!-- WEEKLY CHALLENGE STRIP — rendered by buildQOTW() -->
+      <div id="challenge-strip" onclick="" role="button" tabindex="0"></div>
+
       <div class="ornament-rule"><span class="ornament-glyph">∞</span></div>
 
-      <div style="font-size:.85rem;color:var(--parchment4);font-style:italic;line-height:1.8;max-width:480px">
-        Select a course. Navigate to a section, then a topic.
-        Each problem is presented in full — work it out on paper,
-        then reveal the solution when you are ready.
+      <div class="home-mission">
+        Built for students who want to understand mathematics, not just pass it.
+        Every problem here demands something real from you — no routine questions,
+        no mechanical repetition. Select a course and begin.
       </div>
 
     </div>
@@ -1564,6 +2063,30 @@
 
     </div>
 
+    <!-- ═══════════════════════════
+       ARTICLES — LIST
+  ═══════════════════════════ -->
+    <div class="screen" id="s-articles">
+
+      <div class="screen-title"><em>Articles</em> &amp; Essays</div>
+      <div class="articles-intro">
+        Writing on mathematics — essays, explorations, and reflections that sit
+        alongside the problem bank. These are not solutions; they are attempts
+        to think more clearly about what mathematics is and why it matters.
+      </div>
+      <div class="article-stack" id="article-stack"></div>
+
+    </div>
+
+    <!-- ═══════════════════════════
+       ARTICLE — SINGLE
+  ═══════════════════════════ -->
+    <div class="screen" id="s-article">
+
+      <div id="article-content"></div>
+
+    </div>
+
     <!-- FOOTER -->
     <div id="footer">
       <div class="footer-left">MathForge &ensp;·&ensp; Cambridge A-Level</div>
@@ -1596,6 +2119,8 @@
       if (d.screen === 'course') { goCourse(d.course, true); return; }
       if (d.screen === 'section') { goSection(d.course, d.section, true); return; }
       if (d.screen === 'topic') { goTopic(d.course, d.section, d.topic, d.probIndex || 0, true); return; }
+      if (d.screen === 'articles') { goArticles(true); return; }
+      if (d.screen === 'article') { goArticle(d.articleId, true); return; }
     });
 
     // ══════════════════════════════════════════════════
@@ -1643,6 +2168,7 @@
       S = { course: null, section: null, topic: null, probIndex: 0 };
       crumb([]);
       buildHome();
+      buildQOTW();
       show('home');
       if (!fromPop) pushState({ screen: 'home' });
     }
@@ -1731,7 +2257,11 @@
 
       document.getElementById('section-hdr').innerHTML = `
     <div class="screen-title"><em>${secCode}</em> — ${sec.name}</div>
-    <div class="screen-caption">Select a topic.</div>`;
+    <div class="screen-caption">Select a topic.</div>
+    ${sec.pattern_note ? `<div class="pattern-note">
+      <span class="pattern-note-label">Pattern &amp; Insight</span>
+      <span class="pattern-note-text">${sec.pattern_note}</span>
+    </div>` : ''}`;
 
       const stack = document.getElementById('topic-stack');
       stack.innerHTML = '';
@@ -1851,15 +2381,31 @@
     <div class="prob-card">
       <div class="prob-label">
         <span class="prob-label-left">Problem ${String(idx + 1).padStart(2, '0')}</span>
-        <span class="prob-label-right">${q.id}</span>
+        <div style="display:flex;align-items:center;gap:10px">
+          ${q.difficulty ? `<span class="diff-badge diff-${q.difficulty}">${q.difficulty}</span>` : ''}
+          <span class="prob-label-right">${q.id}</span>
+        </div>
       </div>
       ${qContent}
+      ${q.why ? `<div class="prob-why">
+        <button class="prob-why-btn" id="prob-why-btn" onclick="toggleWhy()">Why this question matters</button>
+        <div class="prob-why-body" id="prob-why-body">
+          ${q.why.concept ? `<div class="why-row"><span class="why-label">Concept</span><span class="why-text">${q.why.concept}</span></div>` : ''}
+          ${q.why.misconception ? `<div class="why-row"><span class="why-label">Misconception</span><span class="why-text">${q.why.misconception}</span></div>` : ''}
+          ${q.why.skill ? `<div class="why-row"><span class="why-label">Skill</span><span class="why-text">${q.why.skill}</span></div>` : ''}
+          ${q.why.pattern ? `<div class="why-row"><span class="why-label">Pattern</span><span class="why-text">${q.why.pattern}</span></div>` : ''}
+        </div>
+      </div>` : ''}
       <div class="prob-sol-toggle">
         <button class="prob-sol-btn" id="psol-btn" onclick="toggleProbSol()">
           — Reveal Solution —
         </button>
       </div>
       <div class="prob-sol-panel" id="psol-panel">
+        ${q.sol_preamble ? `<div class="sol-preamble">
+          ${q.sol_preamble.key_idea ? `<div class="sol-pre-row"><span class="sol-pre-label">Key Idea</span><span class="sol-pre-text">${q.sol_preamble.key_idea}</span></div>` : ''}
+          ${q.sol_preamble.common_mistake ? `<div class="sol-pre-row"><span class="sol-pre-label">Common Mistake</span><span class="sol-pre-text">${q.sol_preamble.common_mistake}</span></div>` : ''}
+        </div>` : ''}
         ${sImg}
       </div>
     </div>
@@ -1912,6 +2458,8 @@
 
         // Bold **text**
         body = body.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Markdown links [text](url)
+        body = body.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
         // Line breaks within paragraph
         body = body.replace(/\n/g, '<br>');
 
@@ -2285,6 +2833,264 @@
         '</div>';
     }
 
+
+
+
+    // ══════════════════════════════════════════════════
+    //  ARTICLES
+    //  ─────────────────────────────────────────────────
+    //  HOW TO ADD AN ARTICLE: add a new object to the
+    //  ARTICLES array below. body_text uses the same
+    //  markdown format as questions (processText), plus
+    //  optional "### Heading" lines for section headers.
+    // ══════════════════════════════════════════════════
+
+    const ARTICLES = [
+      {
+        id: 'unreasonable-effectiveness-of-integration',
+        title: 'The Unreasonable Effectiveness of Integration',
+        meta: 'Tom Rocks Maths · Oxford Essay Competition · 2026',
+        description: 'How a single elongated S — an artistic, almost alien symbol — became the thread connecting area, motion, heat, and the very idea of accumulation.',
+        read_time: '8 min read',
+        body_text: `**Section 1: The Doubter**
+
+Mathematics, for the version of me five years ago, was merely a subject — a useless subject with an unrealistic, uncommunicable language which appeared to have no purpose in the world. A subject we were forced to study. In fact, that boy even cried, pouring out his frustration in the only way he knew: "What is the purpose of all these numbers?" Yet somehow, like all great loves, it found me — at the right time, in the right way.
+
+The society I grew up in treated mathematics as perhaps the least desirable path one could choose. My peers and elders were almost sarcastic about it — whoever pursued mathematics was, at best, destined to become a teacher. Nothing more. I wanted to prove them wrong. I wanted to show that mathematics has real-world ramifications, can tackle real-world problems, and is much deeper than a school task.
+
+Then arrived the moment everything transformed. Intriguing visual reels, elegant symbols, graphs that curved and soared across a screen — they caught me completely off guard. My naturally curious personality forced me to think, explore, expand, and conquer what had earlier seemed like an alien language. Now it is my daily routine. Seeing mathematics through the eyes of someone encountering it for the first time remains one of the greatest gifts I have given myself. If I were to describe this journey in a single line, it would be: a small-town boy entering a very big arcade.
+
+### Section 2: The Symbol That Changed Everything
+
+The mathematical notation felt unfamiliar but elegant. More like Da Vinci's paintings or Picasso's excellent work, symbols of deliberate artistic curves, balanced lines — especially the integral symbol — showed up immediately. The very first instinct was, "Is it an S stretched from both ends?" But the visual curiosity before turned into a critical one. I didn't know what it meant, but I was sure it was important. Unlike simple arithmetic symbols, this one appeared to describe something substantial, not just an operation. The transition took me from "this looks so interesting" to "what does it actually mean." The symbol turned less into a drawing and more into a puzzle, marking the turning point from not just solving problems but probing further inside them — marking the shift from seeing math not simply as numbers but as a proper language of ideas.
+
+**The symbol itself tells a story:**
+
+$$\\int f(x)\\, dx$$
+
+The elongated 'S' — from the Latin *summa*, meaning sum. Even before grasping the mechanics, the notation hints at its purpose: to add infinitely many infinitely small things into something unified.
+
+### Section 3: What Integration Actually Is
+
+In simpler words, integration is the process of determining a whole by summing infinitely small parts. When dealing with continuously changing quantities, such as the area under a curve, direct calculation is a daunting task — seemingly impossible. Instead, the region is divided into extremely thin slices, each of which can be approximated and then summed. As the segments turn infinitely small, the approximation becomes exact, and the integral therefore represents the limit of the summation, producing a single finite value. In this way, integration provides a method for capturing accumulation and continuous change within a precise mathematical model — which, in itself, is much deeper than we think.
+
+**The Core Concept: Infinite Sums of Infinitesimal Slices**
+
+Consider the curve $f(x)$ above the $x$-axis. We are looking to determine the region under it within $x = a$ and $x = b$. The essential idea is to divide this region into $n$ rectangles with identical width:
+
+$$\\Delta x = \\frac{b-a}{n}$$
+
+Each rectangle has height $f(x_i)$ and width $\\Delta x$, contributing an area of $f(x_i) \\cdot \\Delta x$. The total area is approximately:
+
+$$A \\approx \\sum_{i=1}^{n} f(x_i)\\, \\Delta x$$
+
+As we let $n \\to \\infty$, the rectangles become infinitely thin, and our approximation becomes exact:
+
+$$A = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i)\\, \\Delta x = \\int_a^b f(x)\\, dx$$
+
+**A Concrete Example: The Area of a Circle**
+
+Consider a circle of radius $r$ centred at the origin, described by $x^2 + y^2 = r^2$. We can find its area by integrating the upper semicircle and doubling:
+
+$$A = 2\\int_{-r}^{r} \\sqrt{r^2 - x^2}\\, dx$$
+
+Using the substitution $x = r\\sin\\theta$, so $dx = r\\cos\\theta\\, d\\theta$, and noting that $\\sqrt{r^2-x^2} = r\\cos\\theta$:
+
+$$A = 2\\int_{-\\pi/2}^{\\pi/2} r\\cos\\theta \\cdot r\\cos\\theta\\, d\\theta = 2r^2 \\int_{-\\pi/2}^{\\pi/2} \\cos^2\\theta\\, d\\theta$$
+
+Using the identity $\\cos^2\\theta = \\dfrac{1+\\cos 2\\theta}{2}$:
+
+$$A = 2r^2 \\left[\\frac{\\theta}{2} + \\frac{\\sin 2\\theta}{4}\\right]_{-\\pi/2}^{\\pi/2} = 2r^2 \\cdot \\frac{\\pi}{2} = \\pi r^2$$
+
+The ancient formula $A = \\pi r^2$ is a natural result of integration. A result that once required geometric inventiveness is now achieved by a systematic approach.
+
+These derivations had another vital part in changing my view of mathematics — from mere formula memorisation to something intellectual, real-world, and analytical, as the reasoning behind these proofs sparked my interest in the vast sea of mathematics.
+
+### Section 4: Integration in the Real World
+
+Integration is more than an academic concept; it underpins real-life challenges. Wherever something changes, integration works silently underneath the surface. Let us understand this using some of the most fascinating examples.
+
+**From Velocity to Displacement**
+
+One of the most intuitive examples is motion. If you know how velocity changes over time, you can use integration to find displacement instead of tracking every second separately. Integration lets you gather all those tiny changes into one single result.
+
+For instance, if $v(t)$ is the velocity of an object at time $t$, then the displacement over a time interval $[t_1, t_2]$ is simply:
+
+$$s = \\int_{t_1}^{t_2} v(t)\\, dt$$
+
+This is integration in its most physical form — accumulating infinitely many instantaneous velocities to find total distance travelled.
+
+**Modelling Change with Differential Equations**
+
+The notion applies much beyond motion in physics; changing quantities such as temperature or speed are often expressed using differential equations, and integration is what allows us to solve them. According to Newton's Law of Cooling, the rate of temperature change $T$ is proportional to the difference between $T$ and the ambient temperature $T_0$.
+
+$$\\frac{dT}{dt} = -k(T - T_0)$$
+
+Separating variables and integrating each side:
+
+$$\\int \\frac{dT}{T - T_0} = \\int -k\\, dt$$
+
+$$\\ln|T - T_0| = -kt + C$$
+
+$$T(t) = T_0 + (T_{\\text{initial}} - T_0) \\cdot e^{-kt}$$
+
+Integration transforms a statement about rates into a complete description of how temperature evolves. What stands out from these examples is a pattern: whenever something builds up gradually — distance, heat, population — there is an underlying process of accumulation, and integration is the tool that captures this process. Looking back, these examples answer a question I once had: what is the use of mathematics in real life? Integration shows that mathematics is not separate from reality — it is a language that describes it, revealing that under every phenomenon lies a structure of continuous change, and a method precise enough to understand it.
+
+### Section 5: MathForge and Beyond — Why This Matters
+
+The misconception held for years — that math was only for future teachers, not for students like me — changed when I finally understood integration: suddenly, math appeared alive and powerful. I realised that if I could find elegance and significance in these curves and sums, maybe others could too. This is why I started [MathForge](https://abdul-rafay010.github.io/mathforge), a project that curates A-Level mathematics and further mathematics problems and explanations into one place. It's still a work in progress, but building it has been immensely rewarding.
+
+Creating MathForge enabled me to use math as a tool for helping myself and others. Each topic I add comes from the frustration I once had. In making MathForge, I turned my doubts into something constructive: instead of accepting the idea that math can't build things, I'm literally building a learning resource.
+
+Furthermore, this effort illustrates my expectations for the role of math in my community. Although MathForge isn't flawless yet, it represents my objective: mathematics should be more than simply formulae on a page; it should be accessible and creative. As I did with integration, I see my peers using MathForge and realising, "Hey, I can solve that problem." Perhaps one day they may share their own issues or suggestions.
+
+Conclusively, integration convinced me that every problem I solve or write is part of a larger whole. Calculus formulas weren't the end of my path from aggravation to fascination — instead, they led to action. My response to that last query is MathForge: I used what I learned to create something tangible. And if I can accomplish that, perhaps the next students will as well.`
+      }
+    ];
+
+    function goArticles(fromPop) {
+      S = { course: null, section: null, topic: null, probIndex: 0 };
+      crumb([
+        { label: 'Home', fn: 'goHome()' },
+        { label: 'Articles & Essays' }
+      ]);
+
+      const stack = document.getElementById('article-stack');
+      stack.innerHTML = ARTICLES.map(a => `
+        <div class="article-row" onclick="goArticle('${a.id}')">
+          <div class="article-row-top">
+            <span class="article-title">${a.title}</span>
+            <span class="article-meta">${a.read_time}</span>
+          </div>
+          <div class="article-desc">${a.description}</div>
+        </div>
+      `).join('');
+
+      show('articles');
+      if (!fromPop) pushState({ screen: 'articles' });
+    }
+
+    function goArticle(id, fromPop) {
+      const article = ARTICLES.find(a => a.id === id);
+      if (!article) { goArticles(); return; }
+
+      crumb([
+        { label: 'Home', fn: 'goHome()' },
+        { label: 'Articles & Essays', fn: 'goArticles()' },
+        { label: article.title }
+      ]);
+
+      // Process body: support ### headings alongside processText paragraphs
+      const bodyHtml = article.body_text.split(/\n\n+/).map(block => {
+        if (block.trim().startsWith('### ')) {
+          return `<h3>${block.trim().slice(4)}</h3>`;
+        }
+        return processText(block);
+      }).join('');
+
+      document.getElementById('article-content').innerHTML = `
+        <div class="article-header">
+          <div class="article-eyebrow">Article</div>
+          <div class="article-header-title"><em>${article.title}</em></div>
+          <div class="article-header-meta">${article.meta} &ensp;·&ensp; ${article.read_time}</div>
+        </div>
+        <div class="article-body">${bodyHtml}</div>
+        <div class="article-back" onclick="goArticles()">← Back to Articles</div>`;
+
+      if (window.renderMathInElement) {
+        renderMathInElement(document.getElementById('article-content'), {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+
+      show('article');
+      if (!fromPop) pushState({ screen: 'article', articleId: id });
+    }
+
+    // ══════════════════════════════════════════════════
+    //  QUESTION OF THE WEEK
+    //  ─────────────────────────────────────────────────
+    //  HOW TO UPDATE: change only the three fields below.
+    //  id   → any question ID from questions.js
+    //  week → display label e.g. "O/N 2025 · Week 3"
+    //  hint → a one-sentence nudge (keep it brief)
+    //  Everything else (question text, why, source)
+    //  is pulled from SYLLABUS automatically.
+    // ══════════════════════════════════════════════════
+
+    const QOTW = {
+      id: 'P1_CG_004',
+      week: 'Launch Edition',
+      hint: 'Find A and B first by setting x = 0. The tangent at any point is perpendicular to the radius — write both tangent equations and solve simultaneously.'
+    };
+
+    // Scan SYLLABUS for a question by ID.
+    // Returns { course, section, topic, index, q } or null.
+    function findQuestionById(id) {
+      for (const [course, cData] of Object.entries(SYLLABUS)) {
+        for (const [secCode, sec] of Object.entries(cData.sections)) {
+          for (const [topic, qs] of Object.entries(sec.topics)) {
+            const idx = qs.findIndex(q => q.id === id);
+            if (idx !== -1) {
+              return { course, section: secCode, topic, index: idx, q: qs[idx] };
+            }
+          }
+        }
+      }
+      return null;
+    }
+
+    function buildQOTW() {
+      const el = document.getElementById('challenge-strip');
+      if (!el) return;
+
+      const found = findQuestionById(QOTW.id);
+      if (!found) { el.style.display = 'none'; return; }
+
+      const { course, section, topic, index, q } = found;
+      const navFn = `goTopic('${course}','${section}','${topic}',${index})`;
+
+      // Count marks from question text — look for trailing [n] patterns
+      const allMarks = (q.question_text || '').match(/\[(\d+)\]/g) || [];
+      const totalMarks = allMarks.reduce((s, m) => s + parseInt(m.replace(/\D/g, '')), 0);
+      const marksLabel = totalMarks ? `[${totalMarks} marks]` : '';
+
+      // Difficulty badge (optional)
+      const diffHtml = q.difficulty
+        ? `<span class="diff-badge diff-${q.difficulty}">${q.difficulty}</span>`
+        : '';
+
+      el.innerHTML = `
+        <div class="cs-left">
+          <span class="cs-eyebrow">Weekly Challenge</span>
+          <div class="cs-divider"></div>
+          <span class="cs-source">${section} · ${topic}</span>
+          ${diffHtml}
+          ${marksLabel ? `<span class="cs-marks">${marksLabel}</span>` : ''}
+          <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);letter-spacing:.06em">${QOTW.week}</span>
+        </div>
+        <div class="cs-right">
+          <span class="cs-arrow">Attempt &nbsp;→</span>
+        </div>`;
+
+      el.setAttribute('onclick', navFn);
+      el.addEventListener('keydown', e => { if (e.key === 'Enter') eval(navFn); });
+    }
+
+    function toggleQOTWHint() { } // reserved
+
+    function toggleWhy() {
+      const body = document.getElementById('prob-why-body');
+      const btn = document.getElementById('prob-why-btn');
+      if (!body || !btn) return;
+      const open = body.classList.contains('open');
+      body.classList.toggle('open', !open);
+      btn.classList.toggle('open', !open);
+    }
 
     // ══════════════════════════════════════════════════
     //  INIT
