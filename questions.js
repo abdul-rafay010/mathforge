@@ -23,6 +23,7 @@ const SYLLABUS = {
             {
               id: "P1_CG_003",
               question_text: "A curve has a maximum point at $(8, 12)$ and a minimum point at $(8, 0)$. The curve is the result of applying two transformations to a circle. The first transformation is a translation by the vector $\\begin{pmatrix}7\\\\-3\\end{pmatrix}$. The second transformation is a stretch in the $y$-direction.\n\n**(a)** State the scale factor of the stretch. $\\quad$ **[1]**\n\n**(b)** State the radius of the original circle. $\\quad$ **[1]**\n\n**(c)** State the coordinates of the centre of the circle after the translation has been completed but before the stretch is applied. $\\quad$ **[2]**\n\n**(d)** State the coordinates of the centre of the original circle. $\\quad$ **[2]**",
+              diagram_image: "P1_CG_003_d.svg",
               solution_image: ""
             },
             {
@@ -72,71 +73,66 @@ const SYLLABUS = {
               question_text: "**(a)** Show that the equation $\\tan 2x = 5\\sin 2x$ can be written in the form\n$$(1 - 5\\cos 2x)\\sin 2x = 0$$\n$\\quad$ **(2)**\n\n**(b)** Hence solve, for $0 \\leq x \\leq 180°$,\n$$\\tan 2x = 5\\sin 2x$$\ngiving your answers to 1 decimal place where appropriate. $\\quad$ **(5)**",
               solution_image: ""
             },
+            
             {
               id: "P1_TR_004",
-              question_text: "The diagram shows part of the graph of $y = \\sin(a(x+b))$, where $a$ and $b$ are positive constants.\n\n**(a)** State the value of $a$ and one possible value of $b$. $\\quad$ **[2]**\n\nAnother curve, with equation $y = f(x)$, has a single stationary point at the point $(p, q)$, where $p$ and $q$ are constants. This curve is transformed to a curve with equation $y = -2f\\!\\left(\\tfrac{1}{2}(x+8)\\right)$.\n\n**(b)** For the transformed curve, find the coordinates of the stationary point, giving your answer in terms of $p$ and $q$. $\\quad$ **[3]**",
-              diagram_image: "P1_TR_004_d.svg",
-              solution_image: ""
-            },
-            {
-              id: "P1_TR_005",
               question_text: "The function f is given by $\\mathrm{f}(x) = 4\\cos^4 x + \\cos^2 x - k$ for $0 \\leq x \\leq 2\\pi$, where $k$ is a constant.\n\n**(a)** Given that $k = 3$, find the exact solutions of the equation $\\mathrm{f}(x) = 0$. $\\quad$ **[5]**\n\n**(b)** Use the quadratic formula to show that, when $k > 5$, the equation $\\mathrm{f}(x) = 0$ has no solutions. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
-              id: "P1_TR_006",
+              id: "P1_TR_005",
               question_text: "Given that $x > 0$, find the two smallest values of $x$, in radians, for which $3\\tan(2x + 1) = 1$. Show all necessary working. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
-              id: "P1_TR_007",
+              id: "P1_TR_006",
               question_text: "The function f is defined by $\\mathrm{f} : x \\mapsto a + b\\sin x$ for $x \\in \\mathbb{R}$, and is such that $\\mathrm{f}\\!\\left(\\tfrac{1}{6}\\pi\\right) = 4$ and $\\mathrm{f}\\!\\left(\\tfrac{1}{2}\\pi\\right) = 3$.\n\n**(i)** Find the values of the constants $a$ and $b$. $\\quad$ **[3]**\n\n**(ii)** Evaluate $\\mathrm{ff}(0)$. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
-              id: "P1_TR_008",
+              id: "P1_TR_007",
               question_text: "The curve has equation $y = \\sin(ax - b)$, where $a > 0$ and $0 < b < \\pi$. The curve cuts the $x$-axis at the points $P$, $Q$ and $R$ with coordinates $\\left(\\dfrac{\\pi}{10}, 0\\right)$, $\\left(\\dfrac{3\\pi}{5}, 0\\right)$ and $\\left(\\dfrac{11\\pi}{10}, 0\\right)$ respectively.\n\nFind the values of $a$ and $b$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
-              id: "P1_TR_009",
+              id: "P1_TR_008",
               question_text: "**(a)** Find all the solutions to the equation $2\\cos 2\\theta = 4\\sin 2\\theta\\cos 2\\theta$ in the interval $0 \\leq \\theta \\leq 2\\pi$, giving your answers in radians as multiples of $\\pi$. $\\quad$ **[6]**",
               solution_image: ""
             }
           ],
           "Binomial Expansion": [
             {
-              id: "P1_BE_002",
+              id: "P1_BE_001",
               question_text: "Given that $(1 + ax)^n = 1 - 12x + 63x^2 + \\ldots$, find $a$ and $n$.",
               solution_image: ""
             },
             {
-              id: "P1_BE_003",
+              id: "P1_BE_002",
               question_text: "In the expansion of $(2 + 3x)^n$, the coefficients of $x^4$ and $x^5$ are in the ratio $8:15$.\n\nFind the value of $n$.",
               solution_image: ""
             },
             {
-              id: "P1_BE_004",
+              id: "P1_BE_003",
               question_text: "The first three terms, in descending powers of $x$, in the expansion of $\\left(2x^2 - \\dfrac{1}{4x}\\right)^n$ can be written in the form $256x^{16} + ax^{13} + bx^c$, where $n$, $a$, $b$ and $c$ are integers.\n\nFind the values of $n$, $a$, $b$ and $c$. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
-              id: "P1_BE_005",
+              id: "P1_BE_004",
               question_text: "The first three terms, in descending powers of $x$, in the expansion of\n$$\\left(3x^2 - a\\right)^n\\!\\left(1 + \\frac{1}{x^2}\\right)^2$$\ncan be written as $729x^{12} + 972x^{10} + bx^8$, where $a$, $b$ and $n$ are constants.\n\nFind the values of $a$, $b$ and $n$. $\\quad$ **[9]**",
               solution_image: ""
             },
             {
-              id: "P1_BE_006",
+              id: "P1_BE_005",
               question_text: "In the expansion of $(a + bx)^8$, the coefficient of the $x^5$ term is $-870\\,912$.\n\nIn the expansion of $(a + bx)^{12}$, the coefficient of the $x^3$ term is $-1\\,557\\,135\\,360$.\n\nFind the possible values of $a$ and $b$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
-              id: "P1_BE_007",
+              id: "P1_BE_006",
               question_text: "In the expansion of $(3 - 2x)\\left(1 + \\dfrac{x}{2}\\right)^n$, the coefficient of $x$ is $7$. Find the value of the constant $n$ and hence find the coefficient of $x^2$. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
-              id: "P1_BE_008",
+              id: "P1_BE_007",
               question_text: "In the expansion of $(a + bx)^7$, where $a$ and $b$ are non-zero constants, the coefficients of $x$, $x^2$ and $x^4$ are the first, second and third terms respectively of a geometric progression.\n\nFind the value of $\\dfrac{a}{b}$. $\\quad$ **[5]**",
               solution_image: ""
             }
@@ -163,37 +159,37 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
-              id: "P1_DF_006",
+              id: "P1_DF_005",
               question_text: "The curve $C$ has equation\n$$y = \\frac{x^3\\left(5x\\sqrt{x} - 128\\right)}{\\sqrt{x}}, \\quad x \\in \\mathbb{R},\\ x > 0$$\n\n**(a)** Determine expressions for $\\dfrac{dy}{dx}$, $\\dfrac{d^2y}{dx^2}$ and $\\dfrac{d^3y}{dx^3}$. $\\quad$ **[4]**\n\n**(b)** Show that the $y$-coordinate of the stationary point of $C$ is $-k\\sqrt[3]{4}$, where $k$ is a positive integer. $\\quad$ **[5]**\n\n**(c)** Evaluate $\\dfrac{d^2y}{dx^2}$ at the stationary point of $C$, giving your answer in terms of $\\sqrt[3]{2}$. $\\quad$ **[3]**\n\n**(d)** Find the value of $\\dfrac{d^3y}{dx^3}$ at the point on $C$ where $\\dfrac{d^2y}{dx^2} = 0$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
-              id: "P1_DF_007",
+              id: "P1_DF_006",
               question_text: "The curve $y = x(x-2)^2$ has a minimum point with coordinates $(a, 0)$ and a maximum point with $x$-coordinate $b$, where $a$ and $b$ are constants.\n\n**(i)** State the value of $a$. $\\quad$ **[1]**\n\n**(ii)** Find the value of $b$. $\\quad$ **[4]**\n\n**(iii)** Find the area of the region bounded by the curve and the $x$-axis between $x = 0$ and $x = a$. $\\quad$ **[4]**\n\n**(iv)** The gradient $\\dfrac{dy}{dx}$ of the curve has a minimum value $m$. Find the value of $m$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
-              id: "P1_DF_008",
+              id: "P1_DF_007",
               question_text: "The curve $y = -x^3 + 9x^2 - 15x - 3$ has two stationary points. A straight line passes through both stationary points.\n\n**(a)** Show that the equation of the straight line is $y = 8x - 18$. $\\quad$ **[5]**\n\n**(b)** Verify that the curve also meets the straight line when $x = 3$. $\\quad$ **[1]**\n\n**(c)** Find the area of the region bounded by the curve and the straight line between their points of intersection. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
-              id: "P1_DF_009",
+              id: "P1_DF_008",
               question_text: "A large block of ice used by sculptors is in the shape of a cuboid with dimensions $x$ m by $2x$ m by $5x$ m. The block melts uniformly with its surface area decreasing at a constant rate of $k$ m² s⁻¹. You may assume that as the block melts, the shape remains mathematically similar to the original cuboid.\n\n**(a)** Show that the rate of melting, by volume, is given by\n$$\\frac{15kx}{34} \\text{ m}^3 \\text{s}^{-1}$$\n$\\quad$ **[5]**\n\n**(b)** In the case when $k = 0.2$, the block of ice remains solid enough to be sculpted whilst the rate of melting, by volume, is less than $0.05$ m³ s⁻¹. Find the value of $x$ for the largest block of ice that can be used for ice sculpting under such conditions, giving your answer as a fraction in its lowest terms. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "P1_DF_011",
+              id: "P1_DF_009",
               question_text: "The point $P(3, 5)$ lies on the curve $y = \\dfrac{1}{x-1} - \\dfrac{9}{x-5}$.\n\n**(i)** Find the $x$-coordinate of the point where the normal to the curve at $P$ intersects the $x$-axis. $\\quad$ **[5]**\n\n**(ii)** Find the $x$-coordinate of each of the stationary points on the curve and determine the nature of each stationary point, justifying your answers. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
-              id: "P1_DF_012",
+              id: "P1_DF_010",
               question_text: "The curve with equation $y = x^3 - 2x^2 + 5x$ passes through the origin.\n\n**(i)** Show that the curve has no stationary points. $\\quad$ **[3]**\n\n**(ii)** Denoting the gradient of the curve by $m$, find the stationary value of $m$ and determine its nature. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
-              id: "P1_DF_013",
+              id: "P1_DF_011",
               question_text: "A curve is such that $\\dfrac{d^2y}{dx^2} = \\dfrac{24}{x^3} - 4$. The curve has a stationary point at $P$ where $x = 2$.\n\n**(i)** State, with a reason, the nature of this stationary point. $\\quad$ **[1]**\n\n**(ii)** Find an expression for $\\dfrac{dy}{dx}$. $\\quad$ **[4]**\n\n**(iii)** Given that the curve passes through the point $(1, 13)$, find the coordinates of the stationary point $P$. $\\quad$ **[4]**",
               solution_image: ""
             }
@@ -240,6 +236,7 @@ const SYLLABUS = {
             {
               id: "P1_IN_001",
               question_text: "The point $A$ with $x$-coordinate $2$ lies on the curve $y = \\sqrt{4x+1}$. The tangent to the curve at $A$ meets the $x$-axis at a point.\n\nFind the exact area of the region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[10]**",
+              diagram_image: "P1_IN_001_d.svg",
               solution_image: ""
             },
             {
@@ -275,6 +272,7 @@ const SYLLABUS = {
             {
               id: "P1_IN_008",
               question_text: "The curve $y = 10 + 8x + x^2 - x^3$ has a maximum turning point at $A$.\n\n**(a)** Using calculus, show that the $x$-coordinate of $A$ is $2$. $\\quad$ **(3)**\n\nThe region $R$ is bounded by the curve, the $y$-axis and the straight line from the origin $O$ to $A$.\n\n**(b)** Using calculus, find the exact area of $R$. $\\quad$ **(8)**",
+              diagram_image: "P1_IN_008_d.svg",
               solution_image: ""
             },
             {
@@ -291,7 +289,19 @@ const SYLLABUS = {
               id: "P1_IN_011",
               question_text: "The curve $y = (3 - 2x)^3$ passes through the point $\\left(\\dfrac{1}{2}, 8\\right)$.\n\n**(i)** Find the equation of the tangent to the curve at $\\left(\\dfrac{1}{2}, 8\\right)$, giving your answer in the form $y = mx + c$. $\\quad$ **[5]**\n\n**(ii)** Find the area of the region enclosed by the curve, the tangent and the $y$-axis. $\\quad$ **[6]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_IN_012",
+              question_text: "The equation of a curve is such that $\\dfrac{d^2y}{dx^2} = 6x^2 + p$, where $p$ is a constant. The curve has minimum points at $(2, 3)$ and $(-2, 3)$.\n\nFind the coordinates of the other stationary point of the curve. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_013",
+              question_text: "The diagram shows the curve with equation $y = 3\\sqrt{2x+1}$, the normal to the curve at the point $R(4, 9)$, and the line $y = a$, where $a$ is a positive constant.\n\n**(a)** Find the area of the shaded region. $\\quad$ **[4]**\n\n**(b)** Find the exact value of $a$ for which the triangular area enclosed by the $y$-axis, the normal to the curve at $R$, and the line $y = a$ is equal to the area found in **(a)**. $\\quad$ **[7]**",
+              diagram_image: "P1_IN_013_d.svg",
+              solution_image: ""
+            },
+
           ],
 
           "Sequences & Series": [
@@ -412,7 +422,13 @@ const SYLLABUS = {
               id: "P1_FN_013",
               question_text: "The functions f and g are defined for all real values of $x$ by\n$$\\mathrm{f}(x) = (x-3)^2 + 2k \\quad \\text{and} \\quad \\mathrm{g}(x) = x - k$$\nwhere $k$ is a constant.\n\n**(a)** Given that the range of the composite function gf is $\\mathrm{gf}(x) \\geq 5$, find the value of $k$. $\\quad$ **[3]**\n\n**(b)** For this value of $k$, determine the range of the function fg. $\\quad$ **[3]**\n\nThe function h is defined for all real values of $x$ and is such that\n$$\\mathrm{gh}(x) = 35x^2 + 19$$\n\n**(c)** Find an expression for $\\mathrm{h}(x)$ and hence find an expression for $\\mathrm{gh}^{-1}(x)$. $\\quad$ **[4]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_FN_014",
+              question_text: "A function $f$ is defined by\n$$f(x) = px^2 - 2x + p + 4$$\nfor $x \\in \\mathbb{R}$, where $p$ is a constant.\n\n**(a)** Find the exact values of $p$ for which the equation $f(x) = 0$ has repeated roots. $\\quad$ **[3]**\n\nA function $g$ is defined by\n$$g(x) = px^2 - 2x + p + 4$$\nfor $x \\geqslant a$, where $p$ and $a$ are positive constants.\n\n**(b)(i)** Show that the least value of $a$ for which $g^{-1}$ exists is $\\dfrac{1}{p}$. $\\quad$ **[2]**\n\n**(ii)** Given that $p = 2$ and that $g^{-1}$ exists, find an expression for $g^{-1}(x)$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+
           ],
           "Circular Measure": [
             {
@@ -472,6 +488,7 @@ const SYLLABUS = {
             {
               id: "P1_CM_011",
               question_text: "The diagram below shows the sector of a circle with centre $O$. The radii $OA$ and $OB$ are each equal to $r$ cm, and the angle at the centre, $AOB$, is equal to $\\theta$ radians. The line $DC$ is perpendicular to the line $OB$.\n\nGiven that $BC : CO = 2 : 3$, show that the area of the shaded shape $ABCD$ is given by\n$$\\tfrac{1}{50}r^2(25\\theta - 9\\tan\\theta) \\text{ cm}^2$$\n$\\quad$ **[6]**",
+              diagram_image: "P1_CM_011_d.svg",
               solution_image: ""
             },
             {
@@ -553,12 +570,12 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
-              id: "P3_IN_009",
+              id: "P3_IN_010",
               question_text: "Find the exact value of\n$$\\int_{\\frac{1}{2}}^{\\frac{\\sqrt{3}}{2}} x\\tan^{-1}(2x)\\,dx$$",
               solution_image: ""
             },
             {
-              id: "P3_IN_010",
+              id: "P3_IN_011",
               question_text: "Using the substitution $u = e^{2x}$ and partial fractions, find the exact value of\n$$\\int_{\\ln 3}^{0} \\frac{2e^{2x}}{e^{4x} - 3e^{2x} + 2}\\,dx$$\ngiving your answer in the form $\\ln a$, where $a$ is a rational number in its simplest form. $\\quad$ **[9]**",
               solution_image: ""
             }
@@ -623,52 +640,52 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
-              id: "S1_PC_006",
+              id: "S1_PC_005",
               question_text: "The 7 letters of the word *MINIMUM* are written on 7 separate pieces of card.\n\nFour of these cards are picked at random, one after the other.\n\n**(a)** Determine the probability that all the cards will show a different letter. $\\quad$ **[3]**\n\n**(b)** If instead the four cards were arranged into a four letter word, in the order they were picked, determine the probability that the resulting arrangement will contain at least 2 cards with the letter $M$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_007",
+              id: "S1_PC_006",
               question_text: "Seven rectangular tiles, of which 3 are pink, 2 are blue and 2 are red, are placed in a straight line, next to each other.\n\nFind the number of arrangements where the pink tiles are next to each other and the blue tiles are **not** next to each other. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_008",
+              id: "S1_PC_007",
               question_text: "In a restaurant, tables are rectangular, each seating four people: two along each of the longer sides. Eight friends have booked two tables, $X$ and $Y$. Rajid, Sue and Tan are three of these friends.\n\n**(a)** The eight friends will be divided into two groups of 4, one for table $X$ and one for table $Y$. Find the number of ways this can be done if Rajid and Sue must sit at the same table as each other and Tan must sit at the other table. $\\quad$ **[3]**\n\nWhen the friends arrive, Rajid and Sue decide to sit at table $X$ on the same side as each other. Tan decides he does not mind at which table he sits.\n\n**(b)** Find the number of different seating arrangements for the 8 friends. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_009",
+              id: "S1_PC_008",
               question_text: "A security code consists of 2 letters followed by a 4-digit number. The letters are chosen from $\\{A, B, C, D, E\\}$ and the digits are chosen from $\\{1, 2, 3, 4, 5, 6, 7\\}$. No letter or digit may appear more than once.\n\n**(a)** How many different codes can be formed? $\\quad$ **[2]**\n\n**(b)** Find the number of different codes that include the letter $A$ or the digit $5$ or both. $\\quad$ **[3]**\n\n**(c)** A security code is formed at random. Find the probability that the code is DE followed by a number between 4500 and 5000. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_010",
+              id: "S1_PC_009",
               question_text: "The word CROCODILE contains 9 letters, including 2 Cs and 2 Os.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word CROCODILE. $\\quad$ **[1]**\n\n**(b)** Find the number of different arrangements in which there is a C at each end and the two Os are not together. $\\quad$ **[3]**\n\n**(c)** Four letters are selected from the 9 letters. Find the number of selections in which the number of Cs is **not** the same as the number of Os. $\\quad$ **[3]**\n\n**(d)** Find the number of ways in which the 9 letters can be divided into three groups, each containing three letters, if the two Cs must be in different groups. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_011",
+              id: "S1_PC_010",
               question_text: "The word HAPPINESS contains 9 letters, including 2 Ps and 2 Ss.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word HAPPINESS. $\\quad$ **[1]**\n\n**(b)** Find the number of different arrangements in which the first and last letters are not the same as each other. $\\quad$ **[3]**\n\n**(c)** Find the number of different arrangements in which the two Ps are together and there are exactly two letters between the two Ss. $\\quad$ **[4]**\n\n**(d)** The 9 letters are divided at random into a group of 5 and a group of 4. Find the probability that both Ps are in one group and both Ss are in the other group. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_012",
+              id: "S1_PC_011",
               question_text: "The word RECORDERS contains 9 letters, including 3 Rs and 2 Es.\n\n**(a)** How many different arrangements are there of the 9 letters in the word RECORDERS? $\\quad$ **[1]**\n\n**(b)** How many different arrangements are there in which there is an E at the beginning, an E at the end and the three Rs are **not** all together? $\\quad$ **[3]**\n\n**(c)** The 9 letters are divided at random into a group of 5 and a group of 4. Find the probability that the three Rs are in the same group. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_013",
+              id: "S1_PC_012",
               question_text: "The word DAFFODILS contains 9 letters, including 2 Ds and 2 Fs.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word DAFFODILS in which there is a D at each end and the two Fs are not next to each other. $\\quad$ **[3]**\n\n**(b)** Find the probability that a randomly chosen arrangement of the 9 letters in the word DAFFODILS has exactly 4 letters between the two Ds. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_014",
+              id: "S1_PC_013",
               question_text: "The word AMALGAMATE contains 10 letters, including 4 As and 2 Ms.\n\n**(a)** Find the number of different ways in which the 10 letters can be arranged so that there is an M at the beginning, an M at the end and no As are together. $\\quad$ **[3]**\n\n**(b)** Find the number of different ways in which the 10 letters can be arranged with exactly 3 letters between the two Ms. $\\quad$ **[3]**\n\n**(c)** Five letters are selected from the 10 letters. Find the number of different selections in which the five letters include at least one M and at least two As. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "S1_PC_015",
+              id: "S1_PC_014",
               question_text: "A darts club has 12 members: 7 men and 5 women.\n\n**(a)** Every Monday, a team of 4 is chosen at random. Find the probability that on a particular Monday the team consists of 1 man and 3 women. $\\quad$ **[3]**\n\n**(b)** Every Tuesday, the club chooses 3 teams of 4 to enter competitions in different towns. In how many different ways can the teams be chosen with no restrictions? $\\quad$ **[2]**\n\n**(c)** In how many different ways can the Tuesday teams be chosen if each team must contain at least 1 man and at least 1 woman? $\\quad$ **[3]**\n\n**(d)** The 7 men stand in a line for a photograph. Two of them are brothers, George and Harry. How many different arrangements are there in which there are exactly 2 men between George and Harry? $\\quad$ **[2]**",
               solution_image: ""
             }
@@ -765,27 +782,27 @@ const SYLLABUS = {
           ],
           "Normal Distribution": [
             {
-              id: "S1_ND_002",
+              id: "S1_ND_001",
               question_text: "The weights, $X$ grams, of bars of soap are normally distributed with mean 125 grams and standard deviation 4.2 grams.\n\n**(i)** Find the probability that a randomly chosen bar of soap weighs more than 128 grams. $\\quad$ **[3]**\n\n**(ii)** Find the value of $k$ such that $\\text{P}(k < X < 128) = 0.7465$. $\\quad$ **[4]**\n\n**(iii)** Five bars of soap are chosen at random. Find the probability that more than two of the bars each weigh more than 128 grams. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
-              id: "S1_ND_003",
+              id: "S1_ND_002",
               question_text: "The random variable $X$ is normally distributed with mean $\\mu$ and standard deviation $\\sigma$. It is given that\n$$\\text{P}(X < 37) = 0.2119 \\quad \\text{and} \\quad \\text{P}(X < 60) = 0.9332$$\n\n**(i)** Find the values of $\\mu$ and $\\sigma$. $\\quad$ **[5]**\n\n**(ii)** Find $\\text{P}(37 < X < 55)$. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "S1_ND_004",
+              id: "S1_ND_003",
               question_text: "The marks scored by candidates in an examination are normally distributed with mean 45 and standard deviation 10. Candidates are told they have passed only if their mark exceeds 48.\n\n**(i)** Find the probability that a randomly chosen candidate passes the examination. $\\quad$ **[2]**\n\n**(ii)** Find the probability that a randomly chosen candidate scores more than 52 marks, given that they passed. $\\quad$ **[4]**\n\n**(iii)** Find the value of $c$, where $c > 45$, such that $\\text{P}(X > c) = 0.2420$. $\\quad$ **[2]**\n\n**(iv)** The examination is taken by 200 candidates. Find the expected number of candidates who pass. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
-              id: "S1_ND_005",
+              id: "S1_ND_004",
               question_text: "A factory produces chocolate bars whose weights are normally distributed with mean 155 g and standard deviation 6 g. A random sample of 350 bars is chosen.\n\n**(a)** How many of these 350 bars would you expect to weigh between 148 g and 160 g? $\\quad$ **[4]**\n\nA second factory also produces chocolate bars whose weights are normally distributed with mean $\\mu$ g and standard deviation $\\sigma$ g. Tests show that 8% of bars weigh more than 114.0 g and 20% weigh less than 99.5 g.\n\n**(b)** Find the values of $\\mu$ and $\\sigma$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
-              id: "S1_ND_006",
+              id: "S1_ND_005",
               question_text: "The times taken, in minutes, to complete a particular task by employees at a large company are normally distributed with mean 32.2 and standard deviation 9.6.\n\n**(a)** Find the probability that a randomly chosen employee takes more than 28.6 minutes to complete the task. $\\quad$ **[3]**\n\n**(b)** 20% of employees take longer than $t$ minutes to complete the task. Find the value of $t$. $\\quad$ **[3]**\n\n**(c)** Find the probability that the time taken by a randomly chosen employee differs from the mean by less than 15.0 minutes. $\\quad$ **[4]**",
               solution_image: ""
             }
@@ -894,22 +911,22 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
-              id: "FP1_SR_010",
+              id: "FP1_SR_011",
               question_text: "**(a)** By considering $(2r+1)^3 - (2r-1)^3$, use the method of differences to prove that\n$$\\sum_{r=1}^{n} r^2 = \\tfrac{1}{6}n(n+1)(2n+1)$$\n$\\quad$ **[5]**\n\nLet $S_n = 1^2 + 3 \\times 2^2 + 3^2 + 3 \\times 4^2 + 5^2 + 3 \\times 6^2 + \\ldots + \\left(2 + (-1)^n\\right)n^2$.\n\n**(b)** Show that $S_{2n} = \\tfrac{1}{3}n(2n+1)(an+b)$, where $a$ and $b$ are integers to be determined. $\\quad$ **[3]**\n\n**(c)** State the value of $\\displaystyle\\lim_{n \\to \\infty} \\dfrac{S_{2n}}{n^3}$. $\\quad$ **[1]**",
               solution_image: ""
             },
             {
-              id: "FP1_SR_011",
+              id: "FP1_SR_012",
               question_text: "Let $S_n = \\displaystyle\\sum_{r=1}^{n} \\ln\\dfrac{r(r+2)}{(r+1)^2}$.\n\n**(a)** Using the method of differences, or otherwise, show that\n$$S_n = \\ln\\dfrac{n+2}{2(n+1)}$$\n$\\quad$ **[4]**\n\nLet $S = \\displaystyle\\sum_{r=1}^{\\infty} \\ln\\dfrac{r(r+2)}{(r+1)^2}$.\n\n**(b)** Find the least value of $n$ such that $S_n - S < 0.01$. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "FP1_SR_012",
+              id: "FP1_SR_013",
               question_text: "It is given that $S_n = \\displaystyle\\sum_{r=1}^{n} u_r$, where $u_r = x^{f(r)} - x^{f(r+1)}$ and $x > 0$.\n\n**(a)** Find $S_n$ in terms of $n$, $x$ and the function f. $\\quad$ **[2]**\n\n**(b)** Given that $\\mathrm{f}(r) = \\ln r$, find the set of values of $x$ for which the infinite series\n$$u_1 + u_2 + u_3 + \\cdots$$\nis convergent, and give the sum to infinity when this exists. $\\quad$ **[3]**\n\n**(c)** Given instead that $\\mathrm{f}(r) = 2\\log_x r$ where $x \\neq 1$, use standard results from the List of Formulae to find $\\displaystyle\\sum_{r=2}^{N} S_n$ in terms of $N$. Fully factorise your answer. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
-              id: "FP1_SR_013",
+              id: "FP1_SR_014",
               question_text: "**(a)** Use the formula for $\\tan(A-B)$ to show that\n$$\\tan^{-1}(2k+1) - \\tan^{-1}(2k-1) = \\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$$\n$\\quad$ **[3]**\n\n**(b)** Show that\n$$\\tan^{-1}\\!\\left(\\frac{1}{2(1)^2}\\right)+\\tan^{-1}\\!\\left(\\frac{1}{2(2)^2}\\right)+\\cdots+\\tan^{-1}\\!\\left(\\frac{1}{2n^2}\\right) = \\tan^{-1}\\!\\left(\\frac{n}{n+1}\\right)$$\n$\\quad$ **[5]**\n\n**(c)** Deduce the value of $\\displaystyle\\sum_{k=1}^{\\infty}\\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$. $\\quad$ **[2]**",
               solution_image: ""
             }
@@ -937,22 +954,22 @@ const SYLLABUS = {
               solution_image: ""
             },
             {
-              id: "FP1_RP_004",
+              id: "FP1_RP_005",
               question_text: "The cubic equation $x^3 + bx^2 + d = 0$ has roots $\\alpha$, $\\beta$, $\\gamma$, where $\\alpha = \\beta$ and $d \\neq 0$.\n\n**(a)** Show that $4b^3 + 27d = 0$. $\\quad$ **[5]**\n\n**(b)** Given that $2\\alpha^2 + \\gamma^2 = 3b$, find the values of $b$ and $d$. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
-              id: "FP1_RP_005",
+              id: "FP1_RP_006",
               question_text: "Obtain the sum of the squares of the roots of the equation\n$$x^4 + 3x^3 + 5x^2 + 12x + 4 = 0$$\n$\\quad$ **[2]**\n\nDeduce that this equation does not have more than 2 real roots. $\\quad$ **[3]**\n\nShow that, in fact, the equation has exactly 2 real roots in the interval $-3 < x < 0$. $\\quad$ **[5]**\n\nDenoting these roots by $\\alpha$ and $\\beta$, and the other 2 roots by $\\gamma$ and $\\delta$, show that $|\\gamma| = |\\delta| = \\dfrac{2}{\\sqrt{\\alpha\\beta}}$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
-              id: "FP1_RP_006",
+              id: "FP1_RP_007",
               question_text: "It is given that\n$$\\alpha + \\beta + \\gamma + \\delta = 2, \\quad \\alpha^2 + \\beta^2 + \\gamma^2 + \\delta^2 = 3, \\quad \\alpha^3 + \\beta^3 + \\gamma^3 + \\delta^3 = 4$$\n\n**(a)** Find the value of $\\alpha\\beta + \\alpha\\gamma + \\alpha\\delta + \\beta\\gamma + \\beta\\delta + \\gamma\\delta$. $\\quad$ **[2]**\n\n**(b)** Find the value of $\\alpha^2\\beta + \\alpha^2\\gamma + \\alpha^2\\delta + \\beta^2\\alpha + \\beta^2\\gamma + \\beta^2\\delta + \\gamma^2\\alpha + \\gamma^2\\beta + \\gamma^2\\delta + \\delta^2\\alpha + \\delta^2\\beta + \\delta^2\\gamma$. $\\quad$ **[3]**\n\n**(c)** It is given that $\\alpha$, $\\beta$, $\\gamma$, $\\delta$ are the roots of $6x^4 - 12x^3 + 3x^2 + 2x + 6 = 0$.\n\n$\\quad$ **(i)** Find the value of $\\alpha^4 + \\beta^4 + \\gamma^4 + \\delta^4$. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Find the value of $\\alpha^5 + \\beta^5 + \\gamma^5 + \\delta^5$. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
-              id: "FP1_RP_007",
+              id: "FP1_RP_008",
               question_text: "The quartic equation $x^4 + px^3 + qx^2 + rx + s = 0$, where $p$, $q$, $r$ and $s$ are constants, has roots $\\alpha$, $\\beta$, $\\gamma$ and $\\delta$. It is given that $\\alpha\\beta\\gamma\\delta = 1$.\n\n**(a)** State the value of $s$. $\\quad$ **[1]**\n\n**(b)** Find a quartic equation, with coefficients in terms of $p$, $q$ and $r$, whose roots are $\\alpha+1$, $\\beta+1$, $\\gamma+1$, $\\delta+1$. $\\quad$ **[4]**\n\n**(c)** Given also that $\\gamma+1 = -(\\alpha+1)$ and $\\delta+1 = -(\\beta+1)$, deduce the value of $p$ and show that $r = 2q - 8$. $\\quad$ **[4]**",
               solution_image: ""
             }
@@ -1008,7 +1025,13 @@ const SYLLABUS = {
               id: "FP1_PC_010",
               question_text: "The curve $C$ has polar equation $r^2 = \\tan 2\\theta$, where $0 \\leq \\theta \\leq \\dfrac{1}{4}\\pi$.\n\n**(a)** Sketch $C$ and state the greatest distance of a point on $C$ from the pole. $\\quad$ **[2]**\n\n**(b)** Find the exact value of the area of the region bounded by $C$ and the half-line $\\theta = \\dfrac{1}{8}\\pi$. $\\quad$ **[4]**\n\n**(c)** Show that $C$ has Cartesian equation $x^2 - 2xy - y^4 = 0$, given that $0 \\leq x \\leq \\cos\\left(\\dfrac{1}{4}\\pi\\right)$ and $0 \\leq y \\leq \\sin\\left(\\dfrac{1}{4}\\pi\\right)$. $\\quad$ **[4]**\n\n**(d)** Using your answer to **(b)**, deduce the exact value of the area bounded by $C$, the $x$-axis and the line $x = \\cos\\left(\\dfrac{1}{4}\\pi\\right)$. $\\quad$ **[2]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FP1_PC_011",
+              question_text: "The curve $C$ has polar equation $r^2 = \\dfrac{a}{1+\\tan 2\\theta}$ for $0 \\leqslant \\theta < \\tfrac{1}{4}\\pi$, where $a$ is a positive constant.\n\n**(a)** Show that, at the point on $C$ furthest from the initial line,\n$$\\cos\\theta - \\dfrac{\\sin\\theta}{\\cos 2\\theta(\\sin 2\\theta+\\cos 2\\theta)} = 0$$\nand verify that this equation has a root between $0.5$ and $0.6$. $\\quad$ **[6]**\n\n**(c)** Use the substitution $v = \\tan 2\\theta$ to show that the area enclosed by $C$ and the initial line is\n$$\\tfrac{1}{4}a\\int_0^{\\infty} \\dfrac{1}{(1+v)(1+v^2)}\\,dv$$\nand find the exact value of this area. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+
           ],
 
           "Vectors — Lines & Planes": [
@@ -1200,7 +1223,13 @@ const SYLLABUS = {
               id: "FS_CRV_004",
               question_text: "The continuous random variable $X$ has probability density function f given by\n$$f(x) = \\begin{cases} \\dfrac{3}{28}\\!\\left(e^{\\frac{1}{2}x} + 4e^{-\\frac{1}{2}x}\\right) & 0 \\leq x \\leq 2\\ln 3 \\\\ 0 & \\text{otherwise} \\end{cases}$$\n\n**(a)** Find the cumulative distribution function of $X$. $\\quad$ **[3]**\n\nThe random variable $Y$ is defined by $Y = e^{\\frac{1}{2}X}$.\n\n**(b)** Find the probability density function of $Y$. $\\quad$ **[3]**\n\n**(c)** Find the 30th percentile of $Y$. $\\quad$ **[3]**\n\n**(d)** Find $\\text{E}(Y^4)$. $\\quad$ **[2]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FS_CRV_005",
+              question_text: "The continuous random variable $X$ has cumulative distribution function $F$ given by\n$$F(x) = \\begin{cases} 0 & x < 0, \\\\ -\\dfrac{1}{108}x^3 + \\dfrac{1}{12}x^2 & 0 \\leqslant x \\leqslant 3, \\\\ -\\dfrac{1}{32}x^2 + \\dfrac{7}{16}x + a & 3 < x \\leqslant b, \\\\ 1 & x > b. \\end{cases}$$\n\n**(a)** Verify that the median of $X$ is $3$. $\\quad$ **[1]**\n\n**(b)** Show that $a = -\\dfrac{17}{32}$ and find the value of $b$. $\\quad$ **[3]**\n\n**(c)** Find the probability density function of $X$. $\\quad$ **[2]**\n\n**(d)** Find $E\\left(\\dfrac{1}{X}\\right)$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+
           ],
 
           "Discrete Random Variables (PGF)": [
@@ -1233,7 +1262,13 @@ const SYLLABUS = {
               id: "FS_DRV_006",
               question_text: "The discrete random variable $X$ has probability generating function $G_X(t)$ given by\n$$G_X(t) = \\frac{t}{(3-2t)^2}$$\n\n**(a)** Find $\\text{E}(X)$ and $\\text{Var}(X)$. $\\quad$ **[5]**\n\nThe discrete random variable $Y$ has probability generating function $G_Y(t)$ given by\n$$G_Y(t) = \\frac{t^2}{(3-2t)^2}$$\n\nThe random variable $Z$ is the sum of the random variables $X$ and $Y$.\n\n**(b)** Assuming $X$ and $Y$ are independent, find $\\text{P}(Z > 4)$. $\\quad$ **[5]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FS_DRV_007",
+              question_text: "The discrete random variable $X$ has probability generating function $G_X(t)$ defined by\n$$G_X(t) = \\dfrac{k}{t}(at+1)^2$$\nIt is given that $E(X) = \\dfrac{1}{3}$.\n\n**(a)** Show that $a = 2$ and find the value of $k$. $\\quad$ **[5]**\n\n**(b)** Find $\\text{Var}(X)$. $\\quad$ **[2]**\n\n**(c)** Three independent observations of $X$ are taken. The random variable $Y$ is the sum of these observations. Find $P(Y=0)$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+
           ],
 
           "Inference": [
@@ -1266,7 +1301,8 @@ const SYLLABUS = {
               id: "FS_IN_006",
               question_text: "Dev owns a small company which produces bottles of juice. He uses two machines, $X$ and $Y$, to fill empty bottles with juice. He chooses a random sample of 35 bottles filled by machine $X$ and a random sample of 60 bottles filled by machine $Y$. The volumes of juice, $x$ and $y$ respectively, measured in suitable units, are summarised by\n$$\\Sigma x = 30.8, \\quad \\Sigma x^2 = 29.0, \\quad \\Sigma y = 62.4, \\quad \\Sigma y^2 = 76.8$$\nDev claims that the mean volume of juice in bottles filled by machine $Y$ is greater than the mean volume of juice in bottles filled by machine $X$. A test at the $\\alpha\\%$ significance level suggests that there is sufficient evidence to support Dev's claim.\n\nFind the set of possible values of $\\alpha$. $\\quad$ **[9]**",
               solution_image: ""
-            }
+            },
+
           ],
           "Chi-squared Tests": [
             {
@@ -1283,7 +1319,13 @@ const SYLLABUS = {
               id: "FS_CS_003",
               question_text: "A researcher divides the Crimea River into 100 segments of equal area and counts the number of poisson (fish) in each segment. The following table shows the number of segments containing each possible number of fish.\n\n$$\\begin{array}{|l|c|c|c|c|c|c|c|}\\hline \\textbf{Number} & 0 & 1 & 2 & 3 & 4 & 5 & \\text{More than 5} \\\\\\hline \\textbf{Observed, } O_i & 20 & 26 & 22 & 12 & 10 & 6 & 4 \\\\\\hline\\end{array}$$\n\n**(a) (i)** Assuming that there were 4 segments with 6 poisson, show that an unbiased estimate for the mean number of poisson in a segment, $\\lambda$, is $\\lambda \\approx 2$. $\\quad$ **[2]**\n\n$\\quad$ **(ii)** The numbers of poisson are predicted to follow a Poisson distribution. Using the estimate from part **(a)(i)**, complete the expected frequencies and $\\dfrac{(O_i - E_i)^2}{E_i}$ values, then carry out a goodness of fit test at the 5% significance level. $\\quad$ **[8]**\n\n**(b) (i)** State one assumption made when modelling the numbers of poisson with a Poisson distribution. $\\quad$ **[1]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FS_CS_004",
+              question_text: "Three different bus companies, $A$, $B$ and $C$, record the reliability of their service. Each bus journey is recorded as being on time, late or cancelled. A reliable bus service is considered to be one that is on time. The records from a random sample of buses for each company are taken. These records are summarised in the table.\n\n$$\\begin{array}{l|ccc|c}\n & \\text{Company A} & \\text{Company B} & \\text{Company C} & \\text{Total} \\\\\\hline\n\\text{On time} & 7 & 22 & 20 & 49 \\\\\n\\text{Late} & 14 & 11 & 12 & 37 \\\\\n\\text{Cancelled} & 4 & 6 & 4 & 14 \\\\\\hline\n\\text{Total} & 25 & 39 & 36 & 100\n\\end{array}$$\n\n**(a)** Test at the $5\\%$ significance level whether the reliability of the service is independent of the bus company. $\\quad$ **[8]**\n\n**(b)** Further evidence indicates that one company may be particularly unreliable compared with the other two companies. Use your calculations in **(a)** to suggest which company this is likely to be. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+
           ],
           "Non-parametric Tests": [
             {
@@ -1300,7 +1342,13 @@ const SYLLABUS = {
               id: "FS_NP_003",
               question_text: "Taylor Slow and Sabrina Carpet are both singers. The album 'The Life Of a Slowgirl' is a sample of Taylor Slow's music consisting of 12 songs. The album 'Man's Worst Fiend' is a sample of Sabrina Carpet's music consisting of 13 songs. The view counts of the songs (in millions) are as follows.\n\n**Taylor Slow:** 354, 17, 44, 16, 9.6, 9.8, 10, 12.9, 12, 10.1, 7.5, 13\n\n**Sabrina Carpet:** 161, 72, 7.7, 6.7, 4.2, 16.1, 6.5, 22.1, 7.1, 4.3, 9.9, 8.9, 4.1\n\nThe 25 songs are ranked in increasing order, such that rank 1 is the lowest and rank 25 is the highest.\n\n**(a)** Use the Wilcoxon rank-sum test at the 5% significance level to test if Taylor Slow gets higher view counts than Sabrina Carpet. $\\quad$ **[10]**\n\n**(b)** Suggest one disadvantage of the nature of the samples taken. $\\quad$ **[1]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FS_NP_004",
+              question_text: "The manager of a village store is interested in the shopping habits of his customers. From previous records, the median number of items bought per customer was found to be $8$. The manager believes the median number of items bought per customer has increased. He selects a random sample of $15$ customers and records the number of items each customer buys at his store. The results, in increasing order, are:\n\n$6, 6, 7, 9, 9, 10, 15, 17, 17, 23, 26, 34, 40, 56, 74$\n\n**(a)** Suggest a reason why using a Wilcoxon signed-rank test to examine the manager's belief might not be appropriate in this situation. $\\quad$ **[1]**\n\n**(b)** Use a sign test at the $5\\%$ significance level to investigate the manager's belief. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+      
           ]
         }
       },
