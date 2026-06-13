@@ -73,7 +73,7 @@ const SYLLABUS = {
               question_text: "**(a)** Show that the equation $\\tan 2x = 5\\sin 2x$ can be written in the form\n$$(1 - 5\\cos 2x)\\sin 2x = 0$$\n$\\quad$ **(2)**\n\n**(b)** Hence solve, for $0 \\leq x \\leq 180°$,\n$$\\tan 2x = 5\\sin 2x$$\ngiving your answers to 1 decimal place where appropriate. $\\quad$ **(5)**",
               solution_image: ""
             },
-            
+
             {
               id: "P1_TR_004",
               question_text: "The function f is given by $\\mathrm{f}(x) = 4\\cos^4 x + \\cos^2 x - k$ for $0 \\leq x \\leq 2\\pi$, where $k$ is a constant.\n\n**(a)** Given that $k = 3$, find the exact solutions of the equation $\\mathrm{f}(x) = 0$. $\\quad$ **[5]**\n\n**(b)** Use the quadratic formula to show that, when $k > 5$, the equation $\\mathrm{f}(x) = 0$ has no solutions. $\\quad$ **[5]**",
@@ -1322,7 +1322,8 @@ const SYLLABUS = {
             },
             {
               id: "FS_CS_004",
-              question_text: "Three different bus companies, $A$, $B$ and $C$, record the reliability of their service. Each bus journey is recorded as being on time, late or cancelled. A reliable bus service is considered to be one that is on time. The records from a random sample of buses for each company are taken. These records are summarised in the table.\n\n$$\\begin{array}{l|ccc|c}\n & \\text{Company A} & \\text{Company B} & \\text{Company C} & \\text{Total} \\\\\\hline\n\\text{On time} & 7 & 22 & 20 & 49 \\\\\n\\text{Late} & 14 & 11 & 12 & 37 \\\\\n\\text{Cancelled} & 4 & 6 & 4 & 14 \\\\\\hline\n\\text{Total} & 25 & 39 & 36 & 100\n\\end{array}$$\n\n**(a)** Test at the $5\\%$ significance level whether the reliability of the service is independent of the bus company. $\\quad$ **[8]**\n\n**(b)** Further evidence indicates that one company may be particularly unreliable compared with the other two companies. Use your calculations in **(a)** to suggest which company this is likely to be. $\\quad$ **[2]**",
+              question_text: "Three different bus companies, $A$, $B$ and $C$, record the reliability of their service. Each bus journey is recorded as being on time, late or cancelled. A reliable bus service is considered to be one that is on time. The records from a random sample of buses for each company are taken. These records are summarised in the table.\n\n**(a)** Test at the $5\\%$ significance level whether the reliability of the service is independent of the bus company. $\\quad$ **[8]**\n\n**(b)** Further evidence indicates that one company may be particularly unreliable compared with the other two companies. Use your calculations in **(a)** to suggest which company this is likely to be. $\\quad$ **[2]**",
+              diagram_image: "FS_CS_004_d.svg",
               solution_image: ""
             },
 
@@ -1348,7 +1349,7 @@ const SYLLABUS = {
               question_text: "The manager of a village store is interested in the shopping habits of his customers. From previous records, the median number of items bought per customer was found to be $8$. The manager believes the median number of items bought per customer has increased. He selects a random sample of $15$ customers and records the number of items each customer buys at his store. The results, in increasing order, are:\n\n$6, 6, 7, 9, 9, 10, 15, 17, 17, 23, 26, 34, 40, 56, 74$\n\n**(a)** Suggest a reason why using a Wilcoxon signed-rank test to examine the manager's belief might not be appropriate in this situation. $\\quad$ **[1]**\n\n**(b)** Use a sign test at the $5\\%$ significance level to investigate the manager's belief. $\\quad$ **[6]**",
               solution_image: ""
             },
-      
+
           ]
         }
       },
