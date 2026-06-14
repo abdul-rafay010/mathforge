@@ -1,0 +1,55 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#070707"/>
+  
+  <!-- Subtle grid pattern -->
+  <g stroke="#1a1a1a" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+  </g>
+
+  <!-- Ghost equations -->
+  <text x="60" y="180" fill="#a8883a" fill-opacity="0.06" font-size="72" font-style="italic">∫f(x)dx</text>
+  <text x="750" y="140" fill="#a8883a" fill-opacity="0.06" font-size="56" font-style="italic">∑ nᵣ</text>
+  <text x="920" y="430" fill="#a8883a" fill-opacity="0.06" font-size="64" font-style="italic">d²y/dx²</text>
+  <text x="40" y="520" fill="#a8883a" fill-opacity="0.06" font-size="52" font-style="italic">r² = f(θ)</text>
+  <text x="600" y="580" fill="#a8883a" fill-opacity="0.06" font-size="48" font-style="italic">P(X=x)</text>
+
+  <!-- Gold border lines -->
+  <rect x="0" y="0" width="1200" height="4" fill="#a8883a"/>
+  <rect x="0" y="626" width="1200" height="4" fill="#a8883a"/>
+
+  <!-- Monogram circle -->
+  <circle cx="190" cy="315" r="110" fill="none" stroke="#a8883a" stroke-width="2"/>
+  <circle cx="190" cy="315" r="96" fill="none" stroke="#a8883a" stroke-width="0.8"/>
+  <text x="190" y="358" fill="#a8883a" font-size="110" font-style="italic" text-anchor="middle">M</text>
+
+  <!-- Vertical divider -->
+  <line x1="348" y1="120" x2="348" y2="510" stroke="#a8883a" stroke-width="1" opacity="0.4"/>
+
+  <!-- MATHFORGE wordmark -->
+  <text x="400" y="270" fill="#e4ddd0" font-size="88" letter-spacing="6" font-variant="small-caps">MATHFORGE</text>
+
+  <!-- Gold underline -->
+  <rect x="400" y="286" width="760" height="1.5" fill="#a8883a" opacity="0.6"/>
+
+  <!-- Tagline line 1 -->
+  <text x="402" y="345" fill="#a8883a" font-size="26" letter-spacing="1" font-style="italic">Cambridge A-Level Mathematics</text>
+  <!-- Tagline line 2 -->
+  <text x="402" y="382" fill="#a8883a" font-size="26" letter-spacing="1" font-style="italic">&amp; Further Mathematics</text>
+
+  <!-- Sub tagline -->
+  <text x="402" y="445" fill="#e4ddd0" fill-opacity="0.45" font-size="20" letter-spacing="1">Free · Curated · Built for students who want to understand, not just pass</text>
+
+</svg>
