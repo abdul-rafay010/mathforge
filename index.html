@@ -4,24 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MathForge — Cambridge A-Level Maths & Further Maths Problem Bank</title>
-
-  <!-- SEO -->
-  <meta name="description" content="MathForge is a free, curated Cambridge A-Level Mathematics and Further Mathematics problem bank for students. 243 problems across Pure, Statistics, Further Pure and Further Statistics.">
-  <meta name="keywords" content="Cambridge A-Level Maths, Further Mathematics, 9709, 9231, problem bank, Pakistan, Gujranwala, past papers, Pure Mathematics, Statistics, Further Pure">
-  <meta name="author" content="Muhammad Abdul Rafay">
-  <meta name="robots" content="index, follow">
-  <!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="MathForge — Cambridge A-Level Maths &amp; Further Maths Problem Bank">
-  <meta property="og:description" content="Free, curated problem bank for Cambridge A-Level Mathematics (9709) and Further Mathematics (9231). Built for students who want to understand mathematics, not just pass it.">
-  <meta property="og:image" content="images/og-preview.svg">
-
-  <!-- Twitter/X card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MathForge — Cambridge A-Level Maths &amp; Further Maths Problem Bank">
-  <meta name="twitter:description" content="Free, curated problem bank for Cambridge A-Level Mathematics (9709) and Further Mathematics (9231). Built for students who want to understand mathematics, not just pass it.">
-  <meta name="twitter:image" content="images/og-preview.svg">
+  <title>MathForge</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
@@ -1461,7 +1444,20 @@
    WEEKLY CHALLENGE STRIP
 ════════════════════════════════════════════════ */
 
-    #challenge-strip {
+    .challenge-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    @media(max-width:540px) {
+      .challenge-pair {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .challenge-strip {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1469,12 +1465,11 @@
       border-left: 2px solid var(--gold2);
       background: var(--ink2);
       padding: 15px 22px;
-      margin-bottom: 48px;
       cursor: pointer;
       transition: background .18s, border-color .18s;
     }
 
-    #challenge-strip:hover {
+    .challenge-strip:hover {
       background: var(--ink3);
       border-left-color: var(--gold);
     }
@@ -1542,12 +1537,12 @@
       transition: letter-spacing .18s;
     }
 
-    #challenge-strip:hover .cs-arrow {
+    .challenge-strip:hover .cs-arrow {
       letter-spacing: .26em;
     }
 
     @media (max-width: 600px) {
-      #challenge-strip {
+      .challenge-strip {
         padding: 13px 16px;
         gap: 12px;
       }
@@ -1949,6 +1944,354 @@
         display: none;
       }
     }
+
+    /* ══════════════════════════════════════════
+       PRACTICE MODE — builder, session, review
+    ══════════════════════════════════════════ */
+
+    .test-intro {
+      margin-bottom: 28px;
+    }
+
+    .test-intro .home-sub {
+      margin-top: 8px;
+    }
+
+    .test-builder-panel {
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      padding: 28px 26px;
+      margin-bottom: 24px;
+    }
+
+    .tb-section {
+      margin-bottom: 26px;
+    }
+
+    .tb-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .tb-label {
+      font-family: var(--sc);
+      font-size: .62rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .tb-group-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      margin-top: 14px;
+    }
+
+    .tb-group-head:first-child {
+      margin-top: 0;
+    }
+
+    .tb-group-name {
+      font-family: var(--mono);
+      font-size: .64rem;
+      letter-spacing: .04em;
+      color: var(--parchment);
+      cursor: pointer;
+    }
+
+    .tb-topic-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      padding-left: 21px;
+      margin-bottom: 4px;
+    }
+
+    .tb-topic-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .tb-topic-item input[type="checkbox"],
+    .tb-group-head input[type="checkbox"] {
+      width: 13px;
+      height: 13px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .tb-topic-label {
+      font-family: var(--mono);
+      font-size: .62rem;
+      color: var(--parchment2);
+      cursor: pointer;
+    }
+
+    .tb-diff-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .tb-diff-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+    }
+
+    .tb-diff-item input[type="checkbox"] {
+      width: 13px;
+      height: 13px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .tb-diff-label {
+      font-family: var(--mono);
+      font-size: .66rem;
+      color: var(--parchment2);
+      cursor: pointer;
+    }
+
+    .tb-count-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .tb-count-input {
+      background: var(--ink3);
+      border: 1px solid var(--rule2);
+      color: var(--parchment);
+      font-family: var(--mono);
+      font-size: .82rem;
+      padding: 8px 12px;
+      width: 90px;
+      text-align: center;
+    }
+
+    .tb-count-input:focus {
+      outline: none;
+      border-color: var(--gold2);
+    }
+
+    .tb-match-text {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--parchment3);
+    }
+
+    .tb-match-text.tb-match-zero {
+      color: #a85a3a;
+    }
+
+    .tb-summary {
+      background: var(--ink3);
+      border: 1px solid var(--rule2);
+      padding: 16px 20px;
+      margin-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tb-summary-text {
+      font-family: var(--mono);
+      font-size: .66rem;
+      color: var(--parchment2);
+      letter-spacing: .02em;
+    }
+
+    .tb-summary-text strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .tb-generate-btn {
+      background: transparent;
+      border: 1px solid var(--gold2);
+      color: var(--gold);
+      font-family: var(--sc);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 13px 30px;
+      cursor: pointer;
+      transition: all .25s var(--ease);
+      width: 100%;
+      margin-top: 18px;
+    }
+
+    .tb-generate-btn:hover:not(:disabled) {
+      background: var(--gold3);
+      border-color: var(--gold);
+    }
+
+    .tb-generate-btn:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    /* ── Session ── */
+
+    .test-timer-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--ink2);
+      border-bottom: 1px solid var(--gold3);
+      padding: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .tt-left {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .tt-eyebrow {
+      font-family: var(--sc);
+      font-size: .58rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold2);
+    }
+
+    .tt-clock {
+      font-family: var(--mono);
+      font-size: 1.3rem;
+      color: var(--parchment);
+      letter-spacing: .02em;
+      min-width: 64px;
+    }
+
+    .tt-clock.tt-warning { color: #c97b4a; }
+
+    .tt-clock.tt-critical {
+      color: #c14c3a;
+      animation: tt-pulse 1s infinite;
+    }
+
+    @keyframes tt-pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: .4; }
+    }
+
+    .tt-submit-btn {
+      background: transparent;
+      border: 1px solid var(--gold2);
+      color: var(--gold);
+      font-family: var(--sc);
+      font-size: .62rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      cursor: pointer;
+      transition: all .25s var(--ease);
+    }
+
+    .tt-submit-btn:hover { background: var(--gold3); }
+
+    .ts-question-card {
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      padding: 26px 24px;
+      margin-bottom: 22px;
+    }
+
+    .ts-q-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .ts-q-number {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--gold2);
+      letter-spacing: .04em;
+    }
+
+    .ts-q-marks {
+      font-family: var(--mono);
+      font-size: .62rem;
+      color: var(--parchment3);
+    }
+
+    /* ── Review ── */
+
+    .test-review-summary {
+      background: var(--ink2);
+      border: 1px solid var(--gold3);
+      padding: 24px 26px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: space-between;
+    }
+
+    .trs-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .trs-stat-label {
+      font-family: var(--sc);
+      font-size: .56rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold2);
+    }
+
+    .trs-stat-value {
+      font-family: var(--mono);
+      font-size: 1rem;
+      color: var(--parchment);
+    }
+
+    .tr-new-test-btn {
+      background: transparent;
+      border: 1px solid var(--gold2);
+      color: var(--gold);
+      font-family: var(--sc);
+      font-size: .64rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      cursor: pointer;
+      transition: all .25s var(--ease);
+      margin-top: 30px;
+    }
+
+    .tr-new-test-btn:hover { background: var(--gold3); }
+
+    @media (max-width: 640px) {
+      .test-timer-bar {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .tb-topic-grid { padding-left: 0; }
+    }
   </style>
 </head>
 
@@ -1971,6 +2314,7 @@
         <div class="masthead-title">MathForge</div>
       </div>
       <div class="masthead-right">
+        <span class="masthead-link" onclick="goTestBuilder()">Practice Mode</span>
         <span class="masthead-link" onclick="goArticles()">Essays</span>
         <div class="masthead-ornament">∂ · ∫ · ∑</div>
       </div>
@@ -1990,8 +2334,11 @@
 
       <div class="course-pair" id="course-pair"></div>
 
-      <!-- WEEKLY CHALLENGE STRIP — rendered by buildQOTW() -->
-      <div id="challenge-strip" onclick="" role="button" tabindex="0"></div>
+      <!-- WEEKLY CHALLENGE STRIPS — rendered by buildQOTW() -->
+      <div class="challenge-pair">
+        <div class="challenge-strip" id="challenge-strip-9709" onclick="" role="button" tabindex="0"></div>
+        <div class="challenge-strip" id="challenge-strip-9231" onclick="" role="button" tabindex="0"></div>
+      </div>
 
       <div class="ornament-rule"><span class="ornament-glyph">∞</span></div>
 
@@ -2104,6 +2451,78 @@
 
     </div>
 
+    <!-- ═══════════════════════════
+       PRACTICE MODE — BUILDER
+  ═══════════════════════════ -->
+    <div class="screen" id="s-test-builder">
+
+      <div class="test-intro">
+        <div class="screen-title">Build a <em>Practice Mode</em></div>
+        <div class="home-sub">Choose your topics, set the difficulty mix, and sit a timed paper drawn from the bank.</div>
+      </div>
+
+      <div class="test-builder-panel">
+
+        <div class="tb-section">
+          <span class="tb-label">Topics</span>
+          <div id="tb-topic-tree"></div>
+        </div>
+
+        <div class="tb-section">
+          <span class="tb-label">Difficulty</span>
+          <div class="tb-diff-row" id="tb-diff-row"></div>
+        </div>
+
+        <div class="tb-section">
+          <span class="tb-label">Question Count</span>
+          <div class="tb-count-row">
+            <input type="number" class="tb-count-input" id="tb-count" min="1" value="10" onchange="updateTBSummary()" oninput="updateTBSummary()">
+            <span class="tb-match-text" id="tb-match-text">— select topics to begin —</span>
+          </div>
+        </div>
+
+        <div class="tb-summary" id="tb-summary" style="display:none">
+          <span class="tb-summary-text" id="tb-summary-text"></span>
+        </div>
+
+        <button class="tb-generate-btn" id="tb-generate-btn" onclick="generateTest()" disabled>Generate Session</button>
+
+      </div>
+
+    </div>
+
+    <!-- ═══════════════════════════
+       PRACTICE MODE — SESSION
+  ═══════════════════════════ -->
+    <div class="screen" id="s-test-session">
+
+      <div class="test-timer-bar">
+        <div class="tt-left">
+          <span class="tt-eyebrow">Time Remaining</span>
+          <span class="tt-clock" id="tt-clock">00:00</span>
+        </div>
+        <button class="tt-submit-btn" onclick="confirmSubmitTest()">Submit</button>
+      </div>
+
+      <div id="ts-question-stack"></div>
+
+    </div>
+
+    <!-- ═══════════════════════════
+       PRACTICE MODE — REVIEW
+  ═══════════════════════════ -->
+    <div class="screen" id="s-test-review">
+
+      <div class="screen-title">Session <em>Review</em></div>
+
+      <div class="test-review-summary" id="tr-summary"></div>
+
+      <div id="tr-question-stack"></div>
+
+      <button class="tr-new-test-btn" onclick="goTestBuilder()">Build Another Session</button>
+
+    </div>
+
     <!-- FOOTER -->
     <div id="footer">
       <div class="footer-left">MathForge &ensp;·&ensp; Cambridge A-Level</div>
@@ -2138,6 +2557,9 @@
       if (d.screen === 'topic') { goTopic(d.course, d.section, d.topic, d.probIndex || 0, true); return; }
       if (d.screen === 'articles') { goArticles(true); return; }
       if (d.screen === 'article') { goArticle(d.articleId, true); return; }
+      if (d.screen === 'test-builder') { goTestBuilder(true); return; }
+      if (d.screen === 'test-session') { goTestBuilder(true); return; }
+      if (d.screen === 'test-review') { goTestBuilder(true); return; }
     });
 
     // ══════════════════════════════════════════════════
@@ -2964,10 +3386,10 @@ Furthermore, this effort illustrates my expectations for the role of math in my 
 Conclusively, integration convinced me that every problem I solve or write is part of a larger whole. Calculus formulas weren't the end of my path from aggravation to fascination — instead, they led to action. My response to that last query is MathForge: I used what I learned to create something tangible. And if I can accomplish that, perhaps the next students will as well.`
       },
       {
-        id: 'the-only-candidate-in-the-district',
+        id: 'the-only-candidate-in-the-Hall',
         title: 'The Only Candidate in the District',
         meta: 'MathForge Essays · 2026',
-        description: 'On sitting alone in an examination hall in Gujranwala, the taboo of Further Mathematics in Pakistan, and why the subject everyone avoids is the one that changes everything.',
+        description: 'The taboo of Further Mathematics in Pakistan, and why the subject everyone avoids is the one that changes everything.',
         read_time: '7 min read',
         body_text: `There is a particular kind of loneliness that comes from sitting in an examination hall where every invigilator in the room is staring at you — not because you have done something wrong, but because they have never seen someone attempt this paper before. That was me, earlier this year, the only Further Mathematics candidate in the entire district of Gujranwala, with invigilators gathering around my desk, genuinely curious about what subject could possibly require its own separate hall.
 
@@ -2981,13 +3403,13 @@ What makes this doubly frustrating is what the numbers actually say. In 2025, 58
 
 Meanwhile, the universities that matter most treat Further Mathematics not as an optional extra but as a baseline expectation. Oxford requires A*A* in Mathematics and Further Mathematics. Cambridge lists Further Mathematics as a required A-Level. Imperial College London requires A*A* in both. Further Mathematics is also required for undergraduate Mathematics at UCL and Warwick, and expected for Mathematics combined degrees at LSE. The subject that my district treats as untouchable is the one that unlocks entry to some of the finest universities in the world.
 
-Most people in my position would have moved on. I found Sir Farooq Ahmed Siddiqui instead.
+Most people in my position would have moved on. I found Sir Farough Ahmed Siddiqui instead.
 
 ### The Teacher from Karachi
 
-Sir Farooq is based in Karachi — a different city, a different pace, a slightly different timezone. He has decades of teaching experience and the kind of calm authority that comes from having watched hundreds of students panic about mathematics and emerge from the other side. He did not just teach me Further Maths. Every week, without fail, he sent me a message. A quote. A small push. His words were always some version of the same thing: there are only two things you need — consistency and motivation. Discipline is the key.
+Sir Farough is based in Karachi — a different city, a different pace, a slightly different timezone. He has decades of teaching experience and the kind of calm authority that comes from having watched hundreds of students panic about mathematics and emerge from the other side. He did not just teach me Further Maths. Every week, without fail, he sent me a message. A quote. A small push. His words were always some version of the same thing: there are only two things you need — consistency and motivation. Discipline is the key.
 
-At the time, I sometimes read those messages quickly and moved on. Looking back, they were holding me together during the months when I was genuinely unsure whether I had made the right decision. A good teacher changes your relationship with difficulty. Sir Farooq did not make Further Mathematics easier. He made it feel survivable — and then, slowly, worth it.
+At the time, I sometimes read those messages quickly and moved on. Looking back, they were holding me together during the months when I was genuinely unsure whether I had made the right decision. A good teacher changes your relationship with difficulty. Sir Farough did not make Further Mathematics easier. He made it feel survivable — and then, slowly, worth it.
 
 ### The Topic That Changed Everything
 
@@ -3005,7 +3427,7 @@ The taboo around Further Mathematics in Pakistan is not constructed from evidenc
 
 But the consequences of that fear are real. A student in Gujranwala who avoids Further Mathematics because of its reputation is not just closing a door to a difficult subject. They are closing the door to the degrees that require it, the universities that value it, and the careers that build on it — in quantitative finance, in engineering, in research, in any field where mathematical fluency separates those who understand what is happening from those who merely observe it.
 
-I do not think the students in my district lack ability. I think they lack access — to teachers like Sir Farooq, to resources that make the material approachable, to proof that someone from a context like theirs has walked this road and come out the other side.
+I do not think the students in my district lack ability. I think they lack access — to teachers like Sir Farough, to resources that make the material approachable, to proof that someone from a context like theirs has walked this road and come out the other side.
 
 ### What MathForge Is Actually For
 
@@ -3023,7 +3445,7 @@ Not the loneliness of it. The visibility.
 
 Every student who sees that it is possible for someone from Gujranwala to attempt Further Mathematics — and finish — is a student who has slightly less reason to believe the mythology. That is a small thing. But small things, repeated consistently, are how reputations change.
 
-Sir Farooq was right about the discipline. The polar coordinates were worth it. And if you are reading this and you are considering Further Mathematics — or you are already in it and wondering whether you made the wrong decision — you did not. You just need consistency, motivation, and the knowledge that someone sat alone in that hall and found, on the other side, that it was entirely worth the attempt.`
+Sir Farough was right about the discipline. The polar coordinates were worth it. And if you are reading this and you are considering Further Mathematics — or you are already in it and wondering whether you made the wrong decision — you did not. You just need consistency, motivation, and the knowledge that someone sat alone in that hall and found, on the other side, that it was entirely worth the attempt.`
       }
     ];
 
@@ -3093,8 +3515,9 @@ Sir Farooq was right about the discipline. The polar coordinates were worth it. 
     // ══════════════════════════════════════════════════
     //  QUESTION OF THE WEEK
     //  ─────────────────────────────────────────────────
-    //  HOW TO UPDATE: change only the three fields below.
-    //  id   → any question ID from questions.js
+    //  HOW TO UPDATE: change only the three fields under
+    //  each subject's key below.
+    //  id   → any question ID from that subject in questions.js
     //  week → display label e.g. "O/N 2025 · Week 3"
     //  hint → a one-sentence nudge (keep it brief)
     //  Everything else (question text, why, source)
@@ -3102,9 +3525,16 @@ Sir Farooq was right about the discipline. The polar coordinates were worth it. 
     // ══════════════════════════════════════════════════
 
     const QOTW = {
-      id: 'P1_CG_004',
-      week: 'Launch Edition',
-      hint: 'Find A and B first by setting x = 0. The tangent at any point is perpendicular to the radius — write both tangent equations and solve simultaneously.'
+      "9709": {
+        id: 'P1_CG_004',
+        week: 'Launch Edition',
+        hint: 'Find A and B first by setting x = 0. The tangent at any point is perpendicular to the radius — write both tangent equations and solve simultaneously.'
+      },
+      "9231": {
+        id: 'FP1_RF_001',
+        week: 'Launch Edition',
+        hint: 'Read the asymptotes off first — they hand you the denominator and the slant behaviour of the numerator directly. Build the equation from those before touching the point.'
+      }
     };
 
     // Scan SYLLABUS for a question by ID.
@@ -3124,40 +3554,42 @@ Sir Farooq was right about the discipline. The polar coordinates were worth it. 
     }
 
     function buildQOTW() {
-      const el = document.getElementById('challenge-strip');
-      if (!el) return;
+      Object.entries(QOTW).forEach(([courseCode, cfg]) => {
+        const el = document.getElementById(`challenge-strip-${courseCode}`);
+        if (!el) return;
 
-      const found = findQuestionById(QOTW.id);
-      if (!found) { el.style.display = 'none'; return; }
+        const found = findQuestionById(cfg.id);
+        if (!found) { el.style.display = 'none'; return; }
 
-      const { course, section, topic, index, q } = found;
-      const navFn = `goTopic('${course}','${section}','${topic}',${index})`;
+        const { section, topic, index, q } = found;
+        const navFn = `goTopic('${courseCode}','${section}','${topic}',${index})`;
 
-      // Count marks from question text — look for trailing [n] patterns
-      const allMarks = (q.question_text || '').match(/\[(\d+)\]/g) || [];
-      const totalMarks = allMarks.reduce((s, m) => s + parseInt(m.replace(/\D/g, '')), 0);
-      const marksLabel = totalMarks ? `[${totalMarks} marks]` : '';
+        // Count marks from question text — look for trailing [n] patterns
+        const allMarks = (q.question_text || '').match(/\[(\d+)\]/g) || [];
+        const totalMarks = allMarks.reduce((s, m) => s + parseInt(m.replace(/\D/g, '')), 0);
+        const marksLabel = totalMarks ? `[${totalMarks} marks]` : '';
 
-      // Difficulty badge (optional)
-      const diffHtml = q.difficulty
-        ? `<span class="diff-badge diff-${q.difficulty}">${q.difficulty}</span>`
-        : '';
+        // Difficulty badge (optional)
+        const diffHtml = q.difficulty
+          ? `<span class="diff-badge diff-${q.difficulty}">${q.difficulty}</span>`
+          : '';
 
-      el.innerHTML = `
+        el.innerHTML = `
         <div class="cs-left">
-          <span class="cs-eyebrow">Weekly Challenge</span>
+          <span class="cs-eyebrow">${courseCode} · Weekly Challenge</span>
           <div class="cs-divider"></div>
           <span class="cs-source">${section} · ${topic}</span>
           ${diffHtml}
           ${marksLabel ? `<span class="cs-marks">${marksLabel}</span>` : ''}
-          <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);letter-spacing:.06em">${QOTW.week}</span>
+          <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);letter-spacing:.06em">${cfg.week}</span>
         </div>
         <div class="cs-right">
           <span class="cs-arrow">Attempt &nbsp;→</span>
         </div>`;
 
-      el.setAttribute('onclick', navFn);
-      el.addEventListener('keydown', e => { if (e.key === 'Enter') eval(navFn); });
+        el.setAttribute('onclick', navFn);
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') eval(navFn); });
+      });
     }
 
     function toggleQOTWHint() { } // reserved
@@ -3169,6 +3601,327 @@ Sir Farooq was right about the discipline. The polar coordinates were worth it. 
       const open = body.classList.contains('open');
       body.classList.toggle('open', !open);
       btn.classList.toggle('open', !open);
+    }
+
+    // ══════════════════════════════════════════════════
+    //  PRACTICE MODE GENERATOR
+    // ══════════════════════════════════════════════════
+    //
+    // Timing: 1.5 min/mark — matches CAIE pacing
+    // (Paper 1: 75 marks / 110 min ≈ 1.47 min/mark)
+    // Solutions locked during session, fully revealed on review.
+    // No auto-grading — self-check against revealed solution.
+
+    let TEST = {
+      questions: [],
+      totalMarks: 0,
+      durationSeconds: 0,
+      remainingSeconds: 0,
+      timerHandle: null,
+      submitted: false
+    };
+
+    function extractMarks(text) {
+      const matches = (text || '').match(/\[(\d+)\]/g) || [];
+      return matches.reduce((s, m) => s + parseInt(m.replace(/\D/g, ''), 10), 0);
+    }
+
+    function escapeAttr(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+    }
+
+    function getTopicGroups() {
+      const groups = [];
+      for (const [course, cData] of Object.entries(SYLLABUS)) {
+        for (const [secCode, sec] of Object.entries(cData.sections)) {
+          const items = [];
+          for (const [topic, qs] of Object.entries(sec.topics)) {
+            if (qs.length) items.push({ course, secCode, topic, count: qs.length });
+          }
+          if (items.length) groups.push({ course, secCode, secName: sec.name, items });
+        }
+      }
+      return groups;
+    }
+
+    function goTestBuilder(fromPop) {
+      S = { course: null, section: null, topic: null, probIndex: 0 };
+      crumb([
+        { label: 'Home', fn: 'goHome()' },
+        { label: 'Practice Mode' }
+      ]);
+      buildTestBuilderUI();
+      show('test-builder');
+      if (!fromPop) pushState({ screen: 'test-builder' });
+    }
+
+    function buildTestBuilderUI() {
+      const groups = getTopicGroups();
+      const treeEl = document.getElementById('tb-topic-tree');
+
+      treeEl.innerHTML = groups.map(group => {
+        const groupId = 'tbg-' + group.course + '-' + group.secCode;
+        const topicCbs = group.items.map(t => {
+          const cbId = 'tbt-' + t.course + '-' + t.secCode + '-' + t.topic.replace(/[^A-Za-z0-9]/g, '');
+          return `<div class="tb-topic-item">
+            <input type="checkbox" id="${cbId}" data-course="${t.course}" data-sec="${t.secCode}" data-topic="${escapeAttr(t.topic)}" onchange="updateTBSummary()">
+            <label class="tb-topic-label" for="${cbId}">${t.topic} (${t.count})</label>
+          </div>`;
+        }).join('');
+        return `
+          <div class="tb-group-head">
+            <input type="checkbox" id="${groupId}" onchange="toggleGroupCheckboxes('${groupId}')">
+            <label class="tb-group-name" for="${groupId}">${group.secCode} — ${group.secName}</label>
+          </div>
+          <div class="tb-topic-grid" data-group="${groupId}">${topicCbs}</div>`;
+      }).join('');
+
+      const diffEl = document.getElementById('tb-diff-row');
+      const diffs = [
+        { key: 'standard', label: 'Standard' },
+        { key: 'hard',     label: 'Hard' },
+        { key: 'insight',  label: 'Insight' },
+        { key: 'unrated',  label: 'Unrated' }
+      ];
+      diffEl.innerHTML = diffs.map(d => `
+        <div class="tb-diff-item">
+          <input type="checkbox" id="tbd-${d.key}" checked onchange="updateTBSummary()">
+          <label class="tb-diff-label" for="tbd-${d.key}">${d.label}</label>
+        </div>`).join('');
+
+      document.getElementById('tb-count').value = 10;
+      updateTBSummary();
+    }
+
+    function toggleGroupCheckboxes(groupId) {
+      const groupCb = document.getElementById(groupId);
+      const grid = document.querySelector('.tb-topic-grid[data-group="' + groupId + '"]');
+      if (!grid) return;
+      grid.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.checked = groupCb.checked; });
+      updateTBSummary();
+    }
+
+    function getSelectedFilters() {
+      const topicChecks = Array.from(document.querySelectorAll('#tb-topic-tree .tb-topic-grid input[type="checkbox"]:checked'));
+      const selectedTopics = topicChecks.map(cb => ({
+        course: cb.dataset.course,
+        sec: cb.dataset.sec,
+        topic: cb.dataset.topic
+      }));
+      const diffKeys = ['standard', 'hard', 'insight', 'unrated'];
+      const selectedDiffs = diffKeys.filter(k => {
+        const el = document.getElementById('tbd-' + k);
+        return el && el.checked;
+      });
+      return { selectedTopics, selectedDiffs };
+    }
+
+    function getMatchingQuestions() {
+      const { selectedTopics, selectedDiffs } = getSelectedFilters();
+      if (!selectedTopics.length || !selectedDiffs.length) return [];
+      const topicSet = new Set(selectedTopics.map(t => t.course + '|' + t.sec + '|' + t.topic));
+      const diffSet  = new Set(selectedDiffs);
+      const pool = [];
+      for (const [course, cData] of Object.entries(SYLLABUS)) {
+        for (const [secCode, sec] of Object.entries(cData.sections)) {
+          for (const [topic, qs] of Object.entries(sec.topics)) {
+            if (!topicSet.has(course + '|' + secCode + '|' + topic)) continue;
+            qs.forEach(q => {
+              const tag = q.difficulty || 'unrated';
+              if (diffSet.has(tag)) pool.push(q);
+            });
+          }
+        }
+      }
+      return pool;
+    }
+
+    function updateTBSummary() {
+      const pool = getMatchingQuestions();
+      const matchText  = document.getElementById('tb-match-text');
+      const countInput = document.getElementById('tb-count');
+      const genBtn     = document.getElementById('tb-generate-btn');
+      const summaryBox = document.getElementById('tb-summary');
+      const summaryText= document.getElementById('tb-summary-text');
+
+      if (!pool.length) {
+        matchText.textContent = '— select topics to begin —';
+        matchText.classList.remove('tb-match-zero');
+        genBtn.disabled = true;
+        summaryBox.style.display = 'none';
+        return;
+      }
+
+      matchText.textContent = pool.length + (pool.length === 1 ? ' question matches' : ' questions match') + ' your filters';
+      matchText.classList.remove('tb-match-zero');
+
+      let count = parseInt(countInput.value, 10) || 1;
+      count = Math.max(1, Math.min(count, pool.length));
+      countInput.max   = pool.length;
+      countInput.value = count;
+
+      const avgMarks  = pool.reduce((s, q) => s + extractMarks(q.question_text), 0) / pool.length;
+      const estMarks  = Math.round(avgMarks * count);
+      const estMinutes= Math.max(10, Math.round(estMarks * 1.5));
+
+      summaryBox.style.display = 'flex';
+      summaryText.innerHTML = '<strong>' + count + '</strong> questions &nbsp;·&nbsp; approx. <strong>' + estMarks + '</strong> marks &nbsp;·&nbsp; approx. <strong>' + estMinutes + ' min</strong> (1.5 min / mark — Cambridge pacing)';
+      genBtn.disabled = false;
+    }
+
+    function shuffleArray(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function generateTest() {
+      const pool = getMatchingQuestions();
+      if (!pool.length) return;
+      let count = parseInt(document.getElementById('tb-count').value, 10) || 1;
+      count = Math.max(1, Math.min(count, pool.length));
+
+      const selected      = shuffleArray(pool).slice(0, count);
+      const totalMarks    = selected.reduce((s, q) => s + extractMarks(q.question_text), 0);
+      const durationSecs  = Math.max(600, Math.round(totalMarks * 1.5 * 60));
+
+      TEST = {
+        questions: selected,
+        totalMarks,
+        durationSeconds: durationSecs,
+        remainingSeconds: durationSecs,
+        timerHandle: null,
+        submitted: false
+      };
+
+      renderTestSession();
+      startTestTimer();
+      crumb([
+        { label: 'Home', fn: 'goHome()' },
+        { label: 'Practice Mode', fn: 'goTestBuilder()' },
+        { label: 'In Progress' }
+      ]);
+      show('test-session');
+      pushState({ screen: 'test-session' });
+    }
+
+    function formatClock(totalSeconds) {
+      const s   = Math.max(0, Math.round(totalSeconds));
+      const m   = Math.floor(s / 60);
+      const sec = s % 60;
+      return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
+    }
+
+    function startTestTimer() {
+      updateTimerDisplay();
+      TEST.timerHandle = setInterval(() => {
+        TEST.remainingSeconds--;
+        updateTimerDisplay();
+        if (TEST.remainingSeconds <= 0) {
+          clearInterval(TEST.timerHandle);
+          submitTest(true);
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const el = document.getElementById('tt-clock');
+      if (!el) return;
+      el.textContent = formatClock(TEST.remainingSeconds);
+      el.classList.remove('tt-warning', 'tt-critical');
+      if (TEST.remainingSeconds <= 60) {
+        el.classList.add('tt-critical');
+      } else if (TEST.remainingSeconds <= Math.max(120, TEST.durationSeconds * 0.1)) {
+        el.classList.add('tt-warning');
+      }
+    }
+
+    function renderTestSession() {
+      const stack = document.getElementById('ts-question-stack');
+      stack.innerHTML = TEST.questions.map((q, i) => renderTestCard(q, i, false)).join('');
+      renderTestMath('ts-question-stack');
+    }
+
+    function renderTestCard(q, idx, reveal) {
+      const marks   = extractMarks(q.question_text);
+      const diagHtml= q.diagram_image
+        ? '<div class="prob-diagram"><img class="prob-diagram-img" src="images/' + q.diagram_image + '" alt="Diagram"></div>'
+        : '';
+
+      let body = '<div class="ts-question-card">'
+        + '<div class="ts-q-label">'
+        + '<span class="ts-q-number">Question ' + (idx + 1) + '</span>'
+        + '<span class="ts-q-marks">' + (marks ? marks + ' marks' : '') + '</span>'
+        + '</div>'
+        + diagHtml
+        + '<div class="prob-text-question">' + processText(q.question_text) + '</div>';
+
+      if (reveal) {
+        const sImg = q.solution_image
+          ? '<img src="images/' + q.solution_image + '" alt="Solution" style="display:block;width:100%;filter:invert(1) brightness(.88) contrast(1.1)">'
+          : '<div class="prob-sol-placeholder">Solution forthcoming.</div>';
+        body += '<div style="border-top:1px solid var(--rule);padding:14px 24px 0">'
+          + '<span style="font-family:var(--sc);font-size:.6rem;letter-spacing:.18em;color:var(--gold2);text-transform:uppercase">Solution</span>'
+          + '</div>'
+          + sImg;
+        if (q.why && (q.why.concept || q.why.misconception)) {
+          body += '<div class="prob-why" style="margin-top:0">';
+          if (q.why.concept)      body += '<div class="why-row"><span class="why-label">Concept</span><span class="why-text">' + q.why.concept + '</span></div>';
+          if (q.why.misconception)body += '<div class="why-row"><span class="why-label">Misconception</span><span class="why-text">' + q.why.misconception + '</span></div>';
+          body += '</div>';
+        }
+      }
+
+      body += '</div>';
+      return body;
+    }
+
+    function renderTestMath(containerId) {
+      const el = document.getElementById(containerId);
+      if (el && window.renderMathInElement) {
+        renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$',  right: '$',  display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    function confirmSubmitTest() {
+      const ok = confirm('Submit now? You have ' + formatClock(TEST.remainingSeconds) + ' remaining. This cannot be undone.');
+      if (ok) submitTest(false);
+    }
+
+    function submitTest(timedOut) {
+      if (TEST.submitted) return;
+      TEST.submitted = true;
+      if (TEST.timerHandle) clearInterval(TEST.timerHandle);
+      const elapsed = TEST.durationSeconds - Math.max(0, TEST.remainingSeconds);
+      renderTestReview(elapsed, timedOut);
+      crumb([
+        { label: 'Home', fn: 'goHome()' },
+        { label: 'Practice Mode', fn: 'goTestBuilder()' },
+        { label: 'Review' }
+      ]);
+      show('test-review');
+      pushState({ screen: 'test-review' });
+    }
+
+    function renderTestReview(elapsed, timedOut) {
+      document.getElementById('tr-summary').innerHTML =
+          '<div class="trs-stat"><span class="trs-stat-label">Questions</span><span class="trs-stat-value">'  + TEST.questions.length + '</span></div>'
+        + '<div class="trs-stat"><span class="trs-stat-label">Total Marks</span><span class="trs-stat-value">' + TEST.totalMarks + '</span></div>'
+        + '<div class="trs-stat"><span class="trs-stat-label">Time Used</span><span class="trs-stat-value">'   + formatClock(elapsed) + ' / ' + formatClock(TEST.durationSeconds) + '</span></div>'
+        + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">'      + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>';
+
+      const stack = document.getElementById('tr-question-stack');
+      stack.innerHTML = TEST.questions.map((q, i) => renderTestCard(q, i, true)).join('');
+      renderTestMath('tr-question-stack');
     }
 
     // ══════════════════════════════════════════════════
