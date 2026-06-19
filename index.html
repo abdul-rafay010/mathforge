@@ -1666,7 +1666,7 @@
       padding: 2px 7px;
     }
 
-    .diff-insight {
+    .diff-elite {
       color: var(--gold);
       background: var(--gold3);
     }
@@ -1677,8 +1677,8 @@
     }
 
     .diff-standard {
-      color: var(--parchment4);
-      background: var(--ink3);
+      color: #8ab4c8;
+      background: #14242b;
     }
 
 
@@ -2783,7 +2783,7 @@
     <div class="screen" id="s-test-builder">
 
       <div class="test-intro">
-        <div class="screen-title">Build a <em>Practice Mode</em></div>
+        <div class="screen-title">Build a <em>Practice Drill</em></div>
         <div class="home-sub">Choose your topics, set the difficulty mix, and sit a timed paper drawn from the bank.
         </div>
       </div>
@@ -4036,7 +4036,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         const diffs = [
           { key: 'standard', label: 'Standard' },
           { key: 'hard', label: 'Hard' },
-          { key: 'insight', label: 'Insight' },
+          { key: 'elite', label: 'Elite' },
           { key: 'unrated', label: 'Unrated' }
         ];
 
@@ -4132,7 +4132,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
     function tbGetPool() {
       const topicSet = new Set(TB.topics);
-      const diffKeys = ['standard', 'hard', 'insight', 'unrated'];
+      const diffKeys = ['standard', 'hard', 'elite', 'unrated'];
       const selectedDiffs = new Set(diffKeys.filter(k => {
         const el = document.getElementById('wzd-' + k);
         return el ? el.checked : true;
@@ -4255,17 +4255,11 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         + '<div class="prob-text-question">' + processText(q.question_text) + '</div>';
 
       if (!reveal) {
-        // Session footer: Done toggle + self-score
+        // Session footer: Done toggle only — scoring happens after submit/timeout
         const doneClass = ms.done ? ' done' : '';
-        const scoreVal = ms.scored !== null ? ms.scored : '';
         html += '<div class="ts-card-footer">'
           + '<button class="ts-done-btn' + doneClass + '" onclick="tsToggleDone(' + idx + ')">'
           + (ms.done ? '✓ Attempted' : 'Mark Attempted') + '</button>'
-          + '<div class="ts-score-wrap">'
-          + 'Scored: <input class="ts-score-input" type="number" min="0" max="' + marks + '" value="' + scoreVal + '" placeholder="—"'
-          + ' oninput="tsSetScore(' + idx + ',this.value)">'
-          + ' / ' + (marks || '?')
-          + '</div>'
           + '</div>';
       }
 
@@ -4282,10 +4276,13 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
           if (q.why.misconception) html += '<div class="why-row"><span class="why-label">Misconception</span><span class="why-text">' + q.why.misconception + '</span></div>';
           html += '</div>';
         }
-        // Show self-reported score in review
-        if (ms.scored !== null) {
-          html += '<div style="padding:0 24px 12px"><span class="tr-self-score">Self-marked: ' + ms.scored + ' / ' + (marks || '?') + '</span></div>';
-        }
+        // Self-mark: now that the solution is visible, let the user score themselves
+        const scoreVal = ms.scored !== null ? ms.scored : '';
+        html += '<div class="ts-score-wrap" style="padding:12px 24px 16px;border-top:1px solid var(--rule)">'
+          + 'Self-mark: <input class="ts-score-input" type="number" min="0" max="' + marks + '" value="' + scoreVal + '" placeholder="—"'
+          + ' oninput="tsSetScore(' + idx + ',this.value); tsRefreshSummary();">'
+          + ' / ' + (marks || '?')
+          + '</div>';
       }
 
       html += '</div>';
@@ -4342,26 +4339,35 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function renderTestReview(elapsed, timedOut) {
-      // Compute self-score totals
+      TEST.reviewElapsed = elapsed;
+      TEST.reviewTimedOut = timedOut;
+      buildTestSummary();
+      const stack = document.getElementById('tr-question-stack');
+      stack.innerHTML = TEST.questions.map((q, i) => renderTestCard(q, i, true)).join('');
+      renderTestMath('tr-question-stack');
+    }
+
+    function buildTestSummary() {
+      const elapsed = TEST.reviewElapsed, timedOut = TEST.reviewTimedOut;
       let selfTotal = 0, selfAttempted = 0;
       TEST.questions.forEach((_, i) => {
         const ms = TEST.marks[i] || {};
         if (ms.scored !== null && ms.scored !== undefined) { selfTotal += Number(ms.scored); selfAttempted++; }
       });
       const doneCount = TEST.questions.filter((_, i) => (TEST.marks[i] || {}).done).length;
+      const fullyScored = selfAttempted === TEST.questions.length;
+      const pct = TEST.totalMarks ? Math.round((selfTotal / TEST.totalMarks) * 1000) / 10 : 0;
 
       document.getElementById('tr-summary').innerHTML =
         '<div class="trs-stat"><span class="trs-stat-label">Questions</span><span class="trs-stat-value">' + TEST.questions.length + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Total Marks</span><span class="trs-stat-value">' + TEST.totalMarks + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Attempted</span><span class="trs-stat-value">' + doneCount + ' / ' + TEST.questions.length + '</span></div>'
-        + (selfAttempted ? '<div class="trs-stat"><span class="trs-stat-label">Self-Scored</span><span class="trs-stat-value">' + selfTotal + ' / ' + TEST.totalMarks + '</span></div>' : '')
+        + (selfAttempted ? '<div class="trs-stat"><span class="trs-stat-label">Self-Scored' + (fullyScored ? '' : ' (' + selfAttempted + '/' + TEST.questions.length + ')') + '</span><span class="trs-stat-value">' + selfTotal + ' / ' + TEST.totalMarks + (fullyScored ? '  ·  ' + pct + '%' : '') + '</span></div>' : '<div class="trs-stat"><span class="trs-stat-label">Self-Mark</span><span class="trs-stat-value" style="font-style:italic;color:var(--parchment4)">Score yourself below</span></div>')
         + '<div class="trs-stat"><span class="trs-stat-label">Time Used</span><span class="trs-stat-value">' + formatClock(elapsed) + ' / ' + formatClock(TEST.durationSeconds) + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">' + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>';
-
-      const stack = document.getElementById('tr-question-stack');
-      stack.innerHTML = TEST.questions.map((q, i) => renderTestCard(q, i, true)).join('');
-      renderTestMath('tr-question-stack');
     }
+
+    function tsRefreshSummary() { buildTestSummary(); }
 
     // ══════════════════════════════════════════════════
     //  INIT
