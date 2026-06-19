@@ -970,26 +970,26 @@ const SYLLABUS = {
           "Rational Functions": [
             {
               id: "FP1_RF_001",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "A curve $C$ has equation\n$$h(x) = \\frac{f(x)}{g(x)}, \\quad x \\in \\mathbb{R}, \\quad g(x) \\neq 0$$\nwhere $f(x)$ is a quadratic function and $g(x)$ a linear function.\n\nThe asymptotes of $C$ have equations $x = -1$ and $y = x + 2$, and its graph passes through the point $P(1, 5)$.\n\n**a)** Determine a simplified Cartesian equation for $C$.\n\n**b)** Use a discriminant method to find the range of $h(x)$ and hence calculate the coordinates of the stationary points of $C$.\n\n**c)** Sketch in separate diagrams, showing all relevant details including asymptotic behaviour, the graph of:\n\n- **i.** $y = h(x)$\n- **ii.** $y^2 = h(x)$\n- **iii.** $y = h(|x|)$",
               solution_image: ""
             },
             {
               id: "FP1_RF_002",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "A curve has equation $y = \\mathrm{f}(x)$ where\n$$\\mathrm{f}(x) = 1 + \\frac{4}{x(x-3)}$$\nThe curve has a turning point at $P$, and the lines $y = 1$, $x = 0$ and $x = a$ are asymptotes to the curve (see diagram).\n\n**(a)** Write down the value of $a$. $\\quad$ **[1]**\n\n**(b)** Find the coordinates of $P$, justifying your answer. $\\quad$ **[4]**\n\n**(c)** Sketch the curve with equation\n$$y = \\left|\\mathrm{f}\\!\\left(x + \\tfrac{3}{2}\\right)\\right| - 1$$\nOn your sketch, show the coordinates of any points of intersection with the coordinate axes, the coordinates of any turning points and the equations of any asymptotes. $\\quad$ **[7]**",
               diagram_image: "FP1_RF_002_d.svg",
               solution_image: ""
             },
             {
               id: "FP1_RF_003",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The curve $C$ has equation $y = \\dfrac{x^2 + ax + 1}{x + 2}$, where $a > \\dfrac{5}{2}$.\n\n**(a)** Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Show that $C$ has no stationary points. $\\quad$ **[4]**\n\n**(c)** Sketch $C$, stating the coordinates of the point of intersection with the $y$-axis and labelling the asymptotes. $\\quad$ **[3]**\n\n**(d) (i)** Sketch the curve with equation $y = \\left|\\dfrac{x^2 + ax + 1}{x + 2}\\right|$. $\\quad$ **[2]**\n\n$\\quad$ **(ii)** On your sketch in part **(i)**, draw the line $y = a$. $\\quad$ **[1]**\n\n$\\quad$ **(iii)** It is given that $\\left|\\dfrac{x^2 + ax + 1}{x + 2}\\right| < a$ for $-5 - \\sqrt{14} < x < -3$ and $-5 + \\sqrt{14} < x < 3$. Find the value of $a$. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "FP1_RF_004",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "Let $a$ be a positive constant. The curve $C_1$ has equation $y = \\dfrac{x-a}{x-2a}$.\n\n**(a)** Sketch $C_1$. $\\quad$ **[2]**\n\nThe curve $C_2$ has equation $y = \\left(\\dfrac{x-a}{x-2a}\\right)^2$. The curve $C_3$ has equation $y = \\left|\\dfrac{x-a}{x-2a}\\right|$.\n\n**(b)(i)** Find the coordinates of any stationary points of $C_2$. $\\quad$ **[3]**\n\n$\\quad$**(ii)** Find also the coordinates of any points of intersection of $C_2$ and $C_3$. $\\quad$ **[3]**\n\n**(c)** Sketch $C_2$ and $C_3$ on a single diagram, clearly identifying each curve. Hence find the set of values of $x$ for which $\\left(\\dfrac{x-a}{x-2a}\\right)^2 < \\left|\\dfrac{x-a}{x-2a}\\right|$. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -1007,7 +1007,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_RF_007",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The curve $C$ has equation $y = \\dfrac{x^2 + x - 7}{x - 1}$.\n\n**(a)** Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Show that $C$ has no turning points. $\\quad$ **[3]**\n\n**(c)** Sketch $C$, stating the coordinates of the intersections with the axes and the equations of the asymptotes. $\\quad$ **[3]**\n\n**(d)** Sketch the curve with equation $y = \\left|\\dfrac{|x|^2 + |x| - 7}{|x| - 1}\\right|$ and find the set of values of $x$ for which $\\left|\\dfrac{|x|^2 + |x| - 7}{|x| - 1}\\right| < \\dfrac{25}{2}$. $\\quad$ **[6]**",
               solution_image: ""
             }
@@ -1015,7 +1015,7 @@ const SYLLABUS = {
           "Series": [
             {
               id: "FP1_SR_001",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "**a** Prove by induction that for all positive integers $n$:\n$$\\sum_{r=1}^{2n} r^2 = \\frac{1}{3}n(2n+1)(4n+1)$$\n\n**b** Given that $\\displaystyle\\sum_{r=1}^{2n} r^2 = k\\sum_{r=1}^{n} r^2$, show that $k$ must satisfy\n$$n = \\frac{2-k}{k-8}$$",
               solution_image: ""
             },
@@ -1027,19 +1027,19 @@ const SYLLABUS = {
             },
             {
               id: "FP1_SR_003",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "**(a)** Use the method of differences to prove that, for $n > 2$,\n$$\\sum_{r=2}^{n} \\ln\\!\\left(\\frac{r+1}{r-1}\\right) \\equiv \\ln\\!\\left(\\frac{n(n+1)}{2}\\right)$$\n$\\quad$ **[4]**\n\n**(b)** Hence find the exact value of\n$$\\sum_{r=51}^{100} \\ln\\!\\left(\\frac{r+1}{r-1}\\right)^{35}$$\ngiving your answer in the form $a\\ln\\!\\left(\\dfrac{b}{c}\\right)$ where $a$, $b$ and $c$ are integers to be determined. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "FP1_SR_004",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "**(i)** Show that\n$$(r+2)! - (r+1)! = (r+1)^2 \\times r!$$\n$\\quad$ **[3]**\n\n**(ii)** Hence find an expression, in terms of $n$, for\n$$2^2 \\times 1! + 3^2 \\times 2! + 4^2 \\times 3! + \\ldots + (n+1)^2 \\times n!$$\n$\\quad$ **[4]**\n\n**(iii)** State, giving a brief reason, whether the series\n$$2^2 \\times 1! + 3^2 \\times 2! + 4^2 \\times 3! + \\ldots$$\nconverges. $\\quad$ **[1]**",
               solution_image: ""
             },
             {
               id: "FP1_SR_005",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The $r$th term of a series is\n$$u_r = \\frac{1^3 + 2^3 + 3^3 + \\ldots + r^3}{1 + 3 + 5 + \\ldots + (2r-1)}$$\n\nFind the sum of the first 16 terms of the series. $\\quad$ **[6]**",
               solution_image: ""
             },
@@ -1051,7 +1051,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_SR_007",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "Use partial fractions to find the exact value of\n$$\\sum_{n=1}^{\\infty} \\frac{2n+1}{n^4 + 2n^3 + n^2}$$\nYou may assume that the series converges. $\\quad$ **[7]**",
               solution_image: ""
             },
@@ -1069,31 +1069,31 @@ const SYLLABUS = {
             },
             {
               id: "FP1_SR_010",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "**(a) (i)** Determine an expression for $\\displaystyle\\sum_{r=1}^{n}\\left[(r+1)^4 - r^4\\right]$. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Write $(r+1)^4 - r^4$ in the form $ar^3 + br^2 + cr + d$ for integers $a$, $b$, $c$, $d$. $\\quad$ **[1]**\n\n**(b)** By considering the standard series for natural numbers and square numbers, and the results from part **(a)**, prove that\n$$\\sum_{r=1}^{n} r^3 = \\left(\\sum_{r=1}^{n} r\\right)^2$$\n$\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "FP1_SR_011",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "**(a)** By considering $(2r+1)^3 - (2r-1)^3$, use the method of differences to prove that\n$$\\sum_{r=1}^{n} r^2 = \\tfrac{1}{6}n(n+1)(2n+1)$$\n$\\quad$ **[5]**\n\nLet $S_n = 1^2 + 3 \\times 2^2 + 3^2 + 3 \\times 4^2 + 5^2 + 3 \\times 6^2 + \\ldots + \\left(2 + (-1)^n\\right)n^2$.\n\n**(b)** Show that $S_{2n} = \\tfrac{1}{3}n(2n+1)(an+b)$, where $a$ and $b$ are integers to be determined. $\\quad$ **[3]**\n\n**(c)** State the value of $\\displaystyle\\lim_{n \\to \\infty} \\dfrac{S_{2n}}{n^3}$. $\\quad$ **[1]**",
               solution_image: ""
             },
             {
               id: "FP1_SR_012",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "Let $S_n = \\displaystyle\\sum_{r=1}^{n} \\ln\\dfrac{r(r+2)}{(r+1)^2}$.\n\n**(a)** Using the method of differences, or otherwise, show that\n$$S_n = \\ln\\dfrac{n+2}{2(n+1)}$$\n$\\quad$ **[4]**\n\nLet $S = \\displaystyle\\sum_{r=1}^{\\infty} \\ln\\dfrac{r(r+2)}{(r+1)^2}$.\n\n**(b)** Find the least value of $n$ such that $S_n - S < 0.01$. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "FP1_SR_013",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "It is given that $S_n = \\displaystyle\\sum_{r=1}^{n} u_r$, where $u_r = x^{f(r)} - x^{f(r+1)}$ and $x > 0$.\n\n**(a)** Find $S_n$ in terms of $n$, $x$ and the function f. $\\quad$ **[2]**\n\n**(b)** Given that $\\mathrm{f}(r) = \\ln r$, find the set of values of $x$ for which the infinite series\n$$u_1 + u_2 + u_3 + \\cdots$$\nis convergent, and give the sum to infinity when this exists. $\\quad$ **[3]**\n\n**(c)** Given instead that $\\mathrm{f}(r) = 2\\log_x r$ where $x \\neq 1$, use standard results from the List of Formulae to find $\\displaystyle\\sum_{r=2}^{N} S_n$ in terms of $N$. Fully factorise your answer. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "FP1_SR_014",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "**(a)** Use the formula for $\\tan(A-B)$ to show that\n$$\\tan^{-1}(2k+1) - \\tan^{-1}(2k-1) = \\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$$\n$\\quad$ **[3]**\n\n**(b)** Show that\n$$\\tan^{-1}\\!\\left(\\frac{1}{2(1)^2}\\right)+\\tan^{-1}\\!\\left(\\frac{1}{2(2)^2}\\right)+\\cdots+\\tan^{-1}\\!\\left(\\frac{1}{2n^2}\\right) = \\tan^{-1}\\!\\left(\\frac{n}{n+1}\\right)$$\n$\\quad$ **[5]**\n\n**(c)** Deduce the value of $\\displaystyle\\sum_{k=1}^{\\infty}\\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$. $\\quad$ **[2]**",
               solution_image: ""
             }
@@ -1102,13 +1102,13 @@ const SYLLABUS = {
           "Roots of Polynomials": [
             {
               id: "FP1_RP_001",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The quartic equation $3072x^4 - 2880x^3 + 840x^2 - 90x + 3 = 0$ has roots $\\alpha$, $r\\alpha$, $r^2\\alpha$ and $r^3\\alpha$ for some real constant $r$.\n\nSolve the equation. $\\quad$ **[7]**",
               solution_image: "FP1_RP_001_s.png"
             },
             {
               id: "FP1_RP_002",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The equation $x^4 - 6x^3 - 73x^2 + kx + m = 0$ has two positive roots $\\alpha$, $\\beta$ and two negative roots $\\gamma$, $\\delta$. It is given that $\\alpha\\beta = \\gamma\\delta = 4$.\n\n**(i)** Find the values of the constants $k$ and $m$. $\\quad$ **[5]**\n\n**(ii)** Show that $(\\alpha+\\beta)(\\gamma+\\delta) = -81$. $\\quad$ **[4]**\n\n**(iii)** Find the quadratic equation which has roots $\\alpha+\\beta$ and $\\gamma+\\delta$. $\\quad$ **[2]**\n\n**(iv)** Find $\\alpha+\\beta$ and $\\gamma+\\delta$. $\\quad$ **[3]**\n\n**(v)** Show that $\\alpha^2 - 3(1+\\sqrt{10})\\alpha + 4 = 0$, and find similar quadratic equations satisfied by $\\beta$, $\\gamma$ and $\\delta$. $\\quad$ **[6]**",
               solution_image: ""
             },
@@ -1120,31 +1120,31 @@ const SYLLABUS = {
             },
             {
               id: "FP1_RP_004",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "**(a) (i)** State the sum of the roots of the equation $2x^3 - 23x^2 + 158x + 85 = 0$. $\\quad$ **[1]**\n\n$\\quad$ **(ii)** Find the product of the roots of $2(\\ln x)^3 - 23(\\ln x)^2 + 158\\ln x + 85 = 0$. $\\quad$ **[2]**\n\n**(b)** Given that one of the roots of the equation $2x^3 - 23x^2 + 158x + 85 = 0$ is $6 + 7i$, determine the other two roots. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "FP1_RP_005",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The cubic equation $x^3 + bx^2 + d = 0$ has roots $\\alpha$, $\\beta$, $\\gamma$, where $\\alpha = \\beta$ and $d \\neq 0$.\n\n**(a)** Show that $4b^3 + 27d = 0$. $\\quad$ **[5]**\n\n**(b)** Given that $2\\alpha^2 + \\gamma^2 = 3b$, find the values of $b$ and $d$. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "FP1_RP_006",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "Obtain the sum of the squares of the roots of the equation\n$$x^4 + 3x^3 + 5x^2 + 12x + 4 = 0$$\n$\\quad$ **[2]**\n\nDeduce that this equation does not have more than 2 real roots. $\\quad$ **[3]**\n\nShow that, in fact, the equation has exactly 2 real roots in the interval $-3 < x < 0$. $\\quad$ **[5]**\n\nDenoting these roots by $\\alpha$ and $\\beta$, and the other 2 roots by $\\gamma$ and $\\delta$, show that $|\\gamma| = |\\delta| = \\dfrac{2}{\\sqrt{\\alpha\\beta}}$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "FP1_RP_007",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "It is given that\n$$\\alpha + \\beta + \\gamma + \\delta = 2, \\quad \\alpha^2 + \\beta^2 + \\gamma^2 + \\delta^2 = 3, \\quad \\alpha^3 + \\beta^3 + \\gamma^3 + \\delta^3 = 4$$\n\n**(a)** Find the value of $\\alpha\\beta + \\alpha\\gamma + \\alpha\\delta + \\beta\\gamma + \\beta\\delta + \\gamma\\delta$. $\\quad$ **[2]**\n\n**(b)** Find the value of $\\alpha^2\\beta + \\alpha^2\\gamma + \\alpha^2\\delta + \\beta^2\\alpha + \\beta^2\\gamma + \\beta^2\\delta + \\gamma^2\\alpha + \\gamma^2\\beta + \\gamma^2\\delta + \\delta^2\\alpha + \\delta^2\\beta + \\delta^2\\gamma$. $\\quad$ **[3]**\n\n**(c)** It is given that $\\alpha$, $\\beta$, $\\gamma$, $\\delta$ are the roots of $6x^4 - 12x^3 + 3x^2 + 2x + 6 = 0$.\n\n$\\quad$ **(i)** Find the value of $\\alpha^4 + \\beta^4 + \\gamma^4 + \\delta^4$. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** Find the value of $\\alpha^5 + \\beta^5 + \\gamma^5 + \\delta^5$. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "FP1_RP_008",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The quartic equation $x^4 + px^3 + qx^2 + rx + s = 0$, where $p$, $q$, $r$ and $s$ are constants, has roots $\\alpha$, $\\beta$, $\\gamma$ and $\\delta$. It is given that $\\alpha\\beta\\gamma\\delta = 1$.\n\n**(a)** State the value of $s$. $\\quad$ **[1]**\n\n**(b)** Find a quartic equation, with coefficients in terms of $p$, $q$ and $r$, whose roots are $\\alpha+1$, $\\beta+1$, $\\gamma+1$, $\\delta+1$. $\\quad$ **[4]**\n\n**(c)** Given also that $\\gamma+1 = -(\\alpha+1)$ and $\\delta+1 = -(\\beta+1)$, deduce the value of $p$ and show that $r = 2q - 8$. $\\quad$ **[4]**",
               solution_image: ""
             }
@@ -1153,7 +1153,7 @@ const SYLLABUS = {
           "Polar Coordinates": [
             {
               id: "FP1_PC_001",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The polar equation of $C_1$ is $r = \\sqrt{2}\\cos\\theta$ and the polar equation of $C_2$ is $r = \\sqrt{2\\sin 2\\theta}$. Both curves are defined for $0 \\leq \\theta \\leq \\frac{1}{2}\\pi$. The curves intersect at the pole $O$ and at the point $P$. The value of $\\theta$ at $P$ is $\\alpha$.\n\n**(i)** Show that $\\tan\\alpha = \\dfrac{1}{2}$. $\\quad$ **[2]**\n\n**(ii)** Show that the area of the region common to $C_1$ and $C_2$ is $\\dfrac{1}{4}\\pi - \\dfrac{1}{2}\\alpha$. $\\quad$ **[7]**",
               solution_image: ""
             },
@@ -1171,37 +1171,37 @@ const SYLLABUS = {
             },
             {
               id: "FP1_PC_004",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The equation of a curve is $x^2 + y^2 - x = \\sqrt{x^2 + y^2}$.\n\n**(i)** Find the polar equation of this curve in the form $r = f(\\theta)$. $\\quad$ **[3]**\n\n**(ii)** Sketch the curve. $\\quad$ **[2]**\n\n**(iii)** The line $x + 2y = 2$ divides the region enclosed by the curve into two parts. Find the ratio of the two areas. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "FP1_PC_005",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The curve $y = \\sqrt{2x+1}$ passes through the points $A\\!\\left(-\\tfrac{1}{2},\\,0\\right)$ and $B(4,\\,3)$.\n\n**(i)** Find the area of the region bounded by the curve, the $x$-axis and the line $x = 4$. Hence find the area of the region bounded by the curve and the lines $OA$ and $OB$, where $O$ is the origin. $\\quad$ **[4]**\n\n**(ii)** Show that the curve between $B$ and $A$ can be expressed in polar coordinates as\n$$r = \\frac{1}{1-\\cos\\theta}, \\quad \\tan^{-1}\\!\\left(\\tfrac{3}{4}\\right) \\leq \\theta \\leq \\pi$$\n$\\quad$ **[5]**\n\n**(iii)** Deduce from parts **(i)** and **(ii)** that\n$$\\int_{\\tan^{-1}(\\frac{3}{4})}^{\\pi} \\operatorname{cosec}^4\\!\\left(\\tfrac{1}{2}\\theta\\right)\\,d\\theta = 24$$\n$\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "FP1_PC_006",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The curve $C_1$ has polar equation $r = a(\\cos\\theta + \\sin\\theta)$ for $-\\frac{1}{4}\\pi \\leq \\theta \\leq \\frac{3}{4}\\pi$, where $a$ is a positive constant.\n\n**(a)** Find a Cartesian equation for $C_1$ and show that it represents a circle, stating its radius and the Cartesian coordinates of its centre. $\\quad$ **[4]**\n\nThe curve $C_2$ has polar equation $r = a\\theta$ and intersects $C_1$ at the pole and at the point with polar coordinates $(a\\phi,\\,\\phi)$.\n\n**(c)** Verify that $1.25 < \\phi < 1.26$. $\\quad$ **[2]**\n\n**(d)** Show that the area of the smaller region enclosed by $C_1$ and $C_2$ is equal to\n$$\\tfrac{1}{2}a^2\\!\\left(\\tfrac{1}{3}\\pi + \\tfrac{1}{3}\\phi^3 - \\phi + \\tfrac{1}{2}\\cos 2\\phi\\right)$$\nand deduce, in terms of $a$ and $\\phi$, the area of the larger region enclosed by $C_1$ and $C_2$. $\\quad$ **[7]**",
               solution_image: "FP1_PC_006_s.png"
             },
             {
               id: "FP1_PC_007",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The curve $C$ has polar equation $r^2 = (\\pi - \\theta)\\tan^{-1}(\\pi - \\theta)$, for $0 \\leq \\theta \\leq \\pi$.\n\n**(a)** Sketch $C$ and state the polar coordinates of the point of $C$ furthest from the pole. $\\quad$ **[3]**\n\n**(b)** Using the substitution $u = \\pi - \\theta$, or otherwise, find the area of the region enclosed by $C$ and the initial line. $\\quad$ **[7]**\n\n**(c)** Show that, at the point of $C$ furthest from the initial line,\n$$2(\\pi-\\theta)\\tan^{-1}(\\pi-\\theta)\\cot\\theta - \\frac{\\pi-\\theta}{1+(\\pi-\\theta)^2} - \\tan^{-1}(\\pi-\\theta) = 0$$\nand verify that this equation has a root for $\\theta$ between $1.2$ and $1.3$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "FP1_PC_008",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The curve $C$ has polar equation $r^2 = e^{\\sin\\theta}\\cos\\theta$, for $-\\dfrac{1}{2}\\pi \\leq \\theta \\leq \\dfrac{1}{2}\\pi$.\n\n**(a)** Find the polar coordinates of the point on $C$ that is furthest from the pole, giving your answers correct to 3 decimal places. $\\quad$ **[5]**\n\n**(b)** Find the polar coordinates of the point on $C$ that is furthest from the half-line $\\theta = \\dfrac{1}{2}\\pi$, giving your answers correct to 3 decimal places. $\\quad$ **[5]**\n\n**(c)** Sketch $C$. $\\quad$ **[3]**\n\n**(d)** Find the area of the region bounded by $C$, giving your answer in exact form. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "FP1_PC_009",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The curve $C$ has polar equation $r = 6e^{\\frac{1}{3}\\theta}$, for $0 \\leq \\theta \\leq 2\\pi$.\n\n**(a)** Sketch $C$. $\\quad$ **[2]**\n\n**(b)** Find the area of the region bounded by $C$ and the initial line, giving your answer in the form $(p\\pi^2 + q\\pi + r)e^{\\frac{4}{3}s} + s$, where $p$, $q$, $r$ and $s$ are integers to be determined. $\\quad$ **[6]**\n\n**(c)** Show that, at the point of $C$ furthest from the initial line,\n$$\\theta\\cos\\theta + \\left(\\tfrac{1}{3}\\theta + 1\\right)\\sin\\theta = 0$$\nand verify that this equation has a root between 5 and 5.05. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -1213,7 +1213,7 @@ const SYLLABUS = {
             },
             {
               id: "FP1_PC_011",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The curve $C$ has polar equation $r^2 = \\dfrac{a}{1+\\tan 2\\theta}$ for $0 \\leqslant \\theta < \\tfrac{1}{4}\\pi$, where $a$ is a positive constant.\n\n**(a)** Show that, at the point on $C$ furthest from the initial line,\n$$\\cos\\theta - \\dfrac{\\sin\\theta}{\\cos 2\\theta(\\sin 2\\theta+\\cos 2\\theta)} = 0$$\nand verify that this equation has a root between $0.5$ and $0.6$. $\\quad$ **[6]**\n\n**(c)** Use the substitution $v = \\tan 2\\theta$ to show that the area enclosed by $C$ and the initial line is\n$$\\tfrac{1}{4}a\\int_0^{\\infty} \\dfrac{1}{(1+v)(1+v^2)}\\,dv$$\nand find the exact value of this area. $\\quad$ **[7]**",
               solution_image: ""
             },
@@ -1223,13 +1223,13 @@ const SYLLABUS = {
           "Vectors — Lines & Planes": [
             {
               id: "FP1_VL_001",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "Find a vector $\\boldsymbol{v}$ which has the following properties:\n\n- It is a unit vector.\n- It is parallel to the plane $2x + 2y + z = 10$.\n- It makes an angle of $45°$ with the normal to the plane $x + z = 5$.\n\n$\\quad$ **(8)**",
               solution_image: ""
             },
             {
               id: "FP1_VL_002",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The equation of the plane $\\Pi$ is $2x + 3y + 4z = 48$.\n\nObtain a vector equation of $\\Pi$ in the form $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b} + \\mu\\mathbf{c}$, where $\\mathbf{a}$, $\\mathbf{b}$ and $\\mathbf{c}$ are of the form $p\\mathbf{i}$, $q\\mathbf{i}+r\\mathbf{j}$ and $s\\mathbf{i}+t\\mathbf{k}$ respectively, and where $p$, $q$, $r$, $s$, $t$ are integers. $\\quad$ **[6]**\n\nThe line $l$ has vector equation $\\mathbf{r} = 29\\mathbf{i} - 2\\mathbf{j} - \\mathbf{k} + \\theta(5\\mathbf{i} - 6\\mathbf{j} + 2\\mathbf{k})$. Show that $l$ lies in $\\Pi$. $\\quad$ **[3]**\n\nFind, in the form $ax + by + cz = d$, the equation of the plane which contains $l$ and is perpendicular to $\\Pi$. $\\quad$ **[4]**",
               solution_image: ""
             },
@@ -1253,13 +1253,13 @@ const SYLLABUS = {
             },
             {
               id: "FP1_VL_006",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The lines $l_1$ and $l_2$ have equations\n$$l_1: \\mathbf{r} = (2\\mathbf{i} - \\mathbf{j} + 3\\mathbf{k}) + s(\\mathbf{i} + 2\\mathbf{j} - \\mathbf{k})$$\n$$l_2: \\mathbf{r} = (\\mathbf{i} + 3\\mathbf{j} - \\mathbf{k}) + t(3\\mathbf{i} - \\mathbf{j} + 2\\mathbf{k})$$\n\n**(a)** Find the position vectors of the points $M$ on $l_1$ and $N$ on $l_2$ such that $MN$ is perpendicular to both lines. $\\quad$ **[6]**\n\n**(b)** Hence find the length of the common perpendicular. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "FP1_VL_007",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The points $A$, $B$, $C$ have position vectors $2\\mathbf{i} + 2\\mathbf{j}$, $-\\mathbf{j} + \\mathbf{k}$ and $2\\mathbf{i} + \\mathbf{j} - 7\\mathbf{k}$ respectively, relative to the origin $O$.\n\n**(a)** Find an equation of the plane $OAB$, giving your answer in the form $\\mathbf{r} \\cdot \\mathbf{n} = p$. $\\quad$ **[3]**\n\nThe plane $\\Pi$ has equation $x - 3y - 2z = 1$.\n\n**(b)** Find the perpendicular distance of $\\Pi$ from the origin. $\\quad$ **[1]**\n\n**(c)** Find the acute angle between the planes $OAB$ and $\\Pi$. $\\quad$ **[3]**\n\n**(d)** Find an equation for the common perpendicular to the lines $OC$ and $AB$. $\\quad$ **[10]**",
               solution_image: ""
             },
@@ -1274,19 +1274,19 @@ const SYLLABUS = {
           "Proof by Induction": [
             {
               id: "FP1_PI_001",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "You are given the matrix\n$$\\mathbf{A} = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix}$$\nwhich represents the transformation $\\mathbf{T}$ in the $x$-$y$ plane.\n\n**(a)** Find the equations of the invariant lines of $\\mathbf{T}$. $\\quad$ **[4]**\n\n**(b)** Prove by mathematical induction that\n$$\\mathbf{A}^n = \\frac{1}{3}\\begin{pmatrix} 2^{n+1}+5^n & 2\\cdot 5^n - 2^{n+1} \\\\ 5^n - 2^n & 2^n + 2\\cdot 5^n \\end{pmatrix}$$\nfor all integers $n \\geq 1$. $\\quad$ **[5]**\n\n**(c)** Find the number of successive transformations of $\\mathbf{T}$ applied on the point $(-1,\\,4)$ so that it maps onto $(910605,\\,911885)$. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "FP1_PI_002",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "**Q1.** Prove by induction that $n! > n^2 + n$ for all integers $n \\geq 4$.\n\n**Q2.** Prove by induction that $2^n > n^2$ for all integers $n \\geq 5$.\n\n**Q3.** Prove by induction that $3^n > 5 \\times 2^n$ for all integers $n \\geq 4$.",
               solution_image: ""
             },
             {
               id: "FP1_PI_003",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "Given\n$$\\mathbf{A} = \\begin{pmatrix} 1 & 0 \\\\ 2 & 1 \\end{pmatrix}$$\nProve by induction that\n$$\\mathbf{A}^n = n\\mathbf{A} - (n-1)\\mathbf{I}$$\nwhere $n \\geq 1$, $n \\in \\mathbb{N}$, and $\\mathbf{I}$ represents the identity matrix. $\\quad$ **(6)**",
               solution_image: ""
             },
@@ -1298,13 +1298,13 @@ const SYLLABUS = {
             },
             {
               id: "FP1_PI_005",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "Prove by induction that for all integers $n \\geq 2$:\n$$\\sum_{k=1}^{n} \\frac{1}{k^2} \\leq 2 - \\frac{1}{n}$$",
               solution_image: ""
             },
             {
               id: "FP1_PI_006",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "**(i)** Show that\n$$\\frac{d^{n+1}}{dx^{n+1}}\\left(x^{n+1}\\ln x\\right) = \\frac{d^n}{dx^n}\\left(x^n + (n+1)x^n \\ln x\\right)$$\n$\\quad$ **[2]**\n\n**(ii)** Prove by mathematical induction that, for all positive integers $n$,\n$$\\frac{d^n}{dx^n}\\left(x^n \\ln x\\right) = n!\\left(\\ln x + 1 + \\frac{1}{2} + \\ldots + \\frac{1}{n}\\right)$$\n$\\quad$ **[5]**",
               solution_image: ""
             },
@@ -1328,25 +1328,25 @@ const SYLLABUS = {
             },
             {
               id: "FP1_PI_010",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "Prove by induction that for all even natural numbers $n$,\n$$\\frac{d^n}{dx^n}(\\sin 3x) = (-1)^{\\frac{n}{2}} \\times 3^n \\times \\sin 3x$$",
               solution_image: ""
             },
             {
               id: "FP1_PI_011",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "Prove by induction that\n$$\\frac{d^n}{dx^n}\\!\\left(e^x \\sin(\\sqrt{3}\\,x)\\right) = 2^n e^x \\sin\\!\\left(\\sqrt{3}\\,x + \\frac{n\\pi}{3}\\right)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
               solution_image: ""
             },
             {
               id: "FP1_PI_012",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The sequence of real numbers $a_1, a_2, a_3, \\ldots$ is such that $a_1 = 1$ and\n$$a_{n+1} = \\left(a_n + \\frac{1}{a_n}\\right)^3$$\n\n**(a)** Prove by mathematical induction that $\\ln a_n \\geq 3^{n-1} \\ln 2$ for all integers $n \\geq 2$.\n\n$\\quad$ [You may use the fact that $\\ln\\!\\left(x + \\dfrac{1}{x}\\right) > \\ln x$ for $x > 0$.]",
               solution_image: ""
             },
             {
               id: "FP1_PI_013",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$\\frac{d^n}{dx^n}(\\tan^{-1} x) = P_n(x)(1+x^2)^{-n}$$\nwhere $P_n(x)$ is a polynomial of degree $n-1$. $\\quad$ **[6]**",
               solution_image: ""
             },
@@ -1367,13 +1367,13 @@ const SYLLABUS = {
             },
             {
               id: "FP1_MA_002",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "You are given that\n$$\\mathbf{A} = \\begin{pmatrix} \\lambda & 6 & -4 \\\\ 2 & 5 & -1 \\\\ -1 & 4 & 3 \\end{pmatrix}, \\quad \\mathbf{B} = \\begin{pmatrix} -19 & 34 & -14 \\\\ 5 & -5 & 5 \\\\ -13 & 18 & -3 \\end{pmatrix}$$\nand $\\mathbf{AB} = \\mu\\mathbf{I}$, where $\\mathbf{I}$ is the $3 \\times 3$ identity matrix.\n\n**(i)** Find the values of $\\lambda$ and $\\mu$. $\\quad$ **[4]**\n\n**(ii)** Hence find $\\mathbf{B}^{-1}$. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "FP1_MA_003",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The transformation $P$ is an enlargement, centre the origin, with scale factor $k$, where $k > 0$.\n\nThe transformation $Q$ is a rotation through angle $\\theta$ degrees anticlockwise about the origin.\n\n$P$ followed by $Q$ is represented by the matrix\n$$\\mathbf{M} = \\begin{pmatrix} -4 & -4\\sqrt{3} \\\\ 4\\sqrt{3} & -4 \\end{pmatrix}$$\n\n**(a)** Determine\n\n$\\quad$ **(i)** the value of $k$,\n\n$\\quad$ **(ii)** the smallest value of $\\theta$. $\\quad$ **(4)**\n\n**(b)** A square $S$ has vertices at $(0,0)$, $(a,-a)$, $(2a,0)$ and $(a,a)$ where $a$ is a constant. The square $S$ is transformed to $S'$ by $\\mathbf{M}$.\n\nDetermine, in terms of $a$, the area of $S'$. $\\quad$ **(2)**",
               solution_image: ""
             },
@@ -1385,19 +1385,19 @@ const SYLLABUS = {
             },
             {
               id: "FP1_MA_005",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "**(a) (i)** By writing $\\cos\\left(\\frac{1}{12}\\pi\\right)$ as $\\cos\\left(\\frac{1}{4}\\pi - \\frac{1}{6}\\pi\\right)$, show that $\\cos\\left(\\frac{1}{12}\\pi\\right) = \\frac{1}{4}(\\sqrt{6}+\\sqrt{2})$. $\\quad$ **[1]**\n\n$\\quad$ **(ii)** Show also that $\\sin\\left(\\frac{1}{12}\\pi\\right) = \\frac{1}{4}(\\sqrt{6}-\\sqrt{2})$. $\\quad$ **[1]**\n\nThe matrix $\\mathbf{M}$ is such that\n$$\\mathbf{M} = \\frac{1}{4}\\begin{pmatrix} \\sqrt{6}+\\sqrt{2} & \\sqrt{2}-\\sqrt{6} \\\\ \\sqrt{6}-\\sqrt{2} & \\sqrt{6}+\\sqrt{2} \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$$\n\n**(b)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. Give full details of each transformation, and make clear the order in which they are applied. $\\quad$ **[4]**\n\n**(c)** Write $\\mathbf{M}^{-1}$ as the product of two matrices, neither of which is $\\mathbf{I}$. $\\quad$ **[2]**\n\n**(d)** Given that $y = mx$ is an invariant line of the transformation represented by $\\mathbf{M}$, show that\n$$m^2\\sin\\!\\left(\\tfrac{1}{12}\\pi\\right) + 2m\\cos\\!\\left(\\tfrac{1}{12}\\pi\\right) - \\sin\\!\\left(\\tfrac{1}{12}\\pi\\right) = 0$$\nand find the values of $m$ in the form $a\\cot\\!\\left(\\tfrac{1}{12}\\pi\\right) + b\\,\\text{cosec}\\!\\left(\\tfrac{1}{12}\\pi\\right)$, where $a$ and $b$ are integers to be determined. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "FP1_MA_006",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix} \\frac{1}{2}\\sqrt{2} & -\\frac{1}{2}\\sqrt{2} \\\\ \\frac{1}{2}\\sqrt{2} & \\frac{1}{2}\\sqrt{2} \\end{pmatrix} \\begin{pmatrix} 1 & k \\\\ 0 & 1 \\end{pmatrix}$$\nwhere $k$ is a constant.\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations. State the type of each transformation, and make clear the order in which they are applied. $\\quad$ **[2]**\n\n**(b)** The triangle $ABC$ in the $x$-$y$ plane is transformed by $\\mathbf{M}$ onto triangle $DEF$. Find, in terms of $k$, the single matrix which transforms triangle $DEF$ onto triangle $ABC$. $\\quad$ **[2]**\n\n**(c)** Find the set of values of $k$ for which the transformation represented by $\\mathbf{M}$ has no invariant lines through the origin. $\\quad$ **[7]**",
               solution_image: ""
             },
             {
               id: "FP1_MA_007",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$$\nwhere $0 < \\theta < 2\\pi$.\n\n**(a)** The matrix $\\mathbf{M}$ represents a sequence of two geometrical transformations in the $x$-$y$ plane. State the type of each transformation, and make clear the order in which they are applied. $\\quad$ **[2]**\n\n**(b)** Find the value of $\\theta$ for which the transformation represented by $\\mathbf{M}$ has a line of invariant points. $\\quad$ **[7]**",
               solution_image: ""
             },
@@ -1423,7 +1423,7 @@ const SYLLABUS = {
           "Continuous Random Variables": [
             {
               id: "FS_CRV_001",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The continuous random variable $X$ has the following cumulative distribution function\n$$F(x) = \\begin{cases} 0 & x < 0 \\\\ ax - bx^2 & 0 \\leq x \\leq k \\\\ 1 & x > k \\end{cases}$$\nwhere $a$, $b$ and $k$ are positive constants.\n\nThe variable $Y$ is related to $X$ by\n$$Y = 3X - 2$$\n\nDetermine the value of $a$, $b$ and $k$ given further that $\\text{E}(Y) = 2$ and $\\text{Var}(Y) = 8$. $\\quad$ **[9]**",
               solution_image: ""
             },
@@ -1435,19 +1435,19 @@ const SYLLABUS = {
             },
             {
               id: "FS_CRV_003",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The continuous random variable $X$ has probability density function $f$ given by\n$$f(x) = \\begin{cases} a & 0 \\leq x \\leq 5 \\\\ b - cx & 5 < x \\leq 8 \\\\ 0 & \\text{otherwise} \\end{cases}$$\nwhere $a$, $b$ and $c$ are constants.\n\n**(a)** Show that $a = \\dfrac{1}{8}$, and find the values of $b$ and $c$. $\\quad$ **[3]**\n\n**(b)** Find the mean of $X$. $\\quad$ **[3]**\n\n**(c)** Find the median of $X$. $\\quad$ **[2]**\n\nThe random variable $Y$ is defined by $Y = X^2$.\n\n**(d)** Find the cumulative distribution function of $Y$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "FS_CRV_004",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The continuous random variable $X$ has probability density function f given by\n$$f(x) = \\begin{cases} \\dfrac{3}{28}\\!\\left(e^{\\frac{1}{2}x} + 4e^{-\\frac{1}{2}x}\\right) & 0 \\leq x \\leq 2\\ln 3 \\\\ 0 & \\text{otherwise} \\end{cases}$$\n\n**(a)** Find the cumulative distribution function of $X$. $\\quad$ **[3]**\n\nThe random variable $Y$ is defined by $Y = e^{\\frac{1}{2}X}$.\n\n**(b)** Find the probability density function of $Y$. $\\quad$ **[3]**\n\n**(c)** Find the 30th percentile of $Y$. $\\quad$ **[3]**\n\n**(d)** Find $\\text{E}(Y^4)$. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "FS_CRV_005",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The continuous random variable $X$ has cumulative distribution function $F$ given by\n$$F(x) = \\begin{cases} 0 & x < 0, \\\\ -\\dfrac{1}{108}x^3 + \\dfrac{1}{12}x^2 & 0 \\leqslant x \\leqslant 3, \\\\ -\\dfrac{1}{32}x^2 + \\dfrac{7}{16}x + a & 3 < x \\leqslant b, \\\\ 1 & x > b. \\end{cases}$$\n\n**(a)** Verify that the median of $X$ is $3$. $\\quad$ **[1]**\n\n**(b)** Show that $a = -\\dfrac{17}{32}$ and find the value of $b$. $\\quad$ **[3]**\n\n**(c)** Find the probability density function of $X$. $\\quad$ **[2]**\n\n**(d)** Find $E\\left(\\dfrac{1}{X}\\right)$. $\\quad$ **[3]**",
               solution_image: ""
             },
@@ -1457,13 +1457,13 @@ const SYLLABUS = {
           "Discrete Random Variables (PGF)": [
             {
               id: "FS_DRV_001",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The probability generating function of the random variable $X$ is\n$$G_X(t) = \\frac{1}{81}\\left(t + \\frac{2}{t}\\right)^4$$\n\n**(i)** Use the probability generating function to find $\\text{E}(X)$ and $\\text{Var}(X)$. $\\quad$ **[5]**\n\n**(ii)** The random variable $Y$ is defined by $Y = \\tfrac{1}{2}(X+4)$. By finding the probability distribution of $X$, or otherwise, show that $Y \\sim B(n,\\,p)$, stating the values of $n$ and $p$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "FS_DRV_002",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The random variable $X$ has probability generating function $G_X(t)$ where\n$$G_X(t) = \\frac{1}{\\sqrt{4-3t}}$$\n\n**(a)** Use calculus to find $\\text{Var}(X)$. Show your working clearly. $\\quad$ **(6)**\n\n**(b)** Find the exact value of $\\text{P}(X \\leq 2)$. $\\quad$ **(4)**\n\nThe independent random variables $X_1$ and $X_2$ each have the same distribution as $X$. The random variable $Y = X_1 + X_2 + 1$.\n\n**(c)** By finding the probability generating function of $Y$, state the name of the distribution of $Y$. $\\quad$ **(4)**\n\n**(d)** Hence, or otherwise, find $\\text{P}(X_1 + X_2 > 5)$. $\\quad$ **(2)**",
               solution_image: ""
             },
@@ -1475,25 +1475,25 @@ const SYLLABUS = {
             },
             {
               id: "FS_DRV_004",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The discrete random variable $X$ has probability generating function\n$$G_X(t) = k\\ln\\!\\left(\\frac{2}{2-t}\\right)$$\nwhere $k$ is a constant.\n\n**(a)** Find the exact value of $k$. $\\quad$ **(1)**\n\n**(b)** Find the exact value of $\\text{Var}(X)$. $\\quad$ **(7)**\n\n**(c)** Find $\\text{P}(X = 3)$. $\\quad$ **(4)**",
               solution_image: ""
             },
             {
               id: "FS_DRV_005",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "A bag contains 7 red balls and 3 blue balls. Kieran selects 2 balls at random, without replacement. The number of red balls selected by Kieran is denoted by $X$, and the number of different colours present in Kieran's selection is denoted by $Y$.\n\n**(a)** Find the probability generating functions, $G_X(t)$ of $X$ and $G_Y(t)$ of $Y$. $\\quad$ **[4]**\n\n**(b)** The random variable $Z = X + Y$. Find the probability generating function of $Z$, expressing your answer as a polynomial in $t$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "FS_DRV_006",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "The discrete random variable $X$ has probability generating function $G_X(t)$ given by\n$$G_X(t) = \\frac{t}{(3-2t)^2}$$\n\n**(a)** Find $\\text{E}(X)$ and $\\text{Var}(X)$. $\\quad$ **[5]**\n\nThe discrete random variable $Y$ has probability generating function $G_Y(t)$ given by\n$$G_Y(t) = \\frac{t^2}{(3-2t)^2}$$\n\nThe random variable $Z$ is the sum of the random variables $X$ and $Y$.\n\n**(b)** Assuming $X$ and $Y$ are independent, find $\\text{P}(Z > 4)$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "FS_DRV_007",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "The discrete random variable $X$ has probability generating function $G_X(t)$ defined by\n$$G_X(t) = \\dfrac{k}{t}(at+1)^2$$\nIt is given that $E(X) = \\dfrac{1}{3}$.\n\n**(a)** Show that $a = 2$ and find the value of $k$. $\\quad$ **[5]**\n\n**(b)** Find $\\text{Var}(X)$. $\\quad$ **[2]**\n\n**(c)** Three independent observations of $X$ are taken. The random variable $Y$ is the sum of these observations. Find $P(Y=0)$. $\\quad$ **[3]**",
               solution_image: ""
             },
@@ -1503,13 +1503,13 @@ const SYLLABUS = {
           "Inference": [
             {
               id: "FS_IN_001",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "A company produces packets of sweets. Two different machines, $A$ and $B$, are used to fill the packets. A random sample of 50 packets filled by machine $A$ and a random sample of 60 packets filled by machine $B$ are taken. The masses of sweets, $x$ kg, in packets filled by machine $A$ and the masses of sweets, $y$ kg, in packets filled by machine $B$ are summarised as follows.\n$$n_A = 50, \\quad \\Sigma x = 22.4, \\quad \\Sigma x^2 = 10.1$$\n$$n_B = 60, \\quad \\Sigma y = 28.8, \\quad \\Sigma y^2 = 16.3$$\nA test at the $\\alpha\\%$ significance level provides evidence that the mean mass of sweets in packets filled by machine $A$ is less than the mean mass of sweets in packets filled by machine $B$.\n\nFind the set of possible values of $\\alpha$. $\\quad$ **[12]**",
               solution_image: ""
             },
             {
               id: "FS_IN_002",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "*Jamland* and *Goodjam* are two suppliers of jars of jam. The weights of the jars of jam produced by each supplier can be assumed to be normally distributed with unknown, but equal, variances. A random sample of 20 jars of jam is taken from those supplied by *Jamland*.\n\nBased on this sample, the 95% confidence interval for the mean weight of a jar of *Jamland* jam, in grams, is\n$$[492, \\quad 507]$$\n\nA random sample of 10 jars of jam is selected from those supplied by *Goodjam*. The weight of each jar of *Goodjam* jam, $y$ grams, is recorded. The results are summarised as follows\n$$\\bar{y} = 480, \\quad s_y^2 = 280$$\n\nFind a 90% confidence interval for the value by which the mean weight of a jar of jam supplied by *Jamland* exceeds the mean weight of a jar of jam supplied by *Goodjam*. $\\quad$ **[11]**",
               solution_image: ""
             },
@@ -1521,19 +1521,19 @@ const SYLLABUS = {
             },
             {
               id: "FS_IN_004",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "A random sample of 10 newborn baby boys is taken and their masses in kg are recorded. From this sample, the population standard deviation of all newborn baby boys is estimated as $0.6$ kg. A random sample of 5 newborn baby girls is taken and their masses in kg are recorded as follows.\n$$3.9 \\quad 3.1 \\quad 2.9 \\quad 3.1 \\quad 3.6$$\nIt is assumed that the masses of newborn baby boys and girls have the same population standard deviation, $\\sigma$ kg.\n\nBy pooling the two samples, calculate an estimate of $\\sigma$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "FS_IN_005",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "A doctor is investigating the concentration of blood glucose in patients at risk of developing type 2 diabetes. The doctor claims that a particular intervention reduces the concentration by more than $k$ units on average. A group of 8 at risk patients is selected at random and each patient follows the intervention for six months. The blood glucose concentrations before and after the intervention are given in the following table.\n\n$$\\begin{array}{|l|c|c|c|c|c|c|c|c|}\\hline \\textbf{Patient} & A & B & C & D & E & F & G & H \\\\\\hline \\textbf{Before} & 183 & 165 & 172 & 165 & 143 & 176 & 161 & 153 \\\\\\hline \\textbf{After} & 164 & 148 & 164 & 149 & 134 & 153 & 155 & 148 \\\\\\hline\\end{array}$$\n\n**(a)** Use a $t$-test at the 5% significance level to find the range of values of $k$ for which the result of the test is to reject the null hypothesis. $\\quad$ **[7]**",
               solution_image: ""
             },
             {
               id: "FS_IN_006",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "Dev owns a small company which produces bottles of juice. He uses two machines, $X$ and $Y$, to fill empty bottles with juice. He chooses a random sample of 35 bottles filled by machine $X$ and a random sample of 60 bottles filled by machine $Y$. The volumes of juice, $x$ and $y$ respectively, measured in suitable units, are summarised by\n$$\\Sigma x = 30.8, \\quad \\Sigma x^2 = 29.0, \\quad \\Sigma y = 62.4, \\quad \\Sigma y^2 = 76.8$$\nDev claims that the mean volume of juice in bottles filled by machine $Y$ is greater than the mean volume of juice in bottles filled by machine $X$. A test at the $\\alpha\\%$ significance level suggests that there is sufficient evidence to support Dev's claim.\n\nFind the set of possible values of $\\alpha$. $\\quad$ **[9]**",
               solution_image: ""
             },
@@ -1542,7 +1542,7 @@ const SYLLABUS = {
           "Chi-squared Tests": [
             {
               id: "FS_CS_001",
-              difficulty: 'standard',
+              difficulty: 'Hard ',
               question_text: "A person's eye colour may be categorised as 'brown', 'blue' or 'other'. A scientist claims that these eye colours are uniformly distributed and hence are equally likely to occur in the population. A survey of 120 people from this population found that 38 people had brown eyes, 52 people had blue eyes and 30 people had eyes which were neither brown nor blue.\n\nUse the data to carry out a goodness of fit test at the 5% significance level to test the scientist's claim. $\\quad$ **[6]**",
               solution_image: ""
             },
@@ -1560,7 +1560,7 @@ const SYLLABUS = {
             },
             {
               id: "FS_CS_004",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "Three different bus companies, $A$, $B$ and $C$, record the reliability of their service. Each bus journey is recorded as being on time, late or cancelled. A reliable bus service is considered to be one that is on time. The records from a random sample of buses for each company are taken. These records are summarised in the table.\n\n**(a)** Test at the $5\\%$ significance level whether the reliability of the service is independent of the bus company. $\\quad$ **[8]**\n\n**(b)** Further evidence indicates that one company may be particularly unreliable compared with the other two companies. Use your calculations in **(a)** to suggest which company this is likely to be. $\\quad$ **[2]**",
               diagram_image: "FS_CS_004_d.svg",
               solution_image: ""
@@ -1576,13 +1576,13 @@ const SYLLABUS = {
             },
             {
               id: "FS_NP_002",
-              difficulty: 'standard',
+              difficulty: 'Hard',
               question_text: "A sports college keeps records of the times taken by students to run one lap of a running track. The population median time taken is 51.0 seconds. After a month of intensive training, a random sample of 22 new students run one lap of the track, giving times, in seconds, as follows.\n$$51.3 \\quad 52.0 \\quad 53.4 \\quad 49.2 \\quad 49.3 \\quad 51.1 \\quad 52.2 \\quad 47.2$$\n$$53.0 \\quad 48.5 \\quad 49.4 \\quad 50.3 \\quad 50.8 \\quad 51.6 \\quad 49.1 \\quad 52.3$$\n$$51.8 \\quad 52.4 \\quad 47.9 \\quad 48.9 \\quad 50.6 \\quad 51.9$$\nIt is claimed that the intensive training has led to a decrease in the median time taken to run one lap of the track.\n\nCarry out a Wilcoxon signed-rank test, at the 5% significance level, to test whether there is sufficient evidence to support the claim. $\\quad$ **[9]**",
               solution_image: ""
             },
             {
               id: "FS_NP_003",
-              difficulty: 'standard',
+              difficulty: 'Elite',
               question_text: "Taylor Slow and Sabrina Carpet are both singers. The album 'The Life Of a Slowgirl' is a sample of Taylor Slow's music consisting of 12 songs. The album 'Man's Worst Fiend' is a sample of Sabrina Carpet's music consisting of 13 songs. The view counts of the songs (in millions) are as follows.\n\n**Taylor Slow:** 354, 17, 44, 16, 9.6, 9.8, 10, 12.9, 12, 10.1, 7.5, 13\n\n**Sabrina Carpet:** 161, 72, 7.7, 6.7, 4.2, 16.1, 6.5, 22.1, 7.1, 4.3, 9.9, 8.9, 4.1\n\nThe 25 songs are ranked in increasing order, such that rank 1 is the lowest and rank 25 is the highest.\n\n**(a)** Use the Wilcoxon rank-sum test at the 5% significance level to test if Taylor Slow gets higher view counts than Sabrina Carpet. $\\quad$ **[10]**\n\n**(b)** Suggest one disadvantage of the nature of the samples taken. $\\quad$ **[1]**",
               solution_image: ""
             },
