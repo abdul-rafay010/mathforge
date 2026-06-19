@@ -2179,7 +2179,9 @@
       min-width: 64px;
     }
 
-    .tt-clock.tt-warning { color: #c97b4a; }
+    .tt-clock.tt-warning {
+      color: #c97b4a;
+    }
 
     .tt-clock.tt-critical {
       color: #c14c3a;
@@ -2187,8 +2189,15 @@
     }
 
     @keyframes tt-pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: .4; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .4;
+      }
     }
 
     .tt-submit-btn {
@@ -2204,7 +2213,9 @@
       transition: all .25s var(--ease);
     }
 
-    .tt-submit-btn:hover { background: var(--gold3); }
+    .tt-submit-btn:hover {
+      background: var(--gold3);
+    }
 
     .ts-question-card {
       background: var(--ink2);
@@ -2282,7 +2293,9 @@
       margin-top: 30px;
     }
 
-    .tr-new-test-btn:hover { background: var(--gold3); }
+    .tr-new-test-btn:hover {
+      background: var(--gold3);
+    }
 
     @media (max-width: 640px) {
       .test-timer-bar {
@@ -2290,7 +2303,320 @@
         gap: 10px;
         align-items: flex-start;
       }
-      .tb-topic-grid { padding-left: 0; }
+
+      .tb-topic-grid {
+        padding-left: 0;
+      }
+    }
+
+    /* ── Wizard step indicator ── */
+
+    .wz-steps {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 0;
+      margin-bottom: 28px;
+    }
+
+    .wz-step {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 0;
+      opacity: .38;
+    }
+
+    .wz-step.active {
+      opacity: 1;
+    }
+
+    .wz-step.done {
+      opacity: .7;
+    }
+
+    .wz-num {
+      font-family: var(--mono);
+      font-size: .58rem;
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--gold2);
+      color: var(--gold2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .wz-step.active .wz-num {
+      background: var(--gold3);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .wz-step.done .wz-num {
+      background: var(--gold3);
+    }
+
+    .wz-lbl {
+      font-family: var(--sc);
+      font-size: .6rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--parchment3);
+      white-space: nowrap;
+    }
+
+    .wz-step.active .wz-lbl {
+      color: var(--parchment);
+    }
+
+    .wz-sep {
+      font-family: var(--mono);
+      color: var(--rule2);
+      padding: 0 10px;
+      font-size: .8rem;
+    }
+
+    .wz-panel {
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      padding: 24px 22px;
+      margin-bottom: 16px;
+      animation: appear .2s var(--ease);
+    }
+
+    .wz-subject-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule2);
+      border: 1px solid var(--rule2);
+      margin-top: 10px;
+    }
+
+    @media(max-width:480px) {
+      .wz-subject-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .wz-subject-tile {
+      background: var(--ink2);
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+
+    .wz-subject-tile:hover {
+      background: var(--ink3);
+    }
+
+    .wz-tile-code {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .18em;
+      color: var(--gold2);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .wz-tile-name {
+      font-size: 1.22rem;
+      font-weight: 400;
+      color: var(--parchment);
+      line-height: 1.25;
+    }
+
+    .wz-sec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-top: 10px;
+    }
+
+    .wz-sec-row {
+      background: var(--ink2);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background .15s;
+    }
+
+    .wz-sec-row:hover {
+      background: var(--ink3);
+    }
+
+    .wz-sec-name {
+      font-size: 1rem;
+      color: var(--parchment2);
+    }
+
+    .wz-sec-count {
+      font-family: var(--mono);
+      font-size: .58rem;
+      color: var(--gold2);
+      background: var(--gold3);
+      padding: 2px 8px;
+    }
+
+    .wz-topic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 14px;
+    }
+
+    .wz-topic-row {
+      background: var(--ink2);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+
+    .wz-topic-row:hover {
+      background: var(--ink3);
+    }
+
+    .wz-topic-row input[type="checkbox"] {
+      width: 13px;
+      height: 13px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .wz-topic-label {
+      font-family: var(--mono);
+      font-size: .64rem;
+      color: var(--parchment2);
+      flex: 1;
+      cursor: pointer;
+    }
+
+    .wz-topic-count {
+      font-family: var(--mono);
+      font-size: .58rem;
+      color: var(--parchment4);
+    }
+
+    .wz-back-btn {
+      background: transparent;
+      border: 1px solid var(--rule2);
+      color: var(--parchment3);
+      font-family: var(--sc);
+      font-size: .64rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: all .15s;
+      margin-right: 10px;
+    }
+
+    .wz-back-btn:hover {
+      border-color: var(--gold2);
+      color: var(--gold);
+    }
+
+    .wz-sel-all {
+      background: transparent;
+      border: none;
+      color: var(--gold2);
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .1em;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    .wz-sel-all:hover {
+      color: var(--gold);
+    }
+
+    .wz-nav-row {
+      display: flex;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    /* ── Session done / self-mark ── */
+
+    .ts-card-footer {
+      border-top: 1px solid var(--rule);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      background: var(--ink3);
+    }
+
+    .ts-done-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: transparent;
+      border: 1px solid var(--rule2);
+      color: var(--parchment3);
+      font-family: var(--sc);
+      font-size: .6rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .ts-done-btn.done {
+      border-color: var(--gold2);
+      color: var(--gold);
+      background: var(--gold3);
+    }
+
+    .ts-score-wrap {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--mono);
+      font-size: .62rem;
+      color: var(--parchment4);
+    }
+
+    .ts-score-input {
+      background: var(--ink4);
+      border: 1px solid var(--rule2);
+      color: var(--parchment);
+      font-family: var(--mono);
+      font-size: .72rem;
+      padding: 4px 8px;
+      width: 52px;
+      text-align: center;
+    }
+
+    .ts-score-input:focus {
+      outline: none;
+      border-color: var(--gold2);
+    }
+
+    .tr-self-score {
+      font-family: var(--mono);
+      font-size: .62rem;
+      color: var(--gold);
+      background: var(--gold3);
+      padding: 3px 10px;
+      margin-top: 10px;
+      display: inline-block;
     }
   </style>
 </head>
@@ -2458,36 +2784,23 @@
 
       <div class="test-intro">
         <div class="screen-title">Build a <em>Practice Mode</em></div>
-        <div class="home-sub">Choose your topics, set the difficulty mix, and sit a timed paper drawn from the bank.</div>
+        <div class="home-sub">Choose your topics, set the difficulty mix, and sit a timed paper drawn from the bank.
+        </div>
       </div>
 
-      <div class="test-builder-panel">
-
-        <div class="tb-section">
-          <span class="tb-label">Topics</span>
-          <div id="tb-topic-tree"></div>
-        </div>
-
-        <div class="tb-section">
-          <span class="tb-label">Difficulty</span>
-          <div class="tb-diff-row" id="tb-diff-row"></div>
-        </div>
-
-        <div class="tb-section">
-          <span class="tb-label">Question Count</span>
-          <div class="tb-count-row">
-            <input type="number" class="tb-count-input" id="tb-count" min="1" value="10" onchange="updateTBSummary()" oninput="updateTBSummary()">
-            <span class="tb-match-text" id="tb-match-text">— select topics to begin —</span>
-          </div>
-        </div>
-
-        <div class="tb-summary" id="tb-summary" style="display:none">
-          <span class="tb-summary-text" id="tb-summary-text"></span>
-        </div>
-
-        <button class="tb-generate-btn" id="tb-generate-btn" onclick="generateTest()" disabled>Generate Session</button>
-
+      <!-- Wizard step indicator -->
+      <div class="wz-steps" id="wz-steps">
+        <div class="wz-step active" id="wzs-1"><span class="wz-num">1</span><span class="wz-lbl">Subject</span></div>
+        <div class="wz-sep">›</div>
+        <div class="wz-step" id="wzs-2"><span class="wz-num">2</span><span class="wz-lbl">Section</span></div>
+        <div class="wz-sep">›</div>
+        <div class="wz-step" id="wzs-3"><span class="wz-num">3</span><span class="wz-lbl">Topics</span></div>
+        <div class="wz-sep">›</div>
+        <div class="wz-step" id="wzs-4"><span class="wz-num">4</span><span class="wz-lbl">Generate</span></div>
       </div>
+
+      <!-- Wizard content renders here -->
+      <div id="wz-body"></div>
 
     </div>
 
@@ -3604,131 +3917,235 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     // ══════════════════════════════════════════════════
-    //  PRACTICE MODE GENERATOR
+    //  PRACTICE MODE — WIZARD + SESSION
     // ══════════════════════════════════════════════════
-    //
-    // Timing: 1.5 min/mark — matches CAIE pacing
-    // (Paper 1: 75 marks / 110 min ≈ 1.47 min/mark)
-    // Solutions locked during session, fully revealed on review.
-    // No auto-grading — self-check against revealed solution.
 
+    // Wizard state
+    let TB = { step: 1, subject: null, section: null, topics: [], count: 10 };
+
+    // Session state
     let TEST = {
-      questions: [],
-      totalMarks: 0,
-      durationSeconds: 0,
-      remainingSeconds: 0,
-      timerHandle: null,
-      submitted: false
+      questions: [], totalMarks: 0,
+      durationSeconds: 0, remainingSeconds: 0,
+      timerHandle: null, submitted: false,
+      marks: {}  // idx → { done: bool, scored: number|null }
     };
 
     function extractMarks(text) {
-      const matches = (text || '').match(/\[(\d+)\]/g) || [];
-      return matches.reduce((s, m) => s + parseInt(m.replace(/\D/g, ''), 10), 0);
+      const m = (text || '').match(/\[(\d+)\]/g) || [];
+      return m.reduce((s, x) => s + parseInt(x.replace(/\D/g, ''), 10), 0);
     }
 
     function escapeAttr(s) {
       return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
     }
 
-    function getTopicGroups() {
-      const groups = [];
-      for (const [course, cData] of Object.entries(SYLLABUS)) {
-        for (const [secCode, sec] of Object.entries(cData.sections)) {
-          const items = [];
-          for (const [topic, qs] of Object.entries(sec.topics)) {
-            if (qs.length) items.push({ course, secCode, topic, count: qs.length });
-          }
-          if (items.length) groups.push({ course, secCode, secName: sec.name, items });
-        }
-      }
-      return groups;
-    }
+    // ── Wizard ──────────────────────────────────────
 
     function goTestBuilder(fromPop) {
       S = { course: null, section: null, topic: null, probIndex: 0 };
-      crumb([
-        { label: 'Home', fn: 'goHome()' },
-        { label: 'Practice Mode' }
-      ]);
-      buildTestBuilderUI();
+      TB = { step: 1, subject: null, section: null, topics: [], count: 10 };
+      crumb([{ label: 'Home', fn: 'goHome()' }, { label: 'Practice Mode' }]);
+      tbRender();
       show('test-builder');
       if (!fromPop) pushState({ screen: 'test-builder' });
     }
 
-    function buildTestBuilderUI() {
-      const groups = getTopicGroups();
-      const treeEl = document.getElementById('tb-topic-tree');
-
-      treeEl.innerHTML = groups.map(group => {
-        const groupId = 'tbg-' + group.course + '-' + group.secCode;
-        const topicCbs = group.items.map(t => {
-          const cbId = 'tbt-' + t.course + '-' + t.secCode + '-' + t.topic.replace(/[^A-Za-z0-9]/g, '');
-          return `<div class="tb-topic-item">
-            <input type="checkbox" id="${cbId}" data-course="${t.course}" data-sec="${t.secCode}" data-topic="${escapeAttr(t.topic)}" onchange="updateTBSummary()">
-            <label class="tb-topic-label" for="${cbId}">${t.topic} (${t.count})</label>
-          </div>`;
-        }).join('');
-        return `
-          <div class="tb-group-head">
-            <input type="checkbox" id="${groupId}" onchange="toggleGroupCheckboxes('${groupId}')">
-            <label class="tb-group-name" for="${groupId}">${group.secCode} — ${group.secName}</label>
-          </div>
-          <div class="tb-topic-grid" data-group="${groupId}">${topicCbs}</div>`;
-      }).join('');
-
-      const diffEl = document.getElementById('tb-diff-row');
-      const diffs = [
-        { key: 'standard', label: 'Standard' },
-        { key: 'hard',     label: 'Hard' },
-        { key: 'insight',  label: 'Insight' },
-        { key: 'unrated',  label: 'Unrated' }
-      ];
-      diffEl.innerHTML = diffs.map(d => `
-        <div class="tb-diff-item">
-          <input type="checkbox" id="tbd-${d.key}" checked onchange="updateTBSummary()">
-          <label class="tb-diff-label" for="tbd-${d.key}">${d.label}</label>
-        </div>`).join('');
-
-      document.getElementById('tb-count').value = 10;
-      updateTBSummary();
-    }
-
-    function toggleGroupCheckboxes(groupId) {
-      const groupCb = document.getElementById(groupId);
-      const grid = document.querySelector('.tb-topic-grid[data-group="' + groupId + '"]');
-      if (!grid) return;
-      grid.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.checked = groupCb.checked; });
-      updateTBSummary();
-    }
-
-    function getSelectedFilters() {
-      const topicChecks = Array.from(document.querySelectorAll('#tb-topic-tree .tb-topic-grid input[type="checkbox"]:checked'));
-      const selectedTopics = topicChecks.map(cb => ({
-        course: cb.dataset.course,
-        sec: cb.dataset.sec,
-        topic: cb.dataset.topic
-      }));
-      const diffKeys = ['standard', 'hard', 'insight', 'unrated'];
-      const selectedDiffs = diffKeys.filter(k => {
-        const el = document.getElementById('tbd-' + k);
-        return el && el.checked;
+    function tbRender() {
+      // Update step indicators
+      [1, 2, 3, 4].forEach(n => {
+        const el = document.getElementById('wzs-' + n);
+        if (!el) return;
+        el.className = 'wz-step' + (n === TB.step ? ' active' : (n < TB.step ? ' done' : ''));
       });
-      return { selectedTopics, selectedDiffs };
+
+      const body = document.getElementById('wz-body');
+      if (!body) return;
+
+      if (TB.step === 1) {
+        // Subject chooser
+        const subjects = Object.entries(SYLLABUS);
+        body.innerHTML = '<div class="wz-panel"><span class="tb-label">Choose subject</span>'
+          + '<div class="wz-subject-grid">'
+          + subjects.map(([code, c]) =>
+            '<div class="wz-subject-tile" onclick="tbPickSubject(\'' + code + '\')">'
+            + '<span class="wz-tile-code">' + code + '</span>'
+            + '<div class="wz-tile-name">' + c.name + '</div>'
+            + '</div>'
+          ).join('')
+          + '</div></div>';
+
+      } else if (TB.step === 2) {
+        // Section chooser
+        const c = SYLLABUS[TB.subject];
+        const rows = Object.entries(c.sections).map(([secCode, sec]) => {
+          const total = Object.values(sec.topics).reduce((a, qs) => a + qs.length, 0);
+          if (!total) return '';
+          return '<div class="wz-sec-row" onclick="tbPickSection(\'' + secCode + '\')">'
+            + '<span class="wz-sec-name">' + secCode + ' — ' + sec.name + '</span>'
+            + '<span class="wz-sec-count">' + total + ' Q</span>'
+            + '</div>';
+        }).join('');
+        body.innerHTML = '<div class="wz-panel"><span class="tb-label">' + c.name + ' · Choose section</span>'
+          + '<div class="wz-sec-list">' + rows + '</div></div>'
+          + '<div class="wz-nav-row"><button class="wz-back-btn" onclick="tbBack()">← Back</button></div>';
+
+      } else if (TB.step === 3) {
+        // Topic multi-select
+        const sec = SYLLABUS[TB.subject].sections[TB.section];
+        const rows = Object.entries(sec.topics).map(([topic, qs]) => {
+          if (!qs.length) return '';
+          const key = TB.subject + '|' + TB.section + '|' + topic;
+          const checked = TB.topics.includes(key) ? 'checked' : '';
+          const cbId = 'wzt-' + key.replace(/[^A-Za-z0-9]/g, '');
+          return '<div class="wz-topic-row" onclick="tbToggleTopic(\'' + escapeAttr(key) + '\',\'' + cbId + '\')">'
+            + '<input type="checkbox" id="' + cbId + '" ' + checked + ' onclick="event.stopPropagation();tbToggleTopic(\'' + escapeAttr(key) + '\',\'' + cbId + '\')">'
+            + '<label class="wz-topic-label" for="' + cbId + '">' + topic + '</label>'
+            + '<span class="wz-topic-count">' + qs.length + ' Q</span>'
+            + '</div>';
+        }).join('');
+
+        const allKeys = Object.entries(sec.topics)
+          .filter(([, qs]) => qs.length)
+          .map(([t]) => TB.subject + '|' + TB.section + '|' + t);
+        const allSelected = allKeys.every(k => TB.topics.includes(k));
+
+        body.innerHTML = '<div class="wz-panel">'
+          + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">'
+          + '<span class="tb-label" style="margin-bottom:0">' + TB.section + ' — ' + sec.name + '</span>'
+          + '<button class="wz-sel-all" onclick="tbSelectAll(' + (allSelected ? 'false' : 'true') + ')">'
+          + (allSelected ? 'Deselect All' : 'Select All') + '</button>'
+          + '</div>'
+          + '<div class="wz-topic-list">' + rows + '</div></div>'
+          + '<div class="wz-nav-row">'
+          + '<button class="wz-back-btn" onclick="tbBack()">← Back</button>'
+          + '<button class="tb-generate-btn" style="margin-top:0;width:auto;padding:10px 28px" onclick="tbNext()" '
+          + (TB.topics.length ? '' : 'disabled') + '>Next →</button>'
+          + '</div>';
+
+      } else if (TB.step === 4) {
+        // Count + difficulty + generate
+        const pool = tbGetPool();
+        const avgMarks = pool.length
+          ? pool.reduce((s, q) => s + extractMarks(q.question_text), 0) / pool.length
+          : 0;
+        let count = Math.max(1, Math.min(TB.count, pool.length));
+        const estMarks = Math.round(avgMarks * count);
+        const estMins = Math.max(10, Math.round(estMarks * 1.5));
+
+        const diffs = [
+          { key: 'standard', label: 'Standard' },
+          { key: 'hard', label: 'Hard' },
+          { key: 'insight', label: 'Insight' },
+          { key: 'unrated', label: 'Unrated' }
+        ];
+
+        body.innerHTML = '<div class="wz-panel">'
+          + '<span class="tb-label">Questions</span>'
+          + '<div class="tb-count-row" style="margin-bottom:20px">'
+          + '<input type="number" class="tb-count-input" id="wz-count" min="1" max="' + pool.length + '" value="' + count + '" oninput="tbCountChange(this)">'
+          + '<span class="tb-match-text">' + pool.length + ' questions available from selected topics</span>'
+          + '</div>'
+          + '<span class="tb-label">Difficulty filter</span>'
+          + '<div class="tb-diff-row" style="margin-bottom:20px">'
+          + diffs.map(d => '<div class="tb-diff-item">'
+            + '<input type="checkbox" id="wzd-' + d.key + '" checked onchange="tbDiffChange()">'
+            + '<label class="tb-diff-label" for="wzd-' + d.key + '">' + d.label + '</label>'
+            + '</div>').join('')
+          + '</div>'
+          + '<div class="tb-summary" style="display:flex;margin-top:0" id="wz-summary">'
+          + '<span class="tb-summary-text"><strong>' + count + '</strong> questions &nbsp;·&nbsp; approx. <strong>' + estMarks + '</strong> marks &nbsp;·&nbsp; approx. <strong>' + estMins + ' min</strong> (Cambridge pacing)</span>'
+          + '</div>'
+          + '<button class="tb-generate-btn" id="wz-gen-btn" style="margin-top:16px" onclick="generateTest()" '
+          + (pool.length ? '' : 'disabled') + '>Generate Session</button>'
+          + '</div>'
+          + '<div class="wz-nav-row"><button class="wz-back-btn" onclick="tbBack()">← Back</button></div>';
+      }
     }
 
-    function getMatchingQuestions() {
-      const { selectedTopics, selectedDiffs } = getSelectedFilters();
-      if (!selectedTopics.length || !selectedDiffs.length) return [];
-      const topicSet = new Set(selectedTopics.map(t => t.course + '|' + t.sec + '|' + t.topic));
-      const diffSet  = new Set(selectedDiffs);
+    function tbPickSubject(code) {
+      TB.subject = code;
+      TB.section = null;
+      TB.topics = [];
+      TB.step = 2;
+      tbRender();
+    }
+
+    function tbPickSection(secCode) {
+      TB.section = secCode;
+      TB.topics = [];
+      TB.step = 3;
+      tbRender();
+    }
+
+    function tbToggleTopic(key, cbId) {
+      const idx = TB.topics.indexOf(key);
+      if (idx === -1) TB.topics.push(key);
+      else TB.topics.splice(idx, 1);
+      const cb = document.getElementById(cbId);
+      if (cb) cb.checked = TB.topics.includes(key);
+      // re-render just the next button disabled state and sel-all text without full re-render
+      const btn = document.querySelector('#wz-body .tb-generate-btn');
+      if (btn) btn.disabled = TB.topics.length === 0;
+      // update sel-all button text
+      const sec = SYLLABUS[TB.subject].sections[TB.section];
+      const allKeys = Object.entries(sec.topics).filter(([, qs]) => qs.length).map(([t]) => TB.subject + '|' + TB.section + '|' + t);
+      const allSel = allKeys.every(k => TB.topics.includes(k));
+      const sa = document.querySelector('.wz-sel-all');
+      if (sa) sa.textContent = allSel ? 'Deselect All' : 'Select All';
+      if (sa) sa.setAttribute('onclick', 'tbSelectAll(' + (!allSel) + ')');
+    }
+
+    function tbSelectAll(select) {
+      const sec = SYLLABUS[TB.subject].sections[TB.section];
+      const allKeys = Object.entries(sec.topics).filter(([, qs]) => qs.length).map(([t]) => TB.subject + '|' + TB.section + '|' + t);
+      if (select) {
+        allKeys.forEach(k => { if (!TB.topics.includes(k)) TB.topics.push(k); });
+      } else {
+        TB.topics = TB.topics.filter(k => !allKeys.includes(k));
+      }
+      tbRender();
+    }
+
+    function tbNext() {
+      if (TB.topics.length === 0) return;
+      TB.step = 4;
+      tbRender();
+    }
+
+    function tbBack() {
+      TB.step = Math.max(1, TB.step - 1);
+      if (TB.step === 1) { TB.subject = null; TB.section = null; TB.topics = []; }
+      if (TB.step === 2) { TB.section = null; TB.topics = []; }
+      if (TB.step === 3) { TB.topics = []; }
+      tbRender();
+    }
+
+    function tbCountChange(input) {
+      TB.count = parseInt(input.value, 10) || 1;
+      tbUpdateStep4Summary();
+    }
+
+    function tbDiffChange() {
+      tbUpdateStep4Summary();
+    }
+
+    function tbGetPool() {
+      const topicSet = new Set(TB.topics);
+      const diffKeys = ['standard', 'hard', 'insight', 'unrated'];
+      const selectedDiffs = new Set(diffKeys.filter(k => {
+        const el = document.getElementById('wzd-' + k);
+        return el ? el.checked : true;
+      }));
       const pool = [];
       for (const [course, cData] of Object.entries(SYLLABUS)) {
         for (const [secCode, sec] of Object.entries(cData.sections)) {
           for (const [topic, qs] of Object.entries(sec.topics)) {
-            if (!topicSet.has(course + '|' + secCode + '|' + topic)) continue;
+            const key = course + '|' + secCode + '|' + topic;
+            if (!topicSet.has(key)) continue;
             qs.forEach(q => {
               const tag = q.difficulty || 'unrated';
-              if (diffSet.has(tag)) pool.push(q);
+              if (selectedDiffs.has(tag)) pool.push(q);
             });
           }
         }
@@ -3736,66 +4153,48 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       return pool;
     }
 
-    function updateTBSummary() {
-      const pool = getMatchingQuestions();
-      const matchText  = document.getElementById('tb-match-text');
-      const countInput = document.getElementById('tb-count');
-      const genBtn     = document.getElementById('tb-generate-btn');
-      const summaryBox = document.getElementById('tb-summary');
-      const summaryText= document.getElementById('tb-summary-text');
-
-      if (!pool.length) {
-        matchText.textContent = '— select topics to begin —';
-        matchText.classList.remove('tb-match-zero');
-        genBtn.disabled = true;
-        summaryBox.style.display = 'none';
-        return;
-      }
-
-      matchText.textContent = pool.length + (pool.length === 1 ? ' question matches' : ' questions match') + ' your filters';
-      matchText.classList.remove('tb-match-zero');
-
-      let count = parseInt(countInput.value, 10) || 1;
+    function tbUpdateStep4Summary() {
+      const pool = tbGetPool();
+      let count = parseInt((document.getElementById('wz-count') || {}).value, 10) || TB.count;
       count = Math.max(1, Math.min(count, pool.length));
-      countInput.max   = pool.length;
-      countInput.value = count;
-
-      const avgMarks  = pool.reduce((s, q) => s + extractMarks(q.question_text), 0) / pool.length;
-      const estMarks  = Math.round(avgMarks * count);
-      const estMinutes= Math.max(10, Math.round(estMarks * 1.5));
-
-      summaryBox.style.display = 'flex';
-      summaryText.innerHTML = '<strong>' + count + '</strong> questions &nbsp;·&nbsp; approx. <strong>' + estMarks + '</strong> marks &nbsp;·&nbsp; approx. <strong>' + estMinutes + ' min</strong> (1.5 min / mark — Cambridge pacing)';
-      genBtn.disabled = false;
+      TB.count = count;
+      const avgMarks = pool.length ? pool.reduce((s, q) => s + extractMarks(q.question_text), 0) / pool.length : 0;
+      const estMarks = Math.round(avgMarks * count);
+      const estMins = Math.max(10, Math.round(estMarks * 1.5));
+      const sum = document.getElementById('wz-summary');
+      if (sum) sum.innerHTML = '<span class="tb-summary-text"><strong>' + count + '</strong> questions &nbsp;·&nbsp; approx. <strong>' + estMarks + '</strong> marks &nbsp;·&nbsp; approx. <strong>' + estMins + ' min</strong> (Cambridge pacing)</span>';
+      const btn = document.getElementById('wz-gen-btn');
+      if (btn) btn.disabled = pool.length === 0;
     }
+
+    // ── Session ─────────────────────────────────────
 
     function shuffleArray(arr) {
       const a = arr.slice();
       for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+        [a[i], a[j]] = [a[j], a[i]];
       }
       return a;
     }
 
     function generateTest() {
-      const pool = getMatchingQuestions();
+      const pool = tbGetPool();
       if (!pool.length) return;
-      let count = parseInt(document.getElementById('tb-count').value, 10) || 1;
+      let count = TB.count || 10;
       count = Math.max(1, Math.min(count, pool.length));
+      const countEl = document.getElementById('wz-count');
+      if (countEl) count = Math.max(1, Math.min(parseInt(countEl.value, 10) || count, pool.length));
 
-      const selected      = shuffleArray(pool).slice(0, count);
-      const totalMarks    = selected.reduce((s, q) => s + extractMarks(q.question_text), 0);
-      const durationSecs  = Math.max(600, Math.round(totalMarks * 1.5 * 60));
+      const selected = shuffleArray(pool).slice(0, count);
+      const totalMarks = selected.reduce((s, q) => s + extractMarks(q.question_text), 0);
+      const durationSecs = Math.max(600, Math.round(totalMarks * 1.5 * 60));
 
-      TEST = {
-        questions: selected,
-        totalMarks,
-        durationSeconds: durationSecs,
-        remainingSeconds: durationSecs,
-        timerHandle: null,
-        submitted: false
-      };
+      // Initialise marks map
+      const marks = {};
+      selected.forEach((_, i) => { marks[i] = { done: false, scored: null }; });
+
+      TEST = { questions: selected, totalMarks, durationSeconds: durationSecs, remainingSeconds: durationSecs, timerHandle: null, submitted: false, marks };
 
       renderTestSession();
       startTestTimer();
@@ -3808,11 +4207,9 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       pushState({ screen: 'test-session' });
     }
 
-    function formatClock(totalSeconds) {
-      const s   = Math.max(0, Math.round(totalSeconds));
-      const m   = Math.floor(s / 60);
-      const sec = s % 60;
-      return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
+    function formatClock(s) {
+      s = Math.max(0, Math.round(s));
+      return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
     }
 
     function startTestTimer() {
@@ -3820,10 +4217,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       TEST.timerHandle = setInterval(() => {
         TEST.remainingSeconds--;
         updateTimerDisplay();
-        if (TEST.remainingSeconds <= 0) {
-          clearInterval(TEST.timerHandle);
-          submitTest(true);
-        }
+        if (TEST.remainingSeconds <= 0) { clearInterval(TEST.timerHandle); submitTest(true); }
       }, 1000);
     }
 
@@ -3832,11 +4226,8 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       if (!el) return;
       el.textContent = formatClock(TEST.remainingSeconds);
       el.classList.remove('tt-warning', 'tt-critical');
-      if (TEST.remainingSeconds <= 60) {
-        el.classList.add('tt-critical');
-      } else if (TEST.remainingSeconds <= Math.max(120, TEST.durationSeconds * 0.1)) {
-        el.classList.add('tt-warning');
-      }
+      if (TEST.remainingSeconds <= 60) el.classList.add('tt-critical');
+      else if (TEST.remainingSeconds <= Math.max(120, TEST.durationSeconds * 0.1)) el.classList.add('tt-warning');
     }
 
     function renderTestSession() {
@@ -3846,12 +4237,16 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function renderTestCard(q, idx, reveal) {
-      const marks   = extractMarks(q.question_text);
-      const diagHtml= q.diagram_image
+      const marks = extractMarks(q.question_text);
+      const diagHtml = q.diagram_image
         ? '<div class="prob-diagram"><img class="prob-diagram-img" src="images/' + q.diagram_image + '" alt="Diagram"></div>'
         : '';
 
-      let body = '<div class="ts-question-card">'
+      // Done/scored state
+      const ms = TEST.marks[idx] || { done: false, scored: null };
+
+      let html = '<div class="ts-question-card" id="tscard-' + idx + '"'
+        + (ms.done && !reveal ? ' style="border-color:var(--gold3);opacity:.8"' : '') + '>'
         + '<div class="ts-q-label">'
         + '<span class="ts-q-number">Question ' + (idx + 1) + '</span>'
         + '<span class="ts-q-marks">' + (marks ? marks + ' marks' : '') + '</span>'
@@ -3859,34 +4254,68 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         + diagHtml
         + '<div class="prob-text-question">' + processText(q.question_text) + '</div>';
 
+      if (!reveal) {
+        // Session footer: Done toggle + self-score
+        const doneClass = ms.done ? ' done' : '';
+        const scoreVal = ms.scored !== null ? ms.scored : '';
+        html += '<div class="ts-card-footer">'
+          + '<button class="ts-done-btn' + doneClass + '" onclick="tsToggleDone(' + idx + ')">'
+          + (ms.done ? '✓ Attempted' : 'Mark Attempted') + '</button>'
+          + '<div class="ts-score-wrap">'
+          + 'Scored: <input class="ts-score-input" type="number" min="0" max="' + marks + '" value="' + scoreVal + '" placeholder="—"'
+          + ' oninput="tsSetScore(' + idx + ',this.value)">'
+          + ' / ' + (marks || '?')
+          + '</div>'
+          + '</div>';
+      }
+
       if (reveal) {
         const sImg = q.solution_image
           ? '<img src="images/' + q.solution_image + '" alt="Solution" style="display:block;width:100%;filter:invert(1) brightness(.88) contrast(1.1)">'
           : '<div class="prob-sol-placeholder">Solution forthcoming.</div>';
-        body += '<div style="border-top:1px solid var(--rule);padding:14px 24px 0">'
+        html += '<div style="border-top:1px solid var(--rule);padding:12px 24px 4px">'
           + '<span style="font-family:var(--sc);font-size:.6rem;letter-spacing:.18em;color:var(--gold2);text-transform:uppercase">Solution</span>'
-          + '</div>'
-          + sImg;
+          + '</div>' + sImg;
         if (q.why && (q.why.concept || q.why.misconception)) {
-          body += '<div class="prob-why" style="margin-top:0">';
-          if (q.why.concept)      body += '<div class="why-row"><span class="why-label">Concept</span><span class="why-text">' + q.why.concept + '</span></div>';
-          if (q.why.misconception)body += '<div class="why-row"><span class="why-label">Misconception</span><span class="why-text">' + q.why.misconception + '</span></div>';
-          body += '</div>';
+          html += '<div class="prob-why" style="margin-top:0">';
+          if (q.why.concept) html += '<div class="why-row"><span class="why-label">Concept</span><span class="why-text">' + q.why.concept + '</span></div>';
+          if (q.why.misconception) html += '<div class="why-row"><span class="why-label">Misconception</span><span class="why-text">' + q.why.misconception + '</span></div>';
+          html += '</div>';
+        }
+        // Show self-reported score in review
+        if (ms.scored !== null) {
+          html += '<div style="padding:0 24px 12px"><span class="tr-self-score">Self-marked: ' + ms.scored + ' / ' + (marks || '?') + '</span></div>';
         }
       }
 
-      body += '</div>';
-      return body;
+      html += '</div>';
+      return html;
     }
 
-    function renderTestMath(containerId) {
-      const el = document.getElementById(containerId);
+    function tsToggleDone(idx) {
+      if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null };
+      TEST.marks[idx].done = !TEST.marks[idx].done;
+      // Re-render just this card in place
+      const card = document.getElementById('tscard-' + idx);
+      if (card) {
+        const tmp = document.createElement('div');
+        tmp.innerHTML = renderTestCard(TEST.questions[idx], idx, false);
+        card.replaceWith(tmp.firstChild);
+        renderTestMath('ts-question-stack');
+      }
+    }
+
+    function tsSetScore(idx, val) {
+      if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null };
+      const n = parseFloat(val);
+      TEST.marks[idx].scored = isNaN(n) ? null : n;
+    }
+
+    function renderTestMath(id) {
+      const el = document.getElementById(id);
       if (el && window.renderMathInElement) {
         renderMathInElement(el, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$',  right: '$',  display: false }
-          ],
+          delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
           throwOnError: false
         });
       }
@@ -3913,11 +4342,21 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function renderTestReview(elapsed, timedOut) {
+      // Compute self-score totals
+      let selfTotal = 0, selfAttempted = 0;
+      TEST.questions.forEach((_, i) => {
+        const ms = TEST.marks[i] || {};
+        if (ms.scored !== null && ms.scored !== undefined) { selfTotal += Number(ms.scored); selfAttempted++; }
+      });
+      const doneCount = TEST.questions.filter((_, i) => (TEST.marks[i] || {}).done).length;
+
       document.getElementById('tr-summary').innerHTML =
-          '<div class="trs-stat"><span class="trs-stat-label">Questions</span><span class="trs-stat-value">'  + TEST.questions.length + '</span></div>'
+        '<div class="trs-stat"><span class="trs-stat-label">Questions</span><span class="trs-stat-value">' + TEST.questions.length + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Total Marks</span><span class="trs-stat-value">' + TEST.totalMarks + '</span></div>'
-        + '<div class="trs-stat"><span class="trs-stat-label">Time Used</span><span class="trs-stat-value">'   + formatClock(elapsed) + ' / ' + formatClock(TEST.durationSeconds) + '</span></div>'
-        + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">'      + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>';
+        + '<div class="trs-stat"><span class="trs-stat-label">Attempted</span><span class="trs-stat-value">' + doneCount + ' / ' + TEST.questions.length + '</span></div>'
+        + (selfAttempted ? '<div class="trs-stat"><span class="trs-stat-label">Self-Scored</span><span class="trs-stat-value">' + selfTotal + ' / ' + TEST.totalMarks + '</span></div>' : '')
+        + '<div class="trs-stat"><span class="trs-stat-label">Time Used</span><span class="trs-stat-value">' + formatClock(elapsed) + ' / ' + formatClock(TEST.durationSeconds) + '</span></div>'
+        + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">' + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>';
 
       const stack = document.getElementById('tr-question-stack');
       stack.innerHTML = TEST.questions.map((q, i) => renderTestCard(q, i, true)).join('');
