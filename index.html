@@ -3932,8 +3932,21 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     };
 
     function extractMarks(text) {
-      const m = (text || '').match(/\[(\d+)\]/g) || [];
-      return m.reduce((s, x) => s + parseInt(x.replace(/\D/g, ''), 10), 0);
+      text = text || '';
+      const bracket = text.match(/\[(\d+)\]/g) || [];
+      const parens = text.match(/\*\*\(\d+\)\*\*/g) || [];
+      const all = [...bracket, ...parens];
+      return all.reduce((s, x) => s + parseInt(x.replace(/\D/g, ''), 10), 0);
+    }
+
+    // Returns { marks, estimated } — falls back to a curator-estimated mark total
+    // (q.marks_estimated) for the small number of source questions that never had
+    // a mark allocation written into the original text.
+    function getMarks(q) {
+      const parsed = extractMarks(q.question_text);
+      if (parsed > 0) return { marks: parsed, estimated: false };
+      if (q.marks_estimated) return { marks: q.marks_estimated, estimated: true };
+      return { marks: 0, estimated: false };
     }
 
     function escapeAttr(s) {
@@ -4027,7 +4040,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         // Count + difficulty + generate
         const pool = tbGetPool();
         const avgMarks = pool.length
-          ? pool.reduce((s, q) => s + extractMarks(q.question_text), 0) / pool.length
+          ? pool.reduce((s, q) => s + getMarks(q).marks, 0) / pool.length
           : 0;
         let count = Math.max(1, Math.min(TB.count, pool.length));
         const estMarks = Math.round(avgMarks * count);
@@ -4036,8 +4049,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         const diffs = [
           { key: 'standard', label: 'Standard' },
           { key: 'hard', label: 'Hard' },
-          { key: 'elite', label: 'Elite' },
-          { key: 'unrated', label: 'Unrated' }
+          { key: 'elite', label: 'Elite' }
         ];
 
         body.innerHTML = '<div class="wz-panel">'
@@ -4158,7 +4170,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       let count = parseInt((document.getElementById('wz-count') || {}).value, 10) || TB.count;
       count = Math.max(1, Math.min(count, pool.length));
       TB.count = count;
-      const avgMarks = pool.length ? pool.reduce((s, q) => s + extractMarks(q.question_text), 0) / pool.length : 0;
+      const avgMarks = pool.length ? pool.reduce((s, q) => s + getMarks(q).marks, 0) / pool.length : 0;
       const estMarks = Math.round(avgMarks * count);
       const estMins = Math.max(10, Math.round(estMarks * 1.5));
       const sum = document.getElementById('wz-summary');
@@ -4187,12 +4199,12 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       if (countEl) count = Math.max(1, Math.min(parseInt(countEl.value, 10) || count, pool.length));
 
       const selected = shuffleArray(pool).slice(0, count);
-      const totalMarks = selected.reduce((s, q) => s + extractMarks(q.question_text), 0);
+      const totalMarks = selected.reduce((s, q) => s + getMarks(q).marks, 0);
       const durationSecs = Math.max(600, Math.round(totalMarks * 1.5 * 60));
 
       // Initialise marks map
       const marks = {};
-      selected.forEach((_, i) => { marks[i] = { done: false, scored: null }; });
+      selected.forEach((_, i) => { marks[i] = { done: false, scored: null, note: '' }; });
 
       TEST = { questions: selected, totalMarks, durationSeconds: durationSecs, remainingSeconds: durationSecs, timerHandle: null, submitted: false, marks };
 
@@ -4237,19 +4249,22 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function renderTestCard(q, idx, reveal) {
-      const marks = extractMarks(q.question_text);
+      const mk = getMarks(q);
+      const marks = mk.marks;
+      const marksLabel = marks ? (mk.estimated ? '≈' + marks + ' marks' : marks + ' marks') : '';
+      const marksTitle = mk.estimated ? ' title="Mark allocation not given in the source paper — estimated by comparison with similar questions"' : '';
       const diagHtml = q.diagram_image
         ? '<div class="prob-diagram"><img class="prob-diagram-img" src="images/' + q.diagram_image + '" alt="Diagram"></div>'
         : '';
 
       // Done/scored state
-      const ms = TEST.marks[idx] || { done: false, scored: null };
+      const ms = TEST.marks[idx] || { done: false, scored: null, note: '' };
 
       let html = '<div class="ts-question-card" id="tscard-' + idx + '"'
         + (ms.done && !reveal ? ' style="border-color:var(--gold3);opacity:.8"' : '') + '>'
         + '<div class="ts-q-label">'
         + '<span class="ts-q-number">Question ' + (idx + 1) + '</span>'
-        + '<span class="ts-q-marks">' + (marks ? marks + ' marks' : '') + '</span>'
+        + '<span class="ts-q-marks"' + marksTitle + '>' + marksLabel + '</span>'
         + '</div>'
         + diagHtml
         + '<div class="prob-text-question">' + processText(q.question_text) + '</div>';
@@ -4282,6 +4297,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
           + 'Self-mark: <input class="ts-score-input" type="number" min="0" max="' + marks + '" value="' + scoreVal + '" placeholder="—"'
           + ' oninput="tsSetScore(' + idx + ',this.value); tsRefreshSummary();">'
           + ' / ' + (marks || '?')
+          + (mk.estimated ? ' <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);font-style:italic">(estimated allocation)</span>' : '')
           + '</div>';
       }
 
@@ -4290,7 +4306,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function tsToggleDone(idx) {
-      if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null };
+      if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null, note: '' };
       TEST.marks[idx].done = !TEST.marks[idx].done;
       // Re-render just this card in place
       const card = document.getElementById('tscard-' + idx);
@@ -4303,7 +4319,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function tsSetScore(idx, val) {
-      if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null };
+      if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null, note: '' };
       const n = parseFloat(val);
       TEST.marks[idx].scored = isNaN(n) ? null : n;
     }
