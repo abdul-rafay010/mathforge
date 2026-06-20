@@ -121,12 +121,14 @@ const SYLLABUS = {
             {
               id: "P1_BE_001",
               difficulty: 'standard',
+              marks_estimated: 5,
               question_text: "Given that $(1 + ax)^n = 1 - 12x + 63x^2 + \\ldots$, find $a$ and $n$.",
               solution_image: ""
             },
             {
               id: "P1_BE_002",
               difficulty: 'standard',
+              marks_estimated: 5,
               question_text: "In the expansion of $(2 + 3x)^n$, the coefficients of $x^4$ and $x^5$ are in the ratio $8:15$.\n\nFind the value of $n$.",
               solution_image: ""
             },
@@ -233,24 +235,28 @@ const SYLLABUS = {
             {
               id: "P1_QD_001",
               difficulty: 'standard',
+              marks_estimated: 5,
               question_text: "Solve the quadratic equation\n$$(\\sqrt{3}-1)x^2 - 2\\sqrt{3}\\,x = 3 + 3\\sqrt{3}$$\ngiving one root in the form $p + q\\sqrt{3}$ and the other in the form $r\\sqrt{3}$, where $p$, $q$ and $r$ are integers.",
               solution_image: ""
             },
             {
               id: "P1_QD_002",
               difficulty: 'standard',
+              marks_estimated: 5,
               question_text: "A curve $C$ has equation\n$$(x-1)y^2 - 2xy + x = 0, \\quad x \\geq 0$$\n\nBy completing the square in the above equation, express $y$ in terms of $x$.",
               solution_image: ""
             },
             {
               id: "P1_QD_003",
               difficulty: 'standard',
+              marks_estimated: 4,
               question_text: "A quadratic curve has equation $f(x) = (x-1)(x-a)$, where $a$ is a constant.\n\nShow, **without** a calculus method, that the coordinates of the minimum point of the curve are\n$$\\left(\\frac{a+1}{2},\\,-\\frac{(a-1)^2}{4}\\right)$$",
               solution_image: ""
             },
             {
               id: "P1_QD_004",
               difficulty: 'standard',
+              marks_estimated: 5,
               question_text: "The equation $(k+5)x^2 + 4x + (k+2) = 0$, where $k$ is a constant, has two distinct real solutions for $x$.\n\nFind the set of possible values for $k$.",
               solution_image: ""
             },
@@ -633,6 +639,7 @@ const SYLLABUS = {
             {
               id: "P3_IN_003",
               difficulty: 'standard',
+              marks_estimated: 6,
               question_text: "Use the substitution $u = 1 + \\ln x + x$ to find\n$$\\int \\frac{3(x+1)(1-\\ln x - x)}{x(1+\\ln x+x)} \\, dx$$",
               solution_image: ""
             },
@@ -669,12 +676,14 @@ const SYLLABUS = {
             {
               id: "P3_IN_009",
               difficulty: 'standard',
+              marks_estimated: 6,
               question_text: "Using the substitution $x = \\tan\\theta$, find the exact value of\n$$\\int_0^{\\frac{1}{2}} \\frac{12}{(1+4x^2)^2}\\,dx$$\ngiving your answer in the form $a + b\\pi$.",
               solution_image: ""
             },
             {
               id: "P3_IN_010",
               difficulty: 'standard',
+              marks_estimated: 6,
               question_text: "Find the exact value of\n$$\\int_{\\frac{1}{2}}^{\\frac{\\sqrt{3}}{2}} x\\tan^{-1}(2x)\\,dx$$",
               solution_image: ""
             },
@@ -863,6 +872,7 @@ const SYLLABUS = {
             {
               id: "S1_DRV_001",
               difficulty: 'standard',
+              marks_estimated: 5,
               question_text: "It is given that the discrete random variable $X$ satisfies $X \\sim B(n, p)$.\n\nGiven further that $\\text{P}(X = 2) = \\text{P}(X = 3)$, show that\n$$\\text{E}(X) = 3 - p$$",
               solution_image: ""
             },
@@ -971,6 +981,7 @@ const SYLLABUS = {
             {
               id: "FP1_RF_001",
               difficulty: 'hard',
+              marks_estimated: 12,
               question_text: "A curve $C$ has equation\n$$h(x) = \\frac{f(x)}{g(x)}, \\quad x \\in \\mathbb{R}, \\quad g(x) \\neq 0$$\nwhere $f(x)$ is a quadratic function and $g(x)$ a linear function.\n\nThe asymptotes of $C$ have equations $x = -1$ and $y = x + 2$, and its graph passes through the point $P(1, 5)$.\n\n**a)** Determine a simplified Cartesian equation for $C$.\n\n**b)** Use a discriminant method to find the range of $h(x)$ and hence calculate the coordinates of the stationary points of $C$.\n\n**c)** Sketch in separate diagrams, showing all relevant details including asymptotic behaviour, the graph of:\n\n- **i.** $y = h(x)$\n- **ii.** $y^2 = h(x)$\n- **iii.** $y = h(|x|)$",
               solution_image: ""
             },
@@ -1016,6 +1027,7 @@ const SYLLABUS = {
             {
               id: "FP1_SR_001",
               difficulty: 'hard',
+              marks_estimated: 9,
               question_text: "**a** Prove by induction that for all positive integers $n$:\n$$\\sum_{r=1}^{2n} r^2 = \\frac{1}{3}n(2n+1)(4n+1)$$\n\n**b** Given that $\\displaystyle\\sum_{r=1}^{2n} r^2 = k\\sum_{r=1}^{n} r^2$, show that $k$ must satisfy\n$$n = \\frac{2-k}{k-8}$$",
               solution_image: ""
             },
@@ -1281,6 +1293,7 @@ const SYLLABUS = {
             {
               id: "FP1_PI_002",
               difficulty: 'hard',
+              marks_estimated: 18,
               question_text: "**Q1.** Prove by induction that $n! > n^2 + n$ for all integers $n \\geq 4$.\n\n**Q2.** Prove by induction that $2^n > n^2$ for all integers $n \\geq 5$.\n\n**Q3.** Prove by induction that $3^n > 5 \\times 2^n$ for all integers $n \\geq 4$.",
               solution_image: ""
             },
@@ -1299,6 +1312,7 @@ const SYLLABUS = {
             {
               id: "FP1_PI_005",
               difficulty: 'hard',
+              marks_estimated: 6,
               question_text: "Prove by induction that for all integers $n \\geq 2$:\n$$\\sum_{k=1}^{n} \\frac{1}{k^2} \\leq 2 - \\frac{1}{n}$$",
               solution_image: ""
             },
@@ -1311,36 +1325,42 @@ const SYLLABUS = {
             {
               id: "FP1_PI_007",
               difficulty: 'standard',
+              marks_estimated: 7,
               question_text: "Prove by induction that\n$$\\sum_{r=1}^{n} \\left[r(r+1)\\left(\\frac{1}{2}\\right)^{r-1}\\right] = 16 - \\left(\\frac{1}{2}\\right)^{n-1}(n^2+5n+8)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
               solution_image: ""
             },
             {
               id: "FP1_PI_008",
               difficulty: 'standard',
+              marks_estimated: 5,
               question_text: "Let $f(n) = 3^{2n+4} - 2^{2n}$, $\\quad n \\in \\mathbb{N}$.\n\nProve by induction that $f(n)$ is divisible by $5$ for all $n \\in \\mathbb{N}$.",
               solution_image: ""
             },
             {
               id: "FP1_PI_009",
               difficulty: 'standard',
+              marks_estimated: 7,
               question_text: "A sequence of numbers is given by the recurrence relation\n$$u_{n+1} = \\frac{u_n - 5}{3u_n - 7}, \\quad u_1 = -1, \\quad n \\in \\mathbb{N},\\ n \\geq 1$$\n\nProve by induction that the $n^{\\text{th}}$ term of the sequence is given by\n$$u_n = \\frac{2^{n+1}-5}{2^{n+1}-3}$$",
               solution_image: ""
             },
             {
               id: "FP1_PI_010",
               difficulty: 'hard',
+              marks_estimated: 6,
               question_text: "Prove by induction that for all even natural numbers $n$,\n$$\\frac{d^n}{dx^n}(\\sin 3x) = (-1)^{\\frac{n}{2}} \\times 3^n \\times \\sin 3x$$",
               solution_image: ""
             },
             {
               id: "FP1_PI_011",
               difficulty: 'elite',
+              marks_estimated: 6,
               question_text: "Prove by induction that\n$$\\frac{d^n}{dx^n}\\!\\left(e^x \\sin(\\sqrt{3}\\,x)\\right) = 2^n e^x \\sin\\!\\left(\\sqrt{3}\\,x + \\frac{n\\pi}{3}\\right)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
               solution_image: ""
             },
             {
               id: "FP1_PI_012",
               difficulty: 'elite',
+              marks_estimated: 7,
               question_text: "The sequence of real numbers $a_1, a_2, a_3, \\ldots$ is such that $a_1 = 1$ and\n$$a_{n+1} = \\left(a_n + \\frac{1}{a_n}\\right)^3$$\n\n**(a)** Prove by mathematical induction that $\\ln a_n \\geq 3^{n-1} \\ln 2$ for all integers $n \\geq 2$.\n\n$\\quad$ [You may use the fact that $\\ln\\!\\left(x + \\dfrac{1}{x}\\right) > \\ln x$ for $x > 0$.]",
               solution_image: ""
             },
