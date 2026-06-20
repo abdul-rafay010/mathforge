@@ -22,6 +22,9 @@
     throwOnError: false
   }))"></script>
 
+  <!-- jsPDF — used to generate the downloadable self-mark report -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
   <style>
     /* ════════════════════════════════════════════════
    FOUNDATION
@@ -2832,7 +2835,10 @@
 
       <div id="tr-question-stack"></div>
 
-      <button class="tr-new-test-btn" onclick="goTestBuilder()">Build Another Session</button>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="tr-new-test-btn" id="tr-download-btn" onclick="downloadSelfMarkReport()">Download Report</button>
+        <button class="tr-new-test-btn" onclick="goTestBuilder()">Build Another Session</button>
+      </div>
 
     </div>
 
@@ -4384,6 +4390,151 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function tsRefreshSummary() { buildTestSummary(); }
+
+    // ══════════════════════════════════════════════════
+    //  SELF-MARK REPORT (PDF DOWNLOAD)
+    // ══════════════════════════════════════════════════
+    //
+    // Builds a downloadable PDF summarising the session: overall
+    // self-score, a per-topic breakdown (so weak concepts stand
+    // out, not just weak questions), and a flagged list of every
+    // question that wasn't scored full marks or wasn't scored at
+    // all. Pulls topic/section via findQuestionById since TEST.questions
+    // only stores the bare question objects.
+
+    function downloadSelfMarkReport() {
+      if (!window.jspdf || !window.jspdf.jsPDF) {
+        alert('The PDF library hasn\u2019t finished loading yet \u2014 wait a second and try again.');
+        return;
+      }
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const marginX = 48;
+      let y = 56;
+
+      function ensureSpace(rows) {
+        if (y + rows * 14 > pageH - 48) { doc.addPage(); y = 56; }
+      }
+
+      // ── Header ──
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(18);
+      doc.text('MathForge \u2014 Practice Drill Report', marginX, y);
+      y += 22;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(120);
+      const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+      doc.text('Generated ' + dateStr, marginX, y);
+      y += 24;
+      doc.setTextColor(0);
+
+      // ── Compute stats ──
+      let selfTotal = 0, selfAttempted = 0, doneCount = 0;
+      const topicBreakdown = {};
+      const flagged = [];
+
+      TEST.questions.forEach((q, i) => {
+        const ms = TEST.marks[i] || {};
+        const mk = getMarks(q);
+        const marks = mk.marks;
+        if (ms.done) doneCount++;
+
+        const found = findQuestionById(q.id);
+        const topicKey = found ? (found.course + ' \u00b7 ' + found.section + ' \u2014 ' + found.topic) : 'Unknown topic';
+
+        if (!topicBreakdown[topicKey]) topicBreakdown[topicKey] = { available: 0, scored: 0, qCount: 0, scoredCount: 0 };
+        topicBreakdown[topicKey].available += marks;
+        topicBreakdown[topicKey].qCount++;
+
+        if (ms.scored !== null && ms.scored !== undefined) {
+          selfTotal += Number(ms.scored);
+          selfAttempted++;
+          topicBreakdown[topicKey].scored += Number(ms.scored);
+          topicBreakdown[topicKey].scoredCount++;
+          if (Number(ms.scored) < marks) {
+            flagged.push({ num: i + 1, id: q.id, topicKey, scored: ms.scored, marks });
+          }
+        } else {
+          flagged.push({ num: i + 1, id: q.id, topicKey, scored: null, marks });
+        }
+      });
+
+      const fullyScored = selfAttempted === TEST.questions.length;
+      const pct = TEST.totalMarks ? Math.round((selfTotal / TEST.totalMarks) * 1000) / 10 : 0;
+
+      // ── Session summary ──
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.text('Session Summary', marginX, y);
+      y += 16;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      [
+        'Questions: ' + TEST.questions.length,
+        'Total marks: ' + TEST.totalMarks,
+        'Attempted: ' + doneCount + ' / ' + TEST.questions.length,
+        'Self-score: ' + selfTotal + ' / ' + TEST.totalMarks
+          + (fullyScored ? '  (' + pct + '%)' : '  [' + selfAttempted + ' / ' + TEST.questions.length + ' questions scored]'),
+        'Time used: ' + formatClock(TEST.reviewElapsed || 0) + ' / ' + formatClock(TEST.durationSeconds),
+        'Status: ' + (TEST.reviewTimedOut ? 'Time Expired' : 'Submitted')
+      ].forEach(line => { doc.text(line, marginX, y); y += 14; });
+      y += 12;
+
+      // ── Concept breakdown ──
+      ensureSpace(4);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.text('Concept Breakdown', marginX, y);
+      y += 16;
+      doc.setFontSize(9);
+      doc.text('Topic', marginX, y);
+      doc.text('Qs', marginX + 280, y);
+      doc.text('Scored', marginX + 340, y);
+      doc.text('%', marginX + 430, y);
+      y += 4;
+      doc.setLineWidth(0.5);
+      doc.line(marginX, y, pageW - marginX, y);
+      y += 12;
+      doc.setFont('helvetica', 'normal');
+
+      Object.entries(topicBreakdown).forEach(([topic, d]) => {
+        ensureSpace(1);
+        const topicPct = (d.scoredCount === d.qCount && d.available) ? Math.round((d.scored / d.available) * 100) + '%' : '\u2014';
+        doc.text(topic, marginX, y, { maxWidth: 270 });
+        doc.text(String(d.qCount), marginX + 280, y);
+        doc.text(d.scoredCount ? (d.scored + ' / ' + d.available) : ('\u2014 / ' + d.available), marginX + 340, y);
+        doc.text(topicPct, marginX + 430, y);
+        y += 14;
+      });
+      y += 14;
+
+      // ── Questions to review ──
+      ensureSpace(4);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.text('Questions to Review', marginX, y);
+      y += 16;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9.5);
+
+      if (!flagged.length) {
+        doc.setFont('helvetica', 'italic');
+        doc.text('Full marks on every scored question \u2014 nothing flagged for review.', marginX, y);
+        y += 16;
+      } else {
+        flagged.forEach(w => {
+          ensureSpace(1);
+          const scoreLabel = w.scored === null ? 'not scored' : (w.scored + ' / ' + w.marks);
+          doc.text('Q' + w.num + '  \u00b7  ' + w.id + '  \u00b7  ' + w.topicKey + '  \u2014  ' + scoreLabel, marginX, y, { maxWidth: pageW - marginX * 2 });
+          y += 14;
+        });
+      }
+
+      doc.save('mathforge-practice-report.pdf');
+    }
 
     // ══════════════════════════════════════════════════
     //  INIT
