@@ -2646,6 +2646,7 @@
       margin-top: 10px;
       display: inline-block;
     }
+
     /* ══════════════════════════════════════════
        MY PROGRESS — streak, flag, mastery, weak spots
     ══════════════════════════════════════════ */
@@ -2793,7 +2794,8 @@
         visibility: hidden;
       }
 
-      #print-area, #print-area * {
+      #print-area,
+      #print-area * {
         visibility: visible;
       }
 
@@ -3061,7 +3063,8 @@
           <span class="tt-clock" id="tt-clock">00:00</span>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="tt-submit-btn" onclick="printBlankPaper()" title="Print this drill as a blank paper, no solutions">Print Paper</button>
+          <button class="tt-submit-btn" onclick="printBlankPaper()"
+            title="Print this drill as a blank paper, no solutions">Print Paper</button>
           <button class="tt-submit-btn" onclick="confirmSubmitTest()">Submit</button>
         </div>
       </div>
@@ -3094,7 +3097,8 @@
     <div class="screen" id="s-progress">
 
       <div class="screen-title">My <em>Progress</em></div>
-      <div class="screen-caption" id="progress-caption">Stored on this device only — export it before clearing your browser data.</div>
+      <div class="screen-caption" id="progress-caption">Stored on this device only — export it before clearing your
+        browser data.</div>
 
       <div class="course-tabs">
         <button class="course-tab active" id="ptab-weak" onclick="switchProgressTab('weak')">Weak Spots</button>
@@ -3118,9 +3122,12 @@
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
         <button class="wz-back-btn" onclick="exportProgress()">Export My Progress</button>
-        <button class="wz-back-btn" onclick="document.getElementById('import-progress-file').click()">Import Progress</button>
-        <input type="file" id="import-progress-file" accept="application/json" style="display:none" onchange="importProgress(this.files[0])">
-        <button class="wz-back-btn" onclick="confirmClearProgress()" style="border-color:#5a2a20;color:#c14c3a">Clear All Data</button>
+        <button class="wz-back-btn" onclick="document.getElementById('import-progress-file').click()">Import
+          Progress</button>
+        <input type="file" id="import-progress-file" accept="application/json" style="display:none"
+          onchange="importProgress(this.files[0])">
+        <button class="wz-back-btn" onclick="confirmClearProgress()" style="border-color:#5a2a20;color:#c14c3a">Clear
+          All Data</button>
       </div>
 
     </div>
@@ -4894,6 +4901,16 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       }
     }
 
+    // Flag toggle for the normal question-bank browsing view (topic screen)
+    function toggleProblemFlag(qid) {
+      const flagged = toggleFlag(qid);
+      const btn = document.getElementById('prob-flag-btn');
+      if (btn) {
+        btn.classList.toggle('flagged', flagged);
+        btn.textContent = flagged ? '\u2605 Flagged' : '\u2606 Flag';
+      }
+    }
+
     function tsSetScore(idx, val) {
       if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null, note: '' };
       const n = parseFloat(val);
@@ -5226,7 +5243,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         'Total marks: ' + TEST.totalMarks,
         'Attempted: ' + doneCount + ' / ' + TEST.questions.length,
         'Self-score: ' + selfTotal + ' / ' + TEST.totalMarks
-          + (fullyScored ? '  (' + pct + '%)' : '  [' + selfAttempted + ' / ' + TEST.questions.length + ' questions scored]'),
+        + (fullyScored ? '  (' + pct + '%)' : '  [' + selfAttempted + ' / ' + TEST.questions.length + ' questions scored]'),
         'Time used: ' + formatClock(TEST.reviewElapsed || 0) + ' / ' + formatClock(TEST.durationSeconds),
         'Status: ' + (TEST.reviewTimedOut ? 'Time Expired' : 'Submitted')
       ].forEach(line => { doc.text(line, marginX, y); y += 14; });
