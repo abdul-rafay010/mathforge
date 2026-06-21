@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MathForge</title>
 
+  <!-- Applied before paint so there's no flash of the wrong theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('mathforge_theme');
+        if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) { /* localStorage blocked — default to dark */ }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"
@@ -52,6 +62,33 @@
       --mono: 'JetBrains Mono', monospace;
 
       --ease: cubic-bezier(.4, 0, .2, 1);
+    }
+
+    /* ════════════════════════════════════════════════
+   LIGHT THEME — warm paper palette, same structure
+   as dark, every surface tone just inverted.
+════════════════════════════════════════════════ */
+
+    [data-theme="light"] {
+      --ink: #efe9da;
+      --ink2: #f8f4ea;
+      --ink3: #e9e1cb;
+      --ink4: #ffffff;
+      --rule: #ddd4bc;
+      --rule2: #c9bd9c;
+
+      --parchment: #2b2620;
+      --parchment2: #4a4338;
+      --parchment3: #756b58;
+      --parchment4: #a89c84;
+
+      --gold: #8a6d28;
+      --gold2: #6b5420;
+      --gold3: #f0e4c4;
+    }
+
+    body {
+      transition: background-color .25s ease, color .25s ease;
     }
 
     *,
@@ -679,6 +716,10 @@
       filter: invert(1) brightness(0.88) contrast(1.1);
     }
 
+    [data-theme="light"] .prob-q-img.invert {
+      filter: none;
+    }
+
     .prob-placeholder {
       padding: 52px 32px;
       text-align: center;
@@ -705,6 +746,11 @@
       filter: invert(1) sepia(0.15) saturate(0.8) brightness(0.88);
       border-radius: 2px;
       opacity: 0.88;
+    }
+
+    [data-theme="light"] .prob-diagram-img {
+      filter: none;
+      opacity: 1;
     }
 
     /* Optional diagram above question text — reserved for future use */
@@ -765,6 +811,20 @@
       width: 100%;
       height: auto;
       filter: invert(1) brightness(0.88) contrast(1.1);
+    }
+
+    [data-theme="light"] .prob-sol-panel img {
+      filter: none;
+    }
+
+    .ts-sol-img {
+      display: block;
+      width: 100%;
+      filter: invert(1) brightness(0.88) contrast(1.1);
+    }
+
+    [data-theme="light"] .ts-sol-img {
+      filter: none;
     }
 
     .prob-sol-placeholder {
@@ -1944,6 +2004,38 @@
       background: var(--gold3);
     }
 
+    .theme-toggle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--gold3);
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: all .2s;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--gold);
+      background: var(--gold3);
+    }
+
+    .theme-toggle::before {
+      content: '\263E';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: .82rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    [data-theme="light"] .theme-toggle::before {
+      content: '\2600';
+    }
+
     @media (max-width: 600px) {
       .masthead-ornament {
         display: none;
@@ -2646,7 +2738,6 @@
       margin-top: 10px;
       display: inline-block;
     }
-
     /* ══════════════════════════════════════════
        MY PROGRESS — streak, flag, mastery, weak spots
     ══════════════════════════════════════════ */
@@ -2794,8 +2885,7 @@
         visibility: hidden;
       }
 
-      #print-area,
-      #print-area * {
+      #print-area, #print-area * {
         visibility: visible;
       }
 
@@ -2848,15 +2938,12 @@
 
       #print-area .pp-watermark {
         position: fixed;
-        top: 45%;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        font-family: 'Times New Roman', serif;
-        font-style: italic;
-        font-size: 5rem;
-        color: rgba(0, 0, 0, 0.06);
-        transform: rotate(-30deg);
+        top: 50%;
+        left: 50%;
+        width: 340px;
+        height: 340px;
+        transform: translate(-50%, -50%);
+        opacity: 0.06;
         pointer-events: none;
         z-index: 0;
       }
@@ -2887,6 +2974,7 @@
         <div class="masthead-title">MathForge</div>
       </div>
       <div class="masthead-right">
+        <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="Switch between dark and light"></button>
         <span class="masthead-link" onclick="goTestBuilder()">Practice Mode</span>
         <span class="masthead-link" onclick="goProgress()">My Progress</span>
         <span class="masthead-link" onclick="goArticles()">Essays</span>
@@ -3063,8 +3151,7 @@
           <span class="tt-clock" id="tt-clock">00:00</span>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="tt-submit-btn" onclick="printBlankPaper()"
-            title="Print this drill as a blank paper, no solutions">Print Paper</button>
+          <button class="tt-submit-btn" onclick="printBlankPaper()" title="Print this drill as a blank paper, no solutions">Print Paper</button>
           <button class="tt-submit-btn" onclick="confirmSubmitTest()">Submit</button>
         </div>
       </div>
@@ -3097,8 +3184,7 @@
     <div class="screen" id="s-progress">
 
       <div class="screen-title">My <em>Progress</em></div>
-      <div class="screen-caption" id="progress-caption">Stored on this device only — export it before clearing your
-        browser data.</div>
+      <div class="screen-caption" id="progress-caption">Stored on this device only — export it before clearing your browser data.</div>
 
       <div class="course-tabs">
         <button class="course-tab active" id="ptab-weak" onclick="switchProgressTab('weak')">Weak Spots</button>
@@ -3122,12 +3208,9 @@
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
         <button class="wz-back-btn" onclick="exportProgress()">Export My Progress</button>
-        <button class="wz-back-btn" onclick="document.getElementById('import-progress-file').click()">Import
-          Progress</button>
-        <input type="file" id="import-progress-file" accept="application/json" style="display:none"
-          onchange="importProgress(this.files[0])">
-        <button class="wz-back-btn" onclick="confirmClearProgress()" style="border-color:#5a2a20;color:#c14c3a">Clear
-          All Data</button>
+        <button class="wz-back-btn" onclick="document.getElementById('import-progress-file').click()">Import Progress</button>
+        <input type="file" id="import-progress-file" accept="application/json" style="display:none" onchange="importProgress(this.files[0])">
+        <button class="wz-back-btn" onclick="confirmClearProgress()" style="border-color:#5a2a20;color:#c14c3a">Clear All Data</button>
       </div>
 
     </div>
@@ -3145,6 +3228,23 @@
 
   <script src="questions.js"></script>
   <script>
+    // ══════════════════════════════════════════════════
+    //  THEME — dark (default) / light, persisted locally.
+    //  The actual attribute is applied before paint via the
+    //  blocking script in <head>; this just handles toggling.
+    // ══════════════════════════════════════════════════
+
+    function toggleTheme() {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('mathforge_theme', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('mathforge_theme', 'light'); } catch (e) {}
+      }
+    }
+
     // ══════════════════════════════════════════════════
     //  STATE
     // ══════════════════════════════════════════════════
@@ -4844,7 +4944,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
       if (reveal) {
         const sImg = q.solution_image
-          ? '<img src="images/' + q.solution_image + '" alt="Solution" style="display:block;width:100%;filter:invert(1) brightness(.88) contrast(1.1)">'
+          ? '<img src="images/' + q.solution_image + '" alt="Solution" class="ts-sol-img">'
           : '<div class="prob-sol-placeholder">Solution forthcoming.</div>';
         html += '<div style="border-top:1px solid var(--rule);padding:12px 24px 4px">'
           + '<span style="font-family:var(--sc);font-size:.6rem;letter-spacing:.18em;color:var(--gold2);text-transform:uppercase">Solution</span>'
@@ -5016,9 +5116,10 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
     function buildProgressScreen() {
       const p = loadProgress();
-      const streakNote = p.streak.current
-        ? '\uD83D\uDD25 ' + p.streak.current + '-day streak (best: ' + p.streak.longest + ')'
-        : 'No streak yet \u2014 complete a session to start one.';
+      const parts = Object.entries(p.streaks)
+        .filter(([, s]) => s.current > 0)
+        .map(([code, s]) => code + ': ' + s.current + '-day streak (best ' + s.longest + ')');
+      const streakNote = parts.length ? parts.join('  \u00b7  ') : 'No streak yet \u2014 self-mark a question to start one.';
       document.getElementById('progress-caption').innerHTML =
         streakNote + ' &nbsp;\u00b7&nbsp; Stored on this device only \u2014 export it before clearing your browser data.';
 
@@ -5098,7 +5199,11 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const area = document.getElementById('print-area');
       const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
-      let html = '<div class="pp-watermark">MathForge</div>'
+      let html = '<svg class="pp-watermark" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">'
+        + '<circle cx="19" cy="19" r="17.5" stroke="#7a6228" stroke-width="0.8" fill="none"/>'
+        + '<circle cx="19" cy="19" r="15" stroke="#3d3118" stroke-width="0.4" fill="none"/>'
+        + '<text x="19" y="25" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif" font-size="17" font-style="italic" fill="#a8883a">M</text>'
+        + '</svg>'
         + '<div class="pp-header">'
         + '<div class="pp-title">MathForge \u2014 Practice Drill</div>'
         + '<div class="pp-meta">' + TEST.questions.length + ' questions \u00b7 ' + TEST.totalMarks + ' marks \u00b7 '
@@ -5156,15 +5261,23 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       let y = 56;
 
       function drawWatermark() {
-        // Faint diagonal wordmark across the page
-        doc.saveGraphicsState();
-        doc.setTextColor(225, 218, 200);
-        doc.setFont('times', 'italic');
-        doc.setFontSize(64);
-        doc.text('MathForge', pageW / 2, pageH / 2, { align: 'center', angle: 35 });
-        doc.restoreGraphicsState();
+        const cx = pageW / 2, cy = pageH / 2;
 
-        // Small monogram seal, top-right corner — echoes the on-site masthead mark
+        // Large faint version of the actual monogram — same concentric-ring
+        // seal as the masthead, not generic repeated text.
+        doc.setDrawColor(228, 218, 188);
+        doc.setLineWidth(3);
+        doc.circle(cx, cy, 132, 'S');
+        doc.setDrawColor(236, 229, 205);
+        doc.setLineWidth(1.5);
+        doc.circle(cx, cy, 110, 'S');
+        doc.setTextColor(232, 222, 190);
+        doc.setFont('times', 'italic');
+        doc.setFontSize(165);
+        doc.text('M', cx, cy + 56, { align: 'center' });
+        doc.setTextColor(0, 0, 0);
+
+        // Small full-strength monogram seal, top-right corner — for clear branding
         doc.setDrawColor(122, 98, 40);
         doc.setLineWidth(0.8);
         doc.circle(pageW - 40, 34, 13, 'S');
@@ -5243,7 +5356,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         'Total marks: ' + TEST.totalMarks,
         'Attempted: ' + doneCount + ' / ' + TEST.questions.length,
         'Self-score: ' + selfTotal + ' / ' + TEST.totalMarks
-        + (fullyScored ? '  (' + pct + '%)' : '  [' + selfAttempted + ' / ' + TEST.questions.length + ' questions scored]'),
+          + (fullyScored ? '  (' + pct + '%)' : '  [' + selfAttempted + ' / ' + TEST.questions.length + ' questions scored]'),
         'Time used: ' + formatClock(TEST.reviewElapsed || 0) + ' / ' + formatClock(TEST.durationSeconds),
         'Status: ' + (TEST.reviewTimedOut ? 'Time Expired' : 'Submitted')
       ].forEach(line => { doc.text(line, marginX, y); y += 14; });
