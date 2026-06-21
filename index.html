@@ -74,8 +74,8 @@
       --ink2: #f8f4ea;
       --ink3: #e9e1cb;
       --ink4: #ffffff;
-      --rule: #ddd4bc;
-      --rule2: #c9bd9c;
+      --rule: #c2b393;
+      --rule2: #a89572;
 
       --parchment: #2b2620;
       --parchment2: #4a4338;
@@ -122,6 +122,29 @@
       opacity: .028;
       pointer-events: none;
       z-index: 9999;
+    }
+
+    /* sparse gold dust — light theme only, evokes fine paper-grain/stardust without
+       reading as a literal starfield. Several scattered radial dots at low opacity,
+       large tile so it doesn't repeat obviously across the viewport. */
+    [data-theme="light"] body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1.4px 1.4px at 12% 18%, rgba(138, 109, 40, .35), transparent 60%),
+        radial-gradient(1px 1px at 28% 64%, rgba(138, 109, 40, .28), transparent 60%),
+        radial-gradient(1.2px 1.2px at 47% 9%, rgba(138, 109, 40, .3), transparent 60%),
+        radial-gradient(1px 1px at 63% 41%, rgba(138, 109, 40, .22), transparent 60%),
+        radial-gradient(1.6px 1.6px at 81% 73%, rgba(138, 109, 40, .3), transparent 60%),
+        radial-gradient(1px 1px at 91% 22%, rgba(138, 109, 40, .25), transparent 60%),
+        radial-gradient(1.2px 1.2px at 6% 87%, rgba(138, 109, 40, .26), transparent 60%),
+        radial-gradient(1px 1px at 38% 95%, rgba(138, 109, 40, .2), transparent 60%);
+      background-repeat: repeat;
+      background-size: 600px 600px;
+      opacity: .55;
+      pointer-events: none;
+      z-index: 9998;
     }
 
     ::-webkit-scrollbar {
@@ -1386,6 +1409,10 @@
     .tc-load-btn:hover {
       background: var(--gold3);
       border-color: var(--gold);
+    }
+
+    .thresh-result-hdr {
+      margin-bottom: 14px;
     }
 
     .thresh-table-wrap {
@@ -2738,6 +2765,7 @@
       margin-top: 10px;
       display: inline-block;
     }
+
     /* ══════════════════════════════════════════
        MY PROGRESS — streak, flag, mastery, weak spots
     ══════════════════════════════════════════ */
@@ -2885,7 +2913,8 @@
         visibility: hidden;
       }
 
-      #print-area, #print-area * {
+      #print-area,
+      #print-area * {
         visibility: visible;
       }
 
@@ -2974,7 +3003,8 @@
         <div class="masthead-title">MathForge</div>
       </div>
       <div class="masthead-right">
-        <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="Switch between dark and light"></button>
+        <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()"
+          title="Switch between dark and light"></button>
         <span class="masthead-link" onclick="goTestBuilder()">Practice Mode</span>
         <span class="masthead-link" onclick="goProgress()">My Progress</span>
         <span class="masthead-link" onclick="goArticles()">Essays</span>
@@ -3033,35 +3063,19 @@
 
       <!-- Thresholds panel -->
       <div class="course-panel" id="panel-thresholds">
-        <div class="thresh-controls">
-          <span class="tc-label">Components</span>
-          <div class="tc-comp-grid" id="tc-comp-grid"></div>
-          <div class="tc-bottom-row">
-            <div class="tc-field">
-              <span class="tc-label">From</span>
-              <input type="number" class="tc-input" id="tc-from" value="2020" min="2020" max="2025">
-            </div>
-            <div class="tc-field">
-              <span class="tc-label">To</span>
-              <input type="number" class="tc-input" id="tc-to" value="2025" min="2020" max="2025">
-            </div>
-            <div class="tc-field">
-              <span class="tc-label">Sort</span>
-              <select class="tc-select" id="tc-order">
-                <option value="desc">Descending</option>
-                <option value="asc">Ascending</option>
-              </select>
-              <span class="tc-sort-note" id="tc-sort-note">Descending: highest A first (easiest papers)</span>
-            </div>
-            <div class="tc-field">
-              <span class="tc-label">&nbsp;</span>
-              <button class="tc-load-btn" onclick="loadThresholds()">Load</button>
-            </div>
-          </div>
+
+        <div class="wz-steps" id="th-wz-steps">
+          <div class="wz-step active" id="thwzs-1"><span class="wz-num">1</span><span class="wz-lbl">Paper</span></div>
+          <div class="wz-sep">›</div>
+          <div class="wz-step" id="thwzs-2"><span class="wz-num">2</span><span class="wz-lbl">Variants</span></div>
+          <div class="wz-sep">›</div>
+          <div class="wz-step" id="thwzs-3"><span class="wz-num">3</span><span class="wz-lbl">Range</span></div>
+          <div class="wz-sep">›</div>
+          <div class="wz-step" id="thwzs-4"><span class="wz-num">4</span><span class="wz-lbl">Results</span></div>
         </div>
-        <div id="thresh-output">
-          <div class="thresh-empty">Select components above and click Load.</div>
-        </div>
+
+        <div id="th-wz-body"></div>
+
       </div>
 
     </div>
@@ -3151,7 +3165,8 @@
           <span class="tt-clock" id="tt-clock">00:00</span>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="tt-submit-btn" onclick="printBlankPaper()" title="Print this drill as a blank paper, no solutions">Print Paper</button>
+          <button class="tt-submit-btn" onclick="printBlankPaper()"
+            title="Print this drill as a blank paper, no solutions">Print Paper</button>
           <button class="tt-submit-btn" onclick="confirmSubmitTest()">Submit</button>
         </div>
       </div>
@@ -3184,7 +3199,8 @@
     <div class="screen" id="s-progress">
 
       <div class="screen-title">My <em>Progress</em></div>
-      <div class="screen-caption" id="progress-caption">Stored on this device only — export it before clearing your browser data.</div>
+      <div class="screen-caption" id="progress-caption">Stored on this device only — export it before clearing your
+        browser data.</div>
 
       <div class="course-tabs">
         <button class="course-tab active" id="ptab-weak" onclick="switchProgressTab('weak')">Weak Spots</button>
@@ -3208,9 +3224,12 @@
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
         <button class="wz-back-btn" onclick="exportProgress()">Export My Progress</button>
-        <button class="wz-back-btn" onclick="document.getElementById('import-progress-file').click()">Import Progress</button>
-        <input type="file" id="import-progress-file" accept="application/json" style="display:none" onchange="importProgress(this.files[0])">
-        <button class="wz-back-btn" onclick="confirmClearProgress()" style="border-color:#5a2a20;color:#c14c3a">Clear All Data</button>
+        <button class="wz-back-btn" onclick="document.getElementById('import-progress-file').click()">Import
+          Progress</button>
+        <input type="file" id="import-progress-file" accept="application/json" style="display:none"
+          onchange="importProgress(this.files[0])">
+        <button class="wz-back-btn" onclick="confirmClearProgress()" style="border-color:#5a2a20;color:#c14c3a">Clear
+          All Data</button>
       </div>
 
     </div>
@@ -3238,10 +3257,10 @@
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
       if (isLight) {
         document.documentElement.removeAttribute('data-theme');
-        try { localStorage.setItem('mathforge_theme', 'dark'); } catch (e) {}
+        try { localStorage.setItem('mathforge_theme', 'dark'); } catch (e) { }
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
-        try { localStorage.setItem('mathforge_theme', 'light'); } catch (e) {}
+        try { localStorage.setItem('mathforge_theme', 'light'); } catch (e) { }
       }
     }
 
@@ -3694,43 +3713,43 @@
     // ── GRADE THRESHOLDS ─────────────────────────────────────────
     const THRESH_COMPONENTS = {
       '9709': [
-        { code: '11', label: '11 — Pure 1', max: 75 },
-        { code: '12', label: '12 — Pure 1', max: 75 },
-        { code: '13', label: '13 — Pure 1', max: 75 },
-        { code: '15', label: '15 — Pure 1', max: 75 },
-        { code: '31', label: '31 — Pure 3', max: 75 },
-        { code: '32', label: '32 — Pure 3', max: 75 },
-        { code: '33', label: '33 — Pure 3', max: 75 },
-        { code: '35', label: '35 — Pure 3', max: 75 },
-        { code: '41', label: '41 — Mechanics', max: 50 },
-        { code: '42', label: '42 — Mechanics', max: 50 },
-        { code: '43', label: '43 — Mechanics', max: 50 },
-        { code: '45', label: '45 — Mechanics', max: 50 },
-        { code: '51', label: '51 — Statistics', max: 50 },
-        { code: '52', label: '52 — Statistics', max: 50 },
-        { code: '53', label: '53 — Statistics', max: 50 },
-        { code: '21', label: '21 — Pure 2', max: 50 },
-        { code: '22', label: '22 — Pure 2', max: 50 },
-        { code: '23', label: '23 — Pure 2', max: 50 },
-        { code: '25', label: '25 — Pure', max: 50 }
+        { code: '11', label: '11', group: 'Pure 1', max: 75 },
+        { code: '12', label: '12', group: 'Pure 1', max: 75 },
+        { code: '13', label: '13', group: 'Pure 1', max: 75 },
+        { code: '15', label: '15', group: 'Pure 1', max: 75 },
+        { code: '21', label: '21', group: 'Pure 2', max: 50 },
+        { code: '22', label: '22', group: 'Pure 2', max: 50 },
+        { code: '23', label: '23', group: 'Pure 2', max: 50 },
+        { code: '25', label: '25', group: 'Pure 2', max: 50 },
+        { code: '31', label: '31', group: 'Pure 3', max: 75 },
+        { code: '32', label: '32', group: 'Pure 3', max: 75 },
+        { code: '33', label: '33', group: 'Pure 3', max: 75 },
+        { code: '35', label: '35', group: 'Pure 3', max: 75 },
+        { code: '41', label: '41', group: 'Mechanics', max: 50 },
+        { code: '42', label: '42', group: 'Mechanics', max: 50 },
+        { code: '43', label: '43', group: 'Mechanics', max: 50 },
+        { code: '45', label: '45', group: 'Mechanics', max: 50 },
+        { code: '51', label: '51', group: 'Statistics', max: 50 },
+        { code: '52', label: '52', group: 'Statistics', max: 50 },
+        { code: '53', label: '53', group: 'Statistics', max: 50 }
       ],
       '9231': [
-        { code: '11', label: '11 — Further Pure 1', max: 75 },
-        { code: '12', label: '12 — Further Pure 1', max: 75 },
-        { code: '13', label: '13 — Further Pure 1', max: 75 },
-        { code: '14', label: '14 — Further Pure 1', max: 75 },
-        { code: '21', label: '21 — Further Pure 2', max: 75 },
-        { code: '22', label: '22 — Further Pure 2', max: 75 },
-        { code: '23', label: '23 — Further Pure 2', max: 75 },
-        { code: '24', label: '24 — Further Pure 2', max: 75 },
-        { code: '31', label: '31 — Further Mech.', max: 50 },
-        { code: '32', label: '32 — Further Mech.', max: 50 },
-        { code: '33', label: '33 — Further Mech.', max: 50 },
-        { code: '34', label: '34 — Further Mech.', max: 50 },
-        { code: '41', label: '41 — Further Stats.', max: 50 },
-        { code: '42', label: '42 — Further Stats.', max: 50 },
-        { code: '43', label: '43 — Further Stats.', max: 50 },
-        { code: '44', label: '44 — Further Stats.', max: 50 },
+        { code: '11', label: '11', group: 'Further Pure 1', max: 75 },
+        { code: '12', label: '12', group: 'Further Pure 1', max: 75 },
+        { code: '13', label: '13', group: 'Further Pure 1', max: 75 },
+        { code: '14', label: '14', group: 'Further Pure 1', max: 75 },
+        { code: '21', label: '21', group: 'Further Pure 2', max: 75 },
+        { code: '22', label: '22', group: 'Further Pure 2', max: 75 },
+        { code: '23', label: '23', group: 'Further Pure 2', max: 75 },
+        { code: '24', label: '24', group: 'Further Pure 2', max: 75 },
+        { code: '31', label: '31', group: 'Further Mechanics', max: 50 },
+        { code: '32', label: '32', group: 'Further Mechanics', max: 50 },
+        { code: '33', label: '33', group: 'Further Mechanics', max: 50 },
+        { code: '34', label: '34', group: 'Further Mechanics', max: 50 },
+        { code: '41', label: '41', group: 'Further Statistics', max: 50 },
+        { code: '42', label: '42', group: 'Further Statistics', max: 50 },
+        { code: '43', label: '43', group: 'Further Statistics', max: 50 },
+        { code: '44', label: '44', group: 'Further Statistics', max: 50 }
       ]
     };
 
@@ -3883,61 +3902,173 @@
     };
 
     let _threshCourse = null;
+    let THW = { step: 1, course: null, group: null, comps: [], from: 2020, to: 2025, order: 'desc' };
 
     function buildThreshSection(courseCode) {
       _threshCourse = courseCode;
-      // Reset tab to Sections
       switchCourseTab('sections');
-      var comps = THRESH_COMPONENTS[courseCode] || [];
-      var grid = document.getElementById('tc-comp-grid');
-      if (!grid) return;
-      grid.innerHTML = comps.map(function (c) {
-        return '<label class="tc-comp-item">' +
-          '<input type="checkbox" value="' + c.code + '" id="tc-cb-' + c.code + '">' +
-          '<span class="tc-comp-label">' + c.label + '</span>' +
-          '</label>';
-      }).join('');
-      document.getElementById('thresh-output').innerHTML =
-        '<div class="thresh-empty">Select components above and click Load.</div>';
+      THW = { step: 1, course: courseCode, group: null, comps: [], from: 2020, to: 2025, order: 'desc' };
+      thwRender();
     }
 
-    function updateSortNote() {
-      var order = document.getElementById('tc-order').value;
-      var note = document.getElementById('tc-sort-note');
-      if (!note) return;
-      note.textContent = order === 'desc'
-        ? 'Descending: easiest papers at top'
-        : 'Ascending:  hardest papers at top';
+    function thwGroups() {
+      var comps = THRESH_COMPONENTS[THW.course] || [];
+      var seen = [];
+      comps.forEach(function (c) { if (seen.indexOf(c.group) === -1) seen.push(c.group); });
+      return seen.map(function (g) {
+        return { name: g, comps: comps.filter(function (c) { return c.group === g; }) };
+      });
     }
 
-    function loadThresholds() {
-      if (!_threshCourse) return;
-      var comps = THRESH_COMPONENTS[_threshCourse] || [];
-      var compMap = {};
-      comps.forEach(function (c) { compMap[c.code] = c; });
-
-      var selected = comps.map(function (c) { return c.code; }).filter(function (code) {
-        var cb = document.getElementById('tc-cb-' + code);
-        return cb && cb.checked;
+    function thwRender() {
+      [1, 2, 3, 4].forEach(function (n) {
+        var el = document.getElementById('thwzs-' + n);
+        if (!el) return;
+        el.className = 'wz-step' + (n === THW.step ? ' active' : (n < THW.step ? ' done' : ''));
       });
 
-      if (!selected.length) {
-        document.getElementById('thresh-output').innerHTML =
-          '<div class="thresh-empty">No components selected. Tick at least one above.</div>';
-        return;
-      }
+      var body = document.getElementById('th-wz-body');
+      if (!body) return;
 
-      var fromY = parseInt(document.getElementById('tc-from').value) || 2020;
-      var toY = parseInt(document.getElementById('tc-to').value) || 2025;
-      var order = document.getElementById('tc-order').value;
-      var courseData = THRESH_DATA[_threshCourse] || {};
+      if (THW.step === 1) {
+        // Paper group chooser
+        var groups = thwGroups();
+        body.innerHTML = '<div class="wz-panel"><span class="tb-label">Choose a paper</span>'
+          + '<div class="wz-sec-list">'
+          + groups.map(function (g) {
+            return '<div class="wz-sec-row" onclick="thwPickGroup(\'' + escapeAttr(g.name) + '\')">'
+              + '<span class="wz-sec-name">' + g.name + '</span>'
+              + '<span class="wz-sec-count">' + g.comps.length + ' variant' + (g.comps.length !== 1 ? 's' : '') + '</span>'
+              + '</div>';
+          }).join('')
+          + '</div></div>';
+
+      } else if (THW.step === 2) {
+        // Variant multi-select within the chosen group
+        var group = thwGroups().find(function (g) { return g.name === THW.group; });
+        if (!group) { THW.step = 1; thwRender(); return; }
+        var rows = group.comps.map(function (c) {
+          var checked = THW.comps.indexOf(c.code) !== -1 ? 'checked' : '';
+          var cbId = 'thwc-' + c.code;
+          return '<div class="wz-topic-row" onclick="thwToggleComp(\'' + c.code + '\',\'' + cbId + '\')">'
+            + '<input type="checkbox" id="' + cbId + '" ' + checked + ' onclick="event.stopPropagation();thwToggleComp(\'' + c.code + '\',\'' + cbId + '\')">'
+            + '<label class="wz-topic-label" for="' + cbId + '">Variant ' + c.code + '</label>'
+            + '<span class="wz-topic-count">max ' + c.max + '</span>'
+            + '</div>';
+        }).join('');
+        var allCodes = group.comps.map(function (c) { return c.code; });
+        var allSelected = allCodes.every(function (c) { return THW.comps.indexOf(c) !== -1; });
+
+        body.innerHTML = '<div class="wz-panel">'
+          + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">'
+          + '<span class="tb-label" style="margin-bottom:0">' + THW.group + ' — choose variants</span>'
+          + '<button class="wz-sel-all" onclick="thwSelectAll(' + (allSelected ? 'false' : 'true') + ')">'
+          + (allSelected ? 'Deselect All' : 'Select All') + '</button>'
+          + '</div>'
+          + '<div class="wz-topic-list">' + rows + '</div></div>'
+          + '<div class="wz-nav-row">'
+          + '<button class="wz-back-btn" onclick="thwBack()">← Back</button>'
+          + '<button class="tb-generate-btn" style="margin-top:0;width:auto;padding:10px 28px" onclick="thwNext()" '
+          + (THW.comps.length ? '' : 'disabled') + '>Next →</button>'
+          + '</div>';
+
+      } else if (THW.step === 3) {
+        // Year range + sort order
+        body.innerHTML = '<div class="wz-panel">'
+          + '<span class="tb-label">Session range</span>'
+          + '<div class="tc-bottom-row" style="margin-bottom:4px">'
+          + '<div class="tc-field"><span class="tc-label">From</span>'
+          + '<input type="number" class="tc-input" id="thw-from" value="' + THW.from + '" min="2020" max="2025" onchange="thwSetRange()"></div>'
+          + '<div class="tc-field"><span class="tc-label">To</span>'
+          + '<input type="number" class="tc-input" id="thw-to" value="' + THW.to + '" min="2020" max="2025" onchange="thwSetRange()"></div>'
+          + '<div class="tc-field"><span class="tc-label">Sort</span>'
+          + '<select class="tc-select" id="thw-order" onchange="thwSetRange()">'
+          + '<option value="desc"' + (THW.order === 'desc' ? ' selected' : '') + '>Descending</option>'
+          + '<option value="asc"' + (THW.order === 'asc' ? ' selected' : '') + '>Ascending</option>'
+          + '</select>'
+          + '<span class="tc-sort-note">' + (THW.order === 'desc' ? 'Easiest papers at top' : 'Hardest papers at top') + '</span>'
+          + '</div>'
+          + '</div></div>'
+          + '<div class="wz-nav-row">'
+          + '<button class="wz-back-btn" onclick="thwBack()">← Back</button>'
+          + '<button class="tb-generate-btn" style="margin-top:0;width:auto;padding:10px 28px" onclick="thwNext()">View Results →</button>'
+          + '</div>';
+
+      } else if (THW.step === 4) {
+        body.innerHTML = '<div id="thresh-output"></div>'
+          + '<div class="wz-nav-row"><button class="wz-back-btn" onclick="thwBack()">← Back</button></div>';
+        thwLoadResults();
+      }
+    }
+
+    function thwPickGroup(name) {
+      THW.group = name;
+      THW.comps = [];
+      THW.step = 2;
+      thwRender();
+    }
+
+    function thwToggleComp(code, cbId) {
+      var idx = THW.comps.indexOf(code);
+      if (idx === -1) THW.comps.push(code);
+      else THW.comps.splice(idx, 1);
+      var cb = document.getElementById(cbId);
+      if (cb) cb.checked = THW.comps.indexOf(code) !== -1;
+      var btn = document.querySelector('#th-wz-body .tb-generate-btn');
+      if (btn) btn.disabled = THW.comps.length === 0;
+      var group = thwGroups().find(function (g) { return g.name === THW.group; });
+      var allCodes = group.comps.map(function (c) { return c.code; });
+      var allSel = allCodes.every(function (c) { return THW.comps.indexOf(c) !== -1; });
+      var sa = document.querySelector('.wz-sel-all');
+      if (sa) {
+        sa.textContent = allSel ? 'Deselect All' : 'Select All';
+        sa.setAttribute('onclick', 'thwSelectAll(' + (!allSel) + ')');
+      }
+    }
+
+    function thwSelectAll(select) {
+      var group = thwGroups().find(function (g) { return g.name === THW.group; });
+      var allCodes = group.comps.map(function (c) { return c.code; });
+      if (select) {
+        allCodes.forEach(function (c) { if (THW.comps.indexOf(c) === -1) THW.comps.push(c); });
+      } else {
+        THW.comps = [];
+      }
+      thwRender();
+    }
+
+    function thwSetRange() {
+      var f = document.getElementById('thw-from');
+      var t = document.getElementById('thw-to');
+      var o = document.getElementById('thw-order');
+      if (f) THW.from = parseInt(f.value) || 2020;
+      if (t) THW.to = parseInt(t.value) || 2025;
+      if (o) THW.order = o.value;
+      // live-update the sort note without a full re-render
+      var note = document.querySelector('#th-wz-body .tc-sort-note');
+      if (note) note.textContent = THW.order === 'desc' ? 'Easiest papers at top' : 'Hardest papers at top';
+    }
+
+    function thwNext() {
+      if (THW.step < 4) { THW.step++; thwRender(); }
+    }
+
+    function thwBack() {
+      if (THW.step > 1) { THW.step--; thwRender(); }
+    }
+
+    function thwLoadResults() {
+      var comps = THRESH_COMPONENTS[THW.course] || [];
+      var compMap = {};
+      comps.forEach(function (c) { compMap[c.code] = c; });
+      var courseData = THRESH_DATA[THW.course] || {};
 
       var rows = [];
       THRESH_SESSIONS.forEach(function (sess) {
-        if (sess.year < fromY || sess.year > toY) return;
+        if (sess.year < THW.from || sess.year > THW.to) return;
         var sessData = courseData[sess.key];
         if (!sessData || Object.keys(sessData).length === 0) return;
-        selected.forEach(function (code) {
+        THW.comps.forEach(function (code) {
           var t = sessData[code];
           if (!t) return;
           var comp = compMap[code];
@@ -3951,14 +4082,15 @@
         });
       });
 
-      // Sort by A-grade value: descending = highest first (easiest), ascending = lowest first (hardest)
       rows.sort(function (x, y) {
-        return order === 'asc' ? x.a - y.a : y.a - x.a;
+        return THW.order === 'asc' ? x.a - y.a : y.a - x.a;
       });
 
+      var out = document.getElementById('thresh-output');
+      if (!out) return;
+
       if (!rows.length) {
-        document.getElementById('thresh-output').innerHTML =
-          '<div class="thresh-empty">No data found for the selected filters.</div>';
+        out.innerHTML = '<div class="thresh-empty">No data found for the selected filters.</div>';
         return;
       }
 
@@ -3975,11 +4107,12 @@
           '</tr>';
       }).join('');
 
-      document.getElementById('thresh-output').innerHTML =
+      out.innerHTML =
+        '<div class="thresh-result-hdr"><span class="tb-label" style="margin-bottom:0">' + THW.group + ' results</span></div>' +
         '<div class="thresh-table-wrap">' +
         '<table class="thresh-table">' +
         '<thead><tr>' +
-        '<th>Session</th><th>Comp</th><th>Max</th>' +
+        '<th>Session</th><th>Variant</th><th>Max</th>' +
         '<th class="tc-th-a">A</th>' +
         '<th>B</th><th>C</th><th>D</th><th>E</th>' +
         '</tr></thead>' +
@@ -3988,7 +4121,7 @@
         '</div>' +
         '<div class="thresh-hint">' +
         rows.length + ' row' + (rows.length !== 1 ? 's' : '') +
-        ' · components: ' + selected.join(', ') +
+        ' · variants: ' + THW.comps.join(', ') +
         '</div>';
     }
 
@@ -4923,7 +5056,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const flagBtn = '<button class="ts-flag-btn' + (flagged ? ' flagged' : '') + '" onclick="tsToggleFlagCard(' + idx + ')" title="Save this question to review later, regardless of score">'
         + (flagged ? '\u2605 Flagged' : '\u2606 Flag') + '</button>';
 
-      let html = '<div class="ts-question-card" id="tscard-' + idx + '"'
+      let html = '<div class="ts-question-card" id="' + (reveal ? 'trcard-' : 'tscard-') + idx + '"'
         + (ms.done && !reveal ? ' style="border-color:var(--gold3);opacity:.8"' : '') + '>'
         + '<div class="ts-q-label">'
         + '<span class="ts-q-number">Question ' + (idx + 1) + '</span>'
@@ -4989,10 +5122,10 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function tsToggleFlagCard(idx) {
+      const reveal = TEST.submitted;
       const q = TEST.questions[idx];
       toggleFlag(q.id);
-      const reveal = TEST.submitted;
-      const card = document.getElementById('tscard-' + idx);
+      const card = document.getElementById((reveal ? 'trcard-' : 'tscard-') + idx);
       if (card) {
         const tmp = document.createElement('div');
         tmp.innerHTML = renderTestCard(q, idx, reveal);
@@ -5356,7 +5489,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         'Total marks: ' + TEST.totalMarks,
         'Attempted: ' + doneCount + ' / ' + TEST.questions.length,
         'Self-score: ' + selfTotal + ' / ' + TEST.totalMarks
-          + (fullyScored ? '  (' + pct + '%)' : '  [' + selfAttempted + ' / ' + TEST.questions.length + ' questions scored]'),
+        + (fullyScored ? '  (' + pct + '%)' : '  [' + selfAttempted + ' / ' + TEST.questions.length + ' questions scored]'),
         'Time used: ' + formatClock(TEST.reviewElapsed || 0) + ' / ' + formatClock(TEST.durationSeconds),
         'Status: ' + (TEST.reviewTimedOut ? 'Time Expired' : 'Submitted')
       ].forEach(line => { doc.text(line, marginX, y); y += 14; });
