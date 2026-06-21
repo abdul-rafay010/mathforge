@@ -2609,6 +2609,29 @@
       text-align: center;
     }
 
+    .ts-note-input {
+      width: 100%;
+      min-height: 56px;
+      resize: vertical;
+      background: var(--ink4);
+      border: 1px solid var(--rule2);
+      color: var(--parchment2);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: .84rem;
+      padding: 10px 12px;
+      line-height: 1.5;
+    }
+
+    .ts-note-input:focus {
+      outline: none;
+      border-color: var(--gold2);
+    }
+
+    .ts-note-input::placeholder {
+      color: var(--parchment4);
+    }
+
     .ts-score-input:focus {
       outline: none;
       border-color: var(--gold2);
@@ -2627,9 +2650,16 @@
        MY PROGRESS — streak, flag, mastery, weak spots
     ══════════════════════════════════════════ */
 
-    #streak-badge {
-      color: #c97b4a !important;
-      border-color: #5a3a28 !important;
+    .streak-chip {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold3);
+      padding: 3px 10px;
+      display: inline-block;
+      white-space: nowrap;
     }
 
     .ts-flag-btn {
@@ -2752,37 +2782,6 @@
       transition: width .4s var(--ease);
     }
 
-    .mp-row {
-      background: var(--gold3);
-      border: 1px solid var(--gold2);
-      padding: 16px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      cursor: pointer;
-      margin-bottom: 14px;
-      transition: background .15s;
-      flex-wrap: wrap;
-    }
-
-    .mp-row:hover {
-      background: #4a3a1c;
-    }
-
-    .mp-row-name {
-      font-family: var(--sc);
-      font-size: .82rem;
-      letter-spacing: .04em;
-      color: var(--gold);
-    }
-
-    .mp-row-meta {
-      font-family: var(--mono);
-      font-size: .6rem;
-      color: var(--parchment3);
-    }
-
     /* ── Print: blank paper ── */
 
     #print-area {
@@ -2814,6 +2813,8 @@
         border-bottom: 2px solid #000;
         padding-bottom: 10px;
         margin-bottom: 18px;
+        position: relative;
+        z-index: 1;
       }
 
       #print-area .pp-title {
@@ -2827,13 +2828,35 @@
       }
 
       #print-area .pp-q {
-        margin-bottom: 26px;
+        margin-bottom: 10px;
         page-break-inside: avoid;
+        position: relative;
+        z-index: 1;
       }
 
       #print-area .pp-q-label {
         font-weight: bold;
         margin-bottom: 6px;
+      }
+
+      #print-area .pp-answer-space {
+        border-top: 1px dashed #aaa;
+        margin: 14px 0 26px;
+      }
+
+      #print-area .pp-watermark {
+        position: fixed;
+        top: 45%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-family: 'Times New Roman', serif;
+        font-style: italic;
+        font-size: 5rem;
+        color: rgba(0, 0, 0, 0.06);
+        transform: rotate(-30deg);
+        pointer-events: none;
+        z-index: 0;
       }
 
       #print-area .katex {
@@ -2862,7 +2885,6 @@
         <div class="masthead-title">MathForge</div>
       </div>
       <div class="masthead-right">
-        <span class="masthead-link" id="streak-badge" onclick="goProgress()" style="display:none"></span>
         <span class="masthead-link" onclick="goTestBuilder()">Practice Mode</span>
         <span class="masthead-link" onclick="goProgress()">My Progress</span>
         <span class="masthead-link" onclick="goArticles()">Essays</span>
@@ -3192,7 +3214,6 @@
       crumb([]);
       buildHome();
       buildQOTW();
-      renderStreakBadge();
       show('home');
       if (!fromPop) pushState({ screen: 'home' });
     }
@@ -3214,7 +3235,10 @@
         tile.className = 'course-tile';
         tile.onclick = () => goCourse(code);
         tile.innerHTML = `
-      <span class="tile-code">${code}</span>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+        <span class="tile-code">${code}</span>
+        <span data-streak-chip="${code}">${streakChipHTML(code)}</span>
+      </div>
       <div class="tile-name">${c.name}</div>
       <div class="tile-desc">${secs} sections &ensp;·&ensp; ${topics} topics</div>
       <div class="tile-ghost">${ghosts[code] || ''}</div>`;
@@ -3235,7 +3259,10 @@
       ]);
 
       document.getElementById('course-hdr').innerHTML = `
-    <div class="screen-title">${c.name} <em>${code}</em></div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div class="screen-title">${c.name} <em>${code}</em></div>
+      <span data-streak-chip="${code}">${streakChipHTML(code)}</span>
+    </div>
     <div class="screen-caption">Select a section.</div>`;
 
       buildThreshSection(code);
@@ -3407,6 +3434,7 @@
         <span class="prob-label-left">Problem ${String(idx + 1).padStart(2, '0')}</span>
         <div style="display:flex;align-items:center;gap:10px">
           ${q.difficulty ? `<span class="diff-badge diff-${q.difficulty}">${q.difficulty}</span>` : ''}
+          <button class="ts-flag-btn${isFlagged(q.id) ? ' flagged' : ''}" id="prob-flag-btn" onclick="toggleProblemFlag('${q.id}')" title="Save this question to review later">${isFlagged(q.id) ? '\u2605 Flagged' : '\u2606 Flag'}</button>
           <span class="prob-label-right">${q.id}</span>
         </div>
       </div>
@@ -4196,16 +4224,21 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
     const PROGRESS_KEY = 'mathforge_progress_v1';
 
+    function emptyStreaks() {
+      return { '9709': { lastDate: null, current: 0, longest: 0 }, '9231': { lastDate: null, current: 0, longest: 0 } };
+    }
+
     function loadProgress() {
       try {
         const raw = localStorage.getItem(PROGRESS_KEY);
-        if (!raw) return { questions: {}, streak: { lastDate: null, current: 0, longest: 0 } };
+        if (!raw) return { questions: {}, streaks: emptyStreaks() };
         const parsed = JSON.parse(raw);
         if (!parsed.questions) parsed.questions = {};
-        if (!parsed.streak) parsed.streak = { lastDate: null, current: 0, longest: 0 };
+        if (!parsed.streaks) parsed.streaks = emptyStreaks();
+        Object.keys(emptyStreaks()).forEach(code => { if (!parsed.streaks[code]) parsed.streaks[code] = { lastDate: null, current: 0, longest: 0 }; });
         return parsed;
       } catch (e) {
-        return { questions: {}, streak: { lastDate: null, current: 0, longest: 0 } };
+        return { questions: {}, streaks: emptyStreaks() };
       }
     }
 
@@ -4213,12 +4246,24 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); } catch (e) { /* storage full or blocked — fail silently */ }
     }
 
-    function recordAttempt(qid, scored, marks) {
+    function recordAttempt(qid, scored, marks, note) {
       const p = loadProgress();
       if (!p.questions[qid]) p.questions[qid] = { flagged: false, attempts: [] };
-      p.questions[qid].attempts.push({ date: new Date().toISOString(), scored: scored, marks: marks });
+      p.questions[qid].attempts.push({ date: new Date().toISOString(), scored: scored, marks: marks, note: note || '' });
       if (p.questions[qid].attempts.length > 10) p.questions[qid].attempts = p.questions[qid].attempts.slice(-10);
       saveProgress(p);
+    }
+
+    // Updates the note on the most recent attempt without pushing a
+    // duplicate entry — used when a note is typed after a score was
+    // already saved this sitting.
+    function updateLastAttemptNote(qid, note) {
+      const p = loadProgress();
+      const rec = p.questions[qid];
+      if (rec && rec.attempts.length) {
+        rec.attempts[rec.attempts.length - 1].note = note;
+        saveProgress(p);
+      }
     }
 
     function toggleFlag(qid) {
@@ -4297,37 +4342,46 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
     }
 
-    function updateStreak() {
-      const p = loadProgress();
-      const today = todayStr();
-      if (p.streak.lastDate === today) return p.streak; // already counted today
-      const yest = new Date(); yest.setDate(yest.getDate() - 1);
-      const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
-      if (p.streak.lastDate === yestStr) p.streak.current += 1;
-      else p.streak.current = 1;
-      p.streak.longest = Math.max(p.streak.longest, p.streak.current);
-      p.streak.lastDate = today;
-      saveProgress(p);
-      return p.streak;
+    function yesterdayStr() {
+      const d = new Date(); d.setDate(d.getDate() - 1);
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
     }
 
-    function renderStreakBadge() {
-      const el = document.getElementById('streak-badge');
-      if (!el) return;
+    // Streak is per subject (9709 / 9231) and counts a day the moment a
+    // question in that subject is self-marked — not on session submit,
+    // so partial review sessions still count.
+    function updateStreak(courseCode) {
+      if (!courseCode) return;
       const p = loadProgress();
-      const c = p.streak.current || 0;
-      if (c >= 1 && p.streak.lastDate) {
-        // Badge only counts as "live" if last practice was today or yesterday
-        const today = todayStr();
-        const yest = new Date(); yest.setDate(yest.getDate() - 1);
-        const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
-        if (p.streak.lastDate === today || p.streak.lastDate === yestStr) {
-          el.style.display = 'inline-block';
-          el.textContent = '🔥 ' + c + '-day streak';
-          return;
-        }
-      }
-      el.style.display = 'none';
+      const s = p.streaks[courseCode];
+      if (!s) return;
+      const today = todayStr();
+      if (s.lastDate === today) return s; // already counted today
+      s.current = (s.lastDate === yesterdayStr()) ? s.current + 1 : 1;
+      s.longest = Math.max(s.longest, s.current);
+      s.lastDate = today;
+      saveProgress(p);
+      refreshStreakChips();
+      return s;
+    }
+
+    // Renders a small subject-specific streak chip, or '' if there's
+    // no live streak (last practice wasn't today or yesterday).
+    function streakChipHTML(courseCode) {
+      const p = loadProgress();
+      const s = p.streaks[courseCode];
+      if (!s || !s.current || !s.lastDate) return '';
+      const isLive = s.lastDate === todayStr() || s.lastDate === yesterdayStr();
+      if (!isLive) return '';
+      return '<span class="streak-chip">' + s.current + ' Day Streak</span>';
+    }
+
+    // Re-renders any streak chips currently on screen (called right after
+    // a self-mark updates the streak, in case the relevant chip is visible).
+    function refreshStreakChips() {
+      document.querySelectorAll('[data-streak-chip]').forEach(el => {
+        el.innerHTML = streakChipHTML(el.getAttribute('data-streak-chip'));
+      });
     }
 
     function exportProgress() {
@@ -4353,7 +4407,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
           saveProgress(parsed);
           alert('Progress imported successfully.');
           buildProgressScreen();
-          renderStreakBadge();
+          refreshStreakChips();
         } catch (err) {
           alert('That file doesn\u2019t look like a MathForge progress export.');
         }
@@ -4365,7 +4419,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       if (confirm('This permanently deletes your Mistake Bank, flagged questions, mastery history and streak from this device. Export first if you want a backup. Continue?')) {
         localStorage.removeItem(PROGRESS_KEY);
         buildProgressScreen();
-        renderStreakBadge();
+        refreshStreakChips();
       }
     }
 
@@ -4375,16 +4429,6 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
     // Wizard state
     let TB = { step: 1, subject: null, section: null, topics: [], count: 10 };
-
-    // Official CAIE paper timings — used by Mock Paper Mode so the
-    // duration matches the real exam rather than the 1.5 min/mark formula.
-    const MOCK_PAPER_CONFIG = {
-      'P1':  { minutes: 110, label: 'Paper 1' },
-      'P3':  { minutes: 110, label: 'Paper 3' },
-      'S1':  { minutes: 75,  label: 'Probability & Statistics 1' },
-      'FP1': { minutes: 110, label: 'Further Pure 1' },
-      'FS':  { minutes: 90,  label: 'Further Statistics' }
-    };
 
     // Session state
     let TEST = {
@@ -4457,17 +4501,12 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         const rows = Object.entries(c.sections).map(([secCode, sec]) => {
           const total = Object.values(sec.topics).reduce((a, qs) => a + qs.length, 0);
           if (!total) return '';
-          const mock = MOCK_PAPER_CONFIG[secCode];
-          const mockRow = mock ? '<div class="mp-row" onclick="tbStartMockPaper(\'' + secCode + '\')">'
-            + '<div><div class="mp-row-name">⚡ Full Mock Paper — ' + secCode + '</div>'
-            + '<div class="mp-row-meta">All ' + total + ' questions in scope &middot; ' + mock.minutes + ' min, matching the real ' + mock.label + ' timing</div></div>'
-            + '<span class="mp-row-meta">Start →</span></div>' : '';
-          return mockRow + '<div class="wz-sec-row" onclick="tbPickSection(\'' + secCode + '\')">'
+          return '<div class="wz-sec-row" onclick="tbPickSection(\'' + secCode + '\')">'
             + '<span class="wz-sec-name">' + secCode + ' — ' + sec.name + '</span>'
             + '<span class="wz-sec-count">' + total + ' Q</span>'
             + '</div>';
         }).join('');
-        body.innerHTML = '<div class="wz-panel"><span class="tb-label">' + c.name + ' · Choose section, or start a full mock paper</span>'
+        body.innerHTML = '<div class="wz-panel"><span class="tb-label">' + c.name + ' · Choose section</span>'
           + '<div class="wz-sec-list">' + rows + '</div></div>'
           + '<div class="wz-nav-row"><button class="wz-back-btn" onclick="tbBack()">← Back</button></div>';
 
@@ -4720,16 +4759,6 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       pushState({ screen: 'test-session' });
     }
 
-    // ── Mock Paper Mode — full-component session at official CAIE timing ──
-    function tbStartMockPaper(secCode) {
-      const sec = SYLLABUS[TB.subject].sections[secCode];
-      const pool = [];
-      Object.values(sec.topics).forEach(qs => pool.push(...qs));
-      if (!pool.length) return;
-      const config = MOCK_PAPER_CONFIG[secCode] || { minutes: 110, label: secCode };
-      launchSession(shuffleArray(pool), config.minutes * 60, 'Mock Paper \u00b7 ' + secCode);
-    }
-
     // ── Retry My Mistakes — pulls every question whose latest self-mark fell short ──
     function startMistakeRetry() {
       const mistakes = getMistakes();
@@ -4828,6 +4857,11 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
           + (mk.estimated ? ' <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);font-style:italic">(estimated allocation)</span>' : '')
           + flagBtn
           + '</div>';
+        const noteVal = (ms.note || '').replace(/</g, '&lt;');
+        html += '<div style="padding:0 24px 16px">'
+          + '<textarea class="ts-note-input" placeholder="Note what went wrong here \u2014 included in your downloaded report" '
+          + 'oninput="tsSetNote(' + idx + ',this.value)">' + noteVal + '</textarea>'
+          + '</div>';
       }
 
       html += '</div>';
@@ -4867,8 +4901,20 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const q = TEST.questions[idx];
       if (q && !isNaN(n)) {
         const marks = getMarks(q).marks;
-        recordAttempt(q.id, n, marks);
+        recordAttempt(q.id, n, marks, TEST.marks[idx].note || '');
+        const found = findQuestionById(q.id);
+        if (found) updateStreak(found.course);
       }
+    }
+
+    // Notes are session-local for the live drill (used in the PDF report
+    // immediately) and also synced onto the just-saved attempt record so
+    // they're not lost if a score was already entered this sitting.
+    function tsSetNote(idx, val) {
+      if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null, note: '' };
+      TEST.marks[idx].note = val;
+      const q = TEST.questions[idx];
+      if (q) updateLastAttemptNote(q.id, val);
     }
 
     function renderTestMath(id) {
@@ -4891,8 +4937,6 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       TEST.submitted = true;
       if (TEST.timerHandle) clearInterval(TEST.timerHandle);
       const elapsed = TEST.durationSeconds - Math.max(0, TEST.remainingSeconds);
-      updateStreak();
-      renderStreakBadge();
       renderTestReview(elapsed, timedOut);
       crumb([
         { label: 'Home', fn: 'goHome()' },
@@ -5037,7 +5081,8 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const area = document.getElementById('print-area');
       const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
-      let html = '<div class="pp-header">'
+      let html = '<div class="pp-watermark">MathForge</div>'
+        + '<div class="pp-header">'
         + '<div class="pp-title">MathForge \u2014 Practice Drill</div>'
         + '<div class="pp-meta">' + TEST.questions.length + ' questions \u00b7 ' + TEST.totalMarks + ' marks \u00b7 '
         + formatClock(TEST.durationSeconds) + ' time allowed \u00b7 ' + dateStr + '</div>'
@@ -5048,10 +5093,13 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         const diagHtml = q.diagram_image
           ? '<div style="margin:10px 0"><img src="images/' + q.diagram_image + '" style="max-width:280px"></div>'
           : '';
+        // Working space scales with marks — more marks, more room to write
+        const spaceHeight = Math.min(260, Math.max(90, marks * 16));
         html += '<div class="pp-q">'
           + '<div class="pp-q-label">Question ' + (i + 1) + (marks ? '  [' + marks + ' marks]' : '') + '</div>'
           + diagHtml
           + processText(q.question_text)
+          + '<div class="pp-answer-space" style="height:' + spaceHeight + 'px"></div>'
           + '</div>';
       });
 
@@ -5090,9 +5138,34 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const marginX = 48;
       let y = 56;
 
-      function ensureSpace(rows) {
-        if (y + rows * 14 > pageH - 48) { doc.addPage(); y = 56; }
+      function drawWatermark() {
+        // Faint diagonal wordmark across the page
+        doc.saveGraphicsState();
+        doc.setTextColor(225, 218, 200);
+        doc.setFont('times', 'italic');
+        doc.setFontSize(64);
+        doc.text('MathForge', pageW / 2, pageH / 2, { align: 'center', angle: 35 });
+        doc.restoreGraphicsState();
+
+        // Small monogram seal, top-right corner — echoes the on-site masthead mark
+        doc.setDrawColor(122, 98, 40);
+        doc.setLineWidth(0.8);
+        doc.circle(pageW - 40, 34, 13, 'S');
+        doc.setDrawColor(61, 49, 24);
+        doc.setLineWidth(0.4);
+        doc.circle(pageW - 40, 34, 11, 'S');
+        doc.setTextColor(168, 136, 58);
+        doc.setFont('times', 'italic');
+        doc.setFontSize(13);
+        doc.text('M', pageW - 40, 38, { align: 'center' });
+        doc.setTextColor(0, 0, 0);
       }
+
+      function ensureSpace(rows) {
+        if (y + rows * 14 > pageH - 48) { doc.addPage(); drawWatermark(); y = 56; }
+      }
+
+      drawWatermark();
 
       // ── Header ──
       doc.setFont('helvetica', 'bold');
@@ -5131,10 +5204,10 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
           topicBreakdown[topicKey].scored += Number(ms.scored);
           topicBreakdown[topicKey].scoredCount++;
           if (Number(ms.scored) < marks) {
-            flagged.push({ num: i + 1, id: q.id, topicKey, scored: ms.scored, marks });
+            flagged.push({ num: i + 1, id: q.id, topicKey, scored: ms.scored, marks, note: ms.note || '' });
           }
         } else {
-          flagged.push({ num: i + 1, id: q.id, topicKey, scored: null, marks });
+          flagged.push({ num: i + 1, id: q.id, topicKey, scored: null, marks, note: ms.note || '' });
         }
       });
 
@@ -5187,7 +5260,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       });
       y += 14;
 
-      // ── Questions to review ──
+      // ── Questions to review (with your notes, if any) ──
       ensureSpace(4);
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(11);
@@ -5202,10 +5275,21 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         y += 16;
       } else {
         flagged.forEach(w => {
-          ensureSpace(1);
+          ensureSpace(w.note ? 2 : 1);
           const scoreLabel = w.scored === null ? 'not scored' : (w.scored + ' / ' + w.marks);
+          doc.setFont('helvetica', 'normal');
+          doc.setTextColor(0);
           doc.text('Q' + w.num + '  \u00b7  ' + w.id + '  \u00b7  ' + w.topicKey + '  \u2014  ' + scoreLabel, marginX, y, { maxWidth: pageW - marginX * 2 });
           y += 14;
+          if (w.note) {
+            doc.setFont('helvetica', 'italic');
+            doc.setFontSize(9);
+            doc.setTextColor(90);
+            doc.text('Note: ' + w.note, marginX + 14, y, { maxWidth: pageW - marginX * 2 - 14 });
+            doc.setTextColor(0);
+            doc.setFontSize(9.5);
+            y += 14;
+          }
         });
       }
 
