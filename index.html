@@ -56,6 +56,7 @@
       --gold: #a8883a;
       --gold2: #7a6228;
       --gold3: #3d3118;
+      --gold-border: #5a4a22;
 
       --serif: 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
       --sc: 'Cormorant SC', 'Garamond', serif;
@@ -85,6 +86,7 @@
       --gold: #8a6d28;
       --gold2: #6b5420;
       --gold3: #f0e4c4;
+      --gold-border: #b69a52;
     }
 
     body {
@@ -527,7 +529,7 @@
       font-size: .6rem;
       letter-spacing: .12em;
       color: var(--gold);
-      border: 1px solid var(--gold3);
+      border: 1px solid var(--gold-border);
       padding: 4px 10px;
       text-transform: uppercase;
       white-space: nowrap;
@@ -1265,7 +1267,7 @@
       font-size: .68rem;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: var(--parchment4);
+      color: var(--parchment3);
       cursor: pointer;
       border: none;
       background: transparent;
@@ -1430,7 +1432,7 @@
 
     .thresh-table thead tr {
       background: var(--ink3);
-      border-bottom: 1px solid var(--gold3);
+      border-bottom: 1px solid var(--gold-border);
     }
 
     .thresh-table th {
@@ -1900,7 +1902,7 @@
     .prob-text-question a {
       color: var(--gold);
       text-decoration: none;
-      border-bottom: 1px solid var(--gold3);
+      border-bottom: 1px solid var(--gold-border);
       transition: border-color .15s;
     }
 
@@ -1941,7 +1943,7 @@
 ════════════════════════════════════════════════ */
 
     .pattern-note {
-      border-left: 2px solid var(--gold3);
+      border-left: 2px solid var(--gold-border);
       background: var(--ink2);
       padding: 14px 20px;
       margin-bottom: 28px;
@@ -2021,7 +2023,7 @@
       text-transform: uppercase;
       cursor: pointer;
       transition: all .15s;
-      border: 1px solid var(--gold3);
+      border: 1px solid var(--gold-border);
       padding: 5px 14px;
       line-height: 1;
     }
@@ -2035,7 +2037,7 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      border: 1px solid var(--gold3);
+      border: 1px solid var(--gold-border);
       background: transparent;
       cursor: pointer;
       position: relative;
@@ -2273,7 +2275,7 @@
       top: 0;
       z-index: 50;
       background: var(--ink2);
-      border-bottom: 1px solid var(--gold3);
+      border-bottom: 1px solid var(--gold-border);
       padding: 14px 0;
       display: flex;
       align-items: center;
@@ -2374,7 +2376,7 @@
 
     .test-review-summary {
       background: var(--ink2);
-      border: 1px solid var(--gold3);
+      border: 1px solid var(--gold-border);
       padding: 24px 26px;
       margin-bottom: 30px;
       display: flex;
@@ -2401,6 +2403,42 @@
       font-family: var(--mono);
       font-size: 1rem;
       color: var(--parchment);
+    }
+
+    .trs-grade-predict {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 18px;
+      margin-top: 4px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .tgp-label {
+      font-family: var(--sc);
+      font-size: .58rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold2);
+    }
+
+    .tgp-grade {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 2.1rem;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .tgp-note {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .03em;
+      color: var(--parchment4);
+      flex-basis: 100%;
     }
 
     .tr-new-test-btn {
@@ -3443,14 +3481,14 @@
       const stack = document.getElementById('topic-stack');
       stack.innerHTML = '';
       Object.entries(sec.topics).forEach(([topic, qs]) => {
-        const hasQ = qs.length > 0;
+        if (!qs.length) return; // skip topics with no content yet — not ready to show students
         const row = document.createElement('div');
         row.className = 'topic-row';
         row.onclick = () => goTopic(code, secCode, topic);
         row.innerHTML = `
       <span class="topic-row-name">${topic}</span>
       <div class="topic-row-right">
-        <span class="topic-count ${hasQ ? 'has-q' : ''}">${hasQ ? qs.length + ' Q' : 'empty'}</span>
+        <span class="topic-count has-q">${qs.length} Q</span>
         <span class="topic-arrow">›</span>
       </div>`;
         stack.appendChild(row);
@@ -3900,6 +3938,87 @@
         }
       }
     };
+
+    // ── Grade prediction ──────────────────────────────────────────
+    // Maps a question-bank section code (the prefix on every question id,
+    // e.g. "P1_TR_002" -> "P1") to the matching syllabus component/grade-
+    // threshold group, and the course it belongs to. Sections with no
+    // threshold group yet (because the bank has no questions there) are
+    // simply absent, and prediction is skipped for those drills.
+    const SECTION_TO_THRESH_GROUP = {
+      'P1': { course: '9709', group: 'Pure 1' },
+      'P3': { course: '9709', group: 'Pure 3' },
+      'S1': { course: '9709', group: 'Statistics' },
+      'FP1': { course: '9231', group: 'Further Pure 1' },
+      'FS': { course: '9231', group: 'Further Statistics' }
+    };
+
+    // A drill only maps to a single real paper if every question in it
+    // comes from the same section — mixed-section sessions (e.g. Retry My
+    // Mistakes pulling from FP1 and P1 together) have no single paper to
+    // compare against, so prediction is intentionally withheld rather than
+    // showing a misleading number.
+    function thwDetectSection(questions) {
+      if (!questions || !questions.length) return null;
+      const prefixes = new Set(questions.map(q => q.id.split('_')[0]));
+      if (prefixes.size !== 1) return null;
+      const sec = [...prefixes][0];
+      return SECTION_TO_THRESH_GROUP[sec] ? sec : null;
+    }
+
+    // Given a self-marked percentage, finds the grade it would earn on
+    // each real session of the matching paper (scaled onto that session's
+    // actual max mark), then returns the most recent session's grade plus
+    // the spread across the last few sessions so the figure reads as an
+    // estimate, not a guarantee.
+    function predictGrade(pct) {
+      if (pct === null || pct === undefined || isNaN(pct)) return null;
+      return function (thresh, max) {
+        const scaled = Math.round((pct / 100) * max);
+        const order = ['a', 'b', 'c', 'd', 'e'];
+        for (const g of order) {
+          if (scaled >= thresh[g]) return g.toUpperCase();
+        }
+        return 'U';
+      };
+    }
+
+    function buildGradePrediction(pct, questions) {
+      const sec = thwDetectSection(questions);
+      if (!sec) return '';
+      const mapping = SECTION_TO_THRESH_GROUP[sec];
+      const comps = (THRESH_COMPONENTS[mapping.course] || []).filter(c => c.group === mapping.group);
+      if (!comps.length) return '';
+      const courseData = THRESH_DATA[mapping.course] || {};
+      const grader = predictGrade(pct);
+      if (!grader) return '';
+
+      // Walk sessions most-recent-first, take the first variant with data
+      // in each session, stop once we have up to 4 results for the spread.
+      const results = [];
+      for (const sess of THRESH_SESSIONS) {
+        const sessData = courseData[sess.key];
+        if (!sessData) continue;
+        const comp = comps.find(c => sessData[c.code]);
+        if (!comp) continue;
+        const thresh = sessData[comp.code];
+        results.push({ label: sess.label, grade: grader(thresh, comp.max), variant: comp.code });
+        if (results.length >= 4) break;
+      }
+      if (!results.length) return '';
+
+      const latest = results[0];
+      const gradeSet = [...new Set(results.map(r => r.grade))];
+      const spreadText = gradeSet.length > 1
+        ? 'Recent sessions range ' + gradeSet.join('–') + ' at this percentage'
+        : 'Consistently ' + gradeSet[0] + ' across recent sessions';
+
+      return '<div class="trs-grade-predict">'
+        + '<span class="tgp-label">Estimated Grade · ' + mapping.group + '</span>'
+        + '<span class="tgp-grade">' + latest.grade + '</span>'
+        + '<span class="tgp-note">' + spreadText + ' (' + results.map(r => r.label + ' ' + r.grade).join(', ') + ')</span>'
+        + '</div>';
+    }
 
     let _threshCourse = null;
     let THW = { step: 1, course: null, group: null, comps: [], from: 2020, to: 2025, order: 'desc' };
@@ -5057,7 +5176,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         + (flagged ? '\u2605 Flagged' : '\u2606 Flag') + '</button>';
 
       let html = '<div class="ts-question-card" id="' + (reveal ? 'trcard-' : 'tscard-') + idx + '"'
-        + (ms.done && !reveal ? ' style="border-color:var(--gold3);opacity:.8"' : '') + '>'
+        + (ms.done && !reveal ? ' style="border-color:var(--gold-border);opacity:.8"' : '') + '>'
         + '<div class="ts-q-label">'
         + '<span class="ts-q-number">Question ' + (idx + 1) + '</span>'
         + '<span class="ts-q-marks"' + marksTitle + '>' + marksLabel + '</span>'
@@ -5223,7 +5342,8 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         + '<div class="trs-stat"><span class="trs-stat-label">Attempted</span><span class="trs-stat-value">' + doneCount + ' / ' + TEST.questions.length + '</span></div>'
         + (selfAttempted ? '<div class="trs-stat"><span class="trs-stat-label">Self-Scored' + (fullyScored ? '' : ' (' + selfAttempted + '/' + TEST.questions.length + ')') + '</span><span class="trs-stat-value">' + selfTotal + ' / ' + TEST.totalMarks + (fullyScored ? '  ·  ' + pct + '%' : '') + '</span></div>' : '<div class="trs-stat"><span class="trs-stat-label">Self-Mark</span><span class="trs-stat-value" style="font-style:italic;color:var(--parchment4)">Score yourself below</span></div>')
         + '<div class="trs-stat"><span class="trs-stat-label">Time Used</span><span class="trs-stat-value">' + formatClock(elapsed) + ' / ' + formatClock(TEST.durationSeconds) + '</span></div>'
-        + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">' + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>';
+        + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">' + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>'
+        + (fullyScored ? buildGradePrediction(pct, TEST.questions) : '');
     }
 
     function tsRefreshSummary() { buildTestSummary(); }
