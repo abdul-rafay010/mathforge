@@ -1052,7 +1052,8 @@
       }
 
       .prob-text-question {
-        overflow-x: hidden;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         word-break: break-word;
       }
 
@@ -1335,6 +1336,7 @@
 
     .thresh-table {
       width: 100%;
+      min-width: 620px;
       border-collapse: collapse;
       font-size: .78rem;
     }
@@ -2621,6 +2623,223 @@
       margin-top: 10px;
       display: inline-block;
     }
+    /* ══════════════════════════════════════════
+       MY PROGRESS — streak, flag, mastery, weak spots
+    ══════════════════════════════════════════ */
+
+    #streak-badge {
+      color: #c97b4a !important;
+      border-color: #5a3a28 !important;
+    }
+
+    .ts-flag-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1px solid var(--rule2);
+      color: var(--parchment3);
+      font-family: var(--sc);
+      font-size: .6rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .ts-flag-btn.flagged {
+      border-color: var(--gold2);
+      color: var(--gold);
+      background: var(--gold3);
+    }
+
+    .ms-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 24px;
+    }
+
+    .ms-row {
+      background: var(--ink2);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      transition: background .15s;
+      flex-wrap: wrap;
+    }
+
+    .ms-row:hover {
+      background: var(--ink3);
+    }
+
+    .ms-row-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .ms-row-id {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--parchment);
+    }
+
+    .ms-row-topic {
+      font-family: var(--sc);
+      font-size: .62rem;
+      letter-spacing: .08em;
+      color: var(--parchment4);
+    }
+
+    .ms-row-score {
+      font-family: var(--mono);
+      font-size: .66rem;
+      color: #c97b4a;
+      flex-shrink: 0;
+    }
+
+    .ms-empty {
+      padding: 48px 0;
+      text-align: center;
+      font-style: italic;
+      color: var(--parchment4);
+      font-size: .92rem;
+      border: 1px solid var(--rule);
+      margin-bottom: 24px;
+    }
+
+    .mastery-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .mastery-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .mastery-topic-name {
+      font-size: .92rem;
+      color: var(--parchment2);
+    }
+
+    .mastery-pct {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--parchment4);
+      flex-shrink: 0;
+    }
+
+    .mastery-bar-track {
+      height: 5px;
+      background: var(--ink4);
+      width: 100%;
+    }
+
+    .mastery-bar-fill {
+      height: 100%;
+      transition: width .4s var(--ease);
+    }
+
+    .mp-row {
+      background: var(--gold3);
+      border: 1px solid var(--gold2);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      margin-bottom: 14px;
+      transition: background .15s;
+      flex-wrap: wrap;
+    }
+
+    .mp-row:hover {
+      background: #4a3a1c;
+    }
+
+    .mp-row-name {
+      font-family: var(--sc);
+      font-size: .82rem;
+      letter-spacing: .04em;
+      color: var(--gold);
+    }
+
+    .mp-row-meta {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--parchment3);
+    }
+
+    /* ── Print: blank paper ── */
+
+    #print-area {
+      display: none;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #print-area, #print-area * {
+        visibility: visible;
+      }
+
+      #print-area {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        color: #000;
+        padding: 24px;
+        font-family: 'Times New Roman', serif;
+      }
+
+      #print-area .pp-header {
+        border-bottom: 2px solid #000;
+        padding-bottom: 10px;
+        margin-bottom: 18px;
+      }
+
+      #print-area .pp-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+
+      #print-area .pp-meta {
+        font-size: .85rem;
+        margin-top: 4px;
+      }
+
+      #print-area .pp-q {
+        margin-bottom: 26px;
+        page-break-inside: avoid;
+      }
+
+      #print-area .pp-q-label {
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+
+      #print-area .katex {
+        color: #000 !important;
+      }
+    }
   </style>
 </head>
 
@@ -2643,7 +2862,9 @@
         <div class="masthead-title">MathForge</div>
       </div>
       <div class="masthead-right">
+        <span class="masthead-link" id="streak-badge" onclick="goProgress()" style="display:none"></span>
         <span class="masthead-link" onclick="goTestBuilder()">Practice Mode</span>
+        <span class="masthead-link" onclick="goProgress()">My Progress</span>
         <span class="masthead-link" onclick="goArticles()">Essays</span>
         <div class="masthead-ornament">∂ · ∫ · ∑</div>
       </div>
@@ -2817,7 +3038,10 @@
           <span class="tt-eyebrow">Time Remaining</span>
           <span class="tt-clock" id="tt-clock">00:00</span>
         </div>
-        <button class="tt-submit-btn" onclick="confirmSubmitTest()">Submit</button>
+        <div style="display:flex;gap:8px">
+          <button class="tt-submit-btn" onclick="printBlankPaper()" title="Print this drill as a blank paper, no solutions">Print Paper</button>
+          <button class="tt-submit-btn" onclick="confirmSubmitTest()">Submit</button>
+        </div>
       </div>
 
       <div id="ts-question-stack"></div>
@@ -2842,6 +3066,43 @@
 
     </div>
 
+    <!-- ═══════════════════════════
+       MY PROGRESS
+  ═══════════════════════════ -->
+    <div class="screen" id="s-progress">
+
+      <div class="screen-title">My <em>Progress</em></div>
+      <div class="screen-caption" id="progress-caption">Stored on this device only — export it before clearing your browser data.</div>
+
+      <div class="course-tabs">
+        <button class="course-tab active" id="ptab-weak" onclick="switchProgressTab('weak')">Weak Spots</button>
+        <button class="course-tab" id="ptab-flagged" onclick="switchProgressTab('flagged')">Flagged</button>
+        <button class="course-tab" id="ptab-mastery" onclick="switchProgressTab('mastery')">Mastery</button>
+      </div>
+
+      <div class="course-panel active" id="ppanel-weak">
+        <div id="weak-spots-body"></div>
+      </div>
+
+      <div class="course-panel" id="ppanel-flagged">
+        <div id="flagged-body"></div>
+      </div>
+
+      <div class="course-panel" id="ppanel-mastery">
+        <div id="mastery-body"></div>
+      </div>
+
+      <div class="ornament-rule"><span class="ornament-glyph">∞</span></div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <button class="wz-back-btn" onclick="exportProgress()">Export My Progress</button>
+        <button class="wz-back-btn" onclick="document.getElementById('import-progress-file').click()">Import Progress</button>
+        <input type="file" id="import-progress-file" accept="application/json" style="display:none" onchange="importProgress(this.files[0])">
+        <button class="wz-back-btn" onclick="confirmClearProgress()" style="border-color:#5a2a20;color:#c14c3a">Clear All Data</button>
+      </div>
+
+    </div>
+
     <!-- FOOTER -->
     <div id="footer">
       <div class="footer-left">MathForge &ensp;·&ensp; Cambridge A-Level</div>
@@ -2849,6 +3110,9 @@
     </div>
 
   </div><!-- /shell -->
+
+  <!-- Printable blank paper — populated by printBlankPaper(), hidden on screen, shown only via @media print -->
+  <div id="print-area"></div>
 
   <script src="questions.js"></script>
   <script>
@@ -2879,6 +3143,7 @@
       if (d.screen === 'test-builder') { goTestBuilder(true); return; }
       if (d.screen === 'test-session') { goTestBuilder(true); return; }
       if (d.screen === 'test-review') { goTestBuilder(true); return; }
+      if (d.screen === 'progress') { goProgress(true); return; }
     });
 
     // ══════════════════════════════════════════════════
@@ -2927,6 +3192,7 @@
       crumb([]);
       buildHome();
       buildQOTW();
+      renderStreakBadge();
       show('home');
       if (!fromPop) pushState({ screen: 'home' });
     }
@@ -3923,11 +4189,202 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     // ══════════════════════════════════════════════════
+    //  PROGRESS — localStorage-backed, drives Mistake Bank,
+    //  Flagged Questions, Topic Mastery and Practice Streak.
+    //  Everything lives on this device only. No backend.
+    // ══════════════════════════════════════════════════
+
+    const PROGRESS_KEY = 'mathforge_progress_v1';
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(PROGRESS_KEY);
+        if (!raw) return { questions: {}, streak: { lastDate: null, current: 0, longest: 0 } };
+        const parsed = JSON.parse(raw);
+        if (!parsed.questions) parsed.questions = {};
+        if (!parsed.streak) parsed.streak = { lastDate: null, current: 0, longest: 0 };
+        return parsed;
+      } catch (e) {
+        return { questions: {}, streak: { lastDate: null, current: 0, longest: 0 } };
+      }
+    }
+
+    function saveProgress(p) {
+      try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); } catch (e) { /* storage full or blocked — fail silently */ }
+    }
+
+    function recordAttempt(qid, scored, marks) {
+      const p = loadProgress();
+      if (!p.questions[qid]) p.questions[qid] = { flagged: false, attempts: [] };
+      p.questions[qid].attempts.push({ date: new Date().toISOString(), scored: scored, marks: marks });
+      if (p.questions[qid].attempts.length > 10) p.questions[qid].attempts = p.questions[qid].attempts.slice(-10);
+      saveProgress(p);
+    }
+
+    function toggleFlag(qid) {
+      const p = loadProgress();
+      if (!p.questions[qid]) p.questions[qid] = { flagged: false, attempts: [] };
+      p.questions[qid].flagged = !p.questions[qid].flagged;
+      saveProgress(p);
+      return p.questions[qid].flagged;
+    }
+
+    function isFlagged(qid) {
+      const p = loadProgress();
+      return !!(p.questions[qid] && p.questions[qid].flagged);
+    }
+
+    // Most recent attempt's scored/marks for a question, or null
+    function lastAttempt(qid) {
+      const p = loadProgress();
+      const rec = p.questions[qid];
+      if (!rec || !rec.attempts.length) return null;
+      return rec.attempts[rec.attempts.length - 1];
+    }
+
+    // List of {id, found, last} for every question whose most recent
+    // self-mark was below full marks.
+    function getMistakes() {
+      const p = loadProgress();
+      const out = [];
+      Object.entries(p.questions).forEach(([qid, rec]) => {
+        if (!rec.attempts.length) return;
+        const last = rec.attempts[rec.attempts.length - 1];
+        if (last.marks > 0 && Number(last.scored) < Number(last.marks)) {
+          const found = findQuestionById(qid);
+          if (found) out.push({ id: qid, found, last });
+        }
+      });
+      return out;
+    }
+
+    function getFlagged() {
+      const p = loadProgress();
+      const out = [];
+      Object.entries(p.questions).forEach(([qid, rec]) => {
+        if (!rec.flagged) return;
+        const found = findQuestionById(qid);
+        if (found) out.push({ id: qid, found });
+      });
+      return out;
+    }
+
+    // Topic-level mastery: aggregates the most recent attempt of every
+    // scored question, grouped by course/section/topic.
+    function getTopicMastery() {
+      const p = loadProgress();
+      const buckets = {};
+      Object.entries(p.questions).forEach(([qid, rec]) => {
+        if (!rec.attempts.length) return;
+        const last = rec.attempts[rec.attempts.length - 1];
+        if (!last.marks) return;
+        const found = findQuestionById(qid);
+        if (!found) return;
+        const key = found.course + '|' + found.section + '|' + found.topic;
+        if (!buckets[key]) buckets[key] = {
+          course: found.course, section: found.section, topic: found.topic,
+          scored: 0, available: 0, qCount: 0
+        };
+        buckets[key].scored += Number(last.scored) || 0;
+        buckets[key].available += Number(last.marks) || 0;
+        buckets[key].qCount++;
+      });
+      return Object.values(buckets).sort((a, b) => (a.scored / a.available) - (b.scored / b.available));
+    }
+
+    function todayStr() {
+      const d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
+    function updateStreak() {
+      const p = loadProgress();
+      const today = todayStr();
+      if (p.streak.lastDate === today) return p.streak; // already counted today
+      const yest = new Date(); yest.setDate(yest.getDate() - 1);
+      const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
+      if (p.streak.lastDate === yestStr) p.streak.current += 1;
+      else p.streak.current = 1;
+      p.streak.longest = Math.max(p.streak.longest, p.streak.current);
+      p.streak.lastDate = today;
+      saveProgress(p);
+      return p.streak;
+    }
+
+    function renderStreakBadge() {
+      const el = document.getElementById('streak-badge');
+      if (!el) return;
+      const p = loadProgress();
+      const c = p.streak.current || 0;
+      if (c >= 1 && p.streak.lastDate) {
+        // Badge only counts as "live" if last practice was today or yesterday
+        const today = todayStr();
+        const yest = new Date(); yest.setDate(yest.getDate() - 1);
+        const yestStr = yest.getFullYear() + '-' + String(yest.getMonth() + 1).padStart(2, '0') + '-' + String(yest.getDate()).padStart(2, '0');
+        if (p.streak.lastDate === today || p.streak.lastDate === yestStr) {
+          el.style.display = 'inline-block';
+          el.textContent = '🔥 ' + c + '-day streak';
+          return;
+        }
+      }
+      el.style.display = 'none';
+    }
+
+    function exportProgress() {
+      const p = loadProgress();
+      const blob = new Blob([JSON.stringify(p, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'mathforge-progress-' + todayStr() + '.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function importProgress(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (!parsed.questions) throw new Error('bad file');
+          saveProgress(parsed);
+          alert('Progress imported successfully.');
+          buildProgressScreen();
+          renderStreakBadge();
+        } catch (err) {
+          alert('That file doesn\u2019t look like a MathForge progress export.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function confirmClearProgress() {
+      if (confirm('This permanently deletes your Mistake Bank, flagged questions, mastery history and streak from this device. Export first if you want a backup. Continue?')) {
+        localStorage.removeItem(PROGRESS_KEY);
+        buildProgressScreen();
+        renderStreakBadge();
+      }
+    }
+
+    // ══════════════════════════════════════════════════
     //  PRACTICE MODE — WIZARD + SESSION
     // ══════════════════════════════════════════════════
 
     // Wizard state
     let TB = { step: 1, subject: null, section: null, topics: [], count: 10 };
+
+    // Official CAIE paper timings — used by Mock Paper Mode so the
+    // duration matches the real exam rather than the 1.5 min/mark formula.
+    const MOCK_PAPER_CONFIG = {
+      'P1':  { minutes: 110, label: 'Paper 1' },
+      'P3':  { minutes: 110, label: 'Paper 3' },
+      'S1':  { minutes: 75,  label: 'Probability & Statistics 1' },
+      'FP1': { minutes: 110, label: 'Further Pure 1' },
+      'FS':  { minutes: 90,  label: 'Further Statistics' }
+    };
 
     // Session state
     let TEST = {
@@ -4000,12 +4457,17 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         const rows = Object.entries(c.sections).map(([secCode, sec]) => {
           const total = Object.values(sec.topics).reduce((a, qs) => a + qs.length, 0);
           if (!total) return '';
-          return '<div class="wz-sec-row" onclick="tbPickSection(\'' + secCode + '\')">'
+          const mock = MOCK_PAPER_CONFIG[secCode];
+          const mockRow = mock ? '<div class="mp-row" onclick="tbStartMockPaper(\'' + secCode + '\')">'
+            + '<div><div class="mp-row-name">⚡ Full Mock Paper — ' + secCode + '</div>'
+            + '<div class="mp-row-meta">All ' + total + ' questions in scope &middot; ' + mock.minutes + ' min, matching the real ' + mock.label + ' timing</div></div>'
+            + '<span class="mp-row-meta">Start →</span></div>' : '';
+          return mockRow + '<div class="wz-sec-row" onclick="tbPickSection(\'' + secCode + '\')">'
             + '<span class="wz-sec-name">' + secCode + ' — ' + sec.name + '</span>'
             + '<span class="wz-sec-count">' + total + ' Q</span>'
             + '</div>';
         }).join('');
-        body.innerHTML = '<div class="wz-panel"><span class="tb-label">' + c.name + ' · Choose section</span>'
+        body.innerHTML = '<div class="wz-panel"><span class="tb-label">' + c.name + ' · Choose section, or start a full mock paper</span>'
           + '<div class="wz-sec-list">' + rows + '</div></div>'
           + '<div class="wz-nav-row"><button class="wz-back-btn" onclick="tbBack()">← Back</button></div>';
 
@@ -4204,25 +4666,81 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const countEl = document.getElementById('wz-count');
       if (countEl) count = Math.max(1, Math.min(parseInt(countEl.value, 10) || count, pool.length));
 
-      const selected = shuffleArray(pool).slice(0, count);
+      const selected = weightedSample(pool, count);
       const totalMarks = selected.reduce((s, q) => s + getMarks(q).marks, 0);
       const durationSecs = Math.max(600, Math.round(totalMarks * 1.5 * 60));
+      launchSession(selected, durationSecs, 'In Progress');
+    }
 
-      // Initialise marks map
+    // A question counts as "due for review" if its most recent self-mark
+    // was below full marks and at least 2 days have passed — these get
+    // extra weight in the shuffle so they quietly resurface in later drills
+    // instead of being seen once and forgotten.
+    function isDueForReview(qid) {
+      const last = lastAttempt(qid);
+      if (!last || !(last.marks > 0)) return false;
+      if (Number(last.scored) >= Number(last.marks)) return false;
+      const daysSince = (Date.now() - new Date(last.date).getTime()) / 86400000;
+      return daysSince >= 2;
+    }
+
+    function weightedSample(pool, count) {
+      const bag = [];
+      pool.forEach(q => {
+        bag.push(q);
+        if (isDueForReview(q.id)) { bag.push(q); bag.push(q); } // 3x weight when stale + wrong
+      });
+      const shuffled = shuffleArray(bag);
+      const seen = new Set();
+      const result = [];
+      for (const q of shuffled) {
+        if (seen.has(q.id)) continue;
+        seen.add(q.id);
+        result.push(q);
+        if (result.length >= count) break;
+      }
+      return result;
+    }
+
+    // Shared by the wizard, Mock Paper Mode, and Retry My Mistakes —
+    // initialises TEST, renders the session, starts the timer.
+    function launchSession(selected, durationSecs, crumbLabel) {
+      const totalMarks = selected.reduce((s, q) => s + getMarks(q).marks, 0);
       const marks = {};
       selected.forEach((_, i) => { marks[i] = { done: false, scored: null, note: '' }; });
-
       TEST = { questions: selected, totalMarks, durationSeconds: durationSecs, remainingSeconds: durationSecs, timerHandle: null, submitted: false, marks };
-
       renderTestSession();
       startTestTimer();
       crumb([
         { label: 'Home', fn: 'goHome()' },
         { label: 'Practice Mode', fn: 'goTestBuilder()' },
-        { label: 'In Progress' }
+        { label: crumbLabel || 'In Progress' }
       ]);
       show('test-session');
       pushState({ screen: 'test-session' });
+    }
+
+    // ── Mock Paper Mode — full-component session at official CAIE timing ──
+    function tbStartMockPaper(secCode) {
+      const sec = SYLLABUS[TB.subject].sections[secCode];
+      const pool = [];
+      Object.values(sec.topics).forEach(qs => pool.push(...qs));
+      if (!pool.length) return;
+      const config = MOCK_PAPER_CONFIG[secCode] || { minutes: 110, label: secCode };
+      launchSession(shuffleArray(pool), config.minutes * 60, 'Mock Paper \u00b7 ' + secCode);
+    }
+
+    // ── Retry My Mistakes — pulls every question whose latest self-mark fell short ──
+    function startMistakeRetry() {
+      const mistakes = getMistakes();
+      if (!mistakes.length) {
+        alert('No weak questions logged yet \u2014 self-mark a few drills first and they\u2019ll show up here.');
+        return;
+      }
+      const selected = mistakes.map(m => m.found.q);
+      const totalMarks = selected.reduce((s, q) => s + getMarks(q).marks, 0);
+      const durationSecs = Math.max(600, Math.round(totalMarks * 1.5 * 60));
+      launchSession(selected, durationSecs, 'Retry \u00b7 Weak Spots');
     }
 
     function formatClock(s) {
@@ -4265,6 +4783,9 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
       // Done/scored state
       const ms = TEST.marks[idx] || { done: false, scored: null, note: '' };
+      const flagged = isFlagged(q.id);
+      const flagBtn = '<button class="ts-flag-btn' + (flagged ? ' flagged' : '') + '" onclick="tsToggleFlagCard(' + idx + ')" title="Save this question to review later, regardless of score">'
+        + (flagged ? '\u2605 Flagged' : '\u2606 Flag') + '</button>';
 
       let html = '<div class="ts-question-card" id="tscard-' + idx + '"'
         + (ms.done && !reveal ? ' style="border-color:var(--gold3);opacity:.8"' : '') + '>'
@@ -4276,11 +4797,12 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         + '<div class="prob-text-question">' + processText(q.question_text) + '</div>';
 
       if (!reveal) {
-        // Session footer: Done toggle only — scoring happens after submit/timeout
+        // Session footer: Done toggle + flag — scoring happens after submit/timeout
         const doneClass = ms.done ? ' done' : '';
         html += '<div class="ts-card-footer">'
           + '<button class="ts-done-btn' + doneClass + '" onclick="tsToggleDone(' + idx + ')">'
           + (ms.done ? '✓ Attempted' : 'Mark Attempted') + '</button>'
+          + flagBtn
           + '</div>';
       }
 
@@ -4299,11 +4821,12 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         }
         // Self-mark: now that the solution is visible, let the user score themselves
         const scoreVal = ms.scored !== null ? ms.scored : '';
-        html += '<div class="ts-score-wrap" style="padding:12px 24px 16px;border-top:1px solid var(--rule)">'
+        html += '<div class="ts-score-wrap" style="padding:12px 24px 16px;border-top:1px solid var(--rule);flex-wrap:wrap;gap:14px">'
           + 'Self-mark: <input class="ts-score-input" type="number" min="0" max="' + marks + '" value="' + scoreVal + '" placeholder="—"'
           + ' oninput="tsSetScore(' + idx + ',this.value); tsRefreshSummary();">'
           + ' / ' + (marks || '?')
           + (mk.estimated ? ' <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);font-style:italic">(estimated allocation)</span>' : '')
+          + flagBtn
           + '</div>';
       }
 
@@ -4324,10 +4847,28 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       }
     }
 
+    function tsToggleFlagCard(idx) {
+      const q = TEST.questions[idx];
+      toggleFlag(q.id);
+      const reveal = TEST.submitted;
+      const card = document.getElementById('tscard-' + idx);
+      if (card) {
+        const tmp = document.createElement('div');
+        tmp.innerHTML = renderTestCard(q, idx, reveal);
+        card.replaceWith(tmp.firstChild);
+        renderTestMath(reveal ? 'tr-question-stack' : 'ts-question-stack');
+      }
+    }
+
     function tsSetScore(idx, val) {
       if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null, note: '' };
       const n = parseFloat(val);
       TEST.marks[idx].scored = isNaN(n) ? null : n;
+      const q = TEST.questions[idx];
+      if (q && !isNaN(n)) {
+        const marks = getMarks(q).marks;
+        recordAttempt(q.id, n, marks);
+      }
     }
 
     function renderTestMath(id) {
@@ -4350,6 +4891,8 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       TEST.submitted = true;
       if (TEST.timerHandle) clearInterval(TEST.timerHandle);
       const elapsed = TEST.durationSeconds - Math.max(0, TEST.remainingSeconds);
+      updateStreak();
+      renderStreakBadge();
       renderTestReview(elapsed, timedOut);
       crumb([
         { label: 'Home', fn: 'goHome()' },
@@ -4390,6 +4933,139 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function tsRefreshSummary() { buildTestSummary(); }
+
+    // ══════════════════════════════════════════════════
+    //  MY PROGRESS SCREEN
+    // ══════════════════════════════════════════════════
+
+    function goProgress(fromPop) {
+      S = { course: null, section: null, topic: null, probIndex: 0 };
+      crumb([{ label: 'Home', fn: 'goHome()' }, { label: 'My Progress' }]);
+      buildProgressScreen();
+      show('progress');
+      if (!fromPop) pushState({ screen: 'progress' });
+    }
+
+    function switchProgressTab(tab) {
+      ['weak', 'flagged', 'mastery'].forEach(t => {
+        document.getElementById('ptab-' + t).classList.toggle('active', t === tab);
+        document.getElementById('ppanel-' + t).classList.toggle('active', t === tab);
+      });
+    }
+
+    function buildProgressScreen() {
+      const p = loadProgress();
+      const streakNote = p.streak.current
+        ? '\uD83D\uDD25 ' + p.streak.current + '-day streak (best: ' + p.streak.longest + ')'
+        : 'No streak yet \u2014 complete a session to start one.';
+      document.getElementById('progress-caption').innerHTML =
+        streakNote + ' &nbsp;\u00b7&nbsp; Stored on this device only \u2014 export it before clearing your browser data.';
+
+      buildWeakSpotsTab();
+      buildFlaggedTab();
+      buildMasteryTab();
+    }
+
+    function jumpToQuestion(course, section, topic, index) {
+      goTopic(course, section, topic, index);
+    }
+
+    function buildWeakSpotsTab() {
+      const mistakes = getMistakes();
+      const el = document.getElementById('weak-spots-body');
+      if (!mistakes.length) {
+        el.innerHTML = '<div class="ms-empty">Nothing logged yet. Self-mark a drill below full marks and it\u2019ll show up here.</div>';
+        return;
+      }
+      const rows = mistakes.map(m => {
+        const f = m.found;
+        return '<div class="ms-row" onclick="jumpToQuestion(\'' + f.course + '\',\'' + f.section + '\',\'' + escapeAttr(f.topic) + '\',' + f.index + ')">'
+          + '<div class="ms-row-left"><span class="ms-row-id">' + m.id + '</span><span class="ms-row-topic">' + f.course + ' \u00b7 ' + f.section + ' \u2014 ' + f.topic + '</span></div>'
+          + '<span class="ms-row-score">' + m.last.scored + ' / ' + m.last.marks + '</span>'
+          + '</div>';
+      }).join('');
+      el.innerHTML = '<div class="ms-list">' + rows + '</div>'
+        + '<button class="tb-generate-btn" style="margin-top:0" onclick="startMistakeRetry()">Retry My Mistakes (' + mistakes.length + ' questions)</button>';
+    }
+
+    function buildFlaggedTab() {
+      const flagged = getFlagged();
+      const el = document.getElementById('flagged-body');
+      if (!flagged.length) {
+        el.innerHTML = '<div class="ms-empty">No flagged questions yet. Tap \u2606 Flag on any question during a drill to save it here.</div>';
+        return;
+      }
+      const rows = flagged.map(m => {
+        const f = m.found;
+        return '<div class="ms-row" onclick="jumpToQuestion(\'' + f.course + '\',\'' + f.section + '\',\'' + escapeAttr(f.topic) + '\',' + f.index + ')">'
+          + '<div class="ms-row-left"><span class="ms-row-id">' + m.id + '</span><span class="ms-row-topic">' + f.course + ' \u00b7 ' + f.section + ' \u2014 ' + f.topic + '</span></div>'
+          + '<span class="ms-row-score">View →</span>'
+          + '</div>';
+      }).join('');
+      el.innerHTML = '<div class="ms-list">' + rows + '</div>';
+    }
+
+    function buildMasteryTab() {
+      const data = getTopicMastery();
+      const el = document.getElementById('mastery-body');
+      if (!data.length) {
+        el.innerHTML = '<div class="ms-empty">No scored sessions yet. Mastery fills in as you self-mark drills across topics.</div>';
+        return;
+      }
+      el.innerHTML = data.map(d => {
+        const pct = d.available ? Math.round((d.scored / d.available) * 100) : 0;
+        const color = pct < 50 ? '#c14c3a' : (pct < 75 ? '#c97b4a' : 'var(--gold)');
+        return '<div class="mastery-row">'
+          + '<div class="mastery-row-top"><span class="mastery-topic-name">' + d.course + ' \u00b7 ' + d.section + ' \u2014 ' + d.topic + '</span>'
+          + '<span class="mastery-pct">' + d.scored + ' / ' + d.available + ' \u00b7 ' + pct + '%</span></div>'
+          + '<div class="mastery-bar-track"><div class="mastery-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>'
+          + '</div>';
+      }).join('');
+    }
+
+    // ══════════════════════════════════════════════════
+    //  PRINT BLANK PAPER
+    // ══════════════════════════════════════════════════
+    //
+    // Renders the current session's questions only (no solutions) into
+    // a hidden print-only container, typesets the math with the same
+    // KaTeX call used everywhere else, then opens the browser print
+    // dialog — letting the student "Save as PDF" or print directly.
+
+    function printBlankPaper() {
+      if (!TEST.questions.length) return;
+      const area = document.getElementById('print-area');
+      const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      let html = '<div class="pp-header">'
+        + '<div class="pp-title">MathForge \u2014 Practice Drill</div>'
+        + '<div class="pp-meta">' + TEST.questions.length + ' questions \u00b7 ' + TEST.totalMarks + ' marks \u00b7 '
+        + formatClock(TEST.durationSeconds) + ' time allowed \u00b7 ' + dateStr + '</div>'
+        + '</div>';
+
+      TEST.questions.forEach((q, i) => {
+        const marks = getMarks(q).marks;
+        const diagHtml = q.diagram_image
+          ? '<div style="margin:10px 0"><img src="images/' + q.diagram_image + '" style="max-width:280px"></div>'
+          : '';
+        html += '<div class="pp-q">'
+          + '<div class="pp-q-label">Question ' + (i + 1) + (marks ? '  [' + marks + ' marks]' : '') + '</div>'
+          + diagHtml
+          + processText(q.question_text)
+          + '</div>';
+      });
+
+      area.innerHTML = html;
+
+      if (window.renderMathInElement) {
+        renderMathInElement(area, {
+          delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
+          throwOnError: false
+        });
+      }
+
+      setTimeout(() => window.print(), 150);
+    }
 
     // ══════════════════════════════════════════════════
     //  SELF-MARK REPORT (PDF DOWNLOAD)
