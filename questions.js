@@ -692,11 +692,100 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "Using the substitution $u = e^{2x}$ and partial fractions, find the exact value of\n$$\\int_{\\ln 3}^{0} \\frac{2e^{2x}}{e^{4x} - 3e^{2x} + 2}\\,dx$$\ngiving your answer in the form $\\ln a$, where $a$ is a rational number in its simplest form. $\\quad$ **[9]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P3_IN_012",
+              difficulty: 'elite',
+              question_text: "By first factorising completely $x^3 + x^2 - 5x + 3$, find\n$$\\int \\frac{2x^2 + x + 1}{x^3 + x^2 - 5x + 3}\\,dx$$\n$\\quad$ **[12]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_013",
+              difficulty: 'standard',
+              question_text: "**(i)** Use integration by parts to show that\n$$\\int \\ln x\\,dx = x\\ln x - x + c$$\n$\\quad$ **[2]**\n\n**(ii)** Find\n\n**(a)** $\\displaystyle\\int (\\ln x)^2\\,dx$ $\\quad$ **[4]**\n\n**(b)** $\\displaystyle\\int \\frac{\\ln(\\ln x)}{x}\\,dx$ $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_014",
+              difficulty: 'hard',
+              question_text: "Figure shows the curve $y = 2x - x\\ln x$, where $x > 0$. The curve crosses the $x$-axis at $A$, and has a turning point at $B$. The point $C$ on the curve has $x$-coordinate $1$. Lines $CD$ and $BE$ are drawn parallel to the $y$-axis.\n\n**(i)** Find the $x$-coordinate of $A$, giving your answer in terms of $e$. $\\quad$ **[2]**\n\n**(ii)** Find the exact coordinates of $B$. $\\quad$ **[6]**\n\n**(iii)** Show that the tangents at $A$ and $C$ are perpendicular to each other. $\\quad$ **[3]**\n\n**(iv)** Using integration by parts, show that\n$$\\int x\\ln x\\,dx = \\tfrac{1}{2}x^2\\ln x - \\tfrac{1}{4}x^2 + c$$\nHence find the exact area of the region enclosed by the curve, the $x$-axis, and the lines $CD$ and $BE$. $\\quad$ **[7]**",
+              diagram_image: "",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_015",
+              difficulty: 'Elite',
+              question_text: "Fig. 8 shows part of the curve $y = x\\sin 3x$. It crosses the $x$-axis at $P$. The point on the curve with $x$-coordinate $\\dfrac{1}{6}\\pi$ is $Q$.\n\n**(i)** Find the $x$-coordinate of $P$. $\\quad$ **[3]**\n\n**(ii)** Show that $Q$ lies on the line $y = x$. $\\quad$ **[1]**\n\n**(iii)** Differentiate $x\\sin 3x$. Hence prove that the line $y = x$ touches the curve at $Q$. $\\quad$ **[6]**\n\n**(iv)** Show that the area of the region bounded by the curve and the line $y = x$ is $\\dfrac{1}{72}(\\pi^2 - 8)$. $\\quad$ **[7]**",
+              diagram_image: "",
+              solution_image: ""
+            },
+          ],
+          "Differentiation": [
+            {
+              id: "P3_DF_001",
+              difficulty: 'hard',
+              question_text: "Figure shows the curve $y = 3\\ln x + x - x^2$. The curve crosses the $x$-axis at $P$ and $Q$, and has a turning point at $R$. The $x$-coordinate of $Q$ is approximately $2.05$.\n\n**(i)** Verify that the coordinates of $P$ are $(1, 0)$. $\\quad$ **[1]**\n\n**(ii)** Find the coordinates of $R$, giving the $y$-coordinate correct to 3 significant figures. Find $\\dfrac{d^2y}{dx^2}$, and use this to verify that $R$ is a maximum point. $\\quad$ **[9]**",
+              diagram_image: "",
+              solution_image: ""
+            },
+            {
+              id: "P3_DF_002",
+              difficulty: 'hard',
+              question_text: "[*Note: a function f is **even** if $\\mathrm{f}(-x) = \\mathrm{f}(x)$ for every $x$ in its domain.*]\n\nThe function $\\mathrm{f}(x) = \\ln(1 + x^2)$ has domain $-3 \\leq x \\leq 3$.\n\nFig. 9 shows the graph of $y = \\mathrm{f}(x)$.\n\n**(i)** Show algebraically that the function is even. State how this property relates to the shape of the curve. $\\quad$ **[3]**\n\n**(ii)** Find the gradient of the curve at the point $P(2, \\ln 5)$. $\\quad$ **[4]**\n\n**(iii)** Explain why the function does not have an inverse for the domain $-3 \\leq x \\leq 3$. $\\quad$ **[1]**\n\nThe domain of $\\mathrm{f}(x)$ is now restricted to $0 \\leq x \\leq 3$. The inverse of $\\mathrm{f}(x)$ is the function $\\mathrm{g}(x)$.\n\n**(iv)** Sketch the curves $y = \\mathrm{f}(x)$ and $y = \\mathrm{g}(x)$ on the same axes. State the domain of the function $\\mathrm{g}(x)$. Show that $\\mathrm{g}(x) = \\sqrt{e^x - 1}$. $\\quad$ **[6]**\n\n**(v)** Differentiate $\\mathrm{g}(x)$. Hence verify that $\\mathrm{g}'(\\ln 5) = 1\\tfrac{1}{4}$. Explain the connection between this result and your answer to part **(ii)**. $\\quad$ **[5]**",
+              diagram_image: "",
+              solution_image: ""
+            },
+          ],
+          "Trigonometry": [
+            {
+              id: "P3_TR_001",
+              difficulty: 'hard',
+              question_text: "**(i)** Use the identity $\\tan 2x \\equiv \\dfrac{2\\tan x}{1 - \\tan^2 x}$ to show that\n$$\\tan 4x \\equiv \\frac{4(1-\\tan^2 x)\\tan x}{1 - 6\\tan^2 x + \\tan^4 x}$$\n$\\quad$ **[6]**\n\n**(ii)** Hence, given that $x = \\dfrac{1}{16}\\pi$ is a root of the equation\n$$\\tan^4 x + p\\tan^3 x - 6\\tan^2 x - p\\tan x + 1 = 0$$\nwhere $p$ is a positive constant, find the value of $p$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_TR_002",
+              difficulty: 'hard',
+              question_text: "**(i)** Prove that\n$$\\sin^2\\!\\left(\\theta + \\tfrac{1}{3}\\pi\\right) + \\tfrac{1}{2}\\sin^2\\theta - \\tfrac{3}{4} = \\tfrac{1}{4}\\sqrt{3}\\sin 2\\theta$$\n$\\quad$ **[4]**\n\n**(ii)** Hence solve the equation\n$$2\\sin^2\\!\\left(\\theta + \\tfrac{1}{3}\\pi\\right) + \\sin^2\\theta = 1 \\quad \\text{for } -\\pi \\leq \\theta \\leq \\pi$$\n$\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_TR_003",
+              difficulty: 'elite',
+              question_text: "The function $\\mathrm{f}(x) = \\dfrac{\\sin x}{2 - \\cos x}$ has domain $-\\pi \\leq x \\leq \\pi$.\n\nFig. 8 shows the graph of $y = \\mathrm{f}(x)$ for $0 \\leq x \\leq \\pi$.\n\n**(i)** Find $\\mathrm{f}(-x)$ in terms of $\\mathrm{f}(x)$. Hence sketch the graph of $y = \\mathrm{f}(x)$ for the complete domain $-\\pi \\leq x \\leq \\pi$. $\\quad$ **[3]**\n\n**(ii)** Show that $\\mathrm{f}'(x) = \\dfrac{2\\cos x - 1}{(2 - \\cos x)^2}$. Hence find the exact coordinates of the turning point $P$. State the range of the function $\\mathrm{f}(x)$, giving your answer exactly. $\\quad$ **[8]**\n\n**(iii)** Using the substitution $u = 2 - \\cos x$ or otherwise, find the exact value of\n$$\\int_0^{\\pi} \\frac{\\sin x}{2 - \\cos x}\\,dx$$\n$\\quad$ **[4]**\n\n**(iv)** Sketch the graph of $y = \\mathrm{f}(2x)$. $\\quad$ **[1]**\n\n**(v)** Using your answers to parts **(iii)** and **(iv)**, write down the exact value of\n$$\\int_0^{\\frac{1}{2}\\pi} \\frac{\\sin 2x}{2 - \\cos 2x}\\,dx$$\n$\\quad$ **[2]**",
+              diagram_image: "",
+              solution_image: ""
+            },
           ],
           "Numerical Methods": [],
           "Vectors": [],
-          "Differential Equations": [],
+          "Differential Equations": [
+            {
+              id: "P3_DE_001",
+              difficulty: 'elite',
+              question_text: "A drug is administered by an intravenous drip. The concentration, $x$, of the drug in the blood is measured as a fraction of its maximum level. The drug concentration after $t$ hours is modelled by the differential equation\n$$\\frac{dx}{dt} = k(1 + x - 2x^2)$$\nwhere $0 \\leq x < 1$, and $k$ is a positive constant. Initially, $x = 0$.\n\n**(i)** Express $\\dfrac{1}{(1+2x)(1-x)}$ in partial fractions. $\\quad$ **[3]**\n\n**(ii)** Hence solve the differential equation to show that\n$$\\frac{1+2x}{1-x} = e^{3kt}$$\n$\\quad$ **[7]**\n\n**(iii)** After 1 hour the drug concentration reaches $75\\%$ of its maximum value and so $x = 0.75$. Find the value of $k$, and the time taken for the drug concentration to reach $90\\%$ of its maximum value. $\\quad$ **[3]**\n\n**(iv)** Rearrange the equation in part **(ii)** to show that $x = \\dfrac{1 - e^{-3kt}}{1 + 2e^{-3kt}}$. Verify that in the long term the drug concentration approaches its maximum value. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_DE_002",
+              difficulty: 'hard',
+              question_text: "The curve shown in Fig. 7 passes through the origin and satisfies the differential equation\n$$\\frac{dy}{dx} = \\frac{9x}{4(y+3)}$$\n\n**(i)** Show by integration that the equation of the curve is $9x^2 - 4y^2 - 24y = 0$. $\\quad$ **[5]**\n\nThe finite region bounded by the curve and the line $y = 2$ is rotated through $180°$ about the $y$-axis.\n\n**(ii)** *This part of the question has been removed as it is no longer on the specification.*\n\n**(iii)** Use the substitutions $x = 2\\tan\\theta$ and $y = 3(\\sec\\theta - 1)$:\n\n**(A)** to verify that $9x^2 - 4y^2 - 24y = 0$, $\\quad$ **[3]**\n\n**(B)** to show that $\\dfrac{9x}{4(y+3)}$ can be expressed as $k\\sin\\theta$, where $k$ is a constant to be found. Hence find the exact gradient of the curve at the point with $x$-coordinate $2$. $\\quad$ **[9]**",
+              diagram_image: "",
+              solution_image: ""
+            },
+            {
+              id: "P3_DE_003",
+              difficulty: 'elite',
+              question_text: "The speed $v$ m s$^{-1}$ of an object at time $t$ seconds is modelled by the differential equation\n$$\\frac{dv}{dt} = -kv(4 + v^2)$$\nwhere $k$ is a positive constant. Initially, $v = 4$.\n\n**(i)** Find constants $A$, $B$ and $C$ such that\n$$\\frac{1}{v(4 + v^2)} = \\frac{A}{v} + \\frac{Bv + C}{4 + v^2}$$\n$\\quad$ **[5]**\n\n**(ii)** Hence show by integration that\n$$v = \\frac{4}{\\sqrt{5e^{8kt} - 4}}$$\n$\\quad$ **[9]**\n\n**(iii)** After $1$ second the speed of the object is $2$ m s$^{-1}$. Find the value of $k$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_DE_004",
+              difficulty: 'hard',
+              question_text: "**(i)** Using partial fractions, find the general solution of the differential equation\n$$2\\frac{dy}{dx} = y - y^3 \\quad \\text{for } 0 < y < 1$$\ngiving your solution in the form $y = \\mathrm{f}(x)$. $\\quad$ **[9]**",
+              solution_image: ""
+            },
+          ],
           "Complex Numbers": []
         }
       },
@@ -1542,7 +1631,18 @@ const SYLLABUS = {
               question_text: "The discrete random variable $X$ has probability generating function $G_X(t)$ defined by\n$$G_X(t) = \\dfrac{k}{t}(at+1)^2$$\nIt is given that $E(X) = \\dfrac{1}{3}$.\n\n**(a)** Show that $a = 2$ and find the value of $k$. $\\quad$ **[5]**\n\n**(b)** Find $\\text{Var}(X)$. $\\quad$ **[2]**\n\n**(c)** Three independent observations of $X$ are taken. The random variable $Y$ is the sum of these observations. Find $P(Y=0)$. $\\quad$ **[3]**",
               solution_image: ""
             },
-
+            {
+              id: "FS_DRV_008",
+              difficulty: 'hard',
+              question_text: "**(i)** Show that the probability generating function of a random variable with the distribution $\\mathrm{B}(n, p)$ is $(1 - p + pt)^n$. $\\quad$ **[3]**\n\n**(ii)** $R$ and $S$ are independent random variables with the distributions $\\mathrm{B}\\!\\left(8, \\tfrac{1}{4}\\right)$ and $\\mathrm{B}\\!\\left(8, \\tfrac{3}{4}\\right)$ respectively. Show that the probability generating function of $R + S$ can be expressed as\n$$\\left(\\tfrac{3}{16} + \\tfrac{1}{16}t(10 + 3t)\\right)^8$$\nand use this result to find $\\mathrm{P}(R + S = 1)$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_DRV_009",
+              difficulty: 'hard',
+              question_text: "The probability generating function of the discrete random variable $X$ is given by\n$$G_X(t) = k(3 + t + 2t^2)^2$$\n\n**(a)** Show that $k = \\dfrac{1}{36}$. $\\quad$ **[2]**\n\n**(b)** Find $\\mathrm{P}(X = 3)$. $\\quad$ **[2]**\n\n**(c)** Show that $\\mathrm{Var}(X) = \\dfrac{29}{18}$. $\\quad$ **[8]**\n\n**(d)** Find the probability generating function of $2X + 1$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
           ],
 
           "Inference": [
