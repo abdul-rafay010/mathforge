@@ -17,23 +17,75 @@
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"
     rel="stylesheet">
 
-  <!-- KaTeX — mathematical typesetting -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" onload="document.addEventListener('DOMContentLoaded', () => renderMathInElement(document.body, {
-    delimiters: [
-      {left:'$$', right:'$$', display:true},
-      {left:'$',  right:'$',  display:false}
-    ],
-    throwOnError: false
-  }))"></script>
+  <!-- KaTeX — mathematical typesetting
+       Load sequence:
+         1. CSS from CDN (non-blocking, visual-only)
+         2. katex.min.js from CDN
+         3. auto-render from CDN
+       If either JS file fails (CDN down, offline, slow network),
+       window.KATEX_FAILED is set and renderMathInElement gracefully
+       falls back to showing raw LaTeX rather than crashing.
+       A retry button appears if the initial load fails. -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+    crossorigin="anonymous">
+  <script>
+    window.KATEX_LOADED = false;
+    window.KATEX_FAILED = false;
 
-  <!-- jsPDF — used to generate the downloadable self-mark report -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    function _onKatexReady() {
+      window.KATEX_LOADED = true;
+      // Re-render any content that painted before KaTeX was ready
+      if (typeof renderMathInElement === 'function') {
+        var active = document.querySelector('.screen.on');
+        if (active) {
+          try {
+            renderMathInElement(active, {
+              delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false }
+              ],
+              throwOnError: false
+            });
+          } catch (e) { /* best-effort */ }
+        }
+      }
+      // Hide any math-warning banners that were shown
+      var warn = document.getElementById('katex-warn');
+      if (warn) warn.style.display = 'none';
+    }
+
+    function _onKatexFailed() {
+      window.KATEX_FAILED = true;
+      // Surface a non-intrusive warning banner so students know maths
+      // may not render — without blocking the rest of the page
+      var warn = document.getElementById('katex-warn');
+      if (warn) warn.style.display = 'flex';
+    }
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+    crossorigin="anonymous"
+    onerror="_onKatexFailed()"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+    crossorigin="anonymous"
+    onload="_onKatexReady()"
+    onerror="_onKatexFailed()"></script>
+
+  <!-- jsPDF — used to generate the downloadable self-mark report.
+       If the CDN fails, downloadSelfMarkReport() already checks for
+       window.jspdf and shows a friendly message rather than crashing. -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    crossorigin="anonymous"
+    onerror="window.JSPDF_FAILED=true"></script>
 
   <style>
     /* ════════════════════════════════════════════════
@@ -3020,9 +3072,33 @@
       }
     }
   </style>
+  <!-- Plausible Analytics — privacy-first, no cookies, GDPR-compliant.
+       Replace YOUR-DOMAIN.COM with your actual domain once set up at plausible.io
+       This line can be removed entirely without affecting anything else. -->
+  <script defer data-domain="YOUR-DOMAIN.COM"
+    src="https://plausible.io/js/script.js"></script>
+
 </head>
 
 <body>
+  <!-- KaTeX failure banner — hidden by default, shown only if CDN load fails -->
+  <div id="katex-warn" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:10000;
+    background:#1a1200;border-top:1px solid #5a4a22;padding:10px 20px;
+    align-items:center;justify-content:space-between;gap:16px;font-family:monospace;font-size:.75rem;
+    color:#c9a84c;">
+    <span>⚠ Mathematical notation failed to load — equations may show as raw text.
+      Check your connection and
+      <button onclick="location.reload()"
+        style="background:none;border:1px solid #5a4a22;color:#c9a84c;
+               padding:3px 10px;cursor:pointer;font-family:inherit;font-size:inherit;">
+        reload the page
+      </button>
+    </span>
+    <button onclick="document.getElementById('katex-warn').style.display='none'"
+      style="background:none;border:none;color:#c9a84c;cursor:pointer;font-size:1rem;padding:0 4px;"
+      aria-label="Dismiss">✕</button>
+  </div>
+
   <div id="shell">
 
     <!-- TRANSITION RULE -->
@@ -3637,16 +3713,7 @@
     </div>`;
 
       // Re-run KaTeX on newly injected content
-      if (q.question_text && window.renderMathInElement) {
-        const card = document.getElementById('prob-card-area');
-        renderMathInElement(card, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
-          ],
-          throwOnError: false
-        });
-      }
+      safeMath(document.getElementById('prob-card-area'));
     }
 
     // ── Text processor: converts plain text + markdown to HTML ──
@@ -3983,7 +4050,7 @@
       };
     }
 
-    function buildGradePrediction(pct, questions) {
+    function buildGradePrediction(pct, questions, fullyScored) {
       const sec = thwDetectSection(questions);
       if (!sec) return '';
       const mapping = SECTION_TO_THRESH_GROUP[sec];
@@ -4014,9 +4081,9 @@
         : 'Consistently ' + gradeSet[0] + ' across recent sessions';
 
       return '<div class="trs-grade-predict">'
-        + '<span class="tgp-label">Estimated Grade · ' + mapping.group + '</span>'
+        + '<span class="tgp-label">Estimated Grade · ' + mapping.group + (fullyScored ? '' : ' · partial') + '</span>'
         + '<span class="tgp-grade">' + latest.grade + '</span>'
-        + '<span class="tgp-note">' + spreadText + ' (' + results.map(r => r.label + ' ' + r.grade).join(', ') + ')</span>'
+        + '<span class="tgp-note">' + spreadText + ' (' + results.map(r => r.label + ' ' + r.grade).join(', ') + ')' + (fullyScored ? '' : ' — score remaining questions for a full estimate') + '</span>'
         + '</div>';
     }
 
@@ -4470,15 +4537,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         <div class="article-body">${bodyHtml}</div>
         <div class="article-back" onclick="goArticles()">← Back to Articles</div>`;
 
-      if (window.renderMathInElement) {
-        renderMathInElement(document.getElementById('article-content'), {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
-          ],
-          throwOnError: false
-        });
-      }
+      safeMath(document.getElementById('article-content'));
 
       show('article');
       if (!fromPop) pushState({ screen: 'article', articleId: id });
@@ -4602,8 +4661,22 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function saveProgress(p) {
-      try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); } catch (e) { /* storage full or blocked — fail silently */ }
+      try {
+        const payload = JSON.stringify(p);
+        // Guard: warn in console if storage is growing large (> 1MB)
+        // localStorage limit is typically 5MB; this fires well before risk
+        if (payload.length > 1_000_000) {
+          console.warn('MathForge: progress data is large (' + Math.round(payload.length / 1024) + ' KB). Consider exporting a backup.');
+        }
+        localStorage.setItem(PROGRESS_KEY, payload);
+      } catch (e) {
+        // Likely storage quota exceeded — fail silently so the session
+        // isn't interrupted, but log for debugging
+        console.error('MathForge: could not save progress —', e.name);
+      }
     }
+
+    // Export/import/clear defined further below alongside progress UI functions
 
     function recordAttempt(qid, scored, marks, note) {
       const p = loadProgress();
@@ -4744,16 +4817,26 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function exportProgress() {
-      const p = loadProgress();
-      const blob = new Blob([JSON.stringify(p, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'mathforge-progress-' + todayStr() + '.json';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      try {
+        const p = loadProgress();
+        const envelope = {
+          _schema: 'mathforge_v1',
+          _exported: new Date().toISOString(),
+          _note: 'MathForge progress backup — import this file on any device to restore your data.',
+          data: p
+        };
+        const blob = new Blob([JSON.stringify(envelope, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'mathforge-progress-' + todayStr() + '.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } catch (e) {
+        alert('Export failed: ' + e.message);
+      }
     }
 
     function importProgress(file) {
@@ -4761,14 +4844,46 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const reader = new FileReader();
       reader.onload = e => {
         try {
-          const parsed = JSON.parse(e.target.result);
-          if (!parsed.questions) throw new Error('bad file');
-          saveProgress(parsed);
-          alert('Progress imported successfully.');
+          const json = JSON.parse(e.target.result);
+          // Support both enveloped exports (_schema key) and legacy raw exports
+          const incoming = json._schema === 'mathforge_v1' ? json.data : json;
+          if (!incoming || !incoming.questions) throw new Error('Unrecognised file format.');
+
+          const current = loadProgress();
+
+          // Merge questions: union attempt arrays, deduplicate by date, keep last 10
+          Object.entries(incoming.questions).forEach(([qid, rec]) => {
+            if (!current.questions[qid]) {
+              current.questions[qid] = rec;
+            } else {
+              const seen = new Set(current.questions[qid].attempts.map(a => a.date));
+              const merged = [
+                ...current.questions[qid].attempts,
+                ...(rec.attempts || []).filter(a => !seen.has(a.date))
+              ];
+              merged.sort((a, b) => new Date(a.date) - new Date(b.date));
+              current.questions[qid].attempts = merged.slice(-10);
+              current.questions[qid].flagged = current.questions[qid].flagged || rec.flagged;
+            }
+          });
+
+          // Merge streaks — keep highest values, never reduce
+          Object.keys(emptyStreaks()).forEach(code => {
+            const ic = ((incoming.streaks || {})[code]) || {};
+            const cc = current.streaks[code];
+            if ((ic.longest || 0) > (cc.longest || 0)) cc.longest = ic.longest;
+            if ((ic.current || 0) > (cc.current || 0)) {
+              cc.current = ic.current;
+              cc.lastDate = ic.lastDate;
+            }
+          });
+
+          saveProgress(current);
           buildProgressScreen();
           refreshStreakChips();
+          alert('Progress imported \u2014 your data has been merged safely.');
         } catch (err) {
-          alert('That file doesn\u2019t look like a MathForge progress export.');
+          alert('Import failed: ' + err.message + '\n\nMake sure you\u2019re importing a MathForge progress backup file.');
         }
       };
       reader.readAsText(file);
@@ -5286,14 +5401,23 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       if (q) updateLastAttemptNote(q.id, val);
     }
 
+    // Single canonical math rendering helper — all call sites use this.
+    // Guards against: KaTeX not loaded, partial load (CSS only), render errors.
+    const _MATH_OPTS = {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false
+    };
+    function safeMath(el) {
+      if (!el) return;
+      if (typeof renderMathInElement !== 'function') return; // KaTeX not ready yet
+      try { renderMathInElement(el, _MATH_OPTS); } catch (e) { /* fail silently per-element */ }
+    }
+
     function renderTestMath(id) {
-      const el = document.getElementById(id);
-      if (el && window.renderMathInElement) {
-        renderMathInElement(el, {
-          delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
-          throwOnError: false
-        });
-      }
+      safeMath(document.getElementById(id));
     }
 
     function confirmSubmitTest() {
@@ -5334,6 +5458,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       });
       const doneCount = TEST.questions.filter((_, i) => (TEST.marks[i] || {}).done).length;
       const fullyScored = selfAttempted === TEST.questions.length;
+      const partiallyScored = selfAttempted >= Math.ceil(TEST.questions.length / 2);
       const pct = TEST.totalMarks ? Math.round((selfTotal / TEST.totalMarks) * 1000) / 10 : 0;
 
       document.getElementById('tr-summary').innerHTML =
@@ -5343,7 +5468,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         + (selfAttempted ? '<div class="trs-stat"><span class="trs-stat-label">Self-Scored' + (fullyScored ? '' : ' (' + selfAttempted + '/' + TEST.questions.length + ')') + '</span><span class="trs-stat-value">' + selfTotal + ' / ' + TEST.totalMarks + (fullyScored ? '  ·  ' + pct + '%' : '') + '</span></div>' : '<div class="trs-stat"><span class="trs-stat-label">Self-Mark</span><span class="trs-stat-value" style="font-style:italic;color:var(--parchment4)">Score yourself below</span></div>')
         + '<div class="trs-stat"><span class="trs-stat-label">Time Used</span><span class="trs-stat-value">' + formatClock(elapsed) + ' / ' + formatClock(TEST.durationSeconds) + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">' + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>'
-        + (fullyScored ? buildGradePrediction(pct, TEST.questions) : '');
+        + (partiallyScored ? buildGradePrediction(pct, TEST.questions, fullyScored) : '');
     }
 
     function tsRefreshSummary() { buildTestSummary(); }
@@ -5479,13 +5604,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       });
 
       area.innerHTML = html;
-
-      if (window.renderMathInElement) {
-        renderMathInElement(area, {
-          delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
-          throwOnError: false
-        });
-      }
+      safeMath(area);
 
       setTimeout(() => window.print(), 150);
     }
@@ -5503,7 +5622,11 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
     function downloadSelfMarkReport() {
       if (!window.jspdf || !window.jspdf.jsPDF) {
-        alert('The PDF library hasn\u2019t finished loading yet \u2014 wait a second and try again.');
+        if (window.JSPDF_FAILED) {
+          alert('PDF generation couldn\'t load (network issue). Check your connection and reload the page to try again.');
+        } else {
+          alert('PDF library is still loading — wait a moment and try again.');
+        }
         return;
       }
       const { jsPDF } = window.jspdf;
