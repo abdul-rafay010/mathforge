@@ -270,14 +270,6 @@
       color: var(--parchment2);
     }
 
-    .masthead-ornament {
-      font-size: 1rem;
-      color: var(--gold2);
-      letter-spacing: .1em;
-      font-style: italic;
-      font-family: var(--serif);
-    }
-
     /* ════════════════════════════════════════════════
    PAGE TRANSITION RULE
 ════════════════════════════════════════════════ */
@@ -2064,7 +2056,28 @@
     .masthead-right {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 14px;
+    }
+
+    .masthead-ornament {
+      font-size: 1rem;
+      color: var(--gold2);
+      letter-spacing: .1em;
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    @media (max-width: 1100px) {
+      .masthead-ornament { display: none; }
+    }
+
+    @media (max-width: 860px) {
+      .masthead-link { padding: 5px 10px; letter-spacing: .12em; }
+      .masthead-calc-btn { padding: 5px 8px; letter-spacing: .1em; }
+    }
+
+    @media (max-width: 700px) {
+      .masthead-link { display: none; }
     }
 
     .masthead-link {
