@@ -607,7 +607,49 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "In the binomial expansion of\n$$(1 - 8x)^p, \\quad |x| < \\tfrac{1}{8}$$\nwhere $p$ is a positive constant:\n\n- the sum of the coefficient of $x$ and the coefficient of $x^2$ is equal to the coefficient of $x^3$\n- the coefficient of $x^2$ is positive\n\nDetermine the value of $p$. $\\quad$ **[7]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P3_AL_002",
+              difficulty: "standard",
+              question_text: "Let $\\mathrm{f}(x) = \\dfrac{2x^2 + x + 8}{(2x-1)(x^2+2)}$.\n\n**(i)** Express $\\mathrm{f}(x)$ in partial fractions. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_AL_003",
+              difficulty: "standard",
+              question_text: "Let $\\mathrm{f}(x) = \\dfrac{10x + 9}{(2x+1)(2x+3)^2}$.\n\n**(i)** Express $\\mathrm{f}(x)$ in partial fractions. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_AL_004",
+              difficulty: "standard",
+              question_text: "Let $\\mathrm{f}(x) = \\dfrac{2x(5-x)}{(3+x)(1-x)^2}$.\n\n**(i)** Express $\\mathrm{f}(x)$ in partial fractions. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_AL_005",
+              difficulty: "hard",
+              question_text: "Let $\\mathrm{f}(x) = \\dfrac{3x}{(1+x)(1+2x^2)}$.\n\n**(i)** Express $\\mathrm{f}(x)$ in partial fractions. $\\quad$ **[5]**\n\n**(ii)** Hence obtain the expansion of $\\mathrm{f}(x)$ in ascending powers of $x$, up to and including the term in $x^3$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_AL_006",
+              difficulty: "hard",
+              question_text: "When $(1 + ax)^{-2}$, where $a$ is a positive constant, is expanded in ascending powers of $x$, the coefficients of $x$ and $x^3$ are equal.\n\n**(i)** Find the exact value of $a$. $\\quad$ **[4]**\n\n**(ii)** When $a$ has this value, obtain the expansion up to and including the term in $x^2$, simplifying the coefficients. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_AL_007",
+              difficulty: "hard",
+              question_text: "Show that, for small values of $x^2$,\n$$(1 - 2x^2)^{-2} - (1 + 6x^2)^{\\frac{2}{3}} \\approx kx^4$$\nwhere the value of the constant $k$ is to be determined. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_AL_008",
+              difficulty: "hard",
+              question_text: "**(a)** Express $\\dfrac{x+3}{(x-1)(2x-6)}$ in partial fractions. $\\quad$ **[4]**\n\n**(b)** The variables $x$ and $y$ satisfy the differential equation\n$$(x-1)(2x-6)\\frac{dy}{dx} = \\frac{x+3}{\\ln(2y)}$$\nIt is given that $y = 1$ when $x = 4$. Solve the differential equation to obtain an equation in $x$ and $y$. $\\quad$ **[7]**",
+              solution_image: ""
+            },
           ],
           "Logarithmic & Exp Functions": [
             {
@@ -621,7 +663,19 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "The angle $\\alpha$ satisfies the equation $2\\cos 2\\alpha + \\sqrt{3}\\sin 2\\alpha = 1$, where $0 < \\alpha < \\dfrac{\\pi}{2}$.\n\n**(i)** Express $2\\cos 2\\alpha + \\sqrt{3}\\sin 2\\alpha$ in the form $R\\cos(2\\alpha - \\phi)$, where $R > 0$ and $0 < \\phi < \\dfrac{\\pi}{2}$, giving the exact values of $R$ and $\\phi$. $\\quad$ **[3]**\n\n**(ii)** Hence find the exact value of $\\alpha$. $\\quad$ **[3]**\n\n**(iii)** Given that $\\alpha$ increases at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, find the exact rate of change of $y = \\ln(\\cos\\alpha)$ with respect to $t$ at this instant. $\\quad$ **[4]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P3_LEF_003",
+              difficulty: "standard",
+              question_text: "Showing all necessary working, solve the equation\n$$\\ln(2x - 3) = 2\\ln x - \\ln(x - 1)$$\nGive your answer correct to 2 decimal places. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_LEF_004",
+              difficulty: "standard",
+              question_text: "Showing all necessary working, solve the equation\n$$\\frac{e^x + e^{-x}}{e^x + 1} = 4$$\ngiving your answer correct to 3 decimal places. $\\quad$ **[5]**",
+              solution_image: ""
+            },
           ],
           "Integration": [
             {
@@ -719,6 +773,12 @@ const SYLLABUS = {
               diagram_image: "P3_IN_015_d.jpg",
               solution_image: ""
             },
+            {
+              id: "P3_IN_016",
+              difficulty: "hard",
+              question_text: "The equation of a curve is $y = x\\tan^{-1} 3x$ for $-\\pi \\leq x \\leq \\pi$.\n\n**(a)** Find the exact value of the gradient of the curve when $x = \\dfrac{1}{3}$. $\\quad$ **[4]**\n\n**(b)** Find the exact value of $\\displaystyle\\int_0^{\\frac{1}{3}} y\\,dx$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
           ],
           "Differentiation": [
             {
@@ -756,7 +816,26 @@ const SYLLABUS = {
             },
           ],
           "Numerical Methods": [],
-          "Vectors": [],
+          "Vectors": [
+            {
+              id: "P3_VE_001",
+              difficulty: "hard",
+              question_text: "The points $A$ and $B$ have position vectors $2\\mathbf{i} + \\mathbf{j} + 3\\mathbf{k}$ and $4\\mathbf{i} + \\mathbf{j} + \\mathbf{k}$ respectively. The line $l$ has equation $\\mathbf{r} = 4\\mathbf{i} + 6\\mathbf{j} + \\mu(\\mathbf{i} + 2\\mathbf{j} - 2\\mathbf{k})$.\n\n**(i)** Show that $l$ does not intersect the line passing through $A$ and $B$. $\\quad$ **[5]**\n\nThe point $P$, with parameter $t$, lies on $l$ and is such that angle $PAB$ is equal to $120°$.\n\n**(ii)** Show that $3t^2 + 8t + 4 = 0$. Hence find the position vector of $P$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_VE_002",
+              difficulty: "hard",
+              question_text: "The points $A$ and $B$ have position vectors $\\begin{pmatrix}3\\\\4\\\\1\\end{pmatrix}$ and $\\begin{pmatrix}4\\\\3\\\\1\\end{pmatrix}$ respectively. The line $m$ passes through the points $A$ and $B$.\n\n**(a)** Find a vector equation for $m$. $\\quad$ **[2]**\n\nThe line $l$ has equation $\\mathbf{r} = \\begin{pmatrix}6\\\\-1\\\\-3\\end{pmatrix} + \\mu\\begin{pmatrix}1\\\\-1\\\\-2\\end{pmatrix}$.\n\n**(b)** Determine whether the lines $l$ and $m$ are parallel, intersect, or are skew. $\\quad$ **[6]**\n\n**(c)** The point $P$ lies on $l$ and is such that angle $PAB = 60°$. Find the position vector of $P$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_VE_003",
+              difficulty: "hard",
+              question_text: "The points $A$ and $B$ have position vectors, relative to the origin $O$, given by $\\overrightarrow{OA} = \\mathbf{i} + \\mathbf{j} + \\mathbf{k}$ and $\\overrightarrow{OB} = 2\\mathbf{i} + 3\\mathbf{k}$. The line $l$ has vector equation $\\mathbf{r} = 2\\mathbf{i} - 2\\mathbf{j} - \\mathbf{k} + \\mu(-\\mathbf{i} + 2\\mathbf{j} + \\mathbf{k})$.\n\n**(i)** Show that the line passing through $A$ and $B$ does not intersect $l$. $\\quad$ **[4]**\n\n**(ii)** Show that the length of the perpendicular from $A$ to $l$ is $\\dfrac{1}{\\sqrt{2}}$. $\\quad$ **[5]**",
+              solution_image: ""
+            }
+          ],
           "Differential Equations": [
             {
               id: "P3_DE_001",
@@ -821,7 +900,19 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "The times taken, in minutes, to complete a cycle race by 19 cyclists from each of two clubs, the Cheetahs and the Panthers, are shown in the following back-to-back stem-and-leaf diagram.\n\n$$\\begin{array}{r|c|l}\\text{Cheetahs} & & \\text{Panthers}\\\\\\hline9\\;8\\;7 & 4 & \\\\8\\;7\\;3\\;2\\;0 & 8 & 6\\;8\\\\9\\;8\\;7 & 9 & 1\\;7\\;8\\;9\\;9\\\\6\\;5\\;3\\;3\\;1 & 10 & 2\\;3\\;4\\;4\\;5\\;6\\\\9\\;8\\;2 & 11 & 1\\;2\\;8\\\\4 & 12 & 0\\;6\\end{array}$$\n*Key: $7\\mid9\\mid1$ means 97 min for Cheetahs and 91 min for Panthers*\n\n**(a)** Find the median and the interquartile range of the times of the Cheetahs. $\\quad$ **[3]**\n\nThe median and interquartile range for the Panthers are 103 minutes and 14 minutes respectively.\n\n**(b)** Make two comparisons between the times taken by the Cheetahs and the Panthers. $\\quad$ **[2]**\n\nAnother cyclist, Kenny, from the Cheetahs also took part. The mean time of all 20 Cheetahs cyclists was 99 minutes.\n\n**(c)** Find the time taken by Kenny to complete the race. $\\quad$ **[3]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "S1_RD_006",
+              difficulty: "standard",
+              question_text: "A group of 10 married couples and 3 single men found that the mean age $\\bar{x}_w$ of the 10 women was 41.2 years and the standard deviation of the women's ages was 15.1 years. For the 13 men, the mean age $\\bar{x}_m$ was 46.3 years and the standard deviation was 12.7 years.\n\n**(i)** Find the mean age of the whole group of 23 people. $\\quad$ **[2]**\n\n**(ii)** The individual women's ages are denoted by $x_w$ and the individual men's ages by $x_m$. By first finding $\\sum x_w^2$ and $\\sum x_m^2$, find the standard deviation for the whole group. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_RD_007",
+              difficulty: "hard",
+              question_text: "During January the numbers of people entering a store during the first hour after opening were as follows.\n\n| Time after opening, $x$ minutes | Frequency | Cumulative frequency |\n|---|---|---|\n| $0 < x \\leq 10$ | 210 | 210 |\n| $10 < x \\leq 20$ | 134 | 344 |\n| $20 < x \\leq 30$ | 78 | 422 |\n| $30 < x \\leq 40$ | 72 | $a$ |\n| $40 < x \\leq 60$ | $b$ | 540 |\n\n**(i)** Find the values of $a$ and $b$. $\\quad$ **[2]**\n\n**(ii)** Draw a cumulative frequency graph to represent this information. Take a scale of 2 cm for 10 minutes on the horizontal axis and 2 cm for 50 people on the vertical axis. $\\quad$ **[4]**\n\n**(iii)** Use your graph to estimate the median time after opening that people entered the store. $\\quad$ **[2]**\n\n**(iv)** Calculate estimates of the mean, $m$ minutes, and standard deviation, $s$ minutes, of the time after opening that people entered the store. $\\quad$ **[4]**\n\n**(v)** Use your graph to estimate the number of people entering the store between $\\left(m - \\tfrac{1}{2}s\\right)$ and $\\left(m + \\tfrac{1}{2}s\\right)$ minutes after opening. $\\quad$ **[2]**",
+              solution_image: ""
+            },
           ],
 
           "Permutations & Combinations": [
@@ -1016,6 +1107,12 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "In a certain country, the probability of more than 10 cm of rain on any particular day is 0.18, independently of other days.\n\n**(a)** Find the probability that in any randomly chosen 7-day period, more than 2 days have more than 10 cm of rain. $\\quad$ **[3]**\n\n**(b)** For 3 randomly chosen 7-day periods, find the probability that exactly two of these periods have at least one day with more than 10 cm of rain. $\\quad$ **[3]**",
               solution_image: ""
+            },
+            {
+              id: "S1_DRV_011",
+              difficulty: "hard",
+              question_text: "In Restaurant Bijoux 13% of customers rated the food as 'poor', 22% of customers rated the food as 'satisfactory' and 65% rated it as 'good'. A random sample of 12 customers who went for a meal at Restaurant Bijoux was taken.\n\n**(i)** Find the probability that more than 2 and fewer than 12 of them rated the food as 'good'. $\\quad$ **[3]**\n\nOn a separate occasion, a random sample of $n$ customers who went for a meal at the restaurant was taken.\n\n**(ii)** Find the smallest value of $n$ for which the probability that at least 1 person will rate the food as 'poor' is greater than 0.95. $\\quad$ **[3]**",
+              solution_image: ""
             }
           ],
           "Normal Distribution": [
@@ -1048,7 +1145,37 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "The times taken, in minutes, to complete a particular task by employees at a large company are normally distributed with mean 32.2 and standard deviation 9.6.\n\n**(a)** Find the probability that a randomly chosen employee takes more than 28.6 minutes to complete the task. $\\quad$ **[3]**\n\n**(b)** 20% of employees take longer than $t$ minutes to complete the task. Find the value of $t$. $\\quad$ **[3]**\n\n**(c)** Find the probability that the time taken by a randomly chosen employee differs from the mean by less than 15.0 minutes. $\\quad$ **[4]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "S1_ND_006",
+              difficulty: "hard",
+              question_text: "The random variable $X$ is such that $X \\sim \\mathrm{N}(82,\\, 126)$.\n\n**(i)** A value of $X$ is chosen at random and rounded to the nearest whole number. Find the probability that this whole number is 84. $\\quad$ **[3]**\n\n**(ii)** Five independent observations of $X$ are taken. Find the probability that at most one of them is greater than 87. $\\quad$ **[4]**\n\n**(iii)** Find the value of $k$ such that $\\mathrm{P}(87 < X < k) = 0.3$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_ND_007",
+              difficulty: "standard",
+              question_text: "It is given that $Y \\sim \\mathrm{N}(33,\\, 21)$. Find the value of $a$ given that\n$$\\mathrm{P}(33 - a < Y < 33 + a) = 0.5$$\n$\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_ND_008",
+              difficulty: "hard",
+              question_text: "A manufacturer makes two sizes of elastic bands: large and small. 40% of the bands produced are large bands and 60% are small bands. Assuming that each pack of these elastic bands contains a random selection, calculate the probability that, in a pack containing 20 bands, there are\n\n**(i)** equal numbers of large and small bands, $\\quad$ **[2]**\n\n**(ii)** more than 17 small bands. $\\quad$ **[3]**\n\nAn office pack contains 150 elastic bands.\n\n**(iii)** Using a suitable approximation, calculate the probability that the number of small bands in the office pack is between 88 and 97 inclusive. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_ND_009",
+              difficulty: "hard",
+              question_text: "On any occasion when a particular gymnast performs a certain routine, the probability that she will perform it correctly is 0.65, independently of all other occasions.\n\n**(i)** Find the probability that she will perform the routine correctly on exactly 5 occasions out of 7. $\\quad$ **[2]**\n\n**(ii)** On one day she performs the routine 50 times. Use a suitable approximation to estimate the probability that she will perform the routine correctly on fewer than 29 occasions. $\\quad$ **[5]**\n\n**(iii)** On another day she performs the routine $n$ times. Find the smallest value of $n$ for which the expected number of correct performances is at least 8. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_ND_008",
+              difficulty: "hard",
+              question_text: "The random variable $X$ is normally distributed with mean $\\mu$ and standard deviation $\\sigma$. It is given that $3\\mu = 7\\sigma^2$ and that $\\mathrm{P}(X > 2\\mu) = 0.1016$. Find $\\mu$ and $\\sigma$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
           ]
         }
       }
