@@ -31,7 +31,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_CG_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A circle with equation $x^2 + y^2 - 6x + 2y - 15 = 0$ meets the $y$-axis at the points $A$ and $B$. The tangents to the circle at $A$ and $B$ meet at the point $P$.\n\nFind the coordinates of $P$. $\\quad$ **[8]**",
               solution_image: ""
             },
@@ -43,25 +43,25 @@ const SYLLABUS = {
             },
             {
               id: "P1_CG_006",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The point $P$ lies on the line with equation $y = mx + c$, where $m$ and $c$ are positive constants. A curve has equation $y = -\\dfrac{m}{x}$. There is a single point $P$ on the curve such that the straight line is a tangent to the curve at $P$.\n\n**(a)** Find the coordinates of $P$, giving the $y$-coordinate in terms of $m$. $\\quad$ **[6]**\n\nThe normal to the curve at $P$ intersects the curve again at the point $Q$.\n\n**(b)** Find the coordinates of $Q$ in terms of $m$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "P1_CG_007",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The diagram below shows circles $C_1$ and $C_2$ which intersect at the two points $A$ and $B$. Circle $C_1$ has equation $x^2 + y^2 - 16x - 10y + 39 = 0$, and points $A$ and $B$ lie along the line with equation $3x - y = -1$. Circle $C_2$ also passes through the point $(-13, 2)$.\n\nFind an equation of circle $C_2$. $\\quad$ **[11]**",
               solution_image: ""
             },
             {
               id: "P1_CG_008",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve $C_1$ has equation $y = x^2 - 4x + 7$. The curve $C_2$ has equation $y^2 = 4x + k$, where $k$ is a constant. The tangent to $C_1$ at the point where $x = 3$ is also the tangent to $C_2$ at the point $P$. Find the value of $k$ and the coordinates of $P$. $\\quad$ **[8]**",
               solution_image: ""
             },
             {
               id: "P1_CG_009",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The points $(6, 1)$ and $(-2, 7)$ lie at opposite ends of a diameter of a circle.\n\n**(a)** Find the equation of the circle. $\\quad$ **[3]**\n\n**(b)** There are two tangents to the circle which have gradient $-\\dfrac{1}{2}$. Find the exact values of the $x$-coordinates of the points at which these tangents touch the circle. $\\quad$ **[5]**",
               solution_image: ""
             }
@@ -88,7 +88,7 @@ const SYLLABUS = {
 
             {
               id: "P1_TR_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The function f is given by $\\mathrm{f}(x) = 4\\cos^4 x + \\cos^2 x - k$ for $0 \\leq x \\leq 2\\pi$, where $k$ is a constant.\n\n**(a)** Given that $k = 3$, find the exact solutions of the equation $\\mathrm{f}(x) = 0$. $\\quad$ **[5]**\n\n**(b)** Use the quadratic formula to show that, when $k > 5$, the equation $\\mathrm{f}(x) = 0$ has no solutions. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -112,7 +112,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_TR_008",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "**(a)** Find all the solutions to the equation $2\\cos 2\\theta = 4\\sin 2\\theta\\cos 2\\theta$ in the interval $0 \\leq \\theta \\leq 2\\pi$, giving your answers in radians as multiples of $\\pi$. $\\quad$ **[6]**",
               solution_image: ""
             }
@@ -140,13 +140,13 @@ const SYLLABUS = {
             },
             {
               id: "P1_BE_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The first three terms, in descending powers of $x$, in the expansion of\n$$\\left(3x^2 - a\\right)^n\\!\\left(1 + \\frac{1}{x^2}\\right)^2$$\ncan be written as $729x^{12} + 972x^{10} + bx^8$, where $a$, $b$ and $n$ are constants.\n\nFind the values of $a$, $b$ and $n$. $\\quad$ **[9]**",
               solution_image: ""
             },
             {
               id: "P1_BE_005",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "In the expansion of $(a + bx)^8$, the coefficient of the $x^5$ term is $-870\\,912$.\n\nIn the expansion of $(a + bx)^{12}$, the coefficient of the $x^3$ term is $-1\\,557\\,135\\,360$.\n\nFind the possible values of $a$ and $b$. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -158,7 +158,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_BE_007",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "In the expansion of $(a + bx)^7$, where $a$ and $b$ are non-zero constants, the coefficients of $x$, $x^2$ and $x^4$ are the first, second and third terms respectively of a geometric progression.\n\nFind the value of $\\dfrac{a}{b}$. $\\quad$ **[5]**",
               solution_image: ""
             }
@@ -172,7 +172,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_DF_002",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve $y = (1-x)(x^2 + 4x + k)$ has a stationary point when $x = -3$.\n\n**(i)** Find the value of the constant $k$. $\\quad$ **[7]**\n\n**(ii)** Determine whether the stationary point is a maximum or minimum point. $\\quad$ **[2]**\n\n**(iii)** Given that $y = 9x - 9$ is the equation of the tangent to the curve at the point $A$, find the coordinates of $A$. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -190,7 +190,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_DF_005",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The curve $C$ has equation\n$$y = \\frac{x^3\\left(5x\\sqrt{x} - 128\\right)}{\\sqrt{x}}, \\quad x \\in \\mathbb{R},\\ x > 0$$\n\n**(a)** Determine expressions for $\\dfrac{dy}{dx}$, $\\dfrac{d^2y}{dx^2}$ and $\\dfrac{d^3y}{dx^3}$. $\\quad$ **[4]**\n\n**(b)** Show that the $y$-coordinate of the stationary point of $C$ is $-k\\sqrt[3]{4}$, where $k$ is a positive integer. $\\quad$ **[5]**\n\n**(c)** Evaluate $\\dfrac{d^2y}{dx^2}$ at the stationary point of $C$, giving your answer in terms of $\\sqrt[3]{2}$. $\\quad$ **[3]**\n\n**(d)** Find the value of $\\dfrac{d^3y}{dx^3}$ at the point on $C$ where $\\dfrac{d^2y}{dx^2} = 0$. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -202,25 +202,25 @@ const SYLLABUS = {
             },
             {
               id: "P1_DF_007",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve $y = -x^3 + 9x^2 - 15x - 3$ has two stationary points. A straight line passes through both stationary points.\n\n**(a)** Show that the equation of the straight line is $y = 8x - 18$. $\\quad$ **[5]**\n\n**(b)** Verify that the curve also meets the straight line when $x = 3$. $\\quad$ **[1]**\n\n**(c)** Find the area of the region bounded by the curve and the straight line between their points of intersection. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P1_DF_008",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "A large block of ice used by sculptors is in the shape of a cuboid with dimensions $x$ m by $2x$ m by $5x$ m. The block melts uniformly with its surface area decreasing at a constant rate of $k$ m² s⁻¹. You may assume that as the block melts, the shape remains mathematically similar to the original cuboid.\n\n**(a)** Show that the rate of melting, by volume, is given by\n$$\\frac{15kx}{34} \\text{ m}^3 \\text{s}^{-1}$$\n$\\quad$ **[5]**\n\n**(b)** In the case when $k = 0.2$, the block of ice remains solid enough to be sculpted whilst the rate of melting, by volume, is less than $0.05$ m³ s⁻¹. Find the value of $x$ for the largest block of ice that can be used for ice sculpting under such conditions, giving your answer as a fraction in its lowest terms. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "P1_DF_009",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The point $P(3, 5)$ lies on the curve $y = \\dfrac{1}{x-1} - \\dfrac{9}{x-5}$.\n\n**(i)** Find the $x$-coordinate of the point where the normal to the curve at $P$ intersects the $x$-axis. $\\quad$ **[5]**\n\n**(ii)** Find the $x$-coordinate of each of the stationary points on the curve and determine the nature of each stationary point, justifying your answers. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P1_DF_010",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve with equation $y = x^3 - 2x^2 + 5x$ passes through the origin.\n\n**(i)** Show that the curve has no stationary points. $\\quad$ **[3]**\n\n**(ii)** Denoting the gradient of the curve by $m$, find the stationary value of $m$ and determine its nature. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -234,21 +234,21 @@ const SYLLABUS = {
           "Quadratics": [
             {
               id: "P1_QD_001",
-              difficulty: 'standard',
+              difficulty: 'hard',
               marks_estimated: 5,
               question_text: "Solve the quadratic equation\n$$(\\sqrt{3}-1)x^2 - 2\\sqrt{3}\\,x = 3 + 3\\sqrt{3}$$\ngiving one root in the form $p + q\\sqrt{3}$ and the other in the form $r\\sqrt{3}$, where $p$, $q$ and $r$ are integers.",
               solution_image: ""
             },
             {
               id: "P1_QD_002",
-              difficulty: 'standard',
+              difficulty: 'hard',
               marks_estimated: 5,
               question_text: "A curve $C$ has equation\n$$(x-1)y^2 - 2xy + x = 0, \\quad x \\geq 0$$\n\nBy completing the square in the above equation, express $y$ in terms of $x$.",
               solution_image: ""
             },
             {
               id: "P1_QD_003",
-              difficulty: 'standard',
+              difficulty: 'hard',
               marks_estimated: 4,
               question_text: "A quadratic curve has equation $f(x) = (x-1)(x-a)$, where $a$ is a constant.\n\nShow, **without** a calculus method, that the coordinates of the minimum point of the curve are\n$$\\left(\\frac{a+1}{2},\\,-\\frac{(a-1)^2}{4}\\right)$$",
               solution_image: ""
@@ -274,7 +274,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_QD_007",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A function f is defined by $\\mathrm{f}(x) = px^2 - 4x + q$ for $x \\in \\mathbb{R}$, where $p$ and $q$ are constants.\n\n**(a)** It is given that $p = 2$ and $q = 10$.\n\n$\\quad$ **(i)** Express $\\mathrm{f}(x)$ in the form $a(x+b)^2 + c$, where $a$, $b$ and $c$ are constants. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** State the range of f. $\\quad$ **[1]**\n\n**(b)** It is given instead that $q = -5$ and the roots of $\\mathrm{f}(x) = 0$ are $5m$ and $-9m$, where $m$ is a constant. Find the values of $p$ and $m$. $\\quad$ **[5]**",
               solution_image: ""
             }
@@ -283,14 +283,14 @@ const SYLLABUS = {
           "Integration": [
             {
               id: "P1_IN_001",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The point $A$ with $x$-coordinate $2$ lies on the curve $y = \\sqrt{4x+1}$. The tangent to the curve at $A$ meets the $x$-axis at a point.\n\nFind the exact area of the region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[10]**",
               diagram_image: "P1_IN_001_d.svg",
               solution_image: ""
             },
             {
               id: "P1_IN_002",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A curve passes through the point $(1, 8)$ and has an equation which satisfies\n$$\\frac{dy}{dx} = 2x + \\frac{a}{x^3} + 3$$\nfor all non-zero values of $x$. The area enclosed by the curve, the $x$-axis, the line $x = 1$ and the line $x = 3$ is $30$ square units.\n\nFind the value of the positive constant $a$. $\\quad$ **[9]**",
               solution_image: ""
             },
@@ -302,7 +302,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_IN_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve $y = 6x^{\\frac{3}{2}}$ and the curve $y = \\dfrac{8}{x^2} - 2$ intersect at the point $(1, 6)$.\n\nUse integration to find the area of the region enclosed by the two curves and the $x$-axis. $\\quad$ **[8]**",
               solution_image: ""
             },
@@ -314,50 +314,50 @@ const SYLLABUS = {
             },
             {
               id: "P1_IN_006",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve $y = 1 - 3x^{-\\frac{1}{2}}$ intersects the $x$-axis at $(9, 0)$.\n\n**(i)** Verify that the curve intersects the $x$-axis at $(9, 0)$. $\\quad$ **[1]**\n\n**(ii)** The region enclosed by the curve, the $x$-axis and the line $x = a$ where $a > 9$ has area $4$ square units. Find the value of $a$. $\\quad$ **[9]**",
               solution_image: ""
             },
             {
               id: "P1_IN_007",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve $y = x^{\\frac{3}{2}} - 1$ crosses the $x$-axis at $(1, 0)$. The tangent to the curve at the point $(4, 7)$ meets the $x$-axis at a point.\n\n**(i)** Show that $\\displaystyle\\int_1^4 \\left(x^{\\frac{3}{2}} - 1\\right)dx = 9\\tfrac{2}{5}$. $\\quad$ **[4]**\n\n**(ii)** Hence find the exact area of the region enclosed by the curve, the tangent and the $x$-axis. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P1_IN_008",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve $y = 10 + 8x + x^2 - x^3$ has a maximum turning point at $A$.\n\n**(a)** Using calculus, show that the $x$-coordinate of $A$ is $2$. $\\quad$ **(3)**\n\nThe region $R$ is bounded by the curve, the $y$-axis and the straight line from the origin $O$ to $A$.\n\n**(b)** Using calculus, find the exact area of $R$. $\\quad$ **(8)**",
               diagram_image: "P1_IN_008_d.svg",
               solution_image: ""
             },
             {
               id: "P1_IN_009",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The function f is defined by $\\mathrm{f}(x) = (4x+2)^{-2}$ for $x > -\\dfrac{1}{2}$.\n\n**(a)** Find $\\displaystyle\\int_1^{\\infty} \\mathrm{f}(x)\\,dx$. $\\quad$ **[4]**\n\n**(b)** A point moves along the curve $y = \\mathrm{f}(x)$ in such a way that, as it passes through the point $A$, its $y$-coordinate is **decreasing** at the rate of $k$ units per second and its $x$-coordinate is **increasing** at the rate of $k$ units per second.\n\nFind the coordinates of $A$. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P1_IN_010",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "**(a)** Given that\n$$\\int_p^{\\infty} \\frac{3}{x\\sqrt{x}}\\,dx = \\sqrt{3}$$\nwhere $p$ is a real constant, find the value of $p$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P1_IN_011",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The curve $y = (3 - 2x)^3$ passes through the point $\\left(\\dfrac{1}{2}, 8\\right)$.\n\n**(i)** Find the equation of the tangent to the curve at $\\left(\\dfrac{1}{2}, 8\\right)$, giving your answer in the form $y = mx + c$. $\\quad$ **[5]**\n\n**(ii)** Find the area of the region enclosed by the curve, the tangent and the $y$-axis. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P1_IN_012",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The equation of a curve is such that $\\dfrac{d^2y}{dx^2} = 6x^2 + p$, where $p$ is a constant. The curve has minimum points at $(2, 3)$ and $(-2, 3)$.\n\nFind the coordinates of the other stationary point of the curve. $\\quad$ **[7]**",
               solution_image: ""
             },
             {
               id: "P1_IN_013",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The diagram shows the curve with equation $y = 3\\sqrt{2x+1}$, the normal to the curve at the point $R(4, 9)$, and the line $y = a$, where $a$ is a positive constant.\n\n**(a)** Find the area of the shaded region. $\\quad$ **[4]**\n\n**(b)** Find the exact value of $a$ for which the triangular area enclosed by the $y$-axis, the normal to the curve at $R$, and the line $y = a$ is equal to the area found in **(a)**. $\\quad$ **[7]**",
               diagram_image: "P1_IN_013_d.svg",
               solution_image: ""
@@ -380,37 +380,37 @@ const SYLLABUS = {
             },
             {
               id: "P1_SS_003",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The first three terms of an arithmetic progression are $-3\\tan\\dfrac{\\theta}{2}$, $-\\tan\\dfrac{\\theta}{2}$, $\\tan\\dfrac{\\theta}{2}$, where $0 < \\theta < \\dfrac{\\pi}{2}$.\n\n**(i)** Given that the 12th term of this progression is equal to $\\dfrac{19\\sqrt{3}}{3}$, find the exact value of $\\theta$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "P1_SS_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The first term of a geometric progression and the first term of an arithmetic progression are both equal to $a$. The third term of the geometric progression is equal to the second term of the arithmetic progression. The fifth term of the geometric progression is equal to the sixth term of the arithmetic progression.\n\nGiven that all terms are positive and not all equal, find the sum of the first twenty terms of the arithmetic progression in terms of $a$. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P1_SS_005",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "A geometric progression has first term $16\\cos^4\\alpha$ and second term $16\\cos^4\\alpha\\sin^2\\alpha$, where $0 < \\alpha < \\tfrac{\\pi}{2}$. The sum to infinity $S_\\infty$ equals the instantaneous volume $V$ cm³ of a spherical bubble.\n\n**(i)** Show that $V = 16\\cos^2\\alpha$. $\\quad$ **[3]**\n\n**(ii)** Given that $\\alpha$ satisfies $\\cos 2\\alpha = \\sin\\alpha$, find the exact value of $V$. $\\quad$ **[4]**\n\n**(iii)** At the instant when $V = 12$ cm³, the volume is increasing at 3 cm³/s. Given that the volume of a sphere is $V = \\tfrac{4}{3}\\pi R^3$, express the surface area $A$ directly in terms of $V$. Hence find the exact rate of change of $A$ with respect to time at this instant. $\\quad$ **[7]**",
               solution_image: ""
             },
             {
               id: "P1_SS_006",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The geometric progression $S$ is defined by $S = u_1 + u_2 + u_3 + \\ldots + u_n + \\ldots$, where $u_n$ denotes the $n$th term of the progression. The sum to infinity of the progression exists and is denoted by $S_\\infty$. The first term of the progression, $u_1$, is equal to $a$, and the common ratio of the progression is $r$.\n\nA different progression $T = u_1^2 + u_2^2 + u_3^2 + \\ldots + u_n^2 + \\ldots$ is formed by squaring all the terms of the progression $S$ above.\n\n**(a)** Show that $T = u_1^2 + u_2^2 + u_3^2 + \\ldots + u_n^2 + \\ldots$ is also a geometric progression, and that its sum to infinity also exists. $\\quad$ **[4]**\n\nThe sum to infinity of the progression $T$ is denoted by $T_\\infty$.\n\n**(b)** Express the ratio $\\dfrac{T_\\infty}{S_\\infty}$ in terms of $a$ and $r$, simplifying your answer as far as possible. $\\quad$ **[3]**\n\n**(c)** Show that if $T_\\infty = S_\\infty$, then $u_k^2 = u_{2k-1} + u_{2k}$ for all $k \\geq 1$. Comment on what this shows about the relationship between the terms of the two progressions. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P1_SS_007",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "An arithmetic progression $P$ has first term $a$ and common difference $d$. An arithmetic progression $Q$ has first term $2(a+1)$ and common difference $(d+1)$. It is given that\n$$\\frac{\\text{5th term of } P}{\\text{12th term of } Q} = \\frac{1}{3} \\quad \\text{and} \\quad \\frac{\\text{Sum of first 5 terms of } P}{\\text{Sum of first 5 terms of } Q} = \\frac{2}{3}$$\n\nFind the value of $a$ and the value of $d$. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P1_SS_008",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The common ratio of a geometric progression is $r$. The first term of the progression is $(r^2 - 3r + 2)$ and the sum to infinity is $S$.\n\n**(i)** Show that $S = 2 - r$. $\\quad$ **[2]**\n\n**(ii)** Find the set of possible values that $S$ can take. $\\quad$ **[2]**",
               solution_image: ""
             },
@@ -422,7 +422,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_SS_010",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "An arithmetic progression has first term 2 and common difference $d$. The sum of the first $n$ terms is denoted by $S_n$.\n\n**(a)** It is given that $(S_1 - 1)$, $S_2$, $S_3$ are the first three terms of a second arithmetic progression. Find the value of $d$. $\\quad$ **[4]**\n\n**(b)** Hence find the difference between the values of the 15th terms of the two arithmetic progressions. $\\quad$ **[4]**",
               solution_image: ""
             }
@@ -449,19 +449,19 @@ const SYLLABUS = {
             },
             {
               id: "P1_FN_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Functions f and g are defined for all real values of $x$ by\n$$f(x) = 4x^2 - c \\quad \\text{and} \\quad g(x) = 2x + k$$\nwhere $c$ and $k$ are positive constants. It is given that $g^{-1}(3k+1) = c$.\n\n**(a)** Show that $g(f(x)) = 8x^2 - k - 1$. $\\quad$ **[3]**\n\n**(b)** The curve $y = 8x^2 - k - 1$ is transformed to the curve $y = h(x)$ by the following sequence of transformations:\n\n- Translation by the vector $\\begin{pmatrix}2\\\\3\\end{pmatrix}$\n- Stretch in the $y$-direction by scale factor $k$\n- Reflection in the $x$-axis\n\nFind an expression for $h(x)$ in terms of $x$ and $k$. $\\quad$ **[3]**\n\n**(c)** The range of $h$ is given by $h(x) \\leq 15$. Find the values of $c$ and $k$. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "P1_FN_005",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Functions f and g are defined as follows:\n$$\\mathrm{f}(x) = \\frac{2x+1}{2x-1} \\quad \\text{for } x \\neq \\tfrac{1}{2}$$\n$$\\mathrm{g}(x) = x^2 + 4 \\quad \\text{for } x \\in \\mathbb{R}$$\n\n**(a)** State the domain of $\\mathrm{f}^{-1}$. $\\quad$ **[1]**\n\n**(b)** Find an expression for $\\mathrm{f}^{-1}(x)$. $\\quad$ **[3]**\n\n**(c)** Find $\\mathrm{gf}^{-1}(3)$. $\\quad$ **[2]**\n\n**(d)** Explain why $\\mathrm{g}^{-1}(x)$ cannot be found. $\\quad$ **[1]**\n\n**(e)** Show that $1 + \\dfrac{2}{2x-1}$ can be expressed as $\\dfrac{2x+1}{2x-1}$. Hence find the exact area of the triangle enclosed by the tangent to the curve $y = \\mathrm{f}(x)$ at the point where $x = 1$ and the $x$- and $y$-axes. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P1_FN_006",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The functions f and g are defined for all real values of $x$ by\n$$\\mathrm{f}(x) = x^2 + 4ax + a^2 \\quad \\text{and} \\quad \\mathrm{g}(x) = 4x - 2a$$\nwhere $a$ is a positive constant.\n\n**(i)** Find the range of f in terms of $a$. $\\quad$ **[3]**\n\n**(ii)** Given that $\\mathrm{fg}(3) = 69$, find the value of $a$ and hence find the value of $x$ such that $\\mathrm{g}^{-1}(x) = x$. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -473,7 +473,7 @@ const SYLLABUS = {
             },
             {
               id: "P1_FN_008",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The function f is defined by $\\mathrm{f}(x) = \\sqrt{mx + 7} - 4$, where $x \\geq -\\dfrac{7}{m}$ and $m$ is a positive constant.\n\n**(i)** A sequence of transformations maps the curve $y = \\sqrt{x}$ to the curve $y = \\mathrm{f}(x)$. Give details of these transformations. $\\quad$ **[4]**\n\n**(ii)** Find the least value of $m$ for which f is a one-to-one function on its given domain. $\\quad$ **[2]**\n\n**(iii)** Using this least value of $m$, find an expression for $\\mathrm{f}^{-1}(x)$, stating its domain and range. $\\quad$ **[4]**",
               solution_image: ""
             },
@@ -485,31 +485,31 @@ const SYLLABUS = {
             },
             {
               id: "P1_FN_010",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "Functions f and g are defined by\n$$\\mathrm{f}(x) = \\frac{8}{x-2} + 2 \\quad \\text{for } x > 2$$\n$$\\mathrm{g}(x) = \\frac{8}{x-2} + 2 \\quad \\text{for } 2 < x < 4$$\n\n**(i) (a)** State the range of the function f. $\\quad$ **[1]**\n\n$\\quad$ **(b)** State the range of the function g. $\\quad$ **[1]**\n\n$\\quad$ **(c)** State the range of the function fg. $\\quad$ **[1]**\n\n**(ii)** Explain why the function gf cannot be formed. $\\quad$ **[1]**\n\n**(iii)** Find the set of values of $x$ satisfying the inequality $6\\mathrm{f}'(x) + 2\\mathrm{f}^{-1}(x) - 5 < 0$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P1_FN_011",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The functions f and g are defined by\n$$\\mathrm{f}(x) = x^2 - 4x + 3 \\quad \\text{for } x > c, \\text{ where } c \\text{ is a constant}$$\n$$\\mathrm{g}(x) = \\frac{1}{x+1} \\quad \\text{for } x > -1$$\n\n**(a)** Express $\\mathrm{f}(x)$ in the form $(x - a)^2 + b$. $\\quad$ **[2]**\n\nIt is given that f is a one-one function.\n\n**(b)** State the smallest possible value of $c$. $\\quad$ **[1]**\n\nIt is now given that $c = 5$.\n\n**(c)** Find an expression for $\\mathrm{f}^{-1}(x)$ and state the domain of $\\mathrm{f}^{-1}$. $\\quad$ **[3]**\n\n**(d)** Find an expression for $\\mathrm{gf}(x)$ and state the range of gf. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "P1_FN_012",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The function f is defined by\n$$\\mathrm{f}(x) = \\frac{4}{(3x-6)^2} - \\frac{1}{3x-6} \\quad \\text{for } x > 2$$\n\n**(a)** Find an expression for $\\mathrm{f}'(x)$ and hence determine whether f is an increasing function, a decreasing function or neither. $\\quad$ **[4]**\n\n**(b)** State whether $\\mathrm{f}^{-1}$ exists. Give a reason for your answer. $\\quad$ **[1]**\n\nThe function g is defined by $\\mathrm{g}(x) = 4x - 3$ for $x > a$.\n\n**(c)** Find the range of g in terms of the constant $a$. $\\quad$ **[1]**\n\n**(d)** Find the set of values of $a$ for which the composite function fg exists. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "P1_FN_013",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The functions f and g are defined for all real values of $x$ by\n$$\\mathrm{f}(x) = (x-3)^2 + 2k \\quad \\text{and} \\quad \\mathrm{g}(x) = x - k$$\nwhere $k$ is a constant.\n\n**(a)** Given that the range of the composite function gf is $\\mathrm{gf}(x) \\geq 5$, find the value of $k$. $\\quad$ **[3]**\n\n**(b)** For this value of $k$, determine the range of the function fg. $\\quad$ **[3]**\n\nThe function h is defined for all real values of $x$ and is such that\n$$\\mathrm{gh}(x) = 35x^2 + 19$$\n\n**(c)** Find an expression for $\\mathrm{h}(x)$ and hence find an expression for $\\mathrm{gh}^{-1}(x)$. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "P1_FN_014",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "A function $f$ is defined by\n$$f(x) = px^2 - 2x + p + 4$$\nfor $x \\in \\mathbb{R}$, where $p$ is a constant.\n\n**(a)** Find the exact values of $p$ for which the equation $f(x) = 0$ has repeated roots. $\\quad$ **[3]**\n\nA function $g$ is defined by\n$$g(x) = px^2 - 2x + p + 4$$\nfor $x \\geqslant a$, where $p$ and $a$ are positive constants.\n\n**(b)(i)** Show that the least value of $a$ for which $g^{-1}$ exists is $\\dfrac{1}{p}$. $\\quad$ **[2]**\n\n**(ii)** Given that $p = 2$ and that $g^{-1}$ exists, find an expression for $g^{-1}(x)$. $\\quad$ **[4]**",
               solution_image: ""
             },
@@ -518,58 +518,58 @@ const SYLLABUS = {
           "Circular Measure": [
             {
               id: "P1_CM_001",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A sector of a circle has radius $r$ and a fixed perimeter $p$.\n\nShow that the maximum possible area of the sector is $\\dfrac{p^2}{16}$, and find the value of $\\theta$ at which this maximum occurs. $\\quad$ **[7]**",
               solution_image: ""
             },
             {
               id: "P1_CM_002",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Two circles, each of radius $6$ cm, have centres $A$ and $B$ where $AB = 8$ cm. The circles intersect at $C$ and $D$.\n\n**(a)** Find angle $CAB$ in radians. $\\quad$ **[3]**\n\n**(b)** Find the exact area of the region that lies inside both circles. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P1_CM_003",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Triangle $ABC$ has $AC = 8$ cm and $\\angle BAC = \\angle BCA = 30°$.\n\n**(a)** Find the area of triangle $ABC$ in the form $k\\sqrt{3}$. $\\quad$ **[5]**\n\nThe point $M$ is the mid-point of $AC$ and the points $N$ and $O$ lie on $AB$ and $BC$ such that $MN$ and $MO$ are arcs of circles with centres $A$ and $C$ respectively.\n\n**(b)** Show that the area of the shaded region $BNMO$ is $\\dfrac{8}{3}(2\\sqrt{3} - \\pi)$ cm². $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "P1_CM_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A sector $OMN$ of a circle has angle $MON = 2x$ radians, radius $r$ and centre $O$.\n\n**(i)** Find expressions, in terms of $r$ and $x$, for the area $A$ and perimeter $P$ of the sector. $\\quad$ **[2]**\n\n**(ii)** Given that $P = 20$, show that\n$$A = \\frac{100x}{(1+x)^2}$$\n$\\quad$ **[2]**\n\n**(iii)** Find $\\dfrac{dA}{dx}$ and hence find the value of $x$ for which the area of the sector is a maximum. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P1_CM_005",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "Seven cylindrical pipes, each of radius 20 cm, are held together by a thin rope wrapped tightly around them. Six outer pipes have centres $A$, $B$, $C$, $D$, $E$, $F$ arranged symmetrically around a central pipe. Points $P$ and $Q$ are where straight sections of the rope meet the pipe with centre $A$.\n\n**(a)** Show that angle $PAQ = \\dfrac{1}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the total length of the rope. $\\quad$ **[4]**\n\n**(c)** Find the area of the hexagon $ABCDEF$, giving your answer in terms of $\\sqrt{3}$. $\\quad$ **[2]**\n\n**(d)** Find the area of the complete region enclosed by the rope. $\\quad$ **[3]**",
               diagram_image: "P1_CM_005_d.jpeg",
               solution_image: ""
             },
             {
               id: "P1_CM_006",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The diagram shows a motif formed by the major arc $AB$ of a circle with radius $r$ and centre $O$, and the minor arc $AOB$ of a circle also with radius $r$ but with centre $C$. The point $C$ lies on the circle with centre $O$.\n\n**(a)** Given that angle $ACB = k\\pi$ radians, state the value of the fraction $k$. $\\quad$ **[1]**\n\n**(b)** State the perimeter of the shaded motif in terms of $\\pi$ and $r$. $\\quad$ **[1]**\n\n**(c)** Find the area of the shaded motif, giving your answer in terms of $\\pi$, $r$ and $\\sqrt{3}$. $\\quad$ **[5]**",
               diagram_image: "P1_CM_006_d.jpeg",
               solution_image: ""
             },
             {
               id: "P1_CM_007",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A circle has centre $A$ and radius $r$. Diameters $CAD$ and $BAE$ are perpendicular to each other. A larger circle has centre $B$ and passes through $C$ and $D$.\n\n**(i)** Show that the radius of the larger circle is $r\\sqrt{2}$. $\\quad$ **[1]**\n\n**(ii)** Find the area of the region that lies inside the larger circle but outside the smaller circle, bounded between the arc $CD$ of the larger circle and the diameter $CAD$. $\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P1_CM_008",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The diagram shows a symmetrical metal plate. The plate is made by removing two identical pieces from a circular disc with centre $C$. The boundary of the plate consists of two arcs $PS$ and $QR$ of the original circle and two semicircles with $PQ$ and $RS$ as diameters. The radius of the circle with centre $C$ is 4 cm, and $PQ = RS = 4$ cm also.\n\n**(a)** Show that angle $PCS = \\dfrac{2}{3}\\pi$ radians. $\\quad$ **[2]**\n\n**(b)** Find the exact perimeter of the plate. $\\quad$ **[3]**\n\n**(c)** Show that the area of the plate is $\\left(\\dfrac{20}{3}\\pi + 8\\sqrt{3}\\right)$ cm$^2$. $\\quad$ **[5]**",
               diagram_image: "P1_CM_008_d.jpg",
               solution_image: ""
             },
             {
               id: "P1_CM_009",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "Two circles $C_1$ and $C_2$ touch at a point $X$. Circle $C_1$ has centre $A$ and radius 6 cm, and circle $C_2$ has centre $B$ and radius 10 cm. Points $D$ and $E$ lie on $C_1$ and $C_2$ respectively, and $DE$ is parallel to $AB$. Angle $DAX = \\dfrac{1}{3}\\pi$ radians and angle $EBX = \\theta$ radians.\n\n**(i)** By considering the perpendicular distances of $D$ and $E$ from $AB$, show that the exact value of $\\theta$ is $\\sin^{-1}\\!\\left(\\dfrac{3\\sqrt{3}}{10}\\right)$. $\\quad$ **[3]**\n\n**(ii)** Find the perimeter of the shaded region bounded by arc $DE$ on $C_1$, arc $DE$ on $C_2$, and the two line segments $DX$ and $EX$, correct to 4 significant figures. $\\quad$ **[5]**",
               diagram_image: "P1_CM_009_d.jpg",
               solution_image: ""
@@ -582,14 +582,14 @@ const SYLLABUS = {
             },
             {
               id: "P1_CM_011",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The diagram below shows the sector of a circle with centre $O$. The radii $OA$ and $OB$ are each equal to $r$ cm, and the angle at the centre, $AOB$, is equal to $\\theta$ radians. The line $DC$ is perpendicular to the line $OB$.\n\nGiven that $BC : CO = 2 : 3$, show that the area of the shaded shape $ABCD$ is given by\n$$\\tfrac{1}{50}r^2(25\\theta - 9\\tan\\theta) \\text{ cm}^2$$\n$\\quad$ **[6]**",
               diagram_image: "P1_CM_011_d.svg",
               solution_image: ""
             },
             {
               id: "P1_CM_012",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "A circle with centre $A$ and radius $r$ passes through points $B$, $C$ and $D$. A larger circle with centre $C$ and radius $s$ passes through $B$ and $D$. The length $BD$ is also $s$.\n\n**(a)** Show that $s = \\sqrt{3}\\,r$. $\\quad$ **[2]**\n\n**(b)** Find an expression for the area of the shaded region in the form $(a + b\\pi)r^2$, where $a$ and $b$ are constants to be found. $\\quad$ **[7]**",
               diagram_image: "P1_CM_012_d.jpg",
               solution_image: ""
@@ -604,7 +604,7 @@ const SYLLABUS = {
           "Algebra": [
             {
               id: "P3_AL_001",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "In the binomial expansion of\n$$(1 - 8x)^p, \\quad |x| < \\tfrac{1}{8}$$\nwhere $p$ is a positive constant:\n\n- the sum of the coefficient of $x$ and the coefficient of $x^2$ is equal to the coefficient of $x^3$\n- the coefficient of $x^2$ is positive\n\nDetermine the value of $p$. $\\quad$ **[7]**",
               solution_image: ""
             },
@@ -654,13 +654,13 @@ const SYLLABUS = {
           "Logarithmic & Exp Functions": [
             {
               id: "P3_LEF_001",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "**(a)** By writing $u = \\log_4 r$, where $r > 0$, show that\n$$\\log_4 r = \\tfrac{1}{2}\\log_2 r$$\n$\\quad$ **[2]**\n\n**(b)** Solve the equation\n$$\\log_4(5x^2 - 11) = \\log_2(3x - 5)$$\n$\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P3_LEF_002",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The angle $\\alpha$ satisfies the equation $2\\cos 2\\alpha + \\sqrt{3}\\sin 2\\alpha = 1$, where $0 < \\alpha < \\dfrac{\\pi}{2}$.\n\n**(i)** Express $2\\cos 2\\alpha + \\sqrt{3}\\sin 2\\alpha$ in the form $R\\cos(2\\alpha - \\phi)$, where $R > 0$ and $0 < \\phi < \\dfrac{\\pi}{2}$, giving the exact values of $R$ and $\\phi$. $\\quad$ **[3]**\n\n**(ii)** Hence find the exact value of $\\alpha$. $\\quad$ **[3]**\n\n**(iii)** Given that $\\alpha$ increases at a constant rate of $\\dfrac{3}{8\\pi}$ rad/s, find the exact rate of change of $y = \\ln(\\cos\\alpha)$ with respect to $t$ at this instant. $\\quad$ **[4]**",
               solution_image: ""
             },
@@ -680,19 +680,19 @@ const SYLLABUS = {
           "Integration": [
             {
               id: "P3_IN_001",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "**(i)** State the derivative of $e^{\\cos x}$. $\\quad$ **[1]**\n\n**(ii)** Hence use integration by parts to find the exact value of\n$$\\int_0^{\\frac{1}{2}\\pi} \\cos x \\sin x \\, e^{\\cos x} \\, dx$$\n$\\quad$ **[6]**",
               solution_image: ""
             },
             {
               id: "P3_IN_002",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Find the exact value of\n$$\\int_1^{8} \\frac{1}{\\sqrt[3]{x}} \\ln x \\, dx$$\ngiving your answer in the form $A\\ln 2 + B$, where $A$ and $B$ are constants to be found. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P3_IN_003",
-              difficulty: 'standard',
+              difficulty: 'hard',
               marks_estimated: 6,
               question_text: "Use the substitution $u = 1 + \\ln x + x$ to find\n$$\\int \\frac{3(x+1)(1-\\ln x - x)}{x(1+\\ln x+x)} \\, dx$$",
               solution_image: ""
@@ -705,45 +705,45 @@ const SYLLABUS = {
             },
             {
               id: "P3_IN_005",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "**(i)** Show that the substitution $x = \\sin^2\\theta$ transforms\n$$\\int \\sqrt{\\frac{x}{1-x}} \\, dx \\quad \\text{to} \\quad \\int 2\\sin^2\\theta \\, d\\theta$$\n$\\quad$ **[4]**\n\n**(ii)** Hence find\n$$\\int_0^{1} \\sqrt{\\frac{x}{1-x}} \\, dx$$\n$\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P3_IN_006",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "**(i)** Use the quotient rule to show that the derivative of $\\dfrac{\\cos x}{\\sin x}$ is $\\dfrac{-1}{\\sin^2 x}$. $\\quad$ **[2]**\n\n**(ii)** Show that\n$$\\int_{\\frac{1}{6}\\pi}^{\\frac{1}{4}\\pi} \\frac{\\sqrt{1+\\cos 2x}}{\\sin x \\sin 2x} \\, dx = \\frac{1}{2}(\\sqrt{6}-\\sqrt{2})$$",
               solution_image: ""
             },
             {
               id: "P3_IN_007",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "The curve $y = x\\sin(\\ln x)$, $x \\geq 1$, first crosses the $x$-axis for $x > 1$ at the point $A$.\n\n**(a)** Find the $x$-coordinate of $A$. $\\quad$ **[3]**\n\n**(b)** Differentiate $x\\sin(\\ln x)$ and $x\\cos(\\ln x)$ with respect to $x$, and hence find\n$$\\int \\sin(\\ln x)\\,dx \\quad \\text{and} \\quad \\int \\cos(\\ln x)\\,dx$$\n$\\quad$ **[7]**\n\n**(c) (i)** Find $\\displaystyle\\int x\\sin(\\ln x)\\,dx$. $\\quad$ **[4]**\n\n$\\quad$ **(ii)** Hence show that the area of the region bounded by the curve $y = x\\sin(\\ln x)$ and the $x$-axis, between $x = 1$ and $x = A$, is\n$$\\tfrac{1}{5}\\left(e^{2\\pi} + 1\\right)$$\n$\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "P3_IN_008",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "Using the substitution $x = u^2 - 1$, or otherwise, show that\n$$\\int \\frac{1}{2x\\sqrt{x+1}}\\,dx = \\ln\\left(A\\sqrt{\\frac{\\sqrt{x+1}-1}{\\sqrt{x+1}+1}}\\right)$$\nwhere $A$ is an arbitrary constant and $x > 0$. $\\quad$ **[10]**",
               solution_image: ""
             },
             {
               id: "P3_IN_009",
-              difficulty: 'standard',
+              difficulty: 'hard',
               marks_estimated: 6,
               question_text: "Using the substitution $x = \\tan\\theta$, find the exact value of\n$$\\int_0^{\\frac{1}{2}} \\frac{12}{(1+4x^2)^2}\\,dx$$\ngiving your answer in the form $a + b\\pi$.",
               solution_image: ""
             },
             {
               id: "P3_IN_010",
-              difficulty: 'standard',
+              difficulty: 'elite',
               marks_estimated: 6,
               question_text: "Find the exact value of\n$$\\int_{\\frac{1}{2}}^{\\frac{\\sqrt{3}}{2}} x\\tan^{-1}(2x)\\,dx$$",
               solution_image: ""
             },
             {
               id: "P3_IN_011",
-              difficulty: 'standard',
+              difficulty: 'elite',
               question_text: "Using the substitution $u = e^{2x}$ and partial fractions, find the exact value of\n$$\\int_{\\ln 3}^{0} \\frac{2e^{2x}}{e^{4x} - 3e^{2x} + 2}\\,dx$$\ngiving your answer in the form $\\ln a$, where $a$ is a rational number in its simplest form. $\\quad$ **[9]**",
               solution_image: ""
             },
@@ -768,7 +768,7 @@ const SYLLABUS = {
             },
             {
               id: "P3_IN_015",
-              difficulty: 'Elite',
+              difficulty: 'elite',
               question_text: "Diagram shows part of the curve $y = x\\sin 3x$. It crosses the $x$-axis at $P$. The point on the curve with $x$-coordinate $\\dfrac{1}{6}\\pi$ is $Q$.\n\n**(i)** Find the $x$-coordinate of $P$. $\\quad$ **[3]**\n\n**(ii)** Show that $Q$ lies on the line $y = x$. $\\quad$ **[1]**\n\n**(iii)** Differentiate $x\\sin 3x$. Hence prove that the line $y = x$ touches the curve at $Q$. $\\quad$ **[6]**\n\n**(iv)** Show that the area of the region bounded by the curve and the line $y = x$ is $\\dfrac{1}{72}(\\pi^2 - 8)$. $\\quad$ **[7]**",
               diagram_image: "P3_IN_015_d.jpg",
               solution_image: ""
@@ -918,43 +918,43 @@ const SYLLABUS = {
           "Permutations & Combinations": [
             {
               id: "S1_PC_001",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Eight identical red balls and four identical blue balls are arranged in a row.\n\n**(a)** Find the number of arrangements in which no two blue balls are adjacent. $\\quad$ **[3]**\n\n**(b)** Find the number of arrangements in which the blue balls occupy exactly 3 of the 4 end positions. $\\quad$ **[3]**\n\n**(c)** An arrangement is chosen at random. Find the probability that no two blue balls are adjacent, given that the arrangement begins with a blue ball. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "S1_PC_002",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A committee of 5 is to be chosen from 6 men and 5 women. Two particular men, Alan and Brian, refuse to serve together.\n\n**(a)** Find the total number of ways of choosing the committee with no restrictions. $\\quad$ **[2]**\n\n**(b)** Find the number of committees containing at least 2 men and at least 2 women. $\\quad$ **[4]**\n\n**(c)** Find the number of committees satisfying part **(b)** that do not contain both Alan and Brian. $\\quad$ **[4]**\n\n**(d)** A committee satisfying part **(b)** is chosen at random. Find the probability that it contains Alan but not Brian. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "S1_PC_003",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Six people — Alice, Bob, and four others — are to be seated at a circular table. The host always occupies a fixed seat, and Alice always sits directly opposite the host.\n\n**(a)** Find the number of ways the remaining four people can be seated. $\\quad$ **[2]**\n\n**(b)** Find the number of these arrangements in which Alice and Bob are not adjacent. $\\quad$ **[3]**\n\n**(c)** Two of the four remaining people are twins who are identical in appearance. Find the number of distinct arrangements in which Alice and Bob are not adjacent. $\\quad$ **[3]**\n\n**(d)** Given that the seating is chosen at random from all valid arrangements in **(a)**, find the probability that Bob sits next to Alice. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "S1_PC_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Find the number of ways the letters of the word **STATISTICS** can be arranged.\n\n**(a)** Find the total number of distinct arrangements of the letters. $\\quad$ **[2]**\n\n**(b)** Find the number of arrangements in which all three S's are together. $\\quad$ **[3]**\n\n**(c)** Find the number of arrangements in which all the S's are together but not all the T's are together. $\\quad$ **[4]**\n\n**(d)** An arrangement is chosen at random. Find the probability that it begins and ends with the same letter. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "S1_PC_005",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The 7 letters of the word *MINIMUM* are written on 7 separate pieces of card.\n\nFour of these cards are picked at random, one after the other.\n\n**(a)** Determine the probability that all the cards will show a different letter. $\\quad$ **[3]**\n\n**(b)** If instead the four cards were arranged into a four letter word, in the order they were picked, determine the probability that the resulting arrangement will contain at least 2 cards with the letter $M$. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "S1_PC_006",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Seven rectangular tiles, of which 3 are pink, 2 are blue and 2 are red, are placed in a straight line, next to each other.\n\nFind the number of arrangements where the pink tiles are next to each other and the blue tiles are **not** next to each other. $\\quad$ **[5]**",
               solution_image: ""
             },
             {
               id: "S1_PC_007",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "In a restaurant, tables are rectangular, each seating four people: two along each of the longer sides. Eight friends have booked two tables, $X$ and $Y$. Rajid, Sue and Tan are three of these friends.\n\n**(a)** The eight friends will be divided into two groups of 4, one for table $X$ and one for table $Y$. Find the number of ways this can be done if Rajid and Sue must sit at the same table as each other and Tan must sit at the other table. $\\quad$ **[3]**\n\nWhen the friends arrive, Rajid and Sue decide to sit at table $X$ on the same side as each other. Tan decides he does not mind at which table he sits.\n\n**(b)** Find the number of different seating arrangements for the 8 friends. $\\quad$ **[3]**",
               solution_image: ""
             },
@@ -966,19 +966,19 @@ const SYLLABUS = {
             },
             {
               id: "S1_PC_009",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The word CROCODILE contains 9 letters, including 2 Cs and 2 Os.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word CROCODILE. $\\quad$ **[1]**\n\n**(b)** Find the number of different arrangements in which there is a C at each end and the two Os are not together. $\\quad$ **[3]**\n\n**(c)** Four letters are selected from the 9 letters. Find the number of selections in which the number of Cs is **not** the same as the number of Os. $\\quad$ **[3]**\n\n**(d)** Find the number of ways in which the 9 letters can be divided into three groups, each containing three letters, if the two Cs must be in different groups. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "S1_PC_010",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The word HAPPINESS contains 9 letters, including 2 Ps and 2 Ss.\n\n**(a)** Find the number of different arrangements of the 9 letters in the word HAPPINESS. $\\quad$ **[1]**\n\n**(b)** Find the number of different arrangements in which the first and last letters are not the same as each other. $\\quad$ **[3]**\n\n**(c)** Find the number of different arrangements in which the two Ps are together and there are exactly two letters between the two Ss. $\\quad$ **[4]**\n\n**(d)** The 9 letters are divided at random into a group of 5 and a group of 4. Find the probability that both Ps are in one group and both Ss are in the other group. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "S1_PC_011",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The word RECORDERS contains 9 letters, including 3 Rs and 2 Es.\n\n**(a)** How many different arrangements are there of the 9 letters in the word RECORDERS? $\\quad$ **[1]**\n\n**(b)** How many different arrangements are there in which there is an E at the beginning, an E at the end and the three Rs are **not** all together? $\\quad$ **[3]**\n\n**(c)** The 9 letters are divided at random into a group of 5 and a group of 4. Find the probability that the three Rs are in the same group. $\\quad$ **[4]**",
               solution_image: ""
             },
@@ -990,13 +990,13 @@ const SYLLABUS = {
             },
             {
               id: "S1_PC_013",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "The word AMALGAMATE contains 10 letters, including 4 As and 2 Ms.\n\n**(a)** Find the number of different ways in which the 10 letters can be arranged so that there is an M at the beginning, an M at the end and no As are together. $\\quad$ **[3]**\n\n**(b)** Find the number of different ways in which the 10 letters can be arranged with exactly 3 letters between the two Ms. $\\quad$ **[3]**\n\n**(c)** Five letters are selected from the 10 letters. Find the number of different selections in which the five letters include at least one M and at least two As. $\\quad$ **[3]**",
               solution_image: ""
             },
             {
               id: "S1_PC_014",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A darts club has 12 members: 7 men and 5 women.\n\n**(a)** Every Monday, a team of 4 is chosen at random. Find the probability that on a particular Monday the team consists of 1 man and 3 women. $\\quad$ **[3]**\n\n**(b)** Every Tuesday, the club chooses 3 teams of 4 to enter competitions in different towns. In how many different ways can the teams be chosen with no restrictions? $\\quad$ **[2]**\n\n**(c)** In how many different ways can the Tuesday teams be chosen if each team must contain at least 1 man and at least 1 woman? $\\quad$ **[3]**\n\n**(d)** The 7 men stand in a line for a photograph. Two of them are brothers, George and Harry. How many different arrangements are there in which there are exactly 2 men between George and Harry? $\\quad$ **[2]**",
               solution_image: ""
             }
@@ -1005,7 +1005,7 @@ const SYLLABUS = {
           "Probability": [
             {
               id: "S1_PR_001",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A box contains red and blue cards only, in the ratio $3:2$.\n\nTwo cards are selected from the box, without replacement.\n\nIf the probability of selecting different colour cards is $\\dfrac{1}{2}$, use algebra to find the total number of cards in the box. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -1023,13 +1023,13 @@ const SYLLABUS = {
             },
             {
               id: "S1_PR_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Ann, Bill, Chris and Dipak play a game with a fair cubical die. Starting with Ann they take turns, in alphabetical order, to throw the die. This process is repeated as many times as necessary until a player throws a 6. When this happens, the game stops and this player is the winner.\n\nFind the probability that\n\n**(i)** Chris wins on his first throw, $\\quad$ **[1]**\n\n**(ii)** Dipak wins on his second throw, $\\quad$ **[3]**\n\n**(iii)** Ann gets a third throw, $\\quad$ **[2]**\n\n**(iv)** Bill throws the die exactly three times. $\\quad$ **[4]**",
               solution_image: ""
             },
             {
               id: "S1_PR_005",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Labrador puppies may be black, yellow or chocolate in colour. Some information about a litter of 9 puppies is given in the table.\n\n$$\\begin{array}{|l|c|c|}\\hline & \\textbf{Male} & \\textbf{Female} \\\\\\hline \\text{Black} & 1 & 3 \\\\\\hline \\text{Yellow} & 2 & 1 \\\\\\hline \\text{Chocolate} & 1 & 1 \\\\\\hline\\end{array}$$\n\nFour puppies are chosen at random to train as guide dogs.\n\n**(a)** Determine the probability that exactly 3 females are chosen. $\\quad$ **[3]**\n\n**(b)** Determine the probability that **at least** 3 black puppies are chosen. $\\quad$ **[3]**\n\n**(c)** Determine the probability that exactly 3 females are chosen **given that** at least 3 black puppies are chosen. $\\quad$ **[3]**\n\n**(d)** Explain whether the events 'choosing exactly 3 females' and 'choosing at least 3 black puppies' are independent events. $\\quad$ **[2]**",
               solution_image: ""
             },
@@ -1041,7 +1041,7 @@ const SYLLABUS = {
             },
             {
               id: "S1_PR_007",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A sports event takes place over 4 days, beginning on Sunday. The probability that it will rain on Sunday is 0.4. On any subsequent day, the probability that it will rain is 0.7 if it rained on the previous day, and 0.2 if it did not rain on the previous day.\n\n**(a)** Find the probability that it does not rain on any of the 4 days of the event. $\\quad$ **[1]**\n\n**(b)** Find the probability that the first day on which it rains during the event is Tuesday. $\\quad$ **[2]**\n\n**(c)** Find the probability that it rains on exactly one of the 4 days of the event. $\\quad$ **[3]**",
               solution_image: ""
             }
@@ -1049,14 +1049,14 @@ const SYLLABUS = {
           "Discrete Random Variables": [
             {
               id: "S1_DRV_001",
-              difficulty: 'standard',
+              difficulty: 'hard',
               marks_estimated: 5,
               question_text: "It is given that the discrete random variable $X$ satisfies $X \\sim B(n, p)$.\n\nGiven further that $\\text{P}(X = 2) = \\text{P}(X = 3)$, show that\n$$\\text{E}(X) = 3 - p$$",
               solution_image: ""
             },
             {
               id: "S1_DRV_002",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Each year Jack enters a ballot for a concert ticket. The probability that Jack will win a ticket in any particular year is $0.27$.\n\n**(i)** Find the probability that the first time Jack wins a ticket is\n\n$\\quad$ **(a)** on his 8th attempt, $\\quad$ **[2]**\n\n$\\quad$ **(b)** after his 8th attempt. $\\quad$ **[2]**\n\n**(ii)** Write down an expression for the probability that Jack wins a ticket on exactly 2 of his first 8 attempts, and evaluate this expression. $\\quad$ **[3]**\n\n**(iii)** Find the probability that Jack wins his 3rd ticket on his 9th attempt and his 4th ticket on his 12th attempt. $\\quad$ **[3]**",
               solution_image: ""
             },
@@ -1074,13 +1074,13 @@ const SYLLABUS = {
             },
             {
               id: "S1_DRV_005",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Jacob has four coins. One coin is biased with $\\mathrm{P(head)} = \\dfrac{7}{10}$. The other three are fair. Jacob throws all four coins once. The number of heads is denoted by $X$, with distribution:\n$$\\begin{array}{|c|ccccc|}\\hline x & 0 & 1 & 2 & 3 & 4\\\\\\hline P(X=x) & \\dfrac{3}{80} & a & b & c & \\dfrac{7}{80}\\\\\\hline\\end{array}$$\n\n**(a)** Show that $a = \\dfrac{1}{5}$ and find the values of $b$ and $c$. $\\quad$ **[4]**\n\n**(b)** Find $\\mathrm{E}(X)$. $\\quad$ **[1]**\n\n**(c)** Jacob throws all four coins together 10 times. Find the probability that he obtains exactly one head on fewer than 3 occasions. $\\quad$ **[4]**\n\n**(d)** Find the probability that Jacob obtains exactly one head for the first time on the 7th or 8th time that he throws the 4 coins. $\\quad$ **[2]**",
               solution_image: ""
             },
             {
               id: "S1_DRV_006",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A red spinner has four sides labelled 1, 2, 3, 4. The random variable $X$ denotes the score, with distribution:\n$$\\begin{array}{|c|cccc|}\\hline x & 1 & 2 & 3 & 4\\\\\\hline P(X=x) & 0.28 & p & 2p & 3p\\\\\\hline\\end{array}$$\n\n**(a)** Show that $p = 0.12$. $\\quad$ **[1]**\n\nA fair blue spinner and a fair green spinner each have four sides labelled 1, 2, 3, 4. All three spinners are spun at the same time.\n\n**(b)** Find the probability that the sum of the three scores is 4 or less. $\\quad$ **[3]**\n\n**(c)** Find the probability that the product of the three scores is 4 or less, given that $X$ is odd. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -1092,7 +1092,7 @@ const SYLLABUS = {
             },
             {
               id: "S1_DRV_008",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "Eli has four fair 4-sided dice with sides labelled 1, 2, 3, 4. He throws all four dice at the same time. The random variable $X$ denotes the number of 2s obtained.\n\n**(a)** Show that $\\mathrm{P}(X = 3) = \\dfrac{3}{64}$. $\\quad$ **[2]**\n\n**(b)** Complete the following probability distribution table for $X$:\n$$\\begin{array}{|c|ccccc|}\\hline x & 0 & 1 & 2 & 3 & 4\\\\\\hline P(X=x) & \\dfrac{81}{256} & & & \\dfrac{3}{64} & \\dfrac{1}{256}\\\\\\hline\\end{array}$$\n$\\quad$ **[2]**\n\n**(c)** Find $\\mathrm{E}(X)$. $\\quad$ **[2]**\n\n**(d)** Eli throws the four dice 96 times. Use an approximation to find the probability that he obtains at least two 2s on fewer than 20 of these occasions. $\\quad$ **[5]**",
               solution_image: ""
             },
@@ -1136,7 +1136,7 @@ const SYLLABUS = {
             },
             {
               id: "S1_ND_004",
-              difficulty: 'standard',
+              difficulty: 'hard',
               question_text: "A factory produces chocolate bars whose weights are normally distributed with mean 155 g and standard deviation 6 g. A random sample of 350 bars is chosen.\n\n**(a)** How many of these 350 bars would you expect to weigh between 148 g and 160 g? $\\quad$ **[4]**\n\nA second factory also produces chocolate bars whose weights are normally distributed with mean $\\mu$ g and standard deviation $\\sigma$ g. Tests show that 8% of bars weigh more than 114.0 g and 20% weigh less than 99.5 g.\n\n**(b)** Find the values of $\\mu$ and $\\sigma$. $\\quad$ **[5]**",
               solution_image: ""
             },
