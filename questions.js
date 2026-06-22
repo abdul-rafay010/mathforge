@@ -1471,6 +1471,31 @@ const SYLLABUS = {
               question_text: "The continuous random variable $X$ has cumulative distribution function $F$ given by\n$$F(x) = \\begin{cases} 0 & x < 0, \\\\ -\\dfrac{1}{108}x^3 + \\dfrac{1}{12}x^2 & 0 \\leqslant x \\leqslant 3, \\\\ -\\dfrac{1}{32}x^2 + \\dfrac{7}{16}x + a & 3 < x \\leqslant b, \\\\ 1 & x > b. \\end{cases}$$\n\n**(a)** Verify that the median of $X$ is $3$. $\\quad$ **[1]**\n\n**(b)** Show that $a = -\\dfrac{17}{32}$ and find the value of $b$. $\\quad$ **[3]**\n\n**(c)** Find the probability density function of $X$. $\\quad$ **[2]**\n\n**(d)** Find $E\\left(\\dfrac{1}{X}\\right)$. $\\quad$ **[3]**",
               solution_image: ""
             },
+            {
+              id: "FS_CRV_006",
+              difficulty: 'hard',
+              question_text: "The cumulative distribution function, $F(x)$, of a continuous random variable $X$ is given by\n\n$$F(x) = \\begin{cases} 0 & x < 1 \\\\ (3-x)(x-1)^2 & 1 \\leq x \\leq 2 \\\\ 1 & x > 2 \\end{cases}$$\n\n**(a)** Find $\\mathrm{P}(X > 1.2)$. $\\quad$ **[2]**\n\n**(b)** Show that the median of $X$ lies between $1.59$ and $1.60$. $\\quad$ **[2]**\n\n**(c)** Show that for $1 \\leq x \\leq 2$, the probability density function of $X$ is $f(x) = (1-x)(3x-7)$. $\\quad$ **[3]**\n\n**(d)** Show that the mean of $X$ is $\\dfrac{19}{12}$. $\\quad$ **[4]**\n\n**(e)** Given that the variance of $X$ is $\\dfrac{43}{720}$, find the exact value of $\\mathrm{E}(X^2)$. $\\quad$ **[2]**\n\n**(f)** Find the mode of $X$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_CRV_007",
+              difficulty: 'hard',
+              question_text: "The time, in hours, spent on a piece of homework by a group of students is modelled by the continuous random variable $T$. The cumulative distribution function of $T$ is given by\n\n$$F(t) = \\begin{cases} 0 & t < 0 \\\\ k(2t^3 - t^4) & 0 \\leq t \\leq b \\\\ 1 & t > b \\end{cases}$$\n\nwhere $k$ is a positive constant.\n\n**(a)** If the probability that a student took between $\\tfrac{1}{4}$ and $\\tfrac{3}{4}$ of an hour to complete the homework is $\\dfrac{8}{27}$, show that $k = \\dfrac{16}{27}$. $\\quad$ **[4]**\n\n**(b)** Find the proportion of students who spent over an hour on their homework. $\\quad$ **[2]**\n\n**(c)** Verify that the median is $0.921$, correct to $3$ decimal places. $\\quad$ **[3]**\n\n**(d)** Define the probability density function of $T$, for all values of $t$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_CRV_008",
+              difficulty: 'elite',
+              question_text: "The random variable $X$ has probability density function given by\n\n$$f(x) = \\begin{cases} 2e^{-2x} & x > 0 \\\\ 0 & \\text{otherwise} \\end{cases}$$\n\n**(i)** Show that the distribution function of $X$ is given by\n\n$$F(x) = \\begin{cases} 1 - e^{-2x} & x > 0 \\\\ 0 & \\text{otherwise} \\end{cases}$$\n\n$\\quad$ **[2]**\n\n**(ii)** Show that $\\mathrm{E}(X) = 0.5$ and find the median of $X$. $\\quad$ **[5]**\n\nThe random variable $Y$ is defined by $Y = X^2$.\n\n**(iii)** Find $\\mathrm{P}(Y < y)$ for $y > 0$, and obtain the probability density function of $Y$. $\\quad$ **[5]**\n\n**(iv)** Express $\\mathrm{E}(Y)$ in terms of $\\mathrm{E}(X)$ and $\\mathrm{Var}(X)$, and deduce that $\\mathrm{E}(Y) = 0.5$. $\\quad$ **[3]**\n\n**(v)** Show that the median of $Y$ is the square of the median of $X$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_CRV_009",
+              difficulty: 'elite',
+              question_text: "The continuous random variable $X$ takes values in the interval $0 \\leq x \\leq 5$ only. The graph of its probability density function $f$ consists of two straight line segments: a line from $(0,\\,0)$ to $\\left(3,\\,\\tfrac{2}{7}\\right)$, and a horizontal segment at height $\\tfrac{2}{7}$ for $3 \\leq x \\leq 5$, as shown in the diagram.\n\nFind the distribution function of $X$. $\\quad$ **[4]**\n\nThe random variable $Y$ is given by $Y = \\sqrt{5 - X}$. Find the distribution function of $Y$. $\\quad$ **[5]**\n\nFind $\\mathrm{P}(Y < 2X)$. $\\quad$ **[4]**",
+              diagram_image: "FS_CRV_009_d.svg",
+              solution_image: ""
+            },
 
           ],
 
@@ -1557,6 +1582,12 @@ const SYLLABUS = {
               question_text: "Dev owns a small company which produces bottles of juice. He uses two machines, $X$ and $Y$, to fill empty bottles with juice. He chooses a random sample of 35 bottles filled by machine $X$ and a random sample of 60 bottles filled by machine $Y$. The volumes of juice, $x$ and $y$ respectively, measured in suitable units, are summarised by\n$$\\Sigma x = 30.8, \\quad \\Sigma x^2 = 29.0, \\quad \\Sigma y = 62.4, \\quad \\Sigma y^2 = 76.8$$\nDev claims that the mean volume of juice in bottles filled by machine $Y$ is greater than the mean volume of juice in bottles filled by machine $X$. A test at the $\\alpha\\%$ significance level suggests that there is sufficient evidence to support Dev's claim.\n\nFind the set of possible values of $\\alpha$. $\\quad$ **[9]**",
               solution_image: ""
             },
+            {
+              id: "FS_IN_007",
+              difficulty: 'standard',
+              question_text: "When the fat content of a $100$ g slice of cheesecake is measured by a certain machine, the reading obtained is Normally distributed with mean equal to the actual fat content and standard deviation $1.1$ grams.\n\nThe fat content of $16$ slices, $8$ from each of two varieties, are recorded.\n\n**Variety A:** $21.9,\\ 23.0,\\ 23.9,\\ 22.0,\\ 24.5,\\ 23.4,\\ 25.1,\\ 24.2$ grams\n\n**Variety B:** $22.0,\\ 22.5,\\ 24.0,\\ 20.5,\\ 22.4,\\ 23.5,\\ 21.9,\\ 22.2$ grams\n\n**(a)** Calculate a $98\\%$ confidence interval for the difference between the mean fat content of a $100$ g slice of Variety A and Variety B. $\\quad$ **[5]**\n\n**(b)** Determine the percentage confidence level if the confidence interval for the difference between the mean fat contents is $[0.315,\\ 1.935]$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
 
           ],
           "Chi-squared Tests": [
@@ -1585,6 +1616,42 @@ const SYLLABUS = {
               diagram_image: "FS_CS_004_d.svg",
               solution_image: ""
             },
+            {
+              id: "FS_CS_005",
+              difficulty: 'standard',
+              question_text: "A random sample of $250$ employees of a certain town were classified by their level of education and their eventual average annual earnings.\n\n$$\\begin{array}{l|ccc} & \\text{Non Graduates} & \\text{Graduates} & \\text{Post Graduates} \\\\ \\hline \\text{Up to £10,000} & 17 & 6 & 3 \\\\ \\text{£10,001 to £25,000} & 97 & 16 & 3 \\\\ \\text{£25,001 to £40,000} & 42 & 21 & 8 \\\\ \\text{Over £40,000} & 24 & 10 & 6 \\end{array}$$\n\nInvestigate whether there is any association between level of education and eventual average annual earnings. Use a $\\chi^2$ test at the $1\\%$ level of significance.",
+              solution_image: ""
+            },
+            {
+              id: "FS_CS_006",
+              difficulty: 'hard',
+              question_text: "The length of a certain type of fresh water eel is investigated by a marine biologist. The lengths of $100$ such eels are summarised in the table below.\n\n$$\\begin{array}{l|c} \\text{Length } l \\text{ (cm)} & \\text{No. of Eels} \\\\ \\hline 10 \\leq l < 15 & 9 \\\\ 15 \\leq l < 20 & 12 \\\\ 20 \\leq l < 22 & 17 \\\\ 22 \\leq l < 25 & 44 \\\\ 25 \\leq l < 30 & 17 \\\\ 30 \\leq l < 35 & 1 \\end{array}$$\n\nUse a $\\chi^2$ test at the $1\\%$ level of significance to investigate whether the above data can be modelled by a Normal distribution.",
+              solution_image: ""
+            },
+            {
+              id: "FS_CS_007",
+              difficulty: 'standard',
+              question_text: "Research is carried out into people's perception about their own bodyweight. Subjects are asked whether they consider themselves underweight, at an ideal weight, or overweight. The results are summarised below.\n\n$$\\begin{array}{l|ccc} & \\text{Underweight} & \\text{Ideal Weight} & \\text{Overweight} \\\\ \\hline \\text{Male} & 27 & 29 & 40 \\\\ \\text{Female} & 21 & 37 & 46 \\end{array}$$\n\nInvestigate, using a $\\chi^2$ test at the $10\\%$ level of significance, whether there is evidence that people's perception about their own bodyweight is independent of gender.",
+              solution_image: ""
+            },
+            {
+              id: "FS_CS_008",
+              difficulty: 'standard',
+              question_text: "A total of $228$ items are collected from an archaeological site. The distance from the centre of the site is recorded for each item. The results are summarised in the table below.\n\n$$\\begin{array}{l|cccccc} \\text{Distance (m)} & 0\\text{--}1 & 1\\text{--}2 & 2\\text{--}4 & 4\\text{--}6 & 6\\text{--}9 & 9\\text{--}12 \\\\ \\hline \\text{No. of items} & 22 & 15 & 44 & 37 & 52 & 58 \\end{array}$$\n\nTest, at the $5\\%$ level of significance, whether or not the data can be modelled by a continuous uniform distribution. State your hypotheses clearly. $\\quad$ **[12]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_CS_009",
+              difficulty: 'standard',
+              question_text: "A number of males and females were asked to rate their happiness under the headings \"not happy\", \"fairly happy\" and \"very happy\". The results are shown in the table below.\n\n$$\\begin{array}{l|ccc|c} & \\text{Not happy} & \\text{Fairly happy} & \\text{Very happy} & \\text{Total} \\\\ \\hline \\text{Female} & 9 & 43 & 34 & 86 \\\\ \\text{Male} & 13 & 25 & 16 & 54 \\\\ \\hline \\text{Total} & 22 & 68 & 50 & 140 \\end{array}$$\n\nStating your hypotheses, test at the $5\\%$ level of significance whether or not there is evidence of an association between happiness and gender. Show your working clearly. $\\quad$ **[10]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_CS_010",
+              difficulty: 'hard',
+              question_text: "A research station planted $120$ rows containing $7$ seeds in each row and recorded the number of seeds germinating in each row.\n\n$$\\begin{array}{l|cccccccc} \\text{Seeds germinating} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\\\ \\hline \\text{Rows observed} & 2 & 6 & 11 & 19 & 25 & 32 & 16 & 9 \\end{array}$$\n\n**(a)** Write down two reasons why a binomial distribution may be a suitable model. $\\quad$ **[2]**\n\n**(b)** Show that the probability of a randomly selected seed from this sample germinating is $0.6$. $\\quad$ **[2]**\n\nThe research station used a $\\mathrm{B}(7, 0.6)$ model. The expected frequencies (to $2$ d.p.) are as follows.\n\n$$\\begin{array}{l|cccccccc} \\text{Seeds germinating} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\\\ \\hline \\text{Rows expected} & 0.20 & 2.06 & s & 23.22 & t & 31.35 & 15.68 & 3.36 \\end{array}$$\n\n**(c)** Find the values of $s$ and $t$. $\\quad$ **[2]**\n\n**(d)** Stating your hypotheses clearly, test at the $1\\%$ level of significance whether or not the data can be modelled by a binomial distribution. $\\quad$ **[7]**",
+              solution_image: ""
+            },
 
           ],
           "Non-parametric Tests": [
@@ -1610,6 +1677,30 @@ const SYLLABUS = {
               id: "FS_NP_004",
               difficulty: 'standard',
               question_text: "The manager of a village store is interested in the shopping habits of his customers. From previous records, the median number of items bought per customer was found to be $8$. The manager believes the median number of items bought per customer has increased. He selects a random sample of $15$ customers and records the number of items each customer buys at his store. The results, in increasing order, are:\n\n$6, 6, 7, 9, 9, 10, 15, 17, 17, 23, 26, 34, 40, 56, 74$\n\n**(a)** Suggest a reason why using a Wilcoxon signed-rank test to examine the manager's belief might not be appropriate in this situation. $\\quad$ **[1]**\n\n**(b)** Use a sign test at the $5\\%$ significance level to investigate the manager's belief. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_NP_005",
+              difficulty: 'hard',
+              question_text: "In order to assess the effectiveness of a publicity campaign to increase vaccination uptake, health authorities report the percentage of $18$-year-olds receiving a booster before and after the campaign. The results for a random sample of $9$ authorities are as follows.\n\n$$\\begin{array}{l|ccccccccc} \\text{Authority} & A & B & C & D & E & F & G & H & I \\\\ \\hline \\text{Before} & 76 & 98 & 88 & 81 & 86 & 84 & 83 & 93 & 80 \\\\ \\text{After} & 82 & 97 & 93 & 77 & 83 & 95 & 91 & 95 & 89 \\end{array}$$\n\n**(i)** Explain why the use of paired data is appropriate in this context. $\\quad$ **[1]**\n\n**(ii)** Carry out an appropriate Wilcoxon signed-rank test at the $5\\%$ significance level to determine whether the campaign appears to have been successful in raising the percentage receiving the booster. $\\quad$ **[10]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_NP_006",
+              difficulty: 'standard',
+              question_text: "William takes a bus regularly on the same journey, sometimes in the morning and sometimes in the afternoon. He records journey times on $7$ randomly chosen mornings and $8$ randomly chosen afternoons. The results, each correct to the nearest minute, are listed in ascending order below, where M denotes a morning time and A denotes an afternoon time.\n\n$$\\begin{array}{ccccccccccccccc} \\text{M} & \\text{A} & \\text{A} & \\text{M} & \\text{M} & \\text{M} & \\text{M} & \\text{M} & \\text{M} & \\text{A} & \\text{A} & \\text{A} & \\text{A} & \\text{A} & \\text{A} \\\\ 19 & 20 & 22 & 24 & 25 & 26 & 28 & 30 & 31 & 33 & 35 & 37 & 38 & 39 & 42 \\end{array}$$\n\nWilliam wishes to test for a difference between the average times of morning and afternoon journeys. Using a Wilcoxon rank-sum test at the $5\\%$ significance level, carry out the test, stating the rejection region. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_NP_007",
+              difficulty: 'elite',
+              question_text: "A Wilcoxon rank-sum test with samples of sizes $11$ and $12$ is carried out.\n\n**(i)** What is the least possible value of the test statistic $W$? $\\quad$ **[2]**\n\n**(ii)** The null hypothesis is that the two samples came from identical populations. Given that the null hypothesis was rejected at the $1\\%$ level using a $2$-tail test, find the set of possible values of $W$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FS_NP_008",
+              difficulty: 'hard',
+              question_text: "Random samples of $6$ elastic bands were selected from each of two brands $A$ and $B$ and their breaking strengths measured. The results, in suitable units and arranged in ascending order, are as follows.\n\n**Brand A:** $\\quad 5.6,\\ 8.7,\\ 9.2,\\ 10.7,\\ 11.2,\\ 12.6$\n\n**Brand B:** $\\quad 10.1,\\ 11.6,\\ 12.0,\\ 12.2,\\ 12.9,\\ 13.5$\n\n**(i)** Give one advantage that a non-parametric test might have over a parametric test in this context. $\\quad$ **[1]**\n\n**(ii)** Carry out a Wilcoxon rank-sum test at the $5\\%$ significance level to determine whether there is a difference between the average breaking strengths of the two brands. $\\quad$ **[7]**\n\n**(iii)** An extra elastic band of Brand $B$ was tested and found to have a breaking strength exceeding all of the other $12$ bands. Determine whether this information alters the conclusion of your test. $\\quad$ **[3]**",
               solution_image: ""
             },
 
