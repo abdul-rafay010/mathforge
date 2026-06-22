@@ -2085,6 +2085,95 @@
       background: var(--gold3);
     }
 
+    .masthead-calc-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sc);
+      font-size: .62rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: all .15s;
+      line-height: 1;
+    }
+    .masthead-calc-btn:hover {
+      background: var(--gold3);
+      border-color: var(--gold);
+    }
+    .masthead-calc-btn.active {
+      background: var(--gold3);
+      border-color: var(--gold);
+    }
+
+    /* Calculator slide-in panel */
+    #calc-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 380px;
+      max-width: 95vw;
+      height: 100vh;
+      background: var(--ink2);
+      border-left: 1px solid var(--gold-border);
+      z-index: 8000;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .28s cubic-bezier(.4, 0, .2, 1);
+      box-shadow: -8px 0 32px rgba(0,0,0,.35);
+    }
+    #calc-panel.open {
+      transform: translateX(0);
+    }
+    .calc-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+    .calc-panel-title {
+      font-family: var(--sc);
+      font-size: .66rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold2);
+    }
+    .calc-close-btn {
+      background: none;
+      border: none;
+      color: var(--parchment4);
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 2px 6px;
+      transition: color .15s;
+    }
+    .calc-close-btn:hover { color: var(--parchment); }
+    #calc-container {
+      flex: 1;
+      overflow: hidden;
+    }
+    #calc-container iframe,
+    #calc-container .dcg-calculator {
+      width: 100% !important;
+      height: 100% !important;
+      border: none !important;
+    }
+    #calc-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 7999;
+      background: transparent;
+    }
+    #calc-backdrop.open { display: block; }
+
     .theme-toggle {
       width: 28px;
       height: 28px;
@@ -3122,9 +3211,33 @@
         <span class="masthead-link" onclick="goTestBuilder()">Practice Mode</span>
         <span class="masthead-link" onclick="goProgress()">My Progress</span>
         <span class="masthead-link" onclick="goArticles()">Essays</span>
+        <button class="masthead-calc-btn" onclick="toggleCalc()" id="calc-toggle-btn" title="Scientific Calculator">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1"/>
+            <rect x="3" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="6" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="9" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="3" y="6" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="6" y="6" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="9" y="6" width="5" height="4.5" rx=".3" fill="currentColor"/>
+            <rect x="3" y="9" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="6" y="9" width="2" height="1.5" rx=".3" fill="currentColor"/>
+          </svg>
+          Calc
+        </button>
         <div class="masthead-ornament">∂ · ∫ · ∑</div>
       </div>
     </div>
+
+    <!-- CALCULATOR PANEL -->
+    <div id="calc-panel" aria-label="Scientific Calculator" role="complementary">
+      <div class="calc-panel-header">
+        <span class="calc-panel-title">Calculator</span>
+        <button class="calc-close-btn" onclick="toggleCalc()" aria-label="Close calculator">✕</button>
+      </div>
+      <div id="calc-container"></div>
+    </div>
+    <div id="calc-backdrop" onclick="toggleCalc()"></div>
 
     <!-- BREADCRUMB -->
     <div id="crumb"></div>
@@ -3367,6 +3480,64 @@
     //  blocking script in <head>; this just handles toggling.
     // ══════════════════════════════════════════════════
 
+    // ══════════════════════════════════════════════════
+    //  CALCULATOR — Desmos Scientific, lazy-loaded
+    //  Opens as a slide-in panel; Desmos API is fetched
+    //  only on first open so it doesn't affect page load.
+    // ══════════════════════════════════════════════════
+
+    let _calcOpen = false;
+    let _calcReady = false;
+    let _calcInstance = null;
+
+    function toggleCalc() {
+      _calcOpen = !_calcOpen;
+      const panel = document.getElementById('calc-panel');
+      const backdrop = document.getElementById('calc-backdrop');
+      const btn = document.getElementById('calc-toggle-btn');
+      panel.classList.toggle('open', _calcOpen);
+      backdrop.classList.toggle('open', _calcOpen);
+      btn.classList.toggle('active', _calcOpen);
+
+      if (_calcOpen && !_calcReady) {
+        _initCalc();
+      }
+    }
+
+    function _initCalc() {
+      // Load Desmos API only on first open
+      const script = document.createElement('script');
+      script.src = 'https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
+      script.onload = function () {
+        const container = document.getElementById('calc-container');
+        if (!container || typeof Desmos === 'undefined') return;
+        _calcInstance = Desmos.ScientificCalculator(container, {
+          keypad: true,
+          expressions: false,
+          settingsMenu: false,
+          invertedColors: document.documentElement.getAttribute('data-theme') !== 'light'
+        });
+        _calcReady = true;
+      };
+      script.onerror = function () {
+        const container = document.getElementById('calc-container');
+        if (container) {
+          container.innerHTML = '<div style="padding:24px;font-family:var(--mono);font-size:.75rem;color:var(--parchment4);text-align:center">'
+            + 'Calculator failed to load.<br>Check your connection and try again.</div>';
+        }
+      };
+      document.head.appendChild(script);
+    }
+
+    // Keep calculator colour scheme in sync when theme is toggled
+    function _syncCalcTheme() {
+      if (_calcInstance && _calcReady) {
+        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+        _calcInstance.updateSettings({ invertedColors: isDark });
+      }
+    }
+
+
     function toggleTheme() {
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
       if (isLight) {
@@ -3376,6 +3547,7 @@
         document.documentElement.setAttribute('data-theme', 'light');
         try { localStorage.setItem('mathforge_theme', 'light'); } catch (e) { }
       }
+      _syncCalcTheme();
     }
 
     // ══════════════════════════════════════════════════
@@ -4052,7 +4224,10 @@
 
     function buildGradePrediction(pct, questions, fullyScored) {
       const sec = thwDetectSection(questions);
-      if (!sec) return '';
+      if (!sec) {
+        // Mixed sections or unrecognised prefix — silently skip, not an error
+        return '';
+      }
       const mapping = SECTION_TO_THRESH_GROUP[sec];
       const comps = (THRESH_COMPONENTS[mapping.course] || []).filter(c => c.group === mapping.group);
       if (!comps.length) return '';
@@ -4060,8 +4235,6 @@
       const grader = predictGrade(pct);
       if (!grader) return '';
 
-      // Walk sessions most-recent-first, take the first variant with data
-      // in each session, stop once we have up to 4 results for the spread.
       const results = [];
       for (const sess of THRESH_SESSIONS) {
         const sessData = courseData[sess.key];
@@ -4077,13 +4250,16 @@
       const latest = results[0];
       const gradeSet = [...new Set(results.map(r => r.grade))];
       const spreadText = gradeSet.length > 1
-        ? 'Recent sessions range ' + gradeSet.join('–') + ' at this percentage'
-        : 'Consistently ' + gradeSet[0] + ' across recent sessions';
+        ? 'Ranges ' + gradeSet.join('–') + ' across recent sessions'
+        : 'Consistent across recent sessions';
 
       return '<div class="trs-grade-predict">'
-        + '<span class="tgp-label">Estimated Grade · ' + mapping.group + (fullyScored ? '' : ' · partial') + '</span>'
+        + '<div style="width:100%;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap">'
+        + '<span class="tgp-label">Grade Prediction · ' + mapping.group + (fullyScored ? '' : ' · partial') + '</span>'
         + '<span class="tgp-grade">' + latest.grade + '</span>'
-        + '<span class="tgp-note">' + spreadText + ' (' + results.map(r => r.label + ' ' + r.grade).join(', ') + ')' + (fullyScored ? '' : ' — score remaining questions for a full estimate') + '</span>'
+        + '<span style="font-family:var(--mono);font-size:.65rem;color:var(--parchment2)">' + latest.label + '</span>'
+        + '</div>'
+        + '<span class="tgp-note">' + spreadText + ' · ' + results.map(r => r.label + ': ' + r.grade).join(', ') + (fullyScored ? '' : ' · score all questions for full estimate') + '</span>'
         + '</div>';
     }
 
