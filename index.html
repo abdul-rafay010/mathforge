@@ -31,8 +31,7 @@
        window.KATEX_FAILED is set and renderMathInElement gracefully
        falls back to showing raw LaTeX rather than crashing.
        A retry button appears if the initial load fails. -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
     crossorigin="anonymous">
   <script>
     window.KATEX_LOADED = false;
@@ -69,22 +68,15 @@
     }
   </script>
 
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
-    crossorigin="anonymous"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" crossorigin="anonymous"
     onerror="_onKatexFailed()"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
-    crossorigin="anonymous"
-    onload="_onKatexReady()"
-    onerror="_onKatexFailed()"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="_onKatexReady()" onerror="_onKatexFailed()"></script>
 
   <!-- jsPDF — used to generate the downloadable self-mark report.
        If the CDN fails, downloadSelfMarkReport() already checks for
        window.jspdf and shows a friendly message rather than crashing. -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
-    crossorigin="anonymous"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"
     onerror="window.JSPDF_FAILED=true"></script>
 
   <style>
@@ -2068,16 +2060,27 @@
     }
 
     @media (max-width: 1100px) {
-      .masthead-ornament { display: none; }
+      .masthead-ornament {
+        display: none;
+      }
     }
 
     @media (max-width: 860px) {
-      .masthead-link { padding: 5px 10px; letter-spacing: .12em; }
-      .masthead-calc-btn { padding: 5px 8px; letter-spacing: .1em; }
+      .masthead-link {
+        padding: 5px 10px;
+        letter-spacing: .12em;
+      }
+
+      .masthead-calc-btn {
+        padding: 5px 8px;
+        letter-spacing: .1em;
+      }
     }
 
     @media (max-width: 700px) {
-      .masthead-link { display: none; }
+      .masthead-link {
+        display: none;
+      }
     }
 
     .masthead-link {
@@ -2114,10 +2117,12 @@
       transition: all .15s;
       line-height: 1;
     }
+
     .masthead-calc-btn:hover {
       background: var(--gold3);
       border-color: var(--gold);
     }
+
     .masthead-calc-btn.active {
       background: var(--gold3);
       border-color: var(--gold);
@@ -2138,11 +2143,13 @@
       flex-direction: column;
       transform: translateX(100%);
       transition: transform .28s cubic-bezier(.4, 0, .2, 1);
-      box-shadow: -8px 0 32px rgba(0,0,0,.35);
+      box-shadow: -8px 0 32px rgba(0, 0, 0, .35);
     }
+
     #calc-panel.open {
       transform: translateX(0);
     }
+
     .calc-panel-header {
       display: flex;
       align-items: center;
@@ -2151,6 +2158,7 @@
       border-bottom: 1px solid var(--rule);
       flex-shrink: 0;
     }
+
     .calc-panel-title {
       font-family: var(--sc);
       font-size: .66rem;
@@ -2158,6 +2166,7 @@
       text-transform: uppercase;
       color: var(--gold2);
     }
+
     .calc-close-btn {
       background: none;
       border: none;
@@ -2167,17 +2176,23 @@
       padding: 2px 6px;
       transition: color .15s;
     }
-    .calc-close-btn:hover { color: var(--parchment); }
+
+    .calc-close-btn:hover {
+      color: var(--parchment);
+    }
+
     #calc-container {
       flex: 1;
       overflow: hidden;
     }
+
     #calc-container iframe,
     #calc-container .dcg-calculator {
       width: 100% !important;
       height: 100% !important;
       border: none !important;
     }
+
     #calc-backdrop {
       display: none;
       position: fixed;
@@ -2185,7 +2200,10 @@
       z-index: 7999;
       background: transparent;
     }
-    #calc-backdrop.open { display: block; }
+
+    #calc-backdrop.open {
+      display: block;
+    }
 
     .theme-toggle {
       width: 28px;
@@ -3177,8 +3195,7 @@
   <!-- Plausible Analytics — privacy-first, no cookies, GDPR-compliant.
        Replace YOUR-DOMAIN.COM with your actual domain once set up at plausible.io
        This line can be removed entirely without affecting anything else. -->
-  <script defer data-domain="YOUR-DOMAIN.COM"
-    src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="YOUR-DOMAIN.COM" src="https://plausible.io/js/script.js"></script>
 
 </head>
 
@@ -3190,8 +3207,7 @@
     color:#c9a84c;">
     <span>⚠ Mathematical notation failed to load — equations may show as raw text.
       Check your connection and
-      <button onclick="location.reload()"
-        style="background:none;border:1px solid #5a4a22;color:#c9a84c;
+      <button onclick="location.reload()" style="background:none;border:1px solid #5a4a22;color:#c9a84c;
                padding:3px 10px;cursor:pointer;font-family:inherit;font-size:inherit;">
         reload the page
       </button>
@@ -3226,15 +3242,15 @@
         <span class="masthead-link" onclick="goArticles()">Essays</span>
         <button class="masthead-calc-btn" onclick="toggleCalc()" id="calc-toggle-btn" title="Scientific Calculator">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1"/>
-            <rect x="3" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
-            <rect x="6" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
-            <rect x="9" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
-            <rect x="3" y="6" width="2" height="1.5" rx=".3" fill="currentColor"/>
-            <rect x="6" y="6" width="2" height="1.5" rx=".3" fill="currentColor"/>
-            <rect x="9" y="6" width="5" height="4.5" rx=".3" fill="currentColor"/>
-            <rect x="3" y="9" width="2" height="1.5" rx=".3" fill="currentColor"/>
-            <rect x="6" y="9" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1" />
+            <rect x="3" y="3" width="2" height="1.5" rx=".3" fill="currentColor" />
+            <rect x="6" y="3" width="2" height="1.5" rx=".3" fill="currentColor" />
+            <rect x="9" y="3" width="2" height="1.5" rx=".3" fill="currentColor" />
+            <rect x="3" y="6" width="2" height="1.5" rx=".3" fill="currentColor" />
+            <rect x="6" y="6" width="2" height="1.5" rx=".3" fill="currentColor" />
+            <rect x="9" y="6" width="5" height="4.5" rx=".3" fill="currentColor" />
+            <rect x="3" y="9" width="2" height="1.5" rx=".3" fill="currentColor" />
+            <rect x="6" y="9" width="2" height="1.5" rx=".3" fill="currentColor" />
           </svg>
           Calc
         </button>
