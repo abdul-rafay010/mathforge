@@ -64,7 +64,25 @@ const SYLLABUS = {
               difficulty: 'hard',
               question_text: "The points $(6, 1)$ and $(-2, 7)$ lie at opposite ends of a diameter of a circle.\n\n**(a)** Find the equation of the circle. $\\quad$ **[3]**\n\n**(b)** There are two tangents to the circle which have gradient $-\\dfrac{1}{2}$. Find the exact values of the $x$-coordinates of the points at which these tangents touch the circle. $\\quad$ **[5]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_CG_010",
+              difficulty: "hard",
+              question_text: "Show that the curve with equation $y^2 + 2xy - 15 = 0$ and the line with equation $3x - y + k = 0$ meet for all values of the constant $k$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CG_011",
+              difficulty: "hard",
+              question_text: "Circles $C_1$ and $C_2$ have equations\n$$x^2 + y^2 + 6x - 10y + 18 = 0 \\quad \\text{and} \\quad (x-9)^2 + (y+4)^2 - 64 = 0$$\nrespectively.\n\n**(a)** Find the distance between the centres of the circles. $\\quad$ **[4]**\n\n$P$ and $Q$ are points on $C_1$ and $C_2$ respectively. The distance between $P$ and $Q$ is denoted by $d$.\n\n**(b)** Find the greatest and least possible values of $d$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_CG_012",
+              difficulty: "hard",
+              question_text: "There are two points on a circle $A(2, 1)$ and $B(5, 2)$ with centre $C$ which lies on the $x$-axis.\n\n**(a)** Find the equation of the normal to the line $AB$ which passes through the point $C$. $\\quad$ **[2]**\n\n**(b)** Find the equation of the circle. $\\quad$ **[2]**\n\n**(c)** There exists a point $D(x, y)$ on the circle such that angle $BAD = 90°$. Find the coordinates of $D$. $\\quad$ **[2]**",
+              solution_image: ""
+            },
           ],
           "Trigonometry": [
             {
@@ -115,7 +133,19 @@ const SYLLABUS = {
               difficulty: 'hard',
               question_text: "**(a)** Find all the solutions to the equation $2\\cos 2\\theta = 4\\sin 2\\theta\\cos 2\\theta$ in the interval $0 \\leq \\theta \\leq 2\\pi$, giving your answers in radians as multiples of $\\pi$. $\\quad$ **[6]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_TR_009",
+              difficulty: "standard",
+              question_text: "**(i)** Describe geometrically the transformation that maps the graph of $y = \\tfrac{1}{3}\\tan x$ onto the graph of $y = 3\\tan x$.\n\n**(ii)** On the graph of $y = \\tan x$, a point $S$ has coordinates $(60°,\\, \\sqrt{3})$. State the new coordinates of point $S$ after a transformation onto each of the graphs in part **(i)**. Give your answers in surd form. $\\quad$ **[6 marks]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_TR_010",
+              difficulty: "hard",
+              question_text: "**(i)** Prove the identity $\\left(\\dfrac{1}{\\sin x} - \\dfrac{1}{\\tan x}\\right)^2 \\equiv \\dfrac{1 - \\cos x}{1 + \\cos x}$. $\\quad$ **[4]**\n\n**(ii)** Hence solve the equation $\\left(\\dfrac{1}{\\sin x} - \\dfrac{1}{\\tan x}\\right)^2 = \\dfrac{2}{5}$ for $0 \\leq x \\leq 2\\pi$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
           ],
           "Binomial Expansion": [
             {
@@ -161,7 +191,25 @@ const SYLLABUS = {
               difficulty: 'elite',
               question_text: "In the expansion of $(a + bx)^7$, where $a$ and $b$ are non-zero constants, the coefficients of $x$, $x^2$ and $x^4$ are the first, second and third terms respectively of a geometric progression.\n\nFind the value of $\\dfrac{a}{b}$. $\\quad$ **[5]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_BE_008",
+              difficulty: "standard",
+              question_text: "**(a)** Find the coefficients of $x^4$ and $x^5$ in the expansion of $(4 - ax)^6$, where $a$ is a constant. Give your answers in terms of $a$. $\\quad$ **[3]**\n\n**(b)** Given that the coefficient of $x^5$ in the expansion of $(bx + 5)(2 - bx)^7$ is 350, find the positive value of $b$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_BE_009",
+              difficulty: "hard",
+              question_text: "In the expansion of $\\left(ax + \\dfrac{3}{x^2}\\right)^6$, where $a$ is a positive constant, the coefficient of $\\dfrac{1}{x^3}$ is 67.5.\n\nFind the value of $a$ and hence find the term independent of $x$ in the expansion. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_BE_010",
+              difficulty: "standard",
+              question_text: "It is given that the coefficient of $x^3$ is 21 in the expansion of\n$$\\left(4x + \\frac{1}{kx}\\right)^7$$\nwhere $k$ is a positive constant. Find the value of $k$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
           ],
           "Differentiation": [
             {
@@ -229,7 +277,31 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "A curve is such that $\\dfrac{d^2y}{dx^2} = \\dfrac{24}{x^3} - 4$. The curve has a stationary point at $P$ where $x = 2$.\n\n**(i)** State, with a reason, the nature of this stationary point. $\\quad$ **[1]**\n\n**(ii)** Find an expression for $\\dfrac{dy}{dx}$. $\\quad$ **[4]**\n\n**(iii)** Given that the curve passes through the point $(1, 13)$, find the coordinates of the stationary point $P$. $\\quad$ **[4]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_DF_012",
+              difficulty: "hard",
+              question_text: "A curve has equation $y = 4x^{\\frac{3}{2}} - 1$.\n\n**(a)** Find the equation of the normal to the curve at the point $A(1, 3)$, giving your answer in the form $y = mx + c$. $\\quad$ **[3]**\n\nA point is moving along the curve $y = 4x^{\\frac{3}{2}} - 1$ in such a way that at $A$ the rate of increase of the $x$-coordinate is $0.5$ cm s$^{-1}$.\n\n**(b)** Find the rate of increase of the $y$-coordinate at $A$. $\\quad$ **[2]**\n\nAt $A$ the moving point suddenly changes direction and speed, and moves down the normal in such a way that the rate of decrease of the $y$-coordinate is constant at $0.8$ cm s$^{-1}$.\n\n**(c)** As the point moves down the normal, find the rate of change of its $x$-coordinate. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_013",
+              difficulty: "standard",
+              question_text: "The equation of a curve is $y = 2x^2 - 3$. Two points $A$ and $B$ with $x$-coordinates $2$ and $(2 + h)$ respectively lie on the curve.\n\n**(a)** Find and simplify an expression for the gradient of the chord $AB$ in terms of $h$. $\\quad$ **[3]**\n\n**(b)** Explain how the gradient of the curve at the point $A$ can be deduced from the answer to part **(a)**, and state the value of this gradient. $\\quad$ **[2]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_014",
+              difficulty: "hard",
+              question_text: "A container is in the form of a right circular cone. The angle between the axis and the slant height is $\\alpha$, where $\\alpha = \\tan^{-1}\\!\\left(\\tfrac{1}{2}\\right)$. Initially the container is empty, and then liquid is added at the rate of $14$ cm³ per minute. The depth of liquid in the container at time $t$ minutes is $x$ cm.\n\n**(i)** Show that the volume, $V$ cm³, of liquid in the container when the depth is $x$ cm is given by $V = \\tfrac{1}{12}\\pi x^3$. $\\quad$ **[2]**\n\n**(ii)** Find the rate at which the depth of the liquid is increasing at the instant when the depth is 8 cm. Give your answer in cm per minute correct to 2 decimal places. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_DF_015",
+              difficulty: "hard",
+              question_text: "The curve $y = \\mathrm{f}(x)$ has a stationary point at $(2, 10)$ and it is given that $\\mathrm{f}''(x) = \\dfrac{12}{x^3}$.\n\n**(i)** Find $\\mathrm{f}(x)$. $\\quad$ **[6]**\n\n**(ii)** Find the coordinates of the other stationary point. $\\quad$ **[2]**\n\n**(iii)** Find the nature of each of the stationary points. $\\quad$ **[2]**",
+              solution_image: ""
+            },
           ],
           "Quadratics": [
             {
@@ -277,7 +349,13 @@ const SYLLABUS = {
               difficulty: 'hard',
               question_text: "A function f is defined by $\\mathrm{f}(x) = px^2 - 4x + q$ for $x \\in \\mathbb{R}$, where $p$ and $q$ are constants.\n\n**(a)** It is given that $p = 2$ and $q = 10$.\n\n$\\quad$ **(i)** Express $\\mathrm{f}(x)$ in the form $a(x+b)^2 + c$, where $a$, $b$ and $c$ are constants. $\\quad$ **[3]**\n\n$\\quad$ **(ii)** State the range of f. $\\quad$ **[1]**\n\n**(b)** It is given instead that $q = -5$ and the roots of $\\mathrm{f}(x) = 0$ are $5m$ and $-9m$, where $m$ is a constant. Find the values of $p$ and $m$. $\\quad$ **[5]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_QD_008",
+              difficulty: "hard",
+              question_text: "The function $\\mathrm{f}$ is defined, for $x \\in \\mathbb{R}$, by $\\mathrm{f}: x \\mapsto x^2 + ax + b$, where $a$ and $b$ are constants.\n\n**(i)** In the case where $a = 6$ and $b = -8$, find the range of $\\mathrm{f}$. $\\quad$ **[3]**\n\n**(ii)** In the case where $a = 5$, the roots of the equation $\\mathrm{f}(x) = 0$ are $k$ and $-2k$, where $k$ is a constant. Find the values of $b$ and $k$. $\\quad$ **[3]**\n\n**(iii)** Show that if the equation $\\mathrm{f}(x + a) = a$ has no real roots, then $a^2 < 4(b - a)$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
           ],
 
           "Integration": [
@@ -362,7 +440,19 @@ const SYLLABUS = {
               diagram_image: "P1_IN_013_d.svg",
               solution_image: ""
             },
-
+            {
+              id: "P1_IN_014",
+              difficulty: "hard",
+              question_text: "A curve passes through the point $\\left(\\tfrac{2}{3}, \\tfrac{2}{3}\\right)$ and is such that $\\dfrac{dy}{dx} = \\dfrac{-12}{(3x-5)^2}$.\n\n**(a)** Find the equation of the curve. $\\quad$ **[4]**\n\n**(b)** The curve is transformed by a stretch in the $x$-direction with a scale factor of $\\tfrac{1}{4}$ followed by a translation of $\\begin{pmatrix}-4\\\\8\\end{pmatrix}$. Find the equation of the new curve. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P1_IN_015",
+              difficulty: "elite",
+              question_text: "The diagram shows part of the curve $y = \\sqrt{9 - 2x^2}$. The point $P(2, 1)$ lies on the curve and the normal to the curve at $P$ intersects the $x$-axis at $A$ and the $y$-axis at $B$.\n\n**(i)** Show that $B$ is the mid-point of $AP$. $\\quad$ **[6]**\n\nThe shaded region is bounded by the curve, the $y$-axis and the line $y = 1$.\n\n**(ii)** Find, showing all necessary working, the exact volume obtained when the shaded region is rotated through $360°$ about the $y$-axis. $\\quad$ **[5]**",
+              diagram_image: "P1_IN_015_d.jpeg",
+              solution_image: ""
+            },
           ],
 
           "Sequences & Series": [
@@ -425,7 +515,13 @@ const SYLLABUS = {
               difficulty: 'hard',
               question_text: "An arithmetic progression has first term 2 and common difference $d$. The sum of the first $n$ terms is denoted by $S_n$.\n\n**(a)** It is given that $(S_1 - 1)$, $S_2$, $S_3$ are the first three terms of a second arithmetic progression. Find the value of $d$. $\\quad$ **[4]**\n\n**(b)** Hence find the difference between the values of the 15th terms of the two arithmetic progressions. $\\quad$ **[4]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_SS_011",
+              difficulty: "hard",
+              question_text: "A geometric progression has three consecutive terms $J$, $K$ and $L$ with common ratio $r$. There also exists an arithmetic progression that has three consecutive terms $J$, $2K$ and $L$.\n\nFind the possible values of $r$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
           ],
 
           "Functions": [
@@ -513,7 +609,12 @@ const SYLLABUS = {
               question_text: "A function $f$ is defined by\n$$f(x) = px^2 - 2x + p + 4$$\nfor $x \\in \\mathbb{R}$, where $p$ is a constant.\n\n**(a)** Find the exact values of $p$ for which the equation $f(x) = 0$ has repeated roots. $\\quad$ **[3]**\n\nA function $g$ is defined by\n$$g(x) = px^2 - 2x + p + 4$$\nfor $x \\geqslant a$, where $p$ and $a$ are positive constants.\n\n**(b)(i)** Show that the least value of $a$ for which $g^{-1}$ exists is $\\dfrac{1}{p}$. $\\quad$ **[2]**\n\n**(ii)** Given that $p = 2$ and that $g^{-1}$ exists, find an expression for $g^{-1}(x)$. $\\quad$ **[4]**",
               solution_image: ""
             },
-
+            {
+              id: "P1_FN_015",
+              difficulty: "elite",
+              question_text: "Functions $\\mathrm{f}$ and $\\mathrm{g}$ are defined as follows:\n$$\\mathrm{f}(x) = \\sin x, \\quad 0 \\leq x \\leq \\pi$$\n$$\\mathrm{g}(x) = 3\\sin(x - \\pi) + 2, \\quad \\pi \\leq x \\leq 2\\pi$$\n\n**(a)** Describe fully the transformations that have been combined to transform $\\mathrm{f}(x)$ to $\\mathrm{g}(x)$. $\\quad$ **[4]**\n\n**(b)** Sketch the graphs of $y = \\mathrm{f}(x)$ and $y = \\mathrm{g}(x)$ on the same axes. $\\quad$ **[4]**\n\n**(c)** Find the value of $\\mathrm{g}^{-1}\\mathrm{f}\\!\\left(\\tfrac{1}{3}\\pi\\right)$. $\\quad$ **[4]**\n\n**(d)** A student claims that a composite function $\\mathrm{fg}$ cannot be formed. Do you agree? Explain your answer. $\\quad$ **[1]**",
+              solution_image: ""
+            },
           ],
           "Circular Measure": [
             {
@@ -593,7 +694,21 @@ const SYLLABUS = {
               question_text: "A circle with centre $A$ and radius $r$ passes through points $B$, $C$ and $D$. A larger circle with centre $C$ and radius $s$ passes through $B$ and $D$. The length $BD$ is also $s$.\n\n**(a)** Show that $s = \\sqrt{3}\\,r$. $\\quad$ **[2]**\n\n**(b)** Find an expression for the area of the shaded region in the form $(a + b\\pi)r^2$, where $a$ and $b$ are constants to be found. $\\quad$ **[7]**",
               diagram_image: "P1_CM_012_d.jpg",
               solution_image: ""
-            }
+            },
+            {
+              id: "P1_CM_013",
+              difficulty: "elite",
+              question_text: "The diagram shows a metal plate $OABCDEF$ consisting of sectors of two circles, each with centre $O$. The radii of sectors $AOB$ and $EOF$ are $3r$ cm and the radius of sector $COD$ is $r$ cm. Angle $AOB$ = angle $EOF$ = $\\theta$ radians and angle $COD$ = $2\\theta$ radians.\n\nIt is given that the perimeter of the plate is $\\left(20 + \\tfrac{16}{3}\\pi\\right)$ cm and the area of the plate is $\\tfrac{40}{3}\\pi$ cm².\n\nGiven that $r > \\tfrac{7}{4}$ and $\\theta < \\tfrac{5}{4}$, find the exact values of $r$ and $\\theta$. $\\quad$ **[6]**",
+              diagram_image: "P1_CM_013_d.jpg",
+              solution_image: ""
+            },
+            {
+              id: "P1_CM_014",
+              difficulty: "hard",
+              question_text: "In the diagram, $OPQ$ is a sector of a circle, centre $O$ and radius $r$ cm. Angle $QOP = \\theta$ radians. The tangent to the circle at $Q$ meets $OP$ extended at $R$.\n\n**(i)** Show that the area, $A$ cm², of the shaded region is given by $A = \\tfrac{1}{2}r^2(\\tan\\theta - \\theta)$. $\\quad$ **[2]**\n\n**(ii)** In the case where $\\theta = 0.8$ and $r = 15$, evaluate the length of the perimeter of the shaded region. $\\quad$ **[4]**",
+              diagram_image: "P1_CM_014_d.jpeg",
+              solution_image: ""
+            },
           ]
         }
       },
@@ -779,6 +894,24 @@ const SYLLABUS = {
               question_text: "The equation of a curve is $y = x\\tan^{-1} 3x$ for $-\\pi \\leq x \\leq \\pi$.\n\n**(a)** Find the exact value of the gradient of the curve when $x = \\dfrac{1}{3}$. $\\quad$ **[4]**\n\n**(b)** Find the exact value of $\\displaystyle\\int_0^{\\frac{1}{3}} y\\,dx$. $\\quad$ **[6]**",
               solution_image: ""
             },
+            {
+              id: "P3_IN_017",
+              difficulty: "hard",
+              question_text: "Using integration by parts, find the exact value of\n$$\\int_0^2 \\tan^{-1}\\!\\left(\\tfrac{1}{2}x\\right)dx$$\n$\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_018",
+              difficulty: "elite",
+              question_text: "Let $\\mathrm{f}(x) = \\dfrac{1}{(9-x)\\sqrt{x}}$.\n\n**(a)** Find the $x$-coordinate of the stationary point of the curve with equation $y = \\mathrm{f}(x)$. $\\quad$ **[4]**\n\n**(b)** Using the substitution $u = \\sqrt{x}$, show that\n$$\\int_0^4 \\mathrm{f}(x)\\,dx = \\tfrac{1}{3}\\ln 5$$\n$\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_IN_019",
+              difficulty: "elite",
+              question_text: "**(a)** Find the quotient and remainder when $x^4 + 16$ is divided by $x^2 + 4$. $\\quad$ **[3]**\n\n**(b)** Hence show that\n$$\\int_2^{2\\sqrt{3}} \\frac{x^4 + 16}{x^2 + 4}\\,dx = \\tfrac{4}{3}(\\pi + 4)$$\n$\\quad$ **[5]**",
+              solution_image: ""
+            },
           ],
           "Differentiation": [
             {
@@ -792,6 +925,24 @@ const SYLLABUS = {
               difficulty: 'hard',
               question_text: "Note: a function f is even if $\\mathrm{f}(-x) = \\mathrm{f}(x)$ for every $x$ in its domain.]\n\nThe function $\\mathrm{f}(x) = \\ln(1 + x^2)$ has domain $-3 \\leq x \\leq 3$.\n\n**(i)** Show algebraically that the function is even. State how this property relates to the shape of the curve. $\\quad$ **[3]**\n\n**(ii)** Find the gradient of the curve at the point $P(2, \\ln 5)$. $\\quad$ **[4]**\n\n**(iii)** Explain why the function does not have an inverse for the domain $-3 \\leq x \\leq 3$. $\\quad$ **[1]**\n\nThe domain of $\\mathrm{f}(x)$ is now restricted to $0 \\leq x \\leq 3$. The inverse of $\\mathrm{f}(x)$ is the function $\\mathrm{g}(x)$.\n\n**(iv)** Sketch the curves $y = \\mathrm{f}(x)$ and $y = \\mathrm{g}(x)$ on the same axes. State the domain of the function $\\mathrm{g}(x)$. Show that $\\mathrm{g}(x) = \\sqrt{e^x - 1}$. $\\quad$ **[6]**\n\n**(v)** Differentiate $\\mathrm{g}(x)$. Hence verify that $\\mathrm{g}'(\\ln 5) = 1\\tfrac{1}{4}$. Explain the connection between this result and your answer to part **(ii)**. $\\quad$ **[5]**",
               diagram_image: "P3_DF_002_d.jpg",
+              solution_image: ""
+            },
+            {
+              id: "P3_DF_003",
+              difficulty: "hard",
+              question_text: "The equation of a curve is $y = \\cos^3 x \\sqrt{\\sin x}$. It is given that the curve has one stationary point in the interval $0 < x < \\tfrac{1}{2}\\pi$.\n\nFind the $x$-coordinate of this stationary point, giving your answer correct to 3 significant figures. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_DF_004",
+              difficulty: "hard",
+              question_text: "**(a)** It is given that $\\mathrm{f}(x) = (x - a)^2 g(x)$, where $\\mathrm{f}(x)$ and $g(x)$ are polynomials.\n\nShow that $(x - a)$ is a factor of $\\mathrm{f}'(x)$. $\\quad$ **[2]**\n\n**(b)** It is given that $(x - 3)^2$ is a factor of $2x^3 - 4x^2 + px + q$, where $p$ and $q$ are constants.\n\nFind the values of $p$ and $q$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_DF_005",
+              difficulty: "elite",
+              question_text: "The equation of a curve is $2y^3 - 3x^2y - x^3 = 16$.\n\n**(a)** Show that $\\dfrac{dy}{dx} = \\dfrac{x^2 + 2xy}{2y^2 - x^2}$. $\\quad$ **[4]**\n\n**(b)** Hence find the coordinates of the points on the curve at which the normal is parallel to the $y$-axis. $\\quad$ **[4]**",
               solution_image: ""
             },
           ],
@@ -815,7 +966,14 @@ const SYLLABUS = {
               solution_image: ""
             },
           ],
-          "Numerical Methods": [],
+          "Numerical Methods": [
+            {
+              id: "P3_NM_001",
+              difficulty: "elite",
+              question_text: "The equation of a curve is $y = \\sqrt{\\tan x}$, for $0 \\leq x < \\tfrac{1}{2}\\pi$.\n\n**(a)** Express $\\dfrac{dy}{dx}$ in terms of $\\tan x$, and verify that $\\dfrac{dy}{dx} = 1$ when $x = \\tfrac{1}{4}\\pi$. $\\quad$ **[4]**\n\nThe value of $\\dfrac{dy}{dx}$ is also $1$ at another point on the curve where $x = a$.\n\n**(b)** Show that $t^3 + t^2 + 3t - 1 = 0$, where $t = \\tan a$. $\\quad$ **[4]**\n\n**(c)** Use the iterative formula\n$$a_{n+1} = \\tan^{-1}\\!\\left(\\tfrac{1}{3}\\left(1 - \\tan^2 a_n - \\tan^3 a_n\\right)\\right)$$\nto determine $a$ correct to 2 decimal places, giving the result of each iteration to 4 decimal places. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+          ],
           "Vectors": [
             {
               id: "P3_VE_001",
@@ -834,7 +992,19 @@ const SYLLABUS = {
               difficulty: "hard",
               question_text: "The points $A$ and $B$ have position vectors, relative to the origin $O$, given by $\\overrightarrow{OA} = \\mathbf{i} + \\mathbf{j} + \\mathbf{k}$ and $\\overrightarrow{OB} = 2\\mathbf{i} + 3\\mathbf{k}$. The line $l$ has vector equation $\\mathbf{r} = 2\\mathbf{i} - 2\\mathbf{j} - \\mathbf{k} + \\mu(-\\mathbf{i} + 2\\mathbf{j} + \\mathbf{k})$.\n\n**(i)** Show that the line passing through $A$ and $B$ does not intersect $l$. $\\quad$ **[4]**\n\n**(ii)** Show that the length of the perpendicular from $A$ to $l$ is $\\dfrac{1}{\\sqrt{2}}$. $\\quad$ **[5]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "P3_VE_004",
+              difficulty: "elite",
+              question_text: "The points $A$ and $B$ have position vectors $\\mathbf{i} + 2\\mathbf{j} - 2\\mathbf{k}$ and $2\\mathbf{i} - \\mathbf{j} + \\mathbf{k}$ respectively. The line $l$ has equation $\\mathbf{r} = \\mathbf{i} - \\mathbf{j} + 3\\mathbf{k} + \\mu(2\\mathbf{i} - 3\\mathbf{j} + 4\\mathbf{k})$.\n\n**(a)** Show that $l$ does not intersect the line passing through $A$ and $B$. $\\quad$ **[5]**\n\n**(b)** Find the position vector of the foot of the perpendicular from $A$ to $l$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_VE_005",
+              difficulty: "elite",
+              question_text: "The line $l_1$ passes through the point $(3, 1, -6)$ and is parallel to the vector $2\\mathbf{i} + \\mathbf{j} + 4\\mathbf{k}$. The line $l_2$ passes through the point $(-1, 3, -6)$ and is perpendicular to the vector $3\\mathbf{i} - 2\\mathbf{j} + \\mathbf{k}$. The direction vector for $l_2$ has no component in the $x$-direction.\n\n**(a)** Write down a vector equation for $l_1$ and find a vector equation for $l_2$. $\\quad$ **[3]**\n\n**(b)** Calculate the acute angle between $l_1$ and $l_2$. $\\quad$ **[3]**\n\n**(c)** Find the position vector of the point of intersection of $l_1$ and $l_2$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
           ],
           "Differential Equations": [
             {
@@ -862,8 +1032,39 @@ const SYLLABUS = {
               question_text: "**(i)** Using partial fractions, find the general solution of the differential equation\n$$2\\frac{dy}{dx} = y - y^3 \\quad \\text{for } 0 < y < 1$$\ngiving your solution in the form $y = \\mathrm{f}(x)$. $\\quad$ **[9]**",
               solution_image: ""
             },
+            {
+              id: "P3_DE_005",
+              difficulty: "hard",
+              question_text: "The variables $x$ and $y$ satisfy the differential equation\n$$\\frac{dy}{dx} = \\frac{xy}{1 + x^2}$$\nand $y = 2$ when $x = 0$.\n\nSolve the differential equation, obtaining a simplified expression for $y$ in terms of $x$. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_DE_006",
+              difficulty: "elite",
+              question_text: "**(a)** Express $\\dfrac{2}{1 - 9y^2}$ in partial fractions. $\\quad$ **[2]**\n\n**(b)** The variables $x$ and $y$ satisfy the differential equation\n$$2\\cos^2 3x\\,\\frac{dy}{dx} = 1 - 9y^2$$\nand $y = 0$ when $x = \\tfrac{1}{12}\\pi$.\n\nSolve the differential equation and obtain an expression for $y$ in terms of $x$. $\\quad$ **[6]**",
+              solution_image: ""
+            }
           ],
-          "Complex Numbers": []
+          "Complex Numbers": [
+            {
+              id: "P3_CN_001",
+              difficulty: "hard",
+              question_text: "**(a)** Solve the equation $z^2 - 2piz - q = 0$, where $p$ and $q$ are real constants. $\\quad$ **[2]**\n\nIn an Argand diagram with origin $O$, the roots of this equation are represented by the distinct points $A$ and $B$.\n\n**(b)** Given that $A$ and $B$ lie on the imaginary axis, find a relation between $p$ and $q$. $\\quad$ **[2]**\n\n**(c)** Given instead that triangle $OAB$ is equilateral, express $q$ in terms of $p$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_CN_002",
+              difficulty: "elite",
+              question_text: "The polynomial $x^3 + 5x^2 + 31x + 75$ is denoted by $\\mathrm{p}(x)$.\n\n**(a)** Show that $(x + 3)$ is a factor of $\\mathrm{p}(x)$. $\\quad$ **[2]**\n\n**(b)** Show that $z = -1 + 2\\sqrt{6}\\,i$ is a root of $\\mathrm{p}(z) = 0$. $\\quad$ **[3]**\n\n**(c)** Hence find the complex numbers $z$ which are roots of $\\mathrm{p}(z^2) = 0$. $\\quad$ **[7]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_CN_003",
+              difficulty: "hard",
+              question_text: "The square roots of $-1 - 4\\sqrt{5}\\,i$ can be expressed in the Cartesian form $x + iy$, where $x$ and $y$ are real and exact.\n\nBy first forming a quartic equation in $x$ or $y$, find the square roots of $-1 - 4\\sqrt{5}\\,i$ in exact Cartesian form. $\\quad$ **[5]**",
+              solution_image: ""
+            }
+          ]
         }
       },
 
