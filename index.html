@@ -2054,9 +2054,31 @@
     .masthead-ornament {
       font-size: 1rem;
       color: var(--gold2);
-      letter-spacing: .1em;
+      letter-spacing: .06em;
       font-style: italic;
       font-family: var(--serif);
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+
+    /* Each symbol is block-level so its own height can be controlled */
+    .orn-sym {
+      display: inline-block;
+      line-height: 1;
+    }
+
+    /* ∫ ascends and descends far beyond text height in serif fonts.
+       Shrinking it to 0.72em visually matches the height of ∂ and ∑. */
+    .orn-integral {
+      font-size: 0.72em;
+      vertical-align: 0px;
+    }
+
+    .orn-sep {
+      color: var(--parchment4);
+      font-style: normal;
+      font-size: 0.8em;
     }
 
     @media (max-width: 1100px) {
@@ -2966,6 +2988,16 @@
       border-color: var(--gold2);
     }
 
+    /* Flash red briefly when a score is clamped to the allowed range */
+    @keyframes scoreClamp {
+      0%   { border-color: #c14c3a; background: rgba(193,76,58,.18); }
+      80%  { border-color: #c14c3a; background: rgba(193,76,58,.08); }
+      100% { border-color: var(--rule2); background: var(--ink4); }
+    }
+    .ts-score-clamped {
+      animation: scoreClamp .6s ease forwards;
+    }
+
     .tr-self-score {
       font-family: var(--mono);
       font-size: .62rem;
@@ -3254,7 +3286,7 @@
           </svg>
           Calc
         </button>
-        <div class="masthead-ornament">∂ · ∫ · ∑</div>
+        <div class="masthead-ornament"><span class="orn-sym">∂</span><span class="orn-sep"> · </span><span class="orn-sym orn-integral">∫</span><span class="orn-sep"> · </span><span class="orn-sym">∑</span></div>
       </div>
     </div>
 
@@ -4214,11 +4246,15 @@
     // threshold group yet (because the bank has no questions there) are
     // simply absent, and prediction is skipped for those drills.
     const SECTION_TO_THRESH_GROUP = {
-      'P1': { course: '9709', group: 'Pure 1' },
-      'P3': { course: '9709', group: 'Pure 3' },
-      'S1': { course: '9709', group: 'Statistics' },
+      'P1':  { course: '9709', group: 'Pure 1' },
+      'P2':  { course: '9709', group: 'Pure 2' },
+      'P3':  { course: '9709', group: 'Pure 3' },
+      'M1':  { course: '9709', group: 'Mechanics' },
+      'S1':  { course: '9709', group: 'Statistics' },
       'FP1': { course: '9231', group: 'Further Pure 1' },
-      'FS': { course: '9231', group: 'Further Statistics' }
+      'FP2': { course: '9231', group: 'Further Pure 2' },
+      'FM':  { course: '9231', group: 'Further Mechanics' },
+      'FS':  { course: '9231', group: 'Further Statistics' }
     };
 
     // A drill only maps to a single real paper if every question in it
@@ -4252,44 +4288,70 @@
     }
 
     function buildGradePrediction(pct, questions, fullyScored) {
-      const sec = thwDetectSection(questions);
-      if (!sec) {
-        // Mixed sections or unrecognised prefix — silently skip, not an error
+      try {
+        const sec = thwDetectSection(questions);
+        if (!sec) {
+          // Mixed-section drill (e.g. Retry My Mistakes pulling from P1 + S1)
+          // — no single real paper to compare against, skip silently.
+          return '';
+        }
+
+        const mapping = SECTION_TO_THRESH_GROUP[sec];
+        // Guard: mapping should always exist if sec passed thwDetectSection, but
+        // be defensive in case of a future section added to the bank without a
+        // corresponding SECTION_TO_THRESH_GROUP entry.
+        if (!mapping || !mapping.course || !mapping.group) return '';
+
+        const comps = (THRESH_COMPONENTS[mapping.course] || []).filter(c => c.group === mapping.group);
+        if (!comps.length) return '';
+
+        const courseData = THRESH_DATA[mapping.course] || {};
+        const grader = predictGrade(pct);
+        if (!grader) return '';
+
+        const results = [];
+        for (const sess of THRESH_SESSIONS) {
+          const sessData = courseData[sess.key];
+          if (!sessData) continue;
+          // Find the first component variant that has data in this session
+          const comp = comps.find(c => sessData[c.code] && typeof sessData[c.code] === 'object');
+          if (!comp) continue;
+          const thresh = sessData[comp.code];
+          if (!thresh) continue;
+          const grade = grader(thresh, comp.max);
+          results.push({ label: sess.label, grade, variant: comp.code });
+          if (results.length >= 4) break;
+        }
+
+        if (!results.length) {
+          // We detected the section but found no threshold rows — data gap.
+          // Show a muted placeholder rather than silently vanishing.
+          return '<div class="trs-grade-predict">'
+            + '<span class="tgp-label">Grade Prediction · ' + mapping.group + '</span>'
+            + '<span class="tgp-note" style="flex-basis:100%">No threshold data available for this section yet.</span>'
+            + '</div>';
+        }
+
+        const latest = results[0];
+        const gradeSet = [...new Set(results.map(r => r.grade))];
+        const spreadText = gradeSet.length > 1
+          ? 'Ranges ' + gradeSet.join('–') + ' across recent sessions'
+          : 'Consistent across recent sessions';
+
+        return '<div class="trs-grade-predict">'
+          + '<div style="width:100%;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap">'
+          + '<span class="tgp-label">Grade Prediction · ' + mapping.group + (fullyScored ? '' : ' · partial') + '</span>'
+          + '<span class="tgp-grade">' + latest.grade + '</span>'
+          + '<span style="font-family:var(--mono);font-size:.65rem;color:var(--parchment2)">' + latest.label + '</span>'
+          + '</div>'
+          + '<span class="tgp-note">' + spreadText + ' · ' + results.map(r => r.label + ': ' + r.grade).join(', ') + (fullyScored ? '' : ' · score remaining questions for full estimate') + '</span>'
+          + '</div>';
+
+      } catch (e) {
+        // Never let a grade prediction error break the whole review screen
+        console.warn('MathForge: grade prediction error —', e.message);
         return '';
       }
-      const mapping = SECTION_TO_THRESH_GROUP[sec];
-      const comps = (THRESH_COMPONENTS[mapping.course] || []).filter(c => c.group === mapping.group);
-      if (!comps.length) return '';
-      const courseData = THRESH_DATA[mapping.course] || {};
-      const grader = predictGrade(pct);
-      if (!grader) return '';
-
-      const results = [];
-      for (const sess of THRESH_SESSIONS) {
-        const sessData = courseData[sess.key];
-        if (!sessData) continue;
-        const comp = comps.find(c => sessData[c.code]);
-        if (!comp) continue;
-        const thresh = sessData[comp.code];
-        results.push({ label: sess.label, grade: grader(thresh, comp.max), variant: comp.code });
-        if (results.length >= 4) break;
-      }
-      if (!results.length) return '';
-
-      const latest = results[0];
-      const gradeSet = [...new Set(results.map(r => r.grade))];
-      const spreadText = gradeSet.length > 1
-        ? 'Ranges ' + gradeSet.join('–') + ' across recent sessions'
-        : 'Consistent across recent sessions';
-
-      return '<div class="trs-grade-predict">'
-        + '<div style="width:100%;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap">'
-        + '<span class="tgp-label">Grade Prediction · ' + mapping.group + (fullyScored ? '' : ' · partial') + '</span>'
-        + '<span class="tgp-grade">' + latest.grade + '</span>'
-        + '<span style="font-family:var(--mono);font-size:.65rem;color:var(--parchment2)">' + latest.label + '</span>'
-        + '</div>'
-        + '<span class="tgp-note">' + spreadText + ' · ' + results.map(r => r.label + ': ' + r.grade).join(', ') + (fullyScored ? '' : ' · score all questions for full estimate') + '</span>'
-        + '</div>';
     }
 
     let _threshCourse = null;
@@ -5585,7 +5647,24 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
     function tsSetScore(idx, val) {
       if (!TEST.marks[idx]) TEST.marks[idx] = { done: false, scored: null, note: '' };
-      const n = parseFloat(val);
+      let n = parseFloat(val);
+      if (!isNaN(n)) {
+        const q = TEST.questions[idx];
+        const maxMarks = (q && getMarks(q).marks) || 0;
+        // Hard-clamp: score cannot exceed the question's mark allocation
+        // or go below zero. Update the DOM input to reflect the clamped value
+        // so the user sees the correction without needing to blur first.
+        const clamped = Math.max(0, maxMarks ? Math.min(n, maxMarks) : n);
+        if (clamped !== n) {
+          const inp = document.querySelector('#trcard-' + idx + ' .ts-score-input');
+          if (inp) {
+            inp.value = clamped;
+            inp.classList.add('ts-score-clamped');
+            setTimeout(() => inp && inp.classList.remove('ts-score-clamped'), 600);
+          }
+          n = clamped;
+        }
+      }
       TEST.marks[idx].scored = isNaN(n) ? null : n;
       const q = TEST.questions[idx];
       if (q && !isNaN(n)) {
@@ -5663,14 +5742,17 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       });
       const doneCount = TEST.questions.filter((_, i) => (TEST.marks[i] || {}).done).length;
       const fullyScored = selfAttempted === TEST.questions.length;
-      const partiallyScored = selfAttempted >= Math.ceil(TEST.questions.length / 2);
+      // Show grade prediction as soon as at least one question is self-marked.
+      // Previously required half — that was too high a bar, causing users to think
+      // the feature was broken when they'd only scored a few questions.
+      const partiallyScored = selfAttempted >= 1;
       const pct = TEST.totalMarks ? Math.round((selfTotal / TEST.totalMarks) * 1000) / 10 : 0;
 
       document.getElementById('tr-summary').innerHTML =
         '<div class="trs-stat"><span class="trs-stat-label">Questions</span><span class="trs-stat-value">' + TEST.questions.length + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Total Marks</span><span class="trs-stat-value">' + TEST.totalMarks + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Attempted</span><span class="trs-stat-value">' + doneCount + ' / ' + TEST.questions.length + '</span></div>'
-        + (selfAttempted ? '<div class="trs-stat"><span class="trs-stat-label">Self-Scored' + (fullyScored ? '' : ' (' + selfAttempted + '/' + TEST.questions.length + ')') + '</span><span class="trs-stat-value">' + selfTotal + ' / ' + TEST.totalMarks + (fullyScored ? '  ·  ' + pct + '%' : '') + '</span></div>' : '<div class="trs-stat"><span class="trs-stat-label">Self-Mark</span><span class="trs-stat-value" style="font-style:italic;color:var(--parchment4)">Score yourself below</span></div>')
+        + (selfAttempted ? '<div class="trs-stat"><span class="trs-stat-label">Self-Scored' + (fullyScored ? '' : ' (' + selfAttempted + '/' + TEST.questions.length + ')') + '</span><span class="trs-stat-value">' + selfTotal + ' / ' + TEST.totalMarks + (fullyScored ? '  ·  ' + pct + '%' : '') + '</span></div>' : '<div class="trs-stat" style="width:100%"><span class="trs-stat-label">Self-Mark</span><span class="trs-stat-value" style="font-style:italic;color:var(--parchment4)">Score questions below — grade prediction will appear here</span></div>')
         + '<div class="trs-stat"><span class="trs-stat-label">Time Used</span><span class="trs-stat-value">' + formatClock(elapsed) + ' / ' + formatClock(TEST.durationSeconds) + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">' + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>'
         + (partiallyScored ? buildGradePrediction(pct, TEST.questions, fullyScored) : '');
