@@ -719,6 +719,24 @@
       background: var(--gold2);
     }
 
+    /* Progress track shown when session > 50 questions */
+    .prob-progress-track {
+      position: relative;
+      width: 180px;
+      height: 3px;
+      background: var(--rule2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .prob-progress-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width .2s var(--ease);
+    }
+
     /* The problem card — centrepiece */
     .prob-card {
       background: var(--ink2);
@@ -1108,10 +1126,6 @@
 
       #masthead {
         padding: 24px 0 18px;
-      }
-
-      .masthead-ornament {
-        display: none;
       }
 
       .home-heading {
@@ -2051,35 +2065,29 @@
       gap: 14px;
     }
 
+    .masthead-badge {
+      display: none; /* element no longer used in HTML */
+    }
+
+    /* Ornament ∂ · ∫ · ∑ — original three symbols.
+       height: 1em fixes the element's layout footprint so the tall ∫ glyph
+       (which naturally extends above/below text height in most serif fonts)
+       overflows visually into the masthead's generous padding without
+       pushing the flex row taller. overflow: visible lets it show. */
     .masthead-ornament {
-      font-size: 1rem;
-      color: var(--gold2);
-      letter-spacing: .06em;
+      font-size: .88rem;
       font-style: italic;
       font-family: var(--serif);
+      color: var(--gold2);
+      letter-spacing: .12em;
+      height: 1em;
+      overflow: visible;
       display: flex;
       align-items: center;
-      line-height: 1;
+      white-space: nowrap;
     }
 
-    /* Each symbol is block-level so its own height can be controlled */
-    .orn-sym {
-      display: inline-block;
-      line-height: 1;
-    }
 
-    /* ∫ ascends and descends far beyond text height in serif fonts.
-       Shrinking it to 0.72em visually matches the height of ∂ and ∑. */
-    .orn-integral {
-      font-size: 0.72em;
-      vertical-align: 0px;
-    }
-
-    .orn-sep {
-      color: var(--parchment4);
-      font-style: normal;
-      font-size: 0.8em;
-    }
 
     @media (max-width: 1100px) {
       .masthead-ornament {
@@ -2107,14 +2115,14 @@
 
     .masthead-link {
       font-family: var(--sc);
-      font-size: .64rem;
-      letter-spacing: .18em;
+      font-size: .62rem;
+      letter-spacing: .16em;
       color: var(--gold);
       text-transform: uppercase;
       cursor: pointer;
       transition: all .15s;
       border: 1px solid var(--gold-border);
-      padding: 5px 14px;
+      padding: 4px 11px;
       line-height: 1;
     }
 
@@ -2259,10 +2267,8 @@
       content: '\2600';
     }
 
+
     @media (max-width: 600px) {
-      .masthead-ornament {
-        display: none;
-      }
     }
 
     /* ══════════════════════════════════════════
@@ -2865,6 +2871,20 @@
       color: var(--parchment4);
     }
 
+    /* Per-difficulty breakdown in Step 3 topic rows — mirrors diff-badge colours */
+    .wz-diff-breakdown {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-family: var(--mono);
+      font-size: .55rem;
+      letter-spacing: .06em;
+    }
+    .wz-diff-s  { color: #8ab4c8; }
+    .wz-diff-h  { color: #c88; }
+    .wz-diff-e  { color: var(--gold); }
+    .wz-diff-dot { color: var(--parchment4); padding: 0 3px; }
+
     .wz-back-btn {
       background: transparent;
       border: 1px solid var(--rule2);
@@ -3286,7 +3306,7 @@
           </svg>
           Calc
         </button>
-        <div class="masthead-ornament"><span class="orn-sym">∂</span><span class="orn-sep"> · </span><span class="orn-sym orn-integral">∫</span><span class="orn-sep"> · </span><span class="orn-sym">∑</span></div>
+        <div class="masthead-ornament" aria-hidden="true">∂ · ∫ · ∑</div>
       </div>
     </div>
 
@@ -3867,13 +3887,24 @@
         `Problem ${idx + 1} of ${total}`;
 
       const dotsEl = document.getElementById('prob-dots');
-      if (total <= 12) {
+      if (total <= 50) {
+        // Adaptive dot size: shrink slightly as count grows to keep the strip compact
+        const dotPx  = total <= 15 ? 5 : total <= 30 ? 4 : 3;
+        const gapPx  = total <= 15 ? 8 : total <= 30 ? 6 : 4;
+        dotsEl.style.gap = gapPx + 'px';
         dotsEl.innerHTML = questions.map((_, i) =>
           `<button class="prob-dot ${i === idx ? 'active' : ''}"
-        onclick="jumpProblem(${i})" title="Problem ${i + 1}"></button>`
+            style="width:${dotPx}px;height:${dotPx}px"
+            onclick="jumpProblem(${i})" title="Problem ${i + 1}"></button>`
         ).join('');
       } else {
-        dotsEl.innerHTML = '';
+        // For very large sessions show a slim labelled progress track instead
+        const pct = total > 1 ? (idx / (total - 1)) * 100 : 100;
+        dotsEl.style.gap = '';
+        dotsEl.innerHTML =
+          `<div class="prob-progress-track">
+            <div class="prob-progress-fill" style="width:${pct.toFixed(1)}%"></div>
+          </div>`;
       }
 
       // Question: text (KaTeX) takes priority over image
@@ -5259,9 +5290,22 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
           const key = TB.subject + '|' + TB.section + '|' + topic;
           const checked = TB.topics.includes(key) ? 'checked' : '';
           const cbId = 'wzt-' + key.replace(/[^A-Za-z0-9]/g, '');
+
+          // Per-difficulty counts for this topic
+          const byDiff = { standard: 0, hard: 0, elite: 0 };
+          qs.forEach(q => { const d = q.difficulty; if (d && d in byDiff) byDiff[d]++; });
+          const diffParts = [];
+          if (byDiff.standard) diffParts.push('<span class="wz-diff-s">' + byDiff.standard + ' S</span>');
+          if (byDiff.hard)     diffParts.push('<span class="wz-diff-h">' + byDiff.hard + ' H</span>');
+          if (byDiff.elite)    diffParts.push('<span class="wz-diff-e">' + byDiff.elite + ' E</span>');
+          const diffHtml = diffParts.length
+            ? '<span class="wz-diff-breakdown">' + diffParts.join('<span class="wz-diff-dot"> · </span>') + '</span>'
+            : '';
+
           return '<div class="wz-topic-row" onclick="tbToggleTopic(\'' + escapeAttr(key) + '\',\'' + cbId + '\')">'
             + '<input type="checkbox" id="' + cbId + '" ' + checked + ' onclick="event.stopPropagation();tbToggleTopic(\'' + escapeAttr(key) + '\',\'' + cbId + '\')">'
             + '<label class="wz-topic-label" for="' + cbId + '">' + topic + '</label>'
+            + diffHtml
             + '<span class="wz-topic-count">' + qs.length + ' Q</span>'
             + '</div>';
         }).join('');
@@ -5382,7 +5426,11 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function tbCountChange(input) {
-      TB.count = parseInt(input.value, 10) || 1;
+      const pool = tbGetPool();
+      const raw = parseInt(input.value, 10) || 1;
+      const clamped = Math.max(1, Math.min(raw, pool.length || 1));
+      if (clamped !== raw) input.value = clamped;
+      TB.count = clamped;
       tbUpdateStep4Summary();
     }
 
@@ -5415,16 +5463,36 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
     function tbUpdateStep4Summary() {
       const pool = tbGetPool();
-      let count = parseInt((document.getElementById('wz-count') || {}).value, 10) || TB.count;
-      count = Math.max(1, Math.min(count, pool.length));
+      const countEl = document.getElementById('wz-count');
+      const matchEl = document.querySelector('.tb-match-text');
+      let count = parseInt((countEl || {}).value, 10) || TB.count;
+      count = Math.max(1, Math.min(count, pool.length || 1));
       TB.count = count;
-      const avgMarks = pool.length ? pool.reduce((s, q) => s + getMarks(q).marks, 0) / pool.length : 0;
+
+      // Always sync input max/value — these go stale if difficulty changes
+      // after the initial render because step 4 HTML isn't re-rendered.
+      if (countEl) {
+        countEl.max = pool.length || 1;
+        if (parseInt(countEl.value, 10) !== count) countEl.value = count;
+      }
+
+      const sum = document.getElementById('wz-summary');
+      const btn = document.getElementById('wz-gen-btn');
+
+      if (!pool.length) {
+        if (matchEl) matchEl.textContent = '0 questions match the selected difficulty';
+        if (sum) sum.innerHTML = '<span class="tb-summary-text" style="color:var(--parchment3);font-style:italic">No questions match the selected difficulty — enable at least one difficulty tier above.</span>';
+        if (btn) btn.disabled = true;
+        return;
+      }
+
+      if (matchEl) matchEl.textContent = pool.length + ' questions available from selected topics';
+
+      const avgMarks = pool.reduce((s, q) => s + getMarks(q).marks, 0) / pool.length;
       const estMarks = Math.round(avgMarks * count);
       const estMins = Math.max(10, Math.round(estMarks * 1.5));
-      const sum = document.getElementById('wz-summary');
       if (sum) sum.innerHTML = '<span class="tb-summary-text"><strong>' + count + '</strong> questions &nbsp;·&nbsp; approx. <strong>' + estMarks + '</strong> marks &nbsp;·&nbsp; approx. <strong>' + estMins + ' min</strong> (Cambridge pacing)</span>';
-      const btn = document.getElementById('wz-gen-btn');
-      if (btn) btn.disabled = pool.length === 0;
+      if (btn) btn.disabled = false;
     }
 
     // ── Session ─────────────────────────────────────
