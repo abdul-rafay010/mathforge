@@ -2055,6 +2055,56 @@
       font-weight: 300;
     }
 
+    /* ── Home — social follow row ────────────────────── */
+    .home-social {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .home-insta-link,
+    .footer-insta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: var(--parchment4);
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .14em;
+      transition: color .18s;
+    }
+
+    .home-insta-link { font-size: .62rem; }
+
+    .home-insta-link:hover,
+    .footer-insta:hover {
+      color: var(--gold);
+    }
+
+    .insta-icon {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    /* Masthead nav link — current screen highlight */
+    .masthead-link.current {
+      border-color: var(--gold2);
+      color: var(--parchment);
+      background: var(--gold3);
+    }
+
+    /* Course page — weekly challenge section label */
+    .course-challenge-label {
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .22em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+      margin: 32px 0 10px;
+    }
+
     /* ════════════════════════════════════════════════
    MASTHEAD — ESSAYS LINK
 ════════════════════════════════════════════════ */
@@ -2885,6 +2935,11 @@
     .wz-diff-e  { color: var(--gold); }
     .wz-diff-dot { color: var(--parchment4); padding: 0 3px; }
 
+    /* Same breakdown used in the section→topic browsing view */
+    .topic-diff-breakdown {
+      margin-right: 10px;
+    }
+
     .wz-back-btn {
       background: transparent;
       border: 1px solid var(--rule2);
@@ -3289,9 +3344,9 @@
       <div class="masthead-right">
         <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()"
           title="Switch between dark and light"></button>
-        <span class="masthead-link" onclick="goTestBuilder()">Practice Mode</span>
-        <span class="masthead-link" onclick="goProgress()">My Progress</span>
-        <span class="masthead-link" onclick="goArticles()">Essays</span>
+        <span class="masthead-link" data-nav-screen="test-builder" onclick="goTestBuilder()">Practice Mode</span>
+        <span class="masthead-link" data-nav-screen="progress" onclick="goProgress()">My Progress</span>
+        <span class="masthead-link" data-nav-screen="articles" onclick="goArticles()">Essays</span>
         <button class="masthead-calc-btn" onclick="toggleCalc()" id="calc-toggle-btn" title="Scientific Calculator">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1" />
@@ -3334,18 +3389,23 @@
 
       <div class="course-pair" id="course-pair"></div>
 
-      <!-- WEEKLY CHALLENGE STRIPS — rendered by buildQOTW() -->
-      <div class="challenge-pair">
-        <div class="challenge-strip" id="challenge-strip-9709" onclick="" role="button" tabindex="0"></div>
-        <div class="challenge-strip" id="challenge-strip-9231" onclick="" role="button" tabindex="0"></div>
-      </div>
-
       <div class="ornament-rule"><span class="ornament-glyph">∞</span></div>
 
       <div class="home-mission">
         Built for students who want to understand mathematics, not just pass it.
         Every problem here demands something real from you — no routine questions,
         no mechanical repetition. Select a course and begin.
+      </div>
+
+      <div class="home-social">
+        <a class="home-insta-link" href="https://www.instagram.com/mathforge?igsh=MTJ4Z2M4M3Z3emVzZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="MathForge on Instagram">
+          <svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/>
+          </svg>
+          @mathforge
+        </a>
       </div>
 
     </div>
@@ -3367,6 +3427,8 @@
       <!-- Sections panel -->
       <div class="course-panel active" id="panel-sections">
         <div class="section-stack" id="section-stack"></div>
+        <!-- Weekly Challenge strip for this course — populated by goCourse() -->
+        <div id="course-challenge-wrap"></div>
       </div>
 
       <!-- Thresholds panel -->
@@ -3545,7 +3607,17 @@
     <!-- FOOTER -->
     <div id="footer">
       <div class="footer-left">MathForge &ensp;·&ensp; Cambridge A-Level</div>
-      <div class="footer-right">9709 &nbsp;/&nbsp; 9231</div>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <a class="footer-insta" href="https://www.instagram.com/mathforge?igsh=MTJ4Z2M4M3Z3emVzZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="MathForge on Instagram">
+          <svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/>
+          </svg>
+          @mathforge
+        </a>
+        <div class="footer-right">9709 &nbsp;/&nbsp; 9231</div>
+      </div>
     </div>
 
   </div><!-- /shell -->
@@ -3677,6 +3749,11 @@
       document.getElementById('s-' + id).classList.add('on');
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
+      // Sync masthead nav link active state
+      document.querySelectorAll('.masthead-link[data-nav-screen]').forEach(el => {
+        el.classList.toggle('current', el.dataset.navScreen === id);
+      });
+
       setTimeout(() => {
         rule.classList.remove('sweep');
         rule.style.width = '0%';
@@ -3706,7 +3783,6 @@
       S = { course: null, section: null, topic: null, probIndex: 0 };
       crumb([]);
       buildHome();
-      buildQOTW();
       show('home');
       if (!fromPop) pushState({ screen: 'home' });
     }
@@ -3724,6 +3800,8 @@
       Object.entries(SYLLABUS).forEach(([code, c]) => {
         const secs = Object.keys(c.sections).length;
         const topics = Object.values(c.sections).reduce((a, s) => a + Object.keys(s.topics).length, 0);
+        const qTotal = Object.values(c.sections).reduce((a, s) =>
+          a + Object.values(s.topics).reduce((b, qs) => b + qs.length, 0), 0);
         const tile = document.createElement('div');
         tile.className = 'course-tile';
         tile.onclick = () => goCourse(code);
@@ -3733,7 +3811,7 @@
         <span data-streak-chip="${code}">${streakChipHTML(code)}</span>
       </div>
       <div class="tile-name">${c.name}</div>
-      <div class="tile-desc">${secs} sections &ensp;·&ensp; ${topics} topics</div>
+      <div class="tile-desc">${secs} sections &ensp;·&ensp; ${topics} topics &ensp;·&ensp; ${qTotal} questions</div>
       <div class="tile-ghost">${ghosts[code] || ''}</div>`;
         pair.appendChild(tile);
       });
@@ -3783,6 +3861,7 @@
 
       show('course');
       if (!fromPop) pushState({ screen: 'course', course: code });
+      buildCourseChallenge(code);
     }
 
     // ══════════════════════════════════════════════════
@@ -3814,9 +3893,22 @@
         const row = document.createElement('div');
         row.className = 'topic-row';
         row.onclick = () => goTopic(code, secCode, topic);
+
+        // Per-difficulty counts
+        const byDiff = { standard: 0, hard: 0, elite: 0 };
+        qs.forEach(q => { const d = q.difficulty; if (d && d in byDiff) byDiff[d]++; });
+        const diffParts = [];
+        if (byDiff.standard) diffParts.push(`<span class="wz-diff-s">${byDiff.standard} S</span>`);
+        if (byDiff.hard)     diffParts.push(`<span class="wz-diff-h">${byDiff.hard} H</span>`);
+        if (byDiff.elite)    diffParts.push(`<span class="wz-diff-e">${byDiff.elite} E</span>`);
+        const diffHtml = diffParts.length
+          ? `<span class="wz-diff-breakdown topic-diff-breakdown">${diffParts.join('<span class="wz-diff-dot"> · </span>')}</span>`
+          : '';
+
         row.innerHTML = `
       <span class="topic-row-name">${topic}</span>
       <div class="topic-row-right">
+        ${diffHtml}
         <span class="topic-count has-q">${qs.length} Q</span>
         <span class="topic-arrow">›</span>
       </div>`;
@@ -4882,44 +4974,52 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       return null;
     }
 
-    function buildQOTW() {
-      Object.entries(QOTW).forEach(([courseCode, cfg]) => {
-        const el = document.getElementById(`challenge-strip-${courseCode}`);
-        if (!el) return;
+    // Build the weekly challenge strip for a specific course and inject it
+    // into #course-challenge-wrap on the course page.
+    function buildCourseChallenge(courseCode) {
+      const wrap = document.getElementById('course-challenge-wrap');
+      if (!wrap) return;
 
-        const found = findQuestionById(cfg.id);
-        if (!found) { el.style.display = 'none'; return; }
+      const cfg = QOTW[courseCode];
+      if (!cfg) { wrap.innerHTML = ''; return; }
 
-        const { section, topic, index, q } = found;
-        const navFn = `goTopic('${courseCode}','${section}','${topic}',${index})`;
+      const found = findQuestionById(cfg.id);
+      if (!found) { wrap.innerHTML = ''; return; }
 
-        // Count marks from question text — look for trailing [n] patterns
-        const allMarks = (q.question_text || '').match(/\[(\d+)\]/g) || [];
-        const totalMarks = allMarks.reduce((s, m) => s + parseInt(m.replace(/\D/g, '')), 0);
-        const marksLabel = totalMarks ? `[${totalMarks} marks]` : '';
+      const { section, topic, index, q } = found;
+      const navFn = `goTopic('${courseCode}','${section}','${topic}',${index})`;
 
-        // Difficulty badge (optional)
-        const diffHtml = q.difficulty
-          ? `<span class="diff-badge diff-${q.difficulty}">${q.difficulty}</span>`
-          : '';
+      const allMarks = (q.question_text || '').match(/\[(\d+)\]/g) || [];
+      const totalMarks = allMarks.reduce((s, m) => s + parseInt(m.replace(/\D/g, '')), 0);
+      const marksLabel = totalMarks ? `[${totalMarks} marks]` : '';
+      const diffHtml = q.difficulty
+        ? `<span class="diff-badge diff-${q.difficulty}">${q.difficulty}</span>`
+        : '';
 
-        el.innerHTML = `
-        <div class="cs-left">
-          <span class="cs-eyebrow">${courseCode} · Weekly Challenge</span>
-          <div class="cs-divider"></div>
-          <span class="cs-source">${section} · ${topic}</span>
-          ${diffHtml}
-          ${marksLabel ? `<span class="cs-marks">${marksLabel}</span>` : ''}
-          <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);letter-spacing:.06em">${cfg.week}</span>
-        </div>
-        <div class="cs-right">
-          <span class="cs-arrow">Attempt &nbsp;→</span>
+      wrap.innerHTML = `
+        <div class="course-challenge-label">Weekly Challenge</div>
+        <div class="challenge-strip" onclick="${navFn}" role="button" tabindex="0" id="challenge-strip-${courseCode}">
+          <div class="cs-left">
+            <span class="cs-eyebrow">Weekly Challenge</span>
+            <div class="cs-divider"></div>
+            <span class="cs-source">${section} · ${topic}</span>
+            ${diffHtml}
+            ${marksLabel ? `<span class="cs-marks">${marksLabel}</span>` : ''}
+            <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);letter-spacing:.06em">${cfg.week}</span>
+          </div>
+          <div class="cs-right">
+            <span class="cs-arrow">Attempt &nbsp;→</span>
+          </div>
         </div>`;
 
-        el.setAttribute('onclick', navFn);
-        el.addEventListener('keydown', e => { if (e.key === 'Enter') eval(navFn); });
+      wrap.querySelector('.challenge-strip').addEventListener('keydown', e => {
+        if (e.key === 'Enter') eval(navFn);
       });
     }
+
+    // Legacy: buildQOTW() no longer used (strips moved to course pages)
+    // Kept as a no-op to avoid errors if called from console or elsewhere.
+    function buildQOTW() { }
 
     function toggleQOTWHint() { } // reserved
 
