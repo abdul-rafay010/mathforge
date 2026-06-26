@@ -765,6 +765,12 @@ const SYLLABUS = {
               question_text: "**(a)** Express $\\dfrac{x+3}{(x-1)(2x-6)}$ in partial fractions. $\\quad$ **[4]**\n\n**(b)** The variables $x$ and $y$ satisfy the differential equation\n$$(x-1)(2x-6)\\frac{dy}{dx} = \\frac{x+3}{\\ln(2y)}$$\nIt is given that $y = 1$ when $x = 4$. Solve the differential equation to obtain an equation in $x$ and $y$. $\\quad$ **[7]**",
               solution_image: ""
             },
+            {
+              id: "P3_AL_009",
+              difficulty: 'standard',
+              question_text: "**(i)** Solve the equation $|4x - 1| = |x - 3|$. $\\quad$ **[3]**\n\n**(ii)** Hence solve the equation $|4^{y+1} - 1| = |4^y - 3|$ correct to 3 significant figures. $\\quad$ **[3]**",
+              solution_image: ""
+            },
           ],
           "Logarithmic & Exp Functions": [
             {
@@ -790,6 +796,24 @@ const SYLLABUS = {
               difficulty: "standard",
               question_text: "Showing all necessary working, solve the equation\n$$\\frac{e^x + e^{-x}}{e^x + 1} = 4$$\ngiving your answer correct to 3 decimal places. $\\quad$ **[5]**",
               solution_image: ""
+            },
+            {
+              id: "P3_LEF_005",
+              difficulty: 'standard',
+              question_text: "Solve the equation $2|3^x - 1| = 3^x$, giving your answers correct to 3 significant figures. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_LEF_006",
+              difficulty: 'standard',
+              question_text: "It is given that $2\\ln(4x - 5) + \\ln(x + 1) = 3\\ln 3$.\n\n**(i)** Show that $16x^3 - 24x^2 - 15x - 2 = 0$. $\\quad$ **[3]**\n\n**(ii)** By first using the factor theorem, factorise $16x^3 - 24x^2 - 15x - 2$ completely. $\\quad$ **[4]**\n\n**(iii)** Hence solve the equation $2\\ln(4x - 5) + \\ln(x + 1) = 3\\ln 3$. $\\quad$ **[1]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_LEF_007",
+              difficulty: 'standard',
+              question_text: "The variables $x$ and $y$ satisfy the relation $3^y = 4^{2-x}$.\n\n**(i)** By taking logarithms, show that the graph of $y$ against $x$ is a straight line. State the exact value of the gradient of this line. $\\quad$ **[3]**\n\n**(ii)** Calculate the exact $x$-coordinate of the point of intersection of this line with the line with equation $y = 2x$, simplifying your answer. $\\quad$ **[2]**",
+              solution_image: "" 
             },
           ],
           "Integration": [
@@ -965,6 +989,18 @@ const SYLLABUS = {
               question_text: "The function $\\mathrm{f}(x) = \\dfrac{\\sin x}{2 - \\cos x}$ has domain $-\\pi \\leq x \\leq \\pi$.\n\n**(i)** Find $\\mathrm{f}(-x)$ in terms of $\\mathrm{f}(x)$. Hence sketch the graph of $y = \\mathrm{f}(x)$ for the complete domain $-\\pi \\leq x \\leq \\pi$. $\\quad$ **[3]**\n\n**(ii)** Show that $\\mathrm{f}'(x) = \\dfrac{2\\cos x - 1}{(2 - \\cos x)^2}$. Hence find the exact coordinates of the turning point $P$. State the range of the function $\\mathrm{f}(x)$, giving your answer exactly. $\\quad$ **[8]**\n\n**(iii)** Using the substitution $u = 2 - \\cos x$ or otherwise, find the exact value of\n$$\\int_0^{\\pi} \\frac{\\sin x}{2 - \\cos x}\\,dx$$\n$\\quad$ **[4]**\n\n**(iv)** Sketch the graph of $y = \\mathrm{f}(2x)$. $\\quad$ **[1]**\n\n**(v)** Using your answers to parts **(iii)** and **(iv)**, write down the exact value of\n$$\\int_0^{\\frac{1}{2}\\pi} \\frac{\\sin 2x}{2 - \\cos 2x}\\,dx$$\n$\\quad$ **[2]**",
               solution_image: ""
             },
+            {
+              id: "P3_TR_004",
+              difficulty: 'standard',
+              question_text: "**(i)** By first expanding $(\\cos^2 x + \\sin^2 x)^3$, or otherwise, show that\n$$\\cos^6 x + \\sin^6 x = 1 - \\tfrac{3}{4}\\sin^2 2x. \\quad \\textbf{[4]}$$\n\n**(ii)** Hence solve the equation\n$$\\cos^6 x + \\sin^6 x = \\tfrac{2}{3}$$\nfor $0° < x < 180°$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "P3_TR_005",
+              difficulty: 'hard',
+              question_text: "The angles $A$ and $B$ are such that\n$$\\sin(A + 45°) = (2\\sqrt{2})\\cos A \\quad \\text{and} \\quad 4\\sec^2 B + 5 = 12\\tan B.$$\n\nWithout using a calculator, find the exact value of $\\tan(A - B)$. $\\quad$ **[8]**",
+              solution_image: ""
+            },
           ],
           "Numerical Methods": [
             {
@@ -1114,6 +1150,18 @@ const SYLLABUS = {
               question_text: "During January the numbers of people entering a store during the first hour after opening were as follows.\n\n| Time after opening, $x$ minutes | Frequency | Cumulative frequency |\n|---|---|---|\n| $0 < x \\leq 10$ | 210 | 210 |\n| $10 < x \\leq 20$ | 134 | 344 |\n| $20 < x \\leq 30$ | 78 | 422 |\n| $30 < x \\leq 40$ | 72 | $a$ |\n| $40 < x \\leq 60$ | $b$ | 540 |\n\n**(i)** Find the values of $a$ and $b$. $\\quad$ **[2]**\n\n**(ii)** Draw a cumulative frequency graph to represent this information. Take a scale of 2 cm for 10 minutes on the horizontal axis and 2 cm for 50 people on the vertical axis. $\\quad$ **[4]**\n\n**(iii)** Use your graph to estimate the median time after opening that people entered the store. $\\quad$ **[2]**\n\n**(iv)** Calculate estimates of the mean, $m$ minutes, and standard deviation, $s$ minutes, of the time after opening that people entered the store. $\\quad$ **[4]**\n\n**(v)** Use your graph to estimate the number of people entering the store between $\\left(m - \\tfrac{1}{2}s\\right)$ and $\\left(m + \\tfrac{1}{2}s\\right)$ minutes after opening. $\\quad$ **[2]**",
               solution_image: ""
             },
+            {
+              id: "S1_RD_008",
+              difficulty: 'Elite',
+              question_text: "Morgan is investigating the body length, $b$ centimetres, of squirrels.\n\nA random sample of 8 squirrels is taken and the data for each squirrel is coded using\n$$x = \\frac{b - 21}{2}$$\n\nThe results for the coded data are summarised below:\n$$\\sum x = -1.2 \\qquad \\sum x^2 = 5.1$$\n\n**(a)** Find the mean of $b$. $\\quad$ **(3)**\n\n**(b)** Find the standard deviation of $b$. $\\quad$ **(3)**\n\nA 9th squirrel is added to the sample. Given that for all 9 squirrels $\\displaystyle\\sum x = 0$,\n\n**(c)** find\n\n**(i)** the body length of the 9th squirrel, $\\quad$ **(2)**\n\n**(ii)** the standard deviation of $x$ for all 9 squirrels.",
+              solution_image: ""
+            },
+            {
+              id: "S1_RD_009",
+              difficulty: 'Hard',
+              question_text: "A disc of radius 1 cm is rolled onto a horizontal grid of rectangles so that the disc is equally likely to land anywhere on the grid. Each rectangle is 5 cm long and 3 cm wide. There are no gaps between the rectangles and the grid is sufficiently large so that no discs roll off the grid.\n\nIf the disc lands inside a rectangle without covering any part of the edges of the rectangle then a prize is won.\n\nBy considering the possible positions for the centre of the disc,\n\n**(a)** show that the probability of winning a prize on any particular roll is $\\dfrac{1}{5}$. $\\quad$ **(3)**\n\nA group of 15 students each roll the disc onto the grid twenty times and record the number of times, $x$, that each student wins a prize. Their results are summarised as follows:\n$$\\sum x = 61 \\qquad \\sum x^2 = 295$$\n\n**(b)** Find the standard deviation of the number of prizes won per student. $\\quad$ **(2)**\n\nA second group of 12 students each roll the disc onto the grid twenty times and the mean number of prizes won per student is 3.5 with a standard deviation of 2.\n\n**(c)** Find the mean and standard deviation of the number of prizes won per student for the whole group of 27 students. $\\quad$ **(7)**\n\nThe 27 students also recorded the number of times that the disc covered a corner of a rectangle and estimated the probability to be 0.2216 (to 4 decimal places).\n\n**(d)** Explain how this probability could be used to find an estimate for the value of $\\pi$ and state the estimate.",
+              solution_image: ""
+            },
           ],
 
           "Permutations & Combinations": [
@@ -1245,7 +1293,31 @@ const SYLLABUS = {
               difficulty: 'hard',
               question_text: "A sports event takes place over 4 days, beginning on Sunday. The probability that it will rain on Sunday is 0.4. On any subsequent day, the probability that it will rain is 0.7 if it rained on the previous day, and 0.2 if it did not rain on the previous day.\n\n**(a)** Find the probability that it does not rain on any of the 4 days of the event. $\\quad$ **[1]**\n\n**(b)** Find the probability that the first day on which it rains during the event is Tuesday. $\\quad$ **[2]**\n\n**(c)** Find the probability that it rains on exactly one of the 4 days of the event. $\\quad$ **[3]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "S1_PR_008",
+              difficulty: 'standard',
+              question_text: "Sally plays a game in which she can either win or lose.\n\nA turn consists of up to 3 games. On each turn Sally plays the game up to 3 times. If she wins the first 2 games or loses the first 2 games, then she will not play the 3rd game.\n\n- The probability that Sally wins the first game in a turn is 0.7\n- If Sally wins a game the probability that she wins the next game is 0.6\n- If Sally loses a game the probability that she wins the next game is 0.2\n\n**(a)** Use this information to complete the tree diagram below. $\\quad$ **(3)**\n\n**(b)** Find the probability that Sally wins the first 2 games in a turn. $\\quad$ **(2)**\n\n**(c)** Find the probability that Sally wins exactly 2 games in a turn. $\\quad$ **(2)**\n\nGiven that Sally wins 2 games in a turn,\n\n**(d)** find the probability that she won the first 2 games. $\\quad$ **(2)**\n\nGiven that Sally won the first game in a turn,\n\n**(e)** find the probability that she won 2 games. $\\quad$ **(2)**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PR_009",
+              difficulty: 'standard',
+              question_text: "A bag contains a large number of coloured counters. Each counter is labelled A, B or C.\n\n30% of the counters are labelled A \n45% of the counters are labelled B \nThe rest of the counters are labelled C\n\nIt is known that:\n\n2% of the counters labelled A are red \n4% of the counters labelled B are red \n6% of the counters labelled C are red\n\nOne counter is selected at random from the bag.\n\n**(a)** Complete the tree diagram below to illustrate this information. $\\quad$ **(2)**\n\n**(b)** Calculate the probability that the counter is labelled A and is not red. $\\quad$ **(2)**\n\n**(c)** Calculate the probability that the counter is red. $\\quad$ **(2)**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PR_010",
+              difficulty: 'standard',
+              question_text: "Tim throws a fair die twice and notes the number on each throw.\n\n**(i)** Tim calculates his final score as follows. If the number on the second throw is a 5 he multiplies the two numbers together, and if the number on the second throw is not a 5 he adds the two numbers together. Find the probability that his final score is\n\n**(a)** 12, $\\quad$ **[1]**\n\n**(b)** 5. $\\quad$ **[3]**\n\n**(ii)** Events $A$, $B$, $C$ are defined as follows.\n\n$A$: the number on the second throw is 5 \n$B$: the sum of the numbers is 6 \n$C$: the product of the numbers is even\n\nBy calculation find which pairs, if any, of the events $A$, $B$ and $C$ are independent. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_PR_011",
+              difficulty: 'standard',
+              question_text: "The probability that Sue completes a Sudoku puzzle correctly is 0.75.\n\n**(i)** Sue attempts $n$ Sudoku puzzles. Find the least value of $n$ for which the probability that she completes all $n$ puzzles correctly is less than 0.06. $\\quad$ **[3]**\n\nSue attempts 14 Sudoku puzzles every month. The number that she completes successfully is denoted by $X$.\n\n**(ii)** Find the value of $X$ that has the highest probability. You may assume that this value is one of the two values closest to the mean of $X$. $\\quad$ **[3]**\n\n**(iii)** Find the probability that in exactly 3 of the next 5 months Sue completes more than 11 Sudoku puzzles correctly. $\\quad$ **[5]**",
+              solution_image: ""
+            },
           ],
           "Discrete Random Variables": [
             {
@@ -1314,7 +1386,31 @@ const SYLLABUS = {
               difficulty: "hard",
               question_text: "In Restaurant Bijoux 13% of customers rated the food as 'poor', 22% of customers rated the food as 'satisfactory' and 65% rated it as 'good'. A random sample of 12 customers who went for a meal at Restaurant Bijoux was taken.\n\n**(i)** Find the probability that more than 2 and fewer than 12 of them rated the food as 'good'. $\\quad$ **[3]**\n\nOn a separate occasion, a random sample of $n$ customers who went for a meal at the restaurant was taken.\n\n**(ii)** Find the smallest value of $n$ for which the probability that at least 1 person will rate the food as 'poor' is greater than 0.95. $\\quad$ **[3]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "S1_DRV_012",
+              difficulty: 'standard',
+              question_text: "A fair five-sided spinner has sides numbered 1, 2, 3, 4, 5. Raj spins the spinner and throws two fair dice. He calculates his score as follows.\n\n- If the spinner lands on an **even-numbered** side, Raj **multiplies** the two numbers showing on the dice to get his score.\n- If the spinner lands on an **odd-numbered** side, Raj **adds** the numbers showing on the dice to get his score.\n\nGiven that Raj's score is 12, find the probability that the spinner landed on an even-numbered side. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_013",
+              difficulty: 'standard',
+              question_text: "There are a large number of students in Luttley College. 60% of the students are boys. Students can choose exactly one of Games, Drama or Music on Friday afternoons. It is found that 75% of the boys choose Games, 10% of the boys choose Drama and the remainder of the boys choose Music. Of the girls, 30% choose Games, 55% choose Drama and the remainder choose Music.\n\n**(i)** 6 boys are chosen at random. Find the probability that fewer than 3 of them choose Music. $\\quad$ **[3]**\n\n**(ii)** 5 Drama students are chosen at random. Find the probability that at least 1 of them is a boy. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_014",
+              difficulty: 'hard',
+              question_text: "A game for two players is played using a fair 4-sided dice with sides numbered 1, 2, 3 and 4. One turn consists of throwing the dice repeatedly up to a maximum of three times. When a 4 is obtained, no further throws are made during that turn. A player who obtains a 4 in their turn scores 1 point.\n\n**(a)** Show that the probability that a player obtains a 4 in one turn is $\\dfrac{37}{64}$. $\\quad$ **[2]**\n\nXeno and Yao play this game.\n\n**(b)** Find the probability that neither Xeno nor Yao score any points in their first two turns. $\\quad$ **[1]**\n\n**(c)** Xeno and Yao each have three turns.\n\nFind the probability that Xeno scores 2 more points than Yao. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_DRV_015",
+              difficulty: 'hard',
+              question_text: "Harry has three coins:\n\n- One coin is biased so that the probability of obtaining a head when it is thrown is $\\dfrac{1}{3}$.\n- The second coin is biased so that the probability of obtaining a head when it is thrown is $\\dfrac{1}{4}$.\n- The third coin is biased so that the probability of obtaining a head when it is thrown is $\\dfrac{1}{5}$.\n\nHarry throws the three coins. The random variable $X$ is the number of heads that he obtains.\n\n**(a)** Draw up the probability distribution table for $X$. $\\quad$ **[4]**\n\nHarry has two other coins, each of which is biased so that the probability of obtaining a head when it is thrown is $p$. He throws all five coins at the same time. The random variable $Y$ is the number of heads that he obtains.\n\n**(b)** Given that $P(Y = 0) = 6P(Y = 5)$, find the value of $p$. $\\quad$ **[3]**",
+              solution_image: ""
+            },
           ],
           "Normal Distribution": [
             {
@@ -1375,6 +1471,12 @@ const SYLLABUS = {
               id: "S1_ND_008",
               difficulty: "hard",
               question_text: "The random variable $X$ is normally distributed with mean $\\mu$ and standard deviation $\\sigma$. It is given that $3\\mu = 7\\sigma^2$ and that $\\mathrm{P}(X > 2\\mu) = 0.1016$. Find $\\mu$ and $\\sigma$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "S1_ND_010",
+              difficulty: 'standard',
+              question_text: "**(i)** In a certain country, the daily minimum temperature, in °C, in winter has the distribution $N(8,\\,24)$. Find the probability that a randomly chosen winter day in this country has a minimum temperature between 7 °C and 12 °C. $\\quad$ **[3]**\n\nThe daily minimum temperature, in °C, in another country in winter has a normal distribution with mean $\\mu$ and standard deviation $2\\mu$.\n\n**(ii)** Find the proportion of winter days on which the minimum temperature is below zero. $\\quad$ **[2]**\n\n**(iii)** 70 winter days are chosen at random. Find how many of these would be expected to have a minimum temperature which is more than three times the mean. $\\quad$ **[3]**\n\n**(iv)** The probability of the minimum temperature being above 6 °C on any winter day is 0.0735. Find the value of $\\mu$. $\\quad$ **[3]**",
               solution_image: ""
             },
           ]
