@@ -2075,6 +2075,7 @@ const SYLLABUS = {
               question_text: "**(c)** The matrix $\\mathbf{A} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 3 \\end{pmatrix}$.\n\n**(a)** Describe fully the single transformation represented by the matrix $\\mathbf{A}$. $\\quad$ **[2]**\n\nThe matrix $\\mathbf{B}$ represents a rotation of 45° clockwise about the origin.\n\n**(b)** Write down the matrix $\\mathbf{B}$, giving each element of the matrix in exact form. $\\quad$ **[1]**\n\nThe transformation represented by matrix $\\mathbf{A}$ followed by the transformation represented by matrix $\\mathbf{B}$ is represented by the matrix $\\mathbf{C}$.\n\n**(c)** Determine $\\mathbf{C}$. $\\quad$ **[2]**\n\n**(iii)** A trapezium $T$ has vertices at the points $(2, 0)$, $(-2, 4)$, $(5, 8)$ and $(5, 0)$, where $k$ is a positive constant. Trapezium $T$ is transformed to the trapezium $T'$ by the matrix $\\begin{pmatrix} 5 & 1 \\\\ -2 & 3 \\end{pmatrix}$.\n\nGiven that the area of trapezium $T'$ is 510 square units, calculate the exact value of $k$.",
               solution_image: ""
             }, 
+            
             {
               id: "FP1_MA_011",
               difficulty: 'hard',
