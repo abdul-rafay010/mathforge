@@ -4,6 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- PWA manifest — enables "Add to Home Screen" on iOS/Android.
+       No Service Worker yet (added post-launch to avoid caching conflicts
+       while questions.js is still being updated frequently). -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MathForge">
+  <meta name="theme-color" content="#070707">
+
   <title>MathForge</title>
 
   <!-- Applied before paint so there's no flash of the wrong theme -->
@@ -51,6 +61,9 @@
               ],
               throwOnError: false
             });
+            // Inject scroll wrappers — body script may not be ready yet
+            // so guard with typeof check
+            if (typeof wrapKatexDisplays === 'function') wrapKatexDisplays(active);
           } catch (e) { /* best-effort */ }
         }
       }
@@ -1073,9 +1086,20 @@
 
     .katex-display {
       margin: 16px 0;
-      overflow-x: auto;
-      overflow-y: hidden;
       padding-bottom: 4px;
+      /* overflow is handled by .katex-display-wrap injected by wrapKatexDisplays()
+         so that tall delimiters (matrix parens, brackets) are never clipped */
+    }
+
+    /* Injected by JS after each KaTeX render — this is the scroll container,
+       kept separate from .katex-display so the BFC it creates never clips
+       KaTeX's absolute-positioned stretchy delimiter glyphs */
+    .katex-display-wrap {
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 6px;   /* room for iOS scrollbar */
+      max-width: 100%;
     }
 
     .katex-display>.katex {
@@ -1156,10 +1180,15 @@
         padding: 14px 16px;
       }
 
-      /* Question card */
+      /* Question card — consolidated (no word-break which breaks KaTeX matrices) */
       .prob-text-question {
         padding: 20px 18px 18px;
         font-size: 1rem;
+        /* Outer scroll container for wide math expressions */
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* NEVER set word-break here — it overrides white-space:nowrap
+           inside KaTeX and detaches stretchy brackets from matrices */
       }
 
       .prob-text-question p {
@@ -1172,24 +1201,34 @@
         align-self: flex-start;
       }
 
+      /* ── KaTeX matrix fix ──────────────────────────────
+         KaTeX stretchy brackets (pmatrix, bmatrix, vmatrix) rely on
+         rendering at their NATURAL width. Constraining the inner .katex
+         causes the bracket height calculation to fire before the table
+         is laid out, detaching ( ) from the matrix body.
+
+         Fix: let .katex-display be the scroll container; give .katex
+         width:max-content so it renders unconstrained. The parent
+         .katex-display clips and scrolls the result. */
+      /* KaTeX display — .katex-display-wrap (injected by JS) handles scrolling.
+         Never put overflow on .katex-display itself — it creates a BFC that clips
+         tall delimiters (matrix parens, large brackets). */
       .katex-display {
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
+        overflow: visible !important;
+        padding-bottom: 2px;
       }
 
-      .katex-display>.katex>.katex-html {
+      .katex-display > .katex {
+        display: block;
+        width: max-content;            /* render at natural width — no wrapping */
+      }
+
+      .katex-display > .katex > .katex-html {
         white-space: nowrap;
       }
 
       .prob-card {
         overflow: visible;
-      }
-
-      .prob-text-question {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        word-break: break-word;
       }
 
       .prob-label {
@@ -2242,6 +2281,29 @@
 
     .mob-nav-item:hover .mob-nav-icon { transform: translateX(3px); }
 
+    .mob-nav-home {
+      color: var(--parchment2);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 4px;
+    }
+
+    .mob-nav-home .mob-nav-icon {
+      font-size: .88rem;
+      color: var(--gold);
+    }
+
+    .mob-nav-divider {
+      height: 1px;
+      background: var(--rule);
+      margin: 4px 0 8px;
+    }
+
+    .mob-nav-divider {
+      height: 1px;
+      background: var(--rule);
+      margin: 6px 24px;
+    }
+
     .mob-nav-footer {
       padding: 20px 24px;
       border-top: 1px solid var(--rule);
@@ -2307,7 +2369,7 @@
          to prevent crowding; total count + arrow is enough */
       .topic-diff-breakdown { display: none; }
 
-      /* Question card — full-width, reduced padding */
+      /* Question card — full-width, reduced padding (merged into parent block above) */
       .prob-text-question {
         padding: 16px 14px 14px;
         font-size: .96rem;
@@ -2318,24 +2380,23 @@
       .prob-sol-btn  { padding: 13px 14px; }
       .prob-arrow-btn { padding: 13px 12px; }
 
-      /* KaTeX — ensure wide expressions scroll, not clip */
-      .katex-display {
+      /* KaTeX — inline math (not display) should not overflow text flow */
+      .katex:not(.katex-display .katex) {
         overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
+        display: inline-block;
+        max-width: 100%;
+        vertical-align: middle;
       }
 
-      .katex-display > .katex { overflow-x: auto; }
-
-      /* Tables inside KaTeX (array environment) */
+      /* Tables inside KaTeX (array environment) — also scrollable */
       .katex .colalign,
       .katex .mtable {
-        overflow-x: auto;
         display: block;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
       }
 
-      /* Question images — constrain, allow scroll if too wide */
+      /* Question images */
       .prob-text-question img {
         max-width: 100%;
         height: auto;
@@ -2447,41 +2508,44 @@
 
 
 
-    @media (max-width: 1100px) {
-      .masthead-ornament {
-        display: none;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .masthead-link {
-        padding: 5px 10px;
-        letter-spacing: .12em;
-      }
-
-      .masthead-calc-btn {
-        padding: 5px 8px;
-        letter-spacing: .1em;
-      }
-    }
-
-
-
+    /* Base masthead-link rule — MUST come before the 860px media query so
+       the media query's padding/letter-spacing can override it (later = wins) */
+    .masthead-link {
       font-family: var(--sc);
-      font-size: .62rem;
-      letter-spacing: .16em;
+      font-size: .64rem;
+      letter-spacing: .18em;
       color: var(--gold);
       text-transform: uppercase;
       cursor: pointer;
       transition: all .15s;
       border: 1px solid var(--gold-border);
-      padding: 4px 11px;
+      padding: 5px 14px;
       line-height: 1;
     }
 
     .masthead-link:hover {
       border-color: var(--gold);
       background: var(--gold3);
+    }
+
+    @media (max-width: 1100px) {
+      .masthead-ornament {
+        display: none;
+      }
+    }
+
+    /* At 860px, compress the nav links to keep masthead from crowding */
+    @media (max-width: 860px) {
+      .masthead-link {
+        padding: 5px 9px;
+        letter-spacing: .1em;
+        font-size: .6rem;
+      }
+
+      .masthead-calc-btn {
+        padding: 5px 8px;
+        letter-spacing: .1em;
+      }
     }
 
     .masthead-calc-btn {
@@ -3695,6 +3759,12 @@
         <button class="mob-nav-close" onclick="closeMobMenu()" aria-label="Close menu">✕</button>
       </div>
       <nav class="mob-nav-links">
+        <div class="mob-nav-item" data-nav-screen="home"
+          onclick="goHome();closeMobMenu()">
+          <span class="mob-nav-icon" aria-hidden="true">⌂</span>
+          Home
+        </div>
+        <div class="mob-nav-divider"></div>
         <div class="mob-nav-item" data-nav-screen="test-builder"
           onclick="goTestBuilder();closeMobMenu()">
           <span class="mob-nav-icon" aria-hidden="true">→</span>
@@ -6234,6 +6304,22 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       if (q) updateLastAttemptNote(q.id, val);
     }
 
+    // Wraps every .katex-display in a scrollable div so that wide maths
+    // (matrices, long equations) can scroll horizontally on mobile without
+    // the scroll container's BFC ever clipping tall stretchy delimiters.
+    // Must be called AFTER renderMathInElement() on the same container.
+    function wrapKatexDisplays(container) {
+      if (!container) return;
+      container.querySelectorAll('.katex-display').forEach(el => {
+        // Skip if already wrapped (e.g. safeMath called twice on same node)
+        if (el.parentNode && el.parentNode.classList.contains('katex-display-wrap')) return;
+        const wrap = document.createElement('div');
+        wrap.className = 'katex-display-wrap';
+        el.parentNode.insertBefore(wrap, el);
+        wrap.appendChild(el);
+      });
+    }
+
     // Single canonical math rendering helper — all call sites use this.
     // Guards against: KaTeX not loaded, partial load (CSS only), render errors.
     const _MATH_OPTS = {
@@ -6246,7 +6332,10 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     function safeMath(el) {
       if (!el) return;
       if (typeof renderMathInElement !== 'function') return; // KaTeX not ready yet
-      try { renderMathInElement(el, _MATH_OPTS); } catch (e) { /* fail silently per-element */ }
+      try {
+        renderMathInElement(el, _MATH_OPTS);
+        wrapKatexDisplays(el);       // inject scroll wrappers after render
+      } catch (e) { /* fail silently per-element */ }
     }
 
     function renderTestMath(id) {
