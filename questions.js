@@ -1563,6 +1563,12 @@ const SYLLABUS = {
               question_text: "**OR**\n\nThe curve $C$ has equation\n$$y = \\frac{ax^2 + bx + c}{x + d}$$\nwhere $a$, $b$, $c$ and $d$ are constants. The curve cuts the $y$-axis at $(0, -2)$ and has asymptotes $x = 2$ and $y = x + 1$.\n\n**(i)** Write down the value of $d$. $\\quad$ **[1]**\n\n**(ii)** Determine the values of $a$, $b$ and $c$. $\\quad$ **[6]**\n\n**(iii)** Show that, at all points on $C$, either $y \\leqslant 3 - 2\\sqrt{6}$ or $y \\geqslant 3 + 2\\sqrt{6}$. $\\quad$ **[7]**",
              solution_image: ""
             },
+            {
+              id: "FP1_RF_012",
+              difficulty: 'standard',
+              question_text: "The curve $C$ has equation $y = \\dfrac{2x^2 + kx}{x + 1}$, where $k$ is a constant. Find the set of values of $k$ for which $C$ has no stationary points. $\\quad$ **[5]**\n\nFor the case $k = 4$, find the equations of the asymptotes of $C$ and sketch $C$, indicating the coordinates of the points where $C$ intersects the coordinate axes. $\\quad$ **[6]**",
+              solution_image: ""
+            },
           ],
           "Series": [
             {
@@ -1881,6 +1887,12 @@ const SYLLABUS = {
               question_text: "The lines $l_1$ and $l_2$ have equations $\\mathbf{r} = 8\\mathbf{i} + 2\\mathbf{j} + 3\\mathbf{k} + \\lambda(2\\mathbf{i} - 2\\mathbf{j})$ and $\\mathbf{r} = 5\\mathbf{i} + 3\\mathbf{j} - 14\\mathbf{k} + \\mu(2\\mathbf{j} - 3\\mathbf{k})$ respectively. The point $P$ on $l_1$ and the point $Q$ on $l_2$ are such that $PQ$ is perpendicular to both $l_1$ and $l_2$.\n\n**(i)** Find the position vector of $P$ and the position vector of $Q$. $\\quad$ **[8]**\n\n**(ii)** Hence find the area of the triangle $APQ$. $\\quad$ **[6]**\n\nThe points with position vectors $8\\mathbf{i} + 2\\mathbf{j} + 3\\mathbf{k}$ and $5\\mathbf{i} + 3\\mathbf{j} - 14\\mathbf{k}$ are denoted by $A$ and $B$ respectively. Find\n\n**(i)** $\\overrightarrow{AP} \\times \\overrightarrow{AQ}$ and hence the area of the triangle $APQ$,\n\n**(ii)** the volume of the tetrahedron $APQB$.",
               solution_image: ""
             },
+            {
+              id: "FP1_VL_013",
+              difficulty: 'hard',
+              question_text: "The line $l_1$ is parallel to the vector $a\\mathbf{i} - \\mathbf{j} + 2\\mathbf{k}$, where $a$ is a constant, and passes through the point whose position vector is $9\\mathbf{j} + 2\\mathbf{k}$. The line $l_2$ is parallel to the vector $-a\\mathbf{i} + 2\\mathbf{j} + 4\\mathbf{k}$ and passes through the point whose position vector is $-6\\mathbf{i} - 5\\mathbf{j} + 10\\mathbf{k}$.\n\n**(i)** It is given that $l_1$ and $l_2$ intersect.\n\n**(a)** Show that $a = -\\dfrac{8}{13}$. $\\quad$ **[3]**\n\n**(b)** Find a Cartesian equation of the plane containing $l_1$ and $l_2$. $\\quad$ **[4]**\n\n**(ii)** Given instead that the perpendicular distance between $l_1$ and $l_2$ is $3\\sqrt{30}$, find the value of $a$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
           ],
 
           "Proof by Induction": [
@@ -2056,7 +2068,31 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "Find the inverse and the determinant of the matrix $A = 2\\begin{pmatrix}a&4&-1\\\\3&a&2\\\\2&1&1\\end{pmatrix}$. $\\quad$ **[3]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FP1_MA_010",
+              difficulty: 'standard',
+              question_text: "**(c)** The matrix $\\mathbf{A} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 3 \\end{pmatrix}$.\n\n**(a)** Describe fully the single transformation represented by the matrix $\\mathbf{A}$. $\\quad$ **[2]**\n\nThe matrix $\\mathbf{B}$ represents a rotation of 45° clockwise about the origin.\n\n**(b)** Write down the matrix $\\mathbf{B}$, giving each element of the matrix in exact form. $\\quad$ **[1]**\n\nThe transformation represented by matrix $\\mathbf{A}$ followed by the transformation represented by matrix $\\mathbf{B}$ is represented by the matrix $\\mathbf{C}$.\n\n**(c)** Determine $\\mathbf{C}$. $\\quad$ **[2]**\n\n**(iii)** A trapezium $T$ has vertices at the points $(2, 0)$, $(-2, 4)$, $(5, 8)$ and $(5, 0)$, where $k$ is a positive constant. Trapezium $T$ is transformed to the trapezium $T'$ by the matrix $\\begin{pmatrix} 5 & 1 \\\\ -2 & 3 \\end{pmatrix}$.\n\nGiven that the area of trapezium $T'$ is 510 square units, calculate the exact value of $k$.",
+              solution_image: ""
+            }, 
+            {
+              id: "FP1_MA_011",
+              difficulty: 'hard',
+              question_text: "The matrix $\\mathbf{M}$ is given by\n$$\\mathbf{M} = \\begin{pmatrix} 2 & 0 & -1 \\\\ k & 3 & 2 \\\\ -2 & 1 & 4 \\end{pmatrix}$$\n\n**(a)** Show that $\\det \\mathbf{M} = 5k - 10$. $\\quad$ **[2]**\n\nGiven that $k \\neq 2$:\n\n**(b)** Find $\\mathbf{M}^{-1}$ in terms of $k$. $\\quad$ **[4]**\n\nThe points $O(0, 0, 0)$, $A(4, -8, 3)$, $B(-2, 5, -4)$ and $C'(4, -6, 8)$ are the vertices of a tetrahedron $T$.\n\nThe transformation represented by matrix $\\mathbf{M}$ transforms $T$ to a tetrahedron with volume 50.\n\n**(c)** Determine the possible values of $k$. $\\quad$ **[5]**",
+              solution_image: ""
+            }, 
+            {
+              id: "FP1_MA_012",
+              difficulty: 'standard',
+              question_text: "The matrix $\\mathbf{A}$ is given by $\\mathbf{A} = \\begin{pmatrix} 0.6 & 2.4 \\\\ -0.8 & 1.8 \\end{pmatrix}$.\n\n**(a)** Find $\\det \\mathbf{A}$. $\\quad$ **[1]**\n\nThe matrix $\\mathbf{A}$ represents a stretch parallel to one of the coordinate axes followed by a rotation about the origin.\n\n**(b)** By considering the determinants of these transformations, determine the scale factor of the stretch. $\\quad$ **[2]**\n\n**(c)** Explain whether the stretch is parallel to the $x$-axis or the $y$-axis, justifying your answer. $\\quad$ **[1]**\n\n**(d)** Find the angle of rotation. $\\quad$ **[2]**",
+              solution_image: ""
+            }, 
+            {
+              id: "FP1_MA_013",
+              difficulty: 'standard',
+              question_text: "The triangle $T$ has vertices $A(2, 1)$, $B(2, 3)$ and $C(0, 1)$.\n\nThe triangle $T'$ is the image of $T$ under the transformation represented by the matrix\n$$\\mathbf{P} = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$$\n\n**(a)** Find the coordinates of the vertices of $T'$. $\\quad$ **(2)**\n\n**(b)** Describe fully the transformation represented by $\\mathbf{P}$. $\\quad$ **(2)**\n\nThe $2 \\times 2$ matrix $\\mathbf{Q}$ represents a reflection in the $x$-axis and the $2 \\times 2$ matrix $\\mathbf{R}$ represents a rotation through 90° anticlockwise about the origin.\n\n**(c)** Write down the matrix $\\mathbf{Q}$ and the matrix $\\mathbf{R}$. $\\quad$ **(2)**\n\n**(d)** Find the matrix $\\mathbf{RQ}$. $\\quad$ **(2)**\n\n**(e)** Give a full geometrical description of the single transformation represented by the answer to part **(d)**. $\\quad$ **(2)**",
+              solution_image: ""
+            },
           ]
         }
       },
