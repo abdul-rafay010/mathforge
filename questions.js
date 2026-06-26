@@ -771,6 +771,40 @@ const SYLLABUS = {
               question_text: "**(i)** Solve the equation $|4x - 1| = |x - 3|$. $\\quad$ **[3]**\n\n**(ii)** Hence solve the equation $|4^{y+1} - 1| = |4^y - 3|$ correct to 3 significant figures. $\\quad$ **[3]**",
               solution_image: ""
             },
+            {
+  id: "P3_AL_010",
+  difficulty: 'standard',
+  question_text: "The polynomial $\\mathrm{p}(x)$ is defined by\n$$\\mathrm{p}(x) = ax^3 - x^2 + 4x - a$$\nwhere $a$ is a constant. It is given that $(2x - 1)$ is a factor of $\\mathrm{p}(x)$.\n\n**(i)** Find the value of $a$ and hence factorise $\\mathrm{p}(x)$. $\\quad$ **[4]**\n\n**(ii)** When $a$ has the value found in part **(i)**, express $\\dfrac{8x - 13}{\\mathrm{p}(x)}$ in partial fractions. $\\quad$ **[5]**",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_AL_011",
+  difficulty: 'standard',
+  question_text: "The polynomial $x^4 + 3x^3 + ax + 3$ is denoted by $\\mathrm{p}(x)$. It is given that $\\mathrm{p}(x)$ is divisible by $x^2 - x + 1$.\n\n**(i)** Find the value of $a$. $\\quad$ **[4]**\n\n**(ii)** When $a$ has this value, find the real roots of the equation $\\mathrm{p}(x) = 0$. $\\quad$ **[2]**",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_AL_012",
+  difficulty: 'standard',
+  question_text: "The polynomial $ax^3 + bx^2 + 5x - 2$, where $a$ and $b$ are constants, is denoted by $\\mathrm{p}(x)$. It is given that $(2x - 1)$ is a factor of $\\mathrm{p}(x)$ and that when $\\mathrm{p}(x)$ is divided by $(x - 2)$ the remainder is 12.\n\n**(i)** Find the values of $a$ and $b$. $\\quad$ **[5]**\n\n**(ii)** When $a$ and $b$ have these values, find the quadratic factor of $\\mathrm{p}(x)$. $\\quad$ **[2]**",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_AL_013",
+  difficulty: 'standard',
+  question_text: "The polynomial $\\mathrm{f}(x)$ is defined by\n$$\\mathrm{f}(x) = 12x^3 + 25x^2 - 4x - 12.$$\n\n**(i)** Show that $\\mathrm{f}(-2) = 0$ and factorise $\\mathrm{f}(x)$ completely. $\\quad$ **[4]**\n\n**(ii)** Given that\n$$12 \\times 27^y + 25 \\times 9^y - 4 \\times 3^y - 12 = 0,$$\nstate the value of $3^y$ and hence find $y$ correct to 3 significant figures. $\\quad$ **[3]**",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_AL_014",
+  difficulty: 'hard',
+  question_text: "The polynomial $\\mathrm{p}(z)$ is defined by\n$$\\mathrm{p}(z) = z^3 + mz^2 + 24z + 32$$\nwhere $m$ is a constant. It is given that $(z + 2)$ is a factor of $\\mathrm{p}(z)$.\n\n**(i)** Find the value of $m$. $\\quad$ **[2]**\n\n**(ii)** Hence, showing all your working, find\n\n**(a)** the three roots of the equation $\\mathrm{p}(z) = 0$, $\\quad$ **[5]**\n\n**(b)** the six roots of the equation $\\mathrm{p}(z^2) = 0$. $\\quad$ **[6]**",
+  solution_image: ""
+},
           ],
           "Logarithmic & Exp Functions": [
             {
@@ -969,6 +1003,59 @@ const SYLLABUS = {
               question_text: "The equation of a curve is $2y^3 - 3x^2y - x^3 = 16$.\n\n**(a)** Show that $\\dfrac{dy}{dx} = \\dfrac{x^2 + 2xy}{2y^2 - x^2}$. $\\quad$ **[4]**\n\n**(b)** Hence find the coordinates of the points on the curve at which the normal is parallel to the $y$-axis. $\\quad$ **[4]**",
               solution_image: ""
             },
+            {
+              id: "P3_DF_006",
+              difficulty: 'standard',
+              question_text: "Find the gradient of each of the following curves at the point for which $x = 0$.\n\n**(i)** $y = 3\\sin x + \\tan 2x$ $\\quad$ **[3]**\n\n**(ii)** $y = \\dfrac{6}{1 + e^{2x}}$ $\\quad$ **[3]**\n\n*(Cambridge International AS & A Level Mathematics 9709 Paper 21 Q2 June 2014)*",
+              solution_image: ""
+            },
+            {
+              id: "P3_DF_007",
+              difficulty: 'hard',
+              question_text: "The equation of a curve is $2x^2 + 3xy + y^2 = 3$.\n\n**(i)** Find the equation of the tangent to the curve at the point $(2, -1)$, giving your answer in the form $ax + by + c = 0$, where $a$, $b$ and $c$ are integers. $\\quad$ **[6]**\n\n**(ii)** Show that the curve has no stationary points. $\\quad$ **[4]**\n\n*(Cambridge International AS & A Level Mathematics 9709 Paper 21 Q7 June 2014)*",
+              solution_image: ""
+            },
+            {
+              id: "P3_DF_008",
+              difficulty: 'hard',
+              question_text: "The equation of a curve is $y^3 + 4xy = 16$.\n\n**(i)** Show that $\\dfrac{dy}{dx} = -\\dfrac{4y}{3y^2 + 4x}$. $\\quad$ **[4]**\n\n**(ii)** Show that the curve has no stationary points. $\\quad$ **[2]**\n\n**(iii)** Find the coordinates of the point on the curve where the tangent is parallel to the $y$-axis. $\\quad$ **[4]**\n\n*(Cambridge International AS & A Level Mathematics 9709 Paper 21 Q7 June 2015)*",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_DF_009",
+  difficulty: 'standard',
+  question_text: "The equation of a curve is $y = 6\\sin x - 2\\cos 2x$.\n\nFind the equation of the tangent to the curve at the point $\\left(\\tfrac{1}{6}\\pi,\\, 2\\right)$. Give the answer in the form $y = mx + c$, where the values of $m$ and $c$ are correct to 3 significant figures. $\\quad$ **[5]**\n\n*(Cambridge International AS & A Level Mathematics 9709 Paper 21 Q3 June 2015)*",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_DF_010",
+  difficulty: 'hard',
+  question_text: "The parametric equations of a curve are $x = 3(1 + \\sin^2 t)$, $y = 2\\cos^3 t$.\n\nFind $\\dfrac{dy}{dx}$ in terms of $t$, simplifying your answer as far as possible. $\\quad$ **[5]**\n\n*(Cambridge International A Level Mathematics 9709 Paper 31 Q2 November 2011)*",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_DF_011",
+  difficulty: 'hard',
+  question_text: "The equation of a curve is $\\ln(xy) - y^3 = 1$.\n\n**(i)** Show that $\\dfrac{dy}{dx} = \\dfrac{y}{x(3y^3 - 1)}$. $\\quad$ **[4]**\n\n**(ii)** Find the coordinates of the point where the tangent to the curve is parallel to the $y$-axis, giving each coordinate correct to 3 significant figures. $\\quad$ **[4]**\n\n*(Cambridge International A Level Mathematics 9709 Paper 31 Q7 November 2012)*",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_DF_012",
+  difficulty: 'hard',
+  question_text: "The curve with equation $6e^{2x} + ke^y + e^{2y} = c$, where $k$ and $c$ are constants, passes through the point $P$ with coordinates $(\\ln 3,\\, \\ln 2)$.\n\n**(i)** Show that $58 + 2k = c$. $\\quad$ **[2]**\n\n**(ii)** Given also that the gradient of the curve at $P$ is $-6$, find the values of $k$ and $c$. $\\quad$ **[5]**\n\n*(Cambridge International A Level Mathematics 9709 Paper 31 Q5 June 2011)*",
+  solution_image: ""
+},
+ 
+{
+  id: "P3_DF_013",
+  difficulty: 'hard',
+  question_text: "The curve $y = e^{-4x}\\tan x$ has two stationary points in the interval $0 \\leqslant x < \\tfrac{1}{2}\\pi$.\n\n**(a)** Obtain an expression for $\\dfrac{dy}{dx}$ and show it can be written in the form $\\sec^2 x\\,(a + b\\sin 2x)e^{-4x}$, where $a$ and $b$ are constants. $\\quad$ **[4]**\n\n**(b)** Hence find the exact $x$-coordinates of the two stationary points. $\\quad$ **[3]**",
+  solution_image: ""
+},
           ],
           "Trigonometry": [
             {
@@ -1569,6 +1656,13 @@ const SYLLABUS = {
               question_text: "The curve $C$ has equation $y = \\dfrac{2x^2 + kx}{x + 1}$, where $k$ is a constant. Find the set of values of $k$ for which $C$ has no stationary points. $\\quad$ **[5]**\n\nFor the case $k = 4$, find the equations of the asymptotes of $C$ and sketch $C$, indicating the coordinates of the points where $C$ intersects the coordinate axes. $\\quad$ **[6]**",
               solution_image: ""
             },
+            {
+              id: "FP1_RF_013",
+  difficulty: 'standard',
+  question_text: "The curve $C$ is given as $y = \\dfrac{2x^2 + 3x - 5}{x + 2}$.\n\n**(a)** Determine the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Show that $C$ has no turning points. $\\quad$ **[3]**\n\n**(c)** Determine the coordinates of the points where $C$ intersects the coordinate axes. $\\quad$ **[2]**\n\n**(d)** Sketch the curve $C$, showing the asymptotes and intersection points. $\\quad$ **[3]**\n\n**(e)** Determine the values of $x$ for which $y < 2$. $\\quad$ **[3]**",
+  solution_image: ""
+
+            }
           ],
           "Series": [
             {
@@ -1655,6 +1749,12 @@ const SYLLABUS = {
               difficulty: 'elite',
               question_text: "**(a)** Use the formula for $\\tan(A-B)$ to show that\n$$\\tan^{-1}(2k+1) - \\tan^{-1}(2k-1) = \\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$$\n$\\quad$ **[3]**\n\n**(b)** Show that\n$$\\tan^{-1}\\!\\left(\\frac{1}{2(1)^2}\\right)+\\tan^{-1}\\!\\left(\\frac{1}{2(2)^2}\\right)+\\cdots+\\tan^{-1}\\!\\left(\\frac{1}{2n^2}\\right) = \\tan^{-1}\\!\\left(\\frac{n}{n+1}\\right)$$\n$\\quad$ **[5]**\n\n**(c)** Deduce the value of $\\displaystyle\\sum_{k=1}^{\\infty}\\tan^{-1}\\!\\left(\\frac{1}{2k^2}\\right)$. $\\quad$ **[2]**",
               solution_image: ""
+            },
+            {
+              id: "FP1_SR_015",
+  difficulty: 'elite',
+  question_text: "Find, in terms of $n$, an expression for the series\n$$1^3 - 2^3 + 3^3 + 4^3 - 5^3 - 6^3 + \\ldots + (3n-2)^3 - (3n-1)^3 - (3n)^3. \\quad \\textbf{[8]}$$",
+  solution_image: ""
             }
           ],
 
@@ -1731,6 +1831,12 @@ const SYLLABUS = {
               question_text: "The cubic equation $x^3 + px^2 + qx + r = 0$, where $p$, $q$ and $r$ are integers, has roots $\\alpha$, $\\beta$ and $\\gamma$, such that\n$$\\alpha + \\beta + \\gamma = 15, \\qquad \\alpha^2 + \\beta^2 + \\gamma^2 = 83.$$\n\nWrite down the value of $p$ and find the value of $q$. $\\quad$ **[3]**\n\nGiven that $\\alpha$, $\\beta$ and $\\gamma$ are all real and that $\\alpha\\beta + \\alpha\\gamma = 36$, find $\\alpha$ and hence find the value of $r$. $\\quad$ **[5]**",
               solution_image: ""
             },
+            {
+              id: "FP1_RP_013",
+  difficulty: 'elite',
+  question_text: "The cubic equation $2x^3 - 4x + 7 = 0$ has roots $\\alpha$, $\\beta$, $\\gamma$.\n\n**(a)** Find the values of $\\alpha^2 + \\beta^2 + \\gamma^2$ and $\\dfrac{1}{\\alpha} + \\dfrac{1}{\\beta} + \\dfrac{1}{\\gamma}$. $\\quad$ **[3]**\n\n**(b)** Find the cubic equation that has roots $\\dfrac{1}{\\alpha+2}$, $\\dfrac{1}{\\beta+2}$, $\\dfrac{1}{\\gamma+2}$. $\\quad$ **[3]**\n\n**(c)** Hence, determine the value of\n$$\\frac{\\alpha\\beta + \\alpha\\gamma + \\beta\\gamma + 4(\\alpha + \\beta + \\gamma + 3)}{(\\alpha+2)(\\beta+2)(\\gamma+2)}. \\quad \\textbf{[3]}$$",
+  solution_image: ""
+            }
           ],
 
           "Polar Coordinates": [
@@ -1812,6 +1918,12 @@ const SYLLABUS = {
               question_text: "Use the identity $2\\sin P\\cos Q = \\sin(P+Q) + \\sin(P-Q)$ to show that\n$$2\\sin\\theta\\cos\\left(\\theta - \\tfrac{1}{4}\\pi\\right) = \\cos\\left(2\\theta - \\tfrac{3}{4}\\pi\\right) + \\frac{1}{\\sqrt{2}}.$$\n\nA curve has polar equation $r = 2\\sin\\theta\\cos\\left(\\theta - \\tfrac{1}{4}\\pi\\right)$, for $0 \\leqslant \\theta \\leqslant \\tfrac{3}{4}\\pi$. Sketch the curve and state the equation of its line of symmetry, justifying your answer.\n\nShow that the area of the region enclosed by the curve is $\\tfrac{3}{4}(\\pi + 1)$.",
               solution_image: ""
             },
+            {
+              id: "FP1_PC_014",
+  difficulty: 'elite',
+  question_text: "The curve $C$ is given as $r = e^{-\\theta}\\sin\\theta$ for $0 \\leqslant \\theta \\leqslant \\pi$.\n\n**(a)** Find the maximum distance of the curve from the origin. $\\quad$ **[5]**\n\n**(b)** Sketch the curve $C$. $\\quad$ **[2]**\n\n**(c)** Determine the area inside the curve, giving your answer to 3 significant figures. $\\quad$ **[6]**",
+  solution_image: ""
+            }
           ],
 
           "Vectors — Lines & Planes": [
@@ -1893,6 +2005,12 @@ const SYLLABUS = {
               question_text: "The line $l_1$ is parallel to the vector $a\\mathbf{i} - \\mathbf{j} + 2\\mathbf{k}$, where $a$ is a constant, and passes through the point whose position vector is $9\\mathbf{j} + 2\\mathbf{k}$. The line $l_2$ is parallel to the vector $-a\\mathbf{i} + 2\\mathbf{j} + 4\\mathbf{k}$ and passes through the point whose position vector is $-6\\mathbf{i} - 5\\mathbf{j} + 10\\mathbf{k}$.\n\n**(i)** It is given that $l_1$ and $l_2$ intersect.\n\n**(a)** Show that $a = -\\dfrac{8}{13}$. $\\quad$ **[3]**\n\n**(b)** Find a Cartesian equation of the plane containing $l_1$ and $l_2$. $\\quad$ **[4]**\n\n**(ii)** Given instead that the perpendicular distance between $l_1$ and $l_2$ is $3\\sqrt{30}$, find the value of $a$. $\\quad$ **[5]**",
               solution_image: ""
             },
+            {
+              id: "FP1_VL_014",
+  difficulty: 'elite',
+  question_text: "A plane is given as $\\Pi_1: 3x - y + 4z = 2$.\n\n**(a)** Find the distance of the plane from the origin. $\\quad$ **[3]**\n\nAnother plane, $\\Pi_2$, contains the line $\\mathbf{r} = \\mathbf{i} - 2\\mathbf{j} + 3\\mathbf{k} + (-\\mathbf{i} - 2\\mathbf{j} + \\mathbf{k})t$ and the point $(3, 1, 1)$.\n\n**(b)** Find the Cartesian equation of $\\Pi_2$. $\\quad$ **[5]**\n\n**(c)** Find the acute angle between $\\Pi_1$ and $\\Pi_2$. $\\quad$ **[3]**\n\n**(d)** Find a vector that is perpendicular to the normals of $\\Pi_1$ and $\\Pi_2$. $\\quad$ **[3]**",
+  solution_image: ""
+            }
           ],
 
           "Proof by Induction": [
@@ -2012,6 +2130,12 @@ const SYLLABUS = {
               question_text: "For the sequence $u_1, u_2, u_3, \\ldots$, it is given that $u_1 = 8$ and\n$$u_{r+1} = \\frac{5u_r - 3}{4}$$\nfor all $r$.\n\n**(i)** Prove by mathematical induction that\n$$u_n = 4\\left(\\tfrac{5}{4}\\right)^n + 3$$\nfor all positive integers $n$. $\\quad$ **[5]**\n\n**(ii)** Deduce the set of values of $x$ for which the infinite series\n$$(u_1 - 3)x + (u_2 - 3)x^2 + \\ldots + (u_n - 3)x^n + \\ldots$$\nis convergent. $\\quad$ **[2]**\n\n**(iii)** Use the result given in part **(i)** to find integers $a$ and $b$ such that\n$$\\sum_{k=1}^{N} \\ln(u_k - 3) = N^2 \\ln a + N \\ln b. \\quad \\textbf{[3]}$$",
               solution_image: ""
             },
+            {
+              id: "FP1_PI_018",
+  difficulty: 'elite',
+  question_text: "It is given that $y = xe^{2x}$.\n\nProve by induction that $\\dfrac{d^n y}{dx^n} = n \\times 2^{n-1}e^{2x} + 2^n xe^{2x}$. $\\quad$ **[7]**",
+  solution_image: ""
+            }
           ],
 
           "Matrices": [
@@ -2075,7 +2199,6 @@ const SYLLABUS = {
               question_text: "**(c)** The matrix $\\mathbf{A} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 3 \\end{pmatrix}$.\n\n**(a)** Describe fully the single transformation represented by the matrix $\\mathbf{A}$. $\\quad$ **[2]**\n\nThe matrix $\\mathbf{B}$ represents a rotation of 45° clockwise about the origin.\n\n**(b)** Write down the matrix $\\mathbf{B}$, giving each element of the matrix in exact form. $\\quad$ **[1]**\n\nThe transformation represented by matrix $\\mathbf{A}$ followed by the transformation represented by matrix $\\mathbf{B}$ is represented by the matrix $\\mathbf{C}$.\n\n**(c)** Determine $\\mathbf{C}$. $\\quad$ **[2]**\n\n**(iii)** A trapezium $T$ has vertices at the points $(2, 0)$, $(-2, 4)$, $(5, 8)$ and $(5, 0)$, where $k$ is a positive constant. Trapezium $T$ is transformed to the trapezium $T'$ by the matrix $\\begin{pmatrix} 5 & 1 \\\\ -2 & 3 \\end{pmatrix}$.\n\nGiven that the area of trapezium $T'$ is 510 square units, calculate the exact value of $k$.",
               solution_image: ""
             }, 
-            
             {
               id: "FP1_MA_011",
               difficulty: 'hard',
@@ -2094,6 +2217,12 @@ const SYLLABUS = {
               question_text: "The triangle $T$ has vertices $A(2, 1)$, $B(2, 3)$ and $C(0, 1)$.\n\nThe triangle $T'$ is the image of $T$ under the transformation represented by the matrix\n$$\\mathbf{P} = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$$\n\n**(a)** Find the coordinates of the vertices of $T'$. $\\quad$ **(2)**\n\n**(b)** Describe fully the transformation represented by $\\mathbf{P}$. $\\quad$ **(2)**\n\nThe $2 \\times 2$ matrix $\\mathbf{Q}$ represents a reflection in the $x$-axis and the $2 \\times 2$ matrix $\\mathbf{R}$ represents a rotation through 90° anticlockwise about the origin.\n\n**(c)** Write down the matrix $\\mathbf{Q}$ and the matrix $\\mathbf{R}$. $\\quad$ **(2)**\n\n**(d)** Find the matrix $\\mathbf{RQ}$. $\\quad$ **(2)**\n\n**(e)** Give a full geometrical description of the single transformation represented by the answer to part **(d)**. $\\quad$ **(2)**",
               solution_image: ""
             },
+            {
+              id: "FP1_MA_014",
+  difficulty: 'elite',
+  question_text: "You are given the matrices $\\mathbf{A} = \\begin{pmatrix} 1 & 0 & 3 \\\\ 2 & 1 & -1 \\\\ 1 & 1 & 0 \\end{pmatrix}$ and $\\mathbf{B} = \\begin{pmatrix} 2 & 3 & -1 \\\\ 0 & 5 & 1 \\\\ 4 & 4 & 1 \\end{pmatrix}$.\n\n**(a)** Find the inverse matrix $\\mathbf{A}^{-1}$. $\\quad$ **[5]**\n\n**(b)** Hence, determine the matrix $\\mathbf{C}$ in the following cases.\n\n**(i)** $\\mathbf{AC} = \\mathbf{B}$ $\\quad$ **[3]**\n\n**(ii)** $\\mathbf{A} + \\mathbf{AC} = \\mathbf{B}$ $\\quad$ **[2]**",
+  solution_image: ""
+            }
           ]
         }
       },
@@ -2157,6 +2286,12 @@ const SYLLABUS = {
               diagram_image: "FS_CRV_009_d.svg",
               solution_image: ""
             },
+            {
+              id: "FS_CRV_010",
+  difficulty: 'hard',
+  question_text: "A continuous random variable has probability density function $f$ given by\n$$f(x) = \\begin{cases} \\dfrac{1}{30}(x + 4) & 0 \\leqslant x < 2 \\\\ \\dfrac{7}{96} & 2 \\leqslant x < 6 \\\\ \\dfrac{1}{60}(15 - x) & 6 \\leqslant x \\leqslant 9 \\\\ 0 & \\text{otherwise} \\end{cases}$$\n\n**(a)** Find $\\text{E}(X)$. $\\quad$ **[3]**\n\n**(b)** Find the cumulative distribution function. $\\quad$ **[5]**\n\n**(c)** Find the median. $\\quad$ **[3]**",
+  solution_image: ""
+            }
 
           ],
 
@@ -2221,6 +2356,12 @@ const SYLLABUS = {
               question_text: "A biased die has probability $p$ of showing a 6. The random variable $X$ counts the number of trials up to and including the trial in which the first 6 is obtained. The random variable $Y$ counts the number of trials up to and including the trial in which the $n$th 6 is obtained.\n\n**(a)** Write down an expression for $\\text{P}(X = x)$ for $X = 1, 2, \\ldots$ Show that the probability generating function of $X$ is:\n$$G_X(t) = pt(1-qt)^{-1}$$\nwhere $q = 1-p$. Hence show that the mean and variance of $X$ are, respectively:\n$$\\text{E}(X) = \\frac{1}{p}, \\qquad \\text{Var}(X) = \\frac{q}{p^2}$$\n\n**(b)** Given that the trials for $X$ are independent and that $Y = X_1 + X_2 + \\cdots + X_n$, find:\n\n**(i)** the probability generating function for $Y$,\n\n**(ii)** $\\text{E}(Y)$ and $\\text{Var}(Y)$.",
               solution_image: ""
             },
+            {
+              id: "FS_DRV_011",
+  difficulty: 'hard',
+  question_text: "Four torpedoes are fired independently from a ship at a target. Each one has a $\\tfrac{1}{3}$ probability of hitting the target. The random variable $X$ represents the number of hits and has probability generating function:\n$$G_X(t) = \\tfrac{1}{81}(2 + t)^4$$\n\n**(a)** Find the mean and variance of $X$. $\\quad$ **[2]**\n\nA second ship fires at the same target and the random variable $Y$, representing its number of hits, has probability generating function:\n$$G_Y(t) = \\tfrac{1}{243}(2 + t)^5$$\n\nGiven that $X$ and $Y$ are independent:\n\n**(b)** Find the probability generating function of $Z = X + Y$. $\\quad$ **[2]**\n\n**(c)** Calculate the mean and variance of $Z$. $\\quad$ **[6]**",
+  solution_image: ""
+            }
           ],
 
           "Inference": [
@@ -2365,6 +2506,12 @@ const SYLLABUS = {
               question_text: "It has been found that 60% of the computer chips produced in a factory are faulty. As part of quality control, 100 samples of 4 chips are selected at random, and each chip is tested. The number of faulty chips in each sample is recorded, with results given in the following table.\n\n$$\\begin{array}{l|ccccc} \\textbf{Number of faulty chips} & 0 & 1 & 2 & 3 & 4 \\\\ \\hline \\textbf{Number of samples} & 2 & 12 & 27 & 49 & 10 \\end{array}$$\n\nThe expected values for a binomial distribution with parameters $n = 4$ and $p = 0.6$ are given in the following table.\n\n$$\\begin{array}{l|ccccc} \\textbf{Number of faulty chips} & 0 & 1 & 2 & 3 & 4 \\\\ \\hline \\textbf{Number of samples} & 2.56 & 15.36 & 34.56 & 34.56 & 12.96 \\end{array}$$\n\n**(i)** Show how the expected value 34.56 corresponding to 2 faulty chips is obtained. $\\quad$ **[2]**\n\n**(ii)** Carry out a goodness of fit test at the 5% significance level, and state what can be deduced from the outcome of the test. $\\quad$ **[6]**\n\n*(Cambridge International AS & A Level Further Mathematics 9231 Paper 2 Q9 November 2009)*",
               solution_image: ""
             },
+            {
+              id: "FS_CS_013",
+  difficulty: 'hard',
+  question_text: "The manager of a hotel collected data on the usage of the facilities at the hotel by its guests. A random sample from her records is summarised below.\n\n$$\\begin{array}{l|cc} \\textbf{Facility} & \\textbf{Male} & \\textbf{Female} \\\\ \\hline \\text{Spa} & 40 & 68 \\\\ \\text{Swimming pool} & 26 & 33 \\\\ \\text{Business centre} & 52 & 31 \\end{array}$$\n\nMaking your method clear, test whether or not there is any evidence of an association between gender and use of the hotel's facilities. Use a 5% significance level. $\\quad$ **[11]**",
+  solution_image: ""
+            }
           ],
           "Non-parametric Tests": [
             {
@@ -2427,6 +2574,18 @@ const SYLLABUS = {
               question_text: "A charity launched a campaign to raise awareness of low pay amongst full-time workers in company canteens. The charity now believes the median weekly wage in this job sector has increased.\n\nAfter the campaign, a random sample of ten canteen workers was asked how much they earned in the previous week. The results, in NZ\\$, were as follows.\n$$156.45 \\quad 145.50 \\quad 151.30 \\quad 150.70 \\quad 156.10 \\quad 151.15 \\quad 144.40 \\quad 146.60 \\quad 163.75 \\quad 157.60$$\n\nBefore the campaign the median weekly wage for full-time workers in the company canteens was NZ\\$147.50.\n\nCarry out a Wilcoxon signed-rank test to determine whether there has been an increase in the median wage after the campaign. Use the 5% level of significance.",
               solution_image: ""
             },
+            {
+              id: "FS_NP_011",
+  difficulty: 'standard',
+  question_text: "An experiment is carried out to investigate memory in two situations: aural and visual. A random sample of 12 students are shown 20 objects and each student is asked to recall as many of the objects as possible. Subsequently a list of 20 different objects is read out to them and again each student is asked to recall as many as possible. The results are given below.\n\n$$\\begin{array}{l|cccccccccccc} \\textbf{Student} & A & B & C & D & E & F & G & H & J & K & L & M \\\\ \\hline \\textbf{Visual} & 14 & 15 & 10 & 9 & 8 & 13 & 17 & 12 & 14 & 7 & 15 & 6 \\\\ \\textbf{Aural} & 12 & 13 & 9 & 10 & 7 & 14 & 16 & 10 & 11 & 8 & 14 & 5 \\end{array}$$\n\nUse a sign test to determine whether or not there is evidence that students can recall objects with greater accuracy when they are presented visually rather than aurally. Use a 5% significance level. $\\quad$ **[8]**",
+  solution_image: ""
+},
+{
+  id: "FS_NP_012",
+  difficulty: 'hard',
+  question_text: "A university librarian selects a random sample of seven students from the physics department and records the number of books each student borrows in a particular month. The results are as follows.\n$$11,\\; 13,\\; 6,\\; 8,\\; 10,\\; 17,\\; 5$$\n\nDuring the same month the librarian selects a random sample of eight students from the geography department and the number of books each of these students borrows that month is as follows.\n$$19,\\; 9,\\; 20,\\; 15,\\; 16,\\; 12,\\; 14,\\; 18$$\n\n**(a)** Using the Wilcoxon rank-sum test at the 5% level of significance, test whether or not there is any difference between the mean number of books borrowed by students from these two departments. $\\quad$ **[7]**\n\n**(b)** Explain briefly how your test would be modified if 50 students had been randomly selected from each department. $\\quad$ **[3]**",
+  solution_image: ""
+            }
           ]
         }
       },
