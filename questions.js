@@ -1006,40 +1006,40 @@ const SYLLABUS = {
             {
               id: "P3_DF_006",
               difficulty: 'standard',
-              question_text: "Find the gradient of each of the following curves at the point for which $x = 0$.\n\n**(i)** $y = 3\\sin x + \\tan 2x$ $\\quad$ **[3]**\n\n**(ii)** $y = \\dfrac{6}{1 + e^{2x}}$ $\\quad$ **[3]**,
+              question_text: "Find the gradient of each of the following curves at the point for which $x = 0$.\n\n**(i)** $y = 3\\sin x + \\tan 2x$ $\\quad$ **[3]**\n\n**(ii)** $y = \\dfrac{6}{1 + e^{2x}}$ $\\quad$ **[3]**\n\n*(Cambridge International AS & A Level Mathematics 9709 Paper 21 Q2 June 2014)*",
               solution_image: ""
             },
             {
               id: "P3_DF_007",
               difficulty: 'hard',
-              question_text: "The equation of a curve is $2x^2 + 3xy + y^2 = 3$.\n\n**(i)** Find the equation of the tangent to the curve at the point $(2, -1)$, giving your answer in the form $ax + by + c = 0$, where $a$, $b$ and $c$ are integers. $\\quad$ **[6]**\n\n**(ii)** Show that the curve has no stationary points. $\\quad$ **[4]**,
+              question_text: "The equation of a curve is $2x^2 + 3xy + y^2 = 3$.\n\n**(i)** Find the equation of the tangent to the curve at the point $(2, -1)$, giving your answer in the form $ax + by + c = 0$, where $a$, $b$ and $c$ are integers. $\\quad$ **[6]**\n\n**(ii)** Show that the curve has no stationary points. $\\quad$ **[4]**\n\n*(Cambridge International AS & A Level Mathematics 9709 Paper 21 Q7 June 2014)*",
               solution_image: ""
             },
             {
               id: "P3_DF_008",
               difficulty: 'hard',
-              question_text: "The equation of a curve is $y^3 + 4xy = 16$.\n\n**(i)** Show that $\\dfrac{dy}{dx} = -\\dfrac{4y}{3y^2 + 4x}$. $\\quad$ **[4]**\n\n**(ii)** Show that the curve has no stationary points. $\\quad$ **[2]**\n\n**(iii)** Find the coordinates of the point on the curve where the tangent is parallel to the $y$-axis. $\\quad$ **[4]**,
+              question_text: "The equation of a curve is $y^3 + 4xy = 16$.\n\n**(i)** Show that $\\dfrac{dy}{dx} = -\\dfrac{4y}{3y^2 + 4x}$. $\\quad$ **[4]**\n\n**(ii)** Show that the curve has no stationary points. $\\quad$ **[2]**\n\n**(iii)** Find the coordinates of the point on the curve where the tangent is parallel to the $y$-axis. $\\quad$ **[4]**\n\n*(Cambridge International AS & A Level Mathematics 9709 Paper 21 Q7 June 2015)*",
   solution_image: ""
 },
  
 {
   id: "P3_DF_009",
   difficulty: 'standard',
-  question_text: "The equation of a curve is $y = 6\\sin x - 2\\cos 2x$.\n\nFind the equation of the tangent to the curve at the point $\\left(\\tfrac{1}{6}\\pi,\\, 2\\right)$. Give the answer in the form $y = mx + c$, where the values of $m$ and $c$ are correct to 3 significant figures. $\\quad$ **[5]**,
+  question_text: "The equation of a curve is $y = 6\\sin x - 2\\cos 2x$.\n\nFind the equation of the tangent to the curve at the point $\\left(\\tfrac{1}{6}\\pi,\\, 2\\right)$. Give the answer in the form $y = mx + c$, where the values of $m$ and $c$ are correct to 3 significant figures. $\\quad$ **[5]**\n\n*(Cambridge International AS & A Level Mathematics 9709 Paper 21 Q3 June 2015)*",
   solution_image: ""
 },
  
 {
   id: "P3_DF_010",
   difficulty: 'hard',
-  question_text: "The parametric equations of a curve are $x = 3(1 + \\sin^2 t)$, $y = 2\\cos^3 t$.\n\nFind $\\dfrac{dy}{dx}$ in terms of $t$, simplifying your answer as far as possible. $\\quad$ **[5]**,
+  question_text: "The parametric equations of a curve are $x = 3(1 + \\sin^2 t)$, $y = 2\\cos^3 t$.\n\nFind $\\dfrac{dy}{dx}$ in terms of $t$, simplifying your answer as far as possible. $\\quad$ **[5]**\n\n*(Cambridge International A Level Mathematics 9709 Paper 31 Q2 November 2011)*",
   solution_image: ""
 },
  
 {
   id: "P3_DF_011",
   difficulty: 'hard',
-  question_text: "The equation of a curve is $\\ln(xy) - y^3 = 1$.\n\n**(i)** Show that $\\dfrac{dy}{dx} = \\dfrac{y}{x(3y^3 - 1)}$. $\\quad$ **[4]**\n\n**(ii)** Find the coordinates of the point where the tangent to the curve is parallel to the $y$-axis, giving each coordinate correct to 3 significant figures. $\\quad$ **[4]**,
+  question_text: "The equation of a curve is $\\ln(xy) - y^3 = 1$.\n\n**(i)** Show that $\\dfrac{dy}{dx} = \\dfrac{y}{x(3y^3 - 1)}$. $\\quad$ **[4]**\n\n**(ii)** Find the coordinates of the point where the tangent to the curve is parallel to the $y$-axis, giving each coordinate correct to 3 significant figures. $\\quad$ **[4]**\n\n*(Cambridge International A Level Mathematics 9709 Paper 31 Q7 November 2012)*",
   solution_image: ""
 },
  
