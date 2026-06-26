@@ -1538,7 +1538,31 @@ const SYLLABUS = {
               difficulty: 'elite',
               question_text: "The curve $C$ has equation $y = \\dfrac{x^2 + x - 7}{x - 1}$.\n\n**(a)** Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\n**(b)** Show that $C$ has no turning points. $\\quad$ **[3]**\n\n**(c)** Sketch $C$, stating the coordinates of the intersections with the axes and the equations of the asymptotes. $\\quad$ **[3]**\n\n**(d)** Sketch the curve with equation $y = \\left|\\dfrac{|x|^2 + |x| - 7}{|x| - 1}\\right|$ and find the set of values of $x$ for which $\\left|\\dfrac{|x|^2 + |x| - 7}{|x| - 1}\\right| < \\dfrac{25}{2}$. $\\quad$ **[6]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FP1_RF_008",
+              difficulty: 'hard',
+              question_text: "The curves $C_1$ and $C_2$ have equations\n$$y = \\frac{ax}{x+5} \\quad \\text{and} \\quad y = \\frac{x^2 + (a+10)x + 5a + 26}{x+5}$$\nrespectively, where $a$ is a constant and $a > 2$.\n\n**(i)** Find the equations of the asymptotes of $C_1$. $\\quad$ **[2]**\n\n**(ii)** Find the equation of the oblique asymptote of $C_2$. $\\quad$ **[2]**\n\n**(iii)** Show that $C_1$ and $C_2$ do not intersect. $\\quad$ **[2]**\n\n**(iv)** Find the coordinates of the stationary points of $C_2$. $\\quad$ **[3]**\n\n**(v)** Sketch $C_1$ and $C_2$ on a single diagram. [You do not need to calculate the coordinates of any points where $C_2$ crosses the axes.] $\\quad$ **[3]**",
+              solution_image: ""
+            },
+           {
+              id: "FP1_RF_009",
+              difficulty: 'standard',
+              question_text: "The curve $C$ has equation $y = \\dfrac{4x^2 - 3x}{x^2 + 1}$. Verify that the equation of $C$ may be written in the form\n$$y = -\\frac{1}{2} + \\frac{(3x-1)^2}{2(x^2+1)} \\quad \\text{and also in the form} \\quad y = \\frac{9}{2} - \\frac{(x+3)^2}{2(x^2+1)}. \\quad \\textbf{[3]}$$\n\nHence show that $-\\dfrac{1}{2} \\leqslant y \\leqslant \\dfrac{9}{2}$. $\\quad$ **[2]**\n\nWithout differentiating, write down the coordinates of the turning points of $C$. $\\quad$ **[2]**\n\nState the equation of the asymptote of $C$. $\\quad$ **[1]**\n\nSketch the graph of $C$, stating the coordinates of the intersections with the coordinate axes and the asymptote. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RF_010",
+              difficulty: 'standard',
+              question_text: "The curve $C$ has equation\n$$y = \\lambda x + \\frac{x}{x-2}$$\nwhere $\\lambda$ is a non-zero constant. Find the equations of the asymptotes of $C$. $\\quad$ **[3]**\n\nShow that $C$ has no turning points if $\\lambda < 0$. $\\quad$ **[3]**\n\nSketch $C$ in the case $\\lambda = -1$, stating the coordinates of the intersections with the axes. $\\quad$ **[3]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_RF_011",
+              difficulty: 'hard',
+              question_text: "**OR**\n\nThe curve $C$ has equation\n$$y = \\frac{ax^2 + bx + c}{x + d}$$\nwhere $a$, $b$, $c$ and $d$ are constants. The curve cuts the $y$-axis at $(0, -2)$ and has asymptotes $x = 2$ and $y = x + 1$.\n\n**(i)** Write down the value of $d$. $\\quad$ **[1]**\n\n**(ii)** Determine the values of $a$, $b$ and $c$. $\\quad$ **[6]**\n\n**(iii)** Show that, at all points on $C$, either $y \\leqslant 3 - 2\\sqrt{6}$ or $y \\geqslant 3 + 2\\sqrt{6}$. $\\quad$ **[7]**",
+             solution_image: ""
+            },
           ],
           "Series": [
             {
@@ -1676,7 +1700,31 @@ const SYLLABUS = {
               difficulty: 'hard',
               question_text: "The quartic equation $x^4 + px^3 + qx^2 + rx + s = 0$, where $p$, $q$, $r$ and $s$ are constants, has roots $\\alpha$, $\\beta$, $\\gamma$ and $\\delta$. It is given that $\\alpha\\beta\\gamma\\delta = 1$.\n\n**(a)** State the value of $s$. $\\quad$ **[1]**\n\n**(b)** Find a quartic equation, with coefficients in terms of $p$, $q$ and $r$, whose roots are $\\alpha+1$, $\\beta+1$, $\\gamma+1$, $\\delta+1$. $\\quad$ **[4]**\n\n**(c)** Given also that $\\gamma+1 = -(\\alpha+1)$ and $\\delta+1 = -(\\beta+1)$, deduce the value of $p$ and show that $r = 2q - 8$. $\\quad$ **[4]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FP1_RP_009",
+              difficulty: 'hard',
+              question_text: "A cubic equation $x^3 + bx^2 + cx + d = 0$ has real roots $\\alpha$, $\\beta$ and $\\gamma$ such that\n$$\\frac{1}{\\alpha} + \\frac{1}{\\beta} + \\frac{1}{\\gamma} = -\\frac{5}{12}, \\qquad \\alpha\\beta\\gamma = -12, \\qquad \\alpha^3 + \\beta^3 + \\gamma^3 = 90.$$\n\n**(i)** Find the values of $c$ and $d$. $\\quad$ **[3]**\n\n**(ii)** Express $\\alpha^2 + \\beta^2 + \\gamma^2$ in terms of $b$. $\\quad$ **[2]**\n\n**(iii)** Show that $b^3 - 15b + 126 = 0$. $\\quad$ **[4]**",
+              solution_image: ""
+           },
+           {
+              id: "FP1_RP_010",
+              difficulty: 'hard',
+              question_text: "It is given that the equation\n$$x^3 - 21x^2 + kx - 216 = 0$$\nwhere $k$ is a constant, has real roots $\\alpha$, $\\alpha r$ and $\\alpha r^2$.\n\n**(i)** Find the numerical values of the roots. $\\quad$ **[6]**\n\n**(ii)** Deduce the value of $k$. $\\quad$ **[2]**",
+              solution_image: ""
+           },
+           {
+              id: "FP1_RP_011",
+              difficulty: 'standard',
+              question_text: "The roots of the equation\n$$x^3 + px^2 + qx + r = 0$$\nare $\\alpha$, $2\\alpha$, $4\\alpha$, where $p$, $q$, $r$ and $\\alpha$ are non-zero real constants.\n\n**(i)** Show that $2p\\alpha + q = 0$. $\\quad$ **[4]**\n\n**(ii)** Show that $p^3 r - q^3 = 0$. $\\quad$ **[2]**",
+              solution_image: ""
+            }, 
+            {
+              id: "FP1_RP_012",
+              difficulty: 'standard',
+              question_text: "The cubic equation $x^3 + px^2 + qx + r = 0$, where $p$, $q$ and $r$ are integers, has roots $\\alpha$, $\\beta$ and $\\gamma$, such that\n$$\\alpha + \\beta + \\gamma = 15, \\qquad \\alpha^2 + \\beta^2 + \\gamma^2 = 83.$$\n\nWrite down the value of $p$ and find the value of $q$. $\\quad$ **[3]**\n\nGiven that $\\alpha$, $\\beta$ and $\\gamma$ are all real and that $\\alpha\\beta + \\alpha\\gamma = 36$, find $\\alpha$ and hence find the value of $r$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
           ],
 
           "Polar Coordinates": [
@@ -1746,7 +1794,18 @@ const SYLLABUS = {
               question_text: "The curve $C$ has polar equation $r^2 = \\dfrac{a}{1+\\tan 2\\theta}$ for $0 \\leqslant \\theta < \\tfrac{1}{4}\\pi$, where $a$ is a positive constant.\n\n**(a)** Show that, at the point on $C$ furthest from the initial line,\n$$\\cos\\theta - \\dfrac{\\sin\\theta}{\\cos 2\\theta(\\sin 2\\theta+\\cos 2\\theta)} = 0$$\nand verify that this equation has a root between $0.5$ and $0.6$. $\\quad$ **[6]**\n\n**(c)** Use the substitution $v = \\tan 2\\theta$ to show that the area enclosed by $C$ and the initial line is\n$$\\tfrac{1}{4}a\\int_0^{\\infty} \\dfrac{1}{(1+v)(1+v^2)}\\,dv$$\nand find the exact value of this area. $\\quad$ **[7]**",
               solution_image: ""
             },
-
+            {
+              id: "FP1_PC_012",
+              difficulty: 'elite',
+              question_text: "**EITHER**\n\nA curve $C$ has polar equation $r = 2a\\cos\\left(2\\theta + \\tfrac{1}{2}\\pi\\right)$ for $0 \\leqslant \\theta < 2\\pi$, where $a$ is a positive constant.\n\n**(i)** Show that $r = -2a\\sin 2\\theta$ and sketch $C$. $\\quad$ **[4]**\n\n**(ii)** Deduce that the Cartesian equation of $C$ is\n$$(x^2 + y^2)^{\\frac{3}{2}} = -4axy. \\quad \\textbf{[2]}$$\n\n**(iii)** Find the area of one loop of $C$. $\\quad$ **[5]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PC_013",
+              difficulty: 'elite',
+              question_text: "Use the identity $2\\sin P\\cos Q = \\sin(P+Q) + \\sin(P-Q)$ to show that\n$$2\\sin\\theta\\cos\\left(\\theta - \\tfrac{1}{4}\\pi\\right) = \\cos\\left(2\\theta - \\tfrac{3}{4}\\pi\\right) + \\frac{1}{\\sqrt{2}}.$$\n\nA curve has polar equation $r = 2\\sin\\theta\\cos\\left(\\theta - \\tfrac{1}{4}\\pi\\right)$, for $0 \\leqslant \\theta \\leqslant \\tfrac{3}{4}\\pi$. Sketch the curve and state the equation of its line of symmetry, justifying your answer.\n\nShow that the area of the region enclosed by the curve is $\\tfrac{3}{4}(\\pi + 1)$.",
+              solution_image: ""
+            },
           ],
 
           "Vectors — Lines & Planes": [
@@ -1797,7 +1856,31 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "The points $A$, $B$, $C$ have position vectors $-\\mathbf{i}+\\mathbf{j}+2\\mathbf{k}$, $3\\mathbf{i}-\\mathbf{j}+4\\mathbf{k}$, $2\\mathbf{i}+5\\mathbf{j}+\\mathbf{k}$ respectively, relative to the origin $O$.\n\n**(a)** Find the equation of the plane $ABC$, giving your answer in the form $ax+by+cz=d$. $\\quad$ **[5]**\n\n**(b)** Find the perpendicular distance from $O$ to the plane $ABC$. $\\quad$ **[2]**\n\n**(c)** Find the acute angle between the planes $OAB$ and $ABC$. $\\quad$ **[4]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FP1_VL_009",
+              difficulty: 'hard',
+              question_text: "The points $A$, $B$, $C$ have position vectors\n$$-2\\mathbf{i} + 2\\mathbf{j} - \\mathbf{k}, \\quad -2\\mathbf{i} + \\mathbf{j} + 2\\mathbf{k}, \\quad -2\\mathbf{j} + \\mathbf{k}$$\nrespectively, relative to the origin $O$.\n\n**(a)** Find the equation of the plane $ABC$, giving your answer in the form $ax + by + cz = d$. $\\quad$ **[5]**\n\n**(b)** Find the acute angle between the planes $OBC$ and $ABC$. $\\quad$ **[4]**\n\nThe point $D$ has position vector $t\\mathbf{i} - \\mathbf{j}$.\n\n**(c)** Given that the shortest distance between the lines $AB$ and $CD$ is $\\sqrt{10}$, find the value of $t$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_VL_010",
+              difficulty: 'elite',
+              question_text: "The line $l_1$ is parallel to the vector $a\\mathbf{i} - \\mathbf{j} + \\mathbf{k}$, where $a$ is a constant, and passes through the point whose position vector is $9\\mathbf{j} + 2\\mathbf{k}$. The line $l_2$ is parallel to the vector $-a\\mathbf{i} + 2\\mathbf{j} + 4\\mathbf{k}$ and passes through the point whose position vector is $-6\\mathbf{i} - 5\\mathbf{j} + 10\\mathbf{k}$.\n\n**(i)** It is given that $l_1$ and $l_2$ intersect.\n\n**(a)** Show that $a = -\\dfrac{8}{13}$. $\\quad$ **[3]**\n\n**(b)** Find a Cartesian equation of the plane containing $l_1$ and $l_2$. $\\quad$ **[4]**",
+              solution_image: ""
+            }, 
+            {
+              id: "FP1_VL_011",
+              difficulty: 'elite',
+              question_text: "The position vectors of the points $A$, $B$, $C$, $D$ are\n$$\\mathbf{i} + \\mathbf{j} + 3\\mathbf{k}, \\quad 3\\mathbf{i} + 4\\mathbf{j} + 5\\mathbf{k}, \\quad -\\mathbf{i} + 3\\mathbf{k}, \\quad m\\mathbf{j} + 4\\mathbf{k}$$\nrespectively, where $m$ is a constant.\n\n**(i)** Show that the lines $AB$ and $CD$ are parallel when $m = \\dfrac{3}{2}$. $\\quad$ **[1]**\n\n**(ii)** Given that $m \\neq \\dfrac{3}{2}$, find the shortest distance between the lines $AB$ and $CD$. $\\quad$ **[5]**\n\n**(iii)** When $m = 2$, find the acute angle between the planes $ABC$ and $ABD$, giving your answer in degrees. $\\quad$ **[6]**",
+              solution_image: ""
+           }, 
+           {
+              id: "FP1_VL_012",
+              difficulty: 'elite',
+              question_text: "The lines $l_1$ and $l_2$ have equations $\\mathbf{r} = 8\\mathbf{i} + 2\\mathbf{j} + 3\\mathbf{k} + \\lambda(2\\mathbf{i} - 2\\mathbf{j})$ and $\\mathbf{r} = 5\\mathbf{i} + 3\\mathbf{j} - 14\\mathbf{k} + \\mu(2\\mathbf{j} - 3\\mathbf{k})$ respectively. The point $P$ on $l_1$ and the point $Q$ on $l_2$ are such that $PQ$ is perpendicular to both $l_1$ and $l_2$.\n\n**(i)** Find the position vector of $P$ and the position vector of $Q$. $\\quad$ **[8]**\n\n**(ii)** Hence find the area of the triangle $APQ$. $\\quad$ **[6]**\n\nThe points with position vectors $8\\mathbf{i} + 2\\mathbf{j} + 3\\mathbf{k}$ and $5\\mathbf{i} + 3\\mathbf{j} - 14\\mathbf{k}$ are denoted by $A$ and $B$ respectively. Find\n\n**(i)** $\\overrightarrow{AP} \\times \\overrightarrow{AQ}$ and hence the area of the triangle $APQ$,\n\n**(ii)** the volume of the tetrahedron $APQB$.",
+              solution_image: ""
+            },
           ],
 
           "Proof by Induction": [
@@ -1892,7 +1975,31 @@ const SYLLABUS = {
               difficulty: 'standard',
               question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$\\begin{pmatrix}1&2&3\\\\0&1&2\\\\0&0&1\\end{pmatrix}^n = \\begin{pmatrix}1&2n&n(2n+1)\\\\0&1&2n\\\\0&0&1\\end{pmatrix}$$\n$\\quad$ **[7]**",
               solution_image: ""
-            }
+            },
+            {
+              id: "FP1_PI_015",
+              difficulty: 'hard',
+              question_text: "It is given that $a_r = r \\times r!$ for $r = 1, 2, 3, \\ldots$ Let $S_n = u_1 + u_2 + u_3 + \\ldots + u_n$. Write down the values of\n$$2! - S_1, \\quad 3! - S_2, \\quad 4! - S_3, \\quad 5! - S_4. \\quad \\textbf{[2]}$$\n\nConjecture a formula for $S_n$. $\\quad$ **[1]**\n\nProve, by mathematical induction, a formula for $S_n$ for all positive integers $n$. $\\quad$ **[4]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_016",
+              difficulty: 'Elite',
+              question_text: "It is given that a diagonal of a polygon is a line joining two non-adjacent vertices. Prove, by mathematical induction, that an $n$-sided polygon has $\\tfrac{1}{2}n(n-3)$ diagonals, where $n \\geqslant 3$. $\\quad$ **[6]**",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_017",
+              difficulty: 'hard',
+              question_text: "**(i)** Prove by mathematical induction that, for $z \\neq 1$ and all positive integers $n$,\n$$1 + z + z^2 + \\ldots + z^{n-1} = \\frac{z^n - 1}{z - 1}. \\quad \\textbf{[5]}$$",
+              solution_image: ""
+            },
+            {
+              id: "FP1_PI_018",
+              difficulty: 'elite',
+              question_text: "For the sequence $u_1, u_2, u_3, \\ldots$, it is given that $u_1 = 8$ and\n$$u_{r+1} = \\frac{5u_r - 3}{4}$$\nfor all $r$.\n\n**(i)** Prove by mathematical induction that\n$$u_n = 4\\left(\\tfrac{5}{4}\\right)^n + 3$$\nfor all positive integers $n$. $\\quad$ **[5]**\n\n**(ii)** Deduce the set of values of $x$ for which the infinite series\n$$(u_1 - 3)x + (u_2 - 3)x^2 + \\ldots + (u_n - 3)x^n + \\ldots$$\nis convergent. $\\quad$ **[2]**\n\n**(iii)** Use the result given in part **(i)** to find integers $a$ and $b$ such that\n$$\\sum_{k=1}^{N} \\ln(u_k - 3) = N^2 \\ln a + N \\ln b. \\quad \\textbf{[3]}$$",
+              solution_image: ""
+            },
           ],
 
           "Matrices": [
@@ -2071,6 +2178,12 @@ const SYLLABUS = {
               question_text: "The probability generating function of the discrete random variable $X$ is given by\n$$G_X(t) = k(3 + t + 2t^2)^2$$\n\n**(a)** Show that $k = \\dfrac{1}{36}$. $\\quad$ **[2]**\n\n**(b)** Find $\\mathrm{P}(X = 3)$. $\\quad$ **[2]**\n\n**(c)** Show that $\\mathrm{Var}(X) = \\dfrac{29}{18}$. $\\quad$ **[8]**\n\n**(d)** Find the probability generating function of $2X + 1$. $\\quad$ **[2]**",
               solution_image: ""
             },
+            {
+              id: "FS_DRV_010",
+              difficulty: 'hard',
+              question_text: "A biased die has probability $p$ of showing a 6. The random variable $X$ counts the number of trials up to and including the trial in which the first 6 is obtained. The random variable $Y$ counts the number of trials up to and including the trial in which the $n$th 6 is obtained.\n\n**(a)** Write down an expression for $\\text{P}(X = x)$ for $X = 1, 2, \\ldots$ Show that the probability generating function of $X$ is:\n$$G_X(t) = pt(1-qt)^{-1}$$\nwhere $q = 1-p$. Hence show that the mean and variance of $X$ are, respectively:\n$$\\text{E}(X) = \\frac{1}{p}, \\qquad \\text{Var}(X) = \\frac{q}{p^2}$$\n\n**(b)** Given that the trials for $X$ are independent and that $Y = X_1 + X_2 + \\cdots + X_n$, find:\n\n**(i)** the probability generating function for $Y$,\n\n**(ii)** $\\text{E}(Y)$ and $\\text{Var}(Y)$.",
+              solution_image: ""
+            },
           ],
 
           "Inference": [
@@ -2116,7 +2229,30 @@ const SYLLABUS = {
               question_text: "When the fat content of a $100$ g slice of cheesecake is measured by a certain machine, the reading obtained is Normally distributed with mean equal to the actual fat content and standard deviation $1.1$ grams.\n\nThe fat content of $16$ slices, $8$ from each of two varieties, are recorded.\n\n**Variety A:** $21.9,\\ 23.0,\\ 23.9,\\ 22.0,\\ 24.5,\\ 23.4,\\ 25.1,\\ 24.2$ grams\n\n**Variety B:** $22.0,\\ 22.5,\\ 24.0,\\ 20.5,\\ 22.4,\\ 23.5,\\ 21.9,\\ 22.2$ grams\n\n**(a)** Calculate a $98\\%$ confidence interval for the difference between the mean fat content of a $100$ g slice of Variety A and Variety B. $\\quad$ **[5]**\n\n**(b)** Determine the percentage confidence level if the confidence interval for the difference between the mean fat contents is $[0.315,\\ 1.935]$. $\\quad$ **[3]**",
               solution_image: ""
             },
-
+            {
+              id: "FS_IN_008",
+              difficulty: 'hard',
+              question_text: "A random sample of 40 observations of a random variable $X$, and a random sample of 25 observations of a random variable $Y$, are taken. The sample means and unbiased estimates are:\n$$\\bar{x} = 13.6, \\quad \\bar{y} = 11.2, \\quad s_x = 6.3, \\quad s_y = 7.1$$\n\nA test is performed at a significance level of $a\\%$ using the following hypotheses:\n$$H_0: \\mu_x - \\mu_y = 0 \\qquad H_1: \\mu_x - \\mu_y > 0$$\n\nGiven that $H_0$ is not rejected, find the possible values of $a$.",
+              solution_image: ""
+            }, 
+            {
+              id: "FS_IN_009",
+              difficulty: 'standard',
+              question_text: "A school is considering buying a large number of safety devices to install in the classrooms. The devices are designed to activate sprinklers if the temperature in the room exceeds 65°C. A sample of the devices are tested by slowly increasing the temperature and noting the temperatures, in °C, at which the sprinklers are activated. The results are as follows.\n$$57.8 \\quad 62.9 \\quad 63.7 \\quad 71.2 \\quad 60.6 \\quad 69.5 \\quad 64.7 \\quad 65.7$$\n\nUse a $t$-test and the 10% significance level to examine whether the mean temperature at which the sprinklers are activated is 65°C. Assume that the sample is random and mean temperatures are normally distributed.",
+              solution_image: ""
+            },
+            {
+              id: "FS_IN_010",
+              difficulty: 'hard',
+              question_text: "A random sample of five metal rods produced by a machine is taken. Each rod is tested for hardness. The results, in suitable units, are as follows.\n$$524 \\quad 526 \\quad 520 \\quad 523 \\quad 530$$\n\n**(i)** Assuming a normal distribution, calculate a 95% confidence interval for the population mean.\n\nSome adjustments are made to the machine. Assume that a normal distribution is still appropriate and that the population variance remains unchanged. A second random sample, this time of ten metal rods, is now taken. The results for hardness are as follows.\n$$525 \\quad 520 \\quad 522 \\quad 524 \\quad 518 \\quad 520 \\quad 519 \\quad 525 \\quad 527 \\quad 516$$\n\n**(ii)** Stating suitable hypotheses, test at the 10% significance level whether there is any difference between the population means before and after the adjustments.",
+              solution_image: ""
+            }, 
+            {
+              id: "FS_IN_011",
+              difficulty: 'standard',
+              question_text: "The Tax Bureau claims that people typically take 140 minutes to fill in a tax form. A researcher believes that this claim is incorrect and that, generally, it takes people longer to complete the form. She recorded the time (in minutes) it took ten people to complete the form. The results are given below.\n$$151 \\quad 138 \\quad 132 \\quad 149 \\quad 145 \\quad 152 \\quad 141 \\quad 148 \\quad 162 \\quad 146$$\n\nCarry out a sign test, at the 5% significance level, to investigate whether the average time to complete the form is greater than 140 minutes.",
+              solution_image: ""
+           },
           ],
           "Chi-squared Tests": [
             {
@@ -2180,7 +2316,18 @@ const SYLLABUS = {
               question_text: "A research station planted $120$ rows containing $7$ seeds in each row and recorded the number of seeds germinating in each row.\n\n$$\\begin{array}{l|cccccccc} \\text{Seeds germinating} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\\\ \\hline \\text{Rows observed} & 2 & 6 & 11 & 19 & 25 & 32 & 16 & 9 \\end{array}$$\n\n**(a)** Write down two reasons why a binomial distribution may be a suitable model. $\\quad$ **[2]**\n\n**(b)** Show that the probability of a randomly selected seed from this sample germinating is $0.6$. $\\quad$ **[2]**\n\nThe research station used a $\\mathrm{B}(7, 0.6)$ model. The expected frequencies (to $2$ d.p.) are as follows.\n\n$$\\begin{array}{l|cccccccc} \\text{Seeds germinating} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\\\ \\hline \\text{Rows expected} & 0.20 & 2.06 & s & 23.22 & t & 31.35 & 15.68 & 3.36 \\end{array}$$\n\n**(c)** Find the values of $s$ and $t$. $\\quad$ **[2]**\n\n**(d)** Stating your hypotheses clearly, test at the $1\\%$ level of significance whether or not the data can be modelled by a binomial distribution. $\\quad$ **[7]**",
               solution_image: ""
             },
-
+            {
+              id: "FS_CS_011",
+              difficulty: 'hard',
+              question_text: "The owner of three driving schools, A, B and C, wished to assess whether there was an association between passing the driving test and the school attended. He selected a random sample of learner drivers from each of his schools and recorded the numbers of passes and failures at each school. The results that he obtained are shown in the table below.\n\n$$\\begin{array}{l|ccc} & \\textbf{A} & \\textbf{B} & \\textbf{C} \\\\ \\hline \\textbf{Passes} & 23 & 15 & 17 \\\\ \\textbf{Failures} & 27 & 25 & 43 \\end{array}$$\n\nUsing a $\\chi^2$-test and a 5% level of significance, test whether there is an association between passing or failing the driving test and the driving school attended. $\\quad$ **[8]**\n\n*(Cambridge International AS & A Level Further Mathematics 9231 Paper 2 Q8 November 2010)*",
+              solution_image: ""
+            }, 
+            {
+              id: "FS_CS_012",
+              difficulty: 'hard',
+              question_text: "It has been found that 60% of the computer chips produced in a factory are faulty. As part of quality control, 100 samples of 4 chips are selected at random, and each chip is tested. The number of faulty chips in each sample is recorded, with results given in the following table.\n\n$$\\begin{array}{l|ccccc} \\textbf{Number of faulty chips} & 0 & 1 & 2 & 3 & 4 \\\\ \\hline \\textbf{Number of samples} & 2 & 12 & 27 & 49 & 10 \\end{array}$$\n\nThe expected values for a binomial distribution with parameters $n = 4$ and $p = 0.6$ are given in the following table.\n\n$$\\begin{array}{l|ccccc} \\textbf{Number of faulty chips} & 0 & 1 & 2 & 3 & 4 \\\\ \\hline \\textbf{Number of samples} & 2.56 & 15.36 & 34.56 & 34.56 & 12.96 \\end{array}$$\n\n**(i)** Show how the expected value 34.56 corresponding to 2 faulty chips is obtained. $\\quad$ **[2]**\n\n**(ii)** Carry out a goodness of fit test at the 5% significance level, and state what can be deduced from the outcome of the test. $\\quad$ **[6]**\n\n*(Cambridge International AS & A Level Further Mathematics 9231 Paper 2 Q9 November 2009)*",
+              solution_image: ""
+            },
           ],
           "Non-parametric Tests": [
             {
@@ -2231,7 +2378,18 @@ const SYLLABUS = {
               question_text: "Random samples of $6$ elastic bands were selected from each of two brands $A$ and $B$ and their breaking strengths measured. The results, in suitable units and arranged in ascending order, are as follows.\n\n**Brand A:** $\\quad 5.6,\\ 8.7,\\ 9.2,\\ 10.7,\\ 11.2,\\ 12.6$\n\n**Brand B:** $\\quad 10.1,\\ 11.6,\\ 12.0,\\ 12.2,\\ 12.9,\\ 13.5$\n\n**(i)** Give one advantage that a non-parametric test might have over a parametric test in this context. $\\quad$ **[1]**\n\n**(ii)** Carry out a Wilcoxon rank-sum test at the $5\\%$ significance level to determine whether there is a difference between the average breaking strengths of the two brands. $\\quad$ **[7]**\n\n**(iii)** An extra elastic band of Brand $B$ was tested and found to have a breaking strength exceeding all of the other $12$ bands. Determine whether this information alters the conclusion of your test. $\\quad$ **[3]**",
               solution_image: ""
             },
-
+            {
+              id: "FS_NP_009",
+              difficulty: 'standard',
+              question_text: "Trees of the same species grow on opposite sides of a river valley. The heights of eight randomly selected trees from each side of the river valley are measured and the results, in metres, are given in the table.\n\n$$\\begin{array}{l|cccccccc} \\textbf{East side (m)} & 13.6 & 20.1 & 7.8 & 18.2 & 8.5 & 7.7 & 16.0 & 13.4 \\\\ \\hline \\textbf{West side (m)} & 5.9 & 7.5 & 9.6 & 11.0 & 4.1 & 7.1 & 10.1 & 12.2 \\end{array}$$\n\nCarry out a Wilcoxon rank-sum test, at the 5% level of significance, to investigate whether there is any difference in the average heights of the trees from the two sides of the river valley. Interpret your conclusion in context.",
+              solution_image: ""
+            },
+            {
+              id: "FS_NP_010",
+              difficulty: 'standard',
+              question_text: "A charity launched a campaign to raise awareness of low pay amongst full-time workers in company canteens. The charity now believes the median weekly wage in this job sector has increased.\n\nAfter the campaign, a random sample of ten canteen workers was asked how much they earned in the previous week. The results, in NZ\\$, were as follows.\n$$156.45 \\quad 145.50 \\quad 151.30 \\quad 150.70 \\quad 156.10 \\quad 151.15 \\quad 144.40 \\quad 146.60 \\quad 163.75 \\quad 157.60$$\n\nBefore the campaign the median weekly wage for full-time workers in the company canteens was NZ\\$147.50.\n\nCarry out a Wilcoxon signed-rank test to determine whether there has been an increase in the median wage after the campaign. Use the 5% level of significance.",
+              solution_image: ""
+            },
           ]
         }
       },
