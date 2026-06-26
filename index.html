@@ -2105,8 +2105,316 @@
       margin: 32px 0 10px;
     }
 
+    /* ════════════════════════════════════════════════════════
+       MOBILE NAVIGATION DRAWER
+       Slide-in from right, appears at ≤700 px where the
+       inline nav links are hidden.
+    ════════════════════════════════════════════════════════ */
+
+    .mob-menu-btn {
+      display: none;            /* hidden on desktop */
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      cursor: pointer;
+      padding: 7px 9px;
+      transition: background .15s, border-color .15s;
+      flex-shrink: 0;
+    }
+
+    .mob-menu-btn:hover {
+      background: var(--gold3);
+      border-color: var(--gold);
+    }
+
+    /* Show hamburger, hide inline links at ≤700px */
+    @media (max-width: 700px) {
+      .mob-menu-btn { display: flex; }
+      .masthead-link { display: none; }
+      .masthead-ornament { display: none; }
+    }
+
+    #mob-nav {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 272px;
+      max-width: 88vw;
+      background: var(--ink2);
+      border-left: 1px solid var(--gold-border);
+      z-index: 9200;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .28s cubic-bezier(.4,0,.2,1);
+      box-shadow: -8px 0 40px rgba(0,0,0,.5);
+    }
+
+    #mob-nav.open {
+      transform: translateX(0);
+    }
+
+    #mob-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7,7,7,.68);
+      z-index: 9190;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s;
+    }
+
+    #mob-backdrop.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mob-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 22px 18px;
+      border-bottom: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+
+    .mob-nav-title {
+      font-family: var(--sc);
+      font-size: .76rem;
+      letter-spacing: .24em;
+      color: var(--parchment3);
+      text-transform: uppercase;
+    }
+
+    .mob-nav-close {
+      background: none;
+      border: none;
+      color: var(--parchment4);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 4px 6px;
+      line-height: 1;
+      transition: color .15s;
+    }
+
+    .mob-nav-close:hover { color: var(--parchment); }
+
+    .mob-nav-links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 12px 0;
+      overflow-y: auto;
+    }
+
+    .mob-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 24px;
+      font-family: var(--sc);
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--parchment3);
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: color .15s, background .15s, border-color .15s;
+      /* Large touch target */
+      min-height: 52px;
+    }
+
+    .mob-nav-item:hover,
+    .mob-nav-item.current {
+      color: var(--gold);
+      border-left-color: var(--gold2);
+      background: var(--gold3);
+    }
+
+    .mob-nav-icon {
+      font-family: var(--sc);
+      color: var(--gold2);
+      font-size: .7rem;
+      flex-shrink: 0;
+      transition: transform .15s;
+    }
+
+    .mob-nav-item:hover .mob-nav-icon { transform: translateX(3px); }
+
+    .mob-nav-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+
+    /* ════════════════════════════════════════════════════════
+       COMPREHENSIVE MOBILE FIXES  (≤ 600 px unless noted)
+    ════════════════════════════════════════════════════════ */
+
+    @media (max-width: 600px) {
+
+      /* Masthead — tighten vertical spacing */
+      #masthead {
+        padding: 16px 0 14px;
+        gap: 12px;
+      }
+
+      .monogram { width: 32px; height: 32px; }
+
+      .masthead-title {
+        font-size: .76rem;
+        letter-spacing: .2em;
+      }
+
+      .masthead-calc-btn {
+        font-size: 0;             /* hide "Calc" label, keep icon */
+        padding: 7px 8px;
+        gap: 0;
+      }
+
+      /* Home hero */
+      .home-heading {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+
+      .home-sub { font-size: .9rem; }
+
+      /* Breadcrumb — scrollable, no wrap, hidden scrollbar */
+      #crumb {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+      }
+
+      #crumb::-webkit-scrollbar { display: none; }
+
+      /* Course tiles stack to 1 col (already done at 600px above,
+         but ensure the ghost equation doesn't overflow) */
+      .tile-ghost {
+        font-size: 1.4rem;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      /* Section page */
+      .sec-badge { display: none; }
+
+      /* Topic rows — hide diff breakdown on very narrow screens
+         to prevent crowding; total count + arrow is enough */
+      .topic-diff-breakdown { display: none; }
+
+      /* Question card — full-width, reduced padding */
+      .prob-text-question {
+        padding: 16px 14px 14px;
+        font-size: .96rem;
+      }
+
+      .prob-label { padding: 9px 14px; }
+
+      .prob-sol-btn  { padding: 13px 14px; }
+      .prob-arrow-btn { padding: 13px 12px; }
+
+      /* KaTeX — ensure wide expressions scroll, not clip */
+      .katex-display {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .katex-display > .katex { overflow-x: auto; }
+
+      /* Tables inside KaTeX (array environment) */
+      .katex .colalign,
+      .katex .mtable {
+        overflow-x: auto;
+        display: block;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Question images — constrain, allow scroll if too wide */
+      .prob-text-question img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Practice Mode wizard panel */
+      .wz-panel { padding: 18px 16px; }
+
+      .wz-sep { padding: 0 6px; }
+
+      /* Difficulty filter row — stack on very small screens */
+      .tb-diff-row { flex-wrap: wrap; gap: 8px; }
+
+      /* Count input — touch-friendly */
+      .tb-count-input {
+        height: 44px;
+        font-size: .88rem;
+        min-width: 70px;
+      }
+
+      /* Self-mark input in review — larger touch target */
+      .ts-score-input {
+        height: 44px;
+        font-size: .96rem;
+        min-width: 70px;
+      }
+
+      /* Note textarea */
+      .ts-note-input {
+        font-size: .88rem;
+        min-height: 70px;
+      }
+
+      /* Test session timer bar — already stacks at 640px */
+      .tt-title {
+        font-size: .9rem;
+      }
+
+      /* Test review summary */
+      .trs-stat { min-width: unset; }
+
+      /* Grade prediction card */
+      .trs-grade-predict { padding: 12px 14px; }
+
+      /* Progress screen tabs */
+      .course-tabs { gap: 4px; }
+      .course-tab { padding: 8px 12px; font-size: .58rem; }
+
+      /* Challenge strip on course page */
+      .cs-marks, .cs-divider { display: none; }
+
+      /* Articles — reduce font size slightly */
+      .article-body { font-size: .96rem; }
+
+      /* Footer */
+      #footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 20px 0;
+      }
+
+      /* Home social row */
+      .home-social { margin-top: 22px; }
+
+    }
+
+    /* Very small phones (≤390px) */
+    @media (max-width: 390px) {
+      .home-heading { font-size: 1.76rem; }
+      .home-sub { font-size: .84rem; }
+      .screen-title { font-size: 1.6rem; }
+      .wz-panel { padding: 14px 12px; }
+      #shell { padding: 0 14px 60px; }
+    }
+
     /* ════════════════════════════════════════════════
-   MASTHEAD — ESSAYS LINK
+   MASTHEAD — ESSAYS LINK / RIGHT REGION
 ════════════════════════════════════════════════ */
 
     .masthead-right {
@@ -2157,13 +2465,8 @@
       }
     }
 
-    @media (max-width: 700px) {
-      .masthead-link {
-        display: none;
-      }
-    }
 
-    .masthead-link {
+
       font-family: var(--sc);
       font-size: .62rem;
       letter-spacing: .16em;
@@ -3361,6 +3664,14 @@
           </svg>
           Calc
         </button>
+        <button class="mob-menu-btn" id="mob-menu-btn" onclick="toggleMobMenu()"
+          aria-label="Open navigation" aria-expanded="false">
+          <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect y="0"   width="17" height="1.5" rx=".75" fill="currentColor"/>
+            <rect y="5.5" width="17" height="1.5" rx=".75" fill="currentColor"/>
+            <rect y="11"  width="17" height="1.5" rx=".75" fill="currentColor"/>
+          </svg>
+        </button>
         <div class="masthead-ornament" aria-hidden="true">∂ · ∫ · ∑</div>
       </div>
     </div>
@@ -3374,6 +3685,46 @@
       <div id="calc-container"></div>
     </div>
     <div id="calc-backdrop" onclick="toggleCalc()"></div>
+
+    <!-- ═══════════════════════════
+       MOBILE NAVIGATION DRAWER
+    ═══════════════════════════ -->
+    <div id="mob-nav" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <div class="mob-nav-header">
+        <span class="mob-nav-title">MathForge</span>
+        <button class="mob-nav-close" onclick="closeMobMenu()" aria-label="Close menu">✕</button>
+      </div>
+      <nav class="mob-nav-links">
+        <div class="mob-nav-item" data-nav-screen="test-builder"
+          onclick="goTestBuilder();closeMobMenu()">
+          <span class="mob-nav-icon" aria-hidden="true">→</span>
+          Practice Mode
+        </div>
+        <div class="mob-nav-item" data-nav-screen="progress"
+          onclick="goProgress();closeMobMenu()">
+          <span class="mob-nav-icon" aria-hidden="true">→</span>
+          My Progress
+        </div>
+        <div class="mob-nav-item" data-nav-screen="articles"
+          onclick="goArticles();closeMobMenu()">
+          <span class="mob-nav-icon" aria-hidden="true">→</span>
+          Essays
+        </div>
+      </nav>
+      <div class="mob-nav-footer">
+        <a class="home-insta-link" href="https://www.instagram.com/mathforge?igsh=MTJ4Z2M4M3Z3emVzZQ%3D%3D&utm_source=qr"
+          target="_blank" rel="noopener" aria-label="MathForge on Instagram">
+          <svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/>
+          </svg>
+          @mathforge
+        </a>
+      </div>
+    </div>
+    <div id="mob-backdrop" onclick="closeMobMenu()"></div>
 
     <!-- BREADCRUMB -->
     <div id="crumb"></div>
@@ -3749,8 +4100,13 @@
       document.getElementById('s-' + id).classList.add('on');
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Sync masthead nav link active state
+      // Sync masthead nav link active state (desktop)
       document.querySelectorAll('.masthead-link[data-nav-screen]').forEach(el => {
+        el.classList.toggle('current', el.dataset.navScreen === id);
+      });
+
+      // Sync mobile nav drawer active state
+      document.querySelectorAll('.mob-nav-item[data-nav-screen]').forEach(el => {
         el.classList.toggle('current', el.dataset.navScreen === id);
       });
 
@@ -3760,6 +4116,31 @@
         rule.style.opacity = '1';
       }, 600);
     }
+
+    // ── Mobile navigation drawer ──────────────────────────
+    function toggleMobMenu() {
+      const nav      = document.getElementById('mob-nav');
+      const backdrop = document.getElementById('mob-backdrop');
+      const btn      = document.getElementById('mob-menu-btn');
+      const opening  = !nav.classList.contains('open');
+      nav.classList.toggle('open', opening);
+      backdrop.classList.toggle('visible', opening);
+      if (btn) btn.setAttribute('aria-expanded', String(opening));
+    }
+
+    function closeMobMenu() {
+      const nav      = document.getElementById('mob-nav');
+      const backdrop = document.getElementById('mob-backdrop');
+      const btn      = document.getElementById('mob-menu-btn');
+      nav.classList.remove('open');
+      backdrop.classList.remove('visible');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+
+    // Close drawers on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeMobMenu(); if (_calcOpen) toggleCalc(); }
+    });
 
     // ══════════════════════════════════════════════════
     //  BREADCRUMB
@@ -5760,7 +6141,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         // Self-mark: now that the solution is visible, let the user score themselves
         const scoreVal = ms.scored !== null ? ms.scored : '';
         html += '<div class="ts-score-wrap" style="padding:12px 24px 16px;border-top:1px solid var(--rule);flex-wrap:wrap;gap:14px">'
-          + 'Self-mark: <input class="ts-score-input" type="number" min="0" max="' + marks + '" value="' + scoreVal + '" placeholder="—"'
+          + 'Self-mark: <input class="ts-score-input" type="number" inputmode="decimal" min="0" max="' + marks + '" value="' + scoreVal + '" placeholder="—"'
           + ' oninput="tsSetScore(' + idx + ',this.value); tsRefreshSummary();">'
           + ' / ' + (marks || '?')
           + (mk.estimated ? ' <span style="font-family:var(--mono);font-size:.56rem;color:var(--parchment4);font-style:italic">(estimated allocation)</span>' : '')
