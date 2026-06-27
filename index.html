@@ -67,7 +67,7 @@
             });
             // Inject scroll wrappers — body script may not be ready yet
             // so guard with typeof check
-            if (typeof wrapKatexDisplays === 'function') wrapKatexDisplays(active);
+            if (typeof wrapKatexDisplays === 'function') wrapKatexDisplays(active); // calls scaleMathForMobile internally
           } catch (e) { /* best-effort */ }
         }
       }
@@ -758,7 +758,11 @@
       border: 1px solid var(--rule2);
       margin-bottom: 0;
       animation: probIn .22s var(--ease);
-      overflow: hidden;
+      /* overflow: hidden deliberately removed — it created a BFC that, combined
+         with any overflow-x:auto descendant, forced overflow-y:auto (per CSS spec
+         §17.5), clipping KaTeX's tall stretchy delimiter glyphs (matrix parens).
+         Content is contained by the card's natural block width. */
+      overflow: visible;
     }
 
     @keyframes probIn {
@@ -1103,22 +1107,20 @@
       color: var(--parchment);
     }
 
+    /* .katex-display — no overflow at any level.
+       Wide display math is scaled by scaleMathForMobile() via CSS transform
+       instead of scrolling, which is the only approach that doesn't break
+       KaTeX's absolute-positioned stretchy delimiter layout. */
     .katex-display {
       margin: 16px 0;
       padding-bottom: 4px;
-      /* overflow is handled by .katex-display-wrap injected by wrapKatexDisplays()
-         so that tall delimiters (matrix parens, brackets) are never clipped */
+      overflow: visible;
     }
 
-    /* Injected by JS after each KaTeX render — this is the scroll container,
-       kept separate from .katex-display so the BFC it creates never clips
-       KaTeX's absolute-positioned stretchy delimiter glyphs */
+    /* .katex-display-wrap class kept for any nodes already in the DOM
+       during a live session — render it invisible / no-op */
     .katex-display-wrap {
-      overflow-x: auto;
-      overflow-y: visible;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 6px;   /* room for iOS scrollbar */
-      max-width: 100%;
+      display: contents;
     }
 
     .katex-display>.katex {
@@ -1199,15 +1201,12 @@
         padding: 14px 16px;
       }
 
-      /* Question card — consolidated (no word-break which breaks KaTeX matrices) */
+      /* Question card — NO overflow anywhere near KaTeX.
+         Wide math is scaled down by scaleMathForMobile() via transform.
+         word-break must never be set — it breaks KaTeX white-space:nowrap. */
       .prob-text-question {
         padding: 20px 18px 18px;
         font-size: 1rem;
-        /* Outer scroll container for wide math expressions */
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        /* NEVER set word-break here — it overrides white-space:nowrap
-           inside KaTeX and detaches stretchy brackets from matrices */
       }
 
       .prob-text-question p.has-marks {
@@ -1220,30 +1219,15 @@
         align-self: flex-start;
       }
 
-      /* ── KaTeX matrix fix ──────────────────────────────
-         KaTeX stretchy brackets (pmatrix, bmatrix, vmatrix) rely on
-         rendering at their NATURAL width. Constraining the inner .katex
-         causes the bracket height calculation to fire before the table
-         is laid out, detaching ( ) from the matrix body.
-
-         Fix: let .katex-display be the scroll container; give .katex
-         width:max-content so it renders unconstrained. The parent
-         .katex-display clips and scrolls the result. */
-      /* KaTeX display — .katex-display-wrap (injected by JS) handles scrolling.
-         Never put overflow on .katex-display itself — it creates a BFC that clips
-         tall delimiters (matrix parens, large brackets). */
+      /* KaTeX — overflow: visible at every ancestor level.
+         Scaling is handled in JS by scaleMathForMobile(). */
       .katex-display {
-        overflow: visible !important;
-        padding-bottom: 2px;
+        overflow: visible;
+        margin: 12px 0;
       }
 
       .katex-display > .katex {
-        display: block;
-        width: max-content;            /* render at natural width — no wrapping */
-      }
-
-      .katex-display > .katex > .katex-html {
-        white-space: nowrap;
+        display: inline-block;
       }
 
       .prob-card {
@@ -6329,22 +6313,79 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     // (matrices, long equations) can scroll horizontally on mobile without
     // the scroll container's BFC ever clipping tall stretchy delimiters.
     // Must be called AFTER renderMathInElement() on the same container.
-    function wrapKatexDisplays(container) {
+    // ─── scaleMathForMobile ──────────────────────────────────────────────────
+    //
+    // THE PERMANENT MATRIX FIX.
+    //
+    // CSS §17.5: if overflow-x is auto/scroll/hidden on any element, overflow-y
+    // is forced to auto on that same element. There is no CSS-only fix — you
+    // cannot have a horizontal scroll container that also lets content overflow
+    // vertically. KaTeX's stretchy delimiter glyphs (matrix parentheses, large
+    // brackets) are absolutely-positioned and extend above/below the display-math
+    // baseline. Any ancestor with overflow-x:auto clips them vertically.
+    //
+    // The solution: CSS transform:scale(). Shrink wide display-math elements to
+    // fit available width. CSS transform does NOT create a new containing block
+    // for position:absolute children (only position:fixed), so KaTeX's internally
+    // absolute-positioned delimiters remain correctly placed relative to .katex.
+    // The math simply renders smaller, with overflow:visible everywhere.
+    //
+    function scaleMathForMobile(container) {
       if (!container) return;
-      container.querySelectorAll('.katex-display').forEach(el => {
-        if (el.parentNode && el.parentNode.classList.contains('katex-display-wrap')) return;
+      // rAF ensures KaTeX layout is fully flushed before we measure
+      requestAnimationFrame(function () {
+        container.querySelectorAll('.katex-display').forEach(function (katexDisplay) {
+          var katexEl = katexDisplay.querySelector('.katex');
+          if (!katexEl) return;
 
-        const wrap = document.createElement('div');
-        wrap.className = 'katex-display-wrap';
-        el.parentNode.insertBefore(wrap, el);
-        wrap.appendChild(el);
+          // Reset previous transform so measurement is clean
+          katexDisplay.style.transform = '';
+          katexDisplay.style.transformOrigin = '';
+          katexDisplay.style.marginBottom = '';
 
-        // If the wrapper landed inside a flex <p> (has-marks paragraph),
-        // mark it so CSS can revert to block — flex breaks KaTeX absolute layout.
-        const parentP = wrap.closest('p');
-        if (parentP) parentP.classList.add('has-display-math');
+          // Measure natural KaTeX content width.
+          // .katex-html is white-space:nowrap, so getBoundingClientRect().width
+          // gives the true content width regardless of container constraints.
+          var katexHtml = katexEl.querySelector('.katex-html');
+          var naturalW = katexHtml
+            ? katexHtml.getBoundingClientRect().width
+            : katexEl.getBoundingClientRect().width;
+          if (!naturalW) return;
+
+          // Measure available width inside the question text block
+          var textBlock = katexDisplay.closest('.prob-text-question')
+            || katexDisplay.closest('.ts-question-card')
+            || katexDisplay.parentElement;
+          if (!textBlock) return;
+
+          var cs = window.getComputedStyle(textBlock);
+          var available = textBlock.clientWidth
+            - parseFloat(cs.paddingLeft  || '0')
+            - parseFloat(cs.paddingRight || '0');
+
+          if (!available || naturalW <= available) return;
+
+          // Apply scale — 3% safety buffer prevents hairline overflow edge case
+          var scale = (available / naturalW) * 0.97;
+          var originalH = katexDisplay.offsetHeight;
+
+          katexDisplay.style.transformOrigin = 'left center';
+          katexDisplay.style.transform = 'scale(' + scale.toFixed(4) + ')';
+          // Collapse the now-empty vertical space so text below isn't pushed down
+          katexDisplay.style.marginBottom = '-' + Math.round(originalH * (1 - scale)) + 'px';
+        });
       });
     }
+
+    // Re-scale on window resize (e.g. orientation change on mobile)
+    var _scaleResizeTimer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(_scaleResizeTimer);
+      _scaleResizeTimer = setTimeout(function () {
+        var active = document.querySelector('.screen.on');
+        if (active) scaleMathForMobile(active);
+      }, 120);
+    });
 
     // Single canonical math rendering helper — all call sites use this.
     // Guards against: KaTeX not loaded, partial load (CSS only), render errors.
@@ -6357,12 +6398,15 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     };
     function safeMath(el) {
       if (!el) return;
-      if (typeof renderMathInElement !== 'function') return; // KaTeX not ready yet
+      if (typeof renderMathInElement !== 'function') return;
       try {
         renderMathInElement(el, _MATH_OPTS);
-        wrapKatexDisplays(el);       // inject scroll wrappers after render
+        scaleMathForMobile(el);
       } catch (e) { /* fail silently per-element */ }
     }
+
+    // Legacy alias — kept so any residual calls in old DOM sessions don't throw
+    function wrapKatexDisplays(container) { scaleMathForMobile(container); }
 
     function renderTestMath(id) {
       safeMath(document.getElementById(id));
