@@ -28,6 +28,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preconnect to the CDN that serves KaTeX — eliminates cold DNS+TCP+TLS
+       handshake latency on first KaTeX resource request -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"
     rel="stylesheet">
@@ -86,11 +90,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" crossorigin="anonymous"
     onload="_onKatexReady()" onerror="_onKatexFailed()"></script>
 
-  <!-- jsPDF — used to generate the downloadable self-mark report.
-       If the CDN fails, downloadSelfMarkReport() already checks for
-       window.jspdf and shows a friendly message rather than crashing. -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"
-    onerror="window.JSPDF_FAILED=true"></script>
+  <!-- jsPDF is loaded on-demand the first time a user requests a report
+       (see loadJsPDF() in the body script). Removing it from <head> saves
+       ~300 KB of blocking parse on every page load. -->
 
   <style>
     /* ════════════════════════════════════════════════
@@ -1032,13 +1034,30 @@
       font-family: var(--serif);
     }
 
-    /* Each part (a), (b), (c) as its own block */
+    /* Each part (a), (b), (c) as its own block.
+       display:block by default — flex is ONLY applied when the paragraph
+       carries a mark allocation (.q-marks). Setting display:flex on a
+       paragraph that contains display-math ($$...$$) breaks KaTeX's internal
+       absolute positioning, causing matrix parentheses to disconnect. */
     .prob-text-question p {
       margin-bottom: 18px;
+      display: block;
+    }
+
+    /* Paragraphs that carry a mark allocation DO use flex so the mark
+       sits flush right. The .has-marks class is added by processText(). */
+    .prob-text-question p.has-marks {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 24px;
+    }
+
+    /* Safety net: if a .has-marks paragraph also contains display math,
+       revert to block so KaTeX renders correctly. JS wrapKatexDisplays()
+       adds .has-display-math after render as a belt-and-braces guard. */
+    .prob-text-question p.has-marks.has-display-math {
+      display: block;
     }
 
     .prob-text-question p:last-child {
@@ -1191,7 +1210,7 @@
            inside KaTeX and detaches stretchy brackets from matrices */
       }
 
-      .prob-text-question p {
+      .prob-text-question p.has-marks {
         flex-direction: column;
         gap: 4px;
         align-items: flex-start;
@@ -4455,11 +4474,12 @@
       if (q.question_text) {
         // Optional diagram above text
         const diagHtml = q.diagram_image
-          ? `<div class="prob-diagram"><img class="prob-diagram-img" src="images/${q.diagram_image}" alt="Diagram"></div>`
+          ? `<div class="prob-diagram"><img class="prob-diagram-img" src="images/${q.diagram_image}" alt="Diagram" loading="lazy" decoding="async"></div>`
           : '';
         qContent = `${diagHtml}<div class="prob-text-question">${processText(q.question_text)}</div>`;
       } else if (q.question_image) {
         qContent = `<img class="prob-q-img invert" src="images/${q.question_image}"
+      loading="lazy" decoding="async"
       alt="Problem ${idx + 1}"
       onerror="this.outerHTML='<div class=prob-placeholder>Image not found: ${q.question_image}</div>'">`;
       } else {
@@ -4469,6 +4489,7 @@
       // Solution: always an image
       const sImg = q.solution_image
         ? `<img src="images/${q.solution_image}" alt="Solution ${idx + 1}"
+         loading="lazy" decoding="async"
          onerror="this.outerHTML='<div class=prob-sol-placeholder>Image not found: ${q.solution_image}</div>'">`
         : `<div class="prob-sol-placeholder">Solution forthcoming.</div>`;
 
@@ -4554,7 +4575,7 @@
         body = body.replace(/\n/g, '<br>');
 
         if (marks) {
-          return `<p><span class="p-body">${body}</span>${marks}</p>`;
+          return `<p class="has-marks"><span class="p-body">${body}</span>${marks}</p>`;
         }
         return `<p><span class="p-body">${body}</span></p>`;
       }).join('');
@@ -6167,7 +6188,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const marksLabel = marks ? (mk.estimated ? '≈' + marks + ' marks' : marks + ' marks') : '';
       const marksTitle = mk.estimated ? ' title="Mark allocation not given in the source paper — estimated by comparison with similar questions"' : '';
       const diagHtml = q.diagram_image
-        ? '<div class="prob-diagram"><img class="prob-diagram-img" src="images/' + q.diagram_image + '" alt="Diagram"></div>'
+        ? '<div class="prob-diagram"><img class="prob-diagram-img" src="images/' + q.diagram_image + '" alt="Diagram" loading="lazy" decoding="async"></div>'
         : '';
 
       // Done/scored state
@@ -6197,7 +6218,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
 
       if (reveal) {
         const sImg = q.solution_image
-          ? '<img src="images/' + q.solution_image + '" alt="Solution" class="ts-sol-img">'
+          ? '<img src="images/' + q.solution_image + '" alt="Solution" class="ts-sol-img" loading="lazy" decoding="async">'
           : '<div class="prob-sol-placeholder">Solution forthcoming.</div>';
         html += '<div style="border-top:1px solid var(--rule);padding:12px 24px 4px">'
           + '<span style="font-family:var(--sc);font-size:.6rem;letter-spacing:.18em;color:var(--gold2);text-transform:uppercase">Solution</span>'
@@ -6311,12 +6332,17 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     function wrapKatexDisplays(container) {
       if (!container) return;
       container.querySelectorAll('.katex-display').forEach(el => {
-        // Skip if already wrapped (e.g. safeMath called twice on same node)
         if (el.parentNode && el.parentNode.classList.contains('katex-display-wrap')) return;
+
         const wrap = document.createElement('div');
         wrap.className = 'katex-display-wrap';
         el.parentNode.insertBefore(wrap, el);
         wrap.appendChild(el);
+
+        // If the wrapper landed inside a flex <p> (has-marks paragraph),
+        // mark it so CSS can revert to block — flex breaks KaTeX absolute layout.
+        const parentP = wrap.closest('p');
+        if (parentP) parentP.classList.add('has-display-math');
       });
     }
 
@@ -6545,13 +6571,31 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     // all. Pulls topic/section via findQuestionById since TEST.questions
     // only stores the bare question objects.
 
+    // Loads jsPDF on demand (first report request) — saves ~300 KB on initial
+    // page load since most users never generate a PDF report.
+    function _loadJsPDF() {
+      return new Promise(function(resolve, reject) {
+        if (window.jspdf && window.jspdf.jsPDF) { resolve(); return; }
+        var s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+        s.crossOrigin = 'anonymous';
+        s.onload = resolve;
+        s.onerror = function() { reject(new Error('jsPDF failed to load')); };
+        document.head.appendChild(s);
+      });
+    }
+
     function downloadSelfMarkReport() {
+      _loadJsPDF().then(function() {
+        _runDownloadSelfMarkReport();
+      }).catch(function() {
+        alert('PDF generation couldn\'t load (network issue). Check your connection and try again.');
+      });
+    }
+
+    function _runDownloadSelfMarkReport() {
       if (!window.jspdf || !window.jspdf.jsPDF) {
-        if (window.JSPDF_FAILED) {
-          alert('PDF generation couldn\'t load (network issue). Check your connection and reload the page to try again.');
-        } else {
-          alert('PDF library is still loading — wait a moment and try again.');
-        }
+        alert('PDF library is still loading — wait a moment and try again.');
         return;
       }
       const { jsPDF } = window.jspdf;
