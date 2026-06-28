@@ -32,6 +32,11 @@
        handshake latency on first KaTeX resource request -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <!-- Pre-warm Desmos connection so calculator opens faster on first click -->
+  <link rel="preconnect" href="https://www.desmos.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.desmos.com">
+  <!-- Prefetch the Desmos script during idle so first-click is instant -->
+  <link rel="prefetch" href="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6" as="script">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"
     rel="stylesheet">
@@ -2515,8 +2520,13 @@
       cursor: pointer;
       transition: all .15s;
       border: 1px solid var(--gold-border);
-      padding: 5px 14px;
+      padding: 0 13px;
       line-height: 1;
+      /* Match the 28px height of the circle icon buttons exactly */
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
     }
 
     .masthead-link:hover {
@@ -2530,10 +2540,9 @@
       }
     }
 
-    /* At 860px, compress the nav links to keep masthead from crowding */
     @media (max-width: 860px) {
       .masthead-link {
-        padding: 5px 9px;
+        padding: 0 9px;
         letter-spacing: .1em;
         font-size: .6rem;
       }
@@ -2544,31 +2553,66 @@
       }
     }
 
-    .masthead-calc-btn {
+    /* All small masthead icon buttons — calc, instagram, hamburger.
+       Same 28×28 circle as the theme toggle for a uniform icon row. */
+    .masthead-icon-btn {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-family: var(--sc);
-      font-size: .62rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: transparent;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
       border: 1px solid var(--gold-border);
-      padding: 5px 12px;
+      background: transparent;
+      color: var(--gold);
       cursor: pointer;
-      transition: all .15s;
-      line-height: 1;
+      transition: background .15s, border-color .15s;
+      flex-shrink: 0;
+      text-decoration: none;
     }
 
-    .masthead-calc-btn:hover {
+    .masthead-icon-btn:hover {
       background: var(--gold3);
       border-color: var(--gold);
     }
 
-    .masthead-calc-btn.active {
+    .masthead-icon-btn.active,
+    .masthead-icon-btn:has(+ #calc-toggle-btn.active) {
       background: var(--gold3);
       border-color: var(--gold);
+    }
+
+    /* Keep calc-toggle-btn active state working */
+    #calc-toggle-btn.active {
+      background: var(--gold3);
+      border-color: var(--gold);
+    }
+
+    /* Hamburger uses same circle style */
+    .mob-menu-btn {
+      display: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-border);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s, border-color .15s;
+    }
+
+    .mob-menu-btn:hover {
+      background: var(--gold3);
+      border-color: var(--gold);
+    }
+
+    @media (max-width: 700px) {
+      .mob-menu-btn { display: flex; }
+      .masthead-link { display: none; }
+      .masthead-ornament { display: none; }
     }
 
     /* Calculator slide-in panel */
@@ -2627,6 +2671,11 @@
     #calc-container {
       flex: 1;
       overflow: hidden;
+    }
+
+    @keyframes calcSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
 
     #calc-container iframe,
@@ -3710,20 +3759,30 @@
         <span class="masthead-link" data-nav-screen="test-builder" onclick="goTestBuilder()">Practice Mode</span>
         <span class="masthead-link" data-nav-screen="progress" onclick="goProgress()">My Progress</span>
         <span class="masthead-link" data-nav-screen="articles" onclick="goArticles()">Essays</span>
-        <button class="masthead-calc-btn" onclick="toggleCalc()" id="calc-toggle-btn" title="Scientific Calculator">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1" />
-            <rect x="3" y="3" width="2" height="1.5" rx=".3" fill="currentColor" />
-            <rect x="6" y="3" width="2" height="1.5" rx=".3" fill="currentColor" />
-            <rect x="9" y="3" width="2" height="1.5" rx=".3" fill="currentColor" />
-            <rect x="3" y="6" width="2" height="1.5" rx=".3" fill="currentColor" />
-            <rect x="6" y="6" width="2" height="1.5" rx=".3" fill="currentColor" />
-            <rect x="9" y="6" width="5" height="4.5" rx=".3" fill="currentColor" />
-            <rect x="3" y="9" width="2" height="1.5" rx=".3" fill="currentColor" />
-            <rect x="6" y="9" width="2" height="1.5" rx=".3" fill="currentColor" />
+        <button class="masthead-icon-btn" onclick="toggleCalc()" id="calc-toggle-btn"
+          title="Scientific Calculator" aria-label="Open calculator">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1"/>
+            <rect x="3" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="6" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="9" y="3" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="3" y="6" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="6" y="6" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="9" y="6" width="5" height="4.5" rx=".3" fill="currentColor"/>
+            <rect x="3" y="9" width="2" height="1.5" rx=".3" fill="currentColor"/>
+            <rect x="6" y="9" width="2" height="1.5" rx=".3" fill="currentColor"/>
           </svg>
-          Calc
         </button>
+        <a class="masthead-icon-btn" id="masthead-insta-btn"
+          href="https://www.instagram.com/mathforge?igsh=MTJ4Z2M4M3Z3emVzZQ%3D%3D&utm_source=qr"
+          target="_blank" rel="noopener" title="Follow MathForge on Instagram" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
         <button class="mob-menu-btn" id="mob-menu-btn" onclick="toggleMobMenu()"
           aria-label="Open navigation" aria-expanded="false">
           <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -4059,6 +4118,28 @@
     let _calcOpen = false;
     let _calcReady = false;
     let _calcInstance = null;
+    let _calcPrewarming = false;
+
+    // Pre-warm: load the Desmos script during page idle so it's already
+    // parsed and cached when the user first clicks the calculator button.
+    // We don't init the calculator itself yet (that needs the DOM container),
+    // just ensure the JS is downloaded and executed so Desmos global is ready.
+    function _prewarmCalc() {
+      if (_calcReady || _calcPrewarming || typeof Desmos !== 'undefined') return;
+      _calcPrewarming = true;
+      const s = document.createElement('script');
+      s.src = 'https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
+      s.onload = () => { _calcPrewarming = false; }; // Desmos global now available
+      s.onerror = () => { _calcPrewarming = false; };
+      document.head.appendChild(s);
+    }
+
+    // Fire after all critical content has loaded
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(_prewarmCalc, { timeout: 4000 });
+    } else {
+      setTimeout(_prewarmCalc, 2500);
+    }
 
     function toggleCalc() {
       _calcOpen = !_calcOpen;
@@ -4075,12 +4156,38 @@
     }
 
     function _initCalc() {
-      // Load Desmos API only on first open
+      const container = document.getElementById('calc-container');
+      if (!container) return;
+
+      // If pre-warm already loaded the Desmos script, init instantly
+      if (typeof Desmos !== 'undefined') {
+        container.innerHTML = '';
+        _calcInstance = Desmos.ScientificCalculator(container, {
+          keypad: true,
+          expressions: false,
+          settingsMenu: false,
+          invertedColors: document.documentElement.getAttribute('data-theme') !== 'light'
+        });
+        _calcReady = true;
+        return;
+      }
+
+      // Fallback: first-click load (pre-warm didn't fire yet)
+      container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;'
+        + 'height:100%;flex-direction:column;gap:14px;font-family:var(--mono);'
+        + 'font-size:.64rem;letter-spacing:.1em;color:var(--parchment4);text-transform:uppercase">'
+        + '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"'
+        + '  style="animation:calcSpin 1s linear infinite">'
+        + '  <circle cx="11" cy="11" r="9" stroke="var(--gold-border)" stroke-width="1.5"/>'
+        + '  <path d="M11 2 a9 9 0 0 1 9 9" stroke="var(--gold2)" stroke-width="1.5" stroke-linecap="round"/>'
+        + '</svg>'
+        + 'Loading calculator</div>';
+
       const script = document.createElement('script');
       script.src = 'https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
       script.onload = function () {
-        const container = document.getElementById('calc-container');
         if (!container || typeof Desmos === 'undefined') return;
+        container.innerHTML = '';
         _calcInstance = Desmos.ScientificCalculator(container, {
           keypad: true,
           expressions: false,
@@ -4090,9 +4197,9 @@
         _calcReady = true;
       };
       script.onerror = function () {
-        const container = document.getElementById('calc-container');
         if (container) {
-          container.innerHTML = '<div style="padding:24px;font-family:var(--mono);font-size:.75rem;color:var(--parchment4);text-align:center">'
+          container.innerHTML = '<div style="padding:24px;font-family:var(--mono);font-size:.72rem;'
+            + 'color:var(--parchment4);text-align:center;line-height:1.8">'
             + 'Calculator failed to load.<br>Check your connection and try again.</div>';
         }
       };
