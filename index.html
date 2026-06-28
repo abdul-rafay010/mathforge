@@ -1073,6 +1073,27 @@
       flex: 1;
     }
 
+    /* Block container for paragraphs containing display math.
+       <div> instead of <p><span> so KaTeX's block .katex-display element
+       lives inside a valid block context — no anonymous box splitting,
+       no containing-block mis-assignment for the stretchy delimiter glyphs. */
+    .p-display {
+      margin-bottom: 18px;
+      /* Horizontal scroll for wide matrices/expressions.
+         Height is determined naturally by the matrix content, so
+         overflow-y:auto (forced by spec when overflow-x:auto is set)
+         never clips the delimiter glyphs — they fit within the natural height. */
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .p-display.has-marks {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
     .prob-text-question strong {
       font-weight: 600;
       color: var(--parchment);
@@ -4544,7 +4565,6 @@
         // Extract trailing mark allocation [n] or (n)
         let marks = '';
         let body = para;
-
         const markMatch = body.match(/(\s*[\[\(]\d+[\]\)]\s*)$/);
         if (markMatch) {
           marks = `<span class="q-marks">${markMatch[0].trim()}</span>`;
@@ -4558,10 +4578,25 @@
         // Line breaks within paragraph
         body = body.replace(/\n/g, '<br>');
 
-        if (marks) {
-          return `<p class="has-marks"><span class="p-body">${body}</span>${marks}</p>`;
+        // ── CRITICAL: block container for display math ────────────────────────
+        // If this paragraph contains $$...$$ display math, we MUST use a <div>
+        // container, NOT <p><span>. KaTeX replaces $$...$$ with a display:block
+        // .katex-display element. Placing a block element inside an inline <span>
+        // is invalid HTML — the browser resolves it by creating CSS anonymous block
+        // boxes which change the containing block for KaTeX's absolutely-positioned
+        // stretchy delimiter glyphs (matrix parentheses, large brackets), causing
+        // them to render at the wrong vertical position. Using <div> throughout
+        // keeps the entire chain block-level and the containing blocks correct.
+        if (/\$\$[\s\S]*?\$\$/.test(body)) {
+          return marks
+            ? `<div class="p-display has-marks"><div class="p-body">${body}</div>${marks}</div>`
+            : `<div class="p-display"><div class="p-body">${body}</div></div>`;
         }
-        return `<p><span class="p-body">${body}</span></p>`;
+
+        // Normal text paragraph — inline span is fine here (no block children)
+        return marks
+          ? `<p class="has-marks"><span class="p-body">${body}</span>${marks}</p>`
+          : `<p><span class="p-body">${body}</span></p>`;
       }).join('');
     }
 
@@ -6399,10 +6434,8 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     function safeMath(el) {
       if (!el) return;
       if (typeof renderMathInElement !== 'function') return;
-      try {
-        renderMathInElement(el, _MATH_OPTS);
-        scaleMathForMobile(el);
-      } catch (e) { /* fail silently per-element */ }
+      try { renderMathInElement(el, _MATH_OPTS); } catch (e) { /* fail silently */ }
+      scaleMathForMobile(el); // runs regardless — scale any remaining wide math
     }
 
     // Legacy alias — kept so any residual calls in old DOM sessions don't throw
