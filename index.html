@@ -8,10 +8,6 @@
        No Service Worker yet (added post-launch to avoid caching conflicts
        while questions.js is still being updated frequently). -->
   <link rel="manifest" href="manifest.json">
-  <!-- Favicon — gold "M" monogram on dark ground, matches the masthead seal.
-       Inline SVG data URI: zero extra HTTP request, scales crisp at any size. -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' fill='%23070707'/%3E%3Ccircle cx='19' cy='19' r='17' fill='none' stroke='%23a8883a' stroke-width='1'/%3E%3Ctext x='19' y='25' font-family='Georgia,serif' font-size='19' font-style='italic' fill='%23a8883a' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1062,7 +1058,7 @@
    TEXT QUESTION RENDERING (KaTeX)
 ════════════════════════════════════════════════ */
 
-    .prob-text-question {
+    .prob-text-question, .prob-text-solution {
       padding: 32px 36px 28px;
       font-size: 1.08rem;
       line-height: 1.9;
@@ -1075,14 +1071,14 @@
        carries a mark allocation (.q-marks). Setting display:flex on a
        paragraph that contains display-math ($$...$$) breaks KaTeX's internal
        absolute positioning, causing matrix parentheses to disconnect. */
-    .prob-text-question p {
+    .prob-text-question p, .prob-text-solution p {
       margin-bottom: 18px;
       display: block;
     }
 
     /* Paragraphs that carry a mark allocation DO use flex so the mark
        sits flush right. The .has-marks class is added by processText(). */
-    .prob-text-question p.has-marks {
+    .prob-text-question p.has-marks, .prob-text-solution p.has-marks {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -1092,11 +1088,11 @@
     /* Safety net: if a .has-marks paragraph also contains display math,
        revert to block so KaTeX renders correctly. JS wrapKatexDisplays()
        adds .has-display-math after render as a belt-and-braces guard. */
-    .prob-text-question p.has-marks.has-display-math {
+    .prob-text-question p.has-marks.has-display-math, .prob-text-solution p.has-marks.has-display-math {
       display: block;
     }
 
-    .prob-text-question p:last-child {
+    .prob-text-question p:last-child, .prob-text-solution p:last-child {
       margin-bottom: 0;
     }
 
@@ -1783,42 +1779,6 @@
       line-height: 1.85;
       max-width: 500px;
       font-weight: 300;
-    }
-
-    /* Discoverable Ctrl/Cmd+K search hint on the home screen */
-    .home-search-hint {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 18px;
-      background: transparent;
-      border: 1px solid var(--rule2);
-      color: var(--parchment3);
-      font-family: var(--mono);
-      font-size: .66rem;
-      letter-spacing: .04em;
-      padding: 9px 14px;
-      cursor: pointer;
-      transition: border-color .18s, color .18s;
-    }
-
-    .home-search-hint:hover {
-      border-color: var(--gold-border);
-      color: var(--parchment);
-    }
-
-    .home-search-kbd {
-      font-family: var(--mono);
-      font-size: .58rem;
-      color: var(--gold2);
-      border: 1px solid var(--gold-border);
-      padding: 1px 6px;
-      border-radius: 3px;
-      margin-left: 4px;
-    }
-
-    @media (max-width: 600px) {
-      .home-search-hint { display: none; } /* Ctrl/Cmd+K is a desktop-keyboard affordance */
     }
 
     /* ════════════════════════════════════════════════
@@ -2849,415 +2809,6 @@
     @media (max-width: 540px) {
       .onboard-card { padding: 28px 22px 24px; }
       .onboard-heading { font-size: 1.6rem; }
-    }
-
-    /* ══════════════════════════════════════════════════════
-       GLOBAL SEARCH — command palette style
-    ══════════════════════════════════════════════════════ */
-
-    #search-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 9700;
-      background: rgba(7, 7, 7, .72);
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .18s;
-    }
-
-    #search-backdrop.show {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    #search-overlay {
-      position: fixed;
-      top: 14vh;
-      left: 50%;
-      transform: translateX(-50%) translateY(-8px);
-      width: 100%;
-      max-width: 560px;
-      z-index: 9750;
-      padding: 0 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .18s, transform .18s;
-    }
-
-    #search-overlay.show {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .search-modal {
-      background: var(--ink2);
-      border: 1px solid var(--gold-border);
-      box-shadow: 0 24px 80px rgba(0,0,0,.6);
-      max-height: 70vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .search-input-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--rule);
-      color: var(--gold2);
-      flex-shrink: 0;
-    }
-
-    .search-input {
-      flex: 1;
-      background: none;
-      border: none;
-      outline: none;
-      color: var(--parchment);
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-style: italic;
-    }
-
-    .search-input::placeholder {
-      color: var(--parchment4);
-      opacity: .8;
-    }
-
-    .search-esc-hint {
-      font-family: var(--mono);
-      font-size: .56rem;
-      color: var(--parchment4);
-      border: 1px solid var(--rule2);
-      padding: 2px 6px;
-      border-radius: 3px;
-      flex-shrink: 0;
-    }
-
-    .search-results {
-      overflow-y: auto;
-      flex: 1;
-    }
-
-    .search-result-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 13px 18px;
-      cursor: pointer;
-      border-bottom: 1px solid var(--rule);
-      transition: background .12s;
-    }
-
-    .search-result-item:last-child { border-bottom: none; }
-
-    .search-result-item:hover,
-    .search-result-item.active {
-      background: var(--gold3);
-    }
-
-    .search-result-main {
-      min-width: 0;
-    }
-
-    .search-result-title {
-      font-size: .92rem;
-      color: var(--parchment);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .search-result-title mark {
-      background: none;
-      color: var(--gold);
-      font-weight: 600;
-    }
-
-    .search-result-path {
-      font-family: var(--mono);
-      font-size: .58rem;
-      letter-spacing: .06em;
-      color: var(--parchment4);
-      margin-top: 3px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .search-result-count {
-      font-family: var(--mono);
-      font-size: .58rem;
-      color: var(--parchment3);
-      flex-shrink: 0;
-    }
-
-    .search-empty {
-      padding: 32px 18px;
-      text-align: center;
-      font-size: .84rem;
-      color: var(--parchment4);
-      font-style: italic;
-    }
-
-    .search-hint-row {
-      padding: 32px 18px;
-      text-align: center;
-      font-size: .8rem;
-      color: var(--parchment4);
-    }
-
-    .search-footer {
-      display: flex;
-      gap: 18px;
-      padding: 10px 18px;
-      border-top: 1px solid var(--rule);
-      font-family: var(--mono);
-      font-size: .56rem;
-      color: var(--parchment4);
-      flex-shrink: 0;
-    }
-
-    .search-footer kbd {
-      border: 1px solid var(--rule2);
-      border-radius: 3px;
-      padding: 1px 5px;
-      margin-right: 3px;
-    }
-
-    @media (max-width: 600px) {
-      #search-overlay { top: 8vh; max-width: 100%; padding: 0 14px; }
-      .search-modal { max-height: 78vh; }
-      .search-footer span:nth-child(1) { display: none; } /* hide arrow-key hint on touch */
-    }
-
-    /* ══════════════════════════════════════════════════════
-       OFFLINE BANNER
-    ══════════════════════════════════════════════════════ */
-    #offline-banner {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 9900;
-      background: #5a3a1a;
-      color: #f0d9a8;
-      font-family: var(--mono);
-      font-size: .68rem;
-      letter-spacing: .02em;
-      text-align: center;
-      padding: 9px 16px;
-      transform: translateY(-100%);
-      transition: transform .25s ease;
-    }
-
-    #offline-banner.show {
-      transform: translateY(0);
-    }
-
-    /* ════════════════════════════════════════════════════════
-       "CONTINUE WHERE YOU LEFT OFF" — resume card on home
-    ════════════════════════════════════════════════════════ */
-
-    #continue-card-slot:empty { display: none; }
-
-    .continue-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-      background: var(--gold3);
-      border: 1px solid var(--gold-border);
-      padding: 16px 22px;
-      margin-bottom: 28px;
-      cursor: pointer;
-      transition: border-color .18s, background .18s;
-      animation: probIn .25s var(--ease);
-    }
-
-    .continue-card:hover {
-      border-color: var(--gold2);
-    }
-
-    .continue-eyebrow {
-      font-family: var(--mono);
-      font-size: .54rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gold2);
-      flex-basis: 100%;
-      margin-bottom: 6px;
-    }
-
-    .continue-main {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .continue-topic {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--parchment);
-    }
-
-    .continue-meta {
-      font-family: var(--mono);
-      font-size: .62rem;
-      color: var(--parchment3);
-      letter-spacing: .04em;
-    }
-
-    .continue-arrow {
-      font-family: var(--sc);
-      font-size: .62rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 600px) {
-      .continue-card { padding: 14px 16px; margin-bottom: 22px; }
-      .continue-topic { font-size: .94rem; }
-    }
-
-    /* ── Session history (History tab in My Progress) ──────────────────── */
-    .hist-empty {
-      font-family: var(--mono);
-      font-size: .64rem;
-      color: var(--parchment4);
-      letter-spacing: .1em;
-      padding: 32px 0;
-      text-align: center;
-    }
-
-    .hist-session {
-      border: 1px solid var(--rule2);
-      padding: 16px 18px;
-      margin-bottom: 10px;
-      cursor: default;
-      transition: border-color .15s;
-    }
-
-    .hist-session:hover { border-color: var(--gold-border); }
-
-    .hist-session-top {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 6px;
-      flex-wrap: wrap;
-    }
-
-    .hist-session-title {
-      font-family: var(--sc);
-      font-size: .64rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--parchment2);
-    }
-
-    .hist-session-date {
-      font-family: var(--mono);
-      font-size: .56rem;
-      letter-spacing: .08em;
-      color: var(--parchment4);
-    }
-
-    .hist-session-stats {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .hist-stat {
-      font-family: var(--mono);
-      font-size: .6rem;
-      letter-spacing: .08em;
-      color: var(--parchment3);
-    }
-
-    .hist-grade {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .hist-trend {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      margin: 0 0 20px;
-      flex-wrap: wrap;
-    }
-
-    .hist-trend-item {
-      font-family: var(--mono);
-      font-size: .6rem;
-      color: var(--parchment4);
-      letter-spacing: .06em;
-    }
-
-    .hist-trend-grade {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: .88rem;
-      color: var(--gold2);
-    }
-
-    .hist-trend-arrow {
-      color: var(--parchment4);
-      font-size: .6rem;
-    }
-
-    /* ── Smart home recommendations ─────────────────────────────────────── */
-    .smart-rec {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 13px 18px;
-      border: 1px solid var(--rule2);
-      margin-bottom: 8px;
-      cursor: pointer;
-      transition: border-color .15s, background .15s;
-    }
-
-    .smart-rec:hover {
-      border-color: var(--gold-border);
-      background: rgba(168,136,58,.04);
-    }
-
-    .smart-rec-label {
-      font-family: var(--mono);
-      font-size: .54rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gold2);
-      margin-bottom: 3px;
-    }
-
-    .smart-rec-title {
-      font-family: var(--sc);
-      font-size: .66rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--parchment2);
-    }
-
-    .smart-rec-arrow {
-      font-family: var(--mono);
-      font-size: .6rem;
-      color: var(--gold2);
-      flex-shrink: 0;
     }
 
     /* ════════════════════════════════════════════════
@@ -4591,14 +4142,6 @@
         <div class="masthead-title">MathForge</div>
       </div>
       <div class="masthead-right">
-        <button class="masthead-icon-btn" onclick="openSearch()" id="search-toggle-btn"
-          title="Search (Ctrl+K)" aria-label="Search">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
-            stroke-width="1.4" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="6" cy="6" r="4.5"/>
-            <line x1="9.4" y1="9.4" x2="13" y2="13"/>
-          </svg>
-        </button>
         <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()"
           title="Switch between dark and light"></button>
         <span class="masthead-link" data-nav-screen="test-builder" onclick="goTestBuilder()">Practice Mode</span>
@@ -4690,40 +4233,6 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-       GLOBAL SEARCH (Ctrl/Cmd + K)
-       Searches topic names across both courses and
-       jumps straight to that topic's question list.
-    ═══════════════════════════════════════ -->
-    <div id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
-      <div class="search-modal">
-        <div class="search-input-row">
-          <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor"
-            stroke-width="1.4" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="6" cy="6" r="4.5"/>
-            <line x1="9.4" y1="9.4" x2="13" y2="13"/>
-          </svg>
-          <input type="text" id="search-input" class="search-input"
-            placeholder="Search topics, sections, courses…" autocomplete="off"
-            oninput="runSearch(this.value)">
-          <kbd class="search-esc-hint">ESC</kbd>
-        </div>
-        <div id="search-results" class="search-results"></div>
-        <div class="search-footer">
-          <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
-          <span><kbd>↵</kbd> Select</span>
-          <span><kbd>ESC</kbd> Close</span>
-        </div>
-      </div>
-    </div>
-    <div id="search-backdrop" onclick="closeSearch()"></div>
-
-    <!-- Offline / connection status banner — relevant now that the site is
-         PWA-installable and may be opened with no signal -->
-    <div id="offline-banner" role="status">
-      You're offline — some content (new questions, the calculator) may not load until you're back online.
-    </div>
-
     <!-- ═══════════════════════════
        MOBILE NAVIGATION DRAWER
     ═══════════════════════════ -->
@@ -4782,9 +4291,6 @@
       <div class="home-heading">Problems.<br><em>Worth Solving.</em></div>
       <div class="home-sub">Mathematics is not a spectator sport — play it to conquer it.</div>
 
-      <div id="continue-card-slot"></div>
-      <div id="smart-rec-slot"></div>
-
       <div class="course-pair" id="course-pair"></div>
 
       <!-- How MathForge Works — three steps for first-time visitors -->
@@ -4825,15 +4331,6 @@
         Every problem here demands something real from you — no routine questions,
         no mechanical repetition. Select a course and begin.
       </div>
-
-      <button class="home-search-hint" onclick="openSearch()" aria-label="Open search">
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
-          <circle cx="5.5" cy="5.5" r="4.3"/>
-          <line x1="8.6" y1="8.6" x2="12" y2="12"/>
-        </svg>
-        Jump to any question
-        <span class="home-search-kbd">⌘K</span>
-      </button>
 
       <div class="home-social">
         <a class="home-insta-link" href="https://www.instagram.com/mathforge?igsh=MTJ4Z2M4M3Z3emVzZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="MathForge on Instagram">
@@ -5011,18 +4508,13 @@
         browser data.</div>
 
       <div class="course-tabs">
-        <button class="course-tab active" id="ptab-weak"    onclick="switchProgressTab('weak')">Weak Spots</button>
-        <button class="course-tab"        id="ptab-history" onclick="switchProgressTab('history')">History</button>
-        <button class="course-tab"        id="ptab-flagged" onclick="switchProgressTab('flagged')">Flagged</button>
-        <button class="course-tab"        id="ptab-mastery" onclick="switchProgressTab('mastery')">Mastery</button>
+        <button class="course-tab active" id="ptab-weak" onclick="switchProgressTab('weak')">Weak Spots</button>
+        <button class="course-tab" id="ptab-flagged" onclick="switchProgressTab('flagged')">Flagged</button>
+        <button class="course-tab" id="ptab-mastery" onclick="switchProgressTab('mastery')">Mastery</button>
       </div>
 
       <div class="course-panel active" id="ppanel-weak">
         <div id="weak-spots-body"></div>
-      </div>
-
-      <div class="course-panel" id="ppanel-history">
-        <div id="history-body"></div>
       </div>
 
       <div class="course-panel" id="ppanel-flagged">
@@ -5340,185 +4832,6 @@
       if (btn) btn.setAttribute('aria-expanded', String(opening));
     }
 
-    // ══════════════════════════════════════════════════
-    //  GLOBAL SEARCH
-    // ══════════════════════════════════════════════════
-    //
-    // Builds a flat searchable index of every topic across both courses
-    // (course, section, topic, question count) from SYLLABUS. Matches on
-    // topic name and section name. Opens with Ctrl/Cmd+K from anywhere.
-
-    let _searchIndex = null;
-    let _searchActiveIdx = -1;
-    let _searchResults = [];
-
-    function _buildSearchIndex() {
-      const idx = [];
-      Object.entries(SYLLABUS).forEach(([courseCode, course]) => {
-        Object.entries(course.sections).forEach(([secCode, sec]) => {
-          Object.entries(sec.topics).forEach(([topicName, qs]) => {
-            if (!qs.length) return; // skip empty topics — nothing to search to
-            idx.push({
-              course: courseCode,
-              courseName: course.name,
-              section: secCode,
-              sectionName: sec.name || secCode,
-              topic: topicName,
-              count: qs.length
-            });
-          });
-        });
-      });
-      return idx;
-    }
-
-    function openSearch() {
-      if (!_searchIndex) _searchIndex = _buildSearchIndex();
-      document.getElementById('search-overlay').classList.add('show');
-      document.getElementById('search-backdrop').classList.add('show');
-      const input = document.getElementById('search-input');
-      input.value = '';
-      runSearch('');
-      setTimeout(() => input.focus(), 50); // after transition starts
-    }
-
-    function closeSearch() {
-      document.getElementById('search-overlay').classList.remove('show');
-      document.getElementById('search-backdrop').classList.remove('show');
-      _searchActiveIdx = -1;
-    }
-
-    function _highlightMatch(text, query) {
-      if (!query) return text;
-      const i = text.toLowerCase().indexOf(query.toLowerCase());
-      if (i === -1) return text;
-      return text.slice(0, i) + '<mark>' + text.slice(i, i + query.length) + '</mark>' + text.slice(i + query.length);
-    }
-
-    function runSearch(query) {
-      const resultsEl = document.getElementById('search-results');
-      const q = query.trim().toLowerCase();
-      _searchActiveIdx = -1;
-
-      if (!q) {
-        resultsEl.innerHTML = '<div class="search-hint-row">Start typing to find a topic — e.g. "matrices", "vectors", "differentiation"</div>';
-        _searchResults = [];
-        return;
-      }
-
-      // Score: topic name match ranks above section name match
-      const scored = _searchIndex
-        .map(item => {
-          const topicHit = item.topic.toLowerCase().includes(q);
-          const sectionHit = item.sectionName.toLowerCase().includes(q) || item.section.toLowerCase().includes(q);
-          if (!topicHit && !sectionHit) return null;
-          return { item, score: topicHit ? 2 : 1 };
-        })
-        .filter(Boolean)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 8)
-        .map(s => s.item);
-
-      _searchResults = scored;
-
-      if (!scored.length) {
-        resultsEl.innerHTML = '<div class="search-empty">No topics match "' + query + '"</div>';
-        return;
-      }
-
-      resultsEl.innerHTML = scored.map((item, i) => `
-        <div class="search-result-item" data-idx="${i}"
-          onclick="selectSearchResult(${i})">
-          <div class="search-result-main">
-            <div class="search-result-title">${_highlightMatch(item.topic, query)}</div>
-            <div class="search-result-path">${item.course} &middot; ${item.sectionName}</div>
-          </div>
-          <div class="search-result-count">${item.count} Q</div>
-        </div>`).join('');
-    }
-
-    function selectSearchResult(i) {
-      const item = _searchResults[i];
-      if (!item) return;
-      closeSearch();
-      goTopic(item.course, item.section, item.topic);
-    }
-
-    function _moveSearchSelection(dir) {
-      const items = document.querySelectorAll('.search-result-item');
-      if (!items.length) return;
-      items[_searchActiveIdx]?.classList.remove('active');
-      _searchActiveIdx = (_searchActiveIdx + dir + items.length) % items.length;
-      items[_searchActiveIdx].classList.add('active');
-      items[_searchActiveIdx].scrollIntoView({ block: 'nearest' });
-    }
-
-    // Global keyboard shortcuts
-    // ─ Ctrl/Cmd+K   → search
-    // ─ Arrow →/←    → next/prev question (topic view) OR search navigation
-    // ─ S            → toggle solution (topic view)
-    // ─ F            → flag/unflag current question (topic view)
-    // ─ Escape        → close search / calc / mob menu
-    document.addEventListener('keydown', e => {
-      const isSearchOpen = document.getElementById('search-overlay')?.classList.contains('show');
-      const inInput = ['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName);
-
-      // ── Ctrl/Cmd+K ─ toggle search ───────────────────────────────────
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        isSearchOpen ? closeSearch() : openSearch();
-        return;
-      }
-
-      // ── Search navigation ────────────────────────────────────────────
-      if (isSearchOpen) {
-        if (e.key === 'Escape')    { closeSearch(); return; }
-        if (e.key === 'ArrowDown') { e.preventDefault(); _moveSearchSelection(1);  return; }
-        if (e.key === 'ArrowUp')   { e.preventDefault(); _moveSearchSelection(-1); return; }
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          if (_searchActiveIdx >= 0) selectSearchResult(_searchActiveIdx);
-          else if (_searchResults.length) selectSearchResult(0);
-        }
-        return;
-      }
-
-      // ── Topic-view shortcuts (no search open, no input focused) ──────
-      const topicActive = document.getElementById('s-topic')?.classList.contains('on');
-
-      // Escape: close any open overlay
-      if (e.key === 'Escape') {
-        closeMobMenu();
-        if (_calcOpen) toggleCalc();
-        return;
-      }
-
-      if (topicActive && !inInput) {
-        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-          e.preventDefault();
-          const btn = document.querySelector(
-            e.key === 'ArrowRight'
-              ? '.prob-arrow-btn:last-child:not(:disabled)'
-              : '.prob-arrow-btn:first-child:not(:disabled)'
-          );
-          if (btn) btn.click();
-          return;
-        }
-        if (e.key.toLowerCase() === 's') {
-          e.preventDefault();
-          const solBtn = document.querySelector('.prob-sol-btn');
-          if (solBtn) solBtn.click();
-          return;
-        }
-        if (e.key.toLowerCase() === 'f') {
-          e.preventDefault();
-          const flagBtn = document.querySelector('.prob-flag-btn');
-          if (flagBtn) flagBtn.click();
-          return;
-        }
-      }
-    });
-
     function closeOnboarding() {
       try { localStorage.setItem('mf_onboarded', '1'); } catch (e) {}
       document.getElementById('onboard-overlay').classList.remove('show');
@@ -5543,7 +4856,10 @@
       if (btn) btn.setAttribute('aria-expanded', 'false');
     }
 
-
+    // Close drawers on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeMobMenu(); if (_calcOpen) toggleCalc(); }
+    });
 
     // ══════════════════════════════════════════════════
     //  BREADCRUMB
@@ -5591,118 +4907,9 @@
     // the home screen has finished rendering before the overlay appears.
     checkFirstVisit();
 
-    // "Continue where you left off" — reads the last visited topic from
-    // localStorage and renders a single-line resume card above the course
-    // tiles. Silently does nothing if there's no history or it's stale (>30d).
-    // Smart home recommendations — driven by localStorage progress data.
-    // Shows up to 2 cards: "Weakest topic" and "Due for review".
-    // Silently shows nothing if there's no history yet (first visit).
-    function _buildSmartRecs() {
-      const slot = document.getElementById('smart-rec-slot');
-      if (!slot) return;
-
-      const p = loadProgress();
-      const recs = [];
-
-      // ── Rec 1: Weakest topic ──────────────────────────────────────────
-      // Find the topic with lowest average score % across all attempts.
-      let worstTopic = null, worstPct = Infinity;
-      for (const [course, cData] of Object.entries(SYLLABUS)) {
-        for (const [secCode, sec] of Object.entries(cData.sections)) {
-          for (const [topic, qs] of Object.entries(sec.topics)) {
-            if (!qs.length) continue;
-            let totalScored = 0, totalMarks = 0, attempts = 0;
-            qs.forEach(q => {
-              const rec = p.questions[q.id];
-              if (!rec || !rec.attempts.length) return;
-              const last = rec.attempts[rec.attempts.length - 1];
-              totalScored += last.scored;
-              totalMarks += last.marks || getMarks(q).marks;
-              attempts++;
-            });
-            if (attempts < 2) continue; // need at least 2 questions attempted
-            const pct = totalMarks ? (totalScored / totalMarks) * 100 : 0;
-            if (pct < worstPct) { worstPct = pct; worstTopic = { course, section: secCode, topic }; }
-          }
-        }
-      }
-
-      if (worstTopic && worstPct < 75) {
-        const navFn = `goTopic('${worstTopic.course}','${worstTopic.section}','${worstTopic.topic}')`;
-        recs.push(`
-          <div class="smart-rec" onclick="${navFn}">
-            <div>
-              <div class="smart-rec-label">Needs work · ${Math.round(worstPct)}% avg</div>
-              <div class="smart-rec-title">${worstTopic.topic}</div>
-            </div>
-            <div class="smart-rec-arrow">Drill it →</div>
-          </div>`);
-      }
-
-      // ── Rec 2: Questions due for review (spaced rep) ──────────────────
-      // Any question where the last attempt was < 70% and was > 3 days ago.
-      const threeDaysAgo = Date.now() - 3 * 24 * 60 * 60 * 1000;
-      let dueCount = 0;
-      for (const [qid, rec] of Object.entries(p.questions)) {
-        if (!rec.attempts.length) continue;
-        const last = rec.attempts[rec.attempts.length - 1];
-        const lastPct = last.marks ? (last.scored / last.marks) * 100 : 0;
-        if (lastPct < 70 && new Date(last.date).getTime() < threeDaysAgo) dueCount++;
-      }
-
-      if (dueCount >= 3) {
-        recs.push(`
-          <div class="smart-rec" onclick="goProgress();switchProgressTab('weak')">
-            <div>
-              <div class="smart-rec-label">Spaced review</div>
-              <div class="smart-rec-title">${dueCount} questions due for review</div>
-            </div>
-            <div class="smart-rec-arrow">Review →</div>
-          </div>`);
-      }
-
-      slot.innerHTML = recs.join('');
-    }
-
-    function _buildContinueCard() {
-      const slot = document.getElementById('continue-card-slot');
-      if (!slot) return;
-      let last = null;
-      try {
-        const raw = localStorage.getItem('mf_last_topic');
-        if (raw) last = JSON.parse(raw);
-      } catch (e) {}
-
-      if (!last || !last.course || !last.topic) { slot.innerHTML = ''; return; }
-
-      // Don't resurface anything older than 30 days — stale and irrelevant
-      if (Date.now() - (last.ts || 0) > 30 * 24 * 60 * 60 * 1000) { slot.innerHTML = ''; return; }
-
-      // Validate the topic still exists in the syllabus (questions may have moved)
-      const c = SYLLABUS[last.course];
-      const sec = c && c.sections[last.section];
-      const qs = sec && sec.topics[last.topic];
-      if (!qs || !qs.length) { slot.innerHTML = ''; return; }
-
-      const safeIndex = Math.min(last.index || 0, qs.length - 1);
-      const navFn = `goTopic('${last.course}','${last.section}','${last.topic}',${safeIndex})`;
-      slot.innerHTML = `
-        <div class="continue-card" onclick="${navFn}" role="button" tabindex="0">
-          <div class="continue-eyebrow">Continue where you left off</div>
-          <div class="continue-main">
-            <span class="continue-topic">${last.topic}</span>
-            <span class="continue-meta">${last.course} &middot; ${last.section} &middot; Problem ${safeIndex + 1} of ${qs.length}</span>
-          </div>
-          <span class="continue-arrow">Resume &nbsp;→</span>
-        </div>`;
-    }
-
     function buildHome() {
       const pair = document.getElementById('course-pair');
       pair.innerHTML = '';
-
-      _buildContinueCard();
-      _buildSmartRecs();
 
       // Ghost equations — one signature formula per course
       const ghosts = {
@@ -5840,16 +5047,6 @@
       S.course = code; S.section = secCode; S.topic = topic;
       S.probIndex = startIndex || 0;
 
-      // Remember this visit so the home screen can offer "Continue where
-      // you left off". Stored as a single small JSON blob — cheap and safe
-      // even in private browsing (wrapped in try/catch).
-      try {
-        localStorage.setItem('mf_last_topic', JSON.stringify({
-          course: code, section: secCode, topic: topic,
-          index: startIndex || 0, ts: Date.now()
-        }));
-      } catch (e) {}
-
       const sec = SYLLABUS[code].sections[secCode];
       const questions = sec.topics[topic] || [];
 
@@ -5939,8 +5136,10 @@
         qContent = `<div class="prob-placeholder">Question not yet added.<code>${q.id}_q.png</code></div>`;
       }
 
-      // Solution: always an image
-      const sImg = q.solution_image
+      // Solution: text (KaTeX) takes priority over image
+      const sImg = q.solution_steps
+        ? `<div class="prob-text-solution">${processText(q.solution_steps)}</div>`
+        : q.solution_image
         ? `<img src="images/${q.solution_image}" alt="Solution ${idx + 1}"
          loading="lazy" decoding="async"
          onerror="this.outerHTML='<div class=prob-sol-placeholder>Image not found: ${q.solution_image}</div>'">`
@@ -7684,7 +6883,9 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       }
 
       if (reveal) {
-        const sImg = q.solution_image
+        const sImg = q.solution_steps
+          ? '<div class="prob-text-solution">' + processText(q.solution_steps) + '</div>'
+          : q.solution_image
           ? '<img src="images/' + q.solution_image + '" alt="Solution" class="ts-sol-img" loading="lazy" decoding="async">'
           : '<div class="prob-sol-placeholder">Solution forthcoming.</div>';
         html += '<div style="border-top:1px solid var(--rule);padding:12px 24px 4px">'
@@ -7837,37 +7038,6 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       ]);
       show('test-review');
       pushState({ screen: 'test-review' });
-      _logSessionToHistory();
-    }
-
-    function _logSessionToHistory() {
-      try {
-        const raw = localStorage.getItem('mf_session_history');
-        const hist = raw ? JSON.parse(raw) : [];
-        const section = TEST.questions.length ? (TEST.questions[0].id || '').split('_')[0] : '—';
-        hist.unshift({
-          ts: Date.now(),
-          section,
-          title: TEST.title || section,
-          count: TEST.questions.length,
-          totalMarks: TEST.totalMarks,
-          elapsed: TEST.durationSeconds - Math.max(0, TEST.remainingSeconds)
-        });
-        localStorage.setItem('mf_session_history', JSON.stringify(hist.slice(0, 50)));
-      } catch (e) {}
-    }
-
-    function _patchHistoryGrade(grade, pct) {
-      try {
-        const raw = localStorage.getItem('mf_session_history');
-        if (!raw) return;
-        const hist = JSON.parse(raw);
-        if (hist.length && !hist[0].grade) {
-          hist[0].grade = grade;
-          hist[0].pct = pct;
-          localStorage.setItem('mf_session_history', JSON.stringify(hist));
-        }
-      } catch (e) {}
     }
 
     function renderTestReview(elapsed, timedOut) {
@@ -7888,17 +7058,11 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       });
       const doneCount = TEST.questions.filter((_, i) => (TEST.marks[i] || {}).done).length;
       const fullyScored = selfAttempted === TEST.questions.length;
+      // Show grade prediction as soon as at least one question is self-marked.
+      // Previously required half — that was too high a bar, causing users to think
+      // the feature was broken when they'd only scored a few questions.
       const partiallyScored = selfAttempted >= 1;
       const pct = TEST.totalMarks ? Math.round((selfTotal / TEST.totalMarks) * 1000) / 10 : 0;
-
-      const predHtml = partiallyScored ? buildGradePrediction(pct, TEST.questions, fullyScored) : '';
-
-      // When fully scored, extract the latest grade from the prediction and
-      // patch it into the session history entry we logged at submit time.
-      if (fullyScored && predHtml) {
-        const gradeMatch = predHtml.match(/class="tgp-grade">([A-U])</);
-        if (gradeMatch) _patchHistoryGrade(gradeMatch[1], pct);
-      }
 
       document.getElementById('tr-summary').innerHTML =
         '<div class="trs-stat"><span class="trs-stat-label">Questions</span><span class="trs-stat-value">' + TEST.questions.length + '</span></div>'
@@ -7907,7 +7071,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
         + (selfAttempted ? '<div class="trs-stat"><span class="trs-stat-label">Self-Scored' + (fullyScored ? '' : ' (' + selfAttempted + '/' + TEST.questions.length + ')') + '</span><span class="trs-stat-value">' + selfTotal + ' / ' + TEST.totalMarks + (fullyScored ? '  ·  ' + pct + '%' : '') + '</span></div>' : '<div class="trs-stat" style="width:100%"><span class="trs-stat-label">Self-Mark</span><span class="trs-stat-value" style="font-style:italic;color:var(--parchment4)">Score questions below — grade prediction will appear here</span></div>')
         + '<div class="trs-stat"><span class="trs-stat-label">Time Used</span><span class="trs-stat-value">' + formatClock(elapsed) + ' / ' + formatClock(TEST.durationSeconds) + '</span></div>'
         + '<div class="trs-stat"><span class="trs-stat-label">Status</span><span class="trs-stat-value">' + (timedOut ? 'Time Expired' : 'Submitted') + '</span></div>'
-        + predHtml;
+        + (partiallyScored ? buildGradePrediction(pct, TEST.questions, fullyScored) : '');
     }
 
     function tsRefreshSummary() { buildTestSummary(); }
@@ -7925,11 +7089,10 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
     }
 
     function switchProgressTab(tab) {
-      ['weak', 'history', 'flagged', 'mastery'].forEach(t => {
-        document.getElementById('ptab-'   + t).classList.toggle('active', t === tab);
+      ['weak', 'flagged', 'mastery'].forEach(t => {
+        document.getElementById('ptab-' + t).classList.toggle('active', t === tab);
         document.getElementById('ppanel-' + t).classList.toggle('active', t === tab);
       });
-      if (tab === 'history') buildHistoryTab();
     }
 
     function buildProgressScreen() {
@@ -7937,61 +7100,13 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       const parts = Object.entries(p.streaks)
         .filter(([, s]) => s.current > 0)
         .map(([code, s]) => code + ': ' + s.current + '-day streak (best ' + s.longest + ')');
-      const streakNote = parts.length ? parts.join('  ·  ') : 'No streak yet — self-mark a question to start one.';
+      const streakNote = parts.length ? parts.join('  \u00b7  ') : 'No streak yet \u2014 self-mark a question to start one.';
       document.getElementById('progress-caption').innerHTML =
-        streakNote + ' &nbsp;·&nbsp; Stored on this device only — export it before clearing your browser data.';
+        streakNote + ' &nbsp;\u00b7&nbsp; Stored on this device only \u2014 export it before clearing your browser data.';
 
       buildWeakSpotsTab();
       buildFlaggedTab();
       buildMasteryTab();
-      // Build history lazily — only when the tab is first opened
-    }
-
-    function buildHistoryTab() {
-      const el = document.getElementById('history-body');
-      if (!el) return;
-      let hist = [];
-      try {
-        const raw = localStorage.getItem('mf_session_history');
-        if (raw) hist = JSON.parse(raw);
-      } catch (e) {}
-
-      if (!hist.length) {
-        el.innerHTML = '<div class="hist-empty">No sessions logged yet.<br>Complete a Practice Mode drill and it will appear here.</div>';
-        return;
-      }
-
-      // Grade trend row — last 8 sessions that have a grade
-      const graded = hist.filter(s => s.grade).slice(0, 8).reverse();
-      let trendHtml = '';
-      if (graded.length >= 2) {
-        trendHtml = '<div class="hist-trend">'
-          + graded.map((s, i) => {
-              const arrow = i < graded.length - 1 ? '<span class="hist-trend-arrow"> → </span>' : '';
-              return '<span class="hist-trend-item"><span class="hist-trend-grade">' + s.grade + '</span></span>' + arrow;
-            }).join('')
-          + '</div>';
-      }
-
-      const formatDate = ts => {
-        const d = new Date(ts);
-        return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-      };
-      const formatMins = secs => Math.round(secs / 60) + ' min';
-
-      el.innerHTML = trendHtml + hist.map(s => `
-        <div class="hist-session">
-          <div class="hist-session-top">
-            <div class="hist-session-title">${s.title || s.section || '—'}</div>
-            <div class="hist-session-date">${formatDate(s.ts)}</div>
-          </div>
-          <div class="hist-session-stats">
-            <span class="hist-stat">${s.count} questions</span>
-            <span class="hist-stat">${s.totalMarks} marks</span>
-            <span class="hist-stat">${formatMins(s.elapsed)}</span>
-            ${s.grade ? '<span class="hist-grade">' + s.grade + '</span>' + (s.pct ? '<span class="hist-stat"> · ' + s.pct + '%</span>' : '') : ''}
-          </div>
-        </div>`).join('');
     }
 
     function jumpToQuestion(course, section, topic, index) {
