@@ -216,19 +216,19 @@ const SYLLABUS = {
               id: "P1_DF_001",
               difficulty: 'standard',
               question_text: "The curve $y = 4x^2 + \\dfrac{a}{x} + 5$ has a stationary point. Find the value of the positive constant $a$ given that the $y$-coordinate of the stationary point is $32$. $\\quad$ **[8]**",
-              solution_image: ""
+              solution_steps: "Step 1: Set up the equations\n$$y = 4x^2+\\frac{a}{x}+5, \\qquad 32 = 4x^2+\\frac{a}{x}+5$$\n\nStep 2: Multiply through by $x$\n$$32x = 4x^3+a+5x$$\n\nStep 3: Differentiate the original function\n$$\\frac{dy}{dx} = 8x-\\frac{a}{x^2}$$\n\nStep 4: Stationary point condition\n$$0 = 8x-\\frac{a}{x^2} \\quad\\Rightarrow\\quad 0 = 8x^3-a \\quad\\Rightarrow\\quad \\frac{a}{8}=x^3 \\implies x = \\frac{\\sqrt[3]{a}}{2}$$\n\nStep 5: Substitute $x=\\dfrac{\\sqrt[3]{a}}{2}$ into $32x=4x^3+a+5x$\n$$32\\cdot\\frac{\\sqrt[3]{a}}{2} = 4\\left(\\frac{\\sqrt[3]{a}}{2}\\right)^3 + a + 5\\cdot\\frac{\\sqrt[3]{a}}{2}$$\n\nStep 6: Simplify\n$$16\\sqrt[3]{a} = \\frac{a}{2}+a+\\frac{5}{2}\\sqrt[3]{a} \\quad\\Rightarrow\\quad 16a^{1/3}-\\frac{5}{2}a^{1/3} = \\frac{3}{2}a \\quad\\Rightarrow\\quad \\frac{27}{2}a^{1/3} = \\frac{3}{2}a$$\n\nStep 7: Divide both sides by $\\dfrac{3}{2}a^{1/3}$\n$$9 = a^{1-1/3} = a^{2/3}$$\n\nStep 8: Solve for $a$\n$$a = 9^{3/2}$$\n\n**Final answer: $a=27$**"
             },
             {
               id: "P1_DF_002",
               difficulty: 'hard',
               question_text: "The curve $y = (1-x)(x^2 + 4x + k)$ has a stationary point when $x = -3$.\n\n**(i)** Find the value of the constant $k$. $\\quad$ **[7]**\n\n**(ii)** Determine whether the stationary point is a maximum or minimum point. $\\quad$ **[2]**\n\n**(iii)** Given that $y = 9x - 9$ is the equation of the tangent to the curve at the point $A$, find the coordinates of $A$. $\\quad$ **[5]**",
-              solution_image: ""
+              solution_steps: "Step 1(i): Expand $y=(1-x)(x^2+4x+k)$\n$$y = x^2+4x+k-x^3-4x^2-kx = -x^3-3x^2+(4-k)x+k$$\n\nStep 2: Differentiate\n$$\\frac{dy}{dx} = -3x^2-6x+(4-k)$$\n\nStep 3: Stationary point at $x=-3$\n$$0 = -3(-3)^2-6(-3)+4-k = -27+18+4-k = -5-k$$\n\n**Final answer (i): $k=-5$**\n\nStep 4(ii): With $k=-5$:\n$$\\frac{dy}{dx} = -3x^2-6x+9, \\qquad \\frac{d^2y}{dx^2} = -6x-6$$\n\nStep 5: Evaluate at $x=-3$\n$$\\frac{d^2y}{dx^2} = -6(-3)-6 = 18-6 = 12$$\nSince $\\dfrac{d^2y}{dx^2}>0$, the stationary point is a **minimum point**.\n\nStep 6(iii): Gradient of the curve at $A$ is $9$ (matching $y=9x-9$)\n$$9 = -3x^2-6x+9 \\quad\\Rightarrow\\quad 0 = -3x(x+2) \\implies x=0 \\text{ or } x=-2$$\n\nStep 7: Test each value against the tangent equation $y=9x-9$\n\nAt $x=-2$: $\\; y=(1-(-2))\\big((-2)^2+4(-2)-5\\big) = 3(-9) = -27$. Tangent: $y=9(-2)-9=-27$ ✓ matches\n\nAt $x=0$: $\\; y = (1-0)(0+0-5) = -5$. Tangent: $y=9(0)-9=-9$ ✗ does not match\n\n**Final answer (iii): coordinates of $A$ are $(-2,-27)$**"
             },
             {
               id: "P1_DF_003",
               difficulty: 'standard',
               question_text: "The volume $V$ of a sphere is increasing at the constant rate of $2\\pi$ cm$^3$s$^{-1}$.\n\nFind the rate of change of the surface area $S$ of the sphere when the volume is $36\\pi$ cm$^3$. $\\quad$ **[6]**",
-              solution_image: ""
+              solution_steps: "Step 1: Given $\\dfrac{dV}{dt}=2\\pi$, and $V=\\dfrac{4}{3}\\pi r^3$\n$$36\\pi=\\frac{4}{3}\\pi r^3 \\implies r^3=27 \\implies r=3$$\n\nStep 2: Find $\\dfrac{dV}{dr}$ at $r=3$\n$$\\frac{dV}{dr}=4\\pi r^2=4\\pi(3)^2=36\\pi$$\n\nStep 3: Use the chain rule to find $\\dfrac{dr}{dt}$\n$$\\frac{dV}{dt}=\\frac{dV}{dr}\\times\\frac{dr}{dt} \\implies 2\\pi=36\\pi\\times\\frac{dr}{dt} \\implies \\frac{dr}{dt}=\\frac{1}{18}$$\n\nStep 4: Surface area and its derivative\n$$S=4\\pi r^2 \\implies \\frac{dS}{dr}=8\\pi r$$\n\nStep 5: Chain rule again\n$$\\frac{dS}{dt}=\\frac{dS}{dr}\\times\\frac{dr}{dt}=8\\pi(3)\\times\\frac{1}{18}=\\frac{24\\pi}{18}=\\frac{4\\pi}{3}$$\n\n**Final answer: $\\dfrac{dS}{dt}=\\dfrac{4\\pi}{3}$ cm²s⁻¹**"
             },
             {
               id: "P1_DF_004",
@@ -309,34 +309,34 @@ const SYLLABUS = {
               difficulty: 'hard',
               marks_estimated: 5,
               question_text: "Solve the quadratic equation\n$$(\\sqrt{3}-1)x^2 - 2\\sqrt{3}\\,x = 3 + 3\\sqrt{3}$$\ngiving one root in the form $p + q\\sqrt{3}$ and the other in the form $r\\sqrt{3}$, where $p$, $q$ and $r$ are integers.",
-              solution_image: ""
+              solution_steps: "Step 1: Rearrange into standard form\n$$(\\sqrt{3}-1)x^2 - 2\\sqrt{3}x-(3+3\\sqrt{3}) = 0$$\n\nStep 2: Identify coefficients\n$$a=(\\sqrt{3}-1), \\quad b=-2\\sqrt{3}, \\quad c=-(3+3\\sqrt{3})$$\n\nStep 3: Apply the quadratic formula\n$$x = \\frac{2\\sqrt{3}\\pm\\sqrt{\\left(-2\\sqrt{3}\\right)^2-4(\\sqrt{3}-1)\\big(-(3+3\\sqrt{3})\\big)}}{2(\\sqrt{3}-1)}$$\n\nStep 4: Evaluate the discriminant\n$$x = \\frac{2\\sqrt{3}\\pm 6}{2\\sqrt{3}-2}$$\n\nStep 5: Two roots\n$$x=\\frac{2\\sqrt{3}+6}{2\\sqrt{3}-2} \\qquad \\text{and}\\qquad x=\\frac{2\\sqrt{3}-6}{2\\sqrt{3}-2}$$\n\nStep 6: Simplify each (rationalising)\n$$x = \\frac{2\\sqrt{3}+6}{2\\sqrt{3}-2} = 3+2\\sqrt{3} \\qquad\\qquad x = \\frac{2\\sqrt{3}-6}{2\\sqrt{3}-2} = -\\sqrt{3}$$\n\n**Final answer: $x = 3+2\\sqrt{3}$ or $x=-\\sqrt{3}$**"
             },
             {
               id: "P1_QD_002",
               difficulty: 'hard',
               marks_estimated: 5,
               question_text: "A curve $C$ has equation\n$$(x-1)y^2 - 2xy + x = 0, \\quad x \\geq 0$$\n\nBy completing the square in the above equation, express $y$ in terms of $x$.",
-              solution_image: ""
+              solution_steps: "Step 1: Divide through by $(x-1)$\n$$y^2 - \\frac{2x}{x-1}y + \\frac{x}{x-1} = 0$$\n\nStep 2: Complete the square\n$$\\left(y-\\frac{x}{x-1}\\right)^2 - \\left(\\frac{x}{x-1}\\right)^2 + \\frac{x}{x-1} = 0$$\n\nStep 3: Combine the last two terms over $(x-1)^2$\n$$\\left(y-\\frac{x}{x-1}\\right)^2 + \\frac{x}{x-1} - \\frac{x^2}{(x-1)^2} = 0 \\quad\\Rightarrow\\quad \\left(y-\\frac{x}{x-1}\\right)^2 + \\frac{x^2-x-x^2}{(x-1)^2} = 0$$\n\nStep 4: Simplify\n$$\\left(y-\\frac{x}{x-1}\\right)^2 = \\frac{x}{(x-1)^2}$$\n\nStep 5: Take square roots\n$$y-\\frac{x}{x-1} = \\pm\\frac{\\sqrt{x}}{x-1}$$\n\nStep 6: Solve for $y$\n$$y = \\frac{x}{x-1}\\pm\\frac{\\sqrt{x}}{x-1}$$\n\n**Final answer: $y = \\dfrac{x\\pm\\sqrt{x}}{x-1}$**"
             },
             {
               id: "P1_QD_003",
               difficulty: 'hard',
               marks_estimated: 4,
               question_text: "A quadratic curve has equation $f(x) = (x-1)(x-a)$, where $a$ is a constant.\n\nShow, **without** a calculus method, that the coordinates of the minimum point of the curve are\n$$\\left(\\frac{a+1}{2},\\,-\\frac{(a-1)^2}{4}\\right)$$",
-              solution_image: ""
+              solution_steps: "Step 1: Expand $f(x)$\n$$f(x)=(x-1)(x-a) = x^2-ax-x+a = x^2-x(a+1)+a$$\n\nStep 2: Complete the square\n$$= \\left(x-\\frac{a+1}{2}\\right)^2-\\left(\\frac{a+1}{2}\\right)^2+a$$\n\nStep 3: Simplify the constant terms\n$$= \\left(x-\\frac{a+1}{2}\\right)^2-\\frac{a^2+2a+1-4a}{4} = \\left(x-\\frac{a+1}{2}\\right)^2-\\frac{a^2-2a+1}{4}$$\n\nStep 4: Factor\n$$= \\left(x-\\frac{a+1}{2}\\right)^2-\\frac{(a-1)^2}{4}$$\n\nStep 5: Since the coefficient of the squared term is positive, this is a minimum point at\n$$\\left(\\frac{a+1}{2},\\, -\\frac{(a-1)^2}{4}\\right)$$\n\n**Final answer: minimum point $\\left(\\dfrac{a+1}{2},\\,-\\dfrac{(a-1)^2}{4}\\right)$ — shown**"
             },
             {
               id: "P1_QD_004",
               difficulty: 'standard',
               marks_estimated: 5,
               question_text: "The equation $(k+5)x^2 + 4x + (k+2) = 0$, where $k$ is a constant, has two distinct real solutions for $x$.\n\nFind the set of possible values for $k$.",
-              solution_image: ""
+              solution_steps: "Step 1: Identify coefficients\n$$(k+5)x^2+4x+(k+2)=0 \\qquad a=(k+5),\\ b=4,\\ c=(k+2)$$\n\nStep 2: Two distinct real roots requires $b^2-4ac>0$\n$$(4)^2-4(k+5)(k+2)>0$$\n\nStep 3: Expand\n$$16-\\left(4k^2+8k+20k+40\\right)>0 \\quad\\Rightarrow\\quad 16-4k^2-28k-40>0$$\n\nStep 4: Simplify\n$$-4k^2-28k-24>0$$\n\nStep 5: Divide by $-4$ (flip the inequality) and factorise\n$$k^2+7k+6<0 \\quad\\Rightarrow\\quad (k+1)(k+6)<0$$\n\nStep 6: Solve the inequality (roots at $k=-1,-6$; parabola positive outside the roots, negative between them)\n\n**Final answer: $-6<k<-1$**"
             },
             {
               id: "P1_QD_005",
               difficulty: 'standard',
               question_text: "**(i)** Show that the substitution $u = x^{\\frac{1}{2}}$ reduces the equation\n$$x - 6x^{\\frac{1}{2}} + 2 = 0$$\nto a quadratic in $u$. $\\quad$ **[1]**\n\n**(ii)** Hence solve $x - 6x^{\\frac{1}{2}} + 2 = 0$, giving your answers in the form $p \\pm q\\sqrt{r}$, where $p$, $q$ and $r$ are integers. $\\quad$ **[5]**\n\n**(iii)** By completing the square, find the range of values of $k$ for which $x^2 - 6x + 2 = k$ has no real solutions. $\\quad$ **[3]**",
-              solution_image: ""
+              solution_steps: "Step 1(i): Substitute $u=x^{1/2}$, so $u^2=x$\n$$x-6x^{1/2}+2=0 \\implies u^2-6u+2=0$$\n\n**Final answer (i): reduces to $u^2-6u+2=0$**\n\nStep 2(ii): Solve using the quadratic formula, $a=1,b=-6,c=2$\n$$u=\\frac{6\\pm\\sqrt{(-6)^2-4(1)(2)}}{2(1)}=\\frac{6\\pm\\sqrt{28}}{2}=3\\pm\\sqrt{7}$$\n\nStep 3: Convert back to $x=u^2$\n$$u=3+\\sqrt{7}: \\quad x=(3+\\sqrt{7})^2=9+6\\sqrt{7}+7=16+6\\sqrt{7}$$\n$$u=3-\\sqrt{7}: \\quad x=(3-\\sqrt{7})^2=9-6\\sqrt{7}+7=16-6\\sqrt{7}$$\n\n**Final answer (ii): $x=16+6\\sqrt{7}$ or $x=16-6\\sqrt{7}$**\n\nStep 4(iii): Complete the square on $x^2-6x+(2-k)=0$\n$$(x-3)^2-9+2-k=0 \\implies (x-3)^2=k+7$$\n\nStep 5: For no real solutions, the RHS must be negative\n$$k+7<0 \\implies k<-7$$\n\n**Final answer (iii): $k<-7$**"
             },
             {
               id: "P1_QD_006",
@@ -496,7 +496,7 @@ const SYLLABUS = {
               id: "P1_SS_007",
               difficulty: 'hard',
               question_text: "An arithmetic progression $P$ has first term $a$ and common difference $d$. An arithmetic progression $Q$ has first term $2(a+1)$ and common difference $(d+1)$. It is given that\n$$\\frac{\\text{5th term of } P}{\\text{12th term of } Q} = \\frac{1}{3} \\quad \\text{and} \\quad \\frac{\\text{Sum of first 5 terms of } P}{\\text{Sum of first 5 terms of } Q} = \\frac{2}{3}$$\n\nFind the value of $a$ and the value of $d$. $\\quad$ **[6]**",
-              solution_image: ""
+              solution_steps: "Step 1: Set up $P$ and $Q$\n$$P: a=a,\\ d=d \\qquad Q: a=2(a+1),\\ d=(d+1)$$\n\nStep 2: 5th term of $P$ and 12th term of $Q$\n$$\\text{5th term of }P=a+4d, \\qquad \\text{12th term of }Q=2(a+1)+11(d+1)=2a+11d+13$$\n\nStep 3: Use the given ratio $=\\dfrac13$\n$$3(a+4d)=2a+11d+13 \\implies a+d=13 \\quad \\text{(Eq. 1)}$$\n\nStep 4: Sums of first 5 terms\n$$S_5(P)=\\frac{5}{2}(2a+4d)=5a+10d$$\n$$S_5(Q)=\\frac{5}{2}\\big[2(2a+2)+4(d+1)\\big]=10a+10d+20$$\n\nStep 5: Use the given ratio $=\\dfrac23$\n$$3(5a+10d)=2(10a+10d+20) \\implies 15a+30d=20a+20d+40 \\implies -5a+10d-40=0 \\implies a-2d=-8 \\quad \\text{(Eq. 2)}$$\n\nStep 6: Solve the system — subtract Eq. 2 from Eq. 1\n$$(a+d)-(a-2d)=13-(-8) \\implies 3d=21 \\implies d=7, \\qquad a=13-7=6$$\n\nStep 7: Check both original ratio conditions with $a=6,d=7$ — both hold exactly.\n\n**Final answer: $a=6$, $d=7$**"
             },
             {
               id: "P1_SS_008",
@@ -1850,13 +1850,13 @@ const SYLLABUS = {
               id: "FP1_PC_002",
               difficulty: 'standard',
               question_text: "The equation of a curve, in polar coordinates, is\n$$r = \\sec\\theta + \\tan\\theta, \\quad 0 \\leq \\theta \\leq \\tfrac{1}{3}\\pi$$\n\n**(i)** Sketch the curve. $\\quad$ **[2]**\n\n**(ii)** Find the exact area of the region bounded by the curve and the lines $\\theta = 0$ and $\\theta = \\frac{1}{3}\\pi$. $\\quad$ **[6]**\n\n**(iii)** Find a Cartesian equation of the curve. $\\quad$ **[3]**",
-              solution_image: ""
+              solution_steps: "Step 1(a): Sketch of $r=\\sec\\theta+\\tan\\theta$ for $0\\le\\theta\\le\\frac{\\pi}{3}$ *(sketch as drawn)*\n\nStep 2(b): Area formula\n$$A=\\frac{1}{2}\\int_0^{\\pi/3}r^2\\,d\\theta=\\frac{1}{2}\\int_0^{\\pi/3}\\left(\\sec^2\\theta+2\\sec\\theta\\tan\\theta+\\tan^2\\theta\\right)d\\theta$$\n\nStep 3: Use $\\tan^2\\theta=\\sec^2\\theta-1$\n$$=\\frac{1}{2}\\int_0^{\\pi/3}\\left(2\\sec^2\\theta+2\\sec\\theta\\tan\\theta-1\\right)d\\theta$$\n\nStep 4: Integrate\n$$=\\frac{1}{2}\\Big[2\\tan\\theta+2\\sec\\theta-\\theta\\Big]_0^{\\pi/3}$$\n\nStep 5: Evaluate\n$$=\\frac{1}{2}\\left[\\left(2\\sqrt{3}+4-\\frac{\\pi}{3}\\right)-(0+2-0)\\right]=\\frac{1}{2}\\left[2\\sqrt{3}+2-\\frac{\\pi}{3}\\right]$$\n\n**Final answer (b): $A=\\sqrt{3}+1-\\dfrac{\\pi}{6}$**\n\nStep 6(c): Convert to Cartesian. With $r=\\sqrt{x^2+y^2}$, $\\cos\\theta=x/r$, $\\sin\\theta=y/r$:\n$$r=\\sec\\theta+\\tan\\theta=\\frac{1}{\\cos\\theta}+\\frac{\\sin\\theta}{\\cos\\theta}=\\frac{1+\\sin\\theta}{\\cos\\theta}$$\n\nStep 7: Substitute\n$$r=\\frac{1+y/r}{x/r}=\\frac{r+y}{x}$$\n\nStep 8: Rearrange\n$$rx=r+y \\implies r(x-1)=y \\implies r=\\frac{y}{x-1}$$\n\nStep 9: Substitute $r=\\sqrt{x^2+y^2}$\n$$\\sqrt{x^2+y^2}=\\frac{y}{x-1}$$\n\n**Final answer (c): $y=(x-1)\\sqrt{x^2+y^2}$**"
             },
             {
               id: "FP1_PC_003",
               difficulty: 'standard',
               question_text: "A curve has polar equation\n$$r = 6 + a\\sin\\theta, \\quad 0 < a < 6, \\quad 0 \\leq \\theta < 2\\pi$$\n\nThe area enclosed by the curve is $\\dfrac{97\\pi}{2}$.\n\nFind the value of the constant $a$. $\\quad$ **(8)**",
-              solution_image: ""
+              solution_steps: "Step 1: Area formula\n$$A=\\frac{1}{2}\\int_0^{2\\pi}(6+a\\sin\\theta)^2\\,d\\theta=\\frac{97\\pi}{2}$$\n\nStep 2: Expand the integrand\n$$(6+a\\sin\\theta)^2=36+12a\\sin\\theta+a^2\\sin^2\\theta$$\n\nStep 3: Use $\\sin^2\\theta=\\dfrac{1-\\cos2\\theta}{2}$\n$$97\\pi=\\int_0^{2\\pi}\\left[36+12a\\sin\\theta+\\frac{a^2(1-\\cos2\\theta)}{2}\\right]d\\theta$$\n\nStep 4: Integrate\n$$97\\pi=\\left[36\\theta-12a\\cos\\theta+\\frac{a^2\\theta}{2}-\\frac{a^2\\sin2\\theta}{4}\\right]_0^{2\\pi}$$\n\nStep 5: Evaluate at the limits\n$$97\\pi=\\left(72\\pi-12a+\\pi a^2+0\\right)-\\left(-12a\\right)$$\n\nStep 6: Simplify\n$$97\\pi=72\\pi-12a+\\pi a^2+12a=72\\pi+\\pi a^2$$\n\nStep 7: Solve for $a$\n$$\\pi a^2=97\\pi-72\\pi=25\\pi \\implies a^2=25 \\implies a=5$$\n\n**Final answer: $a=5$**"
             },
             {
               id: "FP1_PC_004",
@@ -2057,21 +2057,21 @@ const SYLLABUS = {
               difficulty: 'standard',
               marks_estimated: 7,
               question_text: "Prove by induction that\n$$\\sum_{r=1}^{n} \\left[r(r+1)\\left(\\frac{1}{2}\\right)^{r-1}\\right] = 16 - \\left(\\frac{1}{2}\\right)^{n-1}(n^2+5n+8)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
-              solution_image: ""
+              solution_steps: "Step 1: Base case, $n=1$\n$$\\left[1(2)\\left(\\frac{1}{2}\\right)^{0}\\right] = 16 - \\left(\\frac{1}{2}\\right)^{0}(1+5+8)$$\n$$2 = 16 - 14 = 2 \\quad \\text{— true for } n=1$$\n\nStep 2: Assume true for $n=k$\n$$\\sum_{r=1}^{k}\\left[r(r+1)\\left(\\frac{1}{2}\\right)^{r-1}\\right] = 16-\\left(\\frac{1}{2}\\right)^{k-1}(k^2+5k+8)$$\n\nStep 3: Inductive step, $n=k+1$ — add the next term\n$$\\sum_{r=1}^{k+1} = \\sum_{r=1}^{k} + (k+1)(k+2)\\left(\\frac{1}{2}\\right)^{k}$$\n\nStep 4: Substitute the assumption\n$$= 16-\\left(\\frac{1}{2}\\right)^{k-1}(k^2+5k+8) + (k+1)(k+2)\\left(\\frac{1}{2}\\right)^{k}$$\n\nStep 5: Write $\\left(\\tfrac12\\right)^{k-1} = 2\\left(\\tfrac12\\right)^k$ and combine\n$$= 16 - \\left(\\frac{1}{2}\\right)^{k}\\Big[2(k^2+5k+8) - (k+1)(k+2)\\Big]$$\n\nStep 6: Expand\n$$= 16 - \\left(\\frac{1}{2}\\right)^{k}\\left[2k^2+10k+16 - k^2-3k-2\\right] = 16-\\left(\\frac{1}{2}\\right)^{k}\\left[k^2+7k+14\\right]$$\n\nStep 7: Recognise $(k+1)^2+5(k+1)+8 = k^2+7k+14$\n$$= 16-\\left(\\frac{1}{2}\\right)^{k}\\left[(k+1)^2+5(k+1)+8\\right]$$\n\nStep 8: Conclusion. Since true for $n=1$, and true for $n=k \\Rightarrow$ true for $n=k+1$, the result is true for all $n\\ge1$ by mathematical induction.\n\n**Final answer: $\\displaystyle\\sum_{r=1}^{n} r(r+1)\\left(\\frac{1}{2}\\right)^{r-1} = 16-\\left(\\frac{1}{2}\\right)^{n-1}(n^2+5n+8)$ — proved**"
             },
             {
               id: "FP1_PI_008",
               difficulty: 'standard',
               marks_estimated: 5,
               question_text: "Let $f(n) = 3^{2n+4} - 2^{2n}$, $\\quad n \\in \\mathbb{N}$.\n\nProve by induction that $f(n)$ is divisible by $5$ for all $n \\in \\mathbb{N}$.",
-              solution_image: ""
+              solution_steps: "Step 1: Base case, $n=1$\n$$f(1) = 3^{2(1)+4}-2^{2(1)} = 3^6-2^2 = 729-4 = 725 = 5\\times145$$\nDivisible by 5 — true for $n=1$.\n\nStep 2: Assume true for $n=k$\n$$f(k) = 3^{2k+4}-2^{2k} \\text{ is divisible by } 5$$\n\nStep 3: Inductive step, $n=k+1$\n$$f(k+1) = 3^{2(k+1)+4}-2^{2(k+1)} = 3^{2}\\!\\left(3^{2k+4}\\right) - 2^{2}\\!\\left(2^{2k}\\right) = 9\\left(3^{2k+4}\\right)-4\\left(2^{2k}\\right)$$\n\nStep 4: Consider $f(k+1)+f(k)$\n$$f(k+1)+f(k) = 9\\left(3^{2k+4}\\right)-4\\left(2^{2k}\\right) + 1\\left(3^{2k+4}\\right)-1\\left(2^{2k}\\right)$$\n$$= 10\\left(3^{2k+4}\\right)-5\\left(2^{2k}\\right) = 5\\Big[2\\left(3^{2k+4}\\right)-2^{2k}\\Big]$$\n\nStep 5: This is divisible by 5. Since $f(k)$ is divisible by 5 (assumption), and $f(k+1)+f(k)$ is divisible by 5, it follows that $f(k+1) = \\big[f(k+1)+f(k)\\big] - f(k)$ is also divisible by 5.\n\nStep 6: Conclusion. Since true for $n=1$, and true for $n=k \\Rightarrow$ true for $n=k+1$, $f(n)$ is divisible by 5 for all positive integers $n$ by mathematical induction.\n\n**Final answer: $f(n)=3^{2n+4}-2^{2n}$ is divisible by $5$ for all $n\\in\\mathbb{N}$ — proved**"
             },
             {
               id: "FP1_PI_009",
               difficulty: 'standard',
               marks_estimated: 7,
               question_text: "A sequence of numbers is given by the recurrence relation\n$$u_{n+1} = \\frac{u_n - 5}{3u_n - 7}, \\quad u_1 = -1, \\quad n \\in \\mathbb{N},\\ n \\geq 1$$\n\nProve by induction that the $n^{\\text{th}}$ term of the sequence is given by\n$$u_n = \\frac{2^{n+1}-5}{2^{n+1}-3}$$",
-              solution_image: ""
+              solution_steps: "Step 1: Base case, $n=1$\n$$u_1 = -1, \\qquad \\frac{2^{1+1}-5}{2^{1+1}-3} = \\frac{4-5}{4-3} = \\frac{-1}{1} = -1$$\n$$-1=-1 \\quad \\text{— true for } n=1$$\n\nStep 2: Assume true for $n=k$\n$$u_k = \\frac{2^{k+1}-5}{2^{k+1}-3}$$\n\nStep 3: Inductive step, $n=k+1$\n$$u_{k+1} = \\frac{u_k-5}{3u_k-7} = \\dfrac{\\dfrac{2^{k+1}-5}{2^{k+1}-3}-5}{\\dfrac{3\\left(2^{k+1}-5\\right)}{2^{k+1}-3}-7}$$\n\nStep 4: Simplify numerator and denominator over a common denominator\n$$= \\frac{2^{k+1}-5-5\\left(2^{k+1}-3\\right)}{3\\left(2^{k+1}-5\\right)-7\\left(2^{k+1}-3\\right)}$$\n\nStep 5: Expand\n$$= \\frac{-4\\left(2^{k+1}\\right)+10}{-4\\left(2^{k+1}\\right)+6}$$\n\nStep 6: Factor out $-2$\n$$= \\frac{-2\\left(2^{k+2}-5\\right)}{-2\\left(2^{k+2}-3\\right)} = \\frac{2^{k+2}-5}{2^{k+2}-3}$$\n\nStep 7: Conclusion. Since true for $n=1$, and true for $n=k \\Rightarrow$ true for $n=k+1$, the result is true for all $n\\ge1$ by mathematical induction.\n\n**Final answer: $u_n = \\dfrac{2^{n+1}-5}{2^{n+1}-3}$ — proved**"
             },
             {
               id: "FP1_PI_010",
@@ -2085,7 +2085,7 @@ const SYLLABUS = {
               difficulty: 'elite',
               marks_estimated: 6,
               question_text: "Prove by induction that\n$$\\frac{d^n}{dx^n}\\!\\left(e^x \\sin(\\sqrt{3}\\,x)\\right) = 2^n e^x \\sin\\!\\left(\\sqrt{3}\\,x + \\frac{n\\pi}{3}\\right)$$\nfor all $n \\geq 1$, $n \\in \\mathbb{N}$.",
-              solution_image: ""
+              solution_steps: "Step 1: Base case, $n=1$\n$$\\frac{d}{dx}\\left(e^x\\sin(\\sqrt{3}x)\\right) = e^x\\cos(\\sqrt{3}x)\\cdot\\sqrt{3} + e^x\\sin(\\sqrt{3}x) = e^x\\left[\\sqrt{3}\\cos(\\sqrt{3}x) + \\sin(\\sqrt{3}x)\\right]$$\n\nStep 2: Using $\\sin(A+B)$ to rewrite in the target form\n$$2e^x\\sin\\left(\\sqrt{3}x+\\frac{\\pi}{3}\\right) = 2e^x\\left[\\sin(\\sqrt{3}x)\\cos\\left(\\frac{\\pi}{3}\\right)+\\cos(\\sqrt{3}x)\\sin\\left(\\frac{\\pi}{3}\\right)\\right] = e^x\\left[\\cos(\\sqrt{3}x)\\sqrt{3}+\\sin(\\sqrt{3}x)\\right]$$\nThis matches Step 1, so true for $n=1$.\n\nStep 3: Assume true for $n=k$\n$$\\frac{d^k}{dx^k}\\left(e^x\\sin(\\sqrt{3}x)\\right) = 2^k e^x\\sin\\left(\\sqrt{3}x+\\frac{k\\pi}{3}\\right)$$\n\nStep 4: Inductive step, $n=k+1$\n$$\\frac{d^{k+1}}{dx^{k+1}} = \\frac{d}{dx}\\left(\\frac{d^k}{dx^k}\\right)$$\n\nStep 5: Differentiate the Step 3 result\n$$= 2^k e^x\\cos\\left(\\sqrt{3}x+\\frac{k\\pi}{3}\\right)\\times\\sqrt{3} + 2^k e^x\\sin\\left(\\sqrt{3}x+\\frac{k\\pi}{3}\\right)$$\n\nStep 6: Factor\n$$= 2^k e^x\\left[\\cos\\left(\\sqrt{3}x+\\frac{k\\pi}{3}\\right)\\sqrt{3} + \\sin\\left(\\sqrt{3}x+\\frac{k\\pi}{3}\\right)\\right]$$\n\nStep 7: Rewrite with a factor of 2\n$$= 2^{k+1}e^x\\left[\\cos\\left(\\sqrt{3}x+\\frac{k\\pi}{3}\\right)\\frac{\\sqrt{3}}{2}+\\frac{1}{2}\\sin\\left(\\sqrt{3}x+\\frac{k\\pi}{3}\\right)\\right]$$\n\nStep 8: Recognise as $\\sin(A+B)$ with $A = \\sqrt3 x + \\tfrac{k\\pi}{3}$, $B=\\tfrac{\\pi}{3}$\n$$= 2^{k+1}e^x\\sin\\left(\\sqrt{3}x+(k+1)\\frac{\\pi}{3}\\right)$$\n\nStep 9: Conclusion. Since true for $n=1$, and true for $n=k \\Rightarrow$ true for $n=k+1$, the result is true for all $n\\ge1$ by mathematical induction.\n\n**Final answer: $\\dfrac{d^n}{dx^n}\\left(e^x\\sin(\\sqrt{3}x)\\right) = 2^n e^x\\sin\\left(\\sqrt{3}x+\\dfrac{n\\pi}{3}\\right)$ — proved**"
             },
             {
               id: "FP1_PI_012",
@@ -2098,7 +2098,7 @@ const SYLLABUS = {
               id: "FP1_PI_013",
               difficulty: 'hard',
               question_text: "Prove by mathematical induction that, for all positive integers $n$,\n$$\\frac{d^n}{dx^n}(\\tan^{-1} x) = P_n(x)(1+x^2)^{-n}$$\nwhere $P_n(x)$ is a polynomial of degree $n-1$. $\\quad$ **[6]**",
-              solution_image: ""
+              solution_steps: "Step 1: Base case, $n=1$\n$$\\frac{d}{dx}(\\tan^{-1}x)=\\frac{1}{1+x^2}=x^0(1+x^2)^{-1}$$\n$P_1(x)=1$, degree $0=1-1$ — true for $n=1$.\n\nStep 2: Assume true for $n=k$\n$$\\frac{d^k}{dx^k}(\\tan^{-1}x)=P_k(x)(1+x^2)^{-k}, \\quad P_k \\text{ of degree } k-1$$\n\nStep 3: Inductive step, differentiate\n$$\\frac{d^{k+1}}{dx^{k+1}}(\\tan^{-1}x)=\\frac{d}{dx}\\left[P_k(x)(1+x^2)^{-k}\\right]$$\n$$=P_k(x)\\left(-k(1+x^2)^{-k-1}\\cdot2x\\right)+(1+x^2)^{-k}P_k'(x)$$\n\nStep 4: Combine over a common denominator\n$$=\\frac{-2kx\\,P_k(x)+(1+x^2)P_k'(x)}{(1+x^2)^{k+1}}$$\n\nStep 5: Define $P_{k+1}(x)=(1+x^2)P_k'(x)-2kx\\,P_k(x)$\n\nStep 6: Check the degree — $P_k'(x)$ has degree $k-2$, so $(1+x^2)P_k'(x)$ has degree $k$; $2kxP_k(x)$ has degree $k$. So $P_{k+1}(x)$ has degree $k=(k+1)-1$.\n\nStep 7: Conclusion\n$$\\frac{d^{k+1}}{dx^{k+1}}(\\tan^{-1}x)=P_{k+1}(x)(1+x^2)^{-(k+1)}$$\nSince true for $n=1$ and true for $n=k\\Rightarrow$ true for $n=k+1$, the result holds for all positive integers $n$ by induction.\n\n**Final answer: $\\dfrac{d^n}{dx^n}(\\tan^{-1}x)=P_n(x)(1+x^2)^{-n}$, $P_n$ of degree $n-1$ — proved**"
             },
             {
               id: "FP1_PI_014",
@@ -2235,7 +2235,7 @@ const SYLLABUS = {
               id: "FS_CRV_001",
               difficulty: 'elite',
               question_text: "The continuous random variable $X$ has the following cumulative distribution function\n$$F(x) = \\begin{cases} 0 & x < 0 \\\\ ax - bx^2 & 0 \\leq x \\leq k \\\\ 1 & x > k \\end{cases}$$\nwhere $a$, $b$ and $k$ are positive constants.\n\nThe variable $Y$ is related to $X$ by\n$$Y = 3X - 2$$\n\nDetermine the value of $a$, $b$ and $k$ given further that $\\text{E}(Y) = 2$ and $\\text{Var}(Y) = 8$. $\\quad$ **[9]**",
-              solution_image: ""
+              solution_steps: "Step 1: Convert conditions on $Y=3X-2$ to conditions on $X$\n$$\\text{E}(Y)=3\\text{E}(X)-2=2 \\implies \\text{E}(X)=\\frac{4}{3}, \\qquad \\text{Var}(Y)=9\\,\\text{Var}(X)=8$$\n\nStep 2: Find $f(x)$ and $\\text{E}(X)$\n$$f(x)=\\frac{d}{dx}F(x)=a-2bx, \\qquad 0\\le x\\le k$$\n$$\\text{E}(X)=\\int_0^k x(a-2bx)\\,dx=\\left[\\frac{ax^2}{2}-\\frac{2bx^3}{3}\\right]_0^k=\\frac{ak^2}{2}-\\frac{2bk^3}{3}$$\n\nStep 3: Use $\\text{E}(Y)=2$\n$$2=3\\left(\\frac{ak^2}{2}-\\frac{2bk^3}{3}\\right)-2 \\implies 8=3ak^2-4bk^3 \\quad \\text{(I)}$$\n\nStep 4: Use $F(k)=1$\n$$ak-bk^2=1 \\quad \\text{(II)}$$\n\nStep 5: Use continuity of the density at $x=k$ (so $f(k)=0$, matching $f(x)=0$ for $x>k$)\n$$a-2bk=0 \\implies a=2bk \\quad \\text{(III)}$$\n\nStep 6: Substitute (III) into (II)\n$$2bk\\cdot k-bk^2=1 \\implies bk^2=1 \\implies b=\\frac{1}{k^2}$$\n\nStep 7: Then from (III), $a=\\dfrac{2}{k}$. Substitute both into (I)\n$$3\\left(\\frac{2}{k}\\right)k^2-4\\left(\\frac{1}{k^2}\\right)k^3=8 \\implies 6k-4k=8 \\implies 2k=8 \\implies k=4$$\n\nStep 8: Back-substitute\n$$b=\\frac{1}{16}, \\qquad a=\\frac{2}{4}=\\frac{1}{2}$$\n\n**Final answer: $a=\\dfrac{1}{2}$, $b=\\dfrac{1}{16}$, $k=4$**"
             },
             {
               id: "FS_CRV_002",
@@ -2324,7 +2324,7 @@ const SYLLABUS = {
               id: "FS_DRV_005",
               difficulty: 'elite',
               question_text: "A bag contains 7 red balls and 3 blue balls. Kieran selects 2 balls at random, without replacement. The number of red balls selected by Kieran is denoted by $X$, and the number of different colours present in Kieran's selection is denoted by $Y$.\n\n**(a)** Find the probability generating functions, $G_X(t)$ of $X$ and $G_Y(t)$ of $Y$. $\\quad$ **[4]**\n\n**(b)** The random variable $Z = X + Y$. Find the probability generating function of $Z$, expressing your answer as a polynomial in $t$. $\\quad$ **[4]**",
-              solution_image: ""
+              solution_steps: "Step 1: Distribution of $X$ (red balls selected, 7 red / 3 blue, 2 drawn without replacement)\n$$P(X=0)=\\frac{3}{10}\\times\\frac{2}{9}=\\frac{1}{15}, \\quad P(X=1)=2\\times\\frac{7}{10}\\times\\frac{3}{9}=\\frac{7}{15}, \\quad P(X=2)=\\frac{7}{10}\\times\\frac{6}{9}=\\frac{7}{15}$$\n$$G_X(t)=\\frac{1}{15}+\\frac{7}{15}t+\\frac{7}{15}t^2$$\n\nStep 2: Distribution of $Y$ (number of distinct colours present)\n$$P(Y=1)=P(BB)+P(RR)=\\frac{3}{10}\\times\\frac{2}{9}+\\frac{7}{10}\\times\\frac{6}{9}=\\frac{8}{15}, \\qquad P(Y=2)=2\\times\\frac{7}{10}\\times\\frac{3}{9}=\\frac{7}{15}$$\n$$G_Y(t)=\\frac{8}{15}t+\\frac{7}{15}t^2$$\n\nStep 3: Since $Y$ is not independent of $X$, $G_Z(t)\\ne G_X(t)G_Y(t)$, so find $Z=X+Y$ directly.\n\nStep 4: Note $Y$ is fully determined by $X$: $X=0\\Rightarrow Y=1\\Rightarrow Z=1$; $X=1\\Rightarrow Y=2\\Rightarrow Z=3$; $X=2\\Rightarrow Y=1\\Rightarrow Z=3$\n$$P(Z=1)=\\frac{1}{15}, \\qquad P(Z=3)=\\frac{7}{15}+\\frac{7}{15}=\\frac{14}{15}$$\n\n**Final answer: $G_Z(t)=\\dfrac{1}{15}t+\\dfrac{14}{15}t^3$**"
             },
             {
               id: "FS_DRV_006",
