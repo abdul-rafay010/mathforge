@@ -1058,7 +1058,7 @@
    TEXT QUESTION RENDERING (KaTeX)
 ════════════════════════════════════════════════ */
 
-    .prob-text-question, .prob-text-solution {
+    .prob-text-question {
       padding: 32px 36px 28px;
       font-size: 1.08rem;
       line-height: 1.9;
@@ -1071,14 +1071,14 @@
        carries a mark allocation (.q-marks). Setting display:flex on a
        paragraph that contains display-math ($$...$$) breaks KaTeX's internal
        absolute positioning, causing matrix parentheses to disconnect. */
-    .prob-text-question p, .prob-text-solution p {
+    .prob-text-question p {
       margin-bottom: 18px;
       display: block;
     }
 
     /* Paragraphs that carry a mark allocation DO use flex so the mark
        sits flush right. The .has-marks class is added by processText(). */
-    .prob-text-question p.has-marks, .prob-text-solution p.has-marks {
+    .prob-text-question p.has-marks {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -1088,11 +1088,11 @@
     /* Safety net: if a .has-marks paragraph also contains display math,
        revert to block so KaTeX renders correctly. JS wrapKatexDisplays()
        adds .has-display-math after render as a belt-and-braces guard. */
-    .prob-text-question p.has-marks.has-display-math, .prob-text-solution p.has-marks.has-display-math {
+    .prob-text-question p.has-marks.has-display-math {
       display: block;
     }
 
-    .prob-text-question p:last-child, .prob-text-solution p:last-child {
+    .prob-text-question p:last-child {
       margin-bottom: 0;
     }
 
@@ -5136,10 +5136,8 @@
         qContent = `<div class="prob-placeholder">Question not yet added.<code>${q.id}_q.png</code></div>`;
       }
 
-      // Solution: text (KaTeX) takes priority over image
-      const sImg = q.solution_steps
-        ? `<div class="prob-text-solution">${processText(q.solution_steps)}</div>`
-        : q.solution_image
+      // Solution: always an image
+      const sImg = q.solution_image
         ? `<img src="images/${q.solution_image}" alt="Solution ${idx + 1}"
          loading="lazy" decoding="async"
          onerror="this.outerHTML='<div class=prob-sol-placeholder>Image not found: ${q.solution_image}</div>'">`
@@ -6013,6 +6011,123 @@ Not the loneliness of it. The visibility.
 Every student who sees that it is possible for someone from Gujranwala to attempt Further Mathematics — and finish — is a student who has slightly less reason to believe the mythology. That is a small thing. But small things, repeated consistently, are how reputations change.
 
 Sir Farough was right about the discipline. The polar coordinates were worth it. And if you are reading this and you are considering Further Mathematics — or you are already in it and wondering whether you made the wrong decision — you did not. You just need consistency, motivation, and the knowledge that someone sat alone in that hall and found, on the other side, that it was entirely worth the attempt.`
+      },
+      {
+        id: 'The Day Mathematics Stopped Feeling Like Calculation',
+        title: 'One Side of Mathematics',
+        meta: 'MathForge Essays · 2026',
+        description: 'Calculation and proof are different things entirely. An exploration of mathematical induction, the domino argument, and why proof is where mathematics actually begins.',
+        read_time: '6 min read',
+        body_text: `Most students spend years learning mathematics without ever experiencing what mathematics actually feels like.
+We calculate. We memorize. We solve.Then one day, if we’re lucky, we encounter a proof.At A-Level, most of our time is spent mastering techniques — differentiation, integration, algebra, trigonometry. Those skills are essential. They're the foundation of everything that comes after. But they only show one side of mathematics. The side they don't show you is proof.
+
+There's a difference — a significant one — between calculating and proving. Calculation is following a method to reach an answer. Proof is something else entirely. Proof is the moment you stop trusting that something works and decide to know, with absolute certainty, why it must.
+
+For most students, that moment never comes.
+
+### The Domino Analogy
+
+There's a classic way to explain induction, and it involves dominoes.
+
+Imagine an infinite row of dominoes. You want to prove that if you knock the first one down, every single domino will eventually fall. You can't check each one — there are infinitely many. So instead you prove two things:
+
+First, that the first domino falls.
+
+Second, that whenever any domino falls, the next one must fall too.
+
+If both are true, the conclusion is inevitable. Every domino falls. All of them. Infinitely many — proven with just two steps.
+
+That's mathematical induction. And it's one of the most powerful ideas in all of mathematics.
+
+### The Moment It Felt Like Cheating
+
+When I first saw induction, something felt wrong.
+
+The inductive hypothesis — the step where you assume the statement is true for $n = k$ — felt like cheating. You're assuming the very thing you're trying to prove. How is that allowed?
+
+I sat with that discomfort for longer than I'd like to admit. Then the logic clicked.
+
+You're not assuming the result is true. You're asking: if it were true for some value, would it have to be true for the next one? And if the answer is yes — and you've also verified the starting point — then truth has no choice but to travel down the entire chain, forever.
+
+That was the first time mathematics felt different. Not a technique to follow. An argument to construct. A certainty to build from almost nothing.
+
+### The Structure — Written Naturally
+
+Every induction proof follows the same rhythm.
+
+First, you verify the base case. Show the statement holds for $n = 1$. This is your first domino falling.
+
+Then, you state the inductive hypothesis. Assume the statement is true for some arbitrary $n = k$. This is your stepping stone — not a conclusion, just a temporary assumption that powers the next step.
+
+Finally, you prove the inductive step. Using that assumption, show the statement must also hold for $n = k + 1$. This is the mechanism. The thing that makes every subsequent domino fall.
+
+Once all three are in place, the conclusion follows by logic alone.
+
+### A Proof — Let's Build One Together
+
+Consider the sum of the first $n$ positive integers:
+
+$$1 + 2 + 3 + \\dots + n = \\frac{n(n+1)}{2}$$
+
+You've probably used this formula before. But can you prove it works for every positive integer — not just the cases you've checked?
+
+**Base case ($n = 1$):**
+
+Left side: $1$
+
+Right side: $\\dfrac{1(2)}{2} = 1$ ✓
+
+**Inductive hypothesis:**
+
+Assume true for $n = k$:
+
+$$1 + 2 + 3 + \\dots + k = \\frac{k(k+1)}{2}$$
+
+**Inductive step — show true for $n = k + 1$:**
+
+Add $(k+1)$ to both sides:
+
+$$1 + 2 + \\dots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1)$$
+
+Factor out $(k+1)$:
+
+$$= (k+1)\\left[\\frac{k}{2} + 1\\right] = \\frac{(k+1)(k+2)}{2}$$
+
+This is exactly $\\dfrac{n(n+1)}{2}$ with $n = k+1$. ✓
+
+**Conclusion:**
+
+True for $n = 1$. True for $n = k+1$ whenever true for $n = k$. Therefore true for all positive integers $n$. □
+
+### The Tombstone
+
+That small square — □ — is how mathematicians signal a proof is complete. It's called a tombstone. The argument is finished. The result is certain.
+
+Not approximately certain. Not true for every case we've checked. Certain, for every case that will ever exist.
+
+Every formula you've ever trusted has a proof hiding behind it. Someone sat down and built that certainty from logic alone. Induction is one of the tools they used — and now it's one of yours.
+
+### Why This Matters Beyond Further Maths
+
+Proof by induction is foundational to computer science. Algorithms are verified using inductive arguments. It appears in number theory, combinatorics, formal logic, and virtually every branch of pure mathematics you'll encounter at university.
+
+But more than its applications — induction represents what mathematics actually is.
+
+Not a collection of formulas. A language for building certainty. And proof is how you speak it properly.
+
+### Try It Yourself
+
+Prove using induction:
+
+$$1^2 + 2^2 + 3^2 + \\dots + n^2 = \\frac{n(n+1)(2n+1)}{6}$$
+
+Follow the three steps. Write the base case. State the hypothesis. Work through the inductive step carefully.
+
+Don't worry if you get stuck.
+
+Because the moment everything clicks and you write □ at the bottom of the page is one of the most satisfying experiences in mathematics.
+
+And if you need guidance, [MathForge](https://abdul-rafay010.github.io/mathforge) has structured induction problems designed to help you get there.`
       }
     ];
 
@@ -6883,9 +6998,7 @@ Sir Farough was right about the discipline. The polar coordinates were worth it.
       }
 
       if (reveal) {
-        const sImg = q.solution_steps
-          ? '<div class="prob-text-solution">' + processText(q.solution_steps) + '</div>'
-          : q.solution_image
+        const sImg = q.solution_image
           ? '<img src="images/' + q.solution_image + '" alt="Solution" class="ts-sol-img" loading="lazy" decoding="async">'
           : '<div class="prob-sol-placeholder">Solution forthcoming.</div>';
         html += '<div style="border-top:1px solid var(--rule);padding:12px 24px 4px">'
