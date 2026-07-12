@@ -2,15 +2,14 @@
   "name": "MathForge",
   "short_name": "MathForge",
   "description": "Cambridge A-Level Mathematics — Problems worth solving.",
-  "start_url": "/mathforge/",
-  "scope": "/mathforge/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#070707",
   "theme_color": "#070707",
   "lang": "en",
   "categories": ["education"],
-
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -25,7 +24,6 @@
       "purpose": "any maskable"
     }
   ],
-
   "screenshots": [
     {
       "src": "screenshots/home.png",
