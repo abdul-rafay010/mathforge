@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not Found · MathForge</title>
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Cormorant+SC:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #070707;
+      --parchment: #e4ddd0;
+      --parchment3: #6e6860;
+      --gold: #a8883a;
+      --gold-border: #5a4a22;
+      --gold3: #3d3118;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: 'Cormorant Garamond', serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .wrap { max-width: 440px; }
+    .monogram {
+      width: 56px; height: 56px;
+      margin: 0 auto 28px;
+    }
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem;
+      letter-spacing: .3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    p {
+      color: var(--parchment3);
+      font-size: 1.02rem;
+      font-style: italic;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    a.btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Cormorant SC', serif;
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      transition: all .2s;
+    }
+    a.btn:hover {
+      background: var(--gold3);
+      border-color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <svg class="monogram" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="19" cy="19" r="17.5" stroke="#7a6228" stroke-width=".8" />
+      <circle cx="19" cy="19" r="15" stroke="#3d3118" stroke-width=".4" />
+      <text x="19" y="25" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif" font-size="17"
+        font-weight="400" font-style="italic" fill="#a8883a">M</text>
+    </svg>
+    <div class="code">404 — Not Found</div>
+    <h1>This page doesn't exist.</h1>
+    <p>Not every path leads somewhere — but this one leads back to problems worth solving.</p>
+    <a class="btn" href="/">Return to MathForge</a>
+  </div>
+</body>
+</html>
