@@ -1763,7 +1763,7 @@ const SYLLABUS = {
               id: "FP1_RP_001",
               difficulty: 'hard',
               question_text: "The quartic equation $3072x^4 - 2880x^3 + 840x^2 - 90x + 3 = 0$ has roots $\\alpha$, $r\\alpha$, $r^2\\alpha$ and $r^3\\alpha$ for some real constant $r$.\n\nSolve the equation. $\\quad$ **[7]**",
-              solution_image: "FP1_RP_001_s.png"
+              solution_image: ""
             },
             {
               id: "FP1_RP_002",
