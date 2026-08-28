@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MathForge">
+  <meta name="theme-color" content="#070707">
+
+  <title>Opportunities · MathForge</title>
+
+  <meta name="description"
+    content="A curated discovery platform for mathematics competitions, Olympiads, essay prizes and other opportunities — UKMT, AMC, HMMT, SMT, Purple Comet, Math Kangaroo, Putnam, PMO and more — searchable and filtered by level, format, cost and deadline.">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://mathforge.im/opportunities/">
+  <meta property="og:title"       content="Opportunities · MathForge">
+  <meta property="og:description" content="Competitions, essay prizes and mathematical opportunities — filtered by what matters now.">
+  <meta property="og:image"       content="https://mathforge.im/og-image.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="MathForge — Opportunities">
+  <meta property="og:site_name"   content="MathForge">
+  <meta property="og:locale"      content="en_GB">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Opportunities · MathForge">
+  <meta name="twitter:description" content="Competitions, essay prizes and mathematical opportunities — filtered by what matters now.">
+  <meta name="twitter:image"       content="https://mathforge.im/og-image.png">
+
+  <!-- Applied before paint so there's no flash of the wrong theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('mathforge_theme');
+        if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) { /* localStorage blocked — default to dark */ }
+    })();
+  </script>
+
+  <!-- Google Analytics (GA4) — MathForge -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS1D89SELB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PS1D89SELB');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"
+    rel="stylesheet">
+
+  <!-- Structured data — this page is literally a curated list of events -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "MathForge Opportunities",
+    "url": "https://mathforge.im/opportunities/",
+    "itemListElement": []
+  }
+  </script>
+
+  <style>
+    /* ════════════════════════════════════════════════
+       FOUNDATION — duplicated verbatim from index.html's
+       design system per the single-module build brief.
+    ════════════════════════════════════════════════ */
+
+    :root {
+      --ink: #070707;
+      --ink2: #0e0e0e;
+      --ink3: #161616;
+      --ink4: #202020;
+      --rule: #1e1e1e;
+      --rule2: #2a2a2a;
+
+      --parchment: #e4ddd0;
+      --parchment2: #b8b0a2;
+      --parchment3: #6e6860;
+      --parchment4: #3a3630;
+
+      --gold: #a8883a;
+      --gold2: #7a6228;
+      --gold3: #3d3118;
+      --gold-border: #5a4a22;
+
+      /* Tier identity colours — extend the existing badge palette
+         (diff-standard blue / gold / qualification purple) rather
+         than introducing new hues. */
+      --tier-middle: #8ab4c8;
+      --tier-middle-dim: #14242b;
+      --tier-high: #a8883a;
+      --tier-high-dim: #3d3118;
+      --tier-uni: #b799d1;
+      --tier-uni-dim: #221a2b;
+
+      --serif: 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
+      --sc: 'Cormorant SC', 'Garamond', serif;
+      --mono: 'JetBrains Mono', monospace;
+
+      --ease: cubic-bezier(.4, 0, .2, 1);
+    }
+
+    [data-theme="light"] {
+      --ink: #efe9da;
+      --ink2: #f8f4ea;
+      --ink3: #e9e1cb;
+      --ink4: #ffffff;
+      --rule: #c2b393;
+      --rule2: #a89572;
+
+      --parchment: #2b2620;
+      --parchment2: #4a4338;
+      --parchment3: #756b58;
+      --parchment4: #a89c84;
+
+      --gold: #8a6d28;
+      --gold2: #6b5420;
+      --gold3: #f0e4c4;
+      --gold-border: #b69a52;
+    }
+
+    body { transition: background-color .25s ease, color .25s ease; }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { font-size: 17px; }
+
+    body {
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: var(--serif);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      cursor: default;
+    }
+
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--ink4); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+    .filter-pill:focus-visible, .tier-tab:focus-visible {
+      outline: 1.5px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    /* ════════════════════════════════════════════════
+       LAYOUT
+    ════════════════════════════════════════════════ */
+
+    #shell {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 32px 100px;
+    }
+
+    /* ════════════════════════════════════════════════
+       MASTHEAD
+    ════════════════════════════════════════════════ */
+
+    #masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 0 22px;
+      border-bottom: 1px solid var(--rule2);
+      gap: 24px;
+      animation: slide-fade-in .5s var(--ease) backwards;
+    }
+
+    .masthead-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .monogram { width: 38px; height: 38px; flex-shrink: 0; transition: opacity .2s; }
+    .monogram:hover { opacity: .7; }
+
+    .masthead-title {
+      font-family: var(--sc);
+      font-size: .88rem;
+      font-weight: 300;
+      letter-spacing: .26em;
+      color: var(--parchment3);
+      text-transform: uppercase;
+      transition: color .2s;
+      user-select: none;
+    }
+
+    .masthead-left:hover .masthead-title { color: var(--parchment2); }
+
+    .masthead-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .masthead-link {
+      font-family: var(--sc);
+      font-size: .64rem;
+      letter-spacing: .18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .15s;
+      border: 1px solid var(--gold-border);
+      padding: 0 13px;
+      line-height: 1;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .masthead-link:hover { border-color: var(--gold); background: var(--gold3); }
+
+    .masthead-link.current {
+      border-color: var(--gold2);
+      color: var(--parchment);
+      background: var(--gold3);
+    }
+
+    .theme-toggle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-border);
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: all .2s;
+    }
+
+    .theme-toggle:hover { border-color: var(--gold); background: var(--gold3); }
+
+    .theme-toggle::before {
+      content: '\263E';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: .82rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    [data-theme="light"] .theme-toggle::before { content: '\2600'; }
+
+    .mob-menu-btn {
+      display: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-border);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s, border-color .15s;
+    }
+
+    .mob-menu-btn:hover { background: var(--gold3); border-color: var(--gold); }
+
+    @media (max-width: 700px) {
+      .mob-menu-btn { display: flex; }
+      .masthead-link { display: none; }
+    }
+
+    #transition-rule {
+      position: fixed;
+      top: 0; left: 0;
+      width: 0%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      z-index: 10000;
+      pointer-events: none;
+    }
+
+    /* ════════════════════════════════════════════════
+       BREADCRUMB
+    ════════════════════════════════════════════════ */
+
+    #crumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 0 0;
+      min-height: 48px;
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .1em;
+      color: var(--parchment4);
+      flex-wrap: wrap;
+      animation: slide-fade-in .5s var(--ease) .03s backwards;
+    }
+
+    .cr { cursor: pointer; transition: color .15s; text-decoration: none; color: inherit; }
+    .cr:hover { color: var(--gold); }
+    .cr-sep { color: var(--rule2); }
+    .cr-now { color: var(--parchment4); }
+
+    /* ════════════════════════════════════════════════
+       PAGE HEADING — restrained, gets users to the
+       database quickly rather than a marketing hero
+    ════════════════════════════════════════════════ */
+
+    .screen { padding-top: 40px; position: relative; }
+
+    /* Shared opening slide-in — used across the masthead,
+       breadcrumb, headline block and search so the page
+       arrives gently rather than popping in all at once. */
+    @keyframes slide-fade-in {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .screen-title {
+      font-size: 1.9rem;
+      font-weight: 300;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      font-style: italic;
+      color: var(--parchment);
+      animation: slide-fade-in .55s var(--ease) backwards;
+    }
+
+    .screen-subtitle {
+      font-size: .98rem;
+      color: var(--parchment2);
+      font-weight: 300;
+      margin-bottom: 8px;
+      animation: slide-fade-in .55s var(--ease) .06s backwards;
+    }
+
+    .screen-caption {
+      font-size: .86rem;
+      color: var(--parchment3);
+      font-style: italic;
+      margin-bottom: 34px;
+      font-weight: 300;
+      max-width: 560px;
+      animation: slide-fade-in .55s var(--ease) .12s backwards;
+    }
+
+    @media (max-width: 600px) {
+      .screen-title { font-size: 1.5rem; }
+      .screen-subtitle { font-size: .86rem; }
+    }
+
+    /* ════════════════════════════════════════════════
+       SEARCH
+    ════════════════════════════════════════════════ */
+
+    .search-wrap {
+      position: relative;
+      margin-bottom: 30px;
+      animation: slide-fade-in .55s var(--ease) .16s backwards;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      color: var(--parchment4);
+      pointer-events: none;
+    }
+
+    #search-input {
+      width: 100%;
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      color: var(--parchment);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      font-weight: 300;
+      padding: 14px 40px 14px 44px;
+      transition: border-color .15s, background .15s;
+    }
+
+    #search-input::placeholder { color: var(--parchment4); font-style: italic; }
+    #search-input:hover { border-color: var(--rule2); background: var(--ink3); }
+    #search-input:focus { outline: none; border-color: var(--gold-border); background: var(--ink3); }
+
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--parchment4);
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: .9rem;
+      padding: 4px 8px;
+      display: none;
+      transition: color .15s;
+    }
+
+    .search-clear.visible { display: block; }
+    .search-clear:hover { color: var(--parchment); }
+
+    /* ════════════════════════════════════════════════
+       CLOSING-SOON NOTIFICATIONS — now a stacked set of
+       dismissible pop-ups, not an inline page section.
+       Kept out of document flow entirely, so the page is
+       shorter and the grid starts right after the filters.
+    ════════════════════════════════════════════════ */
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .35; transform: scale(1.35); }
+    }
+
+    #toast-stack {
+      position: fixed;
+      top: 104px;
+      right: 20px;
+      z-index: 9300;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 168px;
+      pointer-events: none;
+    }
+
+    .mf-toast {
+      pointer-events: auto;
+      background: var(--ink2);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.42);
+      padding: 8px 9px;
+      animation: toast-stack-in .4s var(--ease) backwards;
+      animation-delay: calc(var(--ti, 0) * 110ms);
+    }
+
+    @keyframes toast-stack-in {
+      from { opacity: 0; transform: translate(20px, -10px); }
+      to   { opacity: 1; transform: translate(0, 0); }
+    }
+
+    .mf-toast.dismissing {
+      animation: toast-stack-out .22s var(--ease) forwards;
+    }
+
+    @keyframes toast-stack-out {
+      to { opacity: 0; transform: translate(20px, -6px); }
+    }
+
+    .mf-toast-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+
+    .mf-toast-eyebrow {
+      font-family: var(--mono);
+      font-size: .48rem;
+      letter-spacing: .16em;
+      color: #d4a857;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .mf-toast-close {
+      background: none;
+      border: none;
+      color: var(--parchment4);
+      cursor: pointer;
+      font-size: .72rem;
+      line-height: 1;
+      padding: 1px 3px;
+      transition: color .15s;
+    }
+
+    .mf-toast-close:hover { color: var(--parchment); }
+
+    .mf-toast-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: .68rem;
+      color: var(--parchment);
+      line-height: 1.24;
+      margin-bottom: 5px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .mf-toast-timer {
+      font-family: var(--mono);
+      font-size: .5rem;
+      letter-spacing: .01em;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+      background: var(--gold3);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .mf-toast-actions { display: flex; flex-direction: column; gap: 4px; }
+
+    .mf-toast-action {
+      flex: 1;
+      text-align: center;
+      font-family: var(--sc);
+      font-size: .46rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      padding: 3px 5px;
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .mf-toast-action:hover { border-color: var(--gold); background: var(--gold3); }
+
+    .mf-toast-action.secondary { color: var(--parchment3); border-color: var(--rule2); }
+    .mf-toast-action.secondary:hover { color: var(--parchment); border-color: var(--gold-border); }
+
+    @media (max-width: 600px) {
+      #toast-stack { left: 14px; right: 14px; top: 74px; width: auto; flex-direction: row; flex-wrap: wrap; }
+      #toast-stack .mf-toast { flex: 1 1 150px; }
+    }
+
+    /* ════════════════════════════════════════════════
+       FILTER BAR — primary row (level / format / cost
+       collapsed into one premium pill row per brief)
+    ════════════════════════════════════════════════ */
+
+    .filter-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media (max-width: 700px) {
+      .filter-row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 2px;
+      }
+      .filter-row::-webkit-scrollbar { display: none; }
+    }
+
+    .filter-pill {
+      font-family: var(--sc);
+      font-size: .62rem;
+      letter-spacing: .09em;
+      color: var(--parchment3);
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid var(--rule2);
+      padding: 8px 15px;
+      cursor: pointer;
+      transition: all .15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .filter-pill svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+    .filter-pill:hover { border-color: var(--gold-border); color: var(--parchment); }
+
+    .filter-pill.active {
+      border-color: var(--gold2);
+      color: var(--gold);
+      background: var(--gold3);
+    }
+
+    .more-filters-btn {
+      font-family: var(--sc);
+      font-size: .62rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--parchment3);
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      padding: 8px 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+
+    .more-filters-btn:hover { border-color: var(--gold-border); color: var(--parchment); }
+    .more-filters-btn.active { border-color: var(--gold2); color: var(--gold); background: var(--gold3); }
+    .more-filters-btn svg { width: 10px; height: 10px; transition: transform .2s; }
+    .more-filters-btn.active svg { transform: rotate(180deg); }
+
+    .more-filters-count {
+      font-family: var(--mono);
+      font-size: .54rem;
+      color: var(--gold2);
+    }
+    .more-filters-btn.active .more-filters-count { color: var(--gold); }
+
+    /* ── More-filters panel — inline on desktop, bottom
+         sheet on mobile ── */
+
+    #more-filters-panel {
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      padding: 20px 22px;
+      margin-bottom: 22px;
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    #more-filters-panel.open { display: grid; }
+
+    .mf-group { display: flex; flex-direction: column; gap: 9px; }
+
+    .mf-label {
+      font-family: var(--mono);
+      font-size: .54rem;
+      letter-spacing: .2em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+    }
+
+    .mf-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    .mf-select {
+      background: var(--ink3);
+      border: 1px solid var(--rule2);
+      color: var(--parchment2);
+      font-family: var(--mono);
+      font-size: .68rem;
+      padding: 8px 10px;
+      cursor: pointer;
+      transition: border-color .15s;
+    }
+
+    .mf-select:hover, .mf-select:focus { border-color: var(--gold-border); outline: none; }
+
+    .mf-footer {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 4px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .mf-clear {
+      font-family: var(--sc);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--parchment4);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color .15s;
+    }
+    .mf-clear:hover { color: var(--gold); }
+
+    @media (max-width: 700px) {
+      #more-filters-panel.open {
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        max-height: 78vh;
+        overflow-y: auto;
+        z-index: 9250;
+        border: 1px solid var(--gold-border);
+        border-bottom: none;
+        box-shadow: 0 -8px 40px rgba(0,0,0,.5);
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        animation: sheet-in .28s var(--ease);
+      }
+    }
+
+    @keyframes sheet-in {
+      from { transform: translateY(100%); }
+      to   { transform: translateY(0); }
+    }
+
+    #mf-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(7,7,7,.68);
+      z-index: 9240;
+    }
+    #mf-backdrop.visible { display: block; }
+
+    /* ════════════════════════════════════════════════
+       SORT + RESULT COUNT ROW
+    ════════════════════════════════════════════════ */
+
+    .result-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .result-count {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .06em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+    }
+
+    .result-count strong { color: var(--parchment2); font-weight: 400; }
+
+    .sort-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sort-label {
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .12em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    #sort-select {
+      background: var(--ink2);
+      border: 1px solid var(--rule2);
+      color: var(--gold);
+      font-family: var(--sc);
+      font-size: .64rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      cursor: pointer;
+      transition: border-color .15s;
+    }
+
+    #sort-select:hover, #sort-select:focus { border-color: var(--gold-border); outline: none; }
+
+    /* ════════════════════════════════════════════════
+       OPPORTUNITY GRID
+    ════════════════════════════════════════════════ */
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    @keyframes card-slide-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .comp-card {
+      background: var(--ink2);
+      border: 1px solid var(--rule);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      transition: background .15s, transform .2s var(--ease), box-shadow .2s var(--ease), border-color .15s;
+      animation: card-slide-in .5s var(--ease) backwards;
+      animation-delay: calc(var(--i, 0) * 40ms);
+    }
+
+    .comp-card:hover {
+      background: var(--ink3);
+      border-color: var(--gold-border);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+      position: relative;
+      z-index: 1;
+    }
+
+    .comp-card.flash { animation: flash-ring 1.4s var(--ease); }
+
+    @keyframes flash-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(168,136,58,.65); }
+      70%  { box-shadow: 0 0 0 8px rgba(168,136,58,0); }
+      100% { box-shadow: 0 0 0 0 rgba(168,136,58,0); }
+    }
+
+    .comp-card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+
+    .comp-seal { width: 42px; height: 42px; flex-shrink: 0; }
+
+    /* Optional organiser logo — used in place of the seal when a
+       competition entry supplies a `logo` URL; falls back to the
+       seal automatically otherwise. */
+    .comp-logo-img {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      object-fit: contain;
+      background: var(--ink3);
+      border: 1px solid var(--rule2);
+      border-radius: 6px;
+      padding: 5px;
+    }
+
+    .seal-ring-outer { fill: none; stroke-width: .9; }
+    .seal-ring-inner { fill: none; stroke-width: .4; }
+    .seal-text {
+      font-family: var(--sc);
+      font-size: 10.5px;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+    }
+
+    .comp-seal.tier-middle .seal-ring-outer,
+    .comp-seal.tier-middle .seal-ring-inner,
+    .comp-seal.tier-middle .seal-text { stroke: var(--tier-middle); fill: var(--tier-middle); }
+
+    .comp-seal.tier-high .seal-ring-outer,
+    .comp-seal.tier-high .seal-ring-inner,
+    .comp-seal.tier-high .seal-text { stroke: var(--gold); fill: var(--gold); }
+
+    .comp-seal.tier-university .seal-ring-outer,
+    .comp-seal.tier-university .seal-ring-inner,
+    .comp-seal.tier-university .seal-text { stroke: var(--tier-uni); fill: var(--tier-uni); }
+
+    .comp-name-block { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+
+    .comp-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.14rem;
+      font-weight: 500;
+      color: var(--parchment);
+      line-height: 1.28;
+    }
+
+    .comp-org-region {
+      font-family: var(--mono);
+      font-size: .56rem;
+      letter-spacing: .1em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+    }
+
+    .comp-verified {
+      font-family: var(--mono);
+      font-size: .52rem;
+      letter-spacing: .06em;
+      color: var(--parchment4);
+      opacity: .8;
+    }
+
+    .comp-desc {
+      font-size: .85rem;
+      color: var(--parchment3);
+      font-style: italic;
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    .comp-chips { display: flex; flex-wrap: wrap; gap: 7px; row-gap: 8px; }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: .52rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .chip svg { width: 9px; height: 9px; flex-shrink: 0; }
+
+    .status-open { color: #8ac89a; background: #142b1a; }
+    .status-closing-soon { color: #d4a857; background: #2b2214; }
+    .status-closed { color: var(--parchment4); background: var(--ink3); }
+    .status-tba { color: var(--parchment3); background: var(--ink3); }
+    .status-school { color: #8ab4c8; background: #14242b; }
+    .status-qualification { color: #b799d1; background: #221a2b; }
+
+    .chip-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .chip-dot.live { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+    .chip-free { color: #8ac89a; background: #142b1a; }
+    .chip-paid { color: var(--parchment3); background: var(--ink3); }
+    .chip-format { color: var(--parchment3); background: var(--ink3); }
+    .chip-participation { color: var(--parchment3); background: var(--ink3); }
+
+    .diff-elite { color: var(--gold); background: var(--gold3); }
+    .diff-hard { color: #c88; background: #251515; }
+    .diff-standard { color: #8ab4c8; background: #14242b; }
+
+    /* ── Facts block — deadline is the primary, actionable
+         fact and is styled with more weight; cost and
+         eligibility are supporting detail, styled quieter. ── */
+    .comp-facts {
+      display: flex;
+      gap: 22px;
+      padding: 14px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .comp-fact { display: flex; flex-direction: column; gap: 3px; }
+
+    .comp-fact-label {
+      font-family: var(--mono);
+      font-size: .5rem;
+      letter-spacing: .16em;
+      color: var(--parchment4);
+      text-transform: uppercase;
+    }
+
+    .comp-fact-value {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--parchment3);
+    }
+
+    .comp-fact-value.primary {
+      font-size: .78rem;
+      color: var(--parchment2);
+      font-weight: 500;
+    }
+
+    .comp-fact-value.urgent { color: #d4a857; }
+
+    /* ── "Why MathForge recommends it" — a differentiating
+         editorial note, but deliberately quieter than the
+         core facts above: smaller, a thin gold rule instead
+         of a shouting label, read as an aside rather than a
+         heading. ── */
+    .comp-recommend {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-left: 10px;
+      border-left: 2px solid var(--gold-border);
+    }
+
+    .comp-recommend-label {
+      font-family: var(--mono);
+      font-size: .46rem;
+      letter-spacing: .13em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      opacity: .85;
+    }
+
+    .comp-recommend-text {
+      font-size: .78rem;
+      color: var(--parchment3);
+      font-style: italic;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    .comp-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .comp-link {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-border);
+      padding-bottom: 1px;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+
+    .comp-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    .comp-empty {
+      padding: 48px 24px;
+      text-align: center;
+      font-style: italic;
+      color: var(--parchment3);
+      background: var(--ink2);
+      border: 1px solid var(--rule);
+    }
+
+    /* ════════════════════════════════════════════════
+       MOBILE NAVIGATION DRAWER — copied verbatim
+    ════════════════════════════════════════════════ */
+
+    #mob-nav {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 272px;
+      max-width: 88vw;
+      background: var(--ink2);
+      border-left: 1px solid var(--gold-border);
+      z-index: 9200;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .28s cubic-bezier(.4,0,.2,1);
+      box-shadow: -8px 0 40px rgba(0,0,0,.5);
+    }
+
+    #mob-nav.open { transform: translateX(0); }
+
+    #mob-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7,7,7,.68);
+      z-index: 9190;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s;
+    }
+
+    #mob-backdrop.visible { opacity: 1; pointer-events: all; }
+
+    .mob-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 22px 18px;
+      border-bottom: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+
+    .mob-nav-title {
+      font-family: var(--sc);
+      font-size: .76rem;
+      letter-spacing: .24em;
+      color: var(--parchment3);
+      text-transform: uppercase;
+    }
+
+    .mob-nav-close {
+      background: none;
+      border: none;
+      color: var(--parchment4);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 4px 6px;
+      line-height: 1;
+      transition: color .15s;
+    }
+
+    .mob-nav-close:hover { color: var(--parchment); }
+
+    .mob-nav-links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 12px 0;
+      overflow-y: auto;
+    }
+
+    .mob-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 24px;
+      font-family: var(--sc);
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--parchment3);
+      cursor: pointer;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: color .15s, background .15s, border-color .15s;
+      min-height: 52px;
+    }
+
+    .mob-nav-item:hover, .mob-nav-item.current {
+      color: var(--gold);
+      border-left-color: var(--gold2);
+      background: var(--gold3);
+    }
+
+    .mob-nav-icon {
+      font-family: var(--sc);
+      color: var(--gold2);
+      font-size: .7rem;
+      flex-shrink: 0;
+      transition: transform .15s;
+    }
+
+    .mob-nav-item:hover .mob-nav-icon { transform: translateX(3px); }
+
+    .mob-nav-divider { height: 1px; background: var(--rule); margin: 6px 24px; }
+
+    .mob-nav-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+
+    .home-insta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: var(--parchment4);
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .14em;
+      transition: color .18s;
+    }
+
+    .home-insta-link:hover { color: var(--gold); }
+    .insta-icon { width: 13px; height: 13px; flex-shrink: 0; }
+
+    @media (max-width: 600px) {
+      #masthead { padding: 24px 0 16px; }
+      #shell { padding: 0 20px 80px; }
+      .comp-facts { flex-wrap: wrap; row-gap: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="shell">
+
+    <div id="transition-rule"></div>
+
+    <!-- MASTHEAD -->
+    <div id="masthead">
+      <a class="masthead-left" href="../">
+        <svg class="monogram" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="19" cy="19" r="17.5" stroke="#7a6228" stroke-width=".8" />
+          <circle cx="19" cy="19" r="15" stroke="#3d3118" stroke-width=".4" />
+          <text x="19" y="25" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif" font-size="17"
+            font-weight="400" font-style="italic" fill="#a8883a" letter-spacing="0">M</text>
+        </svg>
+        <div class="masthead-title">MathForge</div>
+      </a>
+      <div class="masthead-right">
+        <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()"
+          title="Switch between dark and light"></button>
+        <a class="masthead-link" href="../">Practice Mode</a>
+        <a class="masthead-link" href="../">My Progress</a>
+        <a class="masthead-link" href="../">Essays</a>
+        <a class="masthead-link current" href="./">Opportunities</a>
+        <button class="mob-menu-btn" id="mob-menu-btn" onclick="toggleMobMenu()"
+          aria-label="Open navigation" aria-expanded="false">
+          <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect y="0"   width="17" height="1.5" rx=".75" fill="currentColor"/>
+            <rect y="5.5" width="17" height="1.5" rx=".75" fill="currentColor"/>
+            <rect y="11"  width="17" height="1.5" rx=".75" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div id="mob-nav" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <div class="mob-nav-header">
+        <span class="mob-nav-title">MathForge</span>
+        <button class="mob-nav-close" onclick="closeMobMenu()" aria-label="Close menu">✕</button>
+      </div>
+      <nav class="mob-nav-links">
+        <a class="mob-nav-item" href="../">
+          <span class="mob-nav-icon" aria-hidden="true">⌂</span>
+          Home
+        </a>
+        <div class="mob-nav-divider"></div>
+        <a class="mob-nav-item" href="../">
+          <span class="mob-nav-icon" aria-hidden="true">→</span>
+          Practice Mode
+        </a>
+        <a class="mob-nav-item" href="../">
+          <span class="mob-nav-icon" aria-hidden="true">→</span>
+          My Progress
+        </a>
+        <a class="mob-nav-item" href="../">
+          <span class="mob-nav-icon" aria-hidden="true">→</span>
+          Essays
+        </a>
+        <a class="mob-nav-item current" href="./">
+          <span class="mob-nav-icon" aria-hidden="true">→</span>
+          Opportunities
+        </a>
+      </nav>
+      <div class="mob-nav-footer">
+        <a class="home-insta-link" href="https://www.instagram.com/mathforge?igsh=MTJ4Z2M4M3Z3emVzZQ%3D%3D&utm_source=qr"
+          target="_blank" rel="noopener" aria-label="MathForge on Instagram">
+          <svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/>
+          </svg>
+          @mathforge
+        </a>
+      </div>
+    </div>
+    <div id="mob-backdrop" onclick="closeMobMenu()"></div>
+
+    <!-- BREADCRUMB -->
+    <div id="crumb">
+      <a class="cr" href="../">Home</a>
+      <span class="cr-sep">/</span>
+      <span class="cr-now">Opportunities</span>
+    </div>
+
+    <!-- PAGE -->
+    <div class="screen">
+      <div class="screen-title">Opportunities</div>
+      <div class="screen-subtitle">Find the next opportunity worth pursuing.</div>
+      <div class="screen-caption">Competitions, essay prizes and mathematical opportunities — filtered by what matters now.</div>
+
+      <!-- SEARCH -->
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="7" cy="7" r="5.2"/>
+          <path d="M14 14l-3-3"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search opportunities…" autocomplete="off"
+          aria-label="Search opportunities by name, organiser, description, subject or eligibility">
+        <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
+      </div>
+
+      <!-- FILTER TOOLBAR -->
+      <div class="filter-toolbar">
+        <div class="filter-row" id="primary-filters"></div>
+        <button class="more-filters-btn" id="more-filters-btn" aria-expanded="false" aria-controls="more-filters-panel">
+          More filters
+          <span class="more-filters-count" id="more-filters-count"></span>
+          <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+        </button>
+      </div>
+
+      <div id="mf-backdrop"></div>
+      <div id="more-filters-panel" role="region" aria-label="More filters">
+        <div class="mf-group">
+          <span class="mf-label">Participation</span>
+          <div class="mf-pills" id="filter-participation"></div>
+        </div>
+        <div class="mf-group">
+          <span class="mf-label">Difficulty</span>
+          <div class="mf-pills" id="filter-difficulty"></div>
+        </div>
+        <div class="mf-group">
+          <span class="mf-label">Country / Region</span>
+          <select class="mf-select" id="filter-country"></select>
+        </div>
+        <div class="mf-group">
+          <span class="mf-label">Eligibility</span>
+          <select class="mf-select" id="filter-eligibility"></select>
+        </div>
+        <div class="mf-group">
+          <span class="mf-label">Subject</span>
+          <select class="mf-select" id="filter-subject"></select>
+        </div>
+        <div class="mf-footer">
+          <button class="mf-clear" id="mf-clear-btn">Clear all filters</button>
+        </div>
+      </div>
+
+      <!-- RESULT COUNT + SORT -->
+      <div class="result-row">
+        <span class="result-count" id="result-count"></span>
+        <div class="sort-group">
+          <span class="sort-label">Sort</span>
+          <select id="sort-select">
+            <option value="deadline">Deadline soonest</option>
+            <option value="new">Newly added</option>
+            <option value="free">Free first</option>
+            <option value="difficulty">Difficulty</option>
+            <option value="recommended">Recommended</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="comp-grid" id="comp-grid"></div>
+    </div>
+
+  </div>
+
+  <!-- CLOSING-SOON NOTIFICATIONS — stacked pop-ups, top-right,
+       below the masthead. Populated by renderClosingToasts(). -->
+  <div id="toast-stack" aria-live="polite"></div>
+
+  <script src="competitions-data.js"></script>
+  <script>
+    // ══════════════════════════════════════════════════
+    //  THEME (duplicated from index.html — no shared import)
+    // ══════════════════════════════════════════════════
+    function toggleTheme() {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('mathforge_theme', 'dark'); } catch (e) { }
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('mathforge_theme', 'light'); } catch (e) { }
+      }
+    }
+
+    // ══════════════════════════════════════════════════
+    //  MOBILE NAV DRAWER
+    // ══════════════════════════════════════════════════
+    function toggleMobMenu() {
+      const nav = document.getElementById('mob-nav');
+      const backdrop = document.getElementById('mob-backdrop');
+      const btn = document.getElementById('mob-menu-btn');
+      const opening = !nav.classList.contains('open');
+      nav.classList.toggle('open', opening);
+      backdrop.classList.toggle('visible', opening);
+      if (btn) btn.setAttribute('aria-expanded', String(opening));
+    }
+
+    function closeMobMenu() {
+      const nav = document.getElementById('mob-nav');
+      const backdrop = document.getElementById('mob-backdrop');
+      const btn = document.getElementById('mob-menu-btn');
+      nav.classList.remove('open');
+      backdrop.classList.remove('visible');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      closeMobMenu();
+      closeMoreFilters();
+    });
+
+    // ══════════════════════════════════════════════════
+    //  ICONS (small monochrome line icons, currentColor)
+    // ══════════════════════════════════════════════════
+    const ICON_GLOBE = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2.2 2 2.2 11 0 13M8 1.5c-2.2 2-2.2 11 0 13"/></svg>';
+    const ICON_PIN = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 15s5-4.6 5-8.5A5 5 0 0 0 3 6.5C3 10.4 8 15 8 15z"/><circle cx="8" cy="6.5" r="1.8"/></svg>';
+    const ICON_COIN = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v7M6 10.2c0 .8.9 1.4 2 1.4s2-.6 2-1.4c0-1.8-4-1-4-2.8 0-.8.9-1.4 2-1.4s2 .6 2 1.4"/></svg>';
+    const ICON_GROUP = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.5" cy="5.5" r="2.2"/><circle cx="11.5" cy="6.5" r="1.8"/><path d="M1.5 14c.4-2.6 2-4 4-4s3.6 1.4 4 4M9.8 10.3c1.6.2 2.8 1.5 3.1 3.7"/></svg>';
+    const ICON_USER = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="5.2" r="2.7"/><path d="M2.3 14c.7-3 2.8-4.6 5.7-4.6s5 1.6 5.7 4.6"/></svg>';
+
+    // ══════════════════════════════════════════════════
+    //  SEAL BADGE
+    // ══════════════════════════════════════════════════
+    function primaryTierClass(tiers) {
+      if (tiers.includes('university')) return 'tier-university';
+      if (tiers.includes('high')) return 'tier-high';
+      return 'tier-middle';
+    }
+
+    function sealSVG(seal, tiers) {
+      const cls = primaryTierClass(tiers);
+      return `<svg class="comp-seal ${cls}" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="21" cy="21" r="19" class="seal-ring-outer"/>
+        <circle cx="21" cy="21" r="16" class="seal-ring-inner"/>
+        <text x="21" y="25" text-anchor="middle" class="seal-text">${seal}</text>
+      </svg>`;
+    }
+
+    // Renders the competition's own logo when the data provides one
+    // (c.logo — a URL), and falls back to the monogram seal on error
+    // or when no logo has been supplied yet.
+    function sealOrLogo(c) {
+      if (!c.logo) return sealSVG(c.seal, c.tier);
+      return `<img class="comp-logo-img" src="${c.logo}" alt="${c.org} logo" loading="lazy"
+        onerror="mfLogoFallback(this,'${c.seal}','${c.tier.join(',')}')">`;
+    }
+
+    // Swaps a broken logo <img> back to the monogram seal in place.
+    function mfLogoFallback(imgEl, seal, tierCsv) {
+      const span = document.createElement('span');
+      span.innerHTML = sealSVG(seal, tierCsv.split(','));
+      imgEl.replaceWith(span.firstElementChild);
+    }
+
+    // ══════════════════════════════════════════════════
+    //  STATUS + DEADLINE LOGIC — all computed from data,
+    //  never hard-coded.
+    // ══════════════════════════════════════════════════
+    function daysUntil(dateStr) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const target = new Date(dateStr + 'T23:59:59');
+      return (target - today) / 86400000;
+    }
+
+    function getStatus(c) {
+      if (c.entryType === 'discretionary') {
+        return { cls: 'status-school', label: 'School entry', live: false };
+      }
+      if (c.entryType === 'qualification') {
+        return { cls: 'status-qualification', label: 'Qualification round', live: false };
+      }
+      if (!c.regCloses) {
+        return { cls: 'status-tba', label: 'Dates TBA', live: false };
+      }
+      const d = daysUntil(c.regCloses);
+      if (d < 0) return { cls: 'status-closed', label: 'Closed', live: false };
+      if (d <= 14) return { cls: 'status-closing-soon', label: 'Closing Soon', live: true };
+      return { cls: 'status-open', label: 'Open', live: true };
+    }
+
+    // Deadline microcopy — far deadlines show whole days, near
+    // deadlines drop to hours/minutes, and same-day deadlines are
+    // always flagged "Closing today" alongside the remaining time.
+    function urgencyText(regCloses) {
+      const target = new Date(regCloses + 'T23:59:59');
+      const ms = target - new Date();
+      if (ms <= 0) return 'Closed';
+
+      const totalMinutes = Math.floor(ms / 60000);
+      const days = Math.floor(totalMinutes / 1440);
+      const hours = Math.floor((totalMinutes % 1440) / 60);
+      const minutes = totalMinutes % 60;
+
+      if (days === 0) {
+        if (hours >= 1) return `Closing today · ${hours}h ${minutes}m left`;
+        if (minutes >= 1) return `Closing today · ${minutes}m left`;
+        return 'Closing today';
+      }
+      if (days <= 6) return `Closes in ${days} day${days === 1 ? '' : 's'}`;
+      return `${days} days left`;
+    }
+
+    function countdownText(regCloses) {
+      const d = daysUntil(regCloses);
+      if (d < 0) return '';
+      const days = Math.floor(d);
+      const hours = Math.floor((d - days) * 24);
+      if (days === 0) return `${hours}h left`;
+      return `${days}d ${hours}h left`;
+    }
+
+    function formatEventDate(c) {
+      if (!c.eventDate) return c.datesTBA ? 'Dates TBA' : '';
+      const d = new Date(c.eventDate + 'T00:00:00');
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    // Renders an entry's optional `lastVerified` date (only called
+    // when that field is present — nothing is ever invented for
+    // entries that don't carry one).
+    function formatVerifiedDate(dateStr) {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    function deadlineValue(c) {
+      if (c.entryType === 'discretionary') return 'Ask your school';
+      if (c.entryType === 'qualification') return 'By qualification';
+      if (!c.regCloses) return 'Dates TBA';
+      return formatEventDate.call(null, { eventDate: c.regCloses });
+    }
+
+    // Country/region grouping — reads the existing `region`
+    // string, never invents a new fact.
+    function countryGroup(region) {
+      if (region === 'Pakistan') return 'Pakistan';
+      if (region.includes('United Kingdom')) return 'United Kingdom';
+      if (region.includes('USA')) return 'USA & Canada';
+      return 'Global';
+    }
+
+    // ══════════════════════════════════════════════════
+    //  STATE
+    // ══════════════════════════════════════════════════
+    const state = {
+      search: '',
+      tier: new Set(),          // 'high' | 'university'
+      format: new Set(),        // 'online' | 'onsite'
+      cost: new Set(),          // 'free' | 'paid'
+      participation: new Set(), // 'individual' | 'team'
+      difficulty: new Set(),    // 'standard' | 'hard' | 'elite'
+      country: 'all',
+      eligibility: 'all',
+      subject: 'all',
+      sort: 'deadline'
+    };
+
+    const PRIMARY_PILLS = [
+      { group: 'tier',   value: 'high',       label: 'High School' },
+      { group: 'tier',   value: 'university', label: 'University' },
+      { group: 'format', value: 'online',     label: 'Online', icon: ICON_GLOBE },
+      { group: 'format', value: 'onsite',     label: 'In-person', icon: ICON_PIN },
+      { group: 'cost',   value: 'free',       label: 'Free' },
+      { group: 'cost',   value: 'paid',       label: 'Paid', icon: ICON_COIN }
+    ];
+
+    function anyPrimaryActive() {
+      return state.tier.size || state.format.size || state.cost.size;
+    }
+
+    function anyMoreFiltersActive() {
+      return state.participation.size || state.difficulty.size ||
+        state.country !== 'all' || state.eligibility !== 'all' || state.subject !== 'all';
+    }
+
+    function moreFiltersCount() {
+      let n = state.participation.size + state.difficulty.size;
+      if (state.country !== 'all') n++;
+      if (state.eligibility !== 'all') n++;
+      if (state.subject !== 'all') n++;
+      return n;
+    }
+
+    // ══════════════════════════════════════════════════
+    //  PRIMARY FILTER ROW
+    // ══════════════════════════════════════════════════
+    function renderPrimaryFilters() {
+      const row = document.getElementById('primary-filters');
+      const allActive = !anyPrimaryActive();
+
+      let html = `<button class="filter-pill ${allActive ? 'active' : ''}" data-all="1">All</button>`;
+      html += PRIMARY_PILLS.map(p => {
+        const active = state[p.group].has(p.value);
+        return `<button class="filter-pill ${active ? 'active' : ''}" data-group="${p.group}" data-value="${p.value}">${p.icon || ''}${p.label}</button>`;
+      }).join('');
+      row.innerHTML = html;
+
+      row.querySelector('[data-all]').addEventListener('click', () => {
+        state.tier.clear(); state.format.clear(); state.cost.clear();
+        renderAll();
+      });
+
+      row.querySelectorAll('[data-group]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const g = btn.dataset.group, v = btn.dataset.value;
+          if (state[g].has(v)) state[g].delete(v); else state[g].add(v);
+          renderAll();
+        });
+      });
+    }
+
+    // ══════════════════════════════════════════════════
+    //  MORE FILTERS PANEL
+    // ══════════════════════════════════════════════════
+    function uniqueSorted(arr) {
+      return Array.from(new Set(arr)).sort();
+    }
+
+    function renderMoreFiltersOptions() {
+      // Participation
+      const partWrap = document.getElementById('filter-participation');
+      const parts = [
+        { key: 'individual', label: 'Individual', icon: ICON_USER },
+        { key: 'team', label: 'Team', icon: ICON_GROUP }
+      ];
+      partWrap.innerHTML = parts.map(p => `
+        <button class="filter-pill ${state.participation.has(p.key) ? 'active' : ''}" data-part="${p.key}">${p.icon}${p.label}</button>
+      `).join('');
+      partWrap.querySelectorAll('[data-part]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.part;
+          if (state.participation.has(v)) state.participation.delete(v); else state.participation.add(v);
+          renderAll();
+        });
+      });
+
+      // Difficulty
+      const diffWrap = document.getElementById('filter-difficulty');
+      const diffs = [
+        { key: 'standard', label: 'Standard' },
+        { key: 'hard', label: 'Hard' },
+        { key: 'elite', label: 'Elite' }
+      ];
+      diffWrap.innerHTML = diffs.map(d => `
+        <button class="filter-pill ${state.difficulty.has(d.key) ? 'active' : ''}" data-diff="${d.key}">${d.label}</button>
+      `).join('');
+      diffWrap.querySelectorAll('[data-diff]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.diff;
+          if (state.difficulty.has(v)) state.difficulty.delete(v); else state.difficulty.add(v);
+          renderAll();
+        });
+      });
+
+      // Country / Region
+      const countrySel = document.getElementById('filter-country');
+      const countries = uniqueSorted(opportunities.map(o => countryGroup(o.region)));
+      countrySel.innerHTML = `<option value="all">All regions</option>` +
+        countries.map(c => `<option value="${c}" ${state.country === c ? 'selected' : ''}>${c}</option>`).join('');
+      countrySel.value = state.country;
+      countrySel.onchange = () => { state.country = countrySel.value; renderAll(); };
+
+      // Eligibility (reads the existing `level` field verbatim)
+      const eligSel = document.getElementById('filter-eligibility');
+      const levels = uniqueSorted(opportunities.map(o => o.level));
+      eligSel.innerHTML = `<option value="all">Any eligibility</option>` +
+        levels.map(l => `<option value="${l}" ${state.eligibility === l ? 'selected' : ''}>${l}</option>`).join('');
+      eligSel.value = state.eligibility;
+      eligSel.onchange = () => { state.eligibility = eligSel.value; renderAll(); };
+
+      // Subject — every current entry is Mathematics; kept as a
+      // real control so it scales when non-Mathematics entries
+      // (e.g. essay prizes) are curated in.
+      const subjSel = document.getElementById('filter-subject');
+      subjSel.innerHTML = `<option value="all">All subjects</option><option value="mathematics" ${state.subject === 'mathematics' ? 'selected' : ''}>Mathematics</option>`;
+      subjSel.value = state.subject;
+      subjSel.onchange = () => { state.subject = subjSel.value; renderAll(); };
+    }
+
+    function toggleMoreFilters() {
+      const panel = document.getElementById('more-filters-panel');
+      const btn = document.getElementById('more-filters-btn');
+      const backdrop = document.getElementById('mf-backdrop');
+      const opening = !panel.classList.contains('open');
+      panel.classList.toggle('open', opening);
+      btn.classList.toggle('active', opening);
+      btn.setAttribute('aria-expanded', String(opening));
+      if (window.innerWidth <= 700) backdrop.classList.toggle('visible', opening);
+    }
+
+    function closeMoreFilters() {
+      document.getElementById('more-filters-panel').classList.remove('open');
+      document.getElementById('more-filters-btn').classList.remove('active');
+      document.getElementById('more-filters-btn').setAttribute('aria-expanded', 'false');
+      document.getElementById('mf-backdrop').classList.remove('visible');
+    }
+
+    document.getElementById('more-filters-btn').addEventListener('click', toggleMoreFilters);
+    document.getElementById('mf-backdrop').addEventListener('click', closeMoreFilters);
+    document.getElementById('mf-clear-btn').addEventListener('click', () => {
+      state.participation.clear();
+      state.difficulty.clear();
+      state.country = 'all';
+      state.eligibility = 'all';
+      state.subject = 'all';
+      renderAll();
+    });
+
+    // ══════════════════════════════════════════════════
+    //  SEARCH
+    // ══════════════════════════════════════════════════
+    const searchInput = document.getElementById('search-input');
+    const searchClear = document.getElementById('search-clear');
+
+    searchInput.addEventListener('input', () => {
+      state.search = searchInput.value.trim().toLowerCase();
+      searchClear.classList.toggle('visible', state.search.length > 0);
+      renderResults();
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      state.search = '';
+      searchClear.classList.remove('visible');
+      searchInput.focus();
+      renderResults();
+    });
+
+    function matchesSearch(o) {
+      if (!state.search) return true;
+      const haystack = [o.name, o.org, o.description, o.level, o.region, o.whyRecommend || '']
+        .join(' ').toLowerCase();
+      return haystack.includes(state.search);
+    }
+
+    // ══════════════════════════════════════════════════
+    //  SORT
+    // ══════════════════════════════════════════════════
+    const DIFF_RANK = { standard: 0, hard: 1, elite: 2 };
+
+    function deadlineSortKey(o) {
+      return o.regCloses || o.eventDate || '2099-12-31';
+    }
+
+    function sortList(list) {
+      const withIndex = list.map((o, i) => ({ o, i: opportunities.indexOf(o) }));
+      switch (state.sort) {
+        case 'new':
+          withIndex.sort((a, b) => b.i - a.i);
+          break;
+        case 'free':
+          withIndex.sort((a, b) => {
+            if (a.o.costType !== b.o.costType) return a.o.costType === 'free' ? -1 : 1;
+            return new Date(deadlineSortKey(a.o)) - new Date(deadlineSortKey(b.o));
+          });
+          break;
+        case 'difficulty':
+          withIndex.sort((a, b) => {
+            const d = DIFF_RANK[a.o.difficulty] - DIFF_RANK[b.o.difficulty];
+            if (d !== 0) return d;
+            return new Date(deadlineSortKey(a.o)) - new Date(deadlineSortKey(b.o));
+          });
+          break;
+        case 'recommended':
+          withIndex.sort((a, b) => {
+            const ar = a.o.whyRecommend ? 0 : 1;
+            const br = b.o.whyRecommend ? 0 : 1;
+            if (ar !== br) return ar - br;
+            return new Date(deadlineSortKey(a.o)) - new Date(deadlineSortKey(b.o));
+          });
+          break;
+        case 'deadline':
+        default:
+          withIndex.sort((a, b) => new Date(deadlineSortKey(a.o)) - new Date(deadlineSortKey(b.o)));
+      }
+      return withIndex.map(x => x.o);
+    }
+
+    document.getElementById('sort-select').addEventListener('change', (e) => {
+      state.sort = e.target.value;
+      renderResults();
+    });
+
+    // ══════════════════════════════════════════════════
+    //  FILTERED LIST
+    // ══════════════════════════════════════════════════
+    function filteredList() {
+      let list = opportunities.slice();
+      if (state.tier.size) list = list.filter(o => o.tier.some(t => state.tier.has(t)));
+      if (state.format.size) list = list.filter(o => state.format.has(o.format));
+      if (state.cost.size) list = list.filter(o => state.cost.has(o.costType));
+      if (state.participation.size) list = list.filter(o => state.participation.has(o.participationType));
+      if (state.difficulty.size) list = list.filter(o => state.difficulty.has(o.difficulty));
+      if (state.country !== 'all') list = list.filter(o => countryGroup(o.region) === state.country);
+      if (state.eligibility !== 'all') list = list.filter(o => o.level === state.eligibility);
+      if (state.subject !== 'all') list = list.filter(o => o.category === 'competition' || o.category === 'essay');
+      list = list.filter(matchesSearch);
+      return sortList(list);
+    }
+
+    // ══════════════════════════════════════════════════
+    //  CARD MARKUP — shared between the main grid and the
+    //  closing-soon strip.
+    // ══════════════════════════════════════════════════
+    function cardHTML(c, i) {
+      const status = getStatus(c);
+      const diffCls = c.difficulty === 'elite' ? 'diff-elite'
+        : c.difficulty === 'hard' ? 'diff-hard'
+        : 'diff-standard';
+      const formatChip = c.format === 'online' ? `${ICON_GLOBE}Online` : `${ICON_PIN}On-site`;
+      const costChip = c.costType === 'free' ? 'Free' : `${ICON_COIN}Paid`;
+      const partChip = c.participationType === 'team' ? `${ICON_GROUP}Team` : `${ICON_USER}Individual`;
+
+      const isUrgent = status.live && c.regCloses && daysUntil(c.regCloses) <= 14;
+      const deadlineLabel = c.entryType === 'discretionary' ? 'Entry'
+        : c.entryType === 'qualification' ? 'Route'
+        : 'Deadline';
+      const deadlineDisplay = status.live && c.regCloses ? urgencyText(c.regCloses) : deadlineValue(c);
+
+      const recommendBlock = c.whyRecommend ? `
+        <div class="comp-recommend">
+          <span class="comp-recommend-label">Why MathForge recommends it</span>
+          <span class="comp-recommend-text">${c.whyRecommend}</span>
+        </div>` : '';
+
+      // Optional — only rendered when an entry actually carries a
+      // verification date. Never fabricated for entries without one.
+      const verifiedLine = c.lastVerified ? `Verified ${formatVerifiedDate(c.lastVerified)}` : '';
+
+      return `
+        <div class="comp-card" id="card-${c.id}" style="--i:${i}">
+          <div class="comp-card-top">
+            ${sealOrLogo(c)}
+            <div class="comp-name-block">
+              <span class="comp-title">${c.name}</span>
+              <span class="comp-org-region">${c.org} · ${c.region}</span>
+              ${verifiedLine ? `<span class="comp-verified">${verifiedLine}</span>` : ''}
+            </div>
+          </div>
+          <div class="comp-desc">${c.description}</div>
+          <div class="comp-chips">
+            <span class="chip ${status.cls}"><span class="chip-dot ${status.live ? 'live' : ''}"></span>${status.label}</span>
+            <span class="chip ${diffCls}">${c.difficulty}</span>
+            <span class="chip chip-format">${formatChip}</span>
+            <span class="chip ${c.costType === 'free' ? 'chip-free' : 'chip-paid'}">${costChip}</span>
+            <span class="chip chip-participation">${partChip}</span>
+          </div>
+          <div class="comp-facts">
+            <div class="comp-fact">
+              <span class="comp-fact-label">${deadlineLabel}</span>
+              <span class="comp-fact-value primary ${isUrgent ? 'urgent' : ''}">${deadlineDisplay}</span>
+            </div>
+            <div class="comp-fact">
+              <span class="comp-fact-label">Cost</span>
+              <span class="comp-fact-value">${c.costNote}</span>
+            </div>
+            <div class="comp-fact">
+              <span class="comp-fact-label">Eligibility</span>
+              <span class="comp-fact-value">${c.level}</span>
+            </div>
+          </div>
+          ${recommendBlock}
+          <div class="comp-footer">
+            <a class="comp-link" href="${c.url}" target="_blank" rel="noopener">View official page ↗</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // ══════════════════════════════════════════════════
+    //  GRID RENDER
+    // ══════════════════════════════════════════════════
+    function renderGrid() {
+      const grid = document.getElementById('comp-grid');
+      const list = filteredList();
+      const countEl = document.getElementById('result-count');
+
+      countEl.innerHTML = list.length
+        ? `<strong>${list.length}</strong> opportunit${list.length === 1 ? 'y' : 'ies'}`
+        : '';
+
+      if (!list.length) {
+        grid.innerHTML = '<div class="comp-empty">No opportunities match these filters — try widening your search or clearing a filter.</div>';
+        return;
+      }
+
+      grid.innerHTML = list.map((c, i) => cardHTML(c, i)).join('');
+    }
+
+    function jumpToCard(id) {
+      // Clear filters so the card is guaranteed to be visible
+      state.tier.clear(); state.format.clear(); state.cost.clear();
+      state.participation.clear(); state.difficulty.clear();
+      state.country = 'all'; state.eligibility = 'all'; state.subject = 'all';
+      state.search = ''; searchInput.value = ''; searchClear.classList.remove('visible');
+      renderAll();
+      requestAnimationFrame(() => {
+        const el = document.getElementById('card-' + id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('flash');
+        setTimeout(() => el.classList.remove('flash'), 1500);
+      });
+    }
+
+    // ══════════════════════════════════════════════════
+    //  CLOSING-SOON POP-UPS — a stack of dismissible
+    //  notifications, top-right below the masthead. Built
+    //  once on load (not re-rendered by filters/search).
+    //  Always the 3 nearest LIVE deadlines, computed fresh
+    //  from the data every time — deterministic on every
+    //  reload. Dismissing a pop-up only closes it for this
+    //  page view; it is never persisted or backfilled with
+    //  a different entry, so the set never "rotates."
+    // ══════════════════════════════════════════════════
+    function toastHTML(c, i) {
+      return `
+        <div class="mf-toast" id="toast-${c.id}" data-regcloses="${c.regCloses}" style="--ti:${i}">
+          <div class="mf-toast-head">
+            <span class="mf-toast-eyebrow"><span class="chip-dot live" style="color:#d4a857"></span>Closing soon</span>
+            <button class="mf-toast-close" data-dismiss="${c.id}" aria-label="Dismiss">✕</button>
+          </div>
+          <div class="mf-toast-title">${c.name}</div>
+          <div class="mf-toast-timer"></div>
+          <div class="mf-toast-actions">
+            <a class="mf-toast-action" href="${c.url}" target="_blank" rel="noopener">Register ↗</a>
+            <span class="mf-toast-action secondary" data-view="${c.id}">View details</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderClosingToasts() {
+      const stack = document.getElementById('toast-stack');
+      // Always the top 3 nearest LIVE deadlines (open or closing-soon),
+      // computed fresh from the data on every load — deterministic, never
+      // randomized, and never backfilled from a dismissed item.
+      const soon = opportunities
+        .filter(o => getStatus(o).live && o.regCloses)
+        .sort((a, b) => daysUntil(a.regCloses) - daysUntil(b.regCloses))
+        .slice(0, 3);
+
+      if (!soon.length) { stack.innerHTML = ''; return; }
+
+      stack.innerHTML = soon.map((c, i) => toastHTML(c, i)).join('');
+
+      stack.querySelectorAll('[data-dismiss]').forEach(btn => {
+        btn.addEventListener('click', () => dismissToast(btn.dataset.dismiss));
+      });
+      stack.querySelectorAll('[data-view]').forEach(el => {
+        el.addEventListener('click', () => jumpToCard(el.dataset.view));
+      });
+
+      tickToastTimers();
+    }
+
+    // Closing a pop-up only removes it from view for this page visit —
+    // it does not exclude that opportunity from future loads and does
+    // not pull in a replacement, so the set of 3 stays fixed.
+    function dismissToast(id) {
+      const el = document.getElementById('toast-' + id);
+      if (!el) return;
+      el.classList.add('dismissing');
+      setTimeout(() => el.remove(), 260);
+    }
+
+    // Second-by-second countdown shared across every toast in the
+    // stack — cheaper than one interval per toast.
+    let toastTickHandle = null;
+    function tickToastTimers() {
+      document.querySelectorAll('.mf-toast[data-regcloses]').forEach(el => {
+        const timerEl = el.querySelector('.mf-toast-timer');
+        if (!timerEl) return;
+        const ms = new Date(el.dataset.regcloses + 'T23:59:59') - new Date();
+        if (ms <= 0) { timerEl.textContent = 'Closed'; return; }
+        const totalSec = Math.floor(ms / 1000);
+        const d = Math.floor(totalSec / 86400);
+        const h = Math.floor((totalSec % 86400) / 3600);
+        const m = Math.floor((totalSec % 3600) / 60);
+        const s = totalSec % 60;
+        timerEl.textContent = `${d}d ${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+      });
+    }
+
+    // ══════════════════════════════════════════════════
+    //  LIVE COUNTDOWN TICK — refreshes status-dependent
+    //  card text every minute without a full re-render.
+    // ══════════════════════════════════════════════════
+    function tickCountdowns() {
+      renderGrid();
+    }
+
+    // ══════════════════════════════════════════════════
+    //  RENDER ORCHESTRATION
+    // ══════════════════════════════════════════════════
+    function renderResults() {
+      renderGrid();
+    }
+
+    function renderAll() {
+      renderPrimaryFilters();
+      document.getElementById('more-filters-count').textContent = anyMoreFiltersActive() ? `(${moreFiltersCount()})` : '';
+      document.getElementById('more-filters-btn').classList.toggle('active', document.getElementById('more-filters-panel').classList.contains('open'));
+      renderMoreFiltersOptions();
+      renderGrid();
+    }
+
+    // ══════════════════════════════════════════════════
+    //  INIT
+    // ══════════════════════════════════════════════════
+    renderAll();
+    setTimeout(renderClosingToasts, 900);
+    setInterval(tickCountdowns, 60000);
+    setInterval(tickToastTimers, 1000);
+  </script>
+</body>
+
+</html>
