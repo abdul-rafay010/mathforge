@@ -1,7 +1,8 @@
 // MathForge — Opportunities data
 //
-// This file backs the /opportunities/ page (competitions, olympiads and,
-// eventually, essay prizes and other mathematical opportunities).
+// This file backs the /opportunities/ page — mathematics competitions and
+// Olympiads, summer programs, and essay prizes. `category` is the field that
+// distinguishes these and drives the Opportunity Type filter.
 //
 // tier: which student stage(s) this fits — drives the Level filter.
 //       "middle" | "high" | "university" — an entry can belong to more than one.
@@ -13,9 +14,10 @@
 // participationType: "individual" | "team" — drives the Individual/Team filter.
 //         Read off each entry's own description (team size, "solved independently",
 //         etc.) — never guessed.
-// category: "competition" | "essay" — drives future Subject-adjacent scaling.
-//         Everything here is "competition" today; essay prizes will be added as
-//         MathForge curates them, not invented ahead of time.
+// category: "competition" | "summer-program" | "essay" — drives the Opportunity
+//         Type filter in More Filters. Competitions are contests with a result;
+//         summer programs are multi-week study/research placements; essays are
+//         written-submission prizes. Assign from the entry's own format, not guessed.
 // entryType:
 //   "open"          → public registration with a real deadline; status badge
 //                      (Open / Closing Soon / Closed) computed from regCloses.
@@ -554,5 +556,101 @@ const opportunities = [
     whyRecommend: "The official route onto Pakistan's IMO team — the highest-stakes pathway on this list for a student serious about international Olympiad selection.",
     url: "https://stem.edu.pk/nstc/",
     difficulty: "elite"
+  },
+
+  // ── Summer programs & essay prizes — MathForge Opportunities now
+  // spans beyond competitions. `category` drives the Opportunity Type
+  // filter: "competition" | "summer-program" | "essay".
+  {
+    id: "ross-mathematics-program-2027",
+    seal: "ROSS",
+    name: "Ross Mathematics Program",
+    org: "Ross Mathematics Foundation",
+    region: "USA (Otterbein University, OH & Rose-Hulman, IN)",
+    level: "Motivated pre-college / high school students",
+    tier: ["high"],
+    format: "onsite",
+    costType: "paid",
+    costNote: "$7,500 program fee (6 weeks, room & board included); need-based financial aid available",
+    participationType: "individual",
+    category: "summer-program",
+    eventDate: null,
+    datesTBA: true,
+    regOpens: null,
+    regCloses: null,
+    entryType: "open",
+    description: "A six-week, residential number-theory program for pre-college students, running every summer since 1957 — problem-driven, proof-based, and famously intense.",
+    whyRecommend: "One of the oldest and most respected pre-college math programs in the US; applications have historically opened in the fall with an early-March deadline, so start preparing well before the official 2027 dates are announced.",
+    url: "https://rossprogram.org/",
+    difficulty: "elite"
+  },
+  {
+    id: "promys-2027",
+    seal: "PMY",
+    name: "PROMYS (Program in Mathematics for Young Scientists)",
+    org: "Boston University",
+    region: "USA (Boston, MA)",
+    level: "High school students, ages 14–18 (9th grade+, not yet in college)",
+    tier: ["high"],
+    format: "onsite",
+    costType: "paid",
+    costNote: "Free for US families earning under $80k/yr; need-based aid up to full cost for others (list price ~$6,000)",
+    participationType: "individual",
+    category: "summer-program",
+    eventDate: null,
+    datesTBA: true,
+    regOpens: null,
+    regCloses: null,
+    entryType: "open",
+    description: "A six-week residential number-theory program at Boston University for around 80 high schoolers each summer, built around student-driven discovery rather than lectures.",
+    whyRecommend: "Widely regarded alongside Ross as one of the top pre-college math programs in the US; the 2027 application typically opens the following January with a late-February deadline — sign up for PROMYS's own notification list to catch it.",
+    url: "https://promys.org/",
+    difficulty: "elite"
+  },
+  {
+    id: "lums-rise-internship-2027",
+    seal: "RISE",
+    name: "RISE Research Internship",
+    org: "LUMS SBASSE",
+    region: "Pakistan",
+    level: "O/A Level, Matric & FA/FSc students",
+    tier: ["high"],
+    format: "onsite",
+    costType: "free",
+    costNote: "No application fee",
+    participationType: "individual",
+    category: "summer-program",
+    eventDate: null,
+    datesTBA: true,
+    regOpens: null,
+    regCloses: null,
+    entryType: "open",
+    description: "A 3–4 week research internship at LUMS in Lahore giving O/A Level and Matric/FSc students early hands-on exposure to university research under faculty mentorship, historically centred on STEM fields.",
+    whyRecommend: "A rare chance for Pakistani high schoolers to work inside an actual university research group before graduating — check the current year's faculty mentor list for a mathematics or computational track, since the roster changes each cycle.",
+    url: "https://sbasse.lums.edu.pk/rise-at-sse-lums",
+    difficulty: "standard"
+  },
+  {
+    id: "tom-rocks-maths-essay-2027",
+    seal: "TRM",
+    name: "Tom Rocks Maths Essay Competition",
+    org: "Oxford Lifelong Learning / Tom Rocks Maths",
+    region: "Global",
+    level: "Open to all ages and abilities — no eligibility requirements",
+    tier: ["middle", "high", "university"],
+    format: "online",
+    costType: "free",
+    costNote: "Free to enter",
+    participationType: "individual",
+    category: "essay",
+    eventDate: null,
+    datesTBA: true,
+    regOpens: null,
+    regCloses: null,
+    entryType: "open",
+    description: "Write a short essay explaining your favourite mathematical topic to a non-specialist audience — run annually by Dr Tom Crawford in partnership with Oxford's Department for Continuing Education.",
+    whyRecommend: "Genuinely open to everyone with no eligibility bar, and a strong option for a student who writes better than they compete — the window has run February–April each year, with the student winner published on the University of Oxford website and awarded a cash prize.",
+    url: "https://tomrocksmaths.com/trm-essay-competition/",
+    difficulty: "standard"
   }
 ];
