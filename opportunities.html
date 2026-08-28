@@ -965,6 +965,9 @@
     .diff-hard { color: #c88; background: #251515; }
     .diff-standard { color: #8ab4c8; background: #14242b; }
 
+    .chip-type-essay { color: #8ab4c8; background: #14242b; }
+    .chip-type-program { color: #b799d1; background: #221a2b; }
+
     /* ── Facts block — deadline is the primary, actionable
          fact and is styled with more weight; cost and
          eligibility are supporting detail, styled quieter. ── */
@@ -1312,6 +1315,10 @@
       <div id="mf-backdrop"></div>
       <div id="more-filters-panel" role="region" aria-label="More filters">
         <div class="mf-group">
+          <span class="mf-label">Opportunity Type</span>
+          <div class="mf-pills" id="filter-type"></div>
+        </div>
+        <div class="mf-group">
           <span class="mf-label">Participation</span>
           <div class="mf-pills" id="filter-participation"></div>
         </div>
@@ -1543,6 +1550,7 @@
       tier: new Set(),          // 'high' | 'university'
       format: new Set(),        // 'online' | 'onsite'
       cost: new Set(),          // 'free' | 'paid'
+      type: new Set(),          // 'competition' | 'summer-program' | 'essay'
       participation: new Set(), // 'individual' | 'team'
       difficulty: new Set(),    // 'standard' | 'hard' | 'elite'
       country: 'all',
@@ -1565,12 +1573,12 @@
     }
 
     function anyMoreFiltersActive() {
-      return state.participation.size || state.difficulty.size ||
+      return state.type.size || state.participation.size || state.difficulty.size ||
         state.country !== 'all' || state.eligibility !== 'all' || state.subject !== 'all';
     }
 
     function moreFiltersCount() {
-      let n = state.participation.size + state.difficulty.size;
+      let n = state.type.size + state.participation.size + state.difficulty.size;
       if (state.country !== 'all') n++;
       if (state.eligibility !== 'all') n++;
       if (state.subject !== 'all') n++;
@@ -1613,6 +1621,24 @@
     }
 
     function renderMoreFiltersOptions() {
+      // Opportunity Type
+      const typeWrap = document.getElementById('filter-type');
+      const types = [
+        { key: 'competition', label: 'Competition' },
+        { key: 'summer-program', label: 'Summer Program' },
+        { key: 'essay', label: 'Essay Prize' }
+      ];
+      typeWrap.innerHTML = types.map(t => `
+        <button class="filter-pill ${state.type.has(t.key) ? 'active' : ''}" data-type="${t.key}">${t.label}</button>
+      `).join('');
+      typeWrap.querySelectorAll('[data-type]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.type;
+          if (state.type.has(v)) state.type.delete(v); else state.type.add(v);
+          renderAll();
+        });
+      });
+
       // Participation
       const partWrap = document.getElementById('filter-participation');
       const parts = [
@@ -1694,6 +1720,7 @@
     document.getElementById('more-filters-btn').addEventListener('click', toggleMoreFilters);
     document.getElementById('mf-backdrop').addEventListener('click', closeMoreFilters);
     document.getElementById('mf-clear-btn').addEventListener('click', () => {
+      state.type.clear();
       state.participation.clear();
       state.difficulty.clear();
       state.country = 'all';
@@ -1785,11 +1812,13 @@
       if (state.tier.size) list = list.filter(o => o.tier.some(t => state.tier.has(t)));
       if (state.format.size) list = list.filter(o => state.format.has(o.format));
       if (state.cost.size) list = list.filter(o => state.cost.has(o.costType));
+      if (state.type.size) list = list.filter(o => state.type.has(o.category));
       if (state.participation.size) list = list.filter(o => state.participation.has(o.participationType));
       if (state.difficulty.size) list = list.filter(o => state.difficulty.has(o.difficulty));
       if (state.country !== 'all') list = list.filter(o => countryGroup(o.region) === state.country);
       if (state.eligibility !== 'all') list = list.filter(o => o.level === state.eligibility);
-      if (state.subject !== 'all') list = list.filter(o => o.category === 'competition' || o.category === 'essay');
+      // Subject is inert until a non-Mathematics entry exists — every current
+      // opportunity is Mathematics, so selecting it never narrows the list.
       list = list.filter(matchesSearch);
       return sortList(list);
     }
@@ -1806,6 +1835,13 @@
       const formatChip = c.format === 'online' ? `${ICON_GLOBE}Online` : `${ICON_PIN}On-site`;
       const costChip = c.costType === 'free' ? 'Free' : `${ICON_COIN}Paid`;
       const partChip = c.participationType === 'team' ? `${ICON_GROUP}Team` : `${ICON_USER}Individual`;
+
+      // Only flag the type explicitly for the newer categories — the
+      // large majority are still competitions, so that badge stays
+      // implicit rather than adding a chip to every single card.
+      const typeChip = c.category === 'essay' ? '<span class="chip chip-type-essay">Essay Prize</span>'
+        : c.category === 'summer-program' ? '<span class="chip chip-type-program">Summer Program</span>'
+        : '';
 
       const isUrgent = status.live && c.regCloses && daysUntil(c.regCloses) <= 14;
       const deadlineLabel = c.entryType === 'discretionary' ? 'Entry'
@@ -1835,6 +1871,7 @@
           </div>
           <div class="comp-desc">${c.description}</div>
           <div class="comp-chips">
+            ${typeChip}
             <span class="chip ${status.cls}"><span class="chip-dot ${status.live ? 'live' : ''}"></span>${status.label}</span>
             <span class="chip ${diffCls}">${c.difficulty}</span>
             <span class="chip chip-format">${formatChip}</span>
