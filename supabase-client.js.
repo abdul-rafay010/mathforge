@@ -1,5 +1,6 @@
 // One shared connection for the whole site, + auto guest sign-in.
 const mfClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+window.mfClient = mfClient; 
 
 async function mfBootstrapSession() {
   const { data: { session } } = await mfClient.auth.getSession();
