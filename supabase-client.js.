@@ -1,0 +1,19 @@
+// One shared connection for the whole site, + auto guest sign-in.
+const mfClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+async function mfBootstrapSession() {
+  const { data: { session } } = await mfClient.auth.getSession();
+  if (session) {
+    console.log("MathForge: existing session found", session.user.id);
+    return session;
+  }
+  const { data, error } = await mfClient.auth.signInAnonymously();
+  if (error) {
+    console.error("MathForge: guest sign-in failed:", error.message);
+    return null;
+  }
+  console.log("MathForge: new guest session created", data.user.id);
+  return data.session;
+}
+
+mfBootstrapSession();
