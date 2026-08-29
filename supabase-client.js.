@@ -1,5 +1,5 @@
-const SUPABASE_URL = "https://ezkvhqtvttaaspcbsobh.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_xQhhGGm57CG8rQMaXj4lpg_WAJpSLfA";
+// SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY are declared in supabase-config.js,
+// which loads before this file — do NOT redeclare them here.
 
 const mfClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 window.mfClient = mfClient;
