@@ -1,42 +1,16 @@
 /**
- * MathForge — Email signup claim flow (bug workaround)
- * (layers on top of mf-signin.js — modifies neither it nor any other file)
+ * MathForge — Email signup claim flow (bug workaround) — v2
  * ─────────────────────────────────────────────────────────────────────────
- * BACKGROUND: mf-signin.js's signup path calls
- * mfClient.auth.updateUser({ email, password }) on the anonymous session,
- * which hits supabase/supabase#41125 — it can silently send a clickable
- * link instead of an OTP code, and that link resolves on whichever device
- * opens it, not the device the signup started on. This file replaces the
- * signup submission path with plain mfClient.auth.signUp(), which reliably
- * supports OTP-by-code, and manually re-attaches the guest's progress data
- * to the new account after verification instead of relying on Supabase's
- * identity-linking.
- *
- * WHY NOT CLONE-AND-REPLACE (the technique used for the Google button):
- * mf-signin.js keeps direct references to #mf-input-email, #mf-input-
- * password and #mf-email-submit-label (all children of #mf-email-form) in
- * its own closure, and reuses them elsewhere — mode-toggle copy updates,
- * emailForm.reset() on modal open, focus management. Cloning and replacing
- * the whole <form> would leave those cached references pointing at a
- * detached node, silently breaking the sign-IN path (which this file must
- * leave untouched) and the mode-toggle UI. Instead, this file intercepts
- * the form's 'submit' event at the genuine capturing phase on `document` —
- * a real ancestor of the form, so this reliably runs before mf-signin.js's
- * own target-phase listener regardless of registration order (unlike a
- * same-node capture listener, which the earlier files already established
- * doesn't preempt anything). Which mode is active is read synchronously
- * from the DOM (the submit label's text), so the decision to intercept can
- * be made — and preventDefault() called — before anything async happens.
- * This also correctly catches Enter-key submission, not just button
- * clicks, which a click-only interception would have missed.
- *
- * WHY OTP UI ISN'T LITERALLY REUSED FROM mf-account-panel.js: that file's
- * OTP block is built by a function private to its own closure, never
- * exposed on `window`. This file reuses the exact same CSS classes
- * (.mf-otp-block / .mf-otp-row / .mf-otp-hint etc., already loaded by that
- * file's stylesheet) so the result is visually identical, with a small
- * fallback stylesheet defined here only if that file's styles aren't
- * present for some reason.
+ * Two fixes over the previous version:
+ * 1. "Resend code" now calls mfClient.auth.resend({ type: 'signup', email })
+ *    — Supabase's dedicated method for this — instead of calling signUp()
+ *    again, which could collide with duplicate-email detection and get
+ *    wrongly treated as "account already exists" instead of resending.
+ * 2. Survives a page refresh mid-signup: the pending email (NOT the
+ *    password — never persist that) is stored in sessionStorage the moment
+ *    signUp() succeeds. If the page reloads before verification completes,
+ *    opening "Continue with email" detects the pending email and goes
+ *    straight to the code-entry step instead of losing all context.
  * ─────────────────────────────────────────────────────────────────────────
  */
 (function () {
@@ -50,8 +24,8 @@
   var mfClient = window.mfClient;
   var PROGRESS_TABLE = 'user_progress';
   var RESEND_COOLDOWN_MS = 30000;
+  var PENDING_EMAIL_KEY = 'mf_pending_signup_email';
 
-  // ── Fallback OTP styles (only if mf-account-panel.js's aren't loaded) ──
   if (!document.getElementById('mf-account-panel-styles') && !document.getElementById('mf-email-claim-otp-fallback-styles')) {
     var fallbackStyle = document.createElement('style');
     fallbackStyle.id = 'mf-email-claim-otp-fallback-styles';
@@ -92,13 +66,19 @@
       '  text-decoration: underline; text-underline-offset: 3px; padding: 2px;',
       '}',
       '.mf-otp-resend:hover:not(:disabled) { color: var(--mf-parchment, #e4ddd0); }',
-      '.mf-otp-resend:disabled { cursor: default; opacity: 0.6; text-decoration: none; }'
+      '.mf-otp-resend:disabled { cursor: default; opacity: 0.6; text-decoration: none; }',
+      '.mf-otp-restart {',
+      '  display: block; margin-top: 14px; background: none; border: none;',
+      '  font-family: var(--mf-mono, "JetBrains Mono", monospace); font-size: 10.5px;',
+      '  color: var(--mf-parchment-dim, rgba(228,221,208,0.62)); cursor: pointer;',
+      '  text-decoration: underline; text-underline-offset: 3px; padding: 2px; opacity: 0.7;',
+      '}',
+      '.mf-otp-restart:hover { opacity: 1; }'
     ].join('\n');
     document.head.appendChild(style);
   }
 
-  // ── State for the in-flight claim (spans submit → OTP verify) ─────────
-  var pending = null; // { email, password, guestUserId, capturedProgress }
+  var pending = null; // { email, guestUserId, capturedProgress }
 
   function isDuplicateSignupError(err) {
     if (!err) return false;
@@ -108,9 +88,7 @@
       msg.indexOf('already') !== -1 ||
       msg.indexOf('registered') !== -1 ||
       code.indexOf('already') !== -1 ||
-      code === 'user_already_exists' ||
-      err.status === 422 ||
-      err.status === 400
+      code === 'user_already_exists'
     );
   }
 
@@ -139,6 +117,16 @@
     el.className = cls;
   }
 
+  function savePendingEmail(email) {
+    try { sessionStorage.setItem(PENDING_EMAIL_KEY, email); } catch (e) { /* ignore */ }
+  }
+  function readPendingEmail() {
+    try { return sessionStorage.getItem(PENDING_EMAIL_KEY); } catch (e) { return null; }
+  }
+  function clearPendingEmail() {
+    try { sessionStorage.removeItem(PENDING_EMAIL_KEY); } catch (e) { /* ignore */ }
+  }
+
   async function copyProgressToNewAccount(newUserId, progressData) {
     if (!newUserId || !progressData) return;
     try {
@@ -155,13 +143,16 @@
     }
   }
 
-  function buildOtpBlock() {
+  // ── Builds the OTP entry block. `emailForDisplay` is shown in the hint;
+  //    `onRestart` (optional) shows a "use a different email" link — only
+  //    relevant in the post-refresh recovery path. ──────────────────────
+  function buildOtpBlock(emailForDisplay, onRestart) {
     var block = document.createElement('div');
     block.className = 'mf-otp-block';
     block.innerHTML =
-      '<p class="mf-otp-hint">Enter the 6-digit code from that email to finish right here:</p>' +
+      '<p class="mf-otp-hint">Enter the code sent to ' + emailForDisplay + ':</p>' +
       '<div class="mf-otp-row">' +
-        '<input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="000000" aria-label="6-digit verification code">' +
+        '<input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="10" placeholder="000000" aria-label="Verification code">' +
         '<button type="button" class="mf-otp-verify">Verify</button>' +
       '</div>' +
       '<div class="mf-error" style="margin-top:8px;"></div>' +
@@ -172,6 +163,15 @@
     var errorEl = block.querySelector('.mf-error');
     var resendBtn = block.querySelector('.mf-otp-resend');
 
+    if (onRestart) {
+      var restartBtn = document.createElement('button');
+      restartBtn.type = 'button';
+      restartBtn.className = 'mf-otp-restart';
+      restartBtn.textContent = 'Use a different email instead';
+      restartBtn.addEventListener('click', onRestart);
+      block.appendChild(restartBtn);
+    }
+
     verifyBtn.addEventListener('click', async function () {
       var code = input.value.trim();
       clearMsg(errorEl, 'mf-error');
@@ -180,8 +180,8 @@
         showError(errorEl, 'Something went wrong — please refresh and try signing up again.');
         return;
       }
-      if (!/^\d{6}$/.test(code)) {
-        showError(errorEl, 'Enter the 6-digit code exactly as it appeared in the email.');
+      if (!/^\d{6,10}$/.test(code)) {
+        showError(errorEl, 'Enter the code exactly as it appeared in the email.');
         return;
       }
 
@@ -197,13 +197,13 @@
 
         verifyBtn.textContent = 'Verified';
         await copyProgressToNewAccount(newUserId, pending.capturedProgress);
+        clearPendingEmail();
         pending = null;
         window.setTimeout(function () { location.reload(); }, 600);
       } catch (err) {
         verifyBtn.disabled = false;
         verifyBtn.textContent = 'Verify';
         showError(errorEl, (err && err.message) || 'That code didn\u2019t work. Check it and try again.');
-        // Input value deliberately left as-is — easier to fix one mistyped digit.
       }
     });
 
@@ -214,7 +214,9 @@
       var original = resendBtn.textContent;
       resendBtn.textContent = 'Sending\u2026';
       try {
-        var res = await mfClient.auth.signUp({ email: pending.email, password: pending.password });
+        // Dedicated resend method — does not re-run signup validation or
+        // risk colliding with duplicate-email detection.
+        var res = await mfClient.auth.resend({ type: 'signup', email: pending.email });
         if (res.error) throw res.error;
         resendCooldownUntil = Date.now() + RESEND_COOLDOWN_MS;
         startResendCooldownDisplay();
@@ -281,13 +283,12 @@
       var signUpRes = await mfClient.auth.signUp({ email: email, password: password });
       if (signUpRes.error) throw signUpRes.error;
 
-      pending = { email: email, password: password, guestUserId: guestUserId, capturedProgress: capturedProgress };
+      pending = { email: email, guestUserId: guestUserId, capturedProgress: capturedProgress };
 
       setLoading(submitBtn, submitLabel, false);
 
-      // If the project has email confirmation disabled, signUp() may
-      // already return an active session — no OTP step needed.
       if (signUpRes.data && signUpRes.data.session) {
+        // Email confirmation disabled on this project — session is active immediately.
         var immediateUserId = signUpRes.data.session.user ? signUpRes.data.session.user.id : null;
         showSuccess(successEl, 'Account created. Bringing your progress along\u2026');
         await copyProgressToNewAccount(immediateUserId, capturedProgress);
@@ -296,8 +297,9 @@
         return;
       }
 
-      showSuccess(successEl, 'Check your inbox for a 6-digit code to confirm ' + email + '.');
-      successEl.insertAdjacentElement('afterend', buildOtpBlock());
+      savePendingEmail(email);
+      showSuccess(successEl, 'Check your inbox for a code to confirm ' + email + '.');
+      successEl.insertAdjacentElement('afterend', buildOtpBlock(email, null));
     } catch (err) {
       setLoading(submitBtn, submitLabel, false);
 
@@ -310,20 +312,49 @@
     }
   }
 
-  // Genuine capturing-phase listener on `document` (a real ancestor of the
-  // form) — reliably runs before mf-signin.js's own submit listener, and
-  // catches both button-click and Enter-key submission. Mode is read
-  // synchronously from the DOM so the decision (and any preventDefault())
-  // happens before anything async.
   document.addEventListener('submit', function (e) {
     if (!e.target || e.target.id !== 'mf-email-form') return;
 
     var submitLabel = document.getElementById('mf-email-submit-label');
     var isSignupMode = submitLabel && submitLabel.textContent.trim() === 'Create account';
-    if (!isSignupMode) return; // sign-in mode — let mf-signin.js's original (unaffected) path run
+    if (!isSignupMode) return;
 
     e.preventDefault();
     e.stopPropagation();
     handleSignupSubmit();
   }, true);
+
+  // ── Post-refresh recovery: if there's a pending unconfirmed signup and
+  //    the user reopens "Continue with email", go straight to code entry
+  //    instead of showing the plain form again. ──────────────────────────
+  var emailToggleBtn = document.getElementById('mf-btn-email-toggle');
+  if (emailToggleBtn) {
+    emailToggleBtn.addEventListener('click', async function () {
+      var pendingEmail = readPendingEmail();
+      if (!pendingEmail) return; // no recovery needed, normal form shows as-is
+
+      var emailForm = document.getElementById('mf-email-form');
+      var successEl = document.getElementById('mf-success-email');
+      var existingOtp = document.querySelector('.mf-otp-block');
+      if (existingOtp) existingOtp.remove();
+
+      var sessionRes = await mfClient.auth.getSession();
+      var guestSession = sessionRes && sessionRes.data ? sessionRes.data.session : null;
+      var guestUserId = guestSession && guestSession.user ? guestSession.user.id : null;
+      var capturedProgress = (typeof window.loadProgress === 'function') ? window.loadProgress() : null;
+
+      pending = { email: pendingEmail, guestUserId: guestUserId, capturedProgress: capturedProgress };
+
+      if (emailForm) emailForm.style.display = 'none';
+      showSuccess(successEl, 'You already started signing up with ' + pendingEmail + '.');
+      successEl.insertAdjacentElement('afterend', buildOtpBlock(pendingEmail, function () {
+        clearPendingEmail();
+        pending = null;
+        var otpBlock = document.querySelector('.mf-otp-block');
+        if (otpBlock) otpBlock.remove();
+        if (emailForm) emailForm.style.display = '';
+        clearMsg(successEl, 'mf-success');
+      }));
+    });
+  }
 })();
