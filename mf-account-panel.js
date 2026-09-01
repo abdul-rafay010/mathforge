@@ -287,28 +287,6 @@
   // reset immediately after success) — but mf-signin.js's own success
   // copy embeds it in plain text ("Check your inbox to confirm
   // you@example.com..."), so we extract it from there with a regex.
-  waitFor(
-    function () { return document.getElementById('mf-success-email'); },
-    function (successEl) {
-      var otpBlock = null;
-
-      var observer = new MutationObserver(function () {
-        var isVisible = successEl.classList.contains('mf-visible') && successEl.textContent.trim() !== '';
-
-        if (isVisible && !otpBlock) {
-          var emailMatch = successEl.textContent.match(/[\w.+-]+@[\w-]+\.[\w.-]+/);
-          var email = emailMatch ? emailMatch[0] : null;
-          otpBlock = buildOtpBlock(email);
-          successEl.insertAdjacentElement('afterend', otpBlock);
-        } else if (!isVisible && otpBlock) {
-          otpBlock.remove();
-          otpBlock = null;
-        }
-      });
-
-      observer.observe(successEl, { attributes: true, attributeFilter: ['class'], childList: true, characterData: true, subtree: true });
-    }
-  );
 
   function buildOtpBlock(email) {
     var block = document.createElement('div');
