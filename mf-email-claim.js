@@ -1,16 +1,13 @@
-/**
- * MathForge — Email signup claim flow (bug workaround) — v2
+ /**
+ * MathForge — Email signup claim flow — v3
  * ─────────────────────────────────────────────────────────────────────────
- * Two fixes over the previous version:
- * 1. "Resend code" now calls mfClient.auth.resend({ type: 'signup', email })
- *    — Supabase's dedicated method for this — instead of calling signUp()
- *    again, which could collide with duplicate-email detection and get
- *    wrongly treated as "account already exists" instead of resending.
- * 2. Survives a page refresh mid-signup: the pending email (NOT the
- *    password — never persist that) is stored in sessionStorage the moment
- *    signUp() succeeds. If the page reloads before verification completes,
- *    opening "Continue with email" detects the pending email and goes
- *    straight to the code-entry step instead of losing all context.
+ * Fix over v2: signUp() does NOT return an error for an email that's
+ * already registered and confirmed — Supabase deliberately returns a fake
+ * "success" response instead, to prevent attackers probing which emails
+ * are registered (documented Supabase behavior). The only reliable way to
+ * detect this: the returned user's `identities` array is empty AND no
+ * session came back. Previously uncaught, so the UI just sat showing an
+ * OTP box for a code that was never actually sent.
  * ─────────────────────────────────────────────────────────────────────────
  */
 (function () {
@@ -78,7 +75,7 @@
     document.head.appendChild(style);
   }
 
-  var pending = null; // { email, guestUserId, capturedProgress }
+  var pending = null;
 
   function isDuplicateSignupError(err) {
     if (!err) return false;
@@ -90,6 +87,15 @@
       code.indexOf('already') !== -1 ||
       code === 'user_already_exists'
     );
+  }
+
+  // The silent-duplicate case: no error thrown, but identities is empty
+  // and no session was granted — Supabase's deliberate anti-enumeration
+  // response for an already-registered, already-confirmed email.
+  function isSilentDuplicate(signUpRes) {
+    var user = signUpRes.data && signUpRes.data.user;
+    var hasSession = !!(signUpRes.data && signUpRes.data.session);
+    return !hasSession && user && Array.isArray(user.identities) && user.identities.length === 0;
   }
 
   function setLoading(btn, labelEl, isLoading) {
@@ -143,9 +149,6 @@
     }
   }
 
-  // ── Builds the OTP entry block. `emailForDisplay` is shown in the hint;
-  //    `onRestart` (optional) shows a "use a different email" link — only
-  //    relevant in the post-refresh recovery path. ──────────────────────
   function buildOtpBlock(emailForDisplay, onRestart) {
     var block = document.createElement('div');
     block.className = 'mf-otp-block';
@@ -214,8 +217,6 @@
       var original = resendBtn.textContent;
       resendBtn.textContent = 'Sending\u2026';
       try {
-        // Dedicated resend method — does not re-run signup validation or
-        // risk colliding with duplicate-email detection.
         var res = await mfClient.auth.resend({ type: 'signup', email: pending.email });
         if (res.error) throw res.error;
         resendCooldownUntil = Date.now() + RESEND_COOLDOWN_MS;
@@ -283,12 +284,19 @@
       var signUpRes = await mfClient.auth.signUp({ email: email, password: password });
       if (signUpRes.error) throw signUpRes.error;
 
-      pending = { email: email, guestUserId: guestUserId, capturedProgress: capturedProgress };
+      // Catch Supabase's silent "already registered" response BEFORE
+      // treating this as a fresh pending signup.
+      if (isSilentDuplicate(signUpRes)) {
+        setLoading(submitBtn, submitLabel, false);
+        showError(errorEl, 'This email already has an account. Try signing in instead.');
+        if (modeToggleBtn) modeToggleBtn.click();
+        return;
+      }
 
+      pending = { email: email, guestUserId: guestUserId, capturedProgress: capturedProgress };
       setLoading(submitBtn, submitLabel, false);
 
       if (signUpRes.data && signUpRes.data.session) {
-        // Email confirmation disabled on this project — session is active immediately.
         var immediateUserId = signUpRes.data.session.user ? signUpRes.data.session.user.id : null;
         showSuccess(successEl, 'Account created. Bringing your progress along\u2026');
         await copyProgressToNewAccount(immediateUserId, capturedProgress);
@@ -324,14 +332,11 @@
     handleSignupSubmit();
   }, true);
 
-  // ── Post-refresh recovery: if there's a pending unconfirmed signup and
-  //    the user reopens "Continue with email", go straight to code entry
-  //    instead of showing the plain form again. ──────────────────────────
   var emailToggleBtn = document.getElementById('mf-btn-email-toggle');
   if (emailToggleBtn) {
     emailToggleBtn.addEventListener('click', async function () {
       var pendingEmail = readPendingEmail();
-      if (!pendingEmail) return; // no recovery needed, normal form shows as-is
+      if (!pendingEmail) return;
 
       var emailForm = document.getElementById('mf-email-form');
       var successEl = document.getElementById('mf-success-email');
