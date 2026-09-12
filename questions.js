@@ -2226,7 +2226,237 @@ const SYLLABUS = {
           ]
         }
       },
-
+"FP2": {
+  name: "Further Pure 2",
+  topics: {
+ 
+    "Hyperbolic Functions": [
+      {
+        id: "FP2_HF_001",
+        difficulty: 'hard',
+        question_text: "Solve the equation\n$$6\\cosh 2x + 4\\sinh x = 7$$\ngiving your answers as exact logarithms. $\\quad$ **[6]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_002",
+        difficulty: 'hard',
+        question_text: "**(a)** Prove that\n$$\\tanh^{-1}(x) = \\frac{1}{2}\\ln\\left(\\frac{1+x}{1-x}\\right) \\quad -k < x < k$$\nstating the value of the constant $k$. $\\quad$ **[5]**\n\n**(b)** Hence, or otherwise, solve the equation\n$$2x = \\tanh\\left(\\ln\\sqrt{2-3x}\\right)$$ $\\quad$ **[5]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_003",
+        difficulty: 'hard',
+        question_text: "The curve $C$ has equation\n$$y = 31\\sinh x - 2\\sinh 2x \\quad x \\in \\mathbb{R}$$\nDetermine, in terms of natural logarithms, the exact $x$ coordinates of the stationary points of $C$. $\\quad$ **[7]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_004",
+        difficulty: 'elite',
+        question_text: "**(i)** Using the definition of $\\cosh x$ in terms of $e^x$ and $e^{-x}$, show that\n$$4\\cosh^3 x - 3\\cosh x = \\cosh 3x$$ $\\quad$ **[4]**\n\n**(ii)** Use the substitution $u = \\cosh x$ to find, in terms of $5^{\\frac{1}{3}}$, the real root of the equation\n$$20u^3 - 15u - 13 = 0$$ $\\quad$ **[6]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_005",
+        difficulty: 'hard',
+        question_text: "**(i)** Using the definitions of $\\cosh x$ and $\\sinh x$ in terms of $e^x$ and $e^{-x}$, show that $\\cosh^2 x - \\sinh^2 x \\equiv 1$. $\\quad$ **[3]**\n\n**(ii)** Hence solve the equation $\\sinh^2 x = 5\\cosh x - 7$, giving your answers in logarithmic form. $\\quad$ **[5]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_006",
+        difficulty: 'elite',
+        question_text: "**(i)** Given that $y = \\sinh^{-1} x$, prove that $y = \\ln\\left(x + \\sqrt{x^2+1}\\right)$. $\\quad$ **[3]**\n\n**(ii)** It is given that $x$ satisfies the equation $\\sinh^{-1} x - \\cosh^{-1} x = \\ln 2$. Use the logarithmic forms for $\\sinh^{-1} x$ and $\\cosh^{-1} x$ to show that\n$$\\sqrt{x^2+1} - 2\\sqrt{x^2-1} = x$$\nHence, by squaring this equation, find the exact value of $x$. $\\quad$ **[5]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_007",
+        difficulty: 'hard',
+        question_text: "**(i)** Using the definitions of $\\cosh x$ and $\\sinh x$ in terms of $e^x$ and $e^{-x}$, prove that\n$$\\sinh 2x = 2\\sinh x \\cosh x$$ $\\quad$ **[4]**\n\n**(ii)** Show that the curve with equation\n$$y = \\cosh 2x - 6\\sinh x$$\nhas just one stationary point, and find its $x$-coordinate in logarithmic form. Determine the nature of the stationary point. $\\quad$ **[8]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_008",
+        difficulty: 'standard',
+        question_text: "**(i)** Using the definition of $\\cosh x$ in terms of $e^x$ and $e^{-x}$, prove that\n$$\\cosh 2x = 2\\cosh^2 x - 1$$ $\\quad$ **[3]**\n\n**(ii)** Hence solve\n$$\\cosh 2x - 7\\cosh x = 3$$\ngiving your answer in logarithmic form. $\\quad$ **[4]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_009",
+        difficulty: 'standard',
+        question_text: "Solve the equation\n$$2\\cosh^2 x - 3\\sinh x = 1$$\ngiving your answers in terms of natural logarithms. $\\quad$ **[6]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_010",
+        difficulty: 'hard',
+        question_text: "**(a)** Starting from the definitions of $\\cosh x$ and $\\sinh x$ in terms of exponentials, prove that\n$$\\cosh(A-B) = \\cosh A \\cosh B - \\sinh A \\sinh B$$ $\\quad$ **[3]**\n\n**(b)** Hence, or otherwise, given that $\\cosh(x-1) = \\sinh x$, show that\n$$\\tanh x = \\frac{e^2+1}{e^2+2e-1}$$ $\\quad$ **[4]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_HF_011",
+        difficulty: 'standard',
+        question_text: "Find the values of $x$ for which\n$$8\\cosh x - 4\\sinh x = 13$$\ngiving your answers as natural logarithms. $\\quad$ **[6]**",
+        solution_image: ""
+      }
+    ],
+ 
+    "Maclaurin Series": [
+      {
+        id: "FP2_MS_001",
+        difficulty: 'elite',
+        question_text: "$$y = \\sin x \\sinh x$$\n**(a)** Show that $\\dfrac{d^4y}{dx^4} = -4y$. $\\quad$ **[4]**\n\n**(b)** Hence find the first three non-zero terms of the Maclaurin series for $y$, giving each coefficient in its simplest form. $\\quad$ **[4]**\n\n**(c)** Find an expression for the $n$th non-zero term of the Maclaurin series for $y$. $\\quad$ **[2]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_002",
+        difficulty: 'elite',
+        question_text: "$$y = \\arctan(\\sinh(x))$$\n**(a)** Show that $\\dfrac{d^3y}{dx^3} = \\dfrac{dy}{dx} - 2\\left(\\dfrac{dy}{dx}\\right)^3$. $\\quad$ **[7]**\n\n**(b)** Hence find $\\dfrac{d^5y}{dx^5}$ in terms of $\\dfrac{dy}{dx}$, $\\dfrac{d^2y}{dx^2}$ and $\\dfrac{d^3y}{dx^3}$. $\\quad$ **[4]**\n\n**(c)** Find the Maclaurin series for $y$, in ascending powers of $x$, up to and including the term in $x^5$. $\\quad$ **[3]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_003",
+        difficulty: 'hard',
+        question_text: "$$y = \\cosh^n x \\quad n \\geqslant 5$$\n**(a) (i)** Show that\n$$\\frac{d^2y}{dx^2} = n^2\\cosh^n x - n(n-1)\\cosh^{n-2} x$$ $\\quad$ **[4]**\n\n$\\quad$ **(ii)** Determine an expression for $\\dfrac{d^4y}{dx^4}$. $\\quad$ **[2]**\n\n**(b)** Hence determine the first three non-zero terms of the Maclaurin series for $y$, giving each coefficient in simplest form. $\\quad$ **[2]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_004",
+        difficulty: 'standard',
+        question_text: "It is given that $y = \\tan^{-1} 2x$.\n\n**(i)** Find $\\dfrac{dy}{dx}$ and show that\n$$\\frac{d^2y}{dx^2} + 4x\\left(\\frac{dy}{dx}\\right)^2 = 0$$ $\\quad$ **[3]**\n\n**(ii)** Find the Maclaurin series for $y$ up to and including the term in $x^3$, showing your working. $\\quad$ **[4]**\n\n**(iii)** The result in part **(ii)**, together with the value $x = \\dfrac{1}{2}$, is used to find an estimate for $\\pi$. Show that this estimate is only correct to 1 significant figure. $\\quad$ **[2]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_005",
+        difficulty: 'standard',
+        question_text: "It is given that $f(x) = \\ln(1+\\sin x)$.\n\n**(i)** Using the standard Maclaurin series, find the Maclaurin series for $f(x)$ up to and including the term in $x^3$. $\\quad$ **[3]**\n\n**(ii)** Find $f'(x)$ and hence, or otherwise, find the Maclaurin series for $f(x)$ up to and including the term in $x^3$, showing your working. $\\quad$ **[4]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_006",
+        difficulty: 'hard',
+        question_text: "It is given that $f(x) = \\tanh^{-1}\\left(\\dfrac{1-x}{3+x}\\right)$ for $x > -1$.\n\n**(i)** Show that $f''(x) = \\dfrac{1}{2(x+1)^2}$. $\\quad$ **[6]**\n\n**(ii)** Hence find the Maclaurin series for $f(x)$ up to and including the term in $x^2$. $\\quad$ **[4]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_007",
+        difficulty: 'standard',
+        question_text: "**(i)** Write down and simplify the first three non-zero terms of the Maclaurin series for $\\ln(1+3x)$. $\\quad$ **[3]**\n\n**(ii)** Hence find the first three non-zero terms of the Maclaurin series for\n$$e^x \\ln(1+3x)$$ $\\quad$ **[3]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_008",
+        difficulty: 'standard',
+        question_text: "It is given that $f(x) = \\ln(3+x)$.\n\n**(i)** Find the exact values of $f(0)$ and $f'(0)$, and show that $f''(0) = -\\dfrac{1}{9}$. $\\quad$ **[3]**\n\n**(ii)** Hence write down the first three terms of the Maclaurin series for $f(x)$, given that $-3 < x \\leqslant 3$. $\\quad$ **[2]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_009",
+        difficulty: 'hard',
+        question_text: "**(i)** Write down and simplify the first three terms of the Maclaurin series for $e^{2x}$. $\\quad$ **[2]**\n\n**(ii)** Hence show that the Maclaurin series for\n$$\\ln\\left(e^{2x} + e^{-2x}\\right)$$\nbegins $\\ln a + bx^2$, where $a$ and $b$ are constants to be found. $\\quad$ **[4]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_010",
+        difficulty: 'hard',
+        question_text: "$$f(x) = \\tanh^{-1}\\left(\\frac{3-x}{6+x}\\right) \\quad |x| < \\frac{3}{2}$$\n**(a)** Show that\n$$f'(x) = -\\frac{1}{2x+3}$$ $\\quad$ **[4]**\n\n**(b)** Hence determine $f''(x)$. $\\quad$ **[1]**\n\n**(c)** Hence show that the Maclaurin series for $f(x)$, up to and including the term in $x^2$, is\n$$\\ln p + qx + rx^2$$\nwhere $p$, $q$ and $r$ are constants to be determined. $\\quad$ **[3]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_011",
+        difficulty: 'hard',
+        question_text: "**(a)** Write down the Maclaurin series of $e^x$, in ascending powers of $x$, up to and including the term in $x^3$. $\\quad$ **[1]**\n\n**(b)** Hence, without differentiating, determine the Maclaurin series of\n$$e^{(e^x - 1)}$$\nin ascending powers of $x$, up to and including the term in $x^3$, giving each coefficient in simplest form. $\\quad$ **[5]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_MS_012",
+        difficulty: 'hard',
+        question_text: "**(a)** Use the Maclaurin series expansion for $\\cos x$ to determine the series expansion of $\\cos^2\\left(\\dfrac{x}{3}\\right)$ in ascending powers of $x$, up to and including the term in $x^4$. Give each term in simplest form. $\\quad$ **[2]**\n\n**(b)** Use the answer to part **(a)** and calculus to find an approximation, to 5 decimal places, for\n$$\\int_{\\frac{\\pi}{6}}^{\\frac{\\pi}{2}} \\left(\\frac{1}{x}\\cos^2\\left(\\frac{x}{3}\\right)\\right) dx$$ $\\quad$ **[3]**\n\n**(c)** Use the integration function on your calculator to evaluate\n$$\\int_{\\frac{\\pi}{6}}^{\\frac{\\pi}{2}} \\left(\\frac{1}{x}\\cos^2\\left(\\frac{x}{3}\\right)\\right) dx$$\nGive your answer to 5 decimal places. $\\quad$ **[1]**\n\n**(d)** Assuming that the calculator answer in part **(c)** is accurate to 5 decimal places, comment on the accuracy of the approximation found in part **(b)**. $\\quad$ **[1]**",
+        solution_image: ""
+      }
+    ],
+ 
+    "Differentiation": [
+      {
+        id: "FP2_DF_001",
+        difficulty: 'hard',
+        question_text: "Given that\n$$x = t - \\sin t \\quad \\text{and} \\quad y = 1 - \\cos t$$\nwhere $0 < t < 2\\pi$, show that\n$$\\frac{d^2y}{dx^2} = -\\frac{1}{4}\\operatorname{cosec}^4\\left(\\tfrac{1}{2}t\\right)$$ $\\quad$ **[5]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_DF_002",
+        difficulty: 'hard',
+        question_text: "The curve $C$ has equation\n$$xy + (x+y)^5 = 1$$\n**(i)** Show that $\\dfrac{dy}{dx} = -\\dfrac{5}{6}$ at the point $A(1,0)$ on $C$. $\\quad$ **[3]**\n\n**(ii)** Find the value of $\\dfrac{d^2y}{dx^2}$ at $A$. $\\quad$ **[5]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_DF_003",
+        difficulty: 'elite',
+        question_text: "The curve $C$ has equation\n$$y = x^2 + \\lambda \\sin(x+y)$$\nwhere $\\lambda$ is a constant, and passes through the point $A\\left(\\tfrac{1}{4}\\pi, \\tfrac{1}{4}\\pi\\right)$. Show that $C$ has no tangent which is parallel to the $y$-axis. $\\quad$ **[5]**\n\nShow that, at $A$,\n$$\\frac{d^2y}{dx^2} = 2 - \\frac{1}{64}\\pi(4-\\pi)(\\pi+2)^2$$ $\\quad$ **[5]**",
+        solution_image: ""
+      },
+      {
+        id: "FP2_DF_004",
+        difficulty: 'hard',
+        question_text: "Given that the variables $x$ and $y$ are related by\n$$y = x + e^{-xy}$$\nfind the value of $\\dfrac{d^2y}{dx^2}$ when $x = 0$. $\\quad$ **[6]**",
+        solution_image: ""
+},
+{
+  id: "FP2_DF_005",
+  difficulty: 'hard',
+  question_text: "The positive variables $x$ and $y$ are related by\n$$y = x^2 + 2\\ln(xy)$$\nFind the values of $\\dfrac{dy}{dx}$ and $\\dfrac{d^2y}{dx^2}$ when both $x$ and $y$ are equal to $1$. $\\quad$ **[7]**",
+  solution_image: ""
+},
+{
+  id: "FP2_DF_006",
+  difficulty: 'hard',
+  question_text: "The curve $C$ is defined parametrically by\n$$x = 4t - t^2 \\quad \\text{and} \\quad y = 1 - e^{-t}$$\nwhere $0 \\leqslant t < 2$. Show that at all points of $C$,\n$$\\frac{d^2y}{dx^2} = \\frac{(t-1)e^{-t}}{4(2-t)^3}$$ $\\quad$ **[4]**",
+  solution_image: ""
+},
+{
+  id: "FP2_DF_007",
+  difficulty: 'hard',
+  question_text: "A curve has equation\n$$(x+y)(x^2+y^2) = 1$$\nFind the values of $\\dfrac{dy}{dx}$ and $\\dfrac{d^2y}{dx^2}$ at the point $(0,1)$. $\\quad$ **[7]**",
+  solution_image: ""
+},
+{
+  id: "FP2_DF_008",
+  difficulty: 'elite',
+  question_text: "It is given that\n$$x = t + \\sin t, \\quad y = t^2 + 2\\cos t$$\nwhere $-\\pi < t < \\pi$.\n\n**(a)** Find $\\dfrac{dy}{dx}$ in terms of $t$. $\\quad$ **[2]**\n\n**(b)** Show that\n$$\\frac{d^2y}{dx^2} = \\frac{2t\\sin t}{(1+\\cos t)^3}$$ $\\quad$ **[4]**\n\n**(c)** Show that $\\dfrac{dy}{dx}$ increases with $x$ over the given interval of $t$. $\\quad$ **[2]**",
+  solution_image: ""
+},
+{
+  id: "FP2_DF_009",
+  difficulty: 'elite',
+  question_text: "The curve $C$ has equation $x^3 + y^3 = 3xy$, for $x>0$ and $y>0$.\n\n**(a)** Find a relationship between $x$ and $y$ when $\\dfrac{dy}{dx} = 0$. $\\quad$ **[4]**\n\n**(b)** Find the exact coordinates of the turning point of $C$, and determine the nature of this turning point. $\\quad$ **[8]**",
+  solution_image: ""
+},
+{
+  id: "FP2_DF_010",
+  difficulty: 'hard',
+  question_text: "A curve has parametric equations\n$$x = 2\\theta - \\sin 2\\theta, \\quad y = 1 - \\cos 2\\theta, \\quad \\text{for } -3\\pi \\leqslant \\theta \\leqslant 3\\pi$$\n**(a)** Show that\n$$\\frac{dy}{dx} = \\cot \\theta$$\nexcept for certain values of $\\theta$, which should be stated. $\\quad$ **[4]**\n\n**(b)** Find the value of $\\dfrac{d^2y}{dx^2}$ when $\\theta = \\dfrac{1}{4}\\pi$. $\\quad$ **[3]**",
+  solution_image: ""
+},
+{
+  id: "FP2_DF_011",
+  difficulty: 'hard',
+  question_text: "The curve $C$ is defined parametrically by\n$$x = 2\\cos^3 t \\quad \\text{and} \\quad y = 2\\sin^3 t, \\quad \\text{for } 0 < t < \\tfrac{1}{2}\\pi$$\nShow that, at the point with parameter $t$,\n$$\\frac{d^2y}{dx^2} = \\frac{1}{6}\\sec^4 t \\operatorname{cosec} t$$ $\\quad$ **[4]**",
+  solution_image: ""
+},
+{
+  id: "FP2_DF_012",
+  difficulty: 'elite',
+  question_text: "A curve has parametric equations\n$$x = t^a, \\quad y = a^t$$\nFind $\\dfrac{d^2y}{dx^2}$ in terms of $a$ and $t$, and show that, when $t = 2$,\n$$\\frac{d^2y}{dx^2} = 2^{1-2a}(1-a+2\\ln a)\\ln a$$ $\\quad$ **[7]**",
+  solution_image: ""
+},
+{
+  id: "FP2_DF_013",
+  difficulty: 'hard',
+  question_text: "The curve $C$ has parametric equations\n$$x = 3t + 2t^{-1} + at^3, \\quad y = 4t - \\tfrac{3}{2}t^{-1} + bt^3, \\quad \\text{for } 1 \\leqslant t \\leqslant 2$$\nwhere $a$ and $b$ are constants.\n\n**(a)** It is given that $a = \\dfrac{2}{3}$ and $b = -\\dfrac{1}{2}$.\n\nShow that\n$$\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2 = \\frac{25}{4}(t^2+t^{-2})^2$$ $\\quad$ **[6]**\n\n**(b)** It is given instead that $a = b = 0$.\n\nFind the value of $\\dfrac{d^2y}{dx^2}$ when $t = 1$. $\\quad$ **[4]**",
+  solution_image: ""
+},
+    ]
+ 
+  }
+},
       "FS": {
         name: "Further Statistics",
         topics: {
