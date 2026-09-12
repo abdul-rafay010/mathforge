@@ -1,0 +1,35 @@
+// SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY are declared in supabase-config.js,
+// which loads before this file — do NOT redeclare them here.
+
+const mfClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+window.mfClient = mfClient;
+
+// Every caller of mfBootstrapSession() — and there are now several across
+// different files — must share the SAME in-flight attempt, or two callers
+// running at nearly the same instant can each decide "no session yet" and
+// each create a separate anonymous user, corrupting the stored session.
+// This promise cache is what prevents that race.
+let _mfBootstrapPromise = null;
+
+async function mfBootstrapSession() {
+  if (_mfBootstrapPromise) return _mfBootstrapPromise;
+
+  _mfBootstrapPromise = (async () => {
+    const { data: { session } } = await mfClient.auth.getSession();
+    if (session) {
+      console.log("MathForge: existing session found", session.user.id);
+      return session;
+    }
+    const { data, error } = await mfClient.auth.signInAnonymously();
+    if (error) {
+      console.error("MathForge: guest sign-in failed:", error.message);
+      return null;
+    }
+    console.log("MathForge: new guest session created", data.user.id);
+    return data.session;
+  })();
+
+  return _mfBootstrapPromise;
+}
+
+mfBootstrapSession();
