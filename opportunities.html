@@ -437,10 +437,11 @@
     .search-clear:hover { color: var(--parchment); }
 
     /* ════════════════════════════════════════════════
-       CLOSING-SOON NOTIFICATIONS — now a stacked set of
-       dismissible pop-ups, not an inline page section.
-       Kept out of document flow entirely, so the page is
-       shorter and the grid starts right after the filters.
+       CLOSING-SOON NOTIFICATIONS — desktop: a stacked set
+       of dismissible pop-ups, top-right, out of document
+       flow. Mobile: collapsed behind a small summary pill
+       (see mobile override block below) so the page's own
+       content is never permanently obscured.
     ════════════════════════════════════════════════ */
 
     @keyframes pulse-dot {
@@ -566,9 +567,76 @@
     .mf-toast-action.secondary { color: var(--parchment3); border-color: var(--rule2); }
     .mf-toast-action.secondary:hover { color: var(--parchment); border-color: var(--gold-border); }
 
+    /* ── Mobile summary pill — replaces the raw toast stack.
+         Fixed, small, single line: never covers card content.
+         Tapping it opens the toasts in the same bottom-sheet
+         pattern already used by #more-filters-panel, so the
+         interaction language stays consistent site-wide. ── */
+    .toast-summary-btn {
+      display: none;
+      position: fixed;
+      top: 70px;
+      right: 14px;
+      z-index: 9310;
+      align-items: center;
+      gap: 7px;
+      background: var(--ink2);
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      padding: 7px 13px 7px 11px;
+      font-family: var(--sc);
+      font-size: .6rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--gold);
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,.4);
+      transition: border-color .15s, background .15s;
+    }
+
+    .toast-summary-btn:hover { border-color: var(--gold); background: var(--gold3); }
+    .toast-summary-btn .chip-dot { width: 6px; height: 6px; }
+
+    #toast-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(7,7,7,.68);
+      z-index: 9315;
+    }
+    #toast-backdrop.visible { display: block; }
+
     @media (max-width: 600px) {
-      #toast-stack { left: 14px; right: 14px; top: 74px; width: auto; flex-direction: row; flex-wrap: wrap; }
-      #toast-stack .mf-toast { flex: 1 1 150px; }
+      .toast-summary-btn { display: inline-flex; }
+
+      /* The stack itself becomes a bottom sheet: hidden (translated
+         off-screen) until the summary pill is tapped, height-capped
+         with its own scroll, so it can never pin itself over the
+         page's real content the way a tall fixed column did before. */
+      #toast-stack {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: auto;
+        flex-direction: column;
+        max-height: 72vh;
+        overflow-y: auto;
+        background: var(--ink2);
+        border: 1px solid var(--gold-border);
+        border-bottom: none;
+        border-radius: 14px 14px 0 0;
+        padding: 18px 16px calc(18px + env(safe-area-inset-bottom, 0px));
+        box-shadow: 0 -8px 40px rgba(0,0,0,.5);
+        transform: translateY(110%);
+        transition: transform .28s var(--ease);
+        pointer-events: none;
+      }
+      #toast-stack.open {
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      #toast-stack .mf-toast { width: 100%; pointer-events: auto; }
     }
 
     /* ════════════════════════════════════════════════
@@ -1217,6 +1285,7 @@
         <div class="masthead-title">MathForge</div>
       </a>
       <div class="masthead-right">
+        <div id="mf-nav-account"></div>
         <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()"
           title="Switch between dark and light"></button>
         <a class="masthead-link" href="../">Practice Mode</a>
@@ -1363,11 +1432,28 @@
 
   </div>
 
-  <!-- CLOSING-SOON NOTIFICATIONS — stacked pop-ups, top-right,
-       below the masthead. Populated by renderClosingToasts(). -->
+  <!-- CLOSING-SOON NOTIFICATIONS — desktop: stacked pop-ups,
+       top-right. Mobile: collapsed behind a summary pill that
+       opens a bottom sheet, so it never permanently blocks the
+       page underneath. Populated by renderClosingToasts(). -->
+  <button class="toast-summary-btn" id="toast-summary-btn" aria-expanded="false" aria-controls="toast-stack"></button>
+  <div id="toast-backdrop"></div>
   <div id="toast-stack" aria-live="polite"></div>
 
   <script src="competitions-data.js"></script>
+
+  <!-- Identity/auth only — this page doesn't need progress-tracking scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../supabase-config.js"></script>
+  <script src="../supabase-client.js."></script>
+  <script src="../mf-signin.js" defer></script>
+  <script src="../mf-account-extras.js" defer></script>
+  <script src="../mf-account-panel.js" defer></script>
+  <script src="../mf-google-fallback.js" defer></script>
+  <script src="../mf-email-claim.js" defer></script>
+  <script src="../mf-password-strength.js" defer></script>
+  <script src="../mf-password-reset.js" defer></script>
+
   <script>
     // ══════════════════════════════════════════════════
     //  THEME (duplicated from index.html — no shared import)
@@ -1409,6 +1495,7 @@
       if (e.key !== 'Escape') return;
       closeMobMenu();
       closeMoreFilters();
+      closeToastSheet();
     });
 
     // ══════════════════════════════════════════════════
@@ -1927,6 +2014,7 @@
       state.country = 'all'; state.eligibility = 'all'; state.subject = 'all';
       state.search = ''; searchInput.value = ''; searchClear.classList.remove('visible');
       renderAll();
+      closeToastSheet();
       requestAnimationFrame(() => {
         const el = document.getElementById('card-' + id);
         if (!el) return;
@@ -1938,13 +2026,15 @@
 
     // ══════════════════════════════════════════════════
     //  CLOSING-SOON POP-UPS — a stack of dismissible
-    //  notifications, top-right below the masthead. Built
-    //  once on load (not re-rendered by filters/search).
-    //  Always the 3 nearest LIVE deadlines, computed fresh
-    //  from the data every time — deterministic on every
-    //  reload. Dismissing a pop-up only closes it for this
-    //  page view; it is never persisted or backfilled with
-    //  a different entry, so the set never "rotates."
+    //  notifications. Desktop: top-right, always visible.
+    //  Mobile: hidden behind a small summary pill (see
+    //  toggleToastSheet/closeToastSheet) so the page's own
+    //  content is never permanently covered. Always the 3
+    //  nearest LIVE deadlines, computed fresh from the data
+    //  every time — deterministic on every reload. Dismissing
+    //  a pop-up only closes it for this page view; it is
+    //  never persisted or backfilled with a different entry,
+    //  so the set never "rotates."
     // ══════════════════════════════════════════════════
     function toastHTML(c, i) {
       return `
@@ -1963,19 +2053,28 @@
       `;
     }
 
+    let closingSoonList = [];
+
     function renderClosingToasts() {
       const stack = document.getElementById('toast-stack');
+      const summaryBtn = document.getElementById('toast-summary-btn');
+
       // Always the top 3 nearest LIVE deadlines (open or closing-soon),
       // computed fresh from the data on every load — deterministic, never
       // randomized, and never backfilled from a dismissed item.
-      const soon = opportunities
+      closingSoonList = opportunities
         .filter(o => getStatus(o).live && o.regCloses)
         .sort((a, b) => daysUntil(a.regCloses) - daysUntil(b.regCloses))
         .slice(0, 3);
 
-      if (!soon.length) { stack.innerHTML = ''; return; }
+      if (!closingSoonList.length) {
+        stack.innerHTML = '';
+        summaryBtn.style.display = 'none';
+        closeToastSheet();
+        return;
+      }
 
-      stack.innerHTML = soon.map((c, i) => toastHTML(c, i)).join('');
+      stack.innerHTML = closingSoonList.map((c, i) => toastHTML(c, i)).join('');
 
       stack.querySelectorAll('[data-dismiss]').forEach(btn => {
         btn.addEventListener('click', () => dismissToast(btn.dataset.dismiss));
@@ -1984,8 +2083,46 @@
         el.addEventListener('click', () => jumpToCard(el.dataset.view));
       });
 
+      updateToastSummaryBtn();
       tickToastTimers();
     }
+
+    // Mobile summary pill — shows a count and opens the bottom sheet.
+    // On desktop it's simply hidden by CSS and the stack renders as
+    // the original always-visible top-right column.
+    function updateToastSummaryBtn() {
+      const summaryBtn = document.getElementById('toast-summary-btn');
+      const remaining = document.querySelectorAll('#toast-stack .mf-toast:not(.dismissing)').length;
+      if (!remaining) {
+        summaryBtn.style.display = 'none';
+        closeToastSheet();
+        return;
+      }
+      summaryBtn.style.display = '';
+      summaryBtn.innerHTML = `<span class="chip-dot live" style="color:#d4a857"></span>${remaining} closing soon`;
+    }
+
+    function toggleToastSheet() {
+      const stack = document.getElementById('toast-stack');
+      const backdrop = document.getElementById('toast-backdrop');
+      const btn = document.getElementById('toast-summary-btn');
+      const opening = !stack.classList.contains('open');
+      stack.classList.toggle('open', opening);
+      backdrop.classList.toggle('visible', opening);
+      btn.setAttribute('aria-expanded', String(opening));
+    }
+
+    function closeToastSheet() {
+      const stack = document.getElementById('toast-stack');
+      const backdrop = document.getElementById('toast-backdrop');
+      const btn = document.getElementById('toast-summary-btn');
+      stack.classList.remove('open');
+      backdrop.classList.remove('visible');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    document.getElementById('toast-summary-btn').addEventListener('click', toggleToastSheet);
+    document.getElementById('toast-backdrop').addEventListener('click', closeToastSheet);
 
     // Closing a pop-up only removes it from view for this page visit —
     // it does not exclude that opportunity from future loads and does
@@ -1994,12 +2131,14 @@
       const el = document.getElementById('toast-' + id);
       if (!el) return;
       el.classList.add('dismissing');
-      setTimeout(() => el.remove(), 260);
+      setTimeout(() => {
+        el.remove();
+        updateToastSummaryBtn();
+      }, 260);
     }
 
     // Second-by-second countdown shared across every toast in the
     // stack — cheaper than one interval per toast.
-    let toastTickHandle = null;
     function tickToastTimers() {
       document.querySelectorAll('.mf-toast[data-regcloses]').forEach(el => {
         const timerEl = el.querySelector('.mf-toast-timer');
