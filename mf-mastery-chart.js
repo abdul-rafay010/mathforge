@@ -1,21 +1,69 @@
 /**
- * MathForge — Mastery-over-time chart
+ * MathForge — Component-level completion scatter chart
+ * (layers on top of mf-account-panel-v2.js's Progress tab — modifies
+ * neither that file nor mf-mastery-chart.js)
  * ─────────────────────────────────────────────────────────────────────────
- * Verified against the real index__5_.html / questions.js:
- *   - loadProgress() → { questions: { [qid]: { attempts: [{date, scored,
- *     marks, note}, ...] } } }, `date` is a full ISO timestamp string
- *   - findQuestionById(qid) → { course, section, topic, index, q } — the
- *     course/section/topic fields collectAttempts() reads are exactly
- *     those top-level keys, not nested inside `.q`
+ * REVISION NOTE (read before changing this again): this replaces the
+ * previous bar chart's ACCURACY metric with a COMPLETION metric, and the
+ * bar chart itself with an animated scatter plot. Two corrections against
+ * what was assumed going in:
  *
- * Data-shape note: recordAttempt() caps each question's attempts to the
- * most recent 10, so the "cumulative" trend this file draws is cumulative
- * over whatever's currently retained per question — not literally every
- * attempt ever made on heavily-practiced questions. Worth knowing, not a
- * bug: it's the same retention the rest of the app already relies on.
+ *   1. The old metric was NOT spaced-repetition-derived (no ease/interval
+ *      involved anywhere in this file). It was getTopicMastery()'s
+ *      scored/available — i.e. accuracy on each question's LAST attempt.
+ *      This revision drops that function entirely in favor of counting
+ *      distinct attempted questions directly from progress.questions,
+ *      per the new spec.
  *
- * Loads Chart.js from CDN lazily (once), on first call to
- * window.renderMasteryChart().
+ *   2. Two patterns the build spec asked to match — a `.filter-row`
+ *      class and a `card-slide-in`/staggered-delay keyframe — do not
+ *      exist anywhere in index__5_.html or questions.js (checked both
+ *      files directly). The closest real analog is the `probIn` keyframe
+ *      used for question cards: fade + translateY(6px)→0. This file's
+ *      per-point stagger mirrors that timing/feel instead of a pattern
+ *      that isn't actually in the codebase.
+ *
+ * METRIC — completion, not accuracy:
+ *   percentage = (distinct questions in the topic ever attempted)
+ *              / (total questions that exist for the topic) × 100
+ *   "Total" comes straight from SYLLABUS: SYLLABUS[course].sections
+ *   [section].topics[topicName] is itself the array of question objects
+ *   (confirmed in questions.js — e.g. "Coordinate Geometry": [ {id:...},
+ *   ... ]), so its .length is the total with no separate counting pass
+ *   needed. "Attempted" comes from progress.questions[qid].attempts.length
+ *   > 0 — NOT mere presence of progress.questions[qid], because
+ *   toggleFlag() (index.html) also creates that record on a flag with an
+ *   empty attempts array, which would otherwise overcount.
+ *
+ * CHART TYPE — why a line dataset, not Chart.js's "scatter" type: native
+ * `type: 'scatter'` expects a numeric x-axis. Topics are categorical, so
+ * this uses `type: 'line'` with `showLine: false` on a category x-scale —
+ * the standard Chart.js technique for "points on a category axis" — which
+ * renders identically to a scatter plot.
+ *
+ * ANIMATION — Chart.js has no first-class per-point opacity animation, so
+ * "fade + rise" is approximated with two animatable properties instead:
+ * radius growing from 0 (a materializing effect, standing in for fade)
+ * and y rising from the 0% baseline, both staggered per topic via the
+ * `delay` callback. Reads the same as fade+rise without fighting the
+ * library for something it doesn't expose.
+ *
+ * LAYOUT — the reported cutoff (topics past a point, and the Component
+ * dropdown itself, running off the right edge) is addressed two ways:
+ * the dropdown row now wraps instead of forcing two selects to fit one
+ * line on narrow viewports, and the chart's own horizontal-scroll region
+ * gets a visible (thin, gold-tinted) scrollbar rather than a hidden one —
+ * on a chart specifically, a hidden scrollbar hides the very affordance
+ * that tells you there's more to scroll to. Built from the symptom
+ * description, not a live screenshot — flag it back if either cutoff
+ * still reproduces after this.
+ *
+ * Everything else — the Subject/Component dropdown data source and
+ * change-wiring, and hiding (never removing) mf-account-panel-v2.js's
+ * original #mf-progress-topic-select / #mf-progress-chart-container — is
+ * untouched from the previous version.
+ *
+ * Load after mf-account-panel-v2.js (needs its Progress tab DOM to exist).
  * ─────────────────────────────────────────────────────────────────────────
  */
 (function () {
@@ -23,21 +71,39 @@
 
   var CHARTJS_URL = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js';
 
-  var STYLE_ID = 'mf-mastery-chart-styles';
-  if (!document.getElementById(STYLE_ID)) {
-    var style = document.createElement('style');
-    style.id = STYLE_ID;
-    style.textContent = [
-      '.mf-chart-empty {',
-      '  font-family: var(--mf-mono, "JetBrains Mono", monospace); font-style: italic;',
-      '  font-size: 12px; color: var(--mf-parchment-dim, rgba(228,221,208,0.62));',
-      '  text-align: center; padding: 28px 12px;',
-      '}',
-      '.mf-chart-canvas-wrap { position: relative; width: 100%; }'
-    ].join('\n');
-    document.head.appendChild(style);
-  }
+  // ── Styles ────────────────────────────────────────────────────────────
+  var STYLE_ID = 'mf-component-mastery-styles';
+  var existingStyleTag = document.getElementById(STYLE_ID);
+  if (existingStyleTag) existingStyleTag.remove(); // revision — replace prior version's rules cleanly
+  var style = document.createElement('style');
+  style.id = STYLE_ID;
+  style.textContent = [
+    '.mf-component-mastery-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 4px; }',
+    '.mf-component-mastery-row > div { flex: 1 1 160px; min-width: 140px; }',
+    '.mf-component-mastery-label {',
+    '  display: block; font-family: var(--mf-mono, "JetBrains Mono", monospace);',
+    '  font-size: 9.5px; color: var(--mf-parchment-dim, rgba(228,221,208,0.62));',
+    '  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px;',
+    '}',
+    '.mf-scatter-chart-scroll {',
+    '  overflow-x: auto; margin-top: 4px; max-width: 100%;',
+    '  scrollbar-width: thin; scrollbar-color: rgba(168,136,58,0.4) transparent;',
+    '}',
+    '.mf-scatter-chart-scroll::-webkit-scrollbar { height: 6px; }',
+    '.mf-scatter-chart-scroll::-webkit-scrollbar-track { background: transparent; }',
+    '.mf-scatter-chart-scroll::-webkit-scrollbar-thumb {',
+    '  background: rgba(168,136,58,0.35); border-radius: 999px;',
+    '}',
+    '.mf-scatter-chart-inner { height: 220px; }',
+    '.mf-chart-empty {',
+    '  font-family: var(--mf-mono, "JetBrains Mono", monospace); font-style: italic;',
+    '  font-size: 12px; color: var(--mf-parchment-dim, rgba(228,221,208,0.62));',
+    '  text-align: center; padding: 28px 12px;',
+    '}'
+  ].join('\n');
+  document.head.appendChild(style);
 
+  // ── Chart.js lazy loader (interoperates with mf-mastery-chart.js's) ───
   var chartJsPromise = null;
   function ensureChartJsLoaded() {
     if (window.Chart) return Promise.resolve();
@@ -59,109 +125,62 @@
     return chartJsPromise;
   }
 
-  function collectAttempts(course, section, topic) {
-    var progress = (typeof window.loadProgress === 'function') ? window.loadProgress() : null;
-    var attempts = [];
-    if (!progress || !progress.questions) return attempts;
+  // ── Data ────────────────────────────────────────────────────────────────
+  function getTopicsForSection(course, section) {
+    if (typeof SYLLABUS === 'undefined') return [];
+    var c = SYLLABUS[course];
+    var s = c && c.sections && c.sections[section];
+    return s ? Object.keys(s.topics) : [];
+  }
 
-    Object.keys(progress.questions).forEach(function (qid) {
-      var q = (typeof window.findQuestionById === 'function') ? window.findQuestionById(qid) : null;
-      if (!q || q.course !== course || q.section !== section || q.topic !== topic) return;
+  function getQuestionIdsForTopic(course, section, topic) {
+    if (typeof SYLLABUS === 'undefined') return [];
+    var c = SYLLABUS[course];
+    var s = c && c.sections && c.sections[section];
+    var qs = s && s.topics && s.topics[topic];
+    return Array.isArray(qs) ? qs.map(function (q) { return q.id; }) : [];
+  }
 
-      var rec = progress.questions[qid];
-      (rec.attempts || []).forEach(function (a) {
-        if (a && a.date && typeof a.scored === 'number' && typeof a.marks === 'number' && a.marks > 0) {
-          attempts.push({ date: a.date, scored: a.scored, marks: a.marks });
-        }
-      });
+  function countAttempted(questionIds, progress) {
+    if (!progress || !progress.questions) return 0;
+    var n = 0;
+    questionIds.forEach(function (id) {
+      var rec = progress.questions[id];
+      // Presence alone isn't enough — toggleFlag() also creates this
+      // record (with an empty attempts array) when a question is only
+      // flagged, never attempted.
+      if (rec && rec.attempts && rec.attempts.length > 0) n++;
     });
-
-    return attempts;
+    return n;
   }
 
-  function getMonday(dateLike) {
-    var d = new Date(dateLike);
-    var day = d.getDay(); // 0=Sun..6=Sat
-    var diff = (day === 0 ? -6 : 1) - day;
-    d.setDate(d.getDate() + diff);
-    d.setHours(0, 0, 0, 0);
-    return d;
-  }
+  // ── Chart drawing ───────────────────────────────────────────────────────
+  function drawScatterChart(containerEl, labels, values, colors) {
+    containerEl.innerHTML = '<div class="mf-scatter-chart-scroll"><div class="mf-scatter-chart-inner"><canvas></canvas></div></div>';
+    var inner = containerEl.querySelector('.mf-scatter-chart-inner');
+    var minWidthPerPoint = 70;
+    inner.style.minWidth = Math.max(labels.length * minWidthPerPoint, 100) + 'px';
 
-  function isoDateOnly(d) {
-    return d.toISOString().slice(0, 10);
-  }
-
-  function computeWeeklyCumulativeSeries(attempts) {
-    var sorted = attempts.slice().sort(function (a, b) {
-      return new Date(a.date) - new Date(b.date);
-    });
-    if (sorted.length === 0) return { labels: [], values: [] };
-
-    var weekKeysSeen = {};
-    var weekKeys = [];
-    sorted.forEach(function (a) {
-      var key = isoDateOnly(getMonday(a.date));
-      if (!weekKeysSeen[key]) {
-        weekKeysSeen[key] = true;
-        weekKeys.push(key);
-      }
-    });
-    weekKeys.sort();
-
-    var labels = [];
-    var values = [];
-    weekKeys.forEach(function (weekKey) {
-      var weekEnd = new Date(weekKey);
-      weekEnd.setDate(weekEnd.getDate() + 6);
-      weekEnd.setHours(23, 59, 59, 999);
-
-      var sumScored = 0;
-      var sumMarks = 0;
-      sorted.forEach(function (a) {
-        if (new Date(a.date) <= weekEnd) {
-          sumScored += a.scored;
-          sumMarks += a.marks;
-        }
-      });
-
-      var pct = sumMarks > 0 ? (sumScored / sumMarks) * 100 : 0;
-      var mondayDate = new Date(weekKey);
-      labels.push(mondayDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }));
-      values.push(Math.round(pct * 10) / 10);
-    });
-
-    return { labels: labels, values: values };
-  }
-
-  function renderEmptyState(containerEl) {
-    containerEl.innerHTML = '<p class="mf-chart-empty">Not enough history yet — keep practising.</p>';
-  }
-
-  function drawChart(containerEl, series) {
-    containerEl.innerHTML = '<div class="mf-chart-canvas-wrap"><canvas></canvas></div>';
     var canvas = containerEl.querySelector('canvas');
-
     var rootStyles = getComputedStyle(document.documentElement);
     var dimColor = rootStyles.getPropertyValue('--mf-parchment-dim').trim() || 'rgba(228,221,208,0.62)';
-    var goldColor = rootStyles.getPropertyValue('--mf-gold').trim() || '#a8883a';
     var gridColor = 'rgba(228,221,208,0.08)';
 
     // eslint-disable-next-line no-new
     new window.Chart(canvas.getContext('2d'), {
+      // type: 'line' with showLine:false, not the native 'scatter' type —
+      // 'scatter' expects a numeric x-axis. Topics are categorical.
       type: 'line',
       data: {
-        labels: series.labels,
+        labels: labels,
         datasets: [{
-          data: series.values,
-          borderColor: goldColor,
-          backgroundColor: 'transparent',
-          borderWidth: 2,
-          pointRadius: 2.5,
-          pointBackgroundColor: goldColor,
-          pointBorderColor: goldColor,
-          tension: 0.25,
-          fill: false
+          data: values,
+          showLine: false,
+          pointRadius: 6,
+          pointHoverRadius: 7,
+          pointBackgroundColor: colors,
+          pointBorderColor: colors,
+          pointBorderWidth: 0
         }]
       },
       options: {
@@ -170,8 +189,9 @@
         plugins: { legend: { display: false } },
         scales: {
           x: {
-            ticks: { color: dimColor, font: { family: 'JetBrains Mono', size: 10 } },
-            grid: { color: gridColor }
+            type: 'category',
+            ticks: { color: dimColor, font: { family: 'JetBrains Mono', size: 10 }, maxRotation: 55, minRotation: 35 },
+            grid: { display: false }
           },
           y: {
             min: 0,
@@ -183,32 +203,201 @@
             },
             grid: { color: gridColor }
           }
+        },
+        // "Fade + rise, staggered" — approximated with radius-grow (stands
+        // in for fade, since Chart.js has no first-class point-opacity
+        // animation) and a rise from the 0% baseline, timed similarly to
+        // the site's own `probIn` keyframe (fade + translateY(6px)→0).
+        animation: {
+          duration: 500,
+          delay: function (ctx) {
+            return ctx.type === 'data' ? ctx.dataIndex * 60 : 0;
+          }
+        },
+        animations: {
+          y: {
+            duration: 500,
+            from: function (ctx) { return ctx.chart.scales.y.getPixelForValue(0); }
+          },
+          radius: {
+            duration: 350,
+            from: 0
+          }
         }
       }
     });
   }
 
-  window.renderMasteryChart = function (containerElement, course, section, topic) {
+  window.renderComponentMasteryChart = function (containerElement, course, section) {
     if (!containerElement) return;
-    containerElement.innerHTML = '<p class="mf-chart-empty">Loading chart…</p>';
+    containerElement.innerHTML = '<p class="mf-chart-empty">Loading chart\u2026</p>';
 
     ensureChartJsLoaded()
       .then(function () {
-        var attempts = collectAttempts(course, section, topic);
-        if (attempts.length < 2) {
-          renderEmptyState(containerElement);
+        var topics = getTopicsForSection(course, section);
+        if (topics.length === 0) {
+          containerElement.innerHTML = '<p class="mf-chart-empty">No topics found for this component.</p>';
           return;
         }
-        var series = computeWeeklyCumulativeSeries(attempts);
-        if (series.labels.length < 2) {
-          renderEmptyState(containerElement);
-          return;
-        }
-        drawChart(containerElement, series);
+
+        var progress = (typeof window.loadProgress === 'function') ? window.loadProgress() : null;
+
+        var values = [];
+        var colors = [];
+        topics.forEach(function (t) {
+          var ids = getQuestionIdsForTopic(course, section, t);
+          var total = ids.length;
+          var attempted = countAttempted(ids, progress);
+          var pct = total > 0 ? Math.round((attempted / total) * 1000) / 10 : 0;
+          values.push(pct);
+          colors.push(attempted > 0 ? '#a8883a' : 'rgba(228,221,208,0.15)');
+        });
+
+        drawScatterChart(containerElement, topics, values, colors);
       })
       .catch(function (err) {
-        console.error('[mf-mastery-chart] failed to render', err);
+        console.error('[mf-component-mastery-chart] failed to render', err);
         containerElement.innerHTML = '<p class="mf-chart-empty">Couldn\u2019t load the chart. Try again shortly.</p>';
       });
   };
+
+  // ── Progress-tab dropdown UI (unchanged from the previous version) ─────
+
+  function waitFor(checkFn, cb) {
+    var existing = checkFn();
+    if (existing) { cb(existing); return; }
+    var observer = new MutationObserver(function () {
+      var found = checkFn();
+      if (found) { observer.disconnect(); cb(found); }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  function computeDefaultCourseSection() {
+    // getTopicMastery()'s qCount is "distinct questions with any attempt
+    // in that topic" — the same underlying idea as this file's completion
+    // numerator — so it's still a reasonable volume proxy for picking the
+    // most-practiced component by default, even though its scored/
+    // available fields are no longer used for the chart itself.
+    var rows = (typeof window.getTopicMastery === 'function') ? window.getTopicMastery() : [];
+    var totals = {};
+    rows.forEach(function (r) {
+      var key = r.course + '|' + r.section;
+      totals[key] = (totals[key] || 0) + (r.qCount || 0);
+    });
+
+    var bestKey = null;
+    var bestCount = -1;
+    Object.keys(totals).forEach(function (k) {
+      if (totals[k] > bestCount) { bestCount = totals[k]; bestKey = k; }
+    });
+
+    if (bestKey) {
+      var parts = bestKey.split('|');
+      return { course: parts[0], section: parts[1] };
+    }
+
+    if (typeof SYLLABUS === 'undefined') return null;
+    var courseCodes = Object.keys(SYLLABUS).sort();
+    if (!courseCodes.length) return null;
+    var course = courseCodes[0];
+    var sectionCodes = Object.keys(SYLLABUS[course].sections).sort();
+    return sectionCodes.length ? { course: course, section: sectionCodes[0] } : null;
+  }
+
+  function populateSubjectSelect(selectEl) {
+    if (typeof SYLLABUS === 'undefined') return;
+    selectEl.innerHTML = Object.keys(SYLLABUS).map(function (c) {
+      return '<option value="' + c + '">' + c + ' \u2014 ' + SYLLABUS[c].name + '</option>';
+    }).join('');
+  }
+
+  function populateComponentSelect(selectEl, course) {
+    if (typeof SYLLABUS === 'undefined' || !SYLLABUS[course]) { selectEl.innerHTML = ''; return; }
+    var sections = SYLLABUS[course].sections;
+    selectEl.innerHTML = Object.keys(sections).map(function (s) {
+      return '<option value="' + s + '">' + s + ' \u2014 ' + sections[s].name + '</option>';
+    }).join('');
+  }
+
+  waitFor(
+    function () { return document.querySelector('.mf-manage-panel[data-panel="progress"]'); },
+    function (progressPanel) {
+      var subjectSelect = null;
+      var componentSelect = null;
+      var chartContainer = null;
+
+      function renderCurrentSelection() {
+        if (!subjectSelect || !componentSelect || !chartContainer) return;
+        window.renderComponentMasteryChart(chartContainer, subjectSelect.value, componentSelect.value);
+      }
+
+      function buildUI() {
+        var oldSelect = progressPanel.querySelector('#mf-progress-topic-select');
+        var oldContainer = progressPanel.querySelector('#mf-progress-chart-container');
+        if (oldSelect) oldSelect.style.display = 'none';
+        if (oldContainer) oldContainer.style.display = 'none';
+
+        var existingWrap = progressPanel.querySelector('.mf-component-mastery-wrap');
+        if (existingWrap) existingWrap.remove(); // revision — rebuild cleanly rather than layer on stale nodes
+
+        var wrap = document.createElement('div');
+        wrap.className = 'mf-component-mastery-wrap';
+        wrap.innerHTML =
+          '<div class="mf-component-mastery-row">' +
+            '<div>' +
+              '<label class="mf-component-mastery-label" for="mf-cm-subject-select">Subject</label>' +
+              '<select class="mf-progress-select" id="mf-cm-subject-select"></select>' +
+            '</div>' +
+            '<div>' +
+              '<label class="mf-component-mastery-label" for="mf-cm-component-select">Component</label>' +
+              '<select class="mf-progress-select" id="mf-cm-component-select"></select>' +
+            '</div>' +
+          '</div>' +
+          '<div class="mf-progress-chart-container" id="mf-cm-chart-container"></div>';
+
+        (oldContainer || oldSelect || progressPanel).insertAdjacentElement('afterend', wrap);
+
+        subjectSelect = wrap.querySelector('#mf-cm-subject-select');
+        componentSelect = wrap.querySelector('#mf-cm-component-select');
+        chartContainer = wrap.querySelector('#mf-cm-chart-container');
+
+        populateSubjectSelect(subjectSelect);
+
+        var def = computeDefaultCourseSection();
+        if (def) {
+          subjectSelect.value = def.course;
+          populateComponentSelect(componentSelect, def.course);
+          componentSelect.value = def.section;
+        } else {
+          populateComponentSelect(componentSelect, subjectSelect.value);
+        }
+
+        subjectSelect.addEventListener('change', function () {
+          populateComponentSelect(componentSelect, subjectSelect.value);
+          componentSelect.selectedIndex = 0;
+          renderCurrentSelection();
+        });
+        componentSelect.addEventListener('change', renderCurrentSelection);
+
+        renderCurrentSelection();
+      }
+
+      // Default selection is computed once, the first time the Progress tab
+      // is opened. Re-opening the tab later just re-renders whatever the
+      // dropdowns are currently set to (picking up fresh attempt data)
+      // rather than silently resetting a selection the user already made.
+      var observer = new MutationObserver(function () {
+        if (!progressPanel.classList.contains('mf-active')) return;
+        if (!subjectSelect) {
+          buildUI();
+        } else {
+          renderCurrentSelection();
+        }
+      });
+      observer.observe(progressPanel, { attributes: true, attributeFilter: ['class'] });
+
+      if (progressPanel.classList.contains('mf-active')) buildUI();
+    }
+  );
 })();
