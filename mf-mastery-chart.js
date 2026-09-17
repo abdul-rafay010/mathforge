@@ -63,6 +63,34 @@
  * original #mf-progress-topic-select / #mf-progress-chart-container — is
  * untouched from the previous version.
  *
+ * REVISION NOTE 2 — two fixes, applied directly against a screenshot
+ * showing tall gold rectangles instead of points, and TWO full
+ * Subject/Component/chart blocks stacked instead of one:
+ *
+ *   1. THE BAR SHAPE: `showLine: false` only suppresses the connecting
+ *      stroke — it says nothing about the fill. Chart.js was still
+ *      filling the area under that invisible line down to the 0%
+ *      baseline, which is exactly what a tall gold rectangle rooted at
+ *      0% is. Fix: `fill: false` added alongside `showLine: false`.
+ *
+ *   2. THE DOUBLE BLOCK: the old-UI hide step used `querySelector`
+ *      (single element) for `#mf-progress-topic-select` /
+ *      `#mf-progress-chart-container`. If mf-account-panel-v2.js
+ *      actually renders one such block PER SUBJECT rather than one
+ *      shared block — i.e. the same id used twice, which is invalid
+ *      HTML but not something browsers refuse to render — `querySelector`
+ *      only ever finds and hides the first one, leaving the second
+ *      old block (still running the original bar-chart code, which is
+ *      why it looked like a bar too) fully visible right next to the
+ *      new one. Fix: switched to `querySelectorAll` + hide every match,
+ *      not just the first.
+ *
+ *      This is a defensive fix, not a confirmed root cause — it was
+ *      applied without seeing mf-account-panel-v2.js's real markup.
+ *      If a duplicate old block still appears after this, the actual
+ *      id/selector mf-account-panel-v2.js uses needs to be confirmed
+ *      directly rather than assumed again.
+ *
  * Load after mf-account-panel-v2.js (needs its Progress tab DOM to exist).
  * ─────────────────────────────────────────────────────────────────────────
  */
@@ -176,6 +204,9 @@
         datasets: [{
           data: values,
           showLine: false,
+          fill: false, // FIX: showLine:false alone doesn't stop the area
+                       // fill down to the 0% baseline — that fill was the
+                       // "bar" in the reported screenshot. Must be explicit.
           pointRadius: 6,
           pointHoverRadius: 7,
           pointBackgroundColor: colors,
@@ -333,10 +364,22 @@
       }
 
       function buildUI() {
-        var oldSelect = progressPanel.querySelector('#mf-progress-topic-select');
-        var oldContainer = progressPanel.querySelector('#mf-progress-chart-container');
-        if (oldSelect) oldSelect.style.display = 'none';
-        if (oldContainer) oldContainer.style.display = 'none';
+        // FIX: was querySelector (single element) — switched to
+        // querySelectorAll + hide every match. If mf-account-panel-v2.js
+        // renders one old block per subject (same id used twice, which
+        // browsers tolerate even though it's invalid HTML), querySelector
+        // only ever found and hid the FIRST one, leaving a second old
+        // bar-chart block fully visible next to the new one — exactly
+        // the "two blocks" reported. This is a defensive fix, not a
+        // confirmed root cause; if a duplicate old block still shows up
+        // after this, the real id/selector needs to be confirmed against
+        // mf-account-panel-v2.js directly rather than assumed again.
+        var oldSelects = progressPanel.querySelectorAll('#mf-progress-topic-select');
+        var oldContainers = progressPanel.querySelectorAll('#mf-progress-chart-container');
+        oldSelects.forEach(function (el) { el.style.display = 'none'; });
+        oldContainers.forEach(function (el) { el.style.display = 'none'; });
+        var oldSelect = oldSelects[0];
+        var oldContainer = oldContainers[0];
 
         var existingWrap = progressPanel.querySelector('.mf-component-mastery-wrap');
         if (existingWrap) existingWrap.remove(); // revision — rebuild cleanly rather than layer on stale nodes
