@@ -1,5 +1,5 @@
 /**
- * MathForge — Component-level completion scatter chart
+ * MathForge — Component-level completion chart
  * (layers on top of mf-account-panel-v2.js's Progress tab — modifies
  * neither that file nor mf-mastery-chart.js)
  * ─────────────────────────────────────────────────────────────────────────
@@ -35,28 +35,12 @@
  *   toggleFlag() (index.html) also creates that record on a flag with an
  *   empty attempts array, which would otherwise overcount.
  *
- * CHART TYPE — why a line dataset, not Chart.js's "scatter" type: native
- * `type: 'scatter'` expects a numeric x-axis. Topics are categorical, so
- * this uses `type: 'line'` with `showLine: false` on a category x-scale —
- * the standard Chart.js technique for "points on a category axis" — which
- * renders identically to a scatter plot.
- *
  * ANIMATION — Chart.js has no first-class per-point opacity animation, so
  * "fade + rise" is approximated with two animatable properties instead:
  * radius growing from 0 (a materializing effect, standing in for fade)
  * and y rising from the 0% baseline, both staggered per topic via the
  * `delay` callback. Reads the same as fade+rise without fighting the
  * library for something it doesn't expose.
- *
- * LAYOUT — the reported cutoff (topics past a point, and the Component
- * dropdown itself, running off the right edge) is addressed two ways:
- * the dropdown row now wraps instead of forcing two selects to fit one
- * line on narrow viewports, and the chart's own horizontal-scroll region
- * gets a visible (thin, gold-tinted) scrollbar rather than a hidden one —
- * on a chart specifically, a hidden scrollbar hides the very affordance
- * that tells you there's more to scroll to. Built from the symptom
- * description, not a live screenshot — flag it back if either cutoff
- * still reproduces after this.
  *
  * Everything else — the Subject/Component dropdown data source and
  * change-wiring, and hiding (never removing) mf-account-panel-v2.js's
@@ -76,19 +60,37 @@
  *      adding `fill: false` alongside `showLine: false`.
  *
  *   2. THE DUPLICATE BLOCK: the old-UI hide logic used `querySelector`
- *      (first match only). If `#mf-progress-topic-select` / 
+ *      (first match only). If `#mf-progress-topic-select` /
  *      `#mf-progress-chart-container` exist more than once in the real
- *      DOM (e.g. one old block per subject rather than one shared block —
- *      unconfirmed, this file has never had direct sight of
- *      mf-account-panel-v2.js's markup), only the first instance got
- *      hidden and the rest kept rendering with the original bar-chart
- *      behavior untouched. Fixed by switching to `querySelectorAll` and
- *      hiding every match, which is a strict superset of the old
- *      behavior — harmless if there was only ever one, correct if there
- *      were more. If the duplicate block is still visible after this,
- *      the IDs themselves don't match the real markup and need to be
- *      confirmed directly against mf-account-panel-v2.js's source rather
- *      than patched again from a screenshot.
+ *      DOM, only the first instance got hidden. Fixed by switching to
+ *      `querySelectorAll` and hiding every match.
+ * ─────────────────────────────────────────────────────────────────────────
+ * REVISION 3 — two requested changes, both confirmed against a screenshot
+ * showing disconnected points and topics ("Vectors", "Differential
+ * Equations") cut off past the modal's right edge with nothing to make
+ * that discoverable:
+ *
+ *   1. LINE VS BAR: chose to connect the points with a smooth line rather
+ *      than reintroduce bars. Bars read closer to a standard dashboard
+ *      widget; the site's own design brief (dark academia, "premium,
+ *      restrained — not flashy, not corporate-SaaS") points toward a
+ *      quieter connected curve instead. The line uses a muted, translucent
+ *      gold (`rgba(168,136,58,0.45)`) so it reads as a trend path behind
+ *      the points, not a second competing signal — the points themselves
+ *      stay the primary gold/dim (attempted/not) language. `fill: false`
+ *      is kept from Revision 2's fix so the area-under-curve bug can't
+ *      reappear now that showLine is back on.
+ *
+ *   2. TOPIC SLIDER: the horizontal-scroll container already existed
+ *      (`.mf-scatter-chart-scroll`, `overflow-x: auto`), but nothing
+ *      signals it's scrollable beyond a thin native scrollbar, which is
+ *      easy to miss — hence topics running off-screen with "no way to see
+ *      them." A styled range-input slider is now appended below the chart
+ *      whenever content actually overflows (skipped entirely when every
+ *      topic already fits), bidirectionally synced to the scroll
+ *      container's scrollLeft. It's rebuilt on every render since
+ *      drawScatterChart() already fully replaces the container's
+ *      innerHTML per redraw — no separate cleanup needed.
  * ─────────────────────────────────────────────────────────────────────────
  */
 (function () {
@@ -124,6 +126,24 @@
     '  font-family: var(--mf-mono, "JetBrains Mono", monospace); font-style: italic;',
     '  font-size: 12px; color: var(--mf-parchment-dim, rgba(228,221,208,0.62));',
     '  text-align: center; padding: 28px 12px;',
+    '}',
+    '.mf-topic-slider-wrap { margin-top: 12px; padding: 0 4px; }',
+    '.mf-topic-slider {',
+    '  width: 100%; display: block; -webkit-appearance: none; appearance: none;',
+    '  height: 3px; border-radius: 999px; background: rgba(228,221,208,0.12);',
+    '  outline: none; cursor: pointer; margin: 0;',
+    '}',
+    '.mf-topic-slider::-webkit-slider-runnable-track { height: 3px; border-radius: 999px; background: transparent; }',
+    '.mf-topic-slider::-webkit-slider-thumb {',
+    '  -webkit-appearance: none; appearance: none; width: 13px; height: 13px;',
+    '  border-radius: 50%; background: var(--mf-gold, #a8883a);',
+    '  border: 2px solid #0c0c0c; box-shadow: 0 0 0 1px rgba(168,136,58,0.4);',
+    '  cursor: pointer; margin-top: -5px;',
+    '}',
+    '.mf-topic-slider::-moz-range-track { height: 3px; border-radius: 999px; background: rgba(228,221,208,0.12); }',
+    '.mf-topic-slider::-moz-range-thumb {',
+    '  width: 13px; height: 13px; border-radius: 50%; background: var(--mf-gold, #a8883a);',
+    '  border: 2px solid #0c0c0c; cursor: pointer;',
     '}'
   ].join('\n');
   document.head.appendChild(style);
@@ -179,9 +199,45 @@
     return n;
   }
 
+  // ── Topic slider (Revision 3) ───────────────────────────────────────────
+  // Appended below the chart, only when content actually overflows the
+  // visible width. Rebuilt on every render — drawScatterChart() already
+  // wipes containerEl's innerHTML each redraw, so there's nothing to clean
+  // up separately.
+  function attachTopicSlider(containerEl, scrollEl) {
+    // Let layout settle (widths from the just-inserted canvas/scroll div
+    // aren't reliable until after the next paint) before measuring overflow.
+    window.requestAnimationFrame(function () {
+      var overflowAmount = scrollEl.scrollWidth - scrollEl.clientWidth;
+      if (overflowAmount <= 4) return; // everything already fits — no slider needed
+
+      var sliderWrap = document.createElement('div');
+      sliderWrap.className = 'mf-topic-slider-wrap';
+      sliderWrap.innerHTML =
+        '<input type="range" class="mf-topic-slider" min="0" max="' + overflowAmount +
+        '" value="0" step="1" aria-label="Scroll through topics">';
+      containerEl.appendChild(sliderWrap);
+
+      var slider = sliderWrap.querySelector('.mf-topic-slider');
+      var syncingFromSlider = false;
+
+      slider.addEventListener('input', function () {
+        syncingFromSlider = true;
+        scrollEl.scrollLeft = parseInt(slider.value, 10);
+        window.setTimeout(function () { syncingFromSlider = false; }, 0);
+      });
+
+      scrollEl.addEventListener('scroll', function () {
+        if (syncingFromSlider) return;
+        slider.value = String(scrollEl.scrollLeft);
+      });
+    });
+  }
+
   // ── Chart drawing ───────────────────────────────────────────────────────
   function drawScatterChart(containerEl, labels, values, colors) {
     containerEl.innerHTML = '<div class="mf-scatter-chart-scroll"><div class="mf-scatter-chart-inner"><canvas></canvas></div></div>';
+    var scrollEl = containerEl.querySelector('.mf-scatter-chart-scroll');
     var inner = containerEl.querySelector('.mf-scatter-chart-inner');
     var minWidthPerPoint = 70;
     inner.style.minWidth = Math.max(labels.length * minWidthPerPoint, 100) + 'px';
@@ -193,15 +249,16 @@
 
     // eslint-disable-next-line no-new
     new window.Chart(canvas.getContext('2d'), {
-      // type: 'line' with showLine:false, not the native 'scatter' type —
-      // 'scatter' expects a numeric x-axis. Topics are categorical.
       type: 'line',
       data: {
         labels: labels,
         datasets: [{
           data: values,
-          showLine: false,
-          fill: false, // REVISION 2 — showLine:false alone doesn't stop the area fill under the (invisible) line; without this, the fill rendered as a solid bar from 0% up to each value.
+          showLine: true,          // Revision 3 — connect points into a curve
+          tension: 0.35,
+          borderColor: 'rgba(168,136,58,0.45)', // muted — a trend path behind the points, not competing with them
+          borderWidth: 2,
+          fill: false,              // kept from Revision 2 — without this the area under the curve renders as a solid block
           pointRadius: 6,
           pointHoverRadius: 7,
           pointBackgroundColor: colors,
@@ -252,6 +309,8 @@
         }
       }
     });
+
+    attachTopicSlider(containerEl, scrollEl);
   }
 
   window.renderComponentMasteryChart = function (containerElement, course, section) {
@@ -359,12 +418,9 @@
       }
 
       function buildUI() {
-        // REVISION 2 — querySelectorAll + hide-all instead of the previous
-        // querySelector (first-match-only). If the old topic UI exists
-        // more than once in the real DOM (one block per subject, say),
-        // the old code only ever hid the first one and left the rest
-        // rendering untouched — this is what produced a second, fully
-        // functional bar-chart block sitting alongside the new one.
+        // Revision 2 — querySelectorAll + hide-all instead of querySelector
+        // (first-match-only), in case the old topic UI exists more than
+        // once in the real DOM.
         var oldSelects = progressPanel.querySelectorAll('#mf-progress-topic-select');
         var oldContainers = progressPanel.querySelectorAll('#mf-progress-chart-container');
         oldSelects.forEach(function (el) { el.style.display = 'none'; });
