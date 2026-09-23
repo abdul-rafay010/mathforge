@@ -805,6 +805,36 @@ const SYLLABUS = {
   question_text: "The polynomial $\\mathrm{p}(z)$ is defined by\n$$\\mathrm{p}(z) = z^3 + mz^2 + 24z + 32$$\nwhere $m$ is a constant. It is given that $(z + 2)$ is a factor of $\\mathrm{p}(z)$.\n\n**(i)** Find the value of $m$. $\\quad$ **[2]**\n\n**(ii)** Hence, showing all your working, find\n\n**(a)** the three roots of the equation $\\mathrm{p}(z) = 0$, $\\quad$ **[5]**\n\n**(b)** the six roots of the equation $\\mathrm{p}(z^2) = 0$. $\\quad$ **[6]**",
   solution_image: ""
 },
+            {
+  id: "P3_AL_015",
+  difficulty: 'standard',
+  question_text: "Given that the binomial expansion of $(1+kx)^n$ is $1 - 6x + 30x^2 + \\ldots$, find the values of $n$ and $k$. State the set of values of $x$ for which this expansion is valid. $\\quad$ **[6]**",
+  solution_image: ""
+},
+{
+  id: "P3_AL_016",
+  difficulty: 'standard',
+  question_text: "**(i)** Find the first three terms in the expansion of $(1-2x)^{-\\frac{1}{2}}$ in ascending powers of $x$, where $|x| < \\tfrac{1}{2}$. $\\quad$ **[3]**\n\n**(ii)** Hence find the coefficient of $x^2$ in the expansion of $\\dfrac{x+3}{\\sqrt{1-2x}}$. $\\quad$ **[2]**",
+  solution_image: ""
+},
+{
+  id: "P3_AL_017",
+  difficulty: 'hard',
+  question_text: "**(i)** Show that $\\dfrac{x}{(1-x)^3} \\approx x + 3x^2 + 6x^3$ for small values of $x$. $\\quad$ **[2]**\n\n**(ii)** Use this result, together with a suitable value of $x$, to obtain a decimal estimate of the value of $\\dfrac{100}{729}$. $\\quad$ **[2]**\n\n**(iii)** Show that\n$$\\frac{x}{(1-x)^3} = -\\frac{1}{x^2}\\left(1-\\frac{1}{x}\\right)^{-3}$$\nHence find the first three terms of the binomial expansion of $\\dfrac{x}{(1-x)^3}$ in powers of $\\dfrac{1}{x}$. $\\quad$ **[4]**\n\n**(iv)** Comment on the suitability of substituting the same value of $x$ as used in part **(ii)** in the expansion in part **(iii)** to estimate the value of $\\dfrac{100}{729}$. $\\quad$ **[1]**",
+  solution_image: ""
+},
+{
+  id: "P3_AL_018",
+  difficulty: 'standard',
+  question_text: "**(a)** Use the binomial theorem to expand\n$$(8-3x)^{\\frac{1}{3}}, \\quad |x| < \\tfrac{8}{3}$$\nin ascending powers of $x$, up to and including the term in $x^3$, giving each term as a simplified fraction. $\\quad$ **[5]**\n\n**(b)** Use your expansion, with a suitable value of $x$, to obtain an approximation to $\\sqrt[3]{7.7}$. Give your answer to 7 decimal places. $\\quad$ **[2]**",
+  solution_image: ""
+},
+{
+  id: "P3_AL_019",
+  difficulty: 'standard',
+  question_text: "$$\\frac{2x^2+5x-10}{(x-1)(x+2)} \\equiv A + \\frac{B}{x-1} + \\frac{C}{x+2}$$\n**(a)** Find the values of the constants $A$, $B$ and $C$. $\\quad$ **[4]**\n\n**(b)** Hence, or otherwise, expand\n$$\\frac{2x^2+5x-10}{(x-1)(x+2)}$$\nin ascending powers of $x$, as far as the term in $x^2$. Give each coefficient as a simplified fraction. $\\quad$ **[7]**",
+  solution_image: ""
+}
           ],
           "Logarithmic & Exp Functions": [
             {
@@ -849,6 +879,78 @@ const SYLLABUS = {
               question_text: "The variables $x$ and $y$ satisfy the relation $3^y = 4^{2-x}$.\n\n**(i)** By taking logarithms, show that the graph of $y$ against $x$ is a straight line. State the exact value of the gradient of this line. $\\quad$ **[3]**\n\n**(ii)** Calculate the exact $x$-coordinate of the point of intersection of this line with the line with equation $y = 2x$, simplifying your answer. $\\quad$ **[2]**",
               solution_image: "" 
             },
+            {
+  id: "P3_LEF_008",
+  difficulty: 'standard',
+  question_text: "Given that $a$ and $b$ are positive constants, solve the simultaneous equations\n$$a = 3b, \\qquad \\log_3 a + \\log_3 b = 2$$\nGive your answers as exact numbers. $\\quad$ **[6]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_009",
+  difficulty: 'standard',
+  question_text: "Given that $0 < x < 4$ and\n$$\\log_5(4-x) - 2\\log_5 x = 1$$\nfind the value of $x$. $\\quad$ **[6]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_010",
+  difficulty: 'standard',
+  question_text: "**(a)** Find the value of $y$ such that\n$$\\log_2 y = -3$$ $\\quad$ **[2]**\n\n**(b)** Find the values of $x$ such that\n$$\\frac{\\log_2 32 + \\log_2 16}{\\log_2 x} = \\log_2 x$$ $\\quad$ **[5]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_011",
+  difficulty: 'standard',
+  question_text: "Find the values of $x$ such that\n$$2\\log_3 x - \\log_3(x-2) = 2$$ $\\quad$ **[5]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_012",
+  difficulty: 'standard',
+  question_text: "Given that\n$$2\\log_2(x+15) - \\log_2 x = 6$$\n**(a)** Show that $x^2 - 34x + 225 = 0$. $\\quad$ **[5]**\n\n**(b)** Hence, or otherwise, solve the equation\n$$2\\log_2(x+15) - \\log_2 x = 6$$ $\\quad$ **[2]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_013",
+  difficulty: 'standard',
+  question_text: "**(i)** Find the exact value of $x$ for which\n$$\\log_2(2x) = \\log_2(5x+4) - 3$$ $\\quad$ **[4]**\n\n**(ii)** Given that\n$$\\log_a y + 3\\log_a 2 = 5$$\nexpress $y$ in terms of $a$. Give your answer in its simplest form. $\\quad$ **[3]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_014",
+  difficulty: 'hard',
+  question_text: "Given that $\\log_3 x = a$, find in terms of $a$,\n\n**(a)** $\\log_x(9x)$, $\\quad$ **[2]**\n\n**(b)** $\\log_3\\left(\\dfrac{x^5}{81}\\right)$, $\\quad$ **[3]**\n\ngiving each answer in its simplest form.\n\n**(c)** Solve, for $x$,\n$$\\log_3(9x) + \\log_3\\left(\\frac{x^5}{81}\\right) = 3$$\ngiving your answer to 4 significant figures. $\\quad$ **[4]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_015",
+  difficulty: 'hard',
+  question_text: "**(i)** Sketch the curve $y = 2\\times3^x$, stating the coordinates of any intersections with the axes. $\\quad$ **[3]**\n\n**(ii)** The curve $y = 2\\times3^x$ intersects the curve $y = 8^x$ at the point $P$. Show that the $x$-coordinate of $P$ may be written as\n$$\\frac{1}{3-\\log_2 3}$$ $\\quad$ **[5]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_016",
+  difficulty: 'standard',
+  question_text: "Use logarithms to solve the equation $7^x = 2^{x+1}$, giving the value of $x$ correct to 3 significant figures. $\\quad$ **[5]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_017",
+  difficulty: 'hard',
+  question_text: "**(i)** Sketch the curve $y = 6\\times5^x$, stating the coordinates of any points of intersection with the axes. $\\quad$ **[3]**\n\n**(ii)** The point $P$ on the curve $y = 9^x$ has $y$-coordinate equal to $150$. Use logarithms to find the $x$-coordinate of $P$, correct to 3 significant figures. $\\quad$ **[3]**\n\n**(iii)** The curves $y = 6\\times5^x$ and $y = 9^x$ intersect at the point $Q$. Show that the $x$-coordinate of $Q$ can be written as\n$$x = \\frac{1+\\log_3 2}{2-\\log_3 5}$$ $\\quad$ **[5]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_018",
+  difficulty: 'standard',
+  question_text: "Use logarithms to solve the equation $5^{3w-1} = 4^{250}$, giving the value of $w$ correct to 3 significant figures. $\\quad$ **[5]**",
+  solution_image: ""
+},
+{
+  id: "P3_LEF_019",
+  difficulty: 'standard',
+  question_text: "Solve the equation $2^{4x-1} = 3^{5-2x}$, giving your answer in the form\n$$x = \\frac{\\log_{10} a}{\\log_{10} b}$$ $\\quad$ **[6]**",
+  solution_image: ""
+},
           ],
           "Integration": [
             {
@@ -1088,6 +1190,61 @@ const SYLLABUS = {
               question_text: "The angles $A$ and $B$ are such that\n$$\\sin(A + 45°) = (2\\sqrt{2})\\cos A \\quad \\text{and} \\quad 4\\sec^2 B + 5 = 12\\tan B.$$\n\nWithout using a calculator, find the exact value of $\\tan(A - B)$. $\\quad$ **[8]**",
               solution_image: ""
             },
+            
+{
+  id: "P3_TR_006",
+  difficulty: 'standard',
+  question_text: "**(i)** Express $24\\sin\\theta + 7\\cos\\theta$ in the form $R\\sin(\\theta+\\alpha)$, where $R > 0$ and $0° < \\alpha < 90°$. $\\quad$ **[3]**\n\n**(ii)** Hence solve the equation $24\\sin\\theta + 7\\cos\\theta = 12$ for $0° < \\theta < 360°$. $\\quad$ **[4]**",
+  solution_image: ""
+},
+{
+  id: "P3_TR_007",
+  difficulty: 'hard',
+  question_text: "**(i)** Express $3\\sin\\theta + 4\\cos\\theta$ in the form $R\\sin(\\theta+\\alpha)$, where $R > 0$ and $0° < \\alpha < 90°$. $\\quad$ **[3]**\n\n**(ii)** Hence\n\n$\\quad$ **(a)** solve the equation $3\\sin\\theta + 4\\cos\\theta + 1 = 0$, giving all solutions for which $-180° < \\theta < 180°$, $\\quad$ **[4]**\n\n$\\quad$ **(b)** find the values of the positive constants $k$ and $c$ such that\n$$-37 \\leqslant k(3\\sin\\theta + 4\\cos\\theta) + c \\leqslant 43$$\nfor all values of $\\theta$. $\\quad$ **[4]**",
+  solution_image: ""
+},
+{
+  id: "P3_TR_008",
+  difficulty: 'hard',
+  question_text: "**(i)** Express $4\\cos\\theta - 2\\sin\\theta$ in the form $R\\cos(\\theta+\\alpha)$, where $R > 0$ and $0° < \\alpha < 90°$. $\\quad$ **[3]**\n\n**(ii)** Hence\n\n$\\quad$ **(a)** solve the equation $4\\cos\\theta - 2\\sin\\theta = 3$ for $0° < \\theta < 360°$, $\\quad$ **[4]**\n\n$\\quad$ **(b)** determine the greatest and least values of\n$$25 - (4\\cos\\theta - 2\\sin\\theta)^2$$\nas $\\theta$ varies, and, in each case, find the smallest positive value of $\\theta$ for which that value occurs. $\\quad$ **[5]**",
+  solution_image: ""
+},
+{
+  id: "P3_TR_009",
+  difficulty: 'elite',
+  question_text: "**(i)** Prove that\n$$\\frac{\\sin(\\theta-\\alpha) + 3\\sin\\theta + \\sin(\\theta+\\alpha)}{\\cos(\\theta-\\alpha) + 3\\cos\\theta + \\cos(\\theta+\\alpha)} \\equiv \\tan\\theta$$\nfor all values of $\\alpha$. $\\quad$ **[5]**\n\n**(ii)** Find the exact value of\n$$\\frac{4\\sin149° + 12\\sin150° + 4\\sin151°}{3\\cos149° + 9\\cos150° + 3\\cos151°}$$ $\\quad$ **[3]**\n\n**(iii)** It is given that $k$ is a positive constant. Solve, for $0° < \\theta < 60°$ and in terms of $k$, the equation\n$$\\frac{\\sin(6\\theta-15°) + 3\\sin6\\theta + \\sin(6\\theta+15°)}{\\cos(6\\theta-15°) + 3\\cos6\\theta + \\cos(6\\theta+15°)} = k$$ $\\quad$ **[4]**",
+  solution_image: ""
+},
+{
+  id: "P3_TR_010",
+  difficulty: 'hard',
+  question_text: "**(i)** Prove that\n$$\\cos^2(\\theta+45°) - \\tfrac{1}{2}(\\cos2\\theta - \\sin2\\theta) \\equiv \\sin^2\\theta$$ $\\quad$ **[4]**\n\n**(ii)** Hence solve the equation\n$$6\\cos^2(\\tfrac{1}{2}\\theta+45°) - 3(\\cos\\theta-\\sin\\theta) = 2$$\nfor $-90° < \\theta < 90°$. $\\quad$ **[3]**\n\n**(iii)** It is given that there are two values of $\\theta$, where $-90° < \\theta < 90°$, satisfying the equation\n$$6\\cos^2(\\tfrac{1}{3}\\theta+45°) - 3(\\cos\\tfrac{2}{3}\\theta-\\sin\\tfrac{2}{3}\\theta) = k$$\nwhere $k$ is a constant. Find the set of possible values of $k$. $\\quad$ **[3]**",
+  solution_image: ""
+},
+{
+  id: "P3_TR_011",
+  difficulty: 'elite',
+  question_text: "It is given that $\\mathrm{f}(\\theta) = \\sin(\\theta+30°) + \\cos(\\theta+60°)$.\n\n**(i)** Show that $\\mathrm{f}(\\theta) = \\cos\\theta$. Hence show that\n$$\\mathrm{f}(4\\theta) + 4\\mathrm{f}(2\\theta) \\equiv 8\\cos^4\\theta - 3$$ $\\quad$ **[6]**\n\n**(ii)** Hence\n\n$\\quad$ **(a)** determine the greatest and least values of $\\dfrac{1}{\\mathrm{f}(4\\theta)+4\\mathrm{f}(2\\theta)+7}$ as $\\theta$ varies, $\\quad$ **[3]**\n\n$\\quad$ **(b)** solve the equation\n$$\\sin(12\\alpha+30°) + \\cos(12\\alpha+60°) + 4\\sin(6\\alpha+30°) + 4\\cos(6\\alpha+60°) = 1$$\nfor $0° < \\alpha < 60°$. $\\quad$ **[4]**",
+  solution_image: ""
+},
+{
+  id: "P3_TR_012",
+  difficulty: 'hard',
+  question_text: "**(i)** By first writing $\\sin3\\theta$ as $\\sin(2\\theta+\\theta)$, show that\n$$\\sin3\\theta = 3\\sin\\theta - 4\\sin^3\\theta$$ $\\quad$ **[4]**\n\n**(ii)** Determine the greatest possible value of\n$$9\\sin\\left(\\tfrac{10}{3}\\alpha\\right) - 12\\sin^3\\left(\\tfrac{10}{3}\\alpha\\right)$$\nand find the smallest positive value of $\\alpha$ (in degrees) for which that greatest value occurs. $\\quad$ **[3]**\n\n**(iii)** Solve, for $0° < \\theta < 90°$, the equation $3\\sin6\\theta \\operatorname{cosec}2\\theta = 4$. $\\quad$ **[6]**",
+  solution_image: ""
+},
+{
+  id: "P3_TR_013",
+  difficulty: 'hard',
+  question_text: "**(i)** Show that $\\sin2\\theta(\\tan\\theta + \\cot\\theta) = 2$. $\\quad$ **[4]**\n\n**(ii)** Hence\n\n$\\quad$ **(a)** find the exact value of $\\tan\\tfrac{1}{12}\\pi + \\tan\\tfrac{1}{6}\\pi + \\cot\\tfrac{1}{12}\\pi + \\cot\\tfrac{1}{6}\\pi$, $\\quad$ **[3]**\n\n$\\quad$ **(b)** solve the equation $\\sin4\\theta(\\tan\\theta+\\cot\\theta) = 1$ for $0 < \\theta < \\tfrac{1}{2}\\pi$, $\\quad$ **[3]**\n\n$\\quad$ **(c)** express $(1-\\cos2\\theta)^2\\left(\\tan\\tfrac{1}{2}\\theta+\\cot\\tfrac{1}{2}\\theta\\right)^3$ in terms of $\\sin\\theta$. $\\quad$ **[2]**",
+  solution_image: ""
+},
+{
+  id: "P3_TR_014",
+  difficulty: 'standard',
+  question_text: "**(i)** Express\n$$3\\sin2\\theta\\sec\\theta + 4\\sin2\\theta\\operatorname{cosec}\\theta$$\nin the form $R\\sin(\\theta+\\alpha)$, where $R > 0$ and $0° < \\alpha < 90°$. $\\quad$ **[5]**\n\n**(ii)** Hence solve the equation\n$$3\\sin(2\\beta+20°)\\sec(\\beta+10°) + 4\\sin(2\\beta+20°)\\operatorname{cosec}(\\beta+10°) = 3$$\nfor $0° < \\beta < 360°$. $\\quad$ **[5]**",
+  solution_image: ""
+},
           ],
           "Numerical Methods": [
             {
