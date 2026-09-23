@@ -2453,7 +2453,57 @@ const SYLLABUS = {
   question_text: "The curve $C$ has parametric equations\n$$x = 3t + 2t^{-1} + at^3, \\quad y = 4t - \\tfrac{3}{2}t^{-1} + bt^3, \\quad \\text{for } 1 \\leqslant t \\leqslant 2$$\nwhere $a$ and $b$ are constants.\n\n**(a)** It is given that $a = \\dfrac{2}{3}$ and $b = -\\dfrac{1}{2}$.\n\nShow that\n$$\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2 = \\frac{25}{4}(t^2+t^{-2})^2$$ $\\quad$ **[6]**\n\n**(b)** It is given instead that $a = b = 0$.\n\nFind the value of $\\dfrac{d^2y}{dx^2}$ when $t = 1$. $\\quad$ **[4]**",
   solution_image: ""
 },
-    ]
+    ],
+    "Matrices": [
+      {
+  id: "FP2_MA_001",
+  difficulty: 'hard',
+  question_text: "The $2\\times2$ matrix $\\mathbf{A}$ is defined in terms of a constant $k$.\n$$\\mathbf{A} = \\begin{pmatrix} 2 & 7 \\\\ 4 & k \\end{pmatrix}$$\n**(a)** Given that $\\begin{pmatrix}1\\\\1\\end{pmatrix}$ is an eigenvector of $\\mathbf{A}$, find\n\n$\\quad$ **(i)** the corresponding eigenvalue to the eigenvector,\n\n$\\quad$ **(ii)** the value of $k$.\n\n**(b)** Find another eigenvector and the corresponding eigenvalue of $\\mathbf{A}$.\n\nIt is further given that $\\mathbf{A}$ can be written as $\\mathbf{A} = \\mathbf{PDP}^{-1}$, where $\\mathbf{D}$ is a $2\\times2$ diagonal matrix and $\\mathbf{P}$ is another $2\\times2$ matrix.\n\n**(c)** Write down possible forms for the matrices $\\mathbf{D}$ and $\\mathbf{P}$.",
+  solution_image: ""
+},
+{
+  id: "FP2_MA_002",
+  difficulty: 'hard',
+  question_text: "The $3\\times3$ matrix $\\mathbf{A}$ is given below.\n$$\\mathbf{A} = \\begin{pmatrix} 1 & 0 & 4 \\\\ 0 & 5 & 4 \\\\ 4 & 4 & 3 \\end{pmatrix}$$\n**(a)** Verify that $\\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}$ is an eigenvector of $\\mathbf{A}$ and state the corresponding eigenvalue.\n\n**(b)** Show that $-3$ is an eigenvalue of $\\mathbf{A}$ and find the corresponding eigenvector.\n\n**(c)** Given further that $\\begin{pmatrix}2\\\\-2\\\\1\\end{pmatrix}$ is another eigenvector of $\\mathbf{A}$, find the $3\\times3$ matrices $\\mathbf{P}$ and $\\mathbf{D}$ such that\n$$\\mathbf{D} = \\mathbf{P}^{\\mathsf{T}}\\mathbf{A}\\mathbf{P}$$",
+  solution_image: ""
+},
+{
+  id: "FP2_MA_003",
+  difficulty: 'elite',
+  question_text: "The $2\\times2$ matrix $\\mathbf{C}$ is defined as\n$$\\mathbf{C} = \\begin{pmatrix} a & b+a \\\\ b-a & -a \\end{pmatrix}$$\nwhere $a$ and $b$ are constants.\n\n**(a)** Determine the eigenvalues of $\\mathbf{C}$ and their corresponding eigenvectors, giving the answers in terms of $a$ and $b$ where appropriate.\n\nIt is further given that $\\mathbf{C} = \\mathbf{PDP}^{-1}$, where $\\mathbf{D}$ is a diagonal matrix and $\\mathbf{P}$ is another $2\\times2$ matrix.\n\n**(b)** Write down the possible form of $\\mathbf{D}$ and the possible form of $\\mathbf{P}$ and hence show that\n$$\\mathbf{C}^9 = b^8\\mathbf{C}$$",
+  solution_image: ""
+},
+{
+  id: "FP2_MA_004",
+  difficulty: 'hard',
+  question_text: "The matrix $\\mathbf{A}$ is given by\n$$\\mathbf{A} = \\begin{pmatrix} -1 & 2 & 12 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$$\nUse the characteristic equation of $\\mathbf{A}$ to show that\n$$\\mathbf{A}^4 = p\\mathbf{A}^2 + q\\mathbf{I}$$\nwhere $p$ and $q$ are integers to be determined. $\\quad$ **[6]**",
+  solution_image: ""
+},
+{
+  id: "FP2_MA_005",
+  difficulty: 'hard',
+  question_text: "The matrix $\\mathbf{A}$ is given by\n$$\\mathbf{A} = \\begin{pmatrix} 5 & -\\frac{22}{7} & 8 \\\\ 0 & -6 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$$\n**(a)** Find a matrix $\\mathbf{P}$ and a diagonal matrix $\\mathbf{D}$ such that $\\mathbf{A}^2 = \\mathbf{PDP}^{-1}$. $\\quad$ **[7]**\n\n**(b)** Use the characteristic equation of $\\mathbf{A}$ to find $\\mathbf{A}^3$. $\\quad$ **[4]**",
+  solution_image: ""
+},
+{
+  id: "FP2_MA_006",
+  difficulty: 'hard',
+  question_text: "The matrix $\\mathbf{M}$ is defined by\n$$\\mathbf{M} = \\begin{pmatrix} 2 & m & 1 \\\\ 0 & m & 7 \\\\ 0 & 0 & 1 \\end{pmatrix}$$\nwhere $m \\neq 0, 1, 2$.\n\nFind a matrix $\\mathbf{P}$ and a diagonal matrix $\\mathbf{D}$ such that $\\mathbf{M} = \\mathbf{PDP}^{-1}$. $\\quad$ **[7]**",
+  solution_image: ""
+},
+{
+  id: "FP2_MA_007",
+  difficulty: 'elite',
+  question_text: "A $3\\times3$ matrix $\\mathbf{A}$ has distinct eigenvalues $2, 1, 3$, with corresponding eigenvectors\n$$\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}, \\quad \\begin{pmatrix}-1\\\\0\\\\1\\end{pmatrix}, \\quad \\begin{pmatrix}0\\\\b\\\\-1\\end{pmatrix}$$\nrespectively, where $b$ is a positive constant.\n\nFind $\\mathbf{A}$ in terms of $b$. $\\quad$ **[9]**",
+  solution_image: ""
+},
+{
+  id: "FP2_MA_008",
+  difficulty: 'elite',
+  question_text: "It is given that $\\mathbf{e}$ is an eigenvector of the matrix $\\mathbf{A}$, with corresponding eigenvalue $\\lambda$.\n\n**(i)** Show that $\\mathbf{e}$ is an eigenvector of $\\mathbf{A}^2$, with corresponding eigenvalue $\\lambda^2$. $\\quad$ **[2]**\n\nThe matrices $\\mathbf{A}$ and $\\mathbf{B}$ are given by\n$$\\mathbf{A} = \\begin{pmatrix} n & 1 & 3 \\\\ 0 & 2n & 0 \\\\ 0 & 0 & 3n \\end{pmatrix} \\quad \\text{and} \\quad \\mathbf{B} = (\\mathbf{A}+n\\mathbf{I})^2$$\nwhere $\\mathbf{I}$ is the $3\\times3$ identity matrix and $n$ is a non-zero integer.\n\n**(ii)** Find, in terms of $n$, a non-singular matrix $\\mathbf{P}$ and a diagonal matrix $\\mathbf{D}$ such that $\\mathbf{B} = \\mathbf{PDP}^{-1}$. $\\quad$ **[8]**",
+  solution_image: ""
+}
+]
  
   }
 },
