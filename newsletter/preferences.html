@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manage your newsletter preferences — MathForge</title>
+<style>
+  :root {
+    --ink: #070707;
+    --card: #0c0c0c;
+    --gold: #a8883a;
+    --parchment: #e4ddd0;
+    --dim: rgba(228, 221, 208, 0.62);
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ink);
+    color: var(--parchment);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 48px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    max-width: 420px;
+    width: 100%;
+    background: var(--card);
+    border: 1px solid rgba(168, 136, 58, 0.25);
+    border-radius: 10px;
+    padding: 32px;
+  }
+  h1 { font-size: 20px; margin: 0 0 6px; font-weight: 600; }
+  p.sub { font-size: 13px; color: var(--dim); margin: 0 0 24px; line-height: 1.5; }
+  .field { margin-bottom: 16px; }
+  .field label { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+  .field.select-field label { display: block; margin-bottom: 6px; }
+  select {
+    background: #050505;
+    border: 1px solid rgba(228, 221, 208, 0.16);
+    color: var(--parchment);
+    border-radius: 6px;
+    padding: 7px 9px;
+    font-size: 13px;
+    font-family: inherit;
+  }
+  .actions { display: flex; gap: 8px; margin-top: 22px; flex-wrap: wrap; }
+  button {
+    font-family: inherit;
+    font-size: 13px;
+    border-radius: 7px;
+    padding: 10px 16px;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary { background: var(--gold); color: #0c0c0c; font-weight: 500; }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-primary:disabled { opacity: 0.6; cursor: default; }
+  .btn-danger {
+    background: transparent;
+    border: 1px solid rgba(201, 117, 107, 0.4);
+    color: #c9756b;
+  }
+  .btn-danger:hover { background: rgba(201, 117, 107, 0.08); }
+  .msg {
+    font-size: 12.5px;
+    margin-top: 16px;
+    padding: 9px 11px;
+    border-radius: 6px;
+    display: none;
+    line-height: 1.4;
+  }
+  .msg.visible { display: block; }
+  .msg.success { color: var(--gold); background: rgba(168, 136, 58, 0.08); border: 1px solid rgba(168, 136, 58, 0.25); }
+  .msg.error { color: #c98a6b; background: rgba(201, 138, 107, 0.08); border: 1px solid rgba(201, 138, 107, 0.25); }
+  .plain-msg { text-align: center; color: var(--dim); font-size: 14px; line-height: 1.6; }
+</style>
+</head>
+<body>
+  <div class="card" id="app">
+    <p class="plain-msg">Loading&hellip;</p>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ── Fill these in for your project before deploying this page ────────
+    // Both are safe to expose publicly — the anon key only grants what
+    // your RLS policies allow, and manage-subscription itself is the only
+    // thing that can actually read/write a subscriber's row.
+    var SUPABASE_FUNCTIONS_BASE = 'https://YOUR_PROJECT_REF.supabase.co/functions/v1';
+    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6ZnNiZW9vY3Jva2dmbmRoeWttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4ODkyMzgsImV4cCI6MjEwMzQ2NTIzOH0.8WOovFoF5E8Xou7DCWtSWnR1ciPkrgq7E-xjoc8vHA8';
+    // ───────────────────────────────────────────────────────────────────
+
+    var app = document.getElementById('app');
+    var token = new URLSearchParams(window.location.search).get('t');
+
+    function renderInvalid() {
+      app.innerHTML = '<p class="plain-msg">This link isn\u2019t valid.</p>';
+    }
+
+    function renderUnsubscribed() {
+      app.innerHTML = '<p class="plain-msg">You\u2019ve been unsubscribed. Sorry to see you go.</p>';
+    }
+
+    async function callManageSubscription(method, body) {
+      var url = SUPABASE_FUNCTIONS_BASE + '/manage-subscription?t=' + encodeURIComponent(token);
+      var opts = {
+        method: method,
+        headers: {
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Content-Type': 'application/json'
+        }
+      };
+      if (body) opts.body = JSON.stringify(body);
+
+      var res = await fetch(url, opts);
+      var json;
+      try {
+        json = await res.json();
+      } catch (err) {
+        throw new Error('Unexpected response from the server.');
+      }
+      if (!res.ok || json.error) {
+        throw new Error(json.error || 'Something went wrong.');
+      }
+      return json;
+    }
+
+    function renderForm(prefs) {
+      app.innerHTML =
+        '<h1>Manage your preferences</h1>' +
+        '<p class="sub">Update what you get from the MathForge newsletter.</p>' +
+        '<div class="field"><label><input type="checkbox" id="p-deadlines"> Deadline reminders</label></div>' +
+        '<div class="field"><label><input type="checkbox" id="p-features"> Feature updates</label></div>' +
+        '<div class="field select-field">' +
+          '<label for="p-window">Remind me</label>' +
+          '<select id="p-window">' +
+            '<option value="3">3 days before</option>' +
+            '<option value="7">7 days before</option>' +
+            '<option value="14">14 days before</option>' +
+          '</select>' +
+        '</div>' +
+        '<div class="actions">' +
+          '<button type="button" class="btn-primary" id="p-save">Save changes</button>' +
+          '<button type="button" class="btn-danger" id="p-unsub">Unsubscribe entirely</button>' +
+        '</div>' +
+        '<div class="msg" id="p-msg"></div>';
+
+      document.getElementById('p-deadlines').checked = !!prefs.deadline_reminders;
+      document.getElementById('p-features').checked = !!prefs.feature_updates;
+      document.getElementById('p-window').value = String(prefs.reminder_days_before || 7);
+
+      var msgEl = document.getElementById('p-msg');
+      function showMsg(text, isError) {
+        msgEl.textContent = text;
+        msgEl.className = 'msg visible ' + (isError ? 'error' : 'success');
+      }
+
+      var saveBtn = document.getElementById('p-save');
+      saveBtn.addEventListener('click', async function () {
+        var body = {
+          deadline_reminders: document.getElementById('p-deadlines').checked,
+          feature_updates: document.getElementById('p-features').checked,
+          reminder_days_before: parseInt(document.getElementById('p-window').value, 10)
+        };
+
+        saveBtn.disabled = true;
+        try {
+          await callManageSubscription('POST', body);
+          showMsg('Saved.', false);
+        } catch (err) {
+          showMsg('Could not save changes. Try again.', true);
+        } finally {
+          saveBtn.disabled = false;
+        }
+      });
+
+      document.getElementById('p-unsub').addEventListener('click', async function () {
+        if (!window.confirm('Unsubscribe from the MathForge newsletter entirely?')) return;
+        try {
+          await callManageSubscription('POST', { unsubscribe: true });
+          renderUnsubscribed();
+        } catch (err) {
+          showMsg('Could not unsubscribe. Try again.', true);
+        }
+      });
+    }
+
+    (async function init() {
+      if (!token) {
+        renderInvalid();
+        return;
+      }
+      try {
+        var prefs = await callManageSubscription('GET');
+        renderForm(prefs);
+      } catch (err) {
+        renderInvalid();
+      }
+    })();
+  })();
+  </script>
+</body>
+</html>
